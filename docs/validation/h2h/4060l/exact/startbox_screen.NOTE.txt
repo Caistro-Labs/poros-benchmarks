@@ -1,0 +1,1 @@
+startbox_screen.txt: poros with no arguments in a 100x40 pty on the RTX 4060 Laptop GPU at commit 90570998645b1dd54ab571737b315d1df45a0716 (poros 1.0.0), captured 2026-11-20T06:16:39Z

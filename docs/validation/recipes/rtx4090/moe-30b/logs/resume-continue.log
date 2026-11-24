@@ -1,0 +1,37 @@
+▛▜ poros v1.0.0 · Qwen/Qwen3-30B-A3B-Instruct-2507 · RTX 4090 23.5 GiB
+
+● Checked cert-moe-30b-resume  run 1124-0917-ed72
+  │ nf4 · rank 16 · seq 512 · efficient path
+  │ SFT · answers only · lr 2e-4
+  │ output    homes/moe-30b/runs/1124-0917-ed72
+  │ resume    homes/moe-30b/runs/1124-0917-ed72/checkpoint-8
+  │ eval      7 rows held out  scored at the start, each checkpoint and the end
+
+● Loaded Qwen3-30B-A3B-Instruct-2507  2m 07s
+  │ MoE · 48 layers · 128 experts
+● Resumed after step 9/16
+step 10/16  loss 5.8166  7.29 s/step  vram 6.2 GiB (peak 8.3)  eta 44s
+● Scored step 16  held out 5.6973 · ends its answers 0 of 0
+
+  ╭─ Trained  Learned well ───────────────────────────────────────────── 7 steps · SFT · 1m 04s ─╮
+  │                                                                      final loss              │
+  │      ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄  5.7083  ↓ 2%            │
+  │ 5.80 ██████████████████████████████████████████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████    step  held out  ends  │
+  │      ██████████████████████████████████████████████████████████████  ●   16    5.6973   0/0  │
+  │ 5.75 ██████████████████████████████████████████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████  vram 8.3 GiB peak       │
+  │      ██████████████████████████████████████████████████████████████  ram  22.1 GiB peak      │
+  │ 5.70 █████████████████████████████████████████████████████████████○                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                             3                              7                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      826 tok/s
+  │
+  │ adapter    homes/moe-30b/runs/1124-0917-ed72
+  │ receipt    homes/moe-30b/runs/1124-0917-ed72/receipt.json
+
+Continue with: poros eval 1124-0917-ed72
+Keep it as a recipe: poros recipes save last
+{"schema":"poros.runs.v1","learned":null,"do":"continue","runs":[{"id":"1124-0917-ed72","kind":"run","state":"succeeded","model":"Qwen/Qwen3-30B-A3B-Instruct-2507","name":"cert-moe-30b-resume","output_dir":"<home>/runs/1124-0917-ed72","created_at":"2026-11-24T09:17:54+00:00","started_at":"2026-11-24T09:21:18+00:00","finished_at":"2026-11-24T09:24:48+00:00","step":16,"total":16,"loss":5.708283364772797,"error":null,"folder":"<home>/runs/1124-0917-ed72","from":null,"eval_loss_start":6.482023579733712,"eval_loss":5.6973075185503275,"eval_rows":7,"eval_ends":0,"eval_answer_rows":0,"eval_prefers_start":null,"eval_prefers":null,"best":"poros://1124-0917-ed72/weights/16"}],"report":null,"next":["poros runs 1124-0917-ed72 --live --wait 30"],"more":0,"starts_next":null}

@@ -1,0 +1,19 @@
+{
+ "rank": 128,
+ "updates": 100,
+ "dev_mean": 0.0006258130073547363,
+ "dev_max": 0.0022859573364257812,
+ "noise_mean": 0.02163773536682129,
+ "noise_max": 0.10754060745239258,
+ "passed": true,
+ "ran": {
+  "fused_compute": true,
+  "nf4_dequant_cache_mb": 114
+ },
+ "reason": null,
+ "s_per_step": 2.2865,
+ "peak_gb": [
+  2.992,
+  4.073
+ ]
+}

@@ -1,0 +1,21 @@
+...                                                                      [100%]
+==================================== PASSES ====================================
+____________ test_resident_layers_load_onto_the_gpu_byte_identical _____________
+---------------------------- Captured stderr setup -----------------------------
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 40.47it/s]
+----------------------------- Captured stderr call -----------------------------
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+------------------------------ Captured log call -------------------------------
+WARNING  transformers.modeling_utils:logging.py:340 `torch_dtype` is deprecated! Use `dtype` instead!
+__________________ test_every_placement_trains_the_same_bits ___________________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:2152 offload_boundaries after update 1: {'offloaded': 20, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 491520, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 271056896, 'refusals': 0}
+WARNING  poros.train.trainer:trainer.py:2152 offload_boundaries after update 1: {'offloaded': 20, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 491520, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 540540928, 'refusals': 0}
+_____________________ test_streamed_load_is_byte_identical _____________________
+----------------------------- Captured stderr call -----------------------------
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights:  22%|██▏       | 65/290 [00:00<00:00, 643.94it/s]Loading weights:  68%|██████▊   | 197/290 [00:00<00:00, 1033.31it/s]Loading weights: 100%|██████████| 290/290 [00:00<00:00, 1076.59it/s]
+=========================== short test summary info ============================
+PASSED tests/gpu/test_host_ram_nf4.py::test_resident_layers_load_onto_the_gpu_byte_identical
+PASSED tests/gpu/test_host_ram_nf4.py::test_every_placement_trains_the_same_bits
+PASSED tests/gpu/test_streamed_load_gate.py::test_streamed_load_is_byte_identical
+3 passed in 22.07s

@@ -1,0 +1,424 @@
+{
+"wall_s_after_update1": [
+2.588,
+2.488
+],
+"device_ms_total": 2876.1,
+"kernels": [
+{
+"name": "ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_f2f_tn",
+"n": 48,
+"self_ms": 426.817
+},
+{
+"name": "Memcpy HtoD (Pinned -> Device)",
+"n": 112,
+"self_ms": 354.652
+},
+{
+"name": "ampere_sgemm_128x128_tn",
+"n": 121,
+"self_ms": 299.097
+},
+{
+"name": "ampere_bf16_s1688gemm_bf16_128x64_sliced1x2_ldg8_f2f_nn",
+"n": 16,
+"self_ms": 188.888
+},
+{
+"name": "void cutlass::Kernel2<cutlass_80_simt_sgemm_256x128_8x4_nn_align1>(cutlass_80_simt_sgemm_256x128_8x4_nn_align1::Params)",
+"n": 1,
+"self_ms": 187.908
+},
+{
+"name": "ampere_bf16_s1688gemm_bf16_128x64_sliced1x2_ldg8_f2f_tn",
+"n": 16,
+"self_ms": 187.042
+},
+{
+"name": "void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctor_add<float>, std::array<char*, 3ul>, false>(int, at::native::CUDAFunctor_add<float>, st",
+"n": 289,
+"self_ms": 150.528
+},
+{
+"name": "ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_f2f_nn",
+"n": 24,
+"self_ms": 146.256
+},
+{
+"name": "void at::native::vectorized_elementwise_kernel<4, at::native::AUnaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<ch",
+"n": 253,
+"self_ms": 89.728
+},
+{
+"name": "void at::native::vectorized_elementwise_kernel<4, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<ch",
+"n": 91,
+"self_ms": 79.035
+},
+{
+"name": "Memcpy DtoH (Device -> Pinned)",
+"n": 11,
+"self_ms": 68.506
+},
+{
+"name": "ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_relu_f2f_tn",
+"n": 48,
+"self_ms": 65.98
+},
+{
+"name": "void kDequantizeBlockwise<__nv_bfloat16, 512, 64, 8, 2>(float*, unsigned char*, float*, __nv_bfloat16*, int, int)",
+"n": 168,
+"self_ms": 59.275
+},
+{
+"name": "Memcpy DtoD (Device -> Device)",
+"n": 129,
+"self_ms": 53.08
+},
+{
+"name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>, fal",
+"n": 213,
+"self_ms": 52.038
+},
+{
+"name": "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::opera",
+"n": 168,
+"self_ms": 48.827
+},
+{
+"name": "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFu",
+"n": 197,
+"self_ms": 42.467
+},
+{
+"name": "ampere_sgemm_128x128_nn",
+"n": 80,
+"self_ms": 38.672
+},
+{
+"name": "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::opera",
+"n": 132,
+"self_ms": 33.338
+},
+{
+"name": "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::CUDAFunctor_add<float> >(at::TensorIteratorBase&, at::native::CUDAFun",
+"n": 216,
+"self_ms": 27.451
+},
+{
+"name": "ampere_sgemm_128x64_tn",
+"n": 128,
+"self_ms": 26.77
+},
+{
+"name": "void (anonymous namespace)::softmax_warp_forward<float, float, float, 9, false, false, 32>(float*, float const*, int, int, int, bool const*, int, bool)",
+"n": 16,
+"self_ms": 19.21
+},
+{
+"name": "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::(anonymous namespace)::where_kernel_impl(at::TensorIterator&)::{lambd",
+"n": 32,
+"self_ms": 18.106
+},
+{
+"name": "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::silu_kernel(at::TensorIteratorBase&)::{lambda()#1}::operator()() const::{la",
+"n": 16,
+"self_ms": 16.789
+},
+{
+"name": "void cutlass::Kernel2<cutlass_80_simt_sgemm_128x256_8x4_nt_align1>(cutlass_80_simt_sgemm_128x256_8x4_nt_align1::Params)",
+"n": 40,
+"self_ms": 15.942
+},
+{
+"name": "ampere_sgemm_128x128_nt",
+"n": 16,
+"self_ms": 14.389
+},
+{
+"name": "void (anonymous namespace)::softmax_warp_backward<float, float, float, 9, false, false, 32>(float*, float const*, float const*, int, int, int, bool const*)",
+"n": 8,
+"self_ms": 14.013
+},
+{
+"name": "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::silu_backward_kernel(at::TensorIteratorBase&)::{lambda()#1}::operator()() c",
+"n": 8,
+"self_ms": 12.554
+},
+{
+"name": "void cutlass::Kernel2<cutlass_80_simt_sgemm_128x64_8x5_nn_align1>(cutlass_80_simt_sgemm_128x64_8x5_nn_align1::Params)",
+"n": 16,
+"self_ms": 12.245
+},
+{
+"name": "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::isneginf_kernel_impl(at::TensorIteratorBase&)::{lambda()#1}::operator()() c",
+"n": 16,
+"self_ms": 12.244
+},
+{
+"name": "void at::native::(anonymous namespace)::cunn_SoftMaxBackward<4, float, float, float, at::native::(anonymous namespace)::LogSoftMaxBackwardEpilogue>(float*, floa",
+"n": 1,
+"self_ms": 10.857
+},
+{
+"name": "void at::native::(anonymous namespace)::cunn_SoftMaxForward<4, float, float, float, at::native::(anonymous namespace)::LogSoftMaxForwardEpilogue>(float*, float ",
+"n": 1,
+"self_ms": 10.188
+},
+{
+"name": "void cutlass::Kernel2<cutlass_80_simt_sgemm_128x64_8x5_nt_align1>(cutlass_80_simt_sgemm_128x64_8x5_nt_align1::Params)",
+"n": 64,
+"self_ms": 10.136
+},
+{
+"name": "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::pow_tensor_scalar_kernel_impl<float, float>(at::TensorIteratorBase&, float)",
+"n": 33,
+"self_ms": 9.58
+},
+{
+"name": "void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul>, false>(int, at::native::FillFunctor<float>, std::array",
+"n": 86,
+"self_ms": 7.539
+},
+{
+"name": "ampere_bf16_s16816gemm_bf16_128x64_ldg8_f2f_nn",
+"n": 16,
+"self_ms": 6.762
+},
+{
+"name": "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<float, at::native::MeanOps<float, float, float, float>, unsigned int, float, 4, 4> >(at::native::Red",
+"n": 33,
+"self_ms": 6.436
+},
+{
+"name": "void at::native::(anonymous namespace)::CatArrayBatchedCopy<at::native::(anonymous namespace)::OpaqueType<4u>, unsigned int, 4, 64, 64>(at::native::(anonymous n",
+"n": 32,
+"self_ms": 5.837
+},
+{
+"name": "void cutlass::Kernel2<cutlass_80_simt_sgemm_128x128_8x4_nt_align1>(cutlass_80_simt_sgemm_128x128_8x4_nt_align1::Params)",
+"n": 8,
+"self_ms": 5.798
+},
+{
+"name": "ampere_sgemm_128x64_nn",
+"n": 24,
+"self_ms": 5.509
+},
+{
+"name": "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<float, at::native::func_wrapper_t<float, at::native::sum_functor<float, float, float>::operator()(at",
+"n": 25,
+"self_ms": 4.737
+},
+{
+"name": "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::neg_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() ",
+"n": 48,
+"self_ms": 3.751
+},
+{
+"name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListMetadata<1>, at::native::(anonymous namespace)::B",
+"n": 4,
+"self_ms": 3.01
+},
+{
+"name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListScalarListMetadata<float, 3>, at::native::(anonym",
+"n": 2,
+"self_ms": 2.915
+},
+{
+"name": "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<bool, at::native::func_wrapper_t<bool, at::native::and_kernel_cuda(at::TensorIterator&)::{lambda()#1",
+"n": 16,
+"self_ms": 2.687
+},
+{
+"name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListMetadata<3>, at::native::(anonymous namespace)::P",
+"n": 2,
+"self_ms": 2.227
+},
+{
+"name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListMetadata<2>, at::native::(anonymous namespace)::T",
+"n": 2,
+"self_ms": 2.219
+},
+{
+"name": "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::BUnaryFunctor<float, float, float, at::native::binary_internal::MulFu",
+"n": 17,
+"self_ms": 2.205
+},
+{
+"name": "void at::native::reduce_kernel<128, 4, at::native::ReduceOp<float, at::native::func_wrapper_t<float, at::native::sum_functor<float, float, float>::operator()(at",
+"n": 8,
+"self_ms": 1.622
+},
+{
+"name": "void kDequantizeBlockwise<float, 512, 64, 8, 0>(float*, unsigned char*, float*, float*, int, int)",
+"n": 168,
+"self_ms": 1.611
+},
+{
+"name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListMetadata<2>, at::native::(anonymous namespace)::U",
+"n": 2,
+"self_ms": 1.508
+},
+{
+"name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListMetadata<1>, at::native::(anonymous namespace)::B",
+"n": 2,
+"self_ms": 1.508
+},
+{
+"name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListScalarListMetadata<float, 1>, at::native::(anonym",
+"n": 2,
+"self_ms": 1.503
+},
+{
+"name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListMetadata<1>, at::native::(anonymous namespace)::B",
+"n": 2,
+"self_ms": 1.45
+},
+{
+"name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListMetadata<1>, at::native::LpNormFunctor<float, (at",
+"n": 2,
+"self_ms": 0.762
+},
+{
+"name": "ampere_sgemm_64x64_nn",
+"n": 16,
+"self_ms": 0.594
+},
+{
+"name": "Memset (Device)",
+"n": 368,
+"self_ms": 0.494
+},
+{
+"name": "Memcpy HtoD (Pageable -> Device)",
+"n": 78,
+"self_ms": 0.286
+},
+{
+"name": "void at::native::vectorized_gather_kernel<16, long>(char*, char*, long*, int, long, long, long, long, bool)",
+"n": 1,
+"self_ms": 0.184
+},
+{
+"name": "void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctorOnSelf_add<float>, std::array<char*, 2ul>, false>(int, at::native::CUDAFunctorOnSelf_ad",
+"n": 35,
+"self_ms": 0.054
+},
+{
+"name": "void at::native::vectorized_elementwise_kernel<4, at::native::rsqrt_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operat",
+"n": 33,
+"self_ms": 0.043
+},
+{
+"name": "void at::native::triu_tril_kernel<bool, int, false, 8, false>(at::cuda::detail::TensorInfo<bool, int>, at::cuda::detail::TensorInfo<bool const, int>, long, long",
+"n": 16,
+"self_ms": 0.041
+},
+{
+"name": "void cublasLt::splitKreduce_kernel<32, 16, int, float, float, float, float, false, float, float, float, true, false, false, false>(cublasLt::cublasSplitKParams<",
+"n": 16,
+"self_ms": 0.036
+},
+{
+"name": "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::pow_tensor_scalar_kernel_impl<float, float>(at::TensorIteratorBase&, float)",
+"n": 17,
+"self_ms": 0.03
+},
+{
+"name": "void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<bool>, std::array<char*, 1ul>, false>(int, at::native::FillFunctor<bool>, std::array<c",
+"n": 16,
+"self_ms": 0.024
+},
+{
+"name": "void at::native::(anonymous namespace)::nll_loss_forward_reduce_cuda_kernel_2d<float, float, long>(float*, float*, float const*, long const*, float const*, bool",
+"n": 1,
+"self_ms": 0.015
+},
+{
+"name": "void at::native::(anonymous namespace)::nll_loss_backward_reduce_cuda_kernel_2d<float, long>(float*, float const*, long const*, float const*, float const*, bool",
+"n": 1,
+"self_ms": 0.01
+},
+{
+"name": "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<long, at::native::func_wrapper_t<long, at::native::sum_functor<long, long, long>::operator()(at::Ten",
+"n": 2,
+"self_ms": 0.005
+},
+{
+"name": "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#11}::oper",
+"n": 1,
+"self_ms": 0.003
+},
+{
+"name": "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()()",
+"n": 1,
+"self_ms": 0.003
+},
+{
+"name": "void at::native::(anonymous namespace)::CatArrayBatchedCopy_vectorized<at::native::(anonymous namespace)::OpaqueType<4u>, unsigned int, 3, 128, 1, 16, 4>(char*,",
+"n": 1,
+"self_ms": 0.003
+},
+{
+"name": "void at::native::vectorized_elementwise_kernel<4, at::native::sin_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator",
+"n": 1,
+"self_ms": 0.003
+},
+{
+"name": "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::opera",
+"n": 1,
+"self_ms": 0.003
+},
+{
+"name": "void at::native::vectorized_elementwise_kernel<4, at::native::BUnaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<ch",
+"n": 2,
+"self_ms": 0.003
+},
+{
+"name": "void (anonymous namespace)::elementwise_kernel_with_index<int, at::native::arange_cuda_out(c10::Scalar const&, c10::Scalar const&, c10::Scalar const&, at::Tenso",
+"n": 2,
+"self_ms": 0.002
+},
+{
+"name": "void at::native::vectorized_elementwise_kernel<4, at::native::cos_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator",
+"n": 1,
+"self_ms": 0.002
+},
+{
+"name": "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#4}::opera",
+"n": 1,
+"self_ms": 0.002
+},
+{
+"name": "void at::native::lpnorm_cleanup<float, (at::native::NormType)2, float, true, float>(float const*, at::native::TensorListAddresses, int)",
+"n": 1,
+"self_ms": 0.002
+},
+{
+"name": "void at::native::(anonymous namespace)::CatArrayBatchedCopy_alignedK_contig<at::native::(anonymous namespace)::OpaqueType<4u>, unsigned int, 1, 128, 1, 16>(at::",
+"n": 1,
+"self_ms": 0.002
+},
+{
+"name": "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<float, at::native::NormTwoOps<float, float, float, true>, unsigned int, float, 4, 4> >(at::native::R",
+"n": 1,
+"self_ms": 0.002
+},
+{
+"name": "void at::native::vectorized_elementwise_kernel<4, at::native::AUnaryFunctor<long, long, bool, at::native::(anonymous namespace)::CompareEqFunctor<long> >, std::",
+"n": 1,
+"self_ms": 0.001
+},
+{
+"name": "void at::native::vectorized_elementwise_kernel<4, at::native::reciprocal_kernel_cuda(at::TensorIteratorBase&)::{lambda()#1}::operator()() const::{lambda()#2}::o",
+"n": 1,
+"self_ms": 0.001
+},
+{
+"name": "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::",
+"n": 1,
+"self_ms": 0.001
+}
+]
+}

@@ -1,0 +1,8 @@
+rkF = the release-candidate tree before the final rank-128 launch (env.txt)
+SPEED sp_r16_fused s [3.45, 1.537, 1.544, 1.543] med2-4 1.543 ran {"fused_compute": true, "nf4_dequant_cache_mb": 0} None offload False peak GB 18.651 23.096
+SPEED sp_r16_peft s [4.105, 2.53, 2.439, 2.435] med2-4 2.439 ran {"fused_compute": false, "nf4_dequant_cache_mb": 0} None offload False peak GB 18.711 23.532
+SPEED sp_r64_fused s [3.507, 1.813, 1.816, 1.817] med2-4 1.816 ran {"fused_compute": true, "nf4_dequant_cache_mb": 0} None offload False peak GB 18.91 23.257
+SPEED sp_r64_peft s [4.022, 2.539, 2.444, 2.448] med2-4 2.448 ran {"fused_compute": false, "nf4_dequant_cache_mb": 0} None offload False peak GB 19.476 23.683
+SPEED sp_r128_fused s [4.12, 2.833, 2.841, 2.843] med2-4 2.841 ran {"fused_compute": true, "nf4_dequant_cache_mb": 0} None offload False peak GB 19.24 23.627
+SPEED sp_r128_peft s [3.917, 2.574, 2.49, 2.485] med2-4 2.49 ran {"fused_compute": false, "nf4_dequant_cache_mb": 0} None offload False peak GB 20.481 24.526
+2026-11-14T03:54:53Z

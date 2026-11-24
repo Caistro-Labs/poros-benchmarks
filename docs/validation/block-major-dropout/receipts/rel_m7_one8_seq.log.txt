@@ -1,0 +1,27 @@
+▛▜ poros v0.3.0 · Qwen/Qwen2.5-7B · RTX 4090 23.5 GiB
+
+● Checked rel_m7_one8_seq.yaml  config
+  │ nf4 · block 4 · rank 16 · seq 512
+  │ classic · every token · lr 2e-5
+  │ output    runs/rel_m7_one8_seq
+
+Block-streamed NF4 load unavailable for this model/environment (The cached snapshot for 'Qwen/Qwen2.5-7B' (revision 'main', commit d149729398750b98c0af14eb82c78cfe92750796) is incomplete: 1 file(s) are missing (LICENSE). The Hub could not be reached (OfflineModeIsEnabled: Cannot reach https://huggingface.co/api/models/Qwen/Qwen2.5-7B/revision/main: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.). Re-run the download with network access to complete the snapshot.); using the standard loader.
+● Loaded Qwen2.5-7B  22s
+  │ dense · 28 layers · 7 blocks
+step 1/10  loss 12.4536  4.40 s/step  vram 4.7 GiB (peak 12.2)  eta 40s
+step 9/10  loss 12.2454  3.76 s/step  vram 4.7 GiB (peak 12.5)  eta 3.8s
+<path> UserWarning: Could not find a config file in Qwen/Qwen2.5-7B - will assume that the vocabulary was not modified.
+  warnings.warn(
+
+● Trained 10 steps · classic  39s
+  │ final loss 12.3054
+  │
+  │ peak vram  ━━━━━━━━━───────  12.5 GiB of 24 GiB
+  │ peak ram   ━━━━────────────  15.1 GiB of 60 GiB
+  │ speed      1,074 tok/s
+  │
+  │ adapter    runs/rel_m7_one8_seq
+  │ receipt    runs/rel_m7_one8_seq/receipt.json
+
+Continue with: poros eval <path>
+{"schema":"poros.train.v1","learned":null,"output_dir":"runs/rel_m7_one8_seq","events":"runs/rel_m7_one8_seq/events.jsonl","metrics":{"device":"cuda:0","total_steps":10,"final_loss":12.213444709777832,"loss_history":[12.45356273651123,12.417301177978516,12.39554214477539,12.347354888916016,12.25745677947998,12.249726295471191,12.238940238952637,12.25103759765625,12.230058670043945,12.213444709777832],"grad_norm_history":[1.2741321325302124,1.244018316268921,1.2447677850723267,1.2281219959259033,1.2205018997192383,1.2244187593460083,1.2467297315597534,1.2999578714370728,1.2416565418243408,1.264654517173767],"eval_history":[],"total_time_s":38.13690594676882,"step_time_history":[4.397648668847978,3.7423925064504147,3.740788795053959,3.7619458688423038,3.741644282825291,3.7430787179619074,3.745380430482328,3.7534039756283164,3.760949244722724,3.749673455953598],"vram_alloc_history_mb":[5038.438912,5038.438912,5038.438912,5038.438912,5038.438912,5038.438912,5038.438912,5038.438912,5038.438912,5038.438912],"avg_vram_allocated_mb":5038.438912,"avg_step_time_ms":3813.690594676882,"steps_per_sec":0.2622131961611652,"tokens_processed":40960,"tokens_per_sec":1074.0252514761326,"peak_vram_allocated_gb":13.440400384,"peak_vram_reserved_gb":21.77892352,"torch_num_threads":16,"quantization":"nf4","block_size":4,"adapter_backend":"peft","adapter_summary":{"backend":"peft","target_module_names":"all-linear","trainable_param_count":40370176,"total_param_count":4393342464}},"run":null,"command":null,"next":[],"plan":null,"from":null,"support":null,"model_type":null}

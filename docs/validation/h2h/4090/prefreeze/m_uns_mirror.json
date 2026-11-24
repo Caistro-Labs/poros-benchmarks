@@ -1,0 +1,169 @@
+{
+ "schema": "h2hf.run.v1",
+ "name": "m_uns_mirror",
+ "tool": "unsloth",
+ "arm": "m_uns_mirror",
+ "round": 1,
+ "site": "4090",
+ "commit": "a253186742d31459a032c8907d40b4d3a89b4255",
+ "tree": "2fe13b126cf61ad30c07b298ef3356ede4a969c3",
+ "model": "Qwen/Qwen3-30B-A3B",
+ "model_revision": "ad44e777bcd18fa416d9da3bd8f70d33ebb85d39",
+ "model_key": "30b_a3b",
+ "rc": 1,
+ "launch_epoch": 1794920940.165188,
+ "launch_utc": "2026-11-17T13:09:00Z",
+ "queued_utc": "2026-11-17T13:06:02Z",
+ "cmd": "~/venv_unsloth/bin/python ~/rf/h2hf_a2531867/kit/h2h_u7.py --model Qwen/Qwen3-30B-A3B --rows ~/h2h/data30/rows_real64.pt --deterministic --out ~/rf/h2hf_a2531867/rec/m_uns_mirror_raw.json  --offload-layers auto --mb 1 --ga 8 --updates 8 --time-limit-s 2400 --load-id ~/rf/h2hf_a2531867/mirror30",
+ "env": {
+  "H2HF_DATA_JSONL": "~/h2h/data30/oasst_full64.jsonl",
+  "H2HF_DATA_ROWS": "~/h2h/data30/rows_real64.pt",
+  "H2HF_LOCKMODE": "run",
+  "H2HF_SHA": "a253186742d31459a032c8907d40b4d3a89b4255",
+  "H2HF_UPDATES": "8",
+  "HF_HOME": "~/hf",
+  "HF_HUB_DISABLE_TELEMETRY": "1",
+  "HF_HUB_OFFLINE": "1",
+  "TMPDIR": "~/rf/h2hf_a2531867/tmp",
+  "TRITON_CACHE_DIR": "~/rf/h2hf_a2531867/triton/cache",
+  "PYTORCH_ALLOC_CONF": "unset",
+  "PYTORCH_CUDA_ALLOC_CONF": "unset"
+ },
+ "seq_len": 512,
+ "alloc_env": {
+  "PYTORCH_ALLOC_CONF": "unset",
+  "PYTORCH_CUDA_ALLOC_CONF": "unset"
+ },
+ "pre": {
+  "gpu_used_mib": 1,
+  "mem_available_gib": 59,
+  "waited_s": 0,
+  "settled": true
+ },
+ "machine": {
+  "site": "4090",
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "gpu_mib": "24564",
+  "driver": "580.173.02",
+  "cpu": "AMD EPYC 7502 32-Core Processor",
+  "threads": "64",
+  "ram_gib": 59.6,
+  "os": "Ubuntu 24.04.1 LTS",
+  "kernel": "6.8.0-124-generic",
+  "etc_environment_alloc": "PYTORCH_ALLOC_CONF=expandable_segments:False"
+ },
+ "status": "failed",
+ "stage": "train",
+ "error": "TorchRuntimeError: RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function <built-in function linear>(*(FakeTensor(..., device='cuda:0', size=(s47, s10), dtype=torch.bfloat16,\n               grad_fn=<ViewBackward0>), Parameter(FakeTensor(..., device='cuda:0', size=(131072, 1), dtype=torch.uint8))), **{}): got RuntimeError('a and b must have same reduction dim, but got [s47, s10] X [1, 131072].')\n  Hint: Your code may result in an error when running in eager. Please double check that your code doesn't contain a similar error when actually running eage",
+ "traceback_tail": "FakeTensorObservedException(msg, real_stack=e.real_stack) from None\ntorch._dynamo.exc.TorchRuntimeError: RuntimeError when making fake tensor call\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function <built-in function linear>(*(FakeTensor(..., device='cuda:0', size=(s47, s10), dtype=torch.bfloat16,\n               grad_fn=<ViewBackward0>), Parameter(FakeTensor(..., device='cuda:0', size=(131072, 1), dtype=torch.uint8))), **{}): got RuntimeError('a and b must have same reduction dim, but got [s47, s10] X [1, 131072].')\n  Hint: Your code may result in an error when running in eager. Please double check that your code doesn't contain a similar error when actually running eager/uncompiled. You can do this by removing the `torch.compile` call, or by using `torch.compiler.set_stance(\"force_eager\")`. \n\n  Developer debug context: \n\n For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb4315.html\n\nfrom user code:\n   File \"~/rf/h2hf_a2531867/uns_cwd/unsloth_compiled_cache/unsloth_compiled_module_qwen3_moe.py\", line 535, in Qwen3MoeTopKRouter_forward\n    router_logits = F.linear(hidden_states, self.weight)  # (seq_len, num_experts)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\nSet TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS=\"+dynamo\"\n\n",
+ "shape": {
+  "mb": 1,
+  "ga": 8
+ },
+ "updates": 0,
+ "s_per_update": [],
+ "s_med_2_N": null,
+ "s_med_3_N": null,
+ "n_measured": 0,
+ "load_s": 84.88,
+ "load_peak_vram_alloc_gib": 11.388,
+ "load_peak_vram_reserved_gib": 11.494,
+ "load_peak_host_gib": 18.146,
+ "load_host": {
+  "at": "after from_pretrained + get_peft_model",
+  "status_kb": {
+   "VmLck_kb": 0,
+   "VmPin_kb": 0,
+   "VmHWM_kb": 26724596,
+   "VmRSS_kb": 11332604,
+   "RssAnon_kb": 10745324,
+   "RssFile_kb": 517640,
+   "RssShmem_kb": 69640
+  },
+  "peak_anon_shmem_gib": 16.788,
+  "after_load_allocated_gib": 11.38,
+  "after_load_reserved_gib": 11.494,
+  "after_load_smi_mib": 12310
+ },
+ "host_peak_anon_shmem_gib": 16.788,
+ "load_end_epoch": 1794921025.039846,
+ "t1_s": null,
+ "vram_alloc_gib": null,
+ "vram_reserved_gib": null,
+ "train_peak_vram_alloc_gib": null,
+ "train_peak_vram_reserved_gib": null,
+ "host_ram_gib": 18.146,
+ "memory_unit": "GiB",
+ "memory_source": "h2h_u7: torch.cuda.max_memory_* / 2^30, max(load window, training window); VmHWM / 2^20",
+ "raw": {
+  "unit": "GiB",
+  "load_peak_allocated_gib": 11.388,
+  "load_peak_reserved_gib": 11.494,
+  "peak_allocated_gib_train": null,
+  "peak_reserved_gib_train": null,
+  "host_maxrss_gib": 25.487,
+  "host_vmhwm_gib": 25.487
+ },
+ "adapter_digest": null,
+ "rows_sha256": "d124049063f1b5a14a2dccc0d539d93dc918fc20b00f70c587851152829bc29c",
+ "losses": [],
+ "grad_norms": [],
+ "versions": {
+  "unsloth": "2026.11.4",
+  "unsloth_zoo": "2026.11.4",
+  "torch": "2.14.1",
+  "transformers": "5.17.0",
+  "peft": "0.21.2",
+  "bitsandbytes": "0.50.2",
+  "accelerate": "1.15.0",
+  "torch_cuda": "13.0"
+ },
+ "load_source": "~/rf/h2hf_a2531867/mirror30",
+ "unsloth": {
+  "offload_layers": "auto",
+  "offload_embedding": "unset",
+  "prefetch_depth": "unset",
+  "decoder_layers": 48,
+  "swapped_layers": 28,
+  "pinned_bytes": 8723886080,
+  "host_bytes": 8723886080,
+  "input_embedding_device": "cpu",
+  "gc": "unsloth",
+  "targets": "q_proj,k_proj,v_proj,o_proj,gate_proj,up_proj,down_proj"
+ },
+ "alloc_env_seen": {
+  "PYTORCH_ALLOC_CONF": "unset",
+  "PYTORCH_CUDA_ALLOC_CONF": "unset"
+ },
+ "alloc_env_set_by_tool": {
+  "PYTORCH_ALLOC_CONF": "expandable_segments:True",
+  "PYTORCH_CUDA_ALLOC_CONF": "unset"
+ },
+ "unsloth_lines": [
+  "Unsloth: offload_layers = 'auto': the input embedding (0.58 GiB) and 28 of 48 decoder layers (8.13 GiB) stay in host RAM so 13.32 GiB stays free for training"
+ ],
+ "log_tail": "d_host_peak_anon_shmem_kb\": 17603128, \"after_load_allocated_gib\": 11.38, \"after_load_reserved_gib\": 11.494, \"load_peak_allocated_gib\": 11.388, \"load_peak_reserved_gib\": 11.494, \"after_load_smi_mib\": 12310, \"model_source\": \"~/rf/h2hf_a2531867/mirror30\", \"rows_sha256\": \"d124049063f1b5a14a2dccc0d539d93dc918fc20b00f70c587851152829bc29c\", \"trainable_params\": 642514944, \"trainable_dtypes\": [\"torch.float32\"], \"epoch_train_start\": 1794921025.0968316, \"error\": \"TorchRuntimeError: RuntimeError when making fake tensor call\\n  Explanation: Dynamo failed to run FX node with fake tensors: call_function <built-in function linear>(*(FakeTensor(..., device='cuda:0', size=(s47, s10), dtype=torch.bfloat16,\\n               grad_fn=<ViewBackward0>), Parameter(FakeTensor(..., device='cuda:0', size=(131072, 1), dtype=torch.uint8))), **{}): got RuntimeError('a and b must have same reduction dim, but got [s47, s10] X [1, 131072].')\\n  Hint: Your code may result in an error when running in eager. Please double check that your code doesn't contain a similar error when actually running eage\", \"host_vmhwm_gib\": 25.487, \"host_status_end\": {\"VmLck_kb\": 0, \"VmPin_kb\": 0, \"VmHWM_kb\": 26724596, \"VmRSS_kb\": 11417420, \"RssAnon_kb\": 10781668, \"RssFile_kb\": 566112, \"RssShmem_kb\": 69640}, \"host_peak_anon_shmem_kb\": 17603128, \"wall_s\": 95.26, \"host_maxrss_gib\": 25.487, \"peak_allocated_gib_last_window\": 11.486, \"peak_reserved_gib_last_window\": 11.557, \"card_gib\": 23.516, \"nvidia_smi_used_mib_end\": 12374}\n",
+ "host_vmhwm_gib": 25.487,
+ "load_peak_host_vmhwm_gib": 25.487,
+ "host_sampler": {
+  "source": "kit/hostsamp.py: RssAnon + RssShmem summed over the process tree",
+  "interval_s": 0.25,
+  "samples": 400,
+  "longest_gap_s": 0.265,
+  "processes_max": 3,
+  "anon_gib_at_peak": 18.08,
+  "shmem_gib_at_peak": 0.066,
+  "file_backed_gib_max": 16.043,
+  "vmhwm_gib_seen": 25.498,
+  "inprocess_1hz_peak_anon_shmem_gib": 16.788,
+  "inprocess_1hz_load_peak_anon_shmem_gib": 16.788
+ },
+ "smi": {
+  "samples": 94,
+  "baseline_mib": 1,
+  "load_peak_gib": 12.021,
+  "run_peak_gib": 12.083,
+  "note": "nvidia-smi memory.used minus the pre-launch reading; includes the CUDA context (~0.3-0.5 GiB) torch's counters leave out"
+ },
+ "rows_file": "rows_real64.pt"
+}

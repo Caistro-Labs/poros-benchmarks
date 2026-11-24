@@ -1,0 +1,38 @@
+▛▜ poros v1.0.0 · Qwen/Qwen2.5-7B-Instruct · Apple M4 10-core GPU 16GB
+
+● Checked cert-mac-prefer  run 1124-0036-fa27
+  │ rank 16 · 512 tokens
+  │ DPO · beta 0.1 · lr 5e-6
+  │ output
+  │ <home>/runs/1124-0036-fa27
+  │ weights   <disk>/poros-metal/hf
+
+● Loaded Qwen2.5-7B-Instruct  2.2s
+  │ dense · 28 layers
+step 1/16  loss 0.6931  18.50 s/step  memory 4.1 GiB (peak 4.9)  eta 4m 38s
+step 3/16  loss 0.6966  18.73 s/step  memory 5.3 GiB (peak 6.2)  eta 4m 02s
+step 5/16  loss 0.6984  18.74 s/step  memory 5.3 GiB (peak 6.2)  eta 3m 26s
+step 7/16  loss 0.7057  18.90 s/step  memory 5.3 GiB (peak 6.2)  eta 2m 48s
+step 9/16  loss 0.6982  18.71 s/step  memory 5.3 GiB (peak 6.2)  eta 2m 11s
+step 11/16  loss 0.6695  18.81 s/step  memory 5.3 GiB (peak 6.2)  eta 1m 34s
+step 13/16  loss 0.6500  18.70 s/step  memory 5.3 GiB (peak 6.2)  eta 56s
+step 15/16  loss 0.6491  18.85 s/step  memory 5.3 GiB (peak 6.2)  eta 19s
+<disk>/poros-metal/venv/lib/python3.12/site-packages/peft/utils/save_and_load.py:438: UserWarning: Could not find a config file in Qwen/Qwen2.5-7B-Instruct - will assume that the vocabulary was not modified.
+  warnings.warn(
+
+● Trained 16 steps · DPO  9m 11s
+  │ final loss 0.6838
+  │ acc        ━━━━━━──────────  38%  chosen ranked first over its last 16 steps
+  │ margin     -0.080  chosen -0.30 · rejected -0.22
+  │
+  │ peak       ━━━━━━──────────  6.2 GiB of 16.0 GiB
+  │ speed      55 tok/s
+  │
+  │ adapter
+  │ <home>/runs/1124-0036-fa27
+  │ receipt
+  │ <home>/runs/1124-0036-fa27/receipt.json
+
+Continue with: poros eval 1124-0036-fa27
+Keep it as a recipe: poros recipes save last
+{"schema":"poros.train.v1","learned":null,"output_dir":"<home>/runs/1124-0036-fa27","events":"<home>/runs/1124-0036-fa27/events.jsonl","metrics":{"device":"mps","total_steps":16,"final_loss":0.733924150466919,"loss_history":[0.6931471824645996,0.6931471824645996,0.7035769820213318,0.6660584807395935,0.7359699010848999,0.7109295129776001,0.7117496132850647,0.7240044474601746,0.608468234539032,0.7139149904251099,0.5891546010971069,0.7052804231643677,0.6332859396934509,0.6584791541099548,0.6595043540000916,0.733924150466919],"grad_norm_history":[35.93695831298828,30.84534454345703,28.430484771728516,29.605728149414062,26.704063415527344,32.22233963012695,30.758996963500977,39.23033905029297,29.500511169433594,28.58980369567871,32.27126693725586,30.599802017211914,31.220788955688477,30.410015106201172,39.33286666870117,32.04804992675781],"eval_history":[],"total_time_s":299.3273695438984,"step_time_history":[18.504156375012826,18.49381779198302,18.733303541957866,18.95262304204516,18.735813582956325,18.673945166985504,18.90253149997443,18.64533254201524,18.71260270901257,18.654931083030533,18.808353790955152,18.6540946669993,18.699086583976168,18.669050500029698,18.850729291967582,18.63699737499701],"vram_alloc_history_mb":[],"avg_vram_allocated_mb":0.0,"avg_step_time_ms":18707.96059649365,"steps_per_sec":0.05345318079125234,"tokens_processed":16384,"tokens_per_sec":54.73605713024239,"peak_vram_allocated_gb":6.648039608,"peak_vram_reserved_gb":0.0,"torch_num_threads":4,"quantization":"nf4","block_size":1,"adapter_backend":"peft","adapter_summary":{"backend":"peft","target_module_names":"all-linear","trainable_param_count":40370176,"total_param_count":40703488}},"run":"1124-0036-fa27","command":"poros train Qwen/Qwen2.5-7B-Instruct --data <work>/sample-pairs.jsonl --steps 16 --seq-len 512 --rank 16 --name cert-mac-prefer --recipe dpo dpo_beta=0.1 learning_rate=5e-6 lora_dropout=0 --download","next":[],"plan":null,"from":null,"support":null,"model_type":null}

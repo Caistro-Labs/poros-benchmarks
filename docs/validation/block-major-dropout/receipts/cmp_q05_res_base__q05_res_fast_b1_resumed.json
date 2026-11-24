@@ -1,0 +1,29 @@
+{
+ "ref": "q05_res_base",
+ "cand": "q05_res_fast_b1_resumed",
+ "steps_compared": [
+  4,
+  5
+ ],
+ "steps_in_ref": true,
+ "losses_equal": true,
+ "grad_norms_equal": true,
+ "adapter_tensors": 336,
+ "adapter_keys_equal": true,
+ "adapter_unequal": [],
+ "ref_digest": "a58de020359ce5f0cc8d34c4c902758eb080aa77b31267ff3f47a08c9115babe",
+ "cand_digest": "a58de020359ce5f0cc8d34c4c902758eb080aa77b31267ff3f47a08c9115babe",
+ "ref_losses": [
+  3.2394487857818604,
+  2.9359307289123535,
+  3.003911018371582,
+  1.9676629304885864,
+  2.770033836364746,
+  3.133219003677368
+ ],
+ "cand_losses": [
+  2.770033836364746,
+  3.133219003677368
+ ],
+ "pass": true
+}

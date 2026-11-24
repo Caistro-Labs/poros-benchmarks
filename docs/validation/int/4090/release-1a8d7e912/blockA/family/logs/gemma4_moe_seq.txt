@@ -1,0 +1,35 @@
+▛▜ poros v1.0.0 · <home>/poros_rel/hf_cert/fg_models/google_gemma-4-26B-A4B-it__trunc6
+
+● Checked gemma4_moe_seq.yaml  config
+  │ nf4 · rank 16 · seq 512
+  │ classic · every token · lr 2e-5
+  │ output    ~/poros_rel/cert/out/family/fg/runs/gemma4_moe_seq
+  │ eval      none held out  this loop trains every row
+  │           to score held-out rows, give a file of them: eval_dataset, or --eval FILE; or recipe sft (--recipe sft), which holds 5% of 40 rows or more out
+
+moe_expert_compute: reference: the fused expert compute cannot run layer 0: its experts' activation is GELUTanh; the fused kernels compute SiLU
+● Loaded google_gemma-4-26B-A4B-it__trunc6  16s
+  │ MoE · 6 layers · 128 experts
+step 1/8  loss 37.3374  2.02 s/step  vram 3.6 GiB (peak 6.9)  eta 14s
+
+  ╭─ Trained ────────────────────────────────────────────────────────── 8 steps · classic · 26s ─╮
+  │               ▄▄▄▄▄▄▃▃▃▂                                             final loss              │
+  │             ▁▇██████████▇▄▁                         ▁▁▂▃▄▄▂          37.9313  ↑ 2%           │
+  │   39       ▃███████████████▆▃                  ▂▅▆▇████████▆▂        from 37.3374            │
+  │           ▄███████████████████▅▂▁          ▁▃▆███████████████▆▂                              │
+  │          ▆████████████████████████▇▆▅▄▃▂▂▄▇████████████████████▆▂    vram 7.4 GiB peak       │
+  │   38   ▁▇████████████████████████████████████████████████████████▆▂  ram  17.8 GiB peak      │
+  │       ▃████████████████████████████████████████████████████████████                          │
+  │      ▄█████████████████████████████████████████████████████████████                          │
+  │   37 ██████████████████████████████████████████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                                  4                         8                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      1,797 tok/s
+  │
+  │ adapter    ~/poros_rel/cert/out/family/fg/runs/gemma4_moe_seq
+  │ receipt    ~/poros_rel/cert/out/family/fg/runs/gemma4_moe_seq/receipt.json
+
+Continue with: poros eval <home>/poros_rel/cert/out/family/fg/cfg/gemma4_moe_seq.yaml
+{"schema":"poros.train.v1","learned":null,"output_dir":"<home>/poros_rel/cert/out/family/fg/runs/gemma4_moe_seq","events":"<home>/poros_rel/cert/out/family/fg/runs/gemma4_moe_seq/events.jsonl","metrics":{"device":"cuda:0","total_steps":8,"final_loss":37.9312744140625,"loss_history":[37.33735656738281,39.666587829589844,39.636409759521484,38.57021713256836,38.22963333129883,39.088584899902344,39.3614616394043,37.9312744140625],"grad_norm_history":[1.4453125,1.5078125,1.4453125,1.5234375,1.7109375,1.4296875,1.5390625,1.390625],"eval_history":[],"total_time_s":13.149120619520545,"step_time_history":[2.015317842364311,1.5621625017374754,1.6492950040847063,1.5782991908490658,1.586678970605135,1.6074360217899084,1.5546787939965725,1.5952522940933704],"vram_alloc_history_mb":[3859.559424,3865.046528,3865.696256,3863.727104,3865.083392,3857.44896,3863.773184,3866.23488],"avg_vram_allocated_mb":3863.3212160000003,"avg_step_time_ms":1643.6400774400681,"steps_per_sec":0.6084057049506101,"tokens_processed":23633,"tokens_per_sec":1797.306503137221,"peak_vram_allocated_gb":7.904295936,"peak_vram_reserved_gb":10.09778688,"torch_num_threads":16,"quantization":"nf4","block_size":null,"adapter_backend":"native","adapter_summary":null},"run":null,"command":null,"next":[],"plan":null,"from":null,"support":null,"model_type":null}

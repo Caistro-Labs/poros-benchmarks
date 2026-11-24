@@ -1,0 +1,25 @@
+{
+ "gate": "SSD = RAM",
+ "pass": true,
+ "ssd_runs": [
+  "a30_na_ssdfast_r1",
+  "a30_na_ssdfast_r2",
+  "a30_na_ssdfast_r3"
+ ],
+ "ram_runs": [
+  "a30_na_ram_r1",
+  "a30_na_ram_r2",
+  "a30_na_ram_r3"
+ ],
+ "what": "the SSD-store runs give the RAM-store run's adapter, bit for bit: one sha256 over every adapter tensor, and every update's loss and grad norm equal",
+ "ssd_digest": [
+  "e0d484fcc3939cbfd2492ee2ebe7ca067e3227d29578b92d0b60c7156c0f0a05",
+  "e0d484fcc3939cbfd2492ee2ebe7ca067e3227d29578b92d0b60c7156c0f0a05",
+  "e0d484fcc3939cbfd2492ee2ebe7ca067e3227d29578b92d0b60c7156c0f0a05"
+ ],
+ "ram_digest": [
+  "e0d484fcc3939cbfd2492ee2ebe7ca067e3227d29578b92d0b60c7156c0f0a05",
+  "e0d484fcc3939cbfd2492ee2ebe7ca067e3227d29578b92d0b60c7156c0f0a05",
+  "e0d484fcc3939cbfd2492ee2ebe7ca067e3227d29578b92d0b60c7156c0f0a05"
+ ]
+}

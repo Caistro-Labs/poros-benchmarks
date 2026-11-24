@@ -1,0 +1,1 @@
+{"schema":"poros.error.v1","error":{"code":"E_USAGE","exit_code":2,"message":"prove runs a model a parity receipt covers; Qwen/Qwen2.5-3B is not one","hint":"poros models","docs":"poros docs cli names and flags"}}

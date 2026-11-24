@@ -1,0 +1,6 @@
+rk3 git tree 3dd0dd9a2bef9762362f9628238950b70c38b353 (HEAD 82f2a47afdf9e77756592ce1e094dbab7d1c594d + working changes: the flash trial's own hooks)
+tests/gpu/test_xcard_kernels.py::test_every_rank_trains_on_this_card: 6 passed in 12.77s
+tests/core/test_fused_flash_usable.py: 1 passed, 21 deselected in 1.99s
+tests/gpu/test_rank_tiles.py: 44 passed in 65.74s (0:01:05)
+tests/gpu/test_xcard_kernels.py: 13 passed in 12.14s
+2026-11-14T03:48:00Z

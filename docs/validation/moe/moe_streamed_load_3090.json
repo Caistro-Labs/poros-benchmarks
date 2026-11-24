@@ -1,0 +1,280 @@
+{
+  "schema": "poros.moe.streamed_load.v1",
+  "model_id": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+  "revision": "0d7cf23991f47feeb3a57ecb4c9cee8ea4a17bfe",
+  "host": {
+    "gpu": {
+      "name": "NVIDIA GeForce RTX 3090",
+      "compute_capability": "8.6",
+      "total_memory_bytes": 25769279488,
+      "nvidia_smi": "NVIDIA GeForce RTX 3090, 610.47, 24576 MiB, 4, 16",
+      "torch": "2.13.0+cu130",
+      "transformers": "5.15.0"
+    },
+    "ram_gib": 62,
+    "cpus": 32
+  },
+  "full_streamed_load": {
+    "path": "streamed",
+    "seconds": 137.1,
+    "peak_host_rss_bytes": 23662784512,
+    "peak_vram_allocated_bytes": 0,
+    "slab_pinned": true,
+    "nf4_bytes": 14955626496,
+    "num_slabs": 6144,
+    "num_params": 435,
+    "store": {
+      "dtype": "torch.bfloat16",
+      "layout": "ExpertLayout(num_layers=48, experts_per_layer=128, top_k=8, tensor_names=('gate_up_proj', 'down_proj'))",
+      "offsets": {
+        "down_proj": [
+          1622788,
+          2434184
+        ],
+        "gate_up_proj": [
+          0,
+          1622788
+        ]
+      },
+      "shapes": {
+        "down_proj": [
+          2048,
+          768
+        ],
+        "gate_up_proj": [
+          1536,
+          2048
+        ]
+      },
+      "slice_nbytes": 2434184
+    },
+    "slabs_manifest_sha256": "0e5e12914d65f84a56a55aa64de6b235b965be85030fd5006b1906213254da7e",
+    "params_manifest_sha256": "59d6ab8d2ce06fa4c24eda13c42d3668ca8896445029a73515b4ef93a38b28d3",
+    "buffers_manifest_sha256": "3f670129c383431885798075a9875231b37c992fa0ab1d7e0b63213887080400"
+  },
+  "layers_0_15": {
+    "note": "from_pretrained + quantize of all 48 layers does not fit 62 GiB, so the reference runs on a 16-layer view of the same shards",
+    "from_pretrained": {
+      "path": "hf",
+      "seconds": 52.5,
+      "peak_host_rss_bytes": 44910321664,
+      "peak_vram_allocated_bytes": 0,
+      "slab_pinned": true,
+      "nf4_bytes": 4985208832,
+      "num_slabs": 2048,
+      "num_params": 147,
+      "store": {
+        "dtype": "torch.bfloat16",
+        "layout": "ExpertLayout(num_layers=16, experts_per_layer=128, top_k=8, tensor_names=('gate_up_proj', 'down_proj'))",
+        "offsets": {
+          "down_proj": [
+            1622788,
+            2434184
+          ],
+          "gate_up_proj": [
+            0,
+            1622788
+          ]
+        },
+        "shapes": {
+          "down_proj": [
+            2048,
+            768
+          ],
+          "gate_up_proj": [
+            1536,
+            2048
+          ]
+        },
+        "slice_nbytes": 2434184
+      },
+      "slabs_manifest_sha256": "2d8fd697d332878eb9ad06142e4ba1dcc66b20cb8bbce1874cc8fdc53a2e02a4",
+      "params_manifest_sha256": "8393176d9be3d1275d9b883e3b676138bd16d5b4ee73e99d0ee726944be4bffa",
+      "buffers_manifest_sha256": "3f670129c383431885798075a9875231b37c992fa0ab1d7e0b63213887080400"
+    },
+    "streamed": {
+      "path": "streamed",
+      "seconds": 40.8,
+      "peak_host_rss_bytes": 11464241152,
+      "peak_vram_allocated_bytes": 0,
+      "slab_pinned": true,
+      "nf4_bytes": 4985208832,
+      "num_slabs": 2048,
+      "num_params": 147,
+      "store": {
+        "dtype": "torch.bfloat16",
+        "layout": "ExpertLayout(num_layers=16, experts_per_layer=128, top_k=8, tensor_names=('gate_up_proj', 'down_proj'))",
+        "offsets": {
+          "down_proj": [
+            1622788,
+            2434184
+          ],
+          "gate_up_proj": [
+            0,
+            1622788
+          ]
+        },
+        "shapes": {
+          "down_proj": [
+            2048,
+            768
+          ],
+          "gate_up_proj": [
+            1536,
+            2048
+          ]
+        },
+        "slice_nbytes": 2434184
+      },
+      "slabs_manifest_sha256": "2d8fd697d332878eb9ad06142e4ba1dcc66b20cb8bbce1874cc8fdc53a2e02a4",
+      "params_manifest_sha256": "8393176d9be3d1275d9b883e3b676138bd16d5b4ee73e99d0ee726944be4bffa",
+      "buffers_manifest_sha256": "3f670129c383431885798075a9875231b37c992fa0ab1d7e0b63213887080400"
+    },
+    "byte_identical": true
+  },
+  "train_streamed_arm": {
+    "note": "scripts/moe_absolute_gate.py streamed arm, streamed loader; the resident arm (~27 GB) does not fit 24 GB",
+    "runs": [
+      {
+        "gpu": {
+          "name": "NVIDIA GeForce RTX 3090",
+          "compute_capability": "8.6",
+          "total_memory_bytes": 25769279488,
+          "nvidia_smi": "NVIDIA GeForce RTX 3090, 610.47, 24576 MiB, 4, 16",
+          "torch": "2.13.0+cu130",
+          "transformers": "5.15.0"
+        },
+        "loader": "streamed",
+        "arm": "streamed",
+        "guarantee": "validated_bitwise",
+        "dense_streamed": true,
+        "load_seconds": 146.0,
+        "load_host_rss_high_water_bytes": 23773544448,
+        "host_rss_high_water_bytes": 23773544448,
+        "peak_vram_bytes": 6664081408,
+        "sec_per_step": 8.896843452999747,
+        "losses": [
+          11.492591857910156,
+          11.14482593536377,
+          10.842662811279297,
+          10.473604202270508
+        ],
+        "grad_norms": [
+          46.25,
+          46.25,
+          46.75,
+          47.0
+        ],
+        "eval_ce": 9.511337280273438,
+        "steps": 4,
+        "seq_len": 256,
+        "lr": 0.0002,
+        "seed": 1234,
+        "capacity_bytes": 311575552
+      },
+      {
+        "gpu": {
+          "name": "NVIDIA GeForce RTX 3090",
+          "compute_capability": "8.6",
+          "total_memory_bytes": 25769279488,
+          "nvidia_smi": "NVIDIA GeForce RTX 3090, 610.47, 24576 MiB, 4, 16",
+          "torch": "2.13.0+cu130",
+          "transformers": "5.15.0"
+        },
+        "loader": "streamed",
+        "arm": "streamed",
+        "guarantee": "validated_bitwise",
+        "dense_streamed": true,
+        "load_seconds": 148.4,
+        "load_host_rss_high_water_bytes": 23712948224,
+        "host_rss_high_water_bytes": 23712948224,
+        "peak_vram_bytes": 6664081408,
+        "sec_per_step": 8.305451683751016,
+        "losses": [
+          11.492591857910156,
+          11.14482593536377,
+          10.842662811279297,
+          10.473604202270508
+        ],
+        "grad_norms": [
+          46.25,
+          46.25,
+          46.75,
+          47.0
+        ],
+        "eval_ce": 9.511337280273438,
+        "steps": 4,
+        "seq_len": 256,
+        "lr": 0.0002,
+        "seed": 1234,
+        "capacity_bytes": 311575552
+      }
+    ],
+    "runs_bitwise_equal": true
+  },
+  "all_48_layers": {
+    "note": "from_pretrained + quantize on 16-layer views (layers 0-15, 16-31, 32-47; the latter two rewritten with renumbered keys, tensor bytes unchanged), each compared with the 48-layer streamed manifest at its layer offset",
+    "chunks": {
+      "0-15": "2048 slabs, 147 params, 2 buffers: 0 differ",
+      "16-31": "2048 slabs, 147 params, 2 buffers: 0 differ",
+      "32-47": "2048 slabs, 147 params, 2 buffers: 0 differ"
+    },
+    "byte_identical": true
+  },
+  "seq512_vram": {
+    "note": "streamed arm, streamed loader, 3 steps, batch 4 x 512 tokens; peak_vram_bytes is max_memory_allocated",
+    "expert_batch_sweep": {
+      "0": {
+        "peak_vram_bytes": 7821476352,
+        "peak_vram_reserved_bytes": 9997123584,
+        "sec_per_step": 9.45658679366655,
+        "losses": [
+          11.42294692993164,
+          11.070755004882812,
+          10.669547080993652
+        ],
+        "eval_ce": 9.46540641784668,
+        "host_rss_high_water_bytes": 23796490240
+      },
+      "8": {
+        "peak_vram_bytes": 7764234752,
+        "peak_vram_reserved_bytes": 9793699840,
+        "sec_per_step": 12.429674335333402,
+        "losses": [
+          11.437954902648926,
+          11.031815528869629,
+          10.633764266967773
+        ],
+        "eval_ce": 9.390539169311523,
+        "host_rss_high_water_bytes": 23737614336
+      },
+      "16": {
+        "peak_vram_bytes": 7788696576,
+        "peak_vram_reserved_bytes": 10085203968,
+        "sec_per_step": 9.736459709000579,
+        "losses": [
+          11.405817031860352,
+          11.073471069335938,
+          10.646801948547363
+        ],
+        "eval_ce": 9.461700439453125,
+        "host_rss_high_water_bytes": 23762317312
+      }
+    },
+    "allocator_cap": {
+      "7.4_GiB": "OOM (an 8 GB card does not fit this configuration)",
+      "9.0_GiB": {
+        "peak_vram_bytes": 7821476352,
+        "peak_vram_reserved_bytes": 8885633024,
+        "sec_per_step": 9.558171234665982,
+        "losses": [
+          11.42294692993164,
+          11.070755004882812,
+          10.669547080993652
+        ],
+        "eval_ce": 9.46540641784668,
+        "bitwise_equal_to_uncapped": true
+      }
+    }
+  }
+}

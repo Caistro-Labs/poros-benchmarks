@@ -1,0 +1,7 @@
+model-00001-of-00003.safetensors: 209 tensors, 1020.8 MiB
+model-00001-of-00003.safetensors: 256 tensors, 1020.3 MiB
+model-00001-of-00003.safetensors: 256 tensors, 1020.3 MiB
+model-00001-of-00003.safetensors: 84 tensors, 336.3 MiB
+model-00003-of-00003.safetensors: 1 tensors, 196.5 MiB
+model-00003-of-00003.safetensors: 1 tensors, 0.0 MiB
+FETCH wrote <home>/poros_rel/hf_cert/fg_models/allenai_OLMoE-1B-7B-0924__trunc4 olmoe 1884325888 params sha256 4a6e5b5e6e29ba0e

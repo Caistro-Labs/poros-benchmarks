@@ -1,0 +1,1 @@
+{"rule": "torch.adamw", "trainable_dtype": "bfloat16", "torch_dtype": "bfloat16", "implementation": null}

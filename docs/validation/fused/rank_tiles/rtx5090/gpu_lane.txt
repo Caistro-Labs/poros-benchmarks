@@ -1,0 +1,85 @@
+........................................................................ [ 15%]
+........................................................................ [ 30%]
+........................................................................ [ 46%]
+........................................................................ [ 61%]
+........................................................................ [ 76%]
+...........................................................sssssssssssss [ 92%]
+sssss........ssss..ssss..ssss..ssssss                                    [100%]
+=============================== warnings summary ===============================
+tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[bf16-classic-0.0]
+tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[bf16-classic-0.1]
+tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[bf16-run-0.0]
+tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[bf16-run-0.1]
+  <path> UserWarning: bf16 blockwise is EXPERIMENTAL: parity is NOT bitwise and the memory/speed tradeoff is steeper. For dense models use quantization='bf16_bitwise' (bitwise-validated). Plain bf16 remains for arches where bitwise is structurally unavailable (e.g. MXFP4-native MoE dequantized to bf16). Use nf4 for the validated, bitwise path.
+    poros_model = PorosModel.from_pretrained(
+
+tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[fp16-classic-0.0]
+tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[fp16-classic-0.1]
+tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[fp16-run-0.0]
+tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[fp16-run-0.1]
+  <path> UserWarning: fp16 blockwise is EXPERIMENTAL: parity is NOT bitwise and the memory/speed tradeoff is steeper. Experimental; same streaming caveats as bf16. v2. Use nf4 for the validated, bitwise path.
+    poros_model = PorosModel.from_pretrained(
+
+tests/gpu/test_block_major_16bit.py::test_bf16_bitwise_block_major_asked_for_equals_sequential_with_dropout[classic]
+tests/gpu/test_block_major_16bit.py::test_bf16_bitwise_block_major_asked_for_equals_sequential_with_dropout[run]
+  <path> UserWarning: bf16_bitwise blockwise is EXPERIMENTAL: the path targets bitwise parity but is not yet validated at scale. Dense BF16 blockwise runtime with strict determinism and resident adapters. Bitwise parity validated at 32B (docs/validation/bf16/); bandwidth-bound -- prefer high-bandwidth buses. Use nf4 for the validated, bitwise path.
+    poros_model = PorosModel.from_pretrained(
+
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_bf16[None-1]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_bf16[None-2]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_bf16[1-1]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_bf16[1-2]
+  <path> UserWarning: The loaded model is unquantized (bf16/fp16), so Poros is on the EXPERIMENTAL non-bitwise path: roughly 10x slower with NO VRAM win and NO NF4 bitwise-parity guarantee. For the validated NF4 path, load with BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type='nf4', bnb_4bit_compute_dtype=torch.bfloat16, bnb_4bit_use_double_quant=True).
+    poros.patch_hf_model(model, block_size=block_size, arch_check="warn")
+
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[1]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[1]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[2]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[2]
+  <path> UserWarning: inner dimension (16) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+    warn(
+
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[1]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[1]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[2]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[2]
+  <path> UserWarning: inner dimension (32) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+    warn(
+
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[1]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[1]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[2]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[2]
+  <path> UserWarning: inner dimension (96) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+    warn(
+
+tests/test_gpu_auto_prepare.py::test_prepare_peft_lora_backward_has_grads
+  <path> UserWarning: precision='auto' but the loaded model is unquantized 'bf16': Poros is on the EXPERIMENTAL non-bitwise path -- roughly 10x slower, NO VRAM win, and NO NF4 bitwise-parity guarantee. For the validated NF4 path, load with BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type='nf4', bnb_4bit_compute_dtype=torch.bfloat16, bnb_4bit_use_double_quant=True). If you really want 'bf16', pass precision='bf16' explicitly to silence this warning.
+    poros.prepare(model, guarantee="validated", verbose=False)
+
+tests/test_gpu_auto_prepare.py::test_prepare_peft_lora_backward_has_grads
+  <path> UserWarning: precision='auto' but the loaded model is unquantized 'bf16': Poros is on the EXPERIMENTAL non-bitwise path -- roughly 10x slower, NO VRAM win, and NO NF4 bitwise-parity guarantee. For the validated NF4 path, load with BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type='nf4', bnb_4bit_compute_dtype=torch.bfloat16, bnb_4bit_use_double_quant=True). If you really want 'bf16', pass precision='bf16' explicitly to silence this warning.
+    model = poros.prepare(model, guarantee="best_effort", verbose=False)
+
+tests/test_gpu_auto_prepare.py::test_prepare_errors_on_full_finetune_gpu
+  <path> UserWarning: precision='auto' but the loaded model is unquantized 'bf16': Poros is on the EXPERIMENTAL non-bitwise path -- roughly 10x slower, NO VRAM win, and NO NF4 bitwise-parity guarantee. For the validated NF4 path, load with BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type='nf4', bnb_4bit_compute_dtype=torch.bfloat16, bnb_4bit_use_double_quant=True). If you really want 'bf16', pass precision='bf16' explicitly to silence this warning.
+    poros.prepare(model, verbose=False)
+
+tests/test_gpu_auto_prepare.py::test_prepare_unprepare_round_trip
+  <path> UserWarning: precision='auto' but the loaded model is unquantized 'bf16': Poros is on the EXPERIMENTAL non-bitwise path -- roughly 10x slower, NO VRAM win, and NO NF4 bitwise-parity guarantee. For the validated NF4 path, load with BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type='nf4', bnb_4bit_compute_dtype=torch.bfloat16, bnb_4bit_use_double_quant=True). If you really want 'bf16', pass precision='bf16' explicitly to silence this warning.
+    poros.prepare(model, verbose=False)
+
+tests/test_gpu_auto_prepare.py::test_prepare_unprepare_round_trip
+  <path> UserWarning: precision='auto' but the loaded model is unquantized 'bf16': Poros is on the EXPERIMENTAL non-bitwise path -- roughly 10x slower, NO VRAM win, and NO NF4 bitwise-parity guarantee. For the validated NF4 path, load with BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type='nf4', bnb_4bit_compute_dtype=torch.bfloat16, bnb_4bit_use_double_quant=True). If you really want 'bf16', pass precision='bf16' explicitly to silence this warning.
+    poros.prepare(model, verbose=False)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+SKIPPED [1] tests/gpu/test_glm_dsa_flex.py:24: no DSA flex pin for this host: torch-2.14.1+cu130_triton-3.8.0_NVIDIA_GeForce_RTX_5090.json
+SKIPPED [1] tests/gpu/test_glm_fla_pinned.py:25: CUDA and fla-core required
+SKIPPED [1] tests/gpu/test_glm_grouped_experts.py:24: no grouped-expert pin for this host: torch-2.14.1+cu130_NVIDIA_GeForce_RTX_5090.json
+SKIPPED [18] tests/test_run_block_major_cuda.py:115: a MoE model's expert compute
+SKIPPED [16] tests/test_run_block_major_cuda.py:113: a MoE model's block sizes: tests/moe/test_block_major_families.py
+SKIPPED [1] tests/test_run_block_major_cuda.py:161: dense
+SKIPPED [1] tests/test_run_block_major_cuda.py:189: dense
+433 passed, 39 skipped, 4340 deselected, 31 warnings in 820.77s (0:13:40)

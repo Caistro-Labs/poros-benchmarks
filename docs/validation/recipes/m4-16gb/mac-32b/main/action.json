@@ -1,0 +1,64 @@
+{
+  "allow_unvalidated": false,
+  "block_size": 1,
+  "command": "poros train Qwen/Qwen2.5-32B-Instruct --data <work>/sample-chats.jsonl --steps 8 --seq-len 128 --rank 16 --block-size 1 --name cert-mac-32b --recipe sft gradient_accumulation_steps=1 learning_rate=2e-5 lora_alpha=32 lora_dropout=0 per_device_batch_size=1 --download",
+  "config": {
+    "gradient_accumulation_steps": "1",
+    "learning_rate": "2e-5",
+    "lora_alpha": "32",
+    "lora_dropout": "0",
+    "per_device_batch_size": "1",
+    "recipe": "sft"
+  },
+  "data": "<work>/sample-chats.jsonl",
+  "detach": false,
+  "download": true,
+  "epochs": null,
+  "force": false,
+  "from_run": null,
+  "from_step": null,
+  "model": "Qwen/Qwen2.5-32B-Instruct",
+  "name": "cert-mac-32b",
+  "output": null,
+  "overwrite": false,
+  "provenance": {
+    "block_size": {
+      "detail": "--block-size 1",
+      "kind": "given"
+    },
+    "data": {
+      "detail": "--data <work>/sample-chats.jsonl",
+      "kind": "given"
+    },
+    "model": {
+      "detail": "Qwen/Qwen2.5-32B-Instruct",
+      "kind": "given"
+    },
+    "name": {
+      "detail": "as cert-mac-32b",
+      "kind": "given"
+    },
+    "rank": {
+      "detail": "--rank 16",
+      "kind": "given"
+    },
+    "recipe": {
+      "detail": "--recipe",
+      "kind": "given"
+    },
+    "seq_len": {
+      "detail": "--seq-len 128",
+      "kind": "given"
+    },
+    "steps": {
+      "detail": "--steps 8",
+      "kind": "given"
+    }
+  },
+  "rank": 16,
+  "schema": "poros.action.train.v1",
+  "seq_len": 128,
+  "steps": 8,
+  "unvalidated": null,
+  "yes": true
+}

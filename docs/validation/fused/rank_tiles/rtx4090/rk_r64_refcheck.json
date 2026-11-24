@@ -1,0 +1,56 @@
+{
+ "rank": 64,
+ "updates": 100,
+ "dev_mean": 0.0005420184135437011,
+ "dev_max": 0.0015821456909179688,
+ "noise_mean": 0.021099101305007934,
+ "noise_max": 0.10457468032836914,
+ "passed": true,
+ "ran": {
+  "peft_mb1": [
+   {
+    "fused_compute": false,
+    "nf4_dequant_cache_mb": 114
+   },
+   null
+  ],
+  "fused_mb1": [
+   {
+    "fused_compute": true,
+    "nf4_dequant_cache_mb": 114
+   },
+   null
+  ],
+  "peft_mb2": [
+   {
+    "fused_compute": false,
+    "nf4_dequant_cache_mb": 114
+   },
+   null
+  ]
+ },
+ "s_med": {
+  "peft_mb1": 2.5641934322193265,
+  "fused_mb1": 2.555577644146979,
+  "peft_mb2": 1.3724227650091052
+ },
+ "peak_gb": {
+  "peft_mb1": [
+   2.13,
+   4.677
+  ],
+  "fused_mb1": [
+   2.562,
+   3.666
+  ],
+  "peft_mb2": [
+   3.066,
+   7.508
+  ]
+ },
+ "last20": {
+  "peft_mb1": 1.6829551815986634,
+  "fused_mb1": 1.682747584581375,
+  "peft_mb2": 1.6890942454338074
+ }
+}

@@ -1,0 +1,9 @@
+model-00001-of-00008.safetensors: 80 tensors, 1022.5 MiB
+model-00001-of-00008.safetensors: 182 tensors, 1022.3 MiB
+model-00001-of-00008.safetensors: 181 tensors, 1022.3 MiB
+model-00001-of-00008.safetensors: 135 tensors, 747.2 MiB
+model-00002-of-00008.safetensors: 184 tensors, 1023.0 MiB
+model-00002-of-00008.safetensors: 15 tensors, 109.3 MiB
+model-00008-of-00008.safetensors: 1 tensors, 593.5 MiB
+model-00008-of-00008.safetensors: 1 tensors, 0.0 MiB
+FETCH wrote <home>/poros_rel/hf_cert/fg_models/Qwen_Qwen1.5-MoE-A2.7B__trunc4 qwen2_moe 2904573952 params sha256 625ac1525ce5e412

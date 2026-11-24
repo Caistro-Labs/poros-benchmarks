@@ -1,0 +1,12 @@
+launch 2026-11-18T07:46:32Z site 4090   (queued: the run's launch time is NAME.t0, taken once the GPU lock is held)
+H2HF_ALLOW_DROP_30B=1
+H2HF_DATA_ROWS=~/rf/h2hf_5d75e31a/data/rows_cap_s256.pt
+H2HF_HELD=1
+H2HF_SHA=5d75e31a486cdf19e397e2d0f748def98083ecc8
+HF_HOME=~/hf
+HF_HUB_DISABLE_TELEMETRY=1
+HF_HUB_OFFLINE=1
+TMPDIR=~/rf/h2hf_5d75e31a/tmp
+TRITON_CACHE_DIR=~/rf/h2hf_5d75e31a/triton/cache
+PYTORCH_ALLOC_CONF=unset
+PYTORCH_CUDA_ALLOC_CONF=unset

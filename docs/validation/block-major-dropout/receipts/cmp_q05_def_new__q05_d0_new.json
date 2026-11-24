@@ -1,0 +1,45 @@
+{
+ "ref": "q05_def_new",
+ "cand": "q05_d0_new",
+ "steps_compared": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ],
+ "steps_in_ref": true,
+ "losses_equal": false,
+ "grad_norms_equal": false,
+ "adapter_tensors": 336,
+ "adapter_keys_equal": true,
+ "adapter_unequal": [
+  "base_model.model.model.layers.0.mlp.down_proj.lora_A.weight",
+  "base_model.model.model.layers.0.mlp.down_proj.lora_B.weight",
+  "base_model.model.model.layers.0.mlp.gate_proj.lora_A.weight",
+  "base_model.model.model.layers.0.mlp.gate_proj.lora_B.weight",
+  "base_model.model.model.layers.0.mlp.up_proj.lora_A.weight",
+  "base_model.model.model.layers.0.mlp.up_proj.lora_B.weight",
+  "base_model.model.model.layers.0.self_attn.k_proj.lora_A.weight",
+  "base_model.model.model.layers.0.self_attn.k_proj.lora_B.weight",
+  "base_model.model.model.layers.0.self_attn.o_proj.lora_A.weight",
+  "base_model.model.model.layers.0.self_attn.o_proj.lora_B.weight"
+ ],
+ "ref_digest": "e05a810267220e7e5da0680fc23a4b1602937be48b0ad30d75c683c2b79d738b",
+ "cand_digest": "ada03d5bff0992b9c4895e3b2379c866f7cd6d825bbd13cef3f407e7bf390902",
+ "ref_losses": [
+  3.8045902252197266,
+  3.738075017929077,
+  3.2546987533569336,
+  2.0735604763031006,
+  3.0042054653167725
+ ],
+ "cand_losses": [
+  3.8045902252197266,
+  3.738075017929077,
+  3.2551393508911133,
+  2.074263095855713,
+  3.007162570953369
+ ],
+ "pass": false
+}

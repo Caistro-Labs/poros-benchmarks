@@ -1,0 +1,41 @@
+{
+ "recipe": "first-run",
+ "train": {
+  "verdict": "fits",
+  "peak_gib": 1.445,
+  "source": "measured",
+  "basis": "reserved peak 1.445 GiB <= 23.51 GiB free",
+  "host_fits": true,
+  "asks": [],
+  "asks_text": [],
+  "seq_len": 256
+ },
+ "gate": {
+  "path": null,
+  "offload": null,
+  "warning": null,
+  "vram_refusal": null,
+  "host_refusal": null,
+  "ran_path": "efficient"
+ },
+ "doubts": [],
+ "start_refused": [],
+ "refused": false,
+ "schema": "poros.certify.check_fit.v1",
+ "commit": "1a8d7e912b166c373fcfec862ad7297221d33a71",
+ "machine": {
+  "platform": "cuda",
+  "gpu": "RTX 4090",
+  "vram_gib": 23.52,
+  "host_ram_gib": 59.605,
+  "mac_class": null,
+  "os": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+  "os_version": "Ubuntu 24.04.1 LTS",
+  "python": "3.12.3",
+  "torch": "2.14.1",
+  "transformers": "5.22.2",
+  "bitsandbytes": "0.50.2",
+  "driver": "580.173.02"
+ },
+ "simulated": false
+}

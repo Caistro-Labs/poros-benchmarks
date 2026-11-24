@@ -1,0 +1,6 @@
+2026-11-24T08:53:02Z certify big-32b on RTX 4090: 16 updates, 143 chats rows
+2026-11-24T08:53:02Z prepare: one update, not measured
+2026-11-24T08:56:00Z main run
+2026-11-24T09:00:28Z resume run: stopped halfway, then continued
+2026-11-24T09:07:00Z eval
+2026-11-24T09:09:05Z ok: <home>/poros_rel/cert/out/step3/big-32b/certification.json

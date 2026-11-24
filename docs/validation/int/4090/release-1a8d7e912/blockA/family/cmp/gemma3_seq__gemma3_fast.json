@@ -1,0 +1,57 @@
+{
+ "ref": "<home>/poros_rel/cert/out/family/fg/runs/gemma3_seq",
+ "cand": "<home>/poros_rel/cert/out/family/fg/runs/gemma3_fast",
+ "ref_file": "<home>/poros_rel/cert/out/family/fg/runs/gemma3_seq/adapter_model.safetensors",
+ "cand_file": "<home>/poros_rel/cert/out/family/fg/runs/gemma3_fast/adapter_model.safetensors",
+ "steps_ref": 8,
+ "steps_cand": 8,
+ "losses_equal": true,
+ "grad_norms_equal": true,
+ "adapter_tensors": 408,
+ "adapter_keys_equal": true,
+ "adapter_unequal_n": 0,
+ "adapter_unequal": [],
+ "ref_digest": "982926c61db2aa82bbe61d59bb5a5a381c066fb606086936323c24bf7dd803f3",
+ "cand_digest": "982926c61db2aa82bbe61d59bb5a5a381c066fb606086936323c24bf7dd803f3",
+ "ref_losses": [
+  26.677288055419922,
+  26.261974334716797,
+  28.46927261352539,
+  26.679473876953125,
+  27.84324836730957,
+  26.637271881103516,
+  26.655500411987305,
+  26.42666244506836
+ ],
+ "cand_losses": [
+  26.677288055419922,
+  26.261974334716797,
+  28.46927261352539,
+  26.679473876953125,
+  27.84324836730957,
+  26.637271881103516,
+  26.655500411987305,
+  26.42666244506836
+ ],
+ "ref_grad_norms": [
+  14.645208358764648,
+  14.47454833984375,
+  16.27435302734375,
+  15.149226188659668,
+  16.487171173095703,
+  16.324174880981445,
+  16.511621475219727,
+  17.248462677001953
+ ],
+ "cand_grad_norms": [
+  14.645208358764648,
+  14.47454833984375,
+  16.27435302734375,
+  15.149226188659668,
+  16.487171173095703,
+  16.324174880981445,
+  16.511621475219727,
+  17.248462677001953
+ ],
+ "pass": true
+}

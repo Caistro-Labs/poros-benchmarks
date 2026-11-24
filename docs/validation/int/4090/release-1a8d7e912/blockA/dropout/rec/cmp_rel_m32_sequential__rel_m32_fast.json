@@ -1,0 +1,25 @@
+{
+ "ref": "runs/rel_m32_sequential",
+ "cand": "runs/rel_m32_fast",
+ "steps": 10,
+ "losses_equal": true,
+ "grad_norms_equal": true,
+ "adapter_tensors": 896,
+ "adapter_keys_equal": true,
+ "adapter_unequal": [],
+ "ref_digest": "74d206571db24eb1775fdc8e821b5c372e2f12cc114d476b00fdabcc63ec8395",
+ "cand_digest": "74d206571db24eb1775fdc8e821b5c372e2f12cc114d476b00fdabcc63ec8395",
+ "ref_losses": [
+  12.610406875610352,
+  12.593109130859375,
+  12.587177276611328,
+  12.549728393554688,
+  12.45684814453125,
+  12.426586151123047,
+  12.513161659240723,
+  12.491063117980957,
+  12.469048500061035,
+  12.475552558898926
+ ],
+ "pass": true
+}

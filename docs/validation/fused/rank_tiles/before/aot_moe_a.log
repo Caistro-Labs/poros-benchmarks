@@ -1,0 +1,25 @@
+393 compiled; 24 do not fit / fail
+{'kernel': '_down_fwd', 'cap': 86, 'tag': 'RP=128 lora=True', 'stages': 1, 'shared': 163840, 'limit': 101376, 'fits': False, 'err': None}
+{'kernel': '_dx_rows', 'cap': 86, 'tag': 'RP=128 lora=True drop=False', 'stages': 1, 'shared': 163840, 'limit': 101376, 'fits': False, 'err': None}
+{'kernel': '_dx_rows', 'cap': 86, 'tag': 'RP=128 lora=True drop=True', 'stages': 1, 'shared': 163840, 'limit': 101376, 'fits': False, 'err': None}
+{'kernel': '_down_fwd', 'cap': 86, 'tag': 'RP=128 lora=True', 'stages': 2, 'shared': 163840, 'limit': 101376, 'fits': False, 'err': None}
+{'kernel': '_dx_rows', 'cap': 86, 'tag': 'RP=128 lora=True drop=False', 'stages': 2, 'shared': 163840, 'limit': 101376, 'fits': False, 'err': None}
+{'kernel': '_dx_rows', 'cap': 86, 'tag': 'RP=128 lora=True drop=True', 'stages': 2, 'shared': 163840, 'limit': 101376, 'fits': False, 'err': None}
+{'kernel': '_down_fwd', 'cap': 75, 'tag': 'RP=64 lora=True', 'stages': 1, 'shared': 81920, 'limit': 65536, 'fits': False, 'err': None}
+{'kernel': '_dx_rows', 'cap': 75, 'tag': 'RP=64 lora=True drop=False', 'stages': 1, 'shared': 81920, 'limit': 65536, 'fits': False, 'err': None}
+{'kernel': '_dx_rows', 'cap': 75, 'tag': 'RP=64 lora=True drop=True', 'stages': 1, 'shared': 81920, 'limit': 65536, 'fits': False, 'err': None}
+{'kernel': '_down_fwd', 'cap': 75, 'tag': 'RP=64 lora=True', 'stages': 2, 'shared': 81920, 'limit': 65536, 'fits': False, 'err': None}
+{'kernel': '_dx_rows', 'cap': 75, 'tag': 'RP=64 lora=True drop=False', 'stages': 2, 'shared': 81920, 'limit': 65536, 'fits': False, 'err': None}
+{'kernel': '_dx_rows', 'cap': 75, 'tag': 'RP=64 lora=True drop=True', 'stages': 2, 'shared': 81920, 'limit': 65536, 'fits': False, 'err': None}
+{'kernel': '_gate_up_fwd', 'cap': 75, 'tag': 'RP=128 lora=True', 'stages': 1, 'shared': 98304, 'limit': 65536, 'fits': False, 'err': None}
+{'kernel': '_down_fwd', 'cap': 75, 'tag': 'RP=128 lora=True', 'stages': 1, 'shared': 163840, 'limit': 65536, 'fits': False, 'err': None}
+{'kernel': '_mid_bwd', 'cap': 75, 'tag': 'RP=128 lora=True drop=False', 'stages': 1, 'shared': 98304, 'limit': 65536, 'fits': False, 'err': None}
+{'kernel': '_dx_rows', 'cap': 75, 'tag': 'RP=128 lora=True drop=False', 'stages': 1, 'shared': 163840, 'limit': 65536, 'fits': False, 'err': None}
+{'kernel': '_mid_bwd', 'cap': 75, 'tag': 'RP=128 lora=True drop=True', 'stages': 1, 'shared': 98304, 'limit': 65536, 'fits': False, 'err': None}
+{'kernel': '_dx_rows', 'cap': 75, 'tag': 'RP=128 lora=True drop=True', 'stages': 1, 'shared': 163840, 'limit': 65536, 'fits': False, 'err': None}
+{'kernel': '_gate_up_fwd', 'cap': 75, 'tag': 'RP=128 lora=True', 'stages': 2, 'shared': 98304, 'limit': 65536, 'fits': False, 'err': None}
+{'kernel': '_down_fwd', 'cap': 75, 'tag': 'RP=128 lora=True', 'stages': 2, 'shared': 163840, 'limit': 65536, 'fits': False, 'err': None}
+{'kernel': '_mid_bwd', 'cap': 75, 'tag': 'RP=128 lora=True drop=False', 'stages': 2, 'shared': 98304, 'limit': 65536, 'fits': False, 'err': None}
+{'kernel': '_dx_rows', 'cap': 75, 'tag': 'RP=128 lora=True drop=False', 'stages': 2, 'shared': 163840, 'limit': 65536, 'fits': False, 'err': None}
+{'kernel': '_mid_bwd', 'cap': 75, 'tag': 'RP=128 lora=True drop=True', 'stages': 2, 'shared': 98304, 'limit': 65536, 'fits': False, 'err': None}
+{'kernel': '_dx_rows', 'cap': 75, 'tag': 'RP=128 lora=True drop=True', 'stages': 2, 'shared': 163840, 'limit': 65536, 'fits': False, 'err': None}

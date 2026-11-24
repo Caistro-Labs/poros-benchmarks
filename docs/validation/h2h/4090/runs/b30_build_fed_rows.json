@@ -1,0 +1,98 @@
+{
+ "rows": 16,
+ "seq": 512,
+ "batch_shapes": [
+  [
+   1,
+   512
+  ],
+  [
+   1,
+   512
+  ],
+  [
+   1,
+   512
+  ],
+  [
+   1,
+   512
+  ],
+  [
+   1,
+   512
+  ],
+  [
+   1,
+   512
+  ],
+  [
+   1,
+   512
+  ],
+  [
+   1,
+   512
+  ],
+  [
+   1,
+   512
+  ],
+  [
+   1,
+   512
+  ],
+  [
+   1,
+   512
+  ],
+  [
+   1,
+   512
+  ],
+  [
+   1,
+   512
+  ],
+  [
+   1,
+   512
+  ],
+  [
+   1,
+   512
+  ],
+  [
+   1,
+   512
+  ]
+ ],
+ "sha256_all": "ee207f3566332234e782e68e55341e1dfd7bc051b4787a1e3d3453224202d58e",
+ "sha256_per_batch": [
+  "25d7ddd0a1a4fdb13da7dfce025ea9ad2efb01fcc733e210989da0b1ebe27502",
+  "6078fe3266c8cd246bcf09bf5ccdd44409668bd2ec049daabeef032c03eb8625",
+  "f407bae88f0ba3f6cf2896b8fad20a4202f1bed99cf4b6bcfe9520ded6f5db9d",
+  "c1c858af4eef703f8b840e771272ad1bdf4c3529d0f5bde38c24981adf3d642d",
+  "11b6ce8d53d66c889e6e8d347b8c711c70719de90b049a04622672b1ba73c064",
+  "6d19bf3bc10b6a45ce0a8338f0a27d51f279e8c82128f4d522db8bfe5c6348fc",
+  "41dfcc59b124ae57091a37e063335b07e5401df06000f84cd69a6591c7bb6f1a",
+  "3d724b6486ea574ebf23e3286f61089c37eec7015432aa51dd61344e183ab73f",
+  "50333f0b3d9efc974114593a189afd645a07c48939a9c744a0f46232939edf64",
+  "7e4b024f9eda4d472b9aa74fe6d3c198e8d474d32bd9bb2e21fd60ac10c516b3",
+  "8aaefbc71000f0742f3484075a027918756d7fd383aae2c602a88d9df2439273",
+  "086ec56dfab7acf2c16ac262f57bade4109473c44fe10dc11fdd99c86d1b9276",
+  "a4efb29337424de36eeb163edd7691d6935a30c545799f5c66fa921e95750743",
+  "15b1e85e15310356c734d4e907e6e128713c8763560d7c303a305eaaf1d7a946",
+  "985f7863df8f3c0e174ecc7881512e594dbf781b48650fd538e58edbf2c370d2",
+  "93e6022ad54fdc05224dbb9849675bc2f46efe095f695a4e240a220312d72a61"
+ ],
+ "full_length_and_labels_are_ids": true,
+ "first_tokens": [
+  [
+   2082,
+   74852,
+   58676,
+   5624
+  ]
+ ]
+}

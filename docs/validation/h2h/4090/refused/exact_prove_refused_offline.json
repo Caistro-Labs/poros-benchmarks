@@ -1,0 +1,1 @@
+{"schema":"poros.error.v1","error":{"code":"E_NETWORK","exit_code":5,"message":"Qwen/Qwen2.5-7B is not downloaded and the Hub is off; unset HF_HUB_OFFLINE, or download it first: poros models get"}}

@@ -1,0 +1,38 @@
+▛▜ poros v1.0.0 · Qwen/Qwen2.5-7B-Instruct · RTX 4090 23.5 GiB
+
+● Checked cert-prefer  run 1124-0845-5558
+  │ nf4 · block 4 · rank 16 · seq 512 · efficient path
+  │ DPO · beta 0.1 · lr 5e-6
+  │ output    homes/prefer/runs/1124-0845-5558
+
+● Loaded Qwen2.5-7B-Instruct  16s
+  │ dense · 28 layers · 7 blocks
+● Scored the base  held out 0.6931 · prefers 3 of 7
+step 1/16  loss 0.6931  4.26 s/step  vram 4.7 GiB (peak 7.1)  eta 1m 04s
+step 10/16  loss 0.6904  3.50 s/step  vram 4.7 GiB (peak 7.4)  eta 21s
+● Scored step 16  held out 0.7004 ↑ 1% · prefers 3 of 7
+
+  ╭─ Trained  Held-out loss rose ────────────────────────────────────── 16 steps · DPO · 1m 47s ─╮
+  │                                                                    final loss                │
+  │                     ▁▇                                             0.6739  ↓ 3%              │
+  │ 0.72                ██▂                                                                      │
+  │                    ▃███                             ▂▁               step  held out  prefers │
+  │              ▁     ████▄                            ██▆▂  ▁▂▄      ○ base    0.6931      3/7 │
+  │ 0.70       ▃▆█▃   ▄█████                           ▆████▇▇███▃  ○  ●   16    0.7004      3/7 │
+  │      ○▄▄▄▄▇████▅  ██████▇     ▁▄▇▇▃    ▁▃▂        ▂███████████▁                              │
+  │      ████████████▆███████▆▅▅▅▆██████▅▄▇███▇▄▁     █████████████    vram 7.4 GiB peak         │
+  │ 0.68 ████████████████████████████████████████▆▄▁ ▇█████████████▇   ram  10.9 GiB peak        │
+  │      ███████████████████████████████████████████▇███████████████▅                            │
+  │      1                              8                          16                            │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ acc        ━━━━━━━─────────  42%  chosen ranked first over its last 16 steps
+  │ margin     0.042  chosen -0.24 · rejected -0.29
+  │ speed      2,308 tok/s
+  │
+  │ adapter    homes/prefer/runs/1124-0845-5558
+  │ receipt    homes/prefer/runs/1124-0845-5558/receipt.json
+
+Continue with: poros eval 1124-0845-5558
+Keep it as a recipe: poros recipes save last
+{"schema":"poros.train.v1","learned":null,"output_dir":"<home>/runs/1124-0845-5558","events":"<home>/runs/1124-0845-5558/events.jsonl","metrics":{"device":"cuda:0","total_steps":16,"final_loss":0.6738844513893127,"loss_history":[0.693148709833622,0.6931502372026443,0.7043695151805878,0.6862810328602791,0.7325558066368103,0.6880518421530724,0.6875905990600586,0.6969281807541847,0.6858652234077454,0.6935634166002274,0.6833419948816299,0.6750204265117645,0.7131921723484993,0.7017035707831383,0.7066407576203346,0.6738844513893127],"grad_norm_history":[11.405590057373047,11.991592407226562,12.05182933807373,11.680032730102539,12.17765998840332,11.004203796386719,12.587430000305176,11.365500450134277,12.207722663879395,12.201886177062988,12.014469146728516,11.292677879333496,13.806340217590332,12.779382705688477,11.12016773223877,10.785185813903809],"eval_history":[{"step":0,"eval_loss":0.6931454369000025,"prefers":3},{"step":15,"eval_loss":0.7003731727600098,"prefers":3}],"total_time_s":56.78019754961133,"step_time_history":[4.262853162363172,3.503004312515259,3.496772773563862,3.5195167288184166,3.504691680893302,3.492344729602337,3.4937943648546934,3.495825506746769,3.4994051679968834,3.5009717382490635,3.4970042016357183,3.5115590803325176,3.513112660497427,3.501256361603737,3.4936386793851852,3.494446400552988],"vram_alloc_history_mb":[5015.554048,5015.554048,5015.554048,5015.554048,5015.554048,5015.554048,5015.554048,5015.554048,5015.554048,5015.554048,5015.554048,5015.554048,5015.554048,5015.554048,5015.554048,5015.554048],"avg_vram_allocated_mb":5015.554048,"avg_step_time_ms":3548.762346850708,"steps_per_sec":0.2817883820502756,"tokens_processed":131072,"tokens_per_sec":2308.410425755858,"peak_vram_allocated_gb":7.920114176,"peak_vram_reserved_gb":10.366222336,"torch_num_threads":16,"quantization":"nf4","block_size":4,"adapter_backend":"peft","adapter_summary":{"backend":"peft","target_module_names":"all-linear","trainable_param_count":40370176,"total_param_count":4393342464},"eval_loss_start":0.6931454369000025,"eval_loss":0.7003731727600098,"eval_prefers":3,"eval_prefers_start":3},"run":"1124-0845-5558","command":"poros train Qwen/Qwen2.5-7B-Instruct --data <work>/sample-pairs.jsonl --steps 16 --seq-len 512 --rank 16 --block-size 4 --name cert-prefer --recipe dpo dpo_beta=0.1 gradient_accumulation_steps=8 learning_rate=5e-6 lora_alpha=32 lora_dropout=0 per_device_batch_size=1 store=ram --download","next":[],"plan":null,"from":null,"support":null,"model_type":null}

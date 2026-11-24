@@ -1,0 +1,2 @@
+1a8d7e912b166c373fcfec862ad7297221d33a71
+This run's receipt.json leaves its commit field null: it is a direct `poros train` (command.txt), not a certification. It ran from the Mac job's clone at this commit, which the first line of docs/validation/int/mac/optimizer_selftest/results.jsonl records ("git clone at 1a8d7e912..., tracked files changed 0").

@@ -1,0 +1,12 @@
+2026-11-24T05:46:20Z BLOCK B waiting: the eb64 suite to end and block A to finish free=88G
+2026-11-24T06:20:18Z BLOCK B waiting: the eb64 suite to end and block A to finish free=62G
+2026-11-24T06:31:06Z BLOCK B waiting: the eb64 suite to end and block A to finish free=74G
+2026-11-24T07:16:07Z BLOCK B waiting: the eb64 suite to end and block A to finish free=84G
+2026-11-24T07:26:50Z BLOCK B waiting: the eb64 suite to end and block A to finish free=132G
+2026-11-24T08:28:51Z BLOCK B start: 1a8d7e912b166c373fcfec862ad7297221d33a71; nothing else of ours running free=138G
+2026-11-24T08:32:34Z prove rc=0 2026-11-24T08:32:30Z PASS prove: rc=0 "identical":true  free=124G 2026-11-24T08:32:34Z deleted the model cache (Qwen/Qwen2.5-7B ): <home>/poros_rel/hf_cert/hub removed free=138G  free=138G
+2026-11-24T08:35:23Z step1 rc=0 2026-11-24T08:35:23Z deleted the model cache (Qwen/Qwen2.5-0.5B-Instruct ): <home>/poros_rel/hf_cert/hub removed free=138G 2026-11-24T08:35:23Z step1 done free=138G  free=138G
+2026-11-24T08:51:22Z step2 rc=0 2026-11-24T08:51:22Z deleted the model cache (Qwen/Qwen2.5-7B-Instruct ): <home>/poros_rel/hf_cert/hub removed free=138G 2026-11-24T08:51:22Z step2 done free=138G  free=138G
+2026-11-24T09:09:16Z step3 rc=0 2026-11-24T09:09:16Z deleted the model cache (Qwen/Qwen2.5-32B-Instruct ): <home>/poros_rel/hf_cert/hub removed free=138G 2026-11-24T09:09:16Z step3 done free=138G  free=138G
+2026-11-24T10:01:12Z step4 rc=0 2026-11-24T10:01:12Z deleted the model cache (Qwen/Qwen3-30B-A3B-Instruct-2507 ): <home>/poros_rel/hf_cert/hub removed free=142G 2026-11-24T10:01:12Z step4 done free=142G  free=142G
+2026-11-24T10:01:12Z packB ready (4.0K); waiting for GO_TRIM

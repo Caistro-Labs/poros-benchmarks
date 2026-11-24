@@ -1,0 +1,10 @@
+08:51:22 preflight: HEAD 1a8d7e912b166c373fcfec862ad7297221d33a71 clean; git <home>/poros_rel/tools/git/usr/bin/git (git version 2.43.0); poros from <home>/poros_rel/cert/src/poros/__init__.py
+08:51:22 === cert.sh step3 (inline=1)
+08:51:23 step3 start: Qwen/Qwen2.5-32B-Instruct for big-32b (check-fit: big-32b)
+08:51:24 fetching Qwen/Qwen2.5-32B-Instruct (66G, hub@5ede1c97) for step3 big-32b
+08:53:01 fetched Qwen/Qwen2.5-32B-Instruct -> 5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd main (exit 0)
+08:53:01 big-32b start (Qwen/Qwen2.5-32B-Instruct, disk_gb 12, at most 90 min, home homes/big-32b)
+09:09:05 PASS big-32b: status=ok commit=1a8d7e912b16 tree_clean=True updates=16 s_per_step=8.2733 gpu_mem_gib=None reserved_gib=None resume=True eval=ok preflight_said=0 lines
+09:09:08 CHECK-FIT FITS big-32b: verdict='fits' peak_gib=12.727 source=measured basis='reserved peak 12.727 GiB <= 23.51 GiB free' asks=[] doubts=[] refused=False start_refused=[] gate_path=None ran_path=efficient warning=None vram_refusal=None host_refusal=None
+09:09:16 deleted the model cache (Qwen/Qwen2.5-32B-Instruct ): <home>/poros_rel/hf_cert/hub removed
+09:09:16 step3 done

@@ -1,0 +1,4 @@
+poros stack: {'torch': '2.14.1', 'transformers': '5.22.2', 'peft': '0.20.0', 'bitsandbytes': '0.50.2', 'triton': '3.8.0', 'safetensors': '0.8.0', 'accelerate': '1.15.0'} cuda 13.0
+unsloth stack: {'unsloth': '2026.11.10', 'unsloth_zoo': '2026.11.10', 'torch': '2.14.1', 'transformers': '5.17.0', 'peft': '0.22.0', 'bitsandbytes': '0.50.2', 'accelerate': '1.16.0', 'triton': '3.8.0'}
+poros 1.0.0
+commit 1a8d7e912b166c373fcfec862ad7297221d33a71 tree 1a8d7e912b166c373fcfec862ad7297221d33a71

@@ -1,0 +1,16 @@
+08:35:23 preflight: HEAD 1a8d7e912b166c373fcfec862ad7297221d33a71 clean; git <home>/poros_rel/tools/git/usr/bin/git (git version 2.43.0); poros from <home>/poros_rel/cert/src/poros/__init__.py
+08:35:23 === cert.sh step2 (inline=1)
+08:35:24 step2 start: Qwen/Qwen2.5-7B-Instruct for support voice prefer (check-fit: support voice prefer)
+08:35:25 fetching Qwen/Qwen2.5-7B-Instruct (16G, hub@a09a3545) for step2 support voice prefer
+08:35:51 fetched Qwen/Qwen2.5-7B-Instruct -> a09a35458c702b33eeacc393d103063234e8bc28 main (exit 0)
+08:35:52 support start (Qwen/Qwen2.5-7B-Instruct, disk_gb 8, at most 45 min, home homes/support)
+08:40:06 PASS support: status=ok commit=1a8d7e912b16 tree_clean=True updates=16 s_per_step=2.9276 gpu_mem_gib=None reserved_gib=None resume=True eval=ok preflight_said=0 lines
+08:40:07 voice start (Qwen/Qwen2.5-7B-Instruct, disk_gb 8, at most 45 min, home homes/voice)
+08:44:21 PASS voice: status=ok commit=1a8d7e912b16 tree_clean=True updates=16 s_per_step=2.8861 gpu_mem_gib=None reserved_gib=None resume=True eval=ok preflight_said=0 lines
+08:44:23 prefer start (Qwen/Qwen2.5-7B-Instruct, disk_gb 8, at most 45 min, home homes/prefer)
+08:51:11 PASS prefer: status=ok commit=1a8d7e912b16 tree_clean=True updates=16 s_per_step=3.4994 gpu_mem_gib=None reserved_gib=None resume=True eval=ok preflight_said=0 lines
+08:51:14 CHECK-FIT FITS support: verdict='fits' peak_gib=9.556 source=measured basis='reserved peak 9.556 GiB <= 23.51 GiB free' asks=[] doubts=[] refused=False start_refused=[] gate_path=None ran_path=efficient warning=None vram_refusal=None host_refusal=None
+08:51:16 CHECK-FIT FITS voice: verdict='fits' peak_gib=9.556 source=measured basis='reserved peak 9.556 GiB <= 23.51 GiB free' asks=[] doubts=[] refused=False start_refused=[] gate_path=None ran_path=efficient warning=None vram_refusal=None host_refusal=None
+08:51:18 CHECK-FIT FITS prefer: verdict='fits' peak_gib=9.556 source=measured basis='reserved peak 9.556 GiB <= 23.51 GiB free' asks=[] doubts=[] refused=False start_refused=[] gate_path=None ran_path=efficient warning=None vram_refusal=None host_refusal=None
+08:51:22 deleted the model cache (Qwen/Qwen2.5-7B-Instruct ): <home>/poros_rel/hf_cert/hub removed
+08:51:22 step2 done

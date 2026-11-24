@@ -1,0 +1,52 @@
+2026-11-17T06:38:07Z H19 START pid 2690082 tree 269d3bbcd4cff50829ff3a12aa2787a7713bb1af alloc_env_after_env.sh=unset/unset (each run unsets it) free=99G
+2026-11-17T06:38:14Z idle 60 s before D
+2026-11-17T06:39:14Z start D_ssd_fc4_1x8
+2026-11-17T06:40:50Z end D_ssd_fc4_1x8 RUN D_ssd_fc4_1x8 {"rc": 0, "tool": "poros", "shape": "1x8", "steps": 8, "s": [16.914, 9.142, 4.805, 4.45, 4.487, 4.492, 4.333, 4.461], "s_med_2_N": 4.487, "s_med_3_N": 4.474, "s_med_2_4": 4.805, "load_s": 17.36, "T1_s": 34.28, "alloc_GiB": 18.1, "reserved_GiB": 19.85, "host_GiB": 11.66, "store": "s
+2026-11-17T06:40:50Z start A_ram_1x8
+2026-11-17T06:44:18Z end A_ram_1x8 RUN A_ram_1x8 {"rc": 0, "tool": "poros", "shape": "1x8", "steps": 8, "s": [7.966, 5.248, 5.251, 5.23, 5.323, 5.191, 5.217, 5.289], "s_med_2_N": 5.248, "s_med_3_N": 5.24, "s_med_2_4": 5.248, "load_s": 130.32, "T1_s": 138.3, "alloc_GiB": 7.4, "reserved_GiB": 8.03, "host_GiB": 22.07, "store": "ram", "p
+2026-11-17T06:44:25Z DIG A_ram_1x8 vs A_ram_1x8 ref 9c627963dd5fe0df cand 9c627963dd5fe0df pass True losses_eq True gn_eq True tensors 192
+2026-11-17T06:44:32Z DIG D_ssd_fc4_1x8 vs A_ram_1x8 ref 9c627963dd5fe0df cand 9c627963dd5fe0df pass True losses_eq True gn_eq True tensors 192
+2026-11-17T06:44:32Z idle 60 s before C
+2026-11-17T06:45:32Z start C_ssd_fast_1x8
+2026-11-17T06:47:17Z end C_ssd_fast_1x8 RUN C_ssd_fast_1x8 {"rc": 0, "tool": "poros", "shape": "1x8", "steps": 8, "s": [16.711, 9.513, 5.991, 5.935, 6.019, 5.962, 5.995, 6.239], "s_med_2_N": 5.995, "s_med_3_N": 5.993, "s_med_2_4": 5.991, "load_s": 19.18, "T1_s": 35.9, "alloc_GiB": 18.13, "reserved_GiB": 18.4, "host_GiB": 7.18, "store": "s
+2026-11-17T06:47:23Z DIG C_ssd_fast_1x8 vs A_ram_1x8 ref 9c627963dd5fe0df cand 9c627963dd5fe0df pass True losses_eq True gn_eq True tensors 192
+2026-11-17T06:47:23Z start P8_eff_8x1
+2026-11-17T06:50:26Z end P8_eff_8x1 RUN P8_eff_8x1 {"rc": 0, "tool": "poros", "shape": "8x1", "steps": 8, "s": [5.137, 2.535, 2.539, 2.541, 2.558, 2.492, 2.442, 2.515], "s_med_2_N": 2.535, "s_med_3_N": 2.527, "s_med_2_4": 2.539, "load_s": 127.9, "T1_s": 133.04, "alloc_GiB": 7.4, "reserved_GiB": 8.05, "host_GiB": 22.13, "store": "ram",
+2026-11-17T06:50:33Z DIG P8_eff_8x1 vs P8_eff_8x1 ref fb1fb8fff0254c1d cand fb1fb8fff0254c1d pass True losses_eq True gn_eq True tensors 192
+2026-11-17T06:50:33Z idle 60 s before B
+2026-11-17T06:51:33Z start B_ssd_eff_1x8
+2026-11-17T06:54:32Z end B_ssd_eff_1x8 RUN B_ssd_eff_1x8 {"rc": 0, "tool": "poros", "shape": "1x8", "steps": 8, "s": [17.05, 13.464, 13.35, 13.394, 15.115, 18.624, 21.207, 23.047], "s_med_2_N": 15.115, "s_med_3_N": 16.87, "s_med_2_4": 13.394, "load_s": 18.64, "T1_s": 35.69, "alloc_GiB": 7.4, "reserved_GiB": 7.72, "host_GiB": 8.39, "store
+2026-11-17T06:54:39Z DIG B_ssd_eff_1x8 vs A_ram_1x8 ref 9c627963dd5fe0df cand 9c627963dd5fe0df pass True losses_eq True gn_eq True tensors 192
+2026-11-17T06:54:39Z start E_uns_1x8
+2026-11-17T06:58:11Z end E_uns_1x8 RUN E_uns_1x8 {"rc": 0, "tool": "unsloth", "shape": "1x8", "stage": "done", "error": null, "steps": 8, "s": [25.653, 5.925, 5.896, 5.963, 5.893, 5.905, 5.913, 5.925], "s_med_2_N": 5.913, "s_med_3_N": 5.909, "s_med_2_4": 5.925, "load_s": 135.58, "T1_s": 161.3, "alloc_GiB": 19.735, "reserved_GiB": 19.
+2026-11-17T06:58:11Z idle 60 s before P8fc4
+2026-11-17T06:59:11Z start P8_fc4_8x1
+2026-11-17T07:00:28Z end P8_fc4_8x1 RUN P8_fc4_8x1 {"rc": 0, "tool": "poros", "shape": "8x1", "steps": 8, "s": [14.234, 5.856, 1.729, 1.486, 1.486, 1.447, 1.444, 1.449], "s_med_2_N": 1.486, "s_med_3_N": 1.468, "s_med_2_4": 1.729, "load_s": 21.26, "T1_s": 35.5, "alloc_GiB": 18.0, "reserved_GiB": 20.06, "host_GiB": 11.64, "store": "ssd"
+2026-11-17T07:00:35Z DIG P8_fc4_8x1 vs P8_eff_8x1 ref fb1fb8fff0254c1d cand fb1fb8fff0254c1d pass True losses_eq True gn_eq True tensors 192
+2026-11-17T07:00:35Z start ram_128
+2026-11-17T07:03:58Z end ram_128 RUN ram_128 {"rc": 0, "tool": "poros", "shape": "8x1", "steps": 16, "s": [5.167, 2.449, 2.482, 2.529, 2.548, 2.51, 2.413, 2.501, 2.544, 2.386, 2.531, 2.467, 2.488, 2.537, 2.516, 2.511], "s_med_2_N": 2.51, "s_med_3_N": 2.51, "s_med_2_4": 2.482, "load_s": 128.35, "T1_s": 133.53, "alloc_GiB": 7.4, "res
+2026-11-17T07:03:58Z idle 60 s before fc4_128
+2026-11-17T07:04:58Z start fc4_128
+2026-11-17T07:06:27Z end fc4_128 RUN fc4_128 {"rc": 0, "tool": "poros", "shape": "8x1", "steps": 16, "s": [13.657, 6.123, 2.259, 1.873, 1.684, 1.455, 1.444, 1.474, 1.472, 1.449, 1.454, 1.434, 1.441, 1.467, 1.455, 1.444], "s_med_2_N": 1.455, "s_med_3_N": 1.455, "s_med_2_4": 2.259, "load_s": 20.06, "T1_s": 33.72, "alloc_GiB": 18.19, 
+2026-11-17T07:06:33Z DIG fc4_128 vs ram_128 ref e0d484fcc3939cbf cand e0d484fcc3939cbf pass True losses_eq True gn_eq True tensors 192
+2026-11-17T07:06:33Z idle 60 s before MEM
+2026-11-17T07:07:33Z start MEM_fc4_1x8
+2026-11-17T07:08:49Z end MEM_fc4_1x8 RUN MEM_fc4_1x8 {"rc": 0, "tool": "poros", "shape": "1x8", "steps": 3, "s": [17.287, 10.445, 4.942], "s_med_2_N": 7.693, "s_med_3_N": 4.942, "s_med_2_4": 7.693, "load_s": 17.56, "T1_s": 34.85, "alloc_GiB": 18.1, "reserved_GiB": 19.83, "host_GiB": 11.65, "store": "ssd", "path": "fast", "ran_path": "f
+2026-11-17T07:09:21Z PYTEST PRE (expect the 3 storage tests to fail): 3 failed, 1 passed in 12.79s
+2026-11-17T07:10:58Z PYTEST FIX: 77 passed in 94.33s (0:01:34)
+2026-11-17T07:11:19Z CMP_R8 PASS 32 tensors unequal=[] {'drop0.0_owned': (7, 14), 'drop0.0_n': (14, 14), 'drop0.1_owned': (13, 14), 'drop0.1_n': (14, 14)}
+2026-11-17T07:12:06Z G2 download rc=0 27G free=72G
+2026-11-17T07:12:06Z start G2_qwen15moe_1x8
+2026-11-17T07:13:35Z end G2_qwen15moe_1x8 RUN G2_qwen15moe_1x8 {"rc": 0, "tool": "poros", "shape": "1x8", "steps": 8, "s": [4.789, 3.873, 3.913, 3.922, 3.874, 3.828, 3.911, 3.908], "s_med_2_N": 3.908, "s_med_3_N": 3.91, "s_med_2_4": 3.913, "load_s": 43.66, "T1_s": 48.45, "alloc_GiB": 4.11, "reserved_GiB": 4.33, "host_GiB": 14.79, "store": "
+2026-11-17T07:13:38Z DIG G2_qwen15moe_1x8 vs G2_qwen15moe_1x8 ref 92f6272cd2482deb cand 92f6272cd2482deb pass True losses_eq True gn_eq True tensors 96
+2026-11-17T07:13:44Z G2 model deleted free=98G
+2026-11-17T07:45:07Z FG rc=0 37 PASS 0 FAIL 0 SKIP
+2026-11-17T07:45:07Z H19 DONE elapsed 4020 s free=100G
+2026-11-17T07:56:35Z EXTRA START (lock held) free=100G
+2026-11-17T07:56:35Z start A_ram_1x8_pre
+2026-11-17T07:59:58Z end A_ram_1x8_pre RUN A_ram_1x8_pre {"rc": 0, "tool": "poros", "shape": "1x8", "steps": 8, "s": [7.938, 5.159, 4.913, 5.139, 5.169, 5.09, 5.052, 5.157], "s_med_2_N": 5.139, "s_med_3_N": 5.114, "s_med_2_4": 5.139, "load_s": 127.05, "T1_s": 135.0, "alloc_GiB": 15.6, "reserved_GiB": 16.18, "host_GiB": 21.88, "store": "r
+2026-11-17T08:00:05Z DIG A_ram_1x8_pre 9c627963dd5fe0df tensors 192 tree f00be09afc3b14df1ec8dc4027415bb8df8f5712
+2026-11-17T08:00:05Z start A_ram_1x8_fix2
+2026-11-17T08:03:35Z end A_ram_1x8_fix2 RUN A_ram_1x8_fix2 {"rc": 0, "tool": "poros", "shape": "1x8", "steps": 8, "s": [7.529, 4.179, 5.166, 5.205, 5.302, 5.228, 5.071, 5.171], "s_med_2_N": 5.171, "s_med_3_N": 5.188, "s_med_2_4": 5.166, "load_s": 134.1, "T1_s": 141.64, "alloc_GiB": 7.4, "reserved_GiB": 8.03, "host_GiB": 21.87, "store": "r
+2026-11-17T08:03:42Z DIG A_ram_1x8_fix2 9c627963dd5fe0df tensors 192 tree 269d3bbcd4cff50829ff3a12aa2787a7713bb1af
+2026-11-17T08:03:42Z EXTRA DONE

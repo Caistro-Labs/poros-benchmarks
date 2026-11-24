@@ -1,0 +1,7 @@
+ ✕ Offline
+  │ Qwen/Qwen2.5-7B is not in the local cache, and Hub access is off here (HF_HUB_OFFLINE is set)
+  │ unset HF_HUB_OFFLINE to download it, or name a local model folder
+  │ refused before the model download
+  │ docs poros docs training refusals
+
+poros train ~/rf/h2hf_5d75e31a/gates/resume_repo/a.yaml exited 5

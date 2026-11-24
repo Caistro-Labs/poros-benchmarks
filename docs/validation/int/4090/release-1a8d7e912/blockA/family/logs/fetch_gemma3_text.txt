@@ -1,0 +1,8 @@
+
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+Fetching 8 files:  38%|███▊      | 3/8 [00:00<00:00, 28.41it/s]
+Fetching 8 files:  75%|███████▌  | 6/8 [00:00<00:00,  6.14it/s]
+Fetching 8 files: 100%|██████████| 8/8 [00:04<00:00,  1.40it/s]
+Fetching 8 files: 100%|██████████| 8/8 [00:04<00:00,  1.87it/s]
+FETCH snapshot <home>/poros_rel/hf_cert/fg_models/unsloth_gemma-3-270m__snapshot0 -> <home>/poros_rel/hf_cert/hub/models--unsloth--gemma-3-270m/snapshots/edcf1fe394ee1168e7c5538afd104cfb1f7947e6

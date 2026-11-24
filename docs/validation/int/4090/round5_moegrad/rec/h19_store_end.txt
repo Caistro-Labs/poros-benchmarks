@@ -1,0 +1,5 @@
+total 14623480
+drwxrwxr-x  2 ubuntu ubuntu        4096 2026-11-16 12:35:29.601696998 +0000 .
+drwxrwxr-x 12 ubuntu ubuntu        4096 2026-11-17 02:41:35.138656687 +0000 ..
+-rw-r--r--  1 ubuntu ubuntu 14973669376 2026-11-16 12:35:19.912375626 +0000 Qwen--Qwen3-30B-A3B.moe.sss
+-rw-r--r--  1 ubuntu ubuntu      758554 2026-11-16 12:35:29.599696931 +0000 Qwen--Qwen3-30B-A3B.moe.sss.idx

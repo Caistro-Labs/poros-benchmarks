@@ -1,0 +1,31 @@
+MEMSNAP {"events": 39352, "allocs": 13108, "peak_over_start_gib": 13.226, "peak_event": 12199, "live_at_peak_n": 453, "allocated_at_dump_gib": 15.491}
+SITE {"gib": 10.526, "n": 74, "site": "moe/residency.py:199:_transfer_source_run", "chain": "residency.py:199:_transfer_source_run < residency.py:172:transfer_run < residency.py:407:_bulk < residency.py:370:prefetch"}
+SITE {"gib": 0.848, "n": 53, "site": "train/forward.py:384:_call_layer", "chain": "forward.py:384:_call_layer < forward.py:236:_forward_one_layer < forward.py:214:_forward_block_layers < batching.py:208:run"}
+SITE {"gib": 0.734, "n": 47, "site": "core/fused/norm.py:68:forward", "chain": "norm.py:68:forward < norm.py:95:rms_norm < forward.py:384:_call_layer < forward.py:236:_forward_one_layer"}
+SITE {"gib": 0.281, "n": 2, "site": "moe/store.py:375:dequantize_resident", "chain": "store.py:375:dequantize_resident < store.py:400:decode_experts < fused.py:309:<lambda> < fused.py:509:experts_backward"}
+SITE {"gib": 0.25, "n": 1, "site": "moe/fused.py:507:experts_backward", "chain": "fused.py:507:experts_backward < fused.py:594:backward"}
+SITE {"gib": 0.199, "n": 88, "site": "moe/residency.py:99:transfer", "chain": "residency.py:99:transfer < residency.py:470:_ensure_one < residency.py:335:ensure < fused.py:280:_ensure"}
+SITE {"gib": 0.094, "n": 1, "site": "moe/fused.py:504:experts_backward", "chain": "fused.py:504:experts_backward < fused.py:594:backward"}
+SITE {"gib": 0.07, "n": 8, "site": "core/residency.py:445:load_block_for_inference", "chain": "residency.py:445:load_block_for_inference < block_major.py:305:_load < block_major.py:399:_drive < block_major.py:134:update"}
+SITE {"gib": 0.047, "n": 1, "site": "moe/fused.py:503:experts_backward", "chain": "fused.py:503:experts_backward < fused.py:594:backward"}
+SITE {"gib": 0.032, "n": 4, "site": "core/fused/attention.py:72:sdpa_efficient", "chain": "attention.py:72:sdpa_efficient < attention.py:119:attention_forward < forward.py:384:_call_layer < forward.py:236:_forward_one_layer"}
+SITE {"gib": 0.031, "n": 1, "site": "core/fused/attention.py:69:sdpa_efficient", "chain": "attention.py:69:sdpa_efficient < attention.py:119:attention_forward < forward.py:384:_call_layer < forward.py:236:_forward_one_layer"}
+SITE {"gib": 0.031, "n": 1, "site": "core/fused/attention.py:70:sdpa_efficient", "chain": "attention.py:70:sdpa_efficient < attention.py:119:attention_forward < forward.py:384:_call_layer < forward.py:236:_forward_one_layer"}
+SITE {"gib": 0.024, "n": 4, "site": "moe/fused.py:540:<genexpr>", "chain": "fused.py:540:<genexpr> < fused.py:540:experts_backward < fused.py:594:backward"}
+SITE {"gib": 0.016, "n": 97, "site": "moe/modules.py:434:forward", "chain": "modules.py:434:forward < forward.py:384:_call_layer < forward.py:236:_forward_one_layer < forward.py:214:_forward_block_layers"}
+SITE {"gib": 0.016, "n": 1, "site": "core/tables.py:86:embed_as", "chain": "tables.py:86:embed_as < forward.py:420:_build_inputs < block_major.py:282:_drive < block_major.py:134:update"}
+SITE {"gib": 0.016, "n": 1, "site": "?:0:?", "chain": ""}
+SITE {"gib": 0.004, "n": 2, "site": "moe/fused.py:377:_lora_rows", "chain": "fused.py:377:_lora_rows < fused.py:497:experts_backward < fused.py:594:backward"}
+SITE {"gib": 0.002, "n": 2, "site": "train/forward.py:541:_prepare_decoder_attention", "chain": "forward.py:541:_prepare_decoder_attention < block_major.py:296:_dec < block_major.py:342:_drive < block_major.py:134:update"}
+SITE {"gib": 0.002, "n": 1, "site": "moe/fused.py:506:experts_backward", "chain": "fused.py:506:experts_backward < fused.py:594:backward"}
+SITE {"gib": 0.001, "n": 1, "site": "moe/fused.py:505:experts_backward", "chain": "fused.py:505:experts_backward < fused.py:594:backward"}
+SITE {"gib": 0.0, "n": 2, "site": "moe/fused.py:232:build", "chain": "fused.py:232:build < fused.py:592:backward"}
+SITE {"gib": 0.0, "n": 1, "site": "moe/fused.py:491:experts_backward", "chain": "fused.py:491:experts_backward < fused.py:594:backward"}
+SITE {"gib": 0.0, "n": 1, "site": "moe/fused.py:492:experts_backward", "chain": "fused.py:492:experts_backward < fused.py:594:backward"}
+SITE {"gib": 0.0, "n": 3, "site": "train/loop.py:699:_move_batch_to_device", "chain": "loop.py:699:_move_batch_to_device < loop.py:143:_train_blockwise_adapters < trainer.py:935:train < train_cmd.py:518:_train_and_save"}
+SITE {"gib": 0.0, "n": 1, "site": "moe/fused.py:230:build", "chain": "fused.py:230:build < fused.py:592:backward"}
+SITE {"gib": 0.0, "n": 1, "site": "train/forward.py:456:_build_inputs", "chain": "forward.py:456:_build_inputs < block_major.py:282:_drive < block_major.py:134:update < loop.py:149:_train_blockwise_adapters"}
+SITE {"gib": 0.0, "n": 1, "site": "train/forward.py:475:_build_inputs", "chain": "forward.py:475:_build_inputs < block_major.py:282:_drive < block_major.py:134:update < loop.py:149:_train_blockwise_adapters"}
+SITE {"gib": 0.0, "n": 1, "site": "train/forward.py:510:_prepare_decoder_attention", "chain": "forward.py:510:_prepare_decoder_attention < block_major.py:296:_dec < block_major.py:342:_drive < block_major.py:134:update"}
+SITE {"gib": 0.0, "n": 2, "site": "moe/fused.py:234:build", "chain": "fused.py:234:build < fused.py:592:backward"}
+SITE {"gib": 0.0, "n": 1, "site": "moe/fused.py:306:_chunks", "chain": "fused.py:306:_chunks < fused.py:508:experts_backward < fused.py:594:backward"}

@@ -1,0 +1,183 @@
+........................................................................ [ 16%]
+............................................F........................... [ 32%]
+........................................................................ [ 48%]
+........................................................................ [ 64%]
+........................................................................ [ 80%]
+......................................ssssssssssssssssss........ssss..ss [ 96%]
+ss..ssss..ssssss                                                         [100%]
+=================================== FAILURES ===================================
+____________________ test_every_rank_trains_on_this_card[8] ____________________
+
+tmp_path = PosixPath('<path>')
+rank = 8
+
+    @pytest.mark.parametrize("rank", [8, 16, 32, 64, 128, 256])
+    def test_every_rank_trains_on_this_card(tmp_path, rank):
+        """Fused compute installed, a forward and backward at this rank: no Triton resource error,
+        finite gradients on every adapter. Ranks whose kernels cannot fit even at one stage keep
+        PEFT's modules (fused.install refuses them, saying why)."""
+        model = _model(tmp_path, rank)
+        L._STAGES.clear()
+        counts = fused.install(model)
+        refused = fused.refusals(model)
+        ids = torch.randint(3, 250, (2, 64), device="cuda")
+        out = model(input_ids=ids, labels=ids)
+>       out.loss.backward()
+
+tests/gpu/test_xcard_kernels.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../../venv_poros/lib/python3.12/site-packages/torch/_tensor.py:623: in backward
+    torch.autograd.backward(
+../../../venv_poros/lib/python3.12/site-packages/torch/autograd/__init__.py:395: in backward
+    _engine_run_backward(
+../../../venv_poros/lib/python3.12/site-packages/torch/autograd/graph.py:1072: in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+../../../venv_poros/lib/python3.12/site-packages/torch/autograd/function.py:366: in apply
+    return user_fn(self, *args)
+           ^^^^^^^^^^^^^^^^^^^^
+poros/core/fused/lora.py:427: in backward
+    xg, xu, bg, bu, ag, au, ad, *masks = ctx.saved_tensors
+                                         ^^^^^^^^^^^^^^^^^
+../../../venv_poros/lib/python3.12/site-packages/torch/utils/checkpoint.py:1373: in unpack_hook
+    frame.check_recomputed_tensors_match(gid)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <torch.utils.checkpoint._CheckpointFrame object at 0x7504244b3740>
+gid = 2082
+
+    def check_recomputed_tensors_match(self, gid) -> None:
+        if self.ignore_saved_mismatch:
+            # TODO: we can probably make this check stricter by checking that
+            #       the metadata of the first tensors still match.
+            return
+        # NOTE [ Error handling for checkpoint ]
+        #
+        # At a high level, we need to check that the tensors saved
+        # during original forward matches tensors saved during recompute
+        # This means handling 3 cases:
+        #
+        # 1. During recompute, more tensors were saved.
+        #
+        #    Usually this is hidden due to the StopRecomputationError
+        #    but if early stop is not enabled, or we would have errored
+        #    anyway because there aren't enough weak_holders. But we
+        #    do want to have a nice error. See the _recomputation_hook
+        #    for details.
+        if not len(self.weak_holders) == self.recomp_counter[gid]:
+            # 2. During recompute, fewer tensors were saved
+            #
+            # We know that every time we save something during original forward
+            # we append to weak_holder, and every time we save a tensor
+            # during recompute we increment recompute_counter.
+>           raise CheckpointError(
+                "torch.utils.checkpoint: A different number of tensors was saved "
+                "during the original forward and recomputation.\n"
+                f"Number of tensors saved during forward: {len(self.weak_holders)}\n"
+                f"Number of tensors saved during recomputation: {self.recomp_counter[gid]}.\n"
+                f"{_debug_tip_msg}"
+            )
+E           torch.utils.checkpoint.CheckpointError: torch.utils.checkpoint: A different number of tensors was saved during the original forward and recomputation.
+E           Number of tensors saved during forward: 42
+E           Number of tensors saved during recomputation: 35.
+E           
+E           Tip: To see a more detailed error message, either pass `debug=True` to
+E           `torch.utils.checkpoint.checkpoint(...)` or wrap the code block
+E           with `with torch.utils.checkpoint.set_checkpoint_debug_enabled(True):` to
+E           enable checkpoint‑debug mode globally.
+E           
+E           If this error occurs under torch.compile with automatic_dynamic_shapes enabled,
+E           it may be because the recomputation selected a different compiled graph than the
+E           forward pass (e.g., a dynamic graph instead of the original static graph).
+E           To fix this, either:
+E             - Use torch._dynamo.mark_dynamic() to explicitly mark varying dimensions as
+E               dynamic upfront, avoiding the static-to-dynamic transition.
+E             - Call torch._C._dynamo.eval_frame._set_lru_cache(False) to disable LRU cache
+E               reordering, which can change which graph is checked first between forward
+E               and recompute.
+E           See https://github.com/pytorch/pytorch/issues/166926 for more details and
+E           workaround examples.
+
+../../../venv_poros/lib/python3.12/site-packages/torch/utils/checkpoint.py:1038: CheckpointError
+----------------------------- Captured stderr call -----------------------------
+[transformers] `use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+------------------------------ Captured log call -------------------------------
+WARNING  transformers.utils.generic:logging.py:340 `use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+=============================== warnings summary ===============================
+tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[bf16-classic-0.0]
+tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[bf16-classic-0.1]
+tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[bf16-run-0.0]
+tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[bf16-run-0.1]
+  <path> UserWarning: bf16 blockwise is EXPERIMENTAL: parity is NOT bitwise and the memory/speed tradeoff is steeper. For dense models use quantization='bf16_bitwise' (bitwise-validated). Plain bf16 remains for arches where bitwise is structurally unavailable (e.g. MXFP4-native MoE dequantized to bf16). Use nf4 for the validated, bitwise path.
+    poros_model = PorosModel.from_pretrained(
+
+tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[fp16-classic-0.0]
+tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[fp16-classic-0.1]
+tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[fp16-run-0.0]
+tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[fp16-run-0.1]
+  <path> UserWarning: fp16 blockwise is EXPERIMENTAL: parity is NOT bitwise and the memory/speed tradeoff is steeper. Experimental; same streaming caveats as bf16. v2. Use nf4 for the validated, bitwise path.
+    poros_model = PorosModel.from_pretrained(
+
+tests/gpu/test_block_major_16bit.py::test_bf16_bitwise_block_major_asked_for_equals_sequential_with_dropout[classic]
+tests/gpu/test_block_major_16bit.py::test_bf16_bitwise_block_major_asked_for_equals_sequential_with_dropout[run]
+  <path> UserWarning: bf16_bitwise blockwise is EXPERIMENTAL: the path targets bitwise parity but is not yet validated at scale. Dense BF16 blockwise runtime with strict determinism and resident adapters. Bitwise parity validated at 32B (docs/validation/bf16/); bandwidth-bound -- prefer high-bandwidth buses. Use nf4 for the validated, bitwise path.
+    poros_model = PorosModel.from_pretrained(
+
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_bf16[None-1]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_bf16[None-2]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_bf16[1-1]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_bf16[1-2]
+  <path> UserWarning: The loaded model is unquantized (bf16/fp16), so Poros is on the EXPERIMENTAL non-bitwise path: roughly 10x slower with NO VRAM win and NO NF4 bitwise-parity guarantee. For the validated NF4 path, load with BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type='nf4', bnb_4bit_compute_dtype=torch.bfloat16, bnb_4bit_use_double_quant=True).
+    poros.patch_hf_model(model, block_size=block_size, arch_check="warn")
+
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[1]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[1]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[2]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[2]
+  <path> UserWarning: inner dimension (16) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+    warn(
+
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[1]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[1]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[2]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[2]
+  <path> UserWarning: inner dimension (32) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+    warn(
+
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[1]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[1]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[2]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[2]
+  <path> UserWarning: inner dimension (96) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+    warn(
+
+tests/test_gpu_auto_prepare.py::test_prepare_peft_lora_backward_has_grads
+  <path> UserWarning: precision='auto' but the loaded model is unquantized 'bf16': Poros is on the EXPERIMENTAL non-bitwise path -- roughly 10x slower, NO VRAM win, and NO NF4 bitwise-parity guarantee. For the validated NF4 path, load with BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type='nf4', bnb_4bit_compute_dtype=torch.bfloat16, bnb_4bit_use_double_quant=True). If you really want 'bf16', pass precision='bf16' explicitly to silence this warning.
+    poros.prepare(model, guarantee="validated", verbose=False)
+
+tests/test_gpu_auto_prepare.py::test_prepare_peft_lora_backward_has_grads
+  <path> UserWarning: precision='auto' but the loaded model is unquantized 'bf16': Poros is on the EXPERIMENTAL non-bitwise path -- roughly 10x slower, NO VRAM win, and NO NF4 bitwise-parity guarantee. For the validated NF4 path, load with BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type='nf4', bnb_4bit_compute_dtype=torch.bfloat16, bnb_4bit_use_double_quant=True). If you really want 'bf16', pass precision='bf16' explicitly to silence this warning.
+    model = poros.prepare(model, guarantee="best_effort", verbose=False)
+
+tests/test_gpu_auto_prepare.py::test_prepare_errors_on_full_finetune_gpu
+  <path> UserWarning: precision='auto' but the loaded model is unquantized 'bf16': Poros is on the EXPERIMENTAL non-bitwise path -- roughly 10x slower, NO VRAM win, and NO NF4 bitwise-parity guarantee. For the validated NF4 path, load with BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type='nf4', bnb_4bit_compute_dtype=torch.bfloat16, bnb_4bit_use_double_quant=True). If you really want 'bf16', pass precision='bf16' explicitly to silence this warning.
+    poros.prepare(model, verbose=False)
+
+tests/test_gpu_auto_prepare.py::test_prepare_unprepare_round_trip
+  <path> UserWarning: precision='auto' but the loaded model is unquantized 'bf16': Poros is on the EXPERIMENTAL non-bitwise path -- roughly 10x slower, NO VRAM win, and NO NF4 bitwise-parity guarantee. For the validated NF4 path, load with BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type='nf4', bnb_4bit_compute_dtype=torch.bfloat16, bnb_4bit_use_double_quant=True). If you really want 'bf16', pass precision='bf16' explicitly to silence this warning.
+    poros.prepare(model, verbose=False)
+
+tests/test_gpu_auto_prepare.py::test_prepare_unprepare_round_trip
+  <path> UserWarning: precision='auto' but the loaded model is unquantized 'bf16': Poros is on the EXPERIMENTAL non-bitwise path -- roughly 10x slower, NO VRAM win, and NO NF4 bitwise-parity guarantee. For the validated NF4 path, load with BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type='nf4', bnb_4bit_compute_dtype=torch.bfloat16, bnb_4bit_use_double_quant=True). If you really want 'bf16', pass precision='bf16' explicitly to silence this warning.
+    poros.prepare(model, verbose=False)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/gpu/test_xcard_kernels.py::test_every_rank_trains_on_this_card[8]
+SKIPPED [1] tests/gpu/test_glm_dsa_flex.py:24: no DSA flex pin for this host: torch-2.14.1+cu130_triton-3.8.0_NVIDIA_GeForce_RTX_4090.json
+SKIPPED [1] tests/gpu/test_glm_fla_pinned.py:25: CUDA and fla-core required
+SKIPPED [1] tests/gpu/test_glm_grouped_experts.py:24: no grouped-expert pin for this host: torch-2.14.1+cu130_NVIDIA_GeForce_RTX_4090.json
+SKIPPED [18] tests/test_run_block_major_cuda.py:115: a MoE model's expert compute
+SKIPPED [16] tests/test_run_block_major_cuda.py:113: a MoE model's block sizes: tests/moe/test_block_major_families.py
+SKIPPED [1] tests/test_run_block_major_cuda.py:161: dense
+SKIPPED [1] tests/test_run_block_major_cuda.py:189: dense
+1 failed, 411 passed, 39 skipped, 4331 deselected, 31 warnings in 1720.54s (0:28:40)

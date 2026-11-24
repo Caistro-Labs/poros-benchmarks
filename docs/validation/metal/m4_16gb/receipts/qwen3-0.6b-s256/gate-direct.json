@@ -1,0 +1,135 @@
+{
+ "schema": "poros.metal.receipt.v1",
+ "gate": "direct",
+ "model": "Qwen/Qwen3-0.6B",
+ "seq": 256,
+ "g": 1,
+ "steps": 20,
+ "first_microstep": 0,
+ "expected_records": 20,
+ "lora_dropout": 0.05,
+ "pin": {
+  "chip": "apple-m4",
+  "gpu_cores": "10",
+  "macos_build": "26B123",
+  "python": "3.12.16",
+  "torch": "2.15.0",
+  "torch_hash": "d0f2af8b66b20da4baa50644c0cd3f887a2eae2e",
+  "transformers": "5.20.2",
+  "peft": "0.20.0",
+  "shader_sha256": "e4583316b09a4112c2e9dcbad22d3604e421f0f076fb52eb0f1203429639b24a",
+  "route": "linear",
+  "ssd_sha256": "f2172e00f30ad0cfc232e84c2e6a906e6e7d253daa7d544a2b5d2d6c3776bb10",
+  "poros_commit": "fe96f4fc",
+  "engine_tree_hash": "104f71b68103dcbc2d15ed6a762754ce8810461afa186f78349933c54211d238",
+  "wheel_hash": "none"
+ },
+ "arms": [
+  {
+   "name": "plain",
+   "records": 20,
+   "microsteps": 20,
+   "nonfinite": 0,
+   "nonzero_grad_fraction": 0.5454545454545454,
+   "transcript_b2": "3dc072011a312c4d1701c701abf0bcce4125c31ef39d048f678d0e38a1baf153",
+   "pin": {
+    "chip": "apple-m4",
+    "gpu_cores": "10",
+    "macos_build": "26B123",
+    "python": "3.12.16",
+    "torch": "2.15.0",
+    "torch_hash": "d0f2af8b66b20da4baa50644c0cd3f887a2eae2e",
+    "transformers": "5.20.2",
+    "peft": "0.20.0",
+    "shader_sha256": "e4583316b09a4112c2e9dcbad22d3604e421f0f076fb52eb0f1203429639b24a",
+    "route": "linear",
+    "ssd_sha256": "f2172e00f30ad0cfc232e84c2e6a906e6e7d253daa7d544a2b5d2d6c3776bb10",
+    "poros_commit": "fe96f4fc",
+    "engine_tree_hash": "104f71b68103dcbc2d15ed6a762754ce8810461afa186f78349933c54211d238",
+    "wheel_hash": "none"
+   },
+   "digests": {
+    "losses": "ad584790522ec280cfcc80d25aaa513b74e0250f59fc6fc1d8d8891c36e3c0c4",
+    "logits": "5af910a74d9866f013da8185fc0ac0ff24a6c21fe6b4ba21407ea24847d8dba9",
+    "grads": "2a28e5dfd7b695011bcd8b1551caaf0d451343356250a40f0f74b60233a33d90",
+    "adapter": "33ba1be331cb8a9daf850505d2e5c41b69196fd1e4095ac194d71a27eba79291",
+    "adam": "73ae3069b494c566cc650f72447cd2a01016b212faf21c09518ec7f4dac4f621",
+    "scheduler": "89a2bd5ea75509169f296f4a119b41e3820abad5457eee08a740c78c9bb51299"
+   }
+  },
+  {
+   "name": "mono",
+   "records": 20,
+   "microsteps": 20,
+   "nonfinite": 0,
+   "nonzero_grad_fraction": 0.5454545454545454,
+   "transcript_b2": "ee41d1a75033c7be2721e5706811a3da7846d3954fe6f88d6270f0f88205b149",
+   "pin": {
+    "chip": "apple-m4",
+    "gpu_cores": "10",
+    "macos_build": "26B123",
+    "python": "3.12.16",
+    "torch": "2.15.0",
+    "torch_hash": "d0f2af8b66b20da4baa50644c0cd3f887a2eae2e",
+    "transformers": "5.20.2",
+    "peft": "0.20.0",
+    "shader_sha256": "e4583316b09a4112c2e9dcbad22d3604e421f0f076fb52eb0f1203429639b24a",
+    "route": "linear",
+    "ssd_sha256": "f2172e00f30ad0cfc232e84c2e6a906e6e7d253daa7d544a2b5d2d6c3776bb10",
+    "poros_commit": "fe96f4fc",
+    "engine_tree_hash": "104f71b68103dcbc2d15ed6a762754ce8810461afa186f78349933c54211d238",
+    "wheel_hash": "none"
+   },
+   "digests": {
+    "losses": "ad584790522ec280cfcc80d25aaa513b74e0250f59fc6fc1d8d8891c36e3c0c4",
+    "logits": "5af910a74d9866f013da8185fc0ac0ff24a6c21fe6b4ba21407ea24847d8dba9",
+    "grads": "2a28e5dfd7b695011bcd8b1551caaf0d451343356250a40f0f74b60233a33d90",
+    "adapter": "33ba1be331cb8a9daf850505d2e5c41b69196fd1e4095ac194d71a27eba79291",
+    "adam": "73ae3069b494c566cc650f72447cd2a01016b212faf21c09518ec7f4dac4f621",
+    "scheduler": "89a2bd5ea75509169f296f4a119b41e3820abad5457eee08a740c78c9bb51299"
+   }
+  },
+  {
+   "name": "ram-loop",
+   "records": 20,
+   "microsteps": 20,
+   "nonfinite": 0,
+   "nonzero_grad_fraction": 0.5454545454545454,
+   "transcript_b2": "eb2bfb06bb1c16735957e02ba4c7b374882d990e04e2385fffadf6df85286359",
+   "pin": {
+    "chip": "apple-m4",
+    "gpu_cores": "10",
+    "macos_build": "26B123",
+    "python": "3.12.16",
+    "torch": "2.15.0",
+    "torch_hash": "d0f2af8b66b20da4baa50644c0cd3f887a2eae2e",
+    "transformers": "5.20.2",
+    "peft": "0.20.0",
+    "shader_sha256": "e4583316b09a4112c2e9dcbad22d3604e421f0f076fb52eb0f1203429639b24a",
+    "route": "linear",
+    "ssd_sha256": "f2172e00f30ad0cfc232e84c2e6a906e6e7d253daa7d544a2b5d2d6c3776bb10",
+    "poros_commit": "fe96f4fc",
+    "engine_tree_hash": "104f71b68103dcbc2d15ed6a762754ce8810461afa186f78349933c54211d238",
+    "wheel_hash": "none"
+   },
+   "digests": {
+    "losses": "ad584790522ec280cfcc80d25aaa513b74e0250f59fc6fc1d8d8891c36e3c0c4",
+    "logits": "5af910a74d9866f013da8185fc0ac0ff24a6c21fe6b4ba21407ea24847d8dba9",
+    "grads": "2a28e5dfd7b695011bcd8b1551caaf0d451343356250a40f0f74b60233a33d90",
+    "adapter": "33ba1be331cb8a9daf850505d2e5c41b69196fd1e4095ac194d71a27eba79291",
+    "adam": "73ae3069b494c566cc650f72447cd2a01016b212faf21c09518ec7f4dac4f621",
+    "scheduler": "89a2bd5ea75509169f296f4a119b41e3820abad5457eee08a740c78c9bb51299"
+   }
+  }
+ ],
+ "witness": {
+  "checked": 560,
+  "expected": 560,
+  "mismatches": 0
+ },
+ "swap_delta_gb": 0.0,
+ "pass": true,
+ "probe": null,
+ "failures": [],
+ "sealed_b2": "685f3d79f10f35201c9e29324e0746401ee5ab66b4e40342e5780b639add227c"
+}

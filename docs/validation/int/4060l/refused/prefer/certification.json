@@ -1,0 +1,37 @@
+{
+ "schema": "poros.certify.run.v1",
+ "recipe": "prefer",
+ "commit": "23855d16882869c9dd7655c7729249264c9e8b3d",
+ "tree_clean": true,
+ "simulated": false,
+ "machine": {
+  "platform": "cuda",
+  "gpu": "RTX 4060 Laptop GPU",
+  "vram_gib": 7.68,
+  "host_ram_gib": 14.901,
+  "mac_class": null,
+  "os": "Linux-7.2.8-9-omarchy-x86_64-with-glibc2.44",
+  "os_version": "Omarchy",
+  "python": "3.12.13",
+  "torch": "2.14.1",
+  "transformers": "5.22.2",
+  "bitsandbytes": "0.50.2",
+  "driver": "615.78.08"
+ },
+ "plan": {
+  "updates": 16,
+  "resume": true,
+  "eval": true,
+  "machine": "rtx4060-laptop"
+ },
+ "status": "refused before start",
+ "failed": [
+  {
+   "phase": "prepare",
+   "reason": "train asked: Predicted not to fit: bounded: a run no larger (qwen2.5-7b-rtx4090-oasst1-fused-efficient-b1-1x8) peaked at 7.628 GiB allocated, over the 6.79 GiB here; --seq-len 256 is not refused (allocated peak, at most 8.922 GiB, may not fit 6.79 GiB free (estimated: the sequential loop's at these settings, plus the efficient path))",
+   "log_tail": [
+    "{\"schema\":\"poros.needs_input.v1\",\"verb\":\"train\",\"questions\":[{\"id\":\"wont_fit\",\"prompt\":\"Predicted not to fit: bounded: a run no larger (qwen2.5-7b-rtx4090-oasst1-fused-efficient-b1-1x8) peaked at 7.628 GiB allocated, over the 6.79 GiB here; --seq-len 256 is not refused (allocated peak, at most 8.922 GiB, may not fit 6.79 GiB free (estimated: the sequential loop's at these settings, plus the efficient path))\",\"choices\":[{\"value\":\"--force\",\"label\":\"Start anyway\",\"note\":\"\",\"command\":\"poros train Qwen/Qwen2.5-7B-Instruct --data <work>/sample-pairs.jsonl --recipe dpo --seq-len 512 --rank 16 --block-size 4 --store ram --steps 1 --name cert-prefer-prepare --yes --json --download --force lora_alpha=32 lora_dropout=0 per_device_batch_size=1 gradient_accumulation_steps=8 learning_rate=5e-6 dpo_beta=0.1\"}],\"default\":null,\"remember\":null}]}"
+   ]
+  }
+ ]
+}

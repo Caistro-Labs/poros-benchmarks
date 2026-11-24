@@ -1,0 +1,34 @@
+▛▜ poros v1.0.0 · <home>/poros_rel/hf_cert/fg_models/google_gemma-4-31B__text6
+
+● Checked gemma4_text_eff.yaml  config
+  │ nf4 · block 4 · rank 16 · seq 512 · efficient path
+  │ classic · every token · lr 2e-5
+  │ output    ~/poros_rel/cert/out/family/fg/runs/gemma4_text_eff
+  │ eval      none held out  this loop trains every row
+  │           to score held-out rows, give a file of them: eval_dataset, or --eval FILE; or recipe sft (--recipe sft), which holds 5% of 40 rows or more out
+
+● Loaded google_gemma-4-31B__text6  11s
+  │ dense · 6 layers · 2 blocks
+step 1/8  loss 40.0953  2.35 s/step  vram 5.5 GiB (peak 10.2)  eta 16s
+
+  ╭─ Trained ────────────────────────────────────────────────────────── 8 steps · classic · 25s ─╮
+  │                       ▁                                              final loss              │
+  │                     ▃▆██▅▂                                           41.1106  ↑ 3%           │
+  │   42             ▂▅███████▇▃                  ▁▃▅▆▅▄▃▂▁              from 40.0953            │
+  │               ▁▄▇████████████▅▂           ▁▃▅▇██████████▇▆▅▅▄▄▃▃▂▂▁                          │
+  │         ▁▂▃▄▆▇█████████████████▆▆▆▅▅▅▅▅▅▅▇█████████████████████████  vram 10.3 GiB peak      │
+  │   40 ▅▆████████████████████████████████████████████████████████████  ram  13.3 GiB peak      │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │   38 ██████████████████████████████████████████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                                  4                         8                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      2,059 tok/s
+  │
+  │ adapter    ~/poros_rel/cert/out/family/fg/runs/gemma4_text_eff
+  │ receipt    ~/poros_rel/cert/out/family/fg/runs/gemma4_text_eff/receipt.json
+
+Continue with: poros eval <home>/poros_rel/cert/out/family/fg/cfg/gemma4_text_eff.yaml
+{"schema":"poros.train.v1","learned":null,"output_dir":"<home>/poros_rel/cert/out/family/fg/runs/gemma4_text_eff","events":"<home>/poros_rel/cert/out/family/fg/runs/gemma4_text_eff/events.jsonl","metrics":{"device":"cuda:0","total_steps":8,"final_loss":41.110591888427734,"loss_history":[40.095272064208984,40.98421859741211,43.188865661621094,40.816158294677734,40.726131439208984,42.16853332519531,41.44593811035156,41.110591888427734],"grad_norm_history":[2.9543540477752686,2.2982261180877686,2.6081695556640625,3.1574666500091553,2.9295637607574463,2.4506802558898926,2.963653564453125,3.3539109230041504],"eval_history":[],"total_time_s":11.50432562455535,"step_time_history":[2.3541799280792475,1.1534179337322712,1.4591557290405035,1.2817555759102106,1.3334772568196058,1.3428189642727375,1.2135605569928885,1.3659596797078848],"vram_alloc_history_mb":[5897.86624,5897.841664,5897.860096,5897.849344,5897.85088,5897.852416,5897.844736,5897.853952],"avg_vram_allocated_mb":5897.852416,"avg_step_time_ms":1438.0407030694187,"steps_per_sec":0.6953906088093021,"tokens_processed":23689,"tokens_per_sec":2059.138516510445,"peak_vram_allocated_gb":11.012448256,"peak_vram_reserved_gb":12.241076224,"torch_num_threads":16,"quantization":"nf4","block_size":4,"adapter_backend":"peft","adapter_summary":{"backend":"peft","target_module_names":"all-linear","trainable_param_count":12242944,"total_param_count":2886003456}},"run":null,"command":null,"next":[],"plan":null,"from":null,"support":null,"model_type":null}

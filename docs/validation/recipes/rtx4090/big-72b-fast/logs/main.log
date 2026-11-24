@@ -1,0 +1,59 @@
+▛▜ poros v1.0.0 · Qwen/Qwen2.5-72B-Instruct · RTX 4090 23.5 GiB
+
+● Checked cert-big-72b-fast  run 1124-1450-0367
+  │ nf4 · block 4 · rank 16 · seq 512 · fast path
+  │ SFT · answers only · lr 2e-4
+  │ output    homes/big-72b-fast/runs/1124-1450-0367
+  │ eval      7 rows held out  scored at the start, each checkpoint and the end
+
+● Loaded Qwen2.5-72B-Instruct  4m 40s
+  │ dense · 80 layers · 20 blocks
+● Scored the base  held out 6.4748 · ends its answers 0 of 0
+[W1124 14:55:36.721772813 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 20643840, total: 25250627584).
+step 1/16  loss 6.5025  16.26 s/step  vram 3.5 GiB (peak 16.7)  eta 4m 04s
+[W1124 14:55:57.535378578 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 8060928, total: 25250627584).
+[W1124 14:56:12.210949448 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 8060928, total: 25250627584).
+step 3/16  loss 6.4306  15.73 s/step  vram 3.5 GiB (peak 18.3)  eta 3m 47s
+[W1124 14:56:28.956457227 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 8060928, total: 25250627584).
+[W1124 14:56:44.725318880 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 8060928, total: 25250627584).
+step 5/16  loss 6.2737  15.77 s/step  vram 3.5 GiB (peak 18.3)  eta 3m 05s
+[W1124 14:57:00.505039720 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 8060928, total: 25250627584).
+[W1124 14:57:15.290121365 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 8060928, total: 25250627584).
+step 7/16  loss 5.9663  15.77 s/step  vram 3.5 GiB (peak 18.3)  eta 2m 29s
+[W1124 14:57:31.065096654 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 8060928, total: 25250627584).
+[W1124 14:57:47.831259200 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 8060928, total: 25250627584).
+step 9/16  loss 5.7008  15.77 s/step  vram 3.5 GiB (peak 18.3)  eta 1m 54s
+[W1124 14:58:03.596473369 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 8060928, total: 25250627584).
+[W1124 14:58:18.358653555 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 8060928, total: 25250627584).
+step 11/16  loss 5.5574  15.75 s/step  vram 3.5 GiB (peak 18.3)  eta 1m 21s
+[W1124 14:58:50.534394729 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 8060928, total: 25250627584).
+step 13/16  loss 5.4910  15.76 s/step  vram 3.5 GiB (peak 18.3)  eta 48s
+[W1124 14:59:05.285334996 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 8060928, total: 25250627584).
+[W1124 14:59:20.207852590 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 8060928, total: 25250627584).
+[W1124 14:59:21.421905586 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 10158080, total: 25250627584).
+step 15/16  loss 5.4683  16.09 s/step  vram 3.5 GiB (peak 18.3)  eta 16s
+[W1124 14:59:37.149899532 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 8060928, total: 25250627584).
+● Scored step 16  held out 5.4460 ↓ 16% · ends its answers 0 of 0
+
+  ╭─ Trained  Learned well ──────────────────────────────────────────── 16 steps · SFT · 5m 03s ─╮
+  │                                                                      final loss              │
+  │                                                                      5.4454  ↓ 16%           │
+  │  6.5 ○▄▄▄▃▁                                                                                  │
+  │      ██████▇▅▃▁                                                        step  held out  ends  │
+  │      ██████████▇▅▃▁                                                  ○ base    6.4748   0/0  │
+  │  6.0 ██████████████▆▄▁                                               ●   16    5.4460   0/0  │
+  │      █████████████████▇▅▃▂                                                                   │
+  │      ██████████████████████▇▆▅▄▃▂▁                                   vram 18.3 GiB peak      │
+  │  5.5 ██████████████████████████████▇▆▆▅▅▄▄▄▄▄▃▃▃▃▃▃▃▃▃▂▂▂▂▂▂▂▂▂▂▂▁○  ram  43.1 GiB peak      │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                                8                          16                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      255 tok/s
+  │
+  │ adapter    homes/big-72b-fast/runs/1124-1450-0367
+  │ receipt    homes/big-72b-fast/runs/1124-1450-0367/receipt.json
+
+Continue with: poros eval 1124-1450-0367
+Keep it as a recipe: poros recipes save last
+{"schema":"poros.train.v1","learned":null,"output_dir":"<home>/runs/1124-1450-0367","events":"<home>/runs/1124-1450-0367/events.jsonl","metrics":{"device":"cuda:0","total_steps":16,"final_loss":5.445367455482483,"loss_history":[6.502481400966644,6.4890100955963135,6.300252377986908,6.142739653587341,5.933785974979401,5.768044471740723,5.6866415143013,5.590110719203949,5.525610983371735,5.4969547390937805,5.48751175403595,5.477201461791992,5.467838525772095,5.458345413208008,5.450773656368256,5.445367455482483],"grad_norm_history":[0.6270484328269958,0.6218576431274414,0.46533650159835815,0.7136626839637756,0.861813485622406,0.803045392036438,1.1730201244354248,1.3264750242233276,1.0333932638168335,0.9265921711921692,1.0269094705581665,1.0274286270141602,0.9482883214950562,0.8948288559913635,0.8015695810317993,0.7817984223365784],"eval_history":[{"step":0,"eval_loss":6.47477000100272,"eval_perplexity":648.57003999617,"ends":0,"answer_rows":0},{"step":15,"eval_loss":5.445955548967634,"eval_perplexity":231.81868802005337,"ends":0,"answer_rows":0}],"total_time_s":257.43184691667557,"step_time_history":[16.25864347629249,20.496258279308677,15.733818888664246,15.768863044679165,15.771044559776783,15.786873456090689,15.771375559270382,15.765212194994092,15.766090039163828,15.756966099143028,15.754461634904146,15.416479667648673,15.756067622452974,15.76800611242652,16.08709928765893,15.774586994200945],"vram_alloc_history_mb":[3708.9792,3708.9792,3708.9792,3708.9792,3708.9792,3708.9792,3708.9792,3708.9792,3708.9792,3708.9792,3708.9792,3708.9792,3708.9792,3708.9792,3708.9792,3708.9792],"avg_vram_allocated_mb":3708.9792,"avg_step_time_ms":16089.490432292223,"steps_per_sec":0.06215237233324442,"tokens_processed":65536,"tokens_per_sec":254.57611707696915,"peak_vram_allocated_gb":19.62605568,"peak_vram_reserved_gb":23.269998592,"torch_num_threads":16,"quantization":"nf4","block_size":4,"adapter_backend":"peft","adapter_summary":{"backend":"peft","target_module_names":"all-linear","trainable_param_count":210534400,"total_param_count":37810413568},"eval_loss_start":6.47477000100272,"eval_loss":5.445955548967634,"eval_ends":0,"eval_answer_rows":0},"run":"1124-1450-0367","command":"poros train Qwen/Qwen2.5-72B-Instruct --data <work>/sample-chats.jsonl --steps 16 --seq-len 512 --rank 16 --block-size 4 --name cert-big-72b-fast --recipe sft gradient_accumulation_steps=8 learning_rate=2e-4 lora_alpha=32 lora_dropout=0 offload_embeddings_and_head=true path=fast per_device_batch_size=1 store=ram --download","next":[],"plan":null,"from":null,"support":null,"model_type":null}

@@ -1,0 +1,22 @@
+{
+ "gate": "run-to-run repeat",
+ "pass": true,
+ "runs": [
+  "c8_poros_eff_r1",
+  "c8_poros_eff_r2",
+  "c8_poros_eff_r3"
+ ],
+ "what": "the same command run again gives the same adapter, bit for bit: one sha256 over every adapter tensor, and every update's loss and grad norm equal",
+ "adapter_digest": [
+  "ca012ec2f543e8863269aa3917b5bb5b3508b14f449d498d03f2e55eb5765ba0",
+  "ca012ec2f543e8863269aa3917b5bb5b3508b14f449d498d03f2e55eb5765ba0",
+  "ca012ec2f543e8863269aa3917b5bb5b3508b14f449d498d03f2e55eb5765ba0"
+ ],
+ "updates": [
+  16,
+  16,
+  16
+ ],
+ "losses_equal": true,
+ "grad_norms_equal": true
+}

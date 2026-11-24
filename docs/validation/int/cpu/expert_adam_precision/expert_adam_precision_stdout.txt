@@ -1,0 +1,56 @@
+2e-06 constant  fp32 seed sd 6.9e-07
+  fp32         minus fp32 ['+0.0e+00', '+0.0e+00', '+0.0e+00']  dist [0.0, 0.0, 0.0]  w-same 0.000
+  bf16         minus fp32 ['+2.3e-04', '+2.3e-04', '+2.3e-04']  dist [0.7442, 0.7446, 0.7439]  w-same 0.924
+  v2           minus fp32 ['+2.6e-08', '+3.9e-08', '+9.7e-08']  dist [0.0085, 0.0084, 0.0084]  w-same 0.019
+  expert_adamw minus fp32 ['-1.5e-08', '+1.9e-08', '-1.9e-09']  dist [0.0085, 0.0084, 0.0085]  w-same 0.019
+2e-05 constant  fp32 seed sd 4.3e-05
+  fp32         minus fp32 ['+0.0e+00', '+0.0e+00', '+0.0e+00']  dist [0.0, 0.0, 0.0]  w-same 0.000
+  bf16         minus fp32 ['+9.2e-03', '+9.3e-03', '+9.2e-03']  dist [0.9333, 0.9344, 0.9339]  w-same 0.899
+  v2           minus fp32 ['-1.1e-06', '-1.0e-06', '-2.2e-06']  dist [0.0037, 0.0036, 0.0037]  w-same 0.004
+  expert_adamw minus fp32 ['-1.9e-06', '-1.7e-06', '-2.4e-06']  dist [0.0036, 0.0036, 0.0037]  w-same 0.004
+0.0002 constant  fp32 seed sd 1.0e-05
+  fp32         minus fp32 ['+0.0e+00', '+0.0e+00', '+0.0e+00']  dist [0.0, 0.0, 0.0]  w-same 0.000
+  bf16         minus fp32 ['+6.4e-05', '+9.4e-05', '+7.6e-05']  dist [0.1452, 0.1633, 0.1479]  w-same 0.667
+  v2           minus fp32 ['-1.9e-07', '+2.3e-06', '-1.0e-07']  dist [0.0021, 0.0133, 0.0015]  w-same 0.001
+  expert_adamw minus fp32 ['-5.5e-07', '+5.9e-07', '+3.3e-07']  dist [0.005, 0.0054, 0.0016]  w-same 0.001
+2e-05 cosine  fp32 seed sd 2.0e-05
+  fp32         minus fp32 ['+0.0e+00', '+0.0e+00', '+0.0e+00']  dist [0.0, 0.0, 0.0]  w-same 0.012
+  bf16         minus fp32 ['+5.8e-03', '+5.8e-03', '+5.8e-03']  dist [0.8959, 0.8951, 0.8949]  w-same 0.973
+  v2           minus fp32 ['-5.3e-07', '+6.3e-07', '+9.2e-07']  dist [0.0041, 0.0041, 0.0042]  w-same 0.108
+  expert_adamw minus fp32 ['-1.5e-06', '+6.2e-08', '-1.1e-06']  dist [0.0041, 0.0041, 0.0042]  w-same 0.102
+0.0002 cosine  fp32 seed sd 7.5e-06
+  fp32         minus fp32 ['+0.0e+00', '+0.0e+00', '+0.0e+00']  dist [0.0, 0.0, 0.0]  w-same 0.007
+  bf16         minus fp32 ['+3.4e-04', '+3.6e-04', '+3.1e-04']  dist [0.1825, 0.1845, 0.1761]  w-same 0.915
+  v2           minus fp32 ['-5.4e-08', '+4.7e-10', '-3.3e-08']  dist [0.0019, 0.001, 0.0009]  w-same 0.067
+  expert_adamw minus fp32 ['-2.3e-07', '+1.2e-07', '+1.8e-07']  dist [0.0018, 0.0012, 0.0009]  w-same 0.063
+2e-05 constant (idle=50/500)  fp32 seed sd 4.0e-05
+  fp32         minus fp32 ['+0.0e+00', '+0.0e+00', '+0.0e+00']  dist [0.0, 0.0, 0.0]  w-same 0.003  idle shrink / fp32's [1.0, 1.0, 1.0]
+  bf16         minus fp32 ['+4.7e-03', '+4.7e-03', '+4.7e-03']  dist [0.9294, 0.9298, 0.9295]  w-same 0.921  idle shrink / fp32's [0.0, 0.0, 0.0]
+  v2           minus fp32 ['-2.6e-07', '-9.6e-07', '-6.8e-07']  dist [0.0037, 0.0037, 0.0037]  w-same 0.385  idle shrink / fp32's [0.012, 0.012, 0.013]
+  expert_adamw minus fp32 ['-4.8e-07', '-6.1e-07', '-1.1e-06']  dist [0.0037, 0.0036, 0.0037]  w-same 0.362  idle shrink / fp32's [1.0, 0.999, 1.0]
+2e-05 constant (wd=0.1, idle=50/500)  fp32 seed sd 4.0e-05
+  fp32         minus fp32 ['+0.0e+00', '+0.0e+00', '+0.0e+00']  dist [0.0, 0.0, 0.0]  w-same 0.000  idle shrink / fp32's [1.0, 1.0, 1.0]
+  bf16         minus fp32 ['+4.8e-03', '+4.7e-03', '+4.7e-03']  dist [0.9294, 0.9299, 0.9296]  w-same 0.921  idle shrink / fp32's [0.0, 0.0, 0.0]
+  v2           minus fp32 ['-6.5e-07', '-1.1e-06', '-1.0e-06']  dist [0.0038, 0.0037, 0.0037]  w-same 0.324  idle shrink / fp32's [0.186, 0.186, 0.186]
+  expert_adamw minus fp32 ['-5.8e-07', '-6.1e-07', '-1.1e-06']  dist [0.0037, 0.0036, 0.0037]  w-same 0.236  idle shrink / fp32's [1.0, 1.0, 1.0]
+2e-05 cosine (steps=4000)  fp32 seed sd 6.9e-05
+  fp32         minus fp32 ['+0.0e+00', '+0.0e+00', '+0.0e+00']  dist [0.0, 0.0, 0.0]  w-same 0.017
+  bf16         minus fp32 ['+9.6e-03', '+9.4e-03', '+9.4e-03']  dist [0.9471, 0.9472, 0.9468]  w-same 0.987
+  v2           minus fp32 ['-1.4e-07', '+4.8e-07', '-3.4e-08']  dist [0.0034, 0.0035, 0.0035]  w-same 0.143
+  expert_adamw minus fp32 ['-2.5e-06', '-1.4e-06', '-1.8e-06']  dist [0.0034, 0.0034, 0.0036]  w-same 0.134
+2e-07 constant  fp32 seed sd 4.7e-08
+  fp32         minus fp32 ['+0.0e+00', '+0.0e+00', '+0.0e+00']  dist [0.0, 0.0, 0.0]  w-same 0.008
+  bf16         minus fp32 ['+7.2e-06', '+7.2e-06', '+7.3e-06']  dist [0.6385, 0.6393, 0.6393]  w-same 0.932
+  v2           minus fp32 ['+2.1e-07', '+2.1e-07', '+2.2e-07']  dist [0.0117, 0.0119, 0.0117]  w-same 0.325
+  expert_adamw minus fp32 ['+6.9e-08', '+6.5e-08', '+6.7e-08']  dist [0.0099, 0.0099, 0.0098]  w-same 0.284
+2e-05 constant (beta1=0.99, noise=0.01)  fp32 seed sd 6.0e-05
+  fp32         minus fp32 ['+0.0e+00', '+0.0e+00', '+0.0e+00']  dist [0.0, 0.0, 0.0]  w-same 0.000
+  bf16         minus fp32 ['+9.4e-03', '+9.5e-03', '+9.3e-03']  dist [0.9712, 0.972, 0.9715]  w-same 0.957
+  v2           minus fp32 ['-9.6e-07', '-7.9e-07', '-1.8e-06']  dist [0.0043, 0.0043, 0.0043]  w-same 0.004
+  expert_adamw minus fp32 ['-2.2e-06', '-6.7e-07', '-2.2e-06']  dist [0.0047, 0.0046, 0.0046]  w-same 0.004
+2e-05 constant (beta1=0.95, noise=0.01)  fp32 seed sd 4.7e-05
+  fp32         minus fp32 ['+0.0e+00', '+0.0e+00', '+0.0e+00']  dist [0.0, 0.0, 0.0]  w-same 0.000
+  bf16         minus fp32 ['+9.6e-03', '+9.6e-03', '+9.5e-03']  dist [0.9505, 0.9519, 0.9512]  w-same 0.926
+  v2           minus fp32 ['-1.5e-06', '-6.5e-07', '-2.2e-06']  dist [0.0037, 0.0037, 0.0038]  w-same 0.005
+  expert_adamw minus fp32 ['-1.8e-06', '-1.4e-06', '-2.1e-06']  dist [0.0037, 0.0036, 0.0038]  w-same 0.005
+exit 0

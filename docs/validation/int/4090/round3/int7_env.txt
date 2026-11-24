@@ -1,0 +1,14 @@
+alloc env after unset: PYTORCH_ALLOC_CONF=unset PYTORCH_CUDA_ALLOC_CONF=unset
+HF_HUB_OFFLINE=unset
+14:PYTORCH_ALLOC_CONF=expandable_segments:False
+88
+NVIDIA GeForce RTX 4090, 580.173.02, 24564 MiB
+torch 2.14.1+cu130 cuda 13.0 transformers 5.22.2 peft 0.20.0 bnb 0.50.2 triton 3.8.0
+rintf163c28d f163c28d2b627b1af96e1d34232a2458be76ff99
+r8bbf44f0 8bbf44f079aa4662daf98ce41fdf367716f25207 <branch> round-2 final
+tar: ./TREE_SHA: Not found in archive
+tar: Exiting with failure status due to previous errors
+rfB 
+tar: TREE_SHA: Not found in archive
+tar: Exiting with failure status due to previous errors
+u18 

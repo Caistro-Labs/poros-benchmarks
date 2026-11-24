@@ -1,0 +1,22 @@
+{
+ "gate": "run-to-run repeat",
+ "pass": true,
+ "runs": [
+  "a72_ga8_poros_r1",
+  "a72_ga8_poros_r2",
+  "a72_ga8_poros_r3"
+ ],
+ "what": "the same command run again gives the same adapter, bit for bit: one sha256 over every adapter tensor, and every update's loss and grad norm equal",
+ "adapter_digest": [
+  "b15ed1e211ffcf8ba69d64685cf761980ad41b890245c83c28be6a325f1ecdd6",
+  "b15ed1e211ffcf8ba69d64685cf761980ad41b890245c83c28be6a325f1ecdd6",
+  "b15ed1e211ffcf8ba69d64685cf761980ad41b890245c83c28be6a325f1ecdd6"
+ ],
+ "updates": [
+  16,
+  16,
+  16
+ ],
+ "losses_equal": true,
+ "grad_norms_equal": true
+}

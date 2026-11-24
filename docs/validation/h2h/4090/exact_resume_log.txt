@@ -1,0 +1,2 @@
+RESUME_GATE {"pass": true, "steps": 16, "resumed_at": 8, "adapter_tensors": 392, "delta": "0.00e+00"}
+rc=0

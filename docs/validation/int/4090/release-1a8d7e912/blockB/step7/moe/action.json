@@ -1,0 +1,53 @@
+{
+  "allow_unvalidated": false,
+  "block_size": null,
+  "command": "poros train Qwen/Qwen3-30B-A3B-Instruct-2507 --data <home>/poros_rel/cert/out/step7/moe/rows.jsonl --steps 16 --seq-len 512 --rank 16 --name norecipe-moe",
+  "config": {},
+  "data": "<home>/poros_rel/cert/out/step7/moe/rows.jsonl",
+  "detach": false,
+  "download": false,
+  "epochs": null,
+  "force": false,
+  "from_run": null,
+  "from_step": null,
+  "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+  "name": "norecipe-moe",
+  "output": null,
+  "overwrite": false,
+  "provenance": {
+    "data": {
+      "detail": "--data <home>/poros_rel/cert/out/step7/moe/rows.jsonl",
+      "kind": "given"
+    },
+    "model": {
+      "detail": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+      "kind": "given"
+    },
+    "name": {
+      "detail": "as norecipe-moe",
+      "kind": "given"
+    },
+    "rank": {
+      "detail": "",
+      "kind": "default"
+    },
+    "recipe": {
+      "detail": "your data is chats",
+      "kind": "inferred"
+    },
+    "seq_len": {
+      "detail": "--seq-len 512",
+      "kind": "given"
+    },
+    "steps": {
+      "detail": "--steps 16",
+      "kind": "given"
+    }
+  },
+  "rank": 16,
+  "schema": "poros.action.train.v1",
+  "seq_len": 512,
+  "steps": 16,
+  "unvalidated": null,
+  "yes": true
+}

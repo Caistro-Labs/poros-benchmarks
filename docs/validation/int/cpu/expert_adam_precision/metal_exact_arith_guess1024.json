@@ -1,0 +1,24 @@
+{
+ "fma_differences": 0,
+ "sqrt": {
+  "values": 10485750,
+  "differences": 0,
+  "first": null
+ },
+ "div": {
+  "values": 10486155,
+  "differences": 0,
+  "first": null
+ },
+ "compiled_source": {
+  "values": 20000000,
+  "sqrt_differences": 0,
+  "div_differences": 0,
+  "rtne_differences": 0
+ },
+ "guess_units": 1024,
+ "seconds": 21.1,
+ "command": "cd <clean export of 1a8d7e912> && OMP_NUM_THREADS=1 PYTHONPATH=<that export> python3.12 scripts/moe_precision/metal_exact_arith.py --values 20000000 --workers 2 --guess 1024 --skip-rtne",
+ "commit": "1a8d7e912b166c373fcfec862ad7297221d33a71",
+ "what": "the margin: every precise:: guess moved up to 1024 units, 2 x 10**7 values (the bf16 rounding is not guess-dependent: skipped)"
+}

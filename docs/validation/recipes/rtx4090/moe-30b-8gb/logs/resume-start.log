@@ -1,0 +1,21 @@
+▛▜ poros v1.0.0 · Qwen/Qwen3-30B-A3B-Instruct-2507 · RTX 4090 23.5 GiB
+
+● Checked cert-moe-30b-8gb-resume  run 1124-0949-e2e1
+  │ nf4 · rank 8 · seq 256 · efficient path
+  │ SFT · answers only · lr 2e-4
+  │ output    homes/moe-30b-ssd/runs/1124-0949-e2e1
+  │ store     ssd <home>/sss
+  │ eval      7 rows held out  scored at the start, each checkpoint and the end
+
+● Loaded Qwen3-30B-A3B-Instruct-2507  10.0s
+  │ MoE · 48 layers · 128 experts
+● Scored the base  held out 6.7392 · ends its answers 0 of 0
+step 1/16  loss 6.7555  14.79 s/step  vram 3.9 GiB (peak 4.5)  eta 3m 42s
+step 4/16  loss 6.6509  13.74 s/step  vram 3.9 GiB (peak 5.1)  eta 2m 54s
+step 7/16  loss 6.4278  13.15 s/step  vram 3.9 GiB (peak 5.1)  eta 2m 06s
+○ Stopped after 9 steps
+  │ saved     homes/moe-30b-ssd/runs/1124-0949-e2e1/checkpoint-8
+  │           it holds all 9 steps
+
+Continue with: poros runs continue 1124-0949-e2e1
+{"schema":"poros.error.v1","error":{"code":"E_JOB_CANCELLED","exit_code":7,"message":"stopped after step 9; <home>/runs/1124-0949-e2e1/checkpoint-8 holds the run so far","hint":"poros runs continue 1124-0949-e2e1","docs":"poros docs training checkpoints and resume"}}

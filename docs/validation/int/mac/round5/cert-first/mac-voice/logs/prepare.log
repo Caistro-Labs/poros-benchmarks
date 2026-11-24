@@ -1,0 +1,25 @@
+▛▜ poros v0.3.0 · Qwen/Qwen2.5-7B-Instruct · Apple M4 10-core GPU 16GB
+
+● Checked cert-mac-voice-prepare  run 1118-1924-503d
+  │ rank 16 · 512 tokens
+  │ SFT · answers only · lr 2e-5
+  │ output    cert/m4-16gb/.mac-voice-work/home/runs/1118-1924-503d
+  │ weights   <disk>/poros-metal/hf
+
+● Loaded Qwen2.5-7B-Instruct  1.9s
+  │ dense · 28 layers
+step 1/1  loss 6.6766  15.39 s/step  memory 3.3 GiB (peak 5.3)
+
+● Trained 1 steps · SFT  17s
+  │ final loss 6.6766
+  │
+  │ peak       ━━━━━───────────  5.3 GiB of 16.0 GiB
+  │ speed      33 tok/s
+  │
+  │ adapter    cert/m4-16gb/.mac-voice-work/home/runs/1118-1924-503d
+  │ receipt    cert/m4-16gb/.mac-voice-work/home/runs/1118-1924-503d/receipt.json
+
+Continue with: poros export 1118-1924-503d
+No rows were held out: `poros eval 1118-1924-503d --data FILE` scores a file of yours.
+Keep it as a recipe: poros recipes save last
+{"schema":"poros.train.v1","learned":null,"output_dir":"<home>/runs/1118-1924-503d","events":"<home>/runs/1118-1924-503d/events.jsonl","metrics":{"device":"mps","total_steps":1,"final_loss":6.67663049697876,"loss_history":[6.67663049697876],"grad_norm_history":[1.379068374633789],"eval_history":[],"total_time_s":15.391865917001269,"step_time_history":[15.391865917001269],"vram_alloc_history_mb":[],"avg_vram_allocated_mb":0.0,"avg_step_time_ms":15391.865917001269,"steps_per_sec":0.06496938093096549,"tokens_processed":512,"tokens_per_sec":33.26432303665433,"peak_vram_allocated_gb":5.660576624,"peak_vram_reserved_gb":0.0,"torch_num_threads":4,"quantization":"nf4","block_size":1,"adapter_backend":"peft","adapter_summary":{"backend":"peft","target_module_names":"all-linear","trainable_param_count":40370176,"total_param_count":40703488}},"run":"1118-1924-503d","command":"poros train Qwen/Qwen2.5-7B-Instruct --data <work>/sample-chats.jsonl --steps 1 --seq-len 512 --rank 16 --name cert-mac-voice-prepare --recipe sft learning_rate=2e-5 lora_dropout=0 --download","next":[],"plan":null,"from":null,"support":null,"model_type":null}

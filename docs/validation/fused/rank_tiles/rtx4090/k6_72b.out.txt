@@ -1,0 +1,33 @@
+RUN q72s_r16 rc=0 steps=3 s_med_2_8=1.544 s=[5.049, 1.541, 1.547] loss=[13.547707557678223, 13.580634117126465, 13.550987243652344] vram_peak_mb_max=18651.252736 reserved_mb_max=23095.934976
+q72s_r16 offload False | None | ran {"fused_compute": true, "nf4_dequant_cache_mb": 0} None | peak GB 18.651 23.096
+path efficient after update 1: block inputs {'offloaded': 7, 'kept_on_device': 0, 'slabs': 4, 'slab_bytes': 1073741824, 'bytes_down': 939524096, 'host_full': False, 'pageable_slabs': 0}; pin budget {'
+RUN q72s_r64 rc=0 steps=3 s_med_2_8=1.818 s=[3.514, 1.816, 1.82] loss=[13.547707557678223, 13.581059455871582, 13.551252365112305] vram_peak_mb_max=18910.13632 reserved_mb_max=23257.41568
+q72s_r64 offload False | None | ran {"fused_compute": true, "nf4_dequant_cache_mb": 0} None | peak GB 18.91 23.257
+path efficient after update 1: block inputs {'offloaded': 7, 'kept_on_device': 0, 'slabs': 4, 'slab_bytes': 1073741824, 'bytes_down': 939524096, 'host_full': False, 'pageable_slabs': 0}; pin budget {'
+overlay         223G   79G  145G  36% /
+2026-11-14T03:31:35Z
+RUN sp_r16_fused rc=6 no events
+Traceback (most recent call last):
+  File "<string>", line 2, in <module>
+FileNotFoundError: [Errno 2] No such file or directory: '<path>'
+RUN sp_r16_peft rc=6 no events
+Traceback (most recent call last):
+  File "<string>", line 2, in <module>
+FileNotFoundError: [Errno 2] No such file or directory: '<path>'
+RUN sp_r64_fused rc=6 no events
+Traceback (most recent call last):
+  File "<string>", line 2, in <module>
+FileNotFoundError: [Errno 2] No such file or directory: '<path>'
+RUN sp_r64_peft rc=6 no events
+Traceback (most recent call last):
+  File "<string>", line 2, in <module>
+FileNotFoundError: [Errno 2] No such file or directory: '<path>'
+RUN sp_r128_fused rc=6 no events
+Traceback (most recent call last):
+  File "<string>", line 2, in <module>
+FileNotFoundError: [Errno 2] No such file or directory: '<path>'
+RUN sp_r128_peft rc=6 no events
+Traceback (most recent call last):
+  File "<string>", line 2, in <module>
+FileNotFoundError: [Errno 2] No such file or directory: '<path>'
+2026-11-14T03:32:55Z

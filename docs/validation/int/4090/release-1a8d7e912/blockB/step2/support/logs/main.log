@@ -1,0 +1,37 @@
+▛▜ poros v1.0.0 · Qwen/Qwen2.5-7B-Instruct · RTX 4090 23.5 GiB
+
+● Checked cert-support  run 1124-0836-e384
+  │ nf4 · block 4 · rank 16 · seq 512 · efficient path
+  │ SFT · answers only · lr 2e-4
+  │ output    homes/support/runs/1124-0836-e384
+  │ eval      7 rows held out  scored at the start, each checkpoint and the end
+
+● Loaded Qwen2.5-7B-Instruct  16s
+  │ dense · 28 layers · 7 blocks
+● Scored the base  held out 6.6115 · ends its answers 0 of 0
+step 1/16  loss 6.6165  3.59 s/step  vram 4.7 GiB (peak 6.1)  eta 54s
+step 12/16  loss 5.6387  2.95 s/step  vram 4.7 GiB (peak 6.4)  eta 12s
+● Scored step 16  held out 5.5107 ↓ 17% · ends its answers 0 of 0
+
+  ╭─ Trained  Learned well ─────────────────────────────────────────────── 16 steps · SFT · 54s ─╮
+  │                                                                      final loss              │
+  │      ○▂▁▁▁                                                           5.5156  ↓ 17%           │
+  │  6.5 ██████▆▄▂                                                                               │
+  │      ██████████▇▅▄▂                                                    step  held out  ends  │
+  │      ███████████████▆▄▂                                              ○ base    6.6115   0/0  │
+  │  6.0 ██████████████████▇▅▃▁                                          ●   16    5.5107   0/0  │
+  │      ███████████████████████▇▆▅▃▂                                                            │
+  │      █████████████████████████████▇▆▅▅▄▃▃▂▂▁▁▁                       vram 6.4 GiB peak       │
+  │  5.5 █████████████████████████████████████████████▇▇▇▆▆▆▆▅▅▅▅▅▅▅▅▅○  ram  10.9 GiB peak      │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                                8                          16                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      1,380 tok/s
+  │
+  │ adapter    homes/support/runs/1124-0836-e384
+  │ receipt    homes/support/runs/1124-0836-e384/receipt.json
+
+Continue with: poros eval 1124-0836-e384
+Keep it as a recipe: poros recipes save last
+{"schema":"poros.train.v1","learned":null,"output_dir":"<home>/runs/1124-0836-e384","events":"<home>/runs/1124-0836-e384/events.jsonl","metrics":{"device":"cuda:0","total_steps":16,"final_loss":5.515556514263153,"loss_history":[6.616527259349823,6.609727442264557,6.450946033000946,6.323083519935608,6.15089213848114,5.954803228378296,5.862621486186981,5.742540419101715,5.667350649833679,5.624113321304321,5.589128792285919,5.570268034934998,5.541178345680237,5.525404751300812,5.518981635570526,5.515556514263153],"grad_norm_history":[1.1314243078231812,1.0901734828948975,0.7692959904670715,1.1360665559768677,1.0854549407958984,0.9685587882995605,1.4301609992980957,1.2470661401748657,1.157517671585083,1.288378357887268,1.3829118013381958,1.4082672595977783,1.1733919382095337,1.1195037364959717,1.137785792350769,1.134333848953247],"eval_history":[{"step":0,"eval_loss":6.611503873552595,"eval_perplexity":743.6004593258072,"ends":0,"answer_rows":0},{"step":15,"eval_loss":5.5107340812683105,"eval_perplexity":247.33262268856342,"ends":0,"answer_rows":0}],"total_time_s":47.484788749367,"step_time_history":[3.5885921120643616,2.94379123672843,2.9528221487998962,2.9244066067039967,2.927603527903557,2.918194852769375,2.8969039004296064,2.883891351521015,2.9362733140587807,2.8982925098389387,2.9826763346791267,2.950813738629222,2.9093149695545435,2.8744402825832367,2.950346628203988,2.946425234898925],"vram_alloc_history_mb":[5015.554048,5015.554048,5015.554048,5015.554048,5015.554048,5015.554048,5015.554048,5015.554048,5015.554048,5015.554048,5015.554048,5015.554048,5015.554048,5015.554048,5015.554048,5015.554048],"avg_vram_allocated_mb":5015.554048,"avg_step_time_ms":2967.7992968354374,"steps_per_sec":0.33695000907450157,"tokens_processed":65536,"tokens_per_sec":1380.1472371691584,"peak_vram_allocated_gb":6.856704512,"peak_vram_reserved_gb":7.7594624,"torch_num_threads":16,"quantization":"nf4","block_size":4,"adapter_backend":"peft","adapter_summary":{"backend":"peft","target_module_names":"all-linear","trainable_param_count":40370176,"total_param_count":4393342464},"eval_loss_start":6.611503873552595,"eval_loss":5.5107340812683105,"eval_ends":0,"eval_answer_rows":0},"run":"1124-0836-e384","command":"poros train Qwen/Qwen2.5-7B-Instruct --data <work>/sample-qa.jsonl --steps 16 --seq-len 512 --rank 16 --block-size 4 --name cert-support --recipe sft gradient_accumulation_steps=8 learning_rate=2e-4 lora_alpha=32 lora_dropout=0 per_device_batch_size=1 store=ram --download","next":[],"plan":null,"from":null,"support":null,"model_type":null}

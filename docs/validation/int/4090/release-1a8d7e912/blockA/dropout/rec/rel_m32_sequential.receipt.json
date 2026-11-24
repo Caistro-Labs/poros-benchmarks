@@ -1,0 +1,43 @@
+{
+  "arch": "dense \u00b7 64 layers \u00b7 16 blocks",
+  "config": {
+    "block_size": 4,
+    "dataset": "synthetic",
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 2e-05,
+    "lora_alpha": 32,
+    "lora_rank": 16,
+    "max_seq_length": 512,
+    "max_steps": 10,
+    "per_device_batch_size": 1,
+    "quantization": "nf4"
+  },
+  "final_loss": 12.475552558898926,
+  "finished_at": "2026-11-24T07:18:59+00:00",
+  "gpu": {
+    "name": "RTX 4090",
+    "total_gb": 25.25
+  },
+  "host_staging": {
+    "budget_basis": "no ceiling found",
+    "granted_bytes": 16106127360,
+    "mode": "pinned",
+    "pinned_budget_bytes": null,
+    "refusals": 0
+  },
+  "kind": "poros.train.receipt",
+  "model": "Qwen/Qwen2.5-32B",
+  "output_dir": "runs/rel_m32_sequential",
+  "peak_host_ram_gb": 23.324,
+  "peak_vram_allocated_gb": 13.131,
+  "peak_vram_reserved_gb": 16.161,
+  "poros": "1.0.0",
+  "recipe": "classic",
+  "run": "c2317037",
+  "s_per_step": 14.4754,
+  "simulated": false,
+  "steps": 10,
+  "tokens_per_sec": 282.96,
+  "version": 1,
+  "wall_s": 150.43
+}

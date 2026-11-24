@@ -1,0 +1,58 @@
+{
+ "what": "The size on the drive of the Mac's own 4-bit copy (its pack) of three models: the files of <store>/<model>-<revision>/, read with stat. Nothing was run, trained or written.",
+ "read_at_utc": "2026-11-18T19:34:48Z",
+ "machine": "Mac mini M4, 10 GPU cores, 16 GB",
+ "macos": "27.2.1 26B131",
+ "store": "<mac>/hf (the store the round 4 runs read: \"store\" in their preferences.toml)",
+ "command": "for each pack folder d: /usr/bin/find \"$d\" -type f -exec /usr/bin/stat -f \"%z %N\" {} + ; /usr/bin/du -sk \"$d\"",
+ "counted": "every file in the pack folder: model.sss (one NF4 slab per decoder layer, and the input and output embeddings in bf16), model.sss.idx (its index) and small.safetensors (the rest of the text backbone, bf16)",
+ "whole_of_what_training_reads": "Of the weights, yes: a run on this Mac reads the model's weights from these three files only (poros/metal/pack.py). It also reads the model's config.json and tokenizer files from the Hub cache, which are not counted here.",
+ "same_pack_as_round4": "The round 4 table rows read these folders: one folder per model in the store, each index written before the rows ran (2026-11-17 20:12 to 2026-11-18 00:06 local time), and the rows' job did not pack again (its pack step returns when the index is there; no pack line in by-head/5d75e31a/results.jsonl). The receipts do not record the pack's size or revision.",
+ "packs": {
+  "Qwen/Qwen2.5-72B": {
+   "folder": "Qwen--Qwen2.5-72B-efba10c8",
+   "revision8": "efba10c8",
+   "files_bytes": {
+    "model.sss": 41203601408,
+    "model.sss.idx": 50192,
+    "small.safetensors": 4318944
+   },
+   "bytes": 41207970544,
+   "gib": 38.378,
+   "gb": 41.208,
+   "allocated_kib_du": 40242164,
+   "allocated_gib_du": 38.378,
+   "index_written_local": "2026-11-09T02:44:11-0600"
+  },
+  "Qwen/Qwen3-30B-A3B-Instruct-2507": {
+   "folder": "Qwen--Qwen3-30B-A3B-Instruct-2507-0d7cf239",
+   "revision8": "0d7cf239",
+   "files_bytes": {
+    "model.sss": 18012966912,
+    "model.sss.idx": 1042296,
+    "small.safetensors": 25613768
+   },
+   "bytes": 18039622976,
+   "gib": 16.801,
+   "gb": 18.04,
+   "allocated_kib_du": 17616824,
+   "allocated_gib_du": 16.801,
+   "index_written_local": "2026-11-17T04:48:13-0600"
+  },
+  "Qwen/Qwen2.5-32B": {
+   "folder": "Qwen--Qwen2.5-32B-1818d358",
+   "revision8": "1818d358",
+   "files_bytes": {
+    "model.sss": 19212537856,
+    "model.sss.idx": 40254,
+    "small.safetensors": 2272496
+   },
+   "bytes": 19214850606,
+   "gib": 17.895,
+   "gb": 19.215,
+   "allocated_kib_du": 18764504,
+   "allocated_gib_du": 17.895,
+   "index_written_local": "2026-11-17T05:40:50-0600"
+  }
+ }
+}

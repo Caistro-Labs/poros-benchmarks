@@ -1,0 +1,29 @@
+▛▜ poros v0.3.0 · Qwen/Qwen2.5-7B-Instruct · Apple M4 10-core GPU 16GB
+
+● Checked cert-mac-voice-resume  run 1118-1927-f94a
+  │ rank 16 · 512 tokens
+  │ SFT · answers only · lr 2e-5
+  │ output    cert/m4-16gb/.mac-voice-work/home/runs/1118-1927-f94a
+  │ weights   <disk>/poros-metal/hf
+  │ resume    cert/m4-16gb/.mac-voice-work/home/runs/1118-1927-f94a/checkpoint-8
+
+● Loaded Qwen2.5-7B-Instruct  2.1s
+  │ dense · 28 layers
+● Resumed after step 9/16
+step 10/16  loss 6.4667  15.77 s/step  memory 3.3 GiB (peak 5.6)  eta 1m 35s
+step 13/16  loss 6.4447  10.78 s/step  memory 3.3 GiB (peak 5.6)  eta 36s
+step 16/16  loss 6.4429  10.86 s/step  memory 3.3 GiB (peak 5.6)
+
+● Trained 7 steps · SFT  1m 23s
+  │ final loss 6.4366
+  │
+  │ peak       ━━━━━━──────────  5.6 GiB of 16.0 GiB
+  │ speed      44 tok/s
+  │
+  │ adapter    cert/m4-16gb/.mac-voice-work/home/runs/1118-1927-f94a
+  │ receipt    cert/m4-16gb/.mac-voice-work/home/runs/1118-1927-f94a/receipt.json
+
+Continue with: poros export 1118-1927-f94a
+No rows were held out: `poros eval 1118-1927-f94a --data FILE` scores a file of yours.
+Keep it as a recipe: poros recipes save last
+{"schema":"poros.runs.v1","learned":null,"do":"continue","runs":[{"id":"1118-1927-f94a","kind":"run","state":"succeeded","model":"Qwen/Qwen2.5-7B-Instruct","name":"cert-mac-voice-resume","output_dir":"<home>/runs/1118-1927-f94a","created_at":"2026-11-19T01:27:58+00:00","started_at":"2026-11-19T01:29:43+00:00","finished_at":"2026-11-19T01:31:09+00:00","step":16,"total":16,"loss":6.401771068572998,"error":null,"folder":"<home>/runs/1118-1927-f94a","from":null,"eval_loss_start":null,"eval_loss":null,"eval_rows":null,"eval_ends":null,"eval_answer_rows":null,"eval_prefers_start":null,"eval_prefers":null,"best":null}],"report":null,"next":["poros runs 1118-1927-f94a --live --wait 30"],"more":0,"starts_next":null}

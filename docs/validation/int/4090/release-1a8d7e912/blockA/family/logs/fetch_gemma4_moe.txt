@@ -1,0 +1,21 @@
+model-00001-of-00002.safetensors: 1 tensors, 6.2 MiB
+model-00001-of-00002.safetensors: 1 tensors, 1408.0 MiB
+model-00001-of-00002.safetensors: 1 tensors, 484.0 MiB
+model-00001-of-00002.safetensors: 17 tensors, 1013.8 MiB
+model-00001-of-00002.safetensors: 5 tensors, 539.0 MiB
+model-00001-of-00002.safetensors: 17 tensors, 1013.8 MiB
+model-00001-of-00002.safetensors: 4 tensors, 55.0 MiB
+model-00001-of-00002.safetensors: 1 tensors, 484.0 MiB
+model-00001-of-00002.safetensors: 17 tensors, 1013.8 MiB
+model-00001-of-00002.safetensors: 4 tensors, 55.0 MiB
+model-00001-of-00002.safetensors: 1 tensors, 484.0 MiB
+model-00001-of-00002.safetensors: 17 tensors, 1013.8 MiB
+model-00001-of-00002.safetensors: 5 tensors, 539.0 MiB
+model-00001-of-00002.safetensors: 17 tensors, 1013.8 MiB
+model-00001-of-00002.safetensors: 5 tensors, 539.0 MiB
+model-00001-of-00002.safetensors: 8 tensors, 1017.5 MiB
+model-00001-of-00002.safetensors: 1 tensors, 44.0 MiB
+model-00001-of-00002.safetensors: 342 tensors, 1020.1 MiB
+model-00001-of-00002.safetensors: 14 tensors, 66.3 MiB
+model-00002-of-00002.safetensors: 11 tensors, 34.8 MiB
+FETCH wrote <home>/poros_rel/hf_cert/fg_models/google_gemma-4-26B-A4B-it__trunc6 gemma4 6209983030 params sha256 44eb54d5fa568d47

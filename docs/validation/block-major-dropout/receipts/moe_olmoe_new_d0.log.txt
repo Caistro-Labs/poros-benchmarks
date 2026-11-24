@@ -1,0 +1,6 @@
+[transformers] Model config: eos_token_id must be `None` or an integer within the vocabulary (between 0 and 95), got 50279. This may result in unexpected behavior.
+poros.moe is tested on transformers>=5.13,<5.21, found 5.22.2. The streamed loader still refuses an expert conversion it does not know; to stay on the tested range, run: pip install 'transformers>=5.13,<5.21'
+offload_boundaries after update 1: {'offloaded': 4, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 6400, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 268632064, 'refusals': 0}
+block-major MoE expert dequant cache after update 1: hits 288 misses 72
+block-major MoE: expert residency grown to 0 MiB after update 1
+ARM {"out": "runs/moe_olmoe_new_d0", "resolved": {"block_major_accumulation": true, "lora_dropout": 0.0, "moe_expert_grouping": "pow2", "offload_boundaries": true, "grouping_ran": "pow2"}, "losses": [4.5655293464660645, 4.561155319213867]}

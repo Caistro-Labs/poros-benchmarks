@@ -1,0 +1,38 @@
+family_gate: tree ~/poros-run/tree/poros -> ~/poros-run/fg_out
+start 2026-11-19T02:56:09Z
+PASS  env                                sha unknown dirty=0 {"gpu": "NVIDIA GeForce RTX 4060 Laptop GPU", "capability": [8, 9], "vram_gib": 7.68, "driver": "615.78.08", "torch": "2.14.1+cu130", "cuda": "13.0", "transformers": "5.22.2", "peft": "0.20.0", "bitsandbytes": "0.50.2", "triton": "3.8.0", "python": "3.12.13", 
+PASS  data                               6c8609d5be317280 ~/poros-run/home/.cache/poros-family-gate/oasst_long2400.jsonl
+--- qwen2 (Qwen/Qwen2.5-0.5B @ 060db649 snapshot 0) 2026-11-19T02:56:27Z
+PASS  qwen2:fetch                        FETCH snapshot ~/poros-run/home/.cache/poros-family-gate/Qwen_Qwen2.5-0.5B__snapshot0 -> ~/poros-run/hf/hub/models--Qwen--Qwen2.5-0.5B/snapshots/060db6499f32faf8b98477b0a26969ef7
+PASS  qwen2:check                        model_type=qwen2 status=validated
+PASS  qwen2:parity                       training gate (scripts/training_parity.py, 8 steps): resident==streamed loss_max_abs_diff=0.0 grads_max_abs_diff=0.0 first_losses=13.903335571289062/13.903335571289062
+--- qwen3 (Qwen/Qwen3-0.6B @ c1899de2 snapshot 0) 2026-11-19T02:57:09Z
+PASS  qwen3:fetch                        FETCH snapshot ~/poros-run/home/.cache/poros-family-gate/Qwen_Qwen3-0.6B__snapshot0 -> ~/poros-run/hf/hub/models--Qwen--Qwen3-0.6B/snapshots/c1899de289a04d12100db370d81485cdf75e4
+PASS  qwen3:check                        model_type=qwen3 status=validated
+PASS  qwen3:parity                       training gate (scripts/training_parity.py, 8 steps): resident==streamed loss_max_abs_diff=0.0 grads_max_abs_diff=0.0 first_losses=14.179041862487793/14.179041862487793
+--- qwen3_5 (Qwen/Qwen3.5-0.8B @ 2fc06364 snapshot 0) 2026-11-19T02:58:27Z
+PASS  qwen3_5:fetch                      FETCH snapshot ~/poros-run/home/.cache/poros-family-gate/Qwen_Qwen3.5-0.8B__snapshot0 -> ~/poros-run/hf/hub/models--Qwen--Qwen3.5-0.8B/snapshots/2fc06364715b967f1860aea9cf3877887
+PASS  qwen3_5:check                      model_type=qwen3_5 status=validated
+PASS  qwen3_5:parity                     training gate (scripts/training_parity.py, 8 steps): resident==streamed loss_max_abs_diff=0.0 grads_max_abs_diff=0.0 first_losses=14.862894058227539/14.862894058227539
+--- qwen3_8 (Qwen/Qwen3.8-27B @ 37561816 trunc 8) 2026-11-19T02:59:20Z
+PASS  qwen3_8:fetch                      FETCH wrote ~/poros-run/home/.cache/poros-family-gate/Qwen_Qwen3.8-27B__trunc8 qwen3_5 6047681584 params sha256 4e08e40396cb7a1e
+PASS  qwen3_8:check                      model_type=qwen3_5 status=validated
+FAIL  qwen3_8:parity                     rc=1 all_equal=none none (logs/qwen3_8_parity.txt)
+--- gemma3_text (unsloth/gemma-3-270m @ edcf1fe3 snapshot 0) 2026-11-19T03:10:53Z
+PASS  gemma3_text:fetch                  FETCH snapshot ~/poros-run/home/.cache/poros-family-gate/unsloth_gemma-3-270m__snapshot0 -> ~/poros-run/hf/hub/models--unsloth--gemma-3-270m/snapshots/edcf1fe394ee1168e7c5538afd1
+PASS  gemma3_text:check                  model_type=gemma3_text status=validated
+PASS  gemma3_text:parity                 training gate (scripts/training_parity.py, 8 steps): resident==streamed loss_max_abs_diff=0.0 grads_max_abs_diff=0.0 first_losses=17.223602294921875/17.223602294921875
+--- gemma3 (unsloth/gemma-3-4b-it @ bf46152c trunc 6) 2026-11-19T03:11:33Z
+PASS  gemma3:fetch                       FETCH wrote ~/poros-run/home/.cache/poros-family-gate/unsloth_gemma-3-4b-it__trunc6 gemma3 1657366896 params sha256 0f9a522192582845
+PASS  gemma3:check                       model_type=gemma3 status=validated
+FAIL  gemma3:parity                      rc=1 all_equal=none none (logs/gemma3_parity.txt)
+--- gemma4 (google/gemma-4-31B @ 5bbc2fb1 trunc 6) 2026-11-19T03:13:08Z
+PASS  gemma4:fetch                       FETCH wrote ~/poros-run/home/.cache/poros-family-gate/google_gemma-4-31B__trunc6 gemma4 4913840438 params sha256 53f53742bec6d579
+PASS  gemma4:check                       model_type=gemma4 status=validated
+FAIL  gemma4:parity                      rc=1 all_equal=none none (logs/gemma4_parity.txt)
+--- gemma4_text (google/gemma-4-31B @ 5bbc2fb1 text 6) 2026-11-19T03:20:07Z
+PASS  gemma4_text:fetch                  FETCH wrote ~/poros-run/home/.cache/poros-family-gate/google_gemma-4-31B__text6 gemma4_text 4338096902 params sha256 c7823b0f4e2dcd0a
+PASS  gemma4_text:check                  model_type=gemma4_text status=validated
+FAIL  gemma4_text:parity                 rc=1 all_equal=none none (logs/gemma4_text_parity.txt)
+end 2026-11-19T03:24:01Z
+FAILS=4

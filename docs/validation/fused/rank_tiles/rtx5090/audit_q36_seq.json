@@ -1,0 +1,28 @@
+{
+ "config": "<path>",
+ "ran_compute": {
+  "moe_expert_compute": "fused",
+  "fused_compute": true,
+  "moe_expert_cache_gib": 0.0,
+  "moe_expert_cache_reason": "one layer: the sequential loop does not grow it"
+ },
+ "counts": {
+  "cpu|bfloat16|bwd": 352,
+  "cpu|bfloat16|fwd": 352,
+  "cpu|float32|fwd": 86,
+  "cuda|bfloat16|bwd": 3404,
+  "cuda|bfloat16|fwd": 1726,
+  "cuda|float32|bwd": 12904,
+  "cuda|float32|fwd": 5170
+ },
+ "cpu_half_ops": {
+  "cpu|bfloat16|fwd": {
+   "aten.detach.default": 176,
+   "aten._to_copy.default": 176
+  },
+  "cpu|bfloat16|bwd": {
+   "aten.detach.default": 176,
+   "aten._to_copy.default": 176
+  }
+ }
+}

@@ -1,0 +1,11 @@
+08:32:34 preflight: HEAD 1a8d7e912b166c373fcfec862ad7297221d33a71 clean; git <home>/poros_rel/tools/git/usr/bin/git (git version 2.43.0); poros from <home>/poros_rel/cert/src/poros/__init__.py
+08:32:34 === cert.sh step1 (inline=1)
+08:32:35 step1 start: Qwen/Qwen2.5-0.5B-Instruct for first-run (check-fit: first-run)
+08:32:35 fetching Qwen/Qwen2.5-0.5B-Instruct (1G, hub@7ae55760) for step1 first-run
+08:32:41 fetched Qwen/Qwen2.5-0.5B-Instruct -> 7ae557604adf67be50417f59c2c2f167def9a775 main (exit 0)
+08:32:41 first-run start (Qwen/Qwen2.5-0.5B-Instruct, disk_gb 3, at most 30 min, home homes/first-run)
+08:35:20 PASS first-run: status=ok commit=1a8d7e912b16 tree_clean=True updates=16 s_per_step=2.3174 gpu_mem_gib=None reserved_gib=None resume=True eval=ok preflight_said=0 lines
+08:35:20 first-run's certification.json: tree_clean true
+08:35:22 CHECK-FIT FITS first-run: verdict='fits' peak_gib=1.445 source=measured basis='reserved peak 1.445 GiB <= 23.51 GiB free' asks=[] doubts=[] refused=False start_refused=[] gate_path=None ran_path=efficient warning=None vram_refusal=None host_refusal=None
+08:35:23 deleted the model cache (Qwen/Qwen2.5-0.5B-Instruct ): <home>/poros_rel/hf_cert/hub removed
+08:35:23 step1 done

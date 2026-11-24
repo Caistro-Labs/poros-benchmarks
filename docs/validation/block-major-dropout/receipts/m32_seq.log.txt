@@ -1,0 +1,41 @@
+▛▜ poros v0.3.0 · Qwen/Qwen2.5-32B · RTX 4090 23.5 GiB
+
+● Checked m32_seq.yaml  config
+  │ nf4 · block 4 · rank 16 · seq 512
+  │ classic · every token · lr 2e-5
+  │ output    runs/m32_seq
+
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+● Loaded Qwen2.5-32B  2m 30s
+  │ dense · 64 layers · 16 blocks
+step 1/10  loss 12.6099  18.29 s/step  vram 8.0 GiB (peak 10.1)  eta 2m 45s
+step 3/10  loss 12.5962  17.62 s/step  vram 8.0 GiB (peak 11.1)  eta 2m 05s
+step 5/10  loss 12.5576  17.59 s/step  vram 8.0 GiB (peak 11.1)  eta 1m 29s
+step 7/10  loss 12.5027  20.88 s/step  vram 8.0 GiB (peak 11.1)  eta 55s
+step 9/10  loss 12.4656  18.96 s/step  vram 8.0 GiB (peak 11.1)  eta 19s
+<path> UserWarning: Could not find a config file in Qwen/Qwen2.5-32B - will assume that the vocabulary was not modified.
+  warnings.warn(
+
+  ╭─ Trained ────────────────────────────────────────────────────── 10 steps · classic · 3m 08s ─╮
+  │                                                                      final loss              │
+  │                                                                      12.4685  ↓ 1%           │
+  │ 12.6 ▆▆▅▅▄▃▃▂▂▂▁▁▁▁                                                  from 12.6099            │
+  │      ███████████████▇▅▄▂▁                                                                    │
+  │      █████████████████████▅▂                                         vram 11.1 GiB peak      │
+  │ 12.5 ███████████████████████▆▃              ▁▄▅▅▄▃▂▁▁                ram  21.4 GiB peak      │
+  │      ██████████████████████████▄▁         ▃▆██████████▇▆▅▅▄▃▃▃▄▄▄▄▄                          │
+  │      █████████████████████████████▇▅▄▃▂▂▅██████████████████████████                          │
+  │ 12.4 ██████████████████████████████████████████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                                 5                         10                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      222 tok/s
+  │
+  │ adapter    runs/m32_seq
+  │ receipt    runs/m32_seq/receipt.json
+
+Continue with:
+  poros eval \
+    <path>
+{"schema":"poros.train.v1","learned":null,"output_dir":"runs/m32_seq","events":"runs/m32_seq/events.jsonl","metrics":{"device":"cuda:0","total_steps":10,"final_loss":12.468538284301758,"loss_history":[12.609907150268555,12.593182563781738,12.585411071777344,12.546721458435059,12.452535629272461,12.421781539916992,12.50714111328125,12.484357833862305,12.462126731872559,12.468538284301758],"grad_norm_history":[0.600628137588501,0.573113739490509,0.5700238943099976,0.6257166266441345,0.6648585796356201,0.7005316019058228,0.7318512797355652,0.7810094356536865,0.7681772708892822,0.7781493067741394],"eval_history":[],"total_time_s":184.32901027612388,"step_time_history":[18.29190876428038,17.743591278791428,17.624761544167995,17.570332208648324,17.589480135589838,17.900180445984006,20.88144019804895,19.99350617453456,18.95805933047086,17.775750195607543],"vram_alloc_history_mb":[8585.240064,8585.240064,8586.28864,8585.240064,8585.764352,8587.140608,8585.240064,8585.240064,8585.764352,8585.240064],"avg_vram_allocated_mb":8585.6398336,"avg_step_time_ms":18432.901027612388,"steps_per_sec":0.05425082023182381,"tokens_processed":40960,"tokens_per_sec":222.21135966955032,"peak_vram_allocated_gb":11.93948416,"peak_vram_reserved_gb":13.834911744,"torch_num_threads":16,"quantization":"nf4","block_size":4,"adapter_backend":"peft","adapter_summary":{"backend":"peft","target_module_names":"all-linear","trainable_param_count":134217728,"total_param_count":17295283200}},"run":null,"command":null,"next":[],"plan":null,"from":null,"support":null,"model_type":null}

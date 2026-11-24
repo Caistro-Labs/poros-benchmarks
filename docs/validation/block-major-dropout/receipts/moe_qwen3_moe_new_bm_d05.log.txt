@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "<path>", line 100, in <module>
+    arm(sys.argv[2], sys.argv[3], sys.argv[4:])
+  File "<path>", line 63, in arm
+    tr = PorosTrainer.from_pretrained(ckpt, **knobs)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<path>", line 434, in from_pretrained
+    raise PorosConfigError(
+poros.core.errors.PorosConfigError: block_major_accumulation cannot train lora_dropout on a MoE model as the sequential loop does.
+
+Remediation: Set block_major_accumulation: false (the sequential loop).
+
+Docs: docs/api.md

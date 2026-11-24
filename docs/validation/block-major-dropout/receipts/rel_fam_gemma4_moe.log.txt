@@ -1,0 +1,247 @@
+............................                                             [100%]
+==================================== PASSES ====================================
+________ test_block_major_equals_sequential[gemma4_moe-ram-pow2-on-0.0] ________
+---------------------------- Captured stderr setup -----------------------------
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 124.99it/s]
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 20, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 32000, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 1572864, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 820 misses 264
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+_______ test_block_major_equals_sequential[gemma4_moe-ram-pow2-on-0.05] ________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 20, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 32000, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 3145728, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 2468 misses 792
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+_______ test_block_major_equals_sequential[gemma4_moe-ram-pow2-off-0.0] ________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 4116 misses 1320
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+_______ test_block_major_equals_sequential[gemma4_moe-ram-pow2-off-0.05] _______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 5764 misses 1848
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+_______ test_block_major_equals_sequential[gemma4_moe-ram-pow2-ram-0.0] ________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.boundary_offload:boundary_offload.py:159 path efficient: page-locked memory refused (pin budget); block inputs go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 28.45 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 20, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 32000, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 7077888, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 7412 misses 2376
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+_______ test_block_major_equals_sequential[gemma4_moe-ram-pow2-ram-0.05] _______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.boundary_offload:boundary_offload.py:159 path efficient: page-locked memory refused (pin budget); block inputs go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 28.45 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 20, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 32000, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 7864320, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 9060 misses 2904
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+_______ test_block_major_equals_sequential[gemma4_moe-ram-single-on-0.0] _______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 20, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 32000, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 9437184, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 10708 misses 3432
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+______ test_block_major_equals_sequential[gemma4_moe-ram-single-on-0.05] _______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 20, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 32000, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 11010048, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 12356 misses 3960
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+______ test_block_major_equals_sequential[gemma4_moe-ram-single-off-0.0] _______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 14004 misses 4488
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+______ test_block_major_equals_sequential[gemma4_moe-ram-single-off-0.05] ______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 15652 misses 5016
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+______ test_block_major_equals_sequential[gemma4_moe-ram-single-ram-0.0] _______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.boundary_offload:boundary_offload.py:159 path efficient: page-locked memory refused (pin budget); block inputs go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 28.45 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 20, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 32000, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 14942208, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 17300 misses 5544
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+______ test_block_major_equals_sequential[gemma4_moe-ram-single-ram-0.05] ______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.boundary_offload:boundary_offload.py:159 path efficient: page-locked memory refused (pin budget); block inputs go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 28.45 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 20, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 32000, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 15728640, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 18948 misses 6072
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+________ test_block_major_equals_sequential[gemma4_moe-ssd-pow2-on-0.0] ________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 20, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 32000, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 18939904, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 20596 misses 6600
+_______ test_block_major_equals_sequential[gemma4_moe-ssd-pow2-on-0.05] ________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 20, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 32000, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 22151168, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 22244 misses 7128
+_______ test_block_major_equals_sequential[gemma4_moe-ssd-pow2-off-0.0] ________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 23892 misses 7656
+_______ test_block_major_equals_sequential[gemma4_moe-ssd-pow2-off-0.05] _______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 25540 misses 8184
+_______ test_block_major_equals_sequential[gemma4_moe-ssd-pow2-ram-0.0] ________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.sss.ssd:ssd.py:207 SSS ring left unpinned: this host's page-locked memory budget is exhausted; copies will be synchronous
+WARNING  poros.core.boundary_offload:boundary_offload.py:159 path efficient: page-locked memory refused (pin budget); block inputs go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 28.56 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 20, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 32000, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 28016640, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 27188 misses 8712
+_______ test_block_major_equals_sequential[gemma4_moe-ssd-pow2-ram-0.05] _______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.sss.ssd:ssd.py:207 SSS ring left unpinned: this host's page-locked memory budget is exhausted; copies will be synchronous
+WARNING  poros.core.boundary_offload:boundary_offload.py:159 path efficient: page-locked memory refused (pin budget); block inputs go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 28.55 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 20, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 32000, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 29622272, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 28836 misses 9240
+_______ test_block_major_equals_sequential[gemma4_moe-ssd-single-on-0.0] _______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 20, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 32000, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 32833536, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 30484 misses 9768
+______ test_block_major_equals_sequential[gemma4_moe-ssd-single-on-0.05] _______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 20, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 32000, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 36044800, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 32132 misses 10296
+______ test_block_major_equals_sequential[gemma4_moe-ssd-single-off-0.0] _______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 33780 misses 10824
+______ test_block_major_equals_sequential[gemma4_moe-ssd-single-off-0.05] ______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 35428 misses 11352
+______ test_block_major_equals_sequential[gemma4_moe-ssd-single-ram-0.0] _______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.sss.ssd:ssd.py:207 SSS ring left unpinned: this host's page-locked memory budget is exhausted; copies will be synchronous
+WARNING  poros.core.boundary_offload:boundary_offload.py:159 path efficient: page-locked memory refused (pin budget); block inputs go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 28.54 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 20, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 32000, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 42991616, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 37076 misses 11880
+______ test_block_major_equals_sequential[gemma4_moe-ssd-single-ram-0.05] ______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.sss.ssd:ssd.py:207 SSS ring left unpinned: this host's page-locked memory budget is exhausted; copies will be synchronous
+WARNING  poros.core.boundary_offload:boundary_offload.py:159 path efficient: page-locked memory refused (pin budget); block inputs go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 28.54 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 20, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 32000, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 44597248, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 38724 misses 12408
+_ test_at_dropout_every_loop_block_size_and_residency_trains_the_same_update[gemma4_moe] _
+---------------------------- Captured stderr setup -----------------------------
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 125.62it/s]
+----------------------------- Captured stderr call -----------------------------
+[transformers] Last layer must use `full_attention`, but got `sliding_attention`. Forcing last layer to `full_attention`.
+[transformers] Last layer must use `full_attention`, but got `sliding_attention`. Forcing last layer to `full_attention`.
+[transformers] Last layer must use `full_attention`, but got `sliding_attention`. Forcing last layer to `full_attention`.
+[transformers] Last layer must use `full_attention`, but got `sliding_attention`. Forcing last layer to `full_attention`.
+[transformers] Last layer must use `full_attention`, but got `sliding_attention`. Forcing last layer to `full_attention`.
+[transformers] Last layer must use `full_attention`, but got `sliding_attention`. Forcing last layer to `full_attention`.
+[transformers] Last layer must use `full_attention`, but got `sliding_attention`. Forcing last layer to `full_attention`.
+------------------------------ Captured log call -------------------------------
+WARNING  transformers.models.gemma4.configuration_gemma4:configuration_gemma4.py:198 Last layer must use `full_attention`, but got `sliding_attention`. Forcing last layer to `full_attention`.
+WARNING  poros.train.streamed_load:streamed_load.py:168 1 checkpoint tensor is not in the model and left unread, as the standard load leaves them: 'model.language_model.layers.8.self_attn.v_proj.weight'
+WARNING  transformers.models.gemma4.configuration_gemma4:configuration_gemma4.py:198 Last layer must use `full_attention`, but got `sliding_attention`. Forcing last layer to `full_attention`.
+WARNING  poros.train.streamed_load:streamed_load.py:168 1 checkpoint tensor is not in the model and left unread, as the standard load leaves them: 'model.language_model.layers.8.self_attn.v_proj.weight'
+WARNING  transformers.models.gemma4.configuration_gemma4:configuration_gemma4.py:198 Last layer must use `full_attention`, but got `sliding_attention`. Forcing last layer to `full_attention`.
+WARNING  poros.train.streamed_load:streamed_load.py:168 1 checkpoint tensor is not in the model and left unread, as the standard load leaves them: 'model.language_model.layers.8.self_attn.v_proj.weight'
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 32, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 98304, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 317751296, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 40856 misses 13080
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+WARNING  transformers.models.gemma4.configuration_gemma4:configuration_gemma4.py:198 Last layer must use `full_attention`, but got `sliding_attention`. Forcing last layer to `full_attention`.
+WARNING  poros.train.streamed_load:streamed_load.py:168 1 checkpoint tensor is not in the model and left unread, as the standard load leaves them: 'model.language_model.layers.8.self_attn.v_proj.weight'
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 16, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 49152, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 587759616, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 43648 misses 15444
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+WARNING  transformers.models.gemma4.configuration_gemma4:configuration_gemma4.py:198 Last layer must use `full_attention`, but got `sliding_attention`. Forcing last layer to `full_attention`.
+WARNING  poros.train.streamed_load:streamed_load.py:168 1 checkpoint tensor is not in the model and left unread, as the standard load leaves them: 'model.language_model.layers.8.self_attn.v_proj.weight'
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 8, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 24576, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 857767936, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 44144 misses 20104
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+WARNING  transformers.models.gemma4.configuration_gemma4:configuration_gemma4.py:198 Last layer must use `full_attention`, but got `sliding_attention`. Forcing last layer to `full_attention`.
+WARNING  poros.train.streamed_load:streamed_load.py:168 1 checkpoint tensor is not in the model and left unread, as the standard load leaves them: 'model.language_model.layers.8.self_attn.v_proj.weight'
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 4, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 12288, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 1127776256, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 44640 misses 24764
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+WARNING  transformers.models.gemma4.configuration_gemma4:configuration_gemma4.py:198 Last layer must use `full_attention`, but got `sliding_attention`. Forcing last layer to `full_attention`.
+WARNING  poros.train.streamed_load:streamed_load.py:168 1 checkpoint tensor is not in the model and left unread, as the standard load leaves them: 'model.language_model.layers.8.self_attn.v_proj.weight'
+_ test_at_dropout_a_resumed_run_is_the_uninterrupted_one[gemma4_moe-block-major] _
+----------------------------- Captured stderr call -----------------------------
+[transformers] Last layer must use `full_attention`, but got `sliding_attention`. Forcing last layer to `full_attention`.
+[transformers] Last layer must use `full_attention`, but got `sliding_attention`. Forcing last layer to `full_attention`.
+[transformers] Last layer must use `full_attention`, but got `sliding_attention`. Forcing last layer to `full_attention`.
+------------------------------ Captured log call -------------------------------
+WARNING  transformers.models.gemma4.configuration_gemma4:configuration_gemma4.py:198 Last layer must use `full_attention`, but got `sliding_attention`. Forcing last layer to `full_attention`.
+WARNING  poros.train.streamed_load:streamed_load.py:168 1 checkpoint tensor is not in the model and left unread, as the standard load leaves them: 'model.language_model.layers.8.self_attn.v_proj.weight'
+WARNING  transformers.models.gemma4.configuration_gemma4:configuration_gemma4.py:198 Last layer must use `full_attention`, but got `sliding_attention`. Forcing last layer to `full_attention`.
+WARNING  poros.train.streamed_load:streamed_load.py:168 1 checkpoint tensor is not in the model and left unread, as the standard load leaves them: 'model.language_model.layers.8.self_attn.v_proj.weight'
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 32, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 98304, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 1391230976, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 46276 misses 28284
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+WARNING  poros.train.trainer:trainer.py:1441 Could not save tokenizer for <path> Couldn't instantiate the backend tokenizer from one of: 
+(1) a `tokenizers` library serialization file, 
+(2) a slow tokenizer instance to convert or 
+(3) an equivalent slow tokenizer class to instantiate and convert. 
+You need to have sentencepiece or tiktoken installed to convert a slow tokenizer to a fast one. (load it from the base model when running inference).
+WARNING  transformers.models.gemma4.configuration_gemma4:configuration_gemma4.py:198 Last layer must use `full_attention`, but got `sliding_attention`. Forcing last layer to `full_attention`.
+WARNING  poros.train.streamed_load:streamed_load.py:168 1 checkpoint tensor is not in the model and left unread, as the standard load leaves them: 'model.language_model.layers.8.self_attn.v_proj.weight'
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 32, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 110592, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 1661239296, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 47596 misses 28692
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+_ test_at_dropout_a_resumed_run_is_the_uninterrupted_one[gemma4_moe-sequential-then-block-major] _
+----------------------------- Captured stderr call -----------------------------
+[transformers] Last layer must use `full_attention`, but got `sliding_attention`. Forcing last layer to `full_attention`.
+[transformers] Last layer must use `full_attention`, but got `sliding_attention`. Forcing last layer to `full_attention`.
+[transformers] Last layer must use `full_attention`, but got `sliding_attention`. Forcing last layer to `full_attention`.
+------------------------------ Captured log call -------------------------------
+WARNING  transformers.models.gemma4.configuration_gemma4:configuration_gemma4.py:198 Last layer must use `full_attention`, but got `sliding_attention`. Forcing last layer to `full_attention`.
+WARNING  poros.train.streamed_load:streamed_load.py:168 1 checkpoint tensor is not in the model and left unread, as the standard load leaves them: 'model.language_model.layers.8.self_attn.v_proj.weight'
+WARNING  transformers.models.gemma4.configuration_gemma4:configuration_gemma4.py:198 Last layer must use `full_attention`, but got `sliding_attention`. Forcing last layer to `full_attention`.
+WARNING  poros.train.streamed_load:streamed_load.py:168 1 checkpoint tensor is not in the model and left unread, as the standard load leaves them: 'model.language_model.layers.8.self_attn.v_proj.weight'
+WARNING  poros.train.trainer:trainer.py:1441 Could not save tokenizer for <path> Couldn't instantiate the backend tokenizer from one of: 
+(1) a `tokenizers` library serialization file, 
+(2) a slow tokenizer instance to convert or 
+(3) an equivalent slow tokenizer class to instantiate and convert. 
+You need to have sentencepiece or tiktoken installed to convert a slow tokenizer to a fast one. (load it from the base model when running inference).
+WARNING  transformers.models.gemma4.configuration_gemma4:configuration_gemma4.py:198 Last layer must use `full_attention`, but got `sliding_attention`. Forcing last layer to `full_attention`.
+WARNING  poros.train.streamed_load:streamed_load.py:168 1 checkpoint tensor is not in the model and left unread, as the standard load leaves them: 'model.language_model.layers.8.self_attn.v_proj.weight'
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 32, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 110592, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 1934393344, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 50224 misses 29508
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+_ test_at_dropout_a_resumed_run_is_the_uninterrupted_one[gemma4_moe-block-major-then-sequential] _
+----------------------------- Captured stderr call -----------------------------
+[transformers] Last layer must use `full_attention`, but got `sliding_attention`. Forcing last layer to `full_attention`.
+[transformers] Last layer must use `full_attention`, but got `sliding_attention`. Forcing last layer to `full_attention`.
+[transformers] Last layer must use `full_attention`, but got `sliding_attention`. Forcing last layer to `full_attention`.
+------------------------------ Captured log call -------------------------------
+WARNING  transformers.models.gemma4.configuration_gemma4:configuration_gemma4.py:198 Last layer must use `full_attention`, but got `sliding_attention`. Forcing last layer to `full_attention`.
+WARNING  poros.train.streamed_load:streamed_load.py:168 1 checkpoint tensor is not in the model and left unread, as the standard load leaves them: 'model.language_model.layers.8.self_attn.v_proj.weight'
+WARNING  transformers.models.gemma4.configuration_gemma4:configuration_gemma4.py:198 Last layer must use `full_attention`, but got `sliding_attention`. Forcing last layer to `full_attention`.
+WARNING  poros.train.streamed_load:streamed_load.py:168 1 checkpoint tensor is not in the model and left unread, as the standard load leaves them: 'model.language_model.layers.8.self_attn.v_proj.weight'
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 32, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 98304, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 2205974528, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 52836 misses 30324
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+WARNING  poros.train.trainer:trainer.py:1441 Could not save tokenizer for <path> Couldn't instantiate the backend tokenizer from one of: 
+(1) a `tokenizers` library serialization file, 
+(2) a slow tokenizer instance to convert or 
+(3) an equivalent slow tokenizer class to instantiate and convert. 
+You need to have sentencepiece or tiktoken installed to convert a slow tokenizer to a fast one. (load it from the base model when running inference).
+WARNING  transformers.models.gemma4.configuration_gemma4:configuration_gemma4.py:198 Last layer must use `full_attention`, but got `sliding_attention`. Forcing last layer to `full_attention`.
+WARNING  poros.train.streamed_load:streamed_load.py:168 1 checkpoint tensor is not in the model and left unread, as the standard load leaves them: 'model.language_model.layers.8.self_attn.v_proj.weight'
+=========================== short test summary info ============================
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[gemma4_moe-ram-pow2-on-0.0]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[gemma4_moe-ram-pow2-on-0.05]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[gemma4_moe-ram-pow2-off-0.0]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[gemma4_moe-ram-pow2-off-0.05]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[gemma4_moe-ram-pow2-ram-0.0]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[gemma4_moe-ram-pow2-ram-0.05]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[gemma4_moe-ram-single-on-0.0]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[gemma4_moe-ram-single-on-0.05]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[gemma4_moe-ram-single-off-0.0]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[gemma4_moe-ram-single-off-0.05]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[gemma4_moe-ram-single-ram-0.0]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[gemma4_moe-ram-single-ram-0.05]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[gemma4_moe-ssd-pow2-on-0.0]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[gemma4_moe-ssd-pow2-on-0.05]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[gemma4_moe-ssd-pow2-off-0.0]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[gemma4_moe-ssd-pow2-off-0.05]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[gemma4_moe-ssd-pow2-ram-0.0]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[gemma4_moe-ssd-pow2-ram-0.05]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[gemma4_moe-ssd-single-on-0.0]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[gemma4_moe-ssd-single-on-0.05]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[gemma4_moe-ssd-single-off-0.0]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[gemma4_moe-ssd-single-off-0.05]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[gemma4_moe-ssd-single-ram-0.0]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[gemma4_moe-ssd-single-ram-0.05]
+PASSED tests/moe/test_block_major_families.py::test_at_dropout_every_loop_block_size_and_residency_trains_the_same_update[gemma4_moe]
+PASSED tests/moe/test_block_major_families.py::test_at_dropout_a_resumed_run_is_the_uninterrupted_one[gemma4_moe-block-major]
+PASSED tests/moe/test_block_major_families.py::test_at_dropout_a_resumed_run_is_the_uninterrupted_one[gemma4_moe-sequential-then-block-major]
+PASSED tests/moe/test_block_major_families.py::test_at_dropout_a_resumed_run_is_the_uninterrupted_one[gemma4_moe-block-major-then-sequential]
+28 passed, 140 deselected in 210.80s (0:03:30)

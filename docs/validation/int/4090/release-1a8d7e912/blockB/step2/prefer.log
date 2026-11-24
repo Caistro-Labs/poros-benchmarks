@@ -1,0 +1,6 @@
+2026-11-24T08:44:24Z certify prefer on RTX 4090: 16 updates, 143 pairs rows
+2026-11-24T08:44:24Z prepare: one update, not measured
+2026-11-24T08:45:47Z main run
+2026-11-24T08:48:01Z resume run: stopped halfway, then continued
+2026-11-24T08:50:43Z eval
+2026-11-24T08:51:11Z ok: <home>/poros_rel/cert/out/step2/prefer/certification.json

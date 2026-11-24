@@ -1,0 +1,1222 @@
+[
+{
+"kernel": "_lora_out_fwd",
+"cap": 70,
+"tag": "bf16 R=16",
+"stages": 3,
+"shared": 20480,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_out_bwd",
+"cap": 70,
+"tag": "bf16 R=16",
+"stages": 1,
+"shared": 26624,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_out_bwd",
+"cap": 70,
+"tag": "bf16 R=16",
+"stages": 2,
+"shared": 26624,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_swiglu_fwd",
+"cap": 70,
+"tag": "bf16 R=16 hf=True",
+"stages": 3,
+"shared": 32768,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_swiglu_fwd",
+"cap": 70,
+"tag": "bf16 R=16 hf=False",
+"stages": 3,
+"shared": 40960,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_swiglu_bwd",
+"cap": 70,
+"tag": "bf16 R=16 drop=False",
+"stages": 1,
+"shared": 36864,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_swiglu_bwd",
+"cap": 70,
+"tag": "bf16 R=16 drop=True",
+"stages": 1,
+"shared": 36864,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_fwd",
+"cap": 70,
+"tag": "bf16 R=16 D=64",
+"stages": 3,
+"shared": 12288,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 70,
+"tag": "bf16 R=16 D=64",
+"stages": 1,
+"shared": 14336,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 70,
+"tag": "bf16 R=16 D=64",
+"stages": 2,
+"shared": 14336,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_fwd",
+"cap": 70,
+"tag": "bf16 R=16 D=128",
+"stages": 3,
+"shared": 20480,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 70,
+"tag": "bf16 R=16 D=128",
+"stages": 1,
+"shared": 26624,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 70,
+"tag": "bf16 R=16 D=128",
+"stages": 2,
+"shared": 26624,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_out_fwd",
+"cap": 70,
+"tag": "bf16 R=32",
+"stages": 3,
+"shared": 32768,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_out_bwd",
+"cap": 70,
+"tag": "bf16 R=32",
+"stages": 1,
+"shared": 36864,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_out_bwd",
+"cap": 70,
+"tag": "bf16 R=32",
+"stages": 2,
+"shared": 36864,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_swiglu_fwd",
+"cap": 70,
+"tag": "bf16 R=32 hf=True",
+"stages": 3,
+"shared": 57344,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_swiglu_fwd",
+"cap": 70,
+"tag": "bf16 R=32 hf=False",
+"stages": 3,
+"shared": 57344,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_swiglu_bwd",
+"cap": 70,
+"tag": "bf16 R=32 drop=False",
+"stages": 1,
+"shared": 57344,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_swiglu_bwd",
+"cap": 70,
+"tag": "bf16 R=32 drop=True",
+"stages": 1,
+"shared": 57344,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_fwd",
+"cap": 70,
+"tag": "bf16 R=32 D=64",
+"stages": 3,
+"shared": 20480,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 70,
+"tag": "bf16 R=32 D=64",
+"stages": 1,
+"shared": 20480,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 70,
+"tag": "bf16 R=32 D=64",
+"stages": 2,
+"shared": 20480,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_fwd",
+"cap": 70,
+"tag": "bf16 R=32 D=128",
+"stages": 3,
+"shared": 32768,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 70,
+"tag": "bf16 R=32 D=128",
+"stages": 1,
+"shared": 36864,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 70,
+"tag": "bf16 R=32 D=128",
+"stages": 2,
+"shared": 36864,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_out_fwd",
+"cap": 70,
+"tag": "bf16 R=64",
+"stages": 3,
+"shared": 57344,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_out_bwd",
+"cap": 70,
+"tag": "bf16 R=64",
+"stages": 1,
+"shared": 57344,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_out_bwd",
+"cap": 70,
+"tag": "bf16 R=64",
+"stages": 2,
+"shared": 57344,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_swiglu_fwd",
+"cap": 70,
+"tag": "bf16 R=64 hf=True",
+"stages": 3,
+"shared": 106496,
+"limit": 98304,
+"fits": false,
+"err": null
+},
+{
+"kernel": "_swiglu_fwd",
+"cap": 70,
+"tag": "bf16 R=64 hf=False",
+"stages": 3,
+"shared": 106496,
+"limit": 98304,
+"fits": false,
+"err": null
+},
+{
+"kernel": "_swiglu_bwd",
+"cap": 70,
+"tag": "bf16 R=64 drop=False",
+"stages": 1,
+"shared": 98304,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_swiglu_bwd",
+"cap": 70,
+"tag": "bf16 R=64 drop=True",
+"stages": 1,
+"shared": 98304,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_fwd",
+"cap": 70,
+"tag": "bf16 R=64 D=64",
+"stages": 3,
+"shared": 36864,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 70,
+"tag": "bf16 R=64 D=64",
+"stages": 1,
+"shared": 32768,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 70,
+"tag": "bf16 R=64 D=64",
+"stages": 2,
+"shared": 32768,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_fwd",
+"cap": 70,
+"tag": "bf16 R=64 D=128",
+"stages": 3,
+"shared": 57344,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 70,
+"tag": "bf16 R=64 D=128",
+"stages": 1,
+"shared": 57344,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 70,
+"tag": "bf16 R=64 D=128",
+"stages": 2,
+"shared": 57344,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_out_fwd",
+"cap": 70,
+"tag": "bf16 R=128",
+"stages": 3,
+"shared": 106496,
+"limit": 98304,
+"fits": false,
+"err": null
+},
+{
+"kernel": "_lora_out_bwd",
+"cap": 70,
+"tag": "bf16 R=128",
+"stages": 1,
+"shared": 98304,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_out_bwd",
+"cap": 70,
+"tag": "bf16 R=128",
+"stages": 2,
+"shared": 98304,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_swiglu_fwd",
+"cap": 70,
+"tag": "bf16 R=128 hf=True",
+"stages": 3,
+"shared": 204800,
+"limit": 98304,
+"fits": false,
+"err": null
+},
+{
+"kernel": "_swiglu_fwd",
+"cap": 70,
+"tag": "bf16 R=128 hf=False",
+"stages": 3,
+"shared": 204800,
+"limit": 98304,
+"fits": false,
+"err": null
+},
+{
+"kernel": "_swiglu_bwd",
+"cap": 70,
+"tag": "bf16 R=128 drop=False",
+"stages": 1,
+"shared": 172032,
+"limit": 98304,
+"fits": false,
+"err": null
+},
+{
+"kernel": "_swiglu_bwd",
+"cap": 70,
+"tag": "bf16 R=128 drop=True",
+"stages": 1,
+"shared": 172032,
+"limit": 98304,
+"fits": false,
+"err": null
+},
+{
+"kernel": "_lora_rope_fwd",
+"cap": 70,
+"tag": "bf16 R=128 D=64",
+"stages": 3,
+"shared": 69632,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 70,
+"tag": "bf16 R=128 D=64",
+"stages": 1,
+"shared": 57344,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 70,
+"tag": "bf16 R=128 D=64",
+"stages": 2,
+"shared": 57344,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_fwd",
+"cap": 70,
+"tag": "bf16 R=128 D=128",
+"stages": 3,
+"shared": 106496,
+"limit": 98304,
+"fits": false,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 70,
+"tag": "bf16 R=128 D=128",
+"stages": 1,
+"shared": 98304,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 70,
+"tag": "bf16 R=128 D=128",
+"stages": 2,
+"shared": 98304,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_add_f32",
+"cap": 70,
+"tag": "bf16",
+"stages": 3,
+"shared": 0,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_add_f32",
+"cap": 70,
+"tag": "fp16",
+"stages": 3,
+"shared": 0,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_add_f32",
+"cap": 70,
+"tag": "fp32",
+"stages": 3,
+"shared": 0,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_rmsnorm_fwd",
+"cap": 70,
+"tag": "H=896",
+"stages": 3,
+"shared": 16,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_rmsnorm_bwd",
+"cap": 70,
+"tag": "H=896",
+"stages": 3,
+"shared": 16,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_rmsnorm_fwd",
+"cap": 70,
+"tag": "H=3584",
+"stages": 3,
+"shared": 32,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_rmsnorm_bwd",
+"cap": 70,
+"tag": "H=3584",
+"stages": 3,
+"shared": 32,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_rmsnorm_fwd",
+"cap": 70,
+"tag": "H=8192",
+"stages": 3,
+"shared": 32,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_rmsnorm_bwd",
+"cap": 70,
+"tag": "H=8192",
+"stages": 3,
+"shared": 32,
+"limit": 98304,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_out_fwd",
+"cap": 120,
+"tag": "bf16 R=16",
+"stages": 3,
+"shared": 14336,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_out_bwd",
+"cap": 120,
+"tag": "bf16 R=16",
+"stages": 1,
+"shared": 26624,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_out_bwd",
+"cap": 120,
+"tag": "bf16 R=16",
+"stages": 2,
+"shared": 26624,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_swiglu_fwd",
+"cap": 120,
+"tag": "bf16 R=16 hf=True",
+"stages": 3,
+"shared": 26624,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_swiglu_fwd",
+"cap": 120,
+"tag": "bf16 R=16 hf=False",
+"stages": 3,
+"shared": 40960,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_swiglu_bwd",
+"cap": 120,
+"tag": "bf16 R=16 drop=False",
+"stages": 1,
+"shared": 36864,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_swiglu_bwd",
+"cap": 120,
+"tag": "bf16 R=16 drop=True",
+"stages": 1,
+"shared": 36864,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_fwd",
+"cap": 120,
+"tag": "bf16 R=16 D=64",
+"stages": 3,
+"shared": 12288,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 120,
+"tag": "bf16 R=16 D=64",
+"stages": 1,
+"shared": 14336,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 120,
+"tag": "bf16 R=16 D=64",
+"stages": 2,
+"shared": 38912,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_fwd",
+"cap": 120,
+"tag": "bf16 R=16 D=128",
+"stages": 3,
+"shared": 16384,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 120,
+"tag": "bf16 R=16 D=128",
+"stages": 1,
+"shared": 26624,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 120,
+"tag": "bf16 R=16 D=128",
+"stages": 2,
+"shared": 75776,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_out_fwd",
+"cap": 120,
+"tag": "bf16 R=32",
+"stages": 3,
+"shared": 26624,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_out_bwd",
+"cap": 120,
+"tag": "bf16 R=32",
+"stages": 1,
+"shared": 36864,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_out_bwd",
+"cap": 120,
+"tag": "bf16 R=32",
+"stages": 2,
+"shared": 40960,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_swiglu_fwd",
+"cap": 120,
+"tag": "bf16 R=32 hf=True",
+"stages": 3,
+"shared": 51200,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_swiglu_fwd",
+"cap": 120,
+"tag": "bf16 R=32 hf=False",
+"stages": 3,
+"shared": 51200,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_swiglu_bwd",
+"cap": 120,
+"tag": "bf16 R=32 drop=False",
+"stages": 1,
+"shared": 57344,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_swiglu_bwd",
+"cap": 120,
+"tag": "bf16 R=32 drop=True",
+"stages": 1,
+"shared": 57344,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_fwd",
+"cap": 120,
+"tag": "bf16 R=32 D=64",
+"stages": 3,
+"shared": 20480,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 120,
+"tag": "bf16 R=32 D=64",
+"stages": 1,
+"shared": 20480,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 120,
+"tag": "bf16 R=32 D=64",
+"stages": 2,
+"shared": 49152,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_fwd",
+"cap": 120,
+"tag": "bf16 R=32 D=128",
+"stages": 3,
+"shared": 28672,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 120,
+"tag": "bf16 R=32 D=128",
+"stages": 1,
+"shared": 36864,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 120,
+"tag": "bf16 R=32 D=128",
+"stages": 2,
+"shared": 90112,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_out_fwd",
+"cap": 120,
+"tag": "bf16 R=64",
+"stages": 3,
+"shared": 51200,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_out_bwd",
+"cap": 120,
+"tag": "bf16 R=64",
+"stages": 1,
+"shared": 57344,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_out_bwd",
+"cap": 120,
+"tag": "bf16 R=64",
+"stages": 2,
+"shared": 65536,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_swiglu_fwd",
+"cap": 120,
+"tag": "bf16 R=64 hf=True",
+"stages": 3,
+"shared": 100352,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_swiglu_fwd",
+"cap": 120,
+"tag": "bf16 R=64 hf=False",
+"stages": 3,
+"shared": 100352,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_swiglu_bwd",
+"cap": 120,
+"tag": "bf16 R=64 drop=False",
+"stages": 1,
+"shared": 94208,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_swiglu_bwd",
+"cap": 120,
+"tag": "bf16 R=64 drop=True",
+"stages": 1,
+"shared": 94208,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_fwd",
+"cap": 120,
+"tag": "bf16 R=64 D=64",
+"stages": 3,
+"shared": 36864,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 120,
+"tag": "bf16 R=64 D=64",
+"stages": 1,
+"shared": 32768,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 120,
+"tag": "bf16 R=64 D=64",
+"stages": 2,
+"shared": 65536,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_fwd",
+"cap": 120,
+"tag": "bf16 R=64 D=128",
+"stages": 3,
+"shared": 53248,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 120,
+"tag": "bf16 R=64 D=128",
+"stages": 1,
+"shared": 57344,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 120,
+"tag": "bf16 R=64 D=128",
+"stages": 2,
+"shared": 114688,
+"limit": 101376,
+"fits": false,
+"err": null
+},
+{
+"kernel": "_lora_out_fwd",
+"cap": 120,
+"tag": "bf16 R=128",
+"stages": 3,
+"shared": 100352,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_out_bwd",
+"cap": 120,
+"tag": "bf16 R=128",
+"stages": 1,
+"shared": 98304,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_out_bwd",
+"cap": 120,
+"tag": "bf16 R=128",
+"stages": 2,
+"shared": 106496,
+"limit": 101376,
+"fits": false,
+"err": null
+},
+{
+"kernel": "_swiglu_fwd",
+"cap": 120,
+"tag": "bf16 R=128 hf=True",
+"stages": 3,
+"shared": 198656,
+"limit": 101376,
+"fits": false,
+"err": null
+},
+{
+"kernel": "_swiglu_fwd",
+"cap": 120,
+"tag": "bf16 R=128 hf=False",
+"stages": 3,
+"shared": 198656,
+"limit": 101376,
+"fits": false,
+"err": null
+},
+{
+"kernel": "_swiglu_bwd",
+"cap": 120,
+"tag": "bf16 R=128 drop=False",
+"stages": 1,
+"shared": 165888,
+"limit": 101376,
+"fits": false,
+"err": null
+},
+{
+"kernel": "_swiglu_bwd",
+"cap": 120,
+"tag": "bf16 R=128 drop=True",
+"stages": 1,
+"shared": 165888,
+"limit": 101376,
+"fits": false,
+"err": null
+},
+{
+"kernel": "_lora_rope_fwd",
+"cap": 120,
+"tag": "bf16 R=128 D=64",
+"stages": 3,
+"shared": 69632,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 120,
+"tag": "bf16 R=128 D=64",
+"stages": 1,
+"shared": 57344,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 120,
+"tag": "bf16 R=128 D=64",
+"stages": 2,
+"shared": 90112,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_fwd",
+"cap": 120,
+"tag": "bf16 R=128 D=128",
+"stages": 3,
+"shared": 102400,
+"limit": 101376,
+"fits": false,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 120,
+"tag": "bf16 R=128 D=128",
+"stages": 1,
+"shared": 98304,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 120,
+"tag": "bf16 R=128 D=128",
+"stages": 2,
+"shared": 155648,
+"limit": 101376,
+"fits": false,
+"err": null
+},
+{
+"kernel": "_add_f32",
+"cap": 120,
+"tag": "bf16",
+"stages": 3,
+"shared": 0,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_add_f32",
+"cap": 120,
+"tag": "fp16",
+"stages": 3,
+"shared": 0,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_add_f32",
+"cap": 120,
+"tag": "fp32",
+"stages": 3,
+"shared": 0,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_rmsnorm_fwd",
+"cap": 120,
+"tag": "H=896",
+"stages": 3,
+"shared": 16,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_rmsnorm_bwd",
+"cap": 120,
+"tag": "H=896",
+"stages": 3,
+"shared": 16,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_rmsnorm_fwd",
+"cap": 120,
+"tag": "H=3584",
+"stages": 3,
+"shared": 32,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_rmsnorm_bwd",
+"cap": 120,
+"tag": "H=3584",
+"stages": 3,
+"shared": 32,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_rmsnorm_fwd",
+"cap": 120,
+"tag": "H=8192",
+"stages": 3,
+"shared": 32,
+"limit": 101376,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_rmsnorm_bwd",
+"cap": 120,
+"tag": "H=8192",
+"stages": 3,
+"shared": 32,
+"limit": 101376,
+"fits": true,
+"err": null
+}
+]

@@ -1,0 +1,37 @@
+▛▜ poros v0.3.0 · Qwen/Qwen2.5-32B · RTX 4090 23.5 GiB
+
+● Checked c32_poros_r1.yaml  config
+  │ nf4 · block 4 · rank 16 · seq 512 · efficient path
+  │ classic · every token · lr 2e-5
+  │ output    runs/c32_poros_r1
+
+● Loaded Qwen2.5-32B  1m 57s
+  │ dense · 64 layers · 16 blocks
+step 1/16  loss 1.0348  10.82 s/step  vram 7.8 GiB (peak 12.3)  eta 2m 42s
+step 5/16  loss 1.0804  8.19 s/step  vram 7.8 GiB (peak 12.3)  eta 1m 36s
+step 9/16  loss 1.2086  8.20 s/step  vram 7.8 GiB (peak 12.3)  eta 59s
+step 13/16  loss 0.9543  8.20 s/step  vram 7.8 GiB (peak 12.3)  eta 25s
+~/venv_poros/lib/python3.12/site-packages/peft/utils/save_and_load.py:438: UserWarning: Could not find a config file in Qwen/Qwen2.5-32B - will assume that the vocabulary was not modified.
+  warnings.warn(
+
+  ╭─ Trained ────────────────────────────────────────────────────── 16 steps · classic · 2m 23s ─╮
+  │                                  ▄▂                                  final loss              │
+  │          ▂                     ▄███▂                                 1.0066  ↓ 3%            │
+  │ 1.25    ▃█▆▂               ▁▃▅██████▃                     ▂▂▃▃▃      from 1.0348             │
+  │        ▄████▆▂          ▁▅▇██████████▃                  ▁▆█████▆                             │
+  │       ▆███████▄       ▂▆██████████████▃                ▄█████████▂   vram 12.3 GiB peak      │
+  │ 1.00 ▇█████████▆    ▃▇█████████████████▃      ▁     ▁▄████████████▅  ram  21.8 GiB peak      │
+  │      ███████████▇▁▃▇████████████████████▂   ▁▆█▇▅▄▃▆███████████████                          │
+  │      ████████████████████████████████████▂ ▄███████████████████████                          │
+  │ 0.75 █████████████████████████████████████▇████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                                8                          16                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      490 tok/s
+  │
+  │ adapter    runs/c32_poros_r1
+  │ receipt    runs/c32_poros_r1/receipt.json
+
+Continue with: poros eval ~/rf/h2hf_5d75e31a/rec/c32_poros_r1.yaml
+{"schema":"poros.train.v1","learned":null,"output_dir":"~/rf/h2hf_5d75e31a/runs/c32_poros_r1","events":"~/rf/h2hf_5d75e31a/runs/c32_poros_r1/events.jsonl","metrics":{"device":"cuda:0","total_steps":16,"final_loss":1.0066341161727905,"loss_history":[1.0348204374313354,1.3133007287979126,1.1448265314102173,0.869596004486084,1.0395983457565308,1.1850242614746094,1.2686753273010254,1.4370604753494263,1.1124634742736816,0.7584537267684937,0.9713150262832642,0.9016969799995422,1.027445912361145,1.2269515991210938,1.2478536367416382,1.0066341161727905],"grad_norm_history":[0.08937544375658035,0.08723413944244385,0.07966698706150055,0.09800685197114944,0.0818326324224472,0.09450190514326096,0.09078853577375412,0.0935356616973877,0.10696713626384735,0.09156738966703415,0.08623496443033218,0.08970959484577179,0.12196925282478333,0.10768331587314606,0.11019979417324066,0.10172837972640991],"eval_history":[],"total_time_s":133.78178288042545,"step_time_history":[10.820106945931911,8.162992350757122,8.173592174425721,8.181594973430037,8.194847812876105,8.191985724493861,8.193931641057134,8.197918644174933,8.204740051180124,8.216363860294223,8.205821949988604,8.204705189913511,8.20419480279088,8.220443654805422,8.204946357756853,8.20359674654901],"vram_alloc_history_mb":[8402.627072,8402.627072,8402.627072,8402.627072,8402.627072,8402.627072,8402.627072,8402.627072,8402.627072,8402.627072,8402.627072,8402.627072,8402.627072,8402.627072,8402.627072,8402.627072],"avg_vram_allocated_mb":8402.627072,"avg_step_time_ms":8361.36143002659,"steps_per_sec":0.11959774832946311,"tokens_processed":65536,"tokens_per_sec":489.8723771574809,"peak_vram_allocated_gb":13.135138816,"peak_vram_reserved_gb":16.244539392,"torch_num_threads":16,"quantization":"nf4","block_size":4,"adapter_backend":"peft","adapter_summary":{"backend":"peft","target_module_names":"all-linear","trainable_param_count":134217728,"total_param_count":17295283200}},"run":null,"command":null,"next":[],"plan":null,"from":null,"support":null,"model_type":null}

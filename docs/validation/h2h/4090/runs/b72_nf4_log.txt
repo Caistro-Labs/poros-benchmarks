@@ -1,0 +1,2 @@
+NF4_SIZE {"nf4_weights_gib": 41.427, "quantized_linear_gib": 36.782, "kept_bf16_gib": 4.645, "quantized_weights": 560, "ok": true}
+rc=0

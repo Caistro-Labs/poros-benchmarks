@@ -1,0 +1,35 @@
+▛▜ poros v1.0.0 · <home>/poros_rel/hf_cert/fg_models/deepseek-ai_DeepSeek-V2-Lite__trunc4
+
+● Checked deepseek_v2_mref_seq.yaml  config
+  │ nf4 · rank 16 · seq 512
+  │ classic · every token · lr 2e-5
+  │ output    ~/poros_rel/cert/out/family/fg/runs/deepseek_v2_mref_seq
+  │ eval      none held out  this loop trains every row
+  │           to score held-out rows, give a file of them: eval_dataset, or --eval FILE; or recipe sft (--recipe sft), which holds 5% of 40 rows or more out
+
+● Loaded deepseek-ai_DeepSeek-V2-Lite__trunc4  9.7s
+  │ MoE · 4 layers · 64 experts
+[transformers] `tokenizer_class` is `LlamaTokenizerFast` but `tokenizer.json` is ByteLevel; loading `TokenizersBackend`. Set `tokenizer_class` to `TokenizersBackend` in `tokenizer_config.json`.
+step 1/8  loss 15.9523  1.28 s/step  vram 1.3 GiB (peak 3.4)  eta 8.9s
+
+  ╭─ Trained ───────────────────────────────────────────────────────── 8 steps · classic · 8.1s ─╮
+  │                                                                      final loss              │
+  │                                                                      15.7410  ↓ 1%           │
+  │   16 ▃▁                                                              from 15.9523            │
+  │      ██▇▄▂           ▁▂▃▄▄▅▅▆▆▇▇▅▄▂                            ▁▃▄▆                          │
+  │      ██████▆▄▁ ▂▃▄▅▇████████████████▆▄▂                   ▁▃▄▆▇████  vram 3.6 GiB peak       │
+  │   15 ███████████████████████████████████▆▃              ▄▇█████████  ram  7.3 GiB peak       │
+  │      ██████████████████████████████████████▄▁        ▂▅████████████                          │
+  │      ████████████████████████████████████████▆▃    ▃▆██████████████                          │
+  │   14 ███████████████████████████████████████████▅▄█████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                                  4                         8                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      4,984 tok/s
+  │
+  │ adapter    ~/poros_rel/cert/out/family/fg/runs/deepseek_v2_mref_seq
+  │ receipt    ~/poros_rel/cert/out/family/fg/runs/deepseek_v2_mref_seq/receipt.json
+
+Continue with: poros eval <home>/poros_rel/cert/out/family/fg/cfg/deepseek_v2_mref_seq.yaml
+{"schema":"poros.train.v1","learned":null,"output_dir":"<home>/poros_rel/cert/out/family/fg/runs/deepseek_v2_mref_seq","events":"<home>/poros_rel/cert/out/family/fg/runs/deepseek_v2_mref_seq/events.jsonl","metrics":{"device":"cuda:0","total_steps":8,"final_loss":15.740968704223633,"loss_history":[15.952312469482422,15.163551330566406,15.626114845275879,15.796500205993652,15.095358848571777,13.94729995727539,15.170093536376953,15.740968704223633],"grad_norm_history":[0.42578125,0.419921875,0.412109375,0.451171875,0.451171875,0.400390625,0.435546875,0.4375],"eval_history":[],"total_time_s":5.404109423980117,"step_time_history":[1.278319200500846,0.586220009252429,0.6106402724981308,0.5816124826669693,0.588131383061409,0.5843742191791534,0.5857030469924212,0.5891088098287582],"vram_alloc_history_mb":[1397.0432,1397.567488,1397.567488,1397.567488,1397.419008,1397.199872,1397.517824,1397.0432],"avg_vram_allocated_mb":1397.365696,"avg_step_time_ms":675.5136779975146,"steps_per_sec":1.4803549248097967,"tokens_processed":26932,"tokens_per_sec":4983.614854372181,"peak_vram_allocated_gb":3.771661824,"peak_vram_reserved_gb":3.898605568,"torch_num_threads":16,"quantization":"nf4","block_size":null,"adapter_backend":"native","adapter_summary":null},"run":null,"command":null,"next":[],"plan":null,"from":null,"support":null,"model_type":null}

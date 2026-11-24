@@ -1,0 +1,14 @@
+{
+ "baseline_avail_gib": 59.588,
+ "samples": 570,
+ "peak_memavailable_drop_gib": 50.09,
+ "peak_rssanon_gib": 6.951,
+ "peak_rssshmem_gib": 43.429,
+ "peak_rssfile_gib": 4.084,
+ "peak_vmrss_gib": 50.21,
+ "peak_vmhwm_gib": 50.21,
+ "peak_vmlck_gib": 0.0,
+ "peak_vmpin_gib": 0.0,
+ "ram_guard_gib": 2.0,
+ "ram_guard_kill": null
+}

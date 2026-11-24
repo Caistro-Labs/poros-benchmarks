@@ -1,0 +1,24 @@
+{
+ "fma_differences": 0,
+ "sqrt": {
+  "values": 50331600,
+  "differences": 0,
+  "first": null
+ },
+ "div": {
+  "values": 50333544,
+  "differences": 0,
+  "first": null
+ },
+ "compiled_source": {
+  "values": 20000000,
+  "sqrt_differences": 0,
+  "div_differences": 0,
+  "rtne_differences": 0
+ },
+ "rtne_differences": 0,
+ "guess_units": 4,
+ "seconds": 546.3,
+ "command": "cd <clean export of 1a8d7e912> && OMP_NUM_THREADS=1 PYTHONPATH=<that export> python3.12 scripts/moe_precision/metal_exact_arith.py --values 100000000 --workers 2",
+ "commit": "1a8d7e912b166c373fcfec862ad7297221d33a71"
+}

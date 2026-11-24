@@ -1,0 +1,38 @@
+▛▜ poros v0.3.0 · Qwen/Qwen2.5-0.5B · RTX 4090 23.5 GiB
+
+● Checked rel_q05_d0_efficient.yaml  config
+  │ nf4 · block 4 · rank 16 · seq 512 · efficient path
+  │ classic · every token · lr 2e-5
+  │ output    runs/rel_q05_d0_efficient
+
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+● Loaded Qwen2.5-0.5B  7.6s
+  │ dense · 24 layers · 6 blocks
+Map:   0%|          | 0/40 [00:00<?, ? examples/s]Map: 100%|██████████| 40/40 [00:00<00:00, 3374.48 examples/s]
+Filter:   0%|          | 0/40 [00:00<?, ? examples/s]Filter: 100%|██████████| 40/40 [00:00<00:00, 13409.97 examples/s]
+path efficient after update 1: block inputs {'offloaded': 40, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 10286080, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 536870912, 'refusals': 0}
+step 1/5  loss 3.8046  3.84 s/step  vram 0.7 GiB (peak 1.4)  eta 15s
+<path> UserWarning: Could not find a config file in Qwen/Qwen2.5-0.5B - will assume that the vocabulary was not modified.
+  warnings.warn(
+
+  ╭─ Trained ────────────────────────────────────────────────────────── 5 steps · classic · 19s ─╮
+  │                                                                      final loss              │
+  │                                                                      3.0072  ↓ 21%           │
+  │    4                                                                 from 3.8046             │
+  │      ▇▇▇▇▇▇▇▇▆▆▆▆▆▆▆▆▅▄▄▃▂▁▁                                                                 │
+  │      ████████████████████████▇▆▆▅▄▃▃▁                                vram 1.9 GiB peak       │
+  │    3 ████████████████████████████████▇▅▄▂                       ▁▃▄  ram  2.9 GiB peak       │
+  │      █████████████████████████████████████▆▄▂              ▂▃▅▆████                          │
+  │      █████████████████████████████████████████▇▅▃▁   ▁▃▄▅▇█████████                          │
+  │    2 █████████████████████████████████████████████▇▆███████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                             2                              5                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      314 tok/s
+  │
+  │ adapter    runs/rel_q05_d0_efficient
+  │ receipt    runs/rel_q05_d0_efficient/receipt.json
+
+Continue with: poros eval <path>
+{"schema":"poros.train.v1","learned":null,"output_dir":"runs/rel_q05_d0_efficient","events":"runs/rel_q05_d0_efficient/events.jsonl","metrics":{"device":"cuda:0","total_steps":5,"final_loss":3.007162570953369,"loss_history":[3.8045902252197266,3.738075017929077,3.2551393508911133,2.074263095855713,3.007162570953369],"grad_norm_history":[4.952253818511963,6.4550275802612305,3.3631961345672607,1.634447455406189,3.4600741863250732],"eval_history":[],"total_time_s":15.486191413365304,"step_time_history":[3.8427955554798245,2.9115750677883625,2.9190817270427942,3.007155661471188,2.805583401583135],"vram_alloc_history_mb":[724.099584,724.111872,724.098048,724.125696,724.099584],"avg_vram_allocated_mb":724.1069568,"avg_step_time_ms":3097.238282673061,"steps_per_sec":0.32286828094380693,"tokens_processed":4857,"tokens_per_sec":313.63424810881406,"peak_vram_allocated_gb":2.005774848,"peak_vram_reserved_gb":3.252682752,"torch_num_threads":16,"quantization":"nf4","block_size":4,"adapter_backend":"peft","adapter_summary":{"backend":"peft","target_module_names":"all-linear","trainable_param_count":8798208,"total_param_count":323917696}},"run":null,"command":null,"next":[],"plan":null,"from":null,"support":null,"model_type":null}

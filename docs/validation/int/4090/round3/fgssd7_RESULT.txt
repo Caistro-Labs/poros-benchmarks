@@ -1,0 +1,61 @@
+family_gate_ssd: tree <path> (f163c28d2b627b1af96e1d34232a2458be76ff99) -> <path>, store <path>
+start 2026-11-16T23:10:44Z
+PASS  env                            sha f163c28d2b62 NVIDIA GeForce RTX 4090 2.14.1+cu130
+PASS  data                           6c8609d5be317280 <path>
+--- qwen3_moe (Qwen/Qwen3-30B-A3B @ ad44e777 trunc 4) 2026-11-16T23:10:46Z
+PASS  qwen3_moe:fetch                FETCH wrote <path> qwen3_moe 3114814464 params sha256 194b46afa881670d
+PASS  qwen3_moe:ssd==ram             path fast, digest dd694a6f7f6150ef | {'moe_expert_compute': 'fused', 'fused_compute': True, 'moe_expert_cache_gib': 1.161, 'moe_expert_cache_reason': 'every expert (1.16 GiB) fits: 22.97 
+PASS  qwen3_moe:repeat               built .sss, then reused: bitwise, digest dd694a6f7f6150ef
+PASS  qwen3_moe:paths                on the SSD store, seq==eff==fast digest dd694a6f7f6150ef
+PASS  qwen3_moe:ref                  reference experts, ssd==ram digest ae9754c8ddbdce97
+PASS  qwen3_moe:gate                 streamed from the .sss == resident (losses, grad norms, adapters, eval CE)
+PASS  qwen3_moe:resume               {"pass": true, "resumed_steps": [5, 6, 7], "steps_equal": true, "adapter_tensors": 16, "adapter_unequal_n": 0, "full_digest": "dd694a6f7f6150efbfb0374775caf53a57f68afd1e8783
+--- olmoe (allenai/OLMoE-1B-7B-0924 @ 6d84c485 trunc 4) 2026-11-16T23:18:04Z
+PASS  olmoe:fetch                    FETCH wrote <path> olmoe 1884325888 params sha256 4a6e5b5e6e29ba0e
+PASS  olmoe:ssd==ram                 path fast, digest d396c71fd5422bbc | {'moe_expert_compute': 'fused', 'fused_compute': True, 'moe_expert_cache_gib': 0.774, 'moe_expert_cache_reason': 'every expert (0.77 GiB) fits: 22.97 
+PASS  olmoe:repeat                   built .sss, then reused: bitwise, digest d396c71fd5422bbc
+PASS  olmoe:paths                    on the SSD store, seq==eff==fast digest d396c71fd5422bbc
+PASS  olmoe:ref                      reference experts, ssd==ram digest 18c896571965d1e6
+PASS  olmoe:gate                     streamed from the .sss == resident (losses, grad norms, adapters, eval CE)
+PASS  olmoe:resume                   {"pass": true, "resumed_steps": [5, 6, 7], "steps_equal": true, "adapter_tensors": 16, "adapter_unequal_n": 0, "full_digest": "d396c71fd5422bbc30d7b775b448bbcc69f5c0e8f374d7
+--- qwen2_moe (Qwen/Qwen1.5-MoE-A2.7B @ 1a758c50 trunc 4) 2026-11-16T23:22:48Z
+PASS  qwen2_moe:fetch                FETCH wrote <path> qwen2_moe 2904573952 params sha256 625ac1525ce5e412
+PASS  qwen2_moe:ssd==ram             path fast, digest e16cfdfa3dc51fcf | {'moe_expert_compute': 'fused', 'fused_compute': True, 'moe_expert_cache_gib': 0.997, 'moe_expert_cache_reason': 'every expert (1.00 GiB) fits: 22.98 
+PASS  qwen2_moe:repeat               built .sss, then reused: bitwise, digest e16cfdfa3dc51fcf
+PASS  qwen2_moe:paths                on the SSD store, seq==eff==fast digest e16cfdfa3dc51fcf
+PASS  qwen2_moe:ref                  reference experts, ssd==ram digest 9144fb36ccdf0a03
+PASS  qwen2_moe:gate                 streamed from the .sss == resident (losses, grad norms, adapters, eval CE)
+PASS  qwen2_moe:resume               {"pass": true, "resumed_steps": [5, 6, 7], "steps_equal": true, "adapter_tensors": 16, "adapter_unequal_n": 0, "full_digest": "e16cfdfa3dc51fcfffc661b9e99be91207208b62eebec0
+--- deepseek_v2 (deepseek-ai/DeepSeek-V2-Lite @ 604d5664 trunc 4) 2026-11-16T23:29:15Z
+PASS  deepseek_v2:fetch              FETCH wrote <path> deepseek_v2 2254983168 params sha256 f51befd25a7e6106
+PASS  deepseek_v2:ssd==ram           path fast, digest c0f23524a1c843da | {'moe_expert_compute': 'fused', 'fused_compute': True, 'moe_expert_cache_gib': 0.798, 'moe_expert_cache_reason': 'every expert (0.80 GiB) fits: 22.98 
+PASS  deepseek_v2:repeat             built .sss, then reused: bitwise, digest c0f23524a1c843da
+PASS  deepseek_v2:paths              on the SSD store, seq==eff==fast digest c0f23524a1c843da
+PASS  deepseek_v2:ref                reference experts, ssd==ram digest 6fa83ddbbca88423
+PASS  deepseek_v2:gate               streamed from the .sss == resident (losses, grad norms, adapters, eval CE)
+PASS  deepseek_v2:resume             {"pass": true, "resumed_steps": [5, 6, 7], "steps_equal": true, "adapter_tensors": 12, "adapter_unequal_n": 0, "full_digest": "c0f23524a1c843da79ced01aabc81daba9452fb010409e
+--- qwen3_5_moe (Qwen/Qwen3.6-35B-A3B @ 345d467b trunc 4) 2026-11-16T23:34:29Z
+PASS  qwen3_5_moe:fetch              FETCH wrote <path> qwen3_5_moe 4828041008 params sha256 c407f1dfb3d605e5
+PASS  qwen3_5_moe:ssd==ram           path fast, digest 4c9f5c4f940bf98c | {'moe_expert_compute': 'fused', 'fused_compute': True, 'moe_expert_cache_gib': 1.548, 'moe_expert_cache_reason': 'every expert (1.55 GiB) fits: 22.97 
+PASS  qwen3_5_moe:repeat             built .sss, then reused: bitwise, digest 4c9f5c4f940bf98c
+PASS  qwen3_5_moe:paths              on the SSD store, seq==eff==fast digest 4c9f5c4f940bf98c
+PASS  qwen3_5_moe:ref                reference experts, ssd==ram digest bd2c4c633073c982
+PASS  qwen3_5_moe:gate               streamed from the .sss == resident (losses, grad norms, adapters, eval CE)
+PASS  qwen3_5_moe:resume             {"pass": true, "resumed_steps": [5, 6, 7], "steps_equal": true, "adapter_tensors": 16, "adapter_unequal_n": 0, "full_digest": "4c9f5c4f940bf98c9a9513099323d88b98cd6a6f9f242e
+--- qwen3_5_moe_text (Qwen/Qwen3.6-35B-A3B @ 345d467b text 4) 2026-11-16T23:43:37Z
+PASS  qwen3_5_moe_text:fetch         FETCH wrote <path> qwen3_5_moe_text 4381469760 params sha256 4af8da19f10358eb
+PASS  qwen3_5_moe_text:ssd==ram      path fast, digest 4c9f5c4f940bf98c | {'moe_expert_compute': 'fused', 'fused_compute': True, 'moe_expert_cache_gib': 1.548, 'moe_expert_cache_reason': 'every expert (1.55 GiB) fits: 22.97 
+PASS  qwen3_5_moe_text:repeat        built .sss, then reused: bitwise, digest 4c9f5c4f940bf98c
+PASS  qwen3_5_moe_text:paths         on the SSD store, seq==eff==fast digest 4c9f5c4f940bf98c
+PASS  qwen3_5_moe_text:ref           reference experts, ssd==ram digest bd2c4c633073c982
+PASS  qwen3_5_moe_text:gate          streamed from the .sss == resident (losses, grad norms, adapters, eval CE)
+PASS  qwen3_5_moe_text:resume        {"pass": true, "resumed_steps": [5, 6, 7], "steps_equal": true, "adapter_tensors": 16, "adapter_unequal_n": 0, "full_digest": "4c9f5c4f940bf98c9a9513099323d88b98cd6a6f9f242e
+--- gemma4_moe (google/gemma-4-26B-A4B-it @ 4d7ae498 trunc 6) 2026-11-16T23:50:00Z
+PASS  gemma4_moe:fetch               FETCH wrote <path> gemma4 6209983030 params sha256 44eb54d5fa568d47
+PASS  gemma4_moe:ssd==ram            path fast, digest 9cb0d6fcbc9bca7a | {'moe_expert_compute': 'reference', 'fused_compute': False, 'moe_expert_cache_gib': 2.194, 'moe_expert_cache_reason': 'every expert (2.19 GiB) fits: 2
+PASS  gemma4_moe:repeat              built .sss, then reused: bitwise, digest 9cb0d6fcbc9bca7a
+PASS  gemma4_moe:paths               on the SSD store, seq==eff==fast digest 9cb0d6fcbc9bca7a
+SKIP  gemma4_moe:ref                 the default runs the reference experts here (moe=reference reason~SiLU)
+PASS  gemma4_moe:gate                streamed from the .sss == resident (losses, grad norms, adapters, eval CE)
+PASS  gemma4_moe:resume              {"pass": true, "resumed_steps": [5, 6, 7], "steps_equal": true, "adapter_tensors": 24, "adapter_unequal_n": 0, "full_digest": "9cb0d6fcbc9bca7a52e2c64b9e423f48fcdd61e90ee134
+end 2026-11-17T00:00:33Z FAILS=0

@@ -1,0 +1,111 @@
+{
+ "arm": "l30_poros",
+ "claims_keys": [],
+ "not_claimed": {
+  "why": "measured beside the arm h2h.4060l.30b_a3b (the laptop row) presents; no claims key cites it"
+ },
+ "outcome": "ran",
+ "median_of_ok_runs": {
+  "s_per_step_s": 12.042,
+  "t1_s": 29.8,
+  "vram_alloc_gb": 4.65,
+  "vram_reserved_gb": 5.63,
+  "host_ram_gb": 6.35,
+  "host_vmhwm_gb": 6.73,
+  "host_ram_load_gb": 6.35,
+  "host_ram_train_gb": 5.61,
+  "load_s": 9.7,
+  "load_vram_reserved_gb": 3.46,
+  "load_host_ram_gb": 6.35,
+  "load_host_vmhwm_gb": 6.73
+ },
+ "runs": [
+  {
+   "run": "l30_poros_r1",
+   "status": "ok",
+   "rc": 0,
+   "updates": 16,
+   "ran_path": "fast",
+   "asked_path": "fast",
+   "error_last_line": null,
+   "s_per_step_s": 11.5264,
+   "t1_s": 29.83,
+   "vram_alloc_gb": 4.647,
+   "vram_reserved_gb": 5.65,
+   "host_ram_gb": 6.144,
+   "host_vmhwm_gb": 6.726,
+   "host_ram_load_gb": 6.144,
+   "host_ram_train_gb": 5.598,
+   "load_s": 10.11,
+   "load_vram_reserved_gb": 3.463,
+   "load_host_ram_gb": 6.144,
+   "load_host_vmhwm_gb": 6.726,
+   "smi": {
+    "samples": 207,
+    "baseline_mib": 824,
+    "load_peak_gib": 3.53,
+    "run_peak_gib": 5.903,
+    "note": "nvidia-smi memory.used minus the pre-launch reading; includes the CUDA context (~0.3-0.5 GiB) torch's counters leave out"
+   },
+   "record": "docs/validation/h2h/4060l/runs/l30_poros_r1.json"
+  },
+  {
+   "run": "l30_poros_r2",
+   "status": "ok",
+   "rc": 0,
+   "updates": 16,
+   "ran_path": "fast",
+   "asked_path": "fast",
+   "error_last_line": null,
+   "s_per_step_s": 12.6035,
+   "t1_s": 30.42,
+   "vram_alloc_gb": 4.647,
+   "vram_reserved_gb": 5.631,
+   "host_ram_gb": 6.347,
+   "host_vmhwm_gb": 6.73,
+   "host_ram_load_gb": 6.347,
+   "host_ram_train_gb": 5.612,
+   "load_s": 9.6,
+   "load_vram_reserved_gb": 3.463,
+   "load_host_ram_gb": 6.347,
+   "load_host_vmhwm_gb": 6.73,
+   "smi": {
+    "samples": 230,
+    "baseline_mib": 845,
+    "load_peak_gib": 3.598,
+    "run_peak_gib": 5.886,
+    "note": "nvidia-smi memory.used minus the pre-launch reading; includes the CUDA context (~0.3-0.5 GiB) torch's counters leave out"
+   },
+   "record": "docs/validation/h2h/4060l/runs/l30_poros_r2.json"
+  },
+  {
+   "run": "l30_poros_r3",
+   "status": "ok",
+   "rc": 0,
+   "updates": 16,
+   "ran_path": "fast",
+   "asked_path": "fast",
+   "error_last_line": null,
+   "s_per_step_s": 12.0417,
+   "t1_s": 29.47,
+   "vram_alloc_gb": 4.647,
+   "vram_reserved_gb": 5.631,
+   "host_ram_gb": 6.347,
+   "host_vmhwm_gb": 6.73,
+   "host_ram_load_gb": 6.347,
+   "host_ram_train_gb": 5.614,
+   "load_s": 9.72,
+   "load_vram_reserved_gb": 3.463,
+   "load_host_ram_gb": 6.347,
+   "load_host_vmhwm_gb": 6.73,
+   "smi": {
+    "samples": 214,
+    "baseline_mib": 853,
+    "load_peak_gib": 3.355,
+    "run_peak_gib": 5.864,
+    "note": "nvidia-smi memory.used minus the pre-launch reading; includes the CUDA context (~0.3-0.5 GiB) torch's counters leave out"
+   },
+   "record": "docs/validation/h2h/4060l/runs/l30_poros_r3.json"
+  }
+ ]
+}

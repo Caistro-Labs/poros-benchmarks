@@ -1,0 +1,1 @@
+{'pack': 1, 'model': 'Qwen/Qwen2.5-72B-Instruct', 'revision': '495f39366efef23836d0cfae4fbe635880d2be31', 'torch': '2.15.0'}

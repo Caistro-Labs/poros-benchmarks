@@ -1,0 +1,24 @@
+xcard_check: tree <path> -> <path>
+start 2026-11-16T18:39:49Z
+PASS  env                      {"python": "3.12.3", "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39", "torch": "2.14.1", "triton": "3.8.0", "bitsandbytes": "0.50.2", "transformers": "5.22.2", "peft": "0.20.0", "accelerate": "1.15.0", "datasets": "5.2.0", "safetensors": "0.8.0", "cuda_runtime": "13.0", "cuda_available":
+PASS  deps                     the [ml] and [dev] stack imports
+capability 8.9  native_bf16=1  triton=1  run dtype=bfloat16
+PASS  cpu-sim                  87 passed, 2 warnings in 8.49s
+PASS  gpu-lane                 == 436 passed, 39 skipped, 4708 deselected, 32 warnings in 1047.23s (0:17:27) ==
+FAIL  gpu-dirs                 rc=1 ===== 2 failed, 706 passed, 44 skipped, 38 warnings in 1202.85s (0:20:02) ======
+PASS  ranks                    RANK 8 OK fused=True RANK 16 OK fused=True RANK 32 OK fused=True RANK 64 OK fused=True RANK 128 OK fused=True RANK 256 OK fused=False 
+PASS  ranks-fit                ranks match the fit table
+PASS  refuse-bf16-emu75        refused in 3s, exit 4 E_GPU_UNSUPPORTED: needs an NVIDIA GPU with bf16 (Ampere / RTX 30xx or newer); this card (NVIDIA GeForce RTX 4090, sm_75) has none: sm_75 (
+PASS  dense-fused              seq==eff==fast==resident digest 07d6495ae027f325 | fused_compute=True moe=None dtype=bfloat16 path=sequential reason=None
+PASS  dense-nofused            seq==eff==fast==resident digest 3654ec52bb91bbee | fused_compute=False moe=None dtype=bfloat16 path=sequential reason=None
+PASS  dense-fused-r64          seq==eff==fast==resident digest 29e857f2879d44b9 | fused_compute=True moe=None dtype=bfloat16 path=sequential reason=None
+PASS  dense-fused-r128         seq==eff==fast==resident digest a661d8db7f4836a6 | fused_compute=True moe=None dtype=bfloat16 path=sequential reason=None
+PASS  dense-fp16               seq==eff==fast==resident digest 6054a836a15f53e2 | fused_compute=True moe=None dtype=float16 path=sequential reason=None
+PASS  dense-fp16-nofused       seq==eff==fast==resident digest 9cc04bd2f6abd0d6 | fused_compute=False moe=None dtype=float16 path=sequential reason=None
+PASS  refcheck                 REFCHECK {"updates": 100, "dev_mean": 0.00042616009712219237, "dev_max": 0.0015017986297607422, "noise_mean": 0.021121573448181153, "noise_max": 0.10565328598022461, "pass": true}
+PASS  moe-build                tiny qwen3_moe at <path>
+PASS  moe-fused                seq==eff==fast digest 72b1236494fce3e0 | fused_compute=True moe=fused dtype=bfloat16 path=sequential reason=None
+PASS  moe-fused-r128           seq==eff==fast digest 60a864d4185de50d | fused_compute=True moe=fused dtype=bfloat16 path=sequential reason=None
+PASS  moe-reference            seq==eff==fast digest fac2f0d1d2c297a4 | fused_compute=False moe=reference dtype=bfloat16 path=sequential reason=None
+end 2026-11-16T19:43:27Z
+FAILS=1

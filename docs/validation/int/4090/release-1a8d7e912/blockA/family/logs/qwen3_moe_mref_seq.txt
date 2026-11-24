@@ -1,0 +1,34 @@
+▛▜ poros v1.0.0 · <home>/poros_rel/hf_cert/fg_models/Qwen_Qwen3-30B-A3B__trunc4
+
+● Checked qwen3_moe_mref_seq.yaml  config
+  │ nf4 · rank 16 · seq 512
+  │ classic · every token · lr 2e-5
+  │ output    ~/poros_rel/cert/out/family/fg/runs/qwen3_moe_mref_seq
+  │ eval      none held out  this loop trains every row
+  │           to score held-out rows, give a file of them: eval_dataset, or --eval FILE; or recipe sft (--recipe sft), which holds 5% of 40 rows or more out
+
+● Loaded Qwen_Qwen3-30B-A3B__trunc4  11s
+  │ MoE · 4 layers · 128 experts
+step 1/8  loss 12.9297  1.60 s/step  vram 1.9 GiB (peak 3.7)  eta 11s
+
+  ╭─ Trained ────────────────────────────────────────────────────────── 8 steps · classic · 13s ─╮
+  │                                                                      final loss              │
+  │                                                                      12.6336  ↓ 2%           │
+  │   13 ▂                                                               from 12.9297            │
+  │      ██▅▃             ▁▂▃▄▄▅▆▆▇█▇▅▄▂▁                           ▁▂▃                          │
+  │      █████▆▃▁    ▂▃▅▆████████████████▇▆▄▃▁               ▂▃▄▅▆▇████  vram 4.1 GiB peak       │
+  │   12 ████████▆▅▇██████████████████████████▇▅▃▁       ▂▄▆███████████  ram  9.3 GiB peak       │
+  │      █████████████████████████████████████████▇▅▃▂▄▆███████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │   11 ██████████████████████████████████████████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                                  4                         8                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      3,539 tok/s
+  │
+  │ adapter    ~/poros_rel/cert/out/family/fg/runs/qwen3_moe_mref_seq
+  │ receipt    ~/poros_rel/cert/out/family/fg/runs/qwen3_moe_mref_seq/receipt.json
+
+Continue with: poros eval <home>/poros_rel/cert/out/family/fg/cfg/qwen3_moe_mref_seq.yaml
+{"schema":"poros.train.v1","learned":null,"output_dir":"<home>/poros_rel/cert/out/family/fg/runs/qwen3_moe_mref_seq","events":"<home>/poros_rel/cert/out/family/fg/runs/qwen3_moe_mref_seq/events.jsonl","metrics":{"device":"cuda:0","total_steps":8,"final_loss":12.633583068847656,"loss_history":[12.929708480834961,12.025519371032715,12.587349891662598,12.825931549072266,12.299806594848633,11.567231178283691,12.264084815979004,12.633583068847656],"grad_norm_history":[4.34375,3.890625,4.28125,4.375,4.34375,4.6875,4.40625,3.9375],"eval_history":[],"total_time_s":7.21675344184041,"step_time_history":[1.5999278109520674,0.7874414250254631,0.8182505238801241,0.8115148972719908,0.7973256185650826,0.7943784166127443,0.7965165413916111,0.8113982081413269],"vram_alloc_history_mb":[2045.21728,2045.720064,2045.739008,2045.650432,2045.45024,2045.2992,2045.627392,2045.73696],"avg_vram_allocated_mb":2045.555072,"avg_step_time_ms":902.0941802300513,"steps_per_sec":1.108531705353626,"tokens_processed":25543,"tokens_per_sec":3539.4031687309584,"peak_vram_allocated_gb":4.361716224,"peak_vram_reserved_gb":5.23239424,"torch_num_threads":16,"quantization":"nf4","block_size":null,"adapter_backend":"native","adapter_summary":null},"run":null,"command":null,"next":[],"plan":null,"from":null,"support":null,"model_type":null}

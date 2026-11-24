@@ -1,0 +1,12 @@
+{
+ "site": "4060l",
+ "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+ "gpu_mib": "8188",
+ "driver": "615.78.08",
+ "cpu": "AMD Ryzen 9 8945HS w/ Radeon 780M Graphics",
+ "threads": "16",
+ "ram_gib": 14.9,
+ "os": "Omarchy",
+ "kernel": "7.2.8-9-omarchy",
+ "recorded": "read from the same laptop by a read-only query at 2026-11-18T08:39:41Z, after the row ran (the laptop job wrote no machine.json of its own); the runs' receipts name the GPU as RTX 4060 Laptop GPU, 8.25 GB"
+}

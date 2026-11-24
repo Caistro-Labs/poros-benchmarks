@@ -1,0 +1,193 @@
+{
+ "schema": "poros.moe.coder_e2e.v1",
+ "evidence": "second real qwen3_moe checkpoint, streamed only, through the public CLI",
+ "hf_repo": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+ "revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+ "host": {
+  "gpu": "NVIDIA GeForce RTX 3090 24 GB",
+  "driver": "610.47",
+  "os": "WSL2 (kernel 6.6.114.1-microsoft-standard-WSL2) on a <host> host",
+  "cpu": "AMD Ryzen 9 5950X",
+  "host_ram_gib": 62,
+  "torch": "2.13.0+cu130",
+  "transformers": "5.15.0",
+  "code": "50e2447 (poros package identical to b9d2043)",
+  "wsl2_sysmem_fallback": "Past the card's memory the Windows driver spills CUDA allocations to host RAM instead of failing. Arms marked capped call torch.cuda.set_per_process_memory_fraction(free/total) at start (22.76 GiB free), so a run that does not fit OOMs as on a native host; a fraction of exactly 1.0 is not enforced."
+ },
+ "pcie_under_load": [
+  "Gen4 x16"
+ ],
+ "config": {
+  "dataset": "synthetic",
+  "max_steps": 4,
+  "max_seq_length": 256,
+  "gradient_accumulation_steps": 2,
+  "lora_dropout": "default 0.05"
+ },
+ "command": "python scripts/coder_e2e.py Qwen/Qwen3-Coder-30B-A3B-Instruct <dir>  (poros train, poros export, load_moe_streamed)",
+ "train": {
+  "wall_s": 269.9,
+  "s_per_step": [
+   19.800346874981187,
+   16.13264374001301,
+   15.74425350499223,
+   15.324503001000267
+  ],
+  "losses": [
+   12.391921997070312,
+   12.581812858581543,
+   12.635078430175781,
+   12.454317092895508
+  ],
+  "grad_norms": [
+   1.9609375,
+   2.28125,
+   2.046875,
+   1.9296875
+  ],
+  "peak_vram_allocated_gb": 9.04231168,
+  "peak_vram_reserved_gb": 12.34173952,
+  "peak_host_rss_gib": 22.03
+ },
+ "export": {
+  "wall_s": 249.2,
+  "shard_index_equal_to_base": true,
+  "unadapted_tensor_unchanged": {
+   "equal": true,
+   "max_abs_diff": 0.0
+  },
+  "expert_tensor_changed": {
+   "equal": false,
+   "max_abs_diff": 0.0341796875
+  },
+  "note": "host RSS is the max over child processes, so it reports training's peak, not export's own"
+ },
+ "reload": {
+  "s": 139.0,
+  "model_type": "qwen3_moe",
+  "expert_slabs": 6144,
+  "max_rss_gib": 21.97
+ },
+ "events": [
+  {
+   "event_type": "setup",
+   "timestamp": 1791523573.6240976,
+   "step": null,
+   "block_id": null,
+   "data": {
+    "model": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+    "quantization": "nf4",
+    "block_size": null,
+    "steps": 4
+   }
+  },
+  {
+   "event_type": "step",
+   "timestamp": 1791523593.4313483,
+   "step": 0,
+   "block_id": null,
+   "data": {
+    "loss": 12.391921997070312,
+    "grad_norm": 1.9609375,
+    "lr": 2e-05,
+    "s_per_step": 19.800346874981187,
+    "vram_allocated_mb": 5448.172544,
+    "vram_reserved_mb": 8638.169088,
+    "tokens": 512
+   }
+  },
+  {
+   "event_type": "step",
+   "timestamp": 1791523609.5646377,
+   "step": 1,
+   "block_id": null,
+   "data": {
+    "loss": 12.581812858581543,
+    "grad_norm": 2.28125,
+    "lr": 1.5000000000000002e-05,
+    "s_per_step": 16.13264374001301,
+    "vram_allocated_mb": 5448.172544,
+    "vram_reserved_mb": 12257.85344,
+    "tokens": 1024
+   }
+  },
+  {
+   "event_type": "step",
+   "timestamp": 1791523625.309504,
+   "step": 2,
+   "block_id": null,
+   "data": {
+    "loss": 12.635078430175781,
+    "grad_norm": 2.046875,
+    "lr": 5.000000000000003e-06,
+    "s_per_step": 15.74425350499223,
+    "vram_allocated_mb": 5448.172544,
+    "vram_reserved_mb": 12341.73952,
+    "tokens": 1536
+   }
+  },
+  {
+   "event_type": "step",
+   "timestamp": 1791523640.634576,
+   "step": 3,
+   "block_id": null,
+   "data": {
+    "loss": 12.454317092895508,
+    "grad_norm": 1.9296875,
+    "lr": 0.0,
+    "s_per_step": 15.324503001000267,
+    "vram_allocated_mb": 5448.172544,
+    "vram_reserved_mb": 12341.73952,
+    "tokens": 2048
+   }
+  },
+  {
+   "event_type": "teardown",
+   "timestamp": 1791523640.6351423,
+   "step": null,
+   "block_id": null,
+   "data": {
+    "device": "cuda:0",
+    "total_steps": 4,
+    "final_loss": 12.454317092895508,
+    "loss_history": [
+     12.391921997070312,
+     12.581812858581543,
+     12.635078430175781,
+     12.454317092895508
+    ],
+    "grad_norm_history": [
+     1.9609375,
+     2.28125,
+     2.046875,
+     1.9296875
+    ],
+    "eval_history": [],
+    "total_time_s": 67.00174712098669,
+    "step_time_history": [
+     19.800346874981187,
+     16.13264374001301,
+     15.74425350499223,
+     15.324503001000267
+    ],
+    "vram_alloc_history_mb": [
+     5448.172544,
+     5448.172544,
+     5448.172544,
+     5448.172544
+    ],
+    "avg_vram_allocated_mb": 5448.172544,
+    "avg_step_time_ms": 16750.436780246673,
+    "steps_per_sec": 0.05969993577595972,
+    "tokens_processed": 2048,
+    "tokens_per_sec": 30.566367117291378,
+    "peak_vram_allocated_gb": 9.04231168,
+    "peak_vram_reserved_gb": 12.34173952,
+    "quantization": "nf4",
+    "block_size": null,
+    "adapter_backend": "native",
+    "adapter_summary": null
+   }
+  }
+ ]
+}

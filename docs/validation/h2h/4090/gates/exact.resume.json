@@ -1,0 +1,48 @@
+{
+ "gate": "resume = uninterrupted",
+ "model": "Qwen/Qwen2.5-7B",
+ "revision": "d149729398750b98c0af14eb82c78cfe92750796",
+ "steps": 16,
+ "resumed_at": 8,
+ "shape": "batch 1 x accumulation 8, 512 tokens",
+ "adapter_tensors": 392,
+ "optimizer_tensors": 1176,
+ "adapters_bitwise_equal": true,
+ "optimizer_state_bitwise_equal": true,
+ "unequal": [],
+ "resumed_losses_equal_uninterrupted_tail": true,
+ "losses_uninterrupted": [
+  1.1559929847717285,
+  1.4449015855789185,
+  1.2603206634521484,
+  0.9663155674934387,
+  1.2072398662567139,
+  1.3146189451217651,
+  1.3917715549468994,
+  1.5574580430984497,
+  1.2316038608551025,
+  0.8888317942619324,
+  1.0654324293136597,
+  0.9821826219558716,
+  1.1630654335021973,
+  1.3759324550628662,
+  1.4228198528289795,
+  1.1257290840148926
+ ],
+ "losses_resumed": [
+  0.8888317942619324,
+  1.0654324293136597,
+  0.9821826219558716,
+  1.1630654335021973,
+  1.3759324550628662,
+  1.4228198528289795,
+  1.1257290840148926
+ ],
+ "seconds": {
+  "uninterrupted": 80.5,
+  "resumed": 51.8
+ },
+ "max_abs_diff": 0.0,
+ "delta": "0.00e+00",
+ "pass": true
+}

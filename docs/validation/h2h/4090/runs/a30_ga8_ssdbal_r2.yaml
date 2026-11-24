@@ -1,0 +1,27 @@
+model_name_or_path: Qwen/Qwen3-30B-A3B
+model_revision: ad44e777bcd18fa416d9da3bd8f70d33ebb85d39
+dataset: ~/rf/h2hf_5d75e31a/data/oasst_full128.jsonl
+quantization: nf4
+max_seq_length: 512
+lora_rank: 16
+lora_alpha: 32
+lora_dropout: 0.0
+learning_rate: 2.0e-05
+weight_decay: 0.01
+max_grad_norm: 1.0
+warmup_steps: 0
+lr_scheduler: constant
+gradient_accumulation_steps: 8
+per_device_batch_size: 1
+max_steps: 16
+save_steps: 0
+logging_steps: 1
+eval_split: 0.0
+seed: 42
+deterministic: true
+progress: false
+store: ssd
+store_path: ~/rf/h2hf_5d75e31a/store
+path: fast
+moe_expert_cache_gib: 7
+store_options: {cache: 8G}

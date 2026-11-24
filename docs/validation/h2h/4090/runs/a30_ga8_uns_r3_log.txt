@@ -1,0 +1,143 @@
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+W1118 06:07:49.340000 3406300 torch/utils/_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+W1118 06:07:49.383000 3406300 torch/utils/_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+==((====))==  Unsloth 2026.11.4: Fast Qwen3_MoE patching. Transformers: 5.17.0.
+   \\   /|    NVIDIA GeForce RTX 4090. Num GPUs = 1. Max memory: 23.516 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.14.1+cu130. CUDA: 8.9. CUDA Toolkit: 13.0. Triton: 3.8.0
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.35. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: offload_layers = 'auto': the input embedding (0.58 GiB) and 28 of 48 decoder layers (8.13 GiB) stay in host RAM so 13.32 GiB stays free for training
+
+Loading weights:   0%|          | 0/531 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/531 [00:00<06:56,  1.27it/s]
+Loading weights:   0%|          | 2/531 [00:01<05:36,  1.57it/s]
+Loading weights:   1%|          | 4/531 [00:01<02:57,  2.97it/s]
+Loading weights:   1%|          | 5/531 [00:02<03:45,  2.33it/s]
+Loading weights:   2%|▏         | 13/531 [00:02<00:54,  9.44it/s]
+Loading weights:   3%|▎         | 16/531 [00:04<02:08,  4.00it/s]
+Loading weights:   5%|▍         | 26/531 [00:04<01:13,  6.90it/s]
+Loading weights:   5%|▌         | 28/531 [00:05<01:40,  5.01it/s]
+Loading weights:   7%|▋         | 35/531 [00:06<01:01,  8.11it/s]
+Loading weights:   7%|▋         | 38/531 [00:07<01:38,  5.00it/s]
+Loading weights:   9%|▉         | 48/531 [00:08<01:01,  7.79it/s]
+Loading weights:   9%|▉         | 50/531 [00:09<01:26,  5.56it/s]
+Loading weights:  11%|█         | 57/531 [00:09<00:55,  8.52it/s]
+Loading weights:  11%|█▏        | 60/531 [00:10<01:34,  5.01it/s]
+Loading weights:  13%|█▎        | 68/531 [00:11<00:56,  8.14it/s]
+Loading weights:  14%|█▎        | 72/531 [00:12<01:27,  5.24it/s]
+Loading weights:  15%|█▌        | 81/531 [00:13<01:02,  7.15it/s]
+Loading weights:  16%|█▌        | 84/531 [00:14<01:18,  5.73it/s]
+Loading weights:  17%|█▋        | 90/531 [00:14<00:54,  8.08it/s]
+Loading weights:  18%|█▊        | 93/531 [00:15<01:21,  5.39it/s]
+Loading weights:  19%|█▉        | 103/531 [00:16<00:55,  7.71it/s]
+Loading weights:  20%|█▉        | 105/531 [00:17<01:14,  5.75it/s]
+Loading weights:  21%|██        | 112/531 [00:17<00:48,  8.69it/s]
+Loading weights:  22%|██▏       | 115/531 [00:19<01:19,  5.26it/s]
+Loading weights:  24%|██▎       | 125/531 [00:19<00:53,  7.54it/s]
+Loading weights:  24%|██▍       | 127/531 [00:20<01:10,  5.73it/s]
+Loading weights:  25%|██▌       | 134/531 [00:20<00:45,  8.69it/s]
+Loading weights:  26%|██▌       | 138/531 [00:22<01:08,  5.71it/s]
+Loading weights:  27%|██▋       | 145/531 [00:22<00:44,  8.59it/s]
+Loading weights:  28%|██▊       | 149/531 [00:24<01:06,  5.78it/s]
+Loading weights:  30%|██▉       | 158/531 [00:24<00:48,  7.75it/s]
+Loading weights:  30%|███       | 161/531 [00:25<00:58,  6.28it/s]
+Loading weights:  31%|███▏      | 167/531 [00:25<00:41,  8.85it/s]
+Loading weights:  32%|███▏      | 170/531 [00:27<01:03,  5.71it/s]
+Loading weights:  34%|███▍      | 180/531 [00:27<00:38,  9.02it/s]
+Loading weights:  34%|███▍      | 183/531 [00:27<00:43,  7.98it/s]
+Loading weights:  36%|███▌      | 191/531 [00:28<00:32, 10.55it/s]
+Loading weights:  36%|███▋      | 193/531 [00:28<00:39,  8.54it/s]
+Loading weights:  38%|███▊      | 202/531 [00:29<00:28, 11.40it/s]
+Loading weights:  38%|███▊      | 204/531 [00:30<00:38,  8.58it/s]
+Loading weights:  40%|████      | 213/531 [00:30<00:25, 12.56it/s]
+Loading weights:  40%|████      | 215/531 [00:30<00:32,  9.58it/s]
+Loading weights:  42%|████▏     | 222/531 [00:30<00:21, 14.26it/s]
+Loading weights:  43%|████▎     | 226/531 [00:31<00:29, 10.21it/s]
+Loading weights:  44%|████▍     | 235/531 [00:32<00:21, 13.83it/s]
+Loading weights:  45%|████▍     | 238/531 [00:32<00:27, 10.74it/s]
+Loading weights:  46%|████▋     | 246/531 [00:33<00:23, 12.15it/s]
+Loading weights:  47%|████▋     | 248/531 [00:33<00:33,  8.38it/s]
+Loading weights:  48%|████▊     | 257/531 [00:34<00:27, 10.13it/s]
+Loading weights:  49%|████▉     | 259/531 [00:35<00:40,  6.75it/s]
+Loading weights:  50%|█████     | 266/531 [00:35<00:25, 10.24it/s]
+Loading weights:  51%|█████     | 269/531 [00:37<00:46,  5.60it/s]
+Loading weights:  52%|█████▏    | 277/531 [00:37<00:27,  9.12it/s]
+Loading weights:  53%|█████▎    | 281/531 [00:38<00:42,  5.85it/s]
+Loading weights:  55%|█████▍    | 290/531 [00:39<00:28,  8.55it/s]
+Loading weights:  55%|█████▌    | 293/531 [00:39<00:31,  7.57it/s]
+Loading weights:  57%|█████▋    | 301/531 [00:40<00:22, 10.04it/s]
+Loading weights:  57%|█████▋    | 303/531 [00:40<00:27,  8.16it/s]
+Loading weights:  59%|█████▉    | 312/531 [00:41<00:19, 11.19it/s]
+Loading weights:  59%|█████▉    | 314/531 [00:42<00:26,  8.26it/s]
+Loading weights:  60%|██████    | 321/531 [00:42<00:16, 12.39it/s]
+Loading weights:  61%|██████    | 324/531 [00:43<00:25,  8.00it/s]
+Loading weights:  63%|██████▎   | 334/531 [00:43<00:17, 11.52it/s]
+Loading weights:  63%|██████▎   | 337/531 [00:44<00:22,  8.57it/s]
+Loading weights:  65%|██████▍   | 345/531 [00:44<00:18, 10.15it/s]
+Loading weights:  65%|██████▌   | 347/531 [00:45<00:25,  7.18it/s]
+Loading weights:  67%|██████▋   | 354/531 [00:46<00:20,  8.50it/s]
+Loading weights:  67%|██████▋   | 356/531 [00:47<00:28,  6.19it/s]
+Loading weights:  67%|██████▋   | 357/531 [00:48<00:42,  4.07it/s]
+Loading weights:  69%|██████▉   | 367/531 [00:49<00:27,  6.04it/s]
+Loading weights:  69%|██████▉   | 368/531 [00:50<00:40,  4.03it/s]
+Loading weights:  71%|███████   | 376/531 [00:50<00:23,  6.51it/s]
+Loading weights:  71%|███████   | 378/531 [00:51<00:26,  5.69it/s]
+Loading weights:  71%|███████▏  | 379/531 [00:53<00:48,  3.15it/s]
+Loading weights:  73%|███████▎  | 389/531 [00:54<00:25,  5.56it/s]
+Loading weights:  73%|███████▎  | 390/531 [00:55<00:34,  4.04it/s]
+Loading weights:  75%|███████▍  | 398/531 [00:55<00:20,  6.54it/s]
+Loading weights:  75%|███████▌  | 400/531 [00:56<00:24,  5.24it/s]
+Loading weights:  76%|███████▌  | 401/531 [00:57<00:39,  3.28it/s]
+Loading weights:  77%|███████▋  | 409/531 [00:58<00:22,  5.49it/s]
+Loading weights:  77%|███████▋  | 411/531 [00:59<00:27,  4.29it/s]
+Loading weights:  78%|███████▊  | 412/531 [01:00<00:39,  3.04it/s]
+Loading weights:  79%|███████▉  | 422/531 [01:01<00:19,  5.50it/s]
+Loading weights:  80%|███████▉  | 423/531 [01:02<00:30,  3.60it/s]
+Loading weights:  81%|████████  | 431/531 [01:02<00:16,  6.09it/s]
+Loading weights:  82%|████████▏ | 433/531 [01:03<00:19,  4.91it/s]
+Loading weights:  82%|████████▏ | 434/531 [01:05<00:28,  3.39it/s]
+Loading weights:  84%|████████▎ | 444/531 [01:05<00:15,  5.77it/s]
+Loading weights:  84%|████████▍ | 445/531 [01:07<00:21,  4.03it/s]
+Loading weights:  85%|████████▌ | 453/531 [01:07<00:11,  6.74it/s]
+Loading weights:  86%|████████▌ | 455/531 [01:08<00:13,  5.61it/s]
+Loading weights:  86%|████████▌ | 457/531 [01:09<00:18,  4.05it/s]
+Loading weights:  87%|████████▋ | 464/531 [01:09<00:10,  6.51it/s]
+Loading weights:  88%|████████▊ | 466/531 [01:10<00:12,  5.35it/s]
+Loading weights:  88%|████████▊ | 467/531 [01:11<00:20,  3.08it/s]
+Loading weights:  90%|████████▉ | 477/531 [01:12<00:11,  4.88it/s]
+Loading weights:  90%|█████████ | 478/531 [01:14<00:16,  3.19it/s]
+Loading weights:  91%|█████████ | 483/531 [01:14<00:10,  4.78it/s]
+Loading weights:  92%|█████████▏| 486/531 [01:17<00:17,  2.51it/s]
+Loading weights:  92%|█████████▏| 488/531 [01:18<00:16,  2.55it/s]
+Loading weights:  92%|█████████▏| 489/531 [01:19<00:20,  2.00it/s]
+Loading weights:  94%|█████████▍| 499/531 [01:20<00:07,  4.02it/s]
+Loading weights:  94%|█████████▍| 500/531 [01:22<00:10,  2.92it/s]
+Loading weights:  96%|█████████▌| 508/531 [01:22<00:04,  4.94it/s]
+Loading weights:  96%|█████████▌| 510/531 [01:23<00:04,  4.37it/s]
+Loading weights:  96%|█████████▌| 511/531 [01:24<00:07,  2.86it/s]
+Loading weights:  98%|█████████▊| 521/531 [01:25<00:01,  5.03it/s]
+Loading weights:  98%|█████████▊| 522/531 [01:27<00:02,  3.50it/s]
+Loading weights: 100%|█████████▉| 530/531 [01:27<00:00,  5.61it/s]
+Loading weights: 100%|██████████| 531/531 [01:27<00:00,  6.07it/s]
+Unsloth: Offloading embeddings to RAM to save 0.58 GB.
+Unsloth: compiling each transformer block as one region (Qwen3MoeDecoderLayer).
+Unsloth: Explicit target_modules are constrained by the finetune_(vision|language|attention|mlp) filters; adapters attach only where both select.
+Unsloth: Detected MoE model with num_experts = 128 and target_modules = ['o_proj', 'gate_proj', 'up_proj', 'down_proj']. Enabling LoRA on MoE parameters: ['mlp.experts.gate_up_proj', 'mlp.experts.down_proj']
+update 0 18.09s loss 1.17804 gn 0.47502192854881287
+update 1 6.20s loss 1.45669 gn 0.4744047522544861
+update 2 6.18s loss 1.30645 gn 0.4271705746650696
+update 3 6.21s loss 0.97259 gn 0.39135199785232544
+update 4 6.02s loss 1.28094 gn 0.580345094203949
+update 5 5.98s loss 1.37045 gn 0.4622102379798889
+update 6 5.97s loss 1.40037 gn 0.38683179020881653
+update 7 6.16s loss 1.62455 gn 0.49110445380210876
+update 8 6.18s loss 1.28548 gn 0.4849489629268646
+update 9 6.17s loss 0.93769 gn 0.5267048478126526
+update 10 6.19s loss 1.13919 gn 0.4497256278991699
+update 11 6.19s loss 1.06016 gn 0.46766769886016846
+update 12 6.21s loss 1.17809 gn 0.5173364281654358
+update 13 6.20s loss 1.30557 gn 0.3993857502937317
+update 14 6.20s loss 1.44174 gn 0.4136965274810791
+update 15 6.18s loss 1.11872 gn 0.38737455010414124
+H2H_RESULT {"harness": "h2h_u7", "tool": "unsloth", "stage": "done", "epoch_start": 1794982061.444305, "alloc_env_at_start": {"PYTORCH_ALLOC_CONF": "unset", "PYTORCH_CUDA_ALLOC_CONF": "unset"}, "update_s": [18.0896, 6.1972, 6.1806, 6.2109, 6.0168, 5.983, 5.9703, 6.163, 6.1802, 6.167, 6.1867, 6.1939, 6.2074, 6.1973, 6.2022, 6.1801], "grad_norm": [0.47502192854881287, 0.4744047522544861, 0.4271705746650696, 0.39135199785232544, 0.580345094203949, 0.4622102379798889, 0.38683179020881653, 0.49110445380210876, 0.4849489629268646, 0.5267048478126526, 0.4497256278991699, 0.46766769886016846, 0.5173364281654358, 0.3993857502937317, 0.4136965274810791, 0.38737455010414124], "tokens": [4096, 4096, 4096, 4096, 4096, 4096, 4096, 4096, 4096, 4096, 4096, 4096, 4096, 4096, 4096, 4096], "versions": {"unsloth": "2026.11.4", "unsloth_zoo": "2026.11.4", "torch": "2.14.1", "transformers": "5.17.0", "peft": "0.21.2", "bitsandbytes": "0.50.2", "accelerate": "1.15.0", "torch_cuda": "13.0"}, "from_pretrained_kwargs": {"offload_layers": "auto"}, "alloc_env_after_unsloth_import": {"PYTORCH_ALLOC_CONF": "expandable_segments:True", "PYTORCH_CUDA_ALLOC_CONF": "unset"}, "local_snapshot_of": "Qwen/Qwen3-30B-A3B", "local_snapshot_revision": "ad44e777bcd18fa416d9da3bd8f70d33ebb85d39", "load_source": "~/hf/hub/models--Qwen--Qwen3-30B-A3B/snapshots/ad44e777bcd18fa416d9da3bd8f70d33ebb85d39", "load_model_s": 136.05, "block_swap": {"decoder_layers": 48, "swappers": [{"indices": [0, 2, 4, 5, 7, 9, 11, 12, 14, 16, 17, 19, 21, 23, 24, 26, 28, 29, 31, 33, 35, 36, 38, 40, 41, 43, 45, 47], "n": 28, "depth": 2, "pinned_bytes": 8734896128, "host_bytes": 8734896128}], "swapped": 28}, "input_embedding_device": "cpu", "frozen_adapters": {"modules": ["o_proj"], "tensors": 96, "elements": 4718592}, "load_s": 143.07, "load_end_epoch": 1794982204.512525, "load_host_status": {"VmLck_kb": 0, "VmPin_kb": 0, "VmHWM_kb": 61557788, "VmRSS_kb": 11187324, "RssAnon_kb": 10748596, "RssFile_kb": 369088, "RssShmem_kb": 69640}, "load_host_vmhwm_gib": 58.706, "load_host_peak_anon_shmem_kb": 19046376, "after_load_allocated_gib": 10.097, "after_load_reserved_gib": 10.166, "load_peak_allocated_gib": 10.105, "load_peak_reserved_gib": 10.186, "after_load_smi_mib": 10950, "model_source": "~/hf/hub/models--Qwen--Qwen3-30B-A3B/snapshots/ad44e777bcd18fa416d9da3bd8f70d33ebb85d39", "rows_sha256": "13b5db2ab23e70733130be4a416042a5893d73852d4e5bf426709352c3507fdd", "trainable_params": 629145600, "trainable_dtypes": ["torch.float32"], "trainable_groups": {"base_model.model.model.layers.N.mlp.experts.base_layer.lora_A.default.weight": 201326592, "base_model.model.model.layers.N.mlp.experts.base_layer.lora_B.default.weight": 150994944, "base_model.model.model.layers.N.mlp.experts.lora_A.default.weight": 75497472, "base_model.model.model.layers.N.mlp.experts.lora_B.default.weight": 201326592}, "trainable_group_count": 4, "epoch_train_start": 1794982204.5727754, "peak_allocated_gib_update1": 19.503, "peak_reserved_gib_update1": 19.76, "peak_allocated_gib_updates2plus": 19.503, "peak_reserved_gib_updates2plus": 19.76, "peak_allocated_gib_train": 19.503, "peak_reserved_gib_train": 19.76, "adapter_digest_fp32": "32856c23d26a3032e2e7b6ef1ebe140f095cf6ddc39b0f0cbc01453844ca9831", "host_vmhwm_gib": 58.706, "host_status_end": {"VmLck_kb": 0, "VmPin_kb": 0, "VmHWM_kb": 61557788, "VmRSS_kb": 11783844, "RssAnon_kb": 11270280, "RssFile_kb": 443924, "RssShmem_kb": 69640}, "host_peak_anon_shmem_kb": 19046376, "wall_s": 256.4, "host_maxrss_gib": 58.706, "peak_allocated_gib_last_window": 19.503, "peak_reserved_gib_last_window": 19.76, "card_gib": 23.516, "nvidia_smi_used_mib_end": 20808}

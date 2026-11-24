@@ -1,0 +1,87 @@
+rT = commit 2ce61d09ce27fe23ddc49af45375abf42f0fe0ab (<branch>)
+== env 2026-11-14T07:23:42Z
+NVIDIA GeForce RTX 5090, 3892 MiB, 32607 MiB, 621.14
+               total        used        free      shared  buff/cache   available
+Mem:              31           1           9           0          20          30
+overlay        1007G  156G  801G  17% /
+== speed 2026-11-14T07:23:42Z
+SPEED s5_72_r64_fused_1 rc 0 med 1.372 s [3.692, 1.366, 1.372, 1.375] ran {"fused_compute": true, "nf4_dequant_cache_mb": 0} None peak GB 18.902 21.653 staging {"budget_basis": "WSL2 (child probe pinned 4 GiB; free RAM less reserve)", "granted_bytes": 4831838208, "mode": "pinned", "pinned_budget_bytes": 21756530279, "refusals": 0}
+SPEED s5_72_r64_peft_1 rc 0 med 1.753 s [3.508, 1.751, 1.753, 1.755] ran {"fused_compute": false, "nf4_dequant_cache_mb": 0} None peak GB 19.465 22.404 staging {"budget_basis": "WSL2 (child probe pinned 4 GiB; free RAM less reserve)", "granted_bytes": 4831838208, "mode": "pinned", "pinned_budget_bytes": 21703159399, "refusals": 0}
+SPEED s5_72_r128_fused_1 rc 0 med 1.481 s [5.149, 1.474, 1.481, 1.485] ran {"fused_compute": true, "nf4_dequant_cache_mb": 0} None peak GB 19.239 22.528 staging {"budget_basis": "WSL2 (child probe pinned 4 GiB; free RAM less reserve)", "granted_bytes": 4831838208, "mode": "pinned", "pinned_budget_bytes": 21683789415, "refusals": 0}
+SPEED s5_72_r128_peft_1 rc 0 med 1.792 s [3.188, 1.784, 1.792, 1.794] ran {"fused_compute": false, "nf4_dequant_cache_mb": 0} None peak GB 20.476 23.828 staging {"budget_basis": "WSL2 (child probe pinned 4 GiB; free RAM less reserve)", "granted_bytes": 4831838208, "mode": "pinned", "pinned_budget_bytes": 21719666279, "refusals": 0}
+SPEED s5_05_r64_fused_1 rc 0 med 0.926 s [4.177, 0.914, 0.919, 0.95, 0.918, 0.926, 0.927, 0.938] ran {"fused_compute": true, "nf4_dequant_cache_mb": 114} None peak GB 2.527 2.888 staging {"budget_basis": "WSL2 (child probe pinned 4 GiB; free RAM less reserve)", "granted_bytes": 268435456, "mode": "pinned", "pinned_budget_bytes": 26593271399, "refusals": 0}
+SPEED s5_05_r64_peft_1 rc 0 med 1.176 s [2.854, 1.118, 1.128, 1.278, 1.175, 1.176, 1.267, 1.248] ran {"fused_compute": false, "nf4_dequant_cache_mb": 114} None peak GB 2.092 2.538 staging {"budget_basis": "WSL2 (child probe pinned 4 GiB; free RAM less reserve)", "granted_bytes": 268435456, "mode": "pinned", "pinned_budget_bytes": 26516897383, "refusals": 0}
+SPEED s5_05_r128_fused_1 rc 0 med 1.04 s [5.677, 1.073, 1.03, 1.05, 1.03, 1.041, 1.025, 1.04] ran {"fused_compute": true, "nf4_dequant_cache_mb": 114} None peak GB 2.949 3.408 staging {"budget_basis": "WSL2 (child probe pinned 4 GiB; free RAM less reserve)", "granted_bytes": 268435456, "mode": "pinned", "pinned_budget_bytes": 26493972071, "refusals": 0}
+SPEED s5_05_r128_peft_1 rc 0 med 1.22 s [3.425, 1.19, 1.217, 1.244, 1.22, 1.229, 1.222, 1.2] ran {"fused_compute": false, "nf4_dequant_cache_mb": 114} None peak GB 2.514 2.976 staging {"budget_basis": "WSL2 (child probe pinned 4 GiB; free RAM less reserve)", "granted_bytes": 268435456, "mode": "pinned", "pinned_budget_bytes": 26553253479, "refusals": 0}
+SPEED s5_72_r64_fused_2 rc 0 med 1.374 s [3.547, 1.368, 1.374, 1.375] ran {"fused_compute": true, "nf4_dequant_cache_mb": 0} None peak GB 18.902 21.653 staging {"budget_basis": "WSL2 (child probe pinned 4 GiB; free RAM less reserve)", "granted_bytes": 4831838208, "mode": "pinned", "pinned_budget_bytes": 21675384423, "refusals": 0}
+SPEED s5_72_r64_peft_2 rc 0 med 1.757 s [3.094, 1.75, 1.757, 1.76] ran {"fused_compute": false, "nf4_dequant_cache_mb": 0} None peak GB 19.465 22.404 staging {"budget_basis": "WSL2 (child probe pinned 4 GiB; free RAM less reserve)", "granted_bytes": 4831838208, "mode": "pinned", "pinned_budget_bytes": 21727923815, "refusals": 0}
+SPEED s5_72_r128_fused_2 rc 0 med 1.486 s [3.404, 1.477, 1.486, 1.492] ran {"fused_compute": true, "nf4_dequant_cache_mb": 0} None peak GB 19.239 22.528 staging {"budget_basis": "WSL2 (child probe pinned 4 GiB; free RAM less reserve)", "granted_bytes": 4831838208, "mode": "pinned", "pinned_budget_bytes": 21614440039, "refusals": 0}
+SPEED s5_72_r128_peft_2 rc 0 med 1.799 s [3.114, 1.788, 1.799, 1.803] ran {"fused_compute": false, "nf4_dequant_cache_mb": 0} None peak GB 20.476 23.828 staging {"budget_basis": "WSL2 (child probe pinned 4 GiB; free RAM less reserve)", "granted_bytes": 4831838208, "mode": "pinned", "pinned_budget_bytes": 21569535591, "refusals": 0}
+SPEED s5_05_r64_fused_2 rc 0 med 0.972 s [3.595, 0.972, 1.181, 0.958, 0.989, 0.968, 0.97, 1.077] ran {"fused_compute": true, "nf4_dequant_cache_mb": 114} None peak GB 2.527 2.888 staging {"budget_basis": "WSL2 (child probe pinned 4 GiB; free RAM less reserve)", "granted_bytes": 268435456, "mode": "pinned", "pinned_budget_bytes": 26599288423, "refusals": 0}
+SPEED s5_05_r64_peft_2 rc 0 med 1.218 s [2.798, 1.185, 1.156, 1.218, 1.23, 1.245, 1.241, 1.192] ran {"fused_compute": false, "nf4_dequant_cache_mb": 114} None peak GB 2.092 2.559 staging {"budget_basis": "WSL2 (child probe pinned 4 GiB; free RAM less reserve)", "granted_bytes": 268435456, "mode": "pinned", "pinned_budget_bytes": 26465705575, "refusals": 0}
+SPEED s5_05_r128_fused_2 rc 0 med 0.985 s [3.476, 0.961, 0.991, 0.968, 0.985, 0.967, 1.024, 0.985] ran {"fused_compute": true, "nf4_dequant_cache_mb": 114} None peak GB 2.949 3.408 staging {"budget_basis": "WSL2 (child probe pinned 4 GiB; free RAM less reserve)", "granted_bytes": 268435456, "mode": "pinned", "pinned_budget_bytes": 26543214183, "refusals": 0}
+SPEED s5_05_r128_peft_2 rc 0 med 1.199 s [2.953, 1.214, 1.23, 1.19, 1.178, 1.239, 1.199, 1.192] ran {"fused_compute": false, "nf4_dequant_cache_mb": 114} None peak GB 2.514 2.976 staging {"budget_basis": "WSL2 (child probe pinned 4 GiB; free RAM less reserve)", "granted_bytes": 268435456, "mode": "pinned", "pinned_budget_bytes": 26511998567, "refusals": 0}
+SPEED s5_72_r64_fused_3 rc 0 med 1.379 s [3.338, 1.386, 1.376, 1.379] ran {"fused_compute": true, "nf4_dequant_cache_mb": 0} None peak GB 18.902 22.282 staging {"budget_basis": "WSL2 (child probe pinned 4 GiB; free RAM less reserve)", "granted_bytes": 4831838208, "mode": "pinned", "pinned_budget_bytes": 21641166439, "refusals": 0}
+SPEED s5_72_r64_peft_3 rc 0 med 1.759 s [3.355, 1.755, 1.759, 1.762] ran {"fused_compute": false, "nf4_dequant_cache_mb": 0} None peak GB 19.465 22.404 staging {"budget_basis": "WSL2 (child probe pinned 4 GiB; free RAM less reserve)", "granted_bytes": 4831838208, "mode": "pinned", "pinned_budget_bytes": 21937135207, "refusals": 0}
+SPEED s5_72_r128_fused_3 rc 0 med 1.488 s [3.394, 1.48, 1.488, 1.494] ran {"fused_compute": true, "nf4_dequant_cache_mb": 0} None peak GB 19.239 21.857 staging {"budget_basis": "WSL2 (child probe pinned 4 GiB; free RAM less reserve)", "granted_bytes": 4831838208, "mode": "pinned", "pinned_budget_bytes": 21603188327, "refusals": 0}
+SPEED s5_72_r128_peft_3 rc 0 med 1.797 s [3.187, 1.787, 1.797, 1.803] ran {"fused_compute": false, "nf4_dequant_cache_mb": 0} None peak GB 20.476 23.828 staging {"budget_basis": "WSL2 (child probe pinned 4 GiB; free RAM less reserve)", "granted_bytes": 4831838208, "mode": "pinned", "pinned_budget_bytes": 21514440295, "refusals": 0}
+SPEED s5_05_r64_fused_3 rc 0 med 0.955 s [3.431, 0.945, 0.942, 0.955, 0.933, 1.048, 1.047, 1.114] ran {"fused_compute": true, "nf4_dequant_cache_mb": 114} None peak GB 2.527 2.888 staging {"budget_basis": "WSL2 (child probe pinned 4 GiB; free RAM less reserve)", "granted_bytes": 268435456, "mode": "pinned", "pinned_budget_bytes": 26645577319, "refusals": 0}
+SPEED s5_05_r64_peft_3 rc 0 med 1.233 s [2.913, 1.238, 1.29, 1.22, 1.189, 1.188, 1.233, 1.238] ran {"fused_compute": false, "nf4_dequant_cache_mb": 114} None peak GB 2.092 2.561 staging {"budget_basis": "WSL2 (child probe pinned 4 GiB; free RAM less reserve)", "granted_bytes": 268435456, "mode": "pinned", "pinned_budget_bytes": 26496069223, "refusals": 0}
+SPEED s5_05_r128_fused_3 rc 0 med 0.94 s [3.341, 1.003, 0.971, 0.933, 0.936, 0.949, 0.939, 0.94] ran {"fused_compute": true, "nf4_dequant_cache_mb": 114} None peak GB 2.949 3.408 staging {"budget_basis": "WSL2 (child probe pinned 4 GiB; free RAM less reserve)", "granted_bytes": 268435456, "mode": "pinned", "pinned_budget_bytes": 26553052775, "refusals": 0}
+SPEED s5_05_r128_peft_3 rc 0 med 1.14 s [2.856, 1.185, 1.117, 1.135, 1.118, 1.14, 1.155, 1.145] ran {"fused_compute": false, "nf4_dequant_cache_mb": 114} None peak GB 2.514 2.976 staging {"budget_basis": "WSL2 (child probe pinned 4 GiB; free RAM less reserve)", "granted_bytes": 268435456, "mode": "pinned", "pinned_budget_bytes": 26500873831, "refusals": 0}
+== ranks 64 / 128 bitwise, dropout 0.05 2026-11-14T07:34:51Z
+tiny qwen3_moe at <path>
+RANK dense 64 sequential 57cc69b19cfd0310 [5.547067, 5.544258] {"fused_compute": true} None
+RANK dense 64 fast 57cc69b19cfd0310 [5.547067, 5.544258] {"fused_compute": true, "nf4_dequant_cache_mb": 19} None
+RANK dense 64 efficient 57cc69b19cfd0310 [5.547067, 5.544258] {"fused_compute": true, "nf4_dequant_cache_mb": 0} None
+RANK dense 64 fast_resident 57cc69b19cfd0310 [5.547067, 5.544258] {"fused_compute": true, "nf4_dequant_cache_mb": 19} None
+RANK dense 64 sequential_peft fd77aa570c4b7da0 [5.547067, 5.544257] {"fused_compute": false} None
+RANKPATHS dense 64 PASS 57cc69b19cfd0310
+RANK moe 64 sequential 27a716ff4d18c108 [11.929375, 11.929638] {"moe_expert_compute": "fused", "fused_compute": true, "moe_expert_cache_gib": 0.003, "moe_expert_cache_reason": "one layer: the sequential loop does not grow it"} None
+RANK moe 64 fast 27a716ff4d18c108 [11.929375, 11.929638] {"moe_expert_compute": "fused", "fused_compute": true, "moe_expert_cache_gib": 0.018, "moe_expert_cache_reason": "every expert (0.02 GiB) fits: 28.52 GiB this process may hold - 0.96 GiB reserved peak - 5.70 GiB margin", "nf4_dequant_cache_mb"
+RANK moe 64 efficient 27a716ff4d18c108 [11.929375, 11.929638] {"moe_expert_compute": "fused", "fused_compute": true, "moe_expert_cache_gib": 0.003, "moe_expert_cache_reason": "one layer: path efficient, the lowest-VRAM path", "nf4_dequant_cache_mb": 0} None
+RANK moe 64 fast_resident 27a716ff4d18c108 [11.929375, 11.929638] {"moe_expert_compute": "fused", "fused_compute": true, "moe_expert_cache_gib": 0.018, "moe_expert_cache_reason": "every expert (0.02 GiB) fits: 28.52 GiB this process may hold - 1.25 GiB reserved peak - 5.70 GiB margin", "nf4_dequant_
+RANK moe 64 sequential_reference 030fd6a859e2d07d [11.929375, 11.929638] {"moe_expert_compute": "reference", "fused_compute": false, "moe_expert_cache_gib": 0.003, "moe_expert_cache_reason": "one layer: the sequential loop does not grow it"} None
+RANKPATHS moe 64 PASS 27a716ff4d18c108
+RANK dense 128 sequential bab7d32bce0dfda8 [5.547067, 5.543399] {"fused_compute": true} None
+RANK dense 128 fast bab7d32bce0dfda8 [5.547067, 5.543399] {"fused_compute": true, "nf4_dequant_cache_mb": 19} None
+RANK dense 128 efficient bab7d32bce0dfda8 [5.547067, 5.543399] {"fused_compute": true, "nf4_dequant_cache_mb": 0} None
+RANK dense 128 fast_resident bab7d32bce0dfda8 [5.547067, 5.543399] {"fused_compute": true, "nf4_dequant_cache_mb": 19} None
+RANK dense 128 sequential_peft 0cc8e5933a7244df [5.547067, 5.5434] {"fused_compute": false} None
+RANKPATHS dense 128 PASS bab7d32bce0dfda8
+RANK moe 128 sequential 4b5c9e218657bfc7 [11.929375, 11.929638] {"moe_expert_compute": "fused", "fused_compute": true, "moe_expert_cache_gib": 0.003, "moe_expert_cache_reason": "one layer: the sequential loop does not grow it"} None
+RANK moe 128 fast 4b5c9e218657bfc7 [11.929375, 11.929638] {"moe_expert_compute": "fused", "fused_compute": true, "moe_expert_cache_gib": 0.018, "moe_expert_cache_reason": "every expert (0.02 GiB) fits: 28.52 GiB this process may hold - 1.02 GiB reserved peak - 5.70 GiB margin", "nf4_dequant_cache_mb
+RANK moe 128 efficient 4b5c9e218657bfc7 [11.929375, 11.929638] {"moe_expert_compute": "fused", "fused_compute": true, "moe_expert_cache_gib": 0.003, "moe_expert_cache_reason": "one layer: path efficient, the lowest-VRAM path", "nf4_dequant_cache_mb": 0} None
+RANK moe 128 fast_resident 4b5c9e218657bfc7 [11.929375, 11.929638] {"moe_expert_compute": "fused", "fused_compute": true, "moe_expert_cache_gib": 0.018, "moe_expert_cache_reason": "every expert (0.02 GiB) fits: 28.52 GiB this process may hold - 1.34 GiB reserved peak - 5.70 GiB margin", "nf4_dequant
+RANK moe 128 sequential_reference fd28b60e3ddea9c2 [11.929375, 11.929638] {"moe_expert_compute": "reference", "fused_compute": false, "moe_expert_cache_gib": 0.003, "moe_expert_cache_reason": "one layer: the sequential loop does not grow it"} None
+RANKPATHS moe 128 PASS 4b5c9e218657bfc7
+== rank-16 dense digest 2026-11-14T07:36:10Z (this card, tree a5525df8: 80eacec2eacde813)
+DENSE sequential 80eacec2eacde813 [5.542364, 5.540839] fused True
+DENSE fast 80eacec2eacde813 [5.542364, 5.540839] fused True
+DENSE efficient 80eacec2eacde813 [5.542364, 5.540839] fused True
+DENSE fast_offhead 80eacec2eacde813 [5.542364, 5.540839] fused True
+== CPU bf16 backward in a real run? 2026-11-14T07:36:22Z
+tiny qwen3.6 at <path>
+CPUAUDIT audit_dense_eff.yaml CPU_HALF_BWD 0 cuda_bwd_ops 13232 ran {"fused_compute": true, "nf4_dequant_cache_mb": 0} cpu_half {'cpu|bfloat16|fwd': 192}
+CPUAUDIT audit_dense_fast.yaml CPU_HALF_BWD 0 cuda_bwd_ops 11252 ran {"fused_compute": true, "nf4_dequant_cache_mb": 114} cpu_half {'cpu|bfloat16|fwd': 192}
+    raise PorosConfigError(
+poros.core.errors.PorosConfigError: <path> is a MoE model, and the MoE path does not support lora_target_modules=['q_proj', 'k_proj', 'v_proj', 'o_proj', 'gate_proj', 'up_proj', 'down_proj'].
+    raise PorosConfigError(
+poros.core.errors.PorosConfigError: <path> is a MoE model, and the MoE path does not support lora_target_modules=['q_proj', 'k_proj', 'v_proj', 'o_proj', 'gate_proj', 'up_proj', 'down_proj'].
+    raise PorosConfigError(
+poros.core.errors.PorosConfigError: <path> is a MoE model, and the MoE path does not support lora_target_modules=['q_proj', 'k_proj', 'v_proj', 'o_proj', 'gate_proj', 'up_proj', 'down_proj'].
+== the six host tests, as the suite runs them 2026-11-14T07:37:00Z
+    def test_the_wrapper_computes_what_causal_lm_computes(checkpoint, cpu_bf16_backward):
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+13 passed, 20 warnings in 19.86s
+     10 name="onednn_off" value="DNNL does not support bf16/f16 backward on the platform with avx2_vnni_2"
+== gpu-dirs as xcard_check runs them (tests/gpu tests/moe tests/sss tests/test_run_block_major_cuda.py) 2026-11-14T07:37:21Z
+gpu-dirs rc=0
+677 passed, 44 skipped, 38 warnings in 878.09s (0:14:38)
+== -m gpu lane 2026-11-14T07:52:01Z
+lane rc=0
+433 passed, 39 skipped, 4340 deselected, 31 warnings in 820.77s (0:13:40)
+616K	<path>
+overlay        1007G  154G  803G  17% /
+== done 2026-11-14T08:05:44Z

@@ -1,0 +1,1 @@
+~/venv_unsloth/bin/python ~/rf/h2hf_5d75e31a/kit/h2h_u7.py --model Qwen/Qwen3-30B-A3B --rows ~/rf/h2hf_5d75e31a/data/rows_real128.pt --deterministic --out ~/rf/h2hf_5d75e31a/rec/a30_na_uns_r2_raw.json --local-snapshot --offload-layers auto --mb 8 --ga 1 --updates 16 --time-limit-s 2400 --targets o_proj,gate_proj,up_proj,down_proj --freeze-targets o_proj 

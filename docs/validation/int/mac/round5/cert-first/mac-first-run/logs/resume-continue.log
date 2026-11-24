@@ -1,0 +1,29 @@
+▛▜ poros v0.3.0 · Qwen/Qwen2.5-0.5B-Instruct · Apple M4 10-core GPU 16GB
+
+● Checked cert-mac-first-run-resume  run 1118-1908-ffbc
+  │ rank 16 · 256 tokens
+  │ SFT · answers only · lr 2e-5
+  │ output    cert/m4-16gb/.mac-first-run-work/home/runs/1118-1908-ffbc
+  │ weights   <disk>/poros-metal/hf
+  │ resume    cert/m4-16gb/.mac-first-run-work/home/runs/1118-1908-ffbc/checkpoint-8
+  │ eval      2 rows held out  scored at the start, each checkpoint and the end
+
+● Loaded Qwen2.5-0.5B-Instruct  1.8s
+  │ dense · 24 layers
+● Resumed after step 9/16
+step 10/16  loss 6.9584  0.80 s/step  memory 1.4 GiB (peak 2.4)  eta 4.8s
+● Scored step 16  held out 6.9275 · ends its answers 0 of 0
+
+● Trained 7 steps · SFT  6.8s
+  │ final loss 6.9877
+  │ eval loss  6.9275  from 6.9275 on held-out rows  ·  ↓ 0%
+  │
+  │ peak       ━━──────────────  2.4 GiB of 16.0 GiB
+  │ speed      350 tok/s
+  │
+  │ adapter    cert/m4-16gb/.mac-first-run-work/home/runs/1118-1908-ffbc
+  │ receipt    cert/m4-16gb/.mac-first-run-work/home/runs/1118-1908-ffbc/receipt.json
+
+Continue with: poros eval 1118-1908-ffbc
+Keep it as a recipe: poros recipes save last
+{"schema":"poros.runs.v1","learned":null,"do":"continue","runs":[{"id":"1118-1908-ffbc","kind":"run","state":"succeeded","model":"Qwen/Qwen2.5-0.5B-Instruct","name":"cert-mac-first-run-resume","output_dir":"<home>/runs/1118-1908-ffbc","created_at":"2026-11-19T01:08:18+00:00","started_at":"2026-11-19T01:08:28+00:00","finished_at":"2026-11-19T01:08:38+00:00","step":16,"total":16,"loss":6.9534454345703125,"error":null,"folder":"<home>/runs/1118-1908-ffbc","from":null,"eval_loss_start":7.309842348098755,"eval_loss":6.927533388137817,"eval_rows":2,"eval_ends":0,"eval_answer_rows":0,"eval_prefers_start":null,"eval_prefers":null,"best":"poros://1118-1908-ffbc/weights/16"}],"report":null,"next":["poros runs 1118-1908-ffbc --live --wait 30"],"more":0,"starts_next":null}

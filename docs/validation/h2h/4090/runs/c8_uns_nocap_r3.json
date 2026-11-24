@@ -1,0 +1,238 @@
+{
+ "schema": "h2hf.run.v1",
+ "name": "c8_uns_nocap_r3",
+ "tool": "unsloth",
+ "arm": "c8_uns_nocap",
+ "round": 3,
+ "site": "4090",
+ "commit": "5d75e31a486cdf19e397e2d0f748def98083ecc8",
+ "tree": "0973100366871afc06c796987f5caedf38741b1a",
+ "model": "Qwen/Qwen3-30B-A3B",
+ "model_revision": "ad44e777bcd18fa416d9da3bd8f70d33ebb85d39",
+ "model_key": "30b_a3b",
+ "rc": 0,
+ "launch_epoch": 1794987992.6377482,
+ "launch_utc": "2026-11-18T07:46:32Z",
+ "queued_utc": "2026-11-18T07:46:32Z",
+ "cmd": "~/venv_unsloth/bin/python ~/rf/h2hf_5d75e31a/kit/h2h_u7.py --model Qwen/Qwen3-30B-A3B --rows ~/rf/h2hf_5d75e31a/data/rows_cap_s256.pt --deterministic --out ~/rf/h2hf_5d75e31a/rec/c8_uns_nocap_r3_raw.json --local-snapshot --offload-layers 48 --mb 1 --ga 8 --updates 16 --time-limit-s 2400 --targets o_proj,gate_proj,up_proj,down_proj --freeze-targets o_proj --offload-embedding true --seq-len 256 --rank 8",
+ "env": {
+  "H2HF_ALLOW_DROP_30B": "1",
+  "H2HF_DATA_ROWS": "~/rf/h2hf_5d75e31a/data/rows_cap_s256.pt",
+  "H2HF_HELD": "1",
+  "H2HF_SHA": "5d75e31a486cdf19e397e2d0f748def98083ecc8",
+  "HF_HOME": "~/hf",
+  "HF_HUB_DISABLE_TELEMETRY": "1",
+  "HF_HUB_OFFLINE": "1",
+  "TMPDIR": "~/rf/h2hf_5d75e31a/tmp",
+  "TRITON_CACHE_DIR": "~/rf/h2hf_5d75e31a/triton/cache",
+  "PYTORCH_ALLOC_CONF": "unset",
+  "PYTORCH_CUDA_ALLOC_CONF": "unset"
+ },
+ "seq_len": 256,
+ "alloc_env": {
+  "PYTORCH_ALLOC_CONF": "unset",
+  "PYTORCH_CUDA_ALLOC_CONF": "unset"
+ },
+ "pre": {
+  "gpu_used_mib": 1,
+  "mem_available_gib": 59,
+  "waited_s": 0,
+  "settled": true
+ },
+ "machine": {
+  "site": "4090",
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "gpu_mib": "24564",
+  "driver": "580.173.02",
+  "cpu": "AMD EPYC 7502 32-Core Processor",
+  "threads": "64",
+  "ram_gib": 59.6,
+  "os": "Ubuntu 24.04.1 LTS",
+  "kernel": "6.8.0-124-generic",
+  "etc_environment_alloc": "PYTORCH_ALLOC_CONF=expandable_segments:False"
+ },
+ "status": "ok",
+ "stage": "done",
+ "error": null,
+ "traceback_tail": null,
+ "shape": {
+  "mb": 1,
+  "ga": 8
+ },
+ "updates": 16,
+ "s_per_update": [
+  21.642,
+  10.03,
+  10.006,
+  9.996,
+  9.99,
+  10.028,
+  10.051,
+  9.972,
+  9.964,
+  10.002,
+  9.962,
+  9.99,
+  9.969,
+  9.99,
+  9.759,
+  10.022
+ ],
+ "s_med_2_N": 9.9904,
+ "s_med_3_N": 9.9902,
+ "n_measured": 15,
+ "load_s": 136.91,
+ "load_peak_vram_alloc_gib": 3.22,
+ "load_peak_vram_reserved_gib": 3.988,
+ "load_peak_host_gib": 29.729,
+ "load_host": {
+  "at": "after from_pretrained + get_peft_model",
+  "status_kb": {
+   "VmLck_kb": 0,
+   "VmPin_kb": 0,
+   "VmHWM_kb": 61362488,
+   "VmRSS_kb": 16880600,
+   "RssAnon_kb": 16616756,
+   "RssFile_kb": 245404,
+   "RssShmem_kb": 18440
+  },
+  "peak_anon_shmem_gib": 29.359,
+  "after_load_allocated_gib": 3.106,
+  "after_load_reserved_gib": 3.137,
+  "after_load_smi_mib": 3764
+ },
+ "host_peak_anon_shmem_gib": 29.359,
+ "load_end_epoch": 1794988129.5512567,
+ "t1_s": 158.63,
+ "vram_alloc_gib": 7.824,
+ "vram_reserved_gib": 8.033,
+ "train_peak_vram_alloc_gib": 7.824,
+ "train_peak_vram_reserved_gib": 8.033,
+ "host_ram_gib": 29.729,
+ "memory_unit": "GiB",
+ "memory_source": "h2h_u7: torch.cuda.max_memory_* / 2^30, max(load window, training window); VmHWM / 2^20",
+ "raw": {
+  "unit": "GiB",
+  "load_peak_allocated_gib": 3.22,
+  "load_peak_reserved_gib": 3.988,
+  "peak_allocated_gib_train": 7.824,
+  "peak_reserved_gib_train": 8.033,
+  "host_maxrss_gib": 58.52,
+  "host_vmhwm_gib": 58.52
+ },
+ "adapter_digest": "594639bb22a0a8e32da212fdbdc90e6fb56954b435d131561115aff5cbc6e4ad",
+ "rows_sha256": "f2627e3f182313debf060549bfd9a1623badbc44e8e800156c2431f36fc370b2",
+ "trainable": {
+  "params": 314572800,
+  "dtypes": [
+   "torch.float32"
+  ],
+  "asked_targets": "o_proj,gate_proj,up_proj,down_proj",
+  "groups": {
+   "base_model.model.model.layers.N.mlp.experts.base_layer.lora_A.default.weight": 100663296,
+   "base_model.model.model.layers.N.mlp.experts.base_layer.lora_B.default.weight": 75497472,
+   "base_model.model.model.layers.N.mlp.experts.lora_A.default.weight": 37748736,
+   "base_model.model.model.layers.N.mlp.experts.lora_B.default.weight": 100663296
+  },
+  "rank": 8,
+  "frozen_adapters": {
+   "modules": [
+    "o_proj"
+   ],
+   "tensors": 96,
+   "elements": 2359296
+  }
+ },
+ "losses": [
+  1.265381,
+  1.605358,
+  1.436392,
+  1.085788,
+  1.430171,
+  1.519367,
+  1.599136,
+  1.720445,
+  1.36071,
+  1.103645,
+  1.210823,
+  1.203486,
+  1.382896,
+  1.437839,
+  1.597226,
+  1.28824
+ ],
+ "grad_norms": [
+  0.3904169797897339,
+  0.41443154215812683,
+  0.36350560188293457,
+  0.3233061730861664,
+  0.4232020080089569,
+  0.42461803555488586,
+  0.36455512046813965,
+  0.4202069938182831,
+  0.46242326498031616,
+  0.4998520314693451,
+  0.421256422996521,
+  0.4406289756298065,
+  0.5324127674102783,
+  0.3941020369529724,
+  0.39315322041511536,
+  0.3946799635887146
+ ],
+ "versions": {
+  "unsloth": "2026.11.4",
+  "unsloth_zoo": "2026.11.4",
+  "torch": "2.14.1",
+  "transformers": "5.17.0",
+  "peft": "0.21.2",
+  "bitsandbytes": "0.50.2",
+  "accelerate": "1.15.0",
+  "torch_cuda": "13.0"
+ },
+ "load_source": "local snapshot of Qwen/Qwen3-30B-A3B@ad44e777bcd18fa416d9da3bd8f70d33ebb85d39",
+ "unsloth": {
+  "offload_layers": "48",
+  "offload_embedding": "true",
+  "prefetch_depth": "unset",
+  "decoder_layers": 48,
+  "swapped_layers": 48,
+  "pinned_bytes": 14974107648,
+  "host_bytes": 14974107648,
+  "input_embedding_device": "cpu",
+  "gc": "unsloth",
+  "targets": "o_proj,gate_proj,up_proj,down_proj"
+ },
+ "alloc_env_seen": {
+  "PYTORCH_ALLOC_CONF": "unset",
+  "PYTORCH_CUDA_ALLOC_CONF": "unset"
+ },
+ "alloc_env_set_by_tool": {
+  "PYTORCH_ALLOC_CONF": "expandable_segments:True",
+  "PYTORCH_CUDA_ALLOC_CONF": "unset"
+ },
+ "unsloth_lines": [],
+ "log_tail": null,
+ "host_vmhwm_gib": 58.52,
+ "load_peak_host_vmhwm_gib": 58.52,
+ "host_sampler": {
+  "source": "kit/hostsamp.py: RssAnon + RssShmem summed over the process tree",
+  "interval_s": 0.25,
+  "samples": 1266,
+  "longest_gap_s": 1.435,
+  "processes_max": 2,
+  "anon_gib_at_peak": 29.712,
+  "shmem_gib_at_peak": 0.018,
+  "file_backed_gib_max": 45.137,
+  "vmhwm_gib_seen": 58.52,
+  "inprocess_1hz_peak_anon_shmem_gib": 29.359,
+  "inprocess_1hz_load_peak_anon_shmem_gib": 29.359
+ },
+ "smi": {
+  "samples": 299,
+  "baseline_mib": 1,
+  "load_peak_gib": 4.479,
+  "run_peak_gib": 8.604,
+  "note": "nvidia-smi memory.used minus the pre-launch reading; includes the CUDA context (~0.3-0.5 GiB) torch's counters leave out"
+ },
+ "rows_file": "rows_cap_s256.pt"
+}

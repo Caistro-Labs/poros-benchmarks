@@ -1,0 +1,35 @@
+▛▜ poros v1.0.0 · <home>/poros_rel/hf_cert/fg_models/Qwen_Qwen1.5-MoE-A2.7B__trunc4
+
+● Checked qwen2_moe_mref_fast.yaml  config
+  │ nf4 · rank 16 · seq 512 · fast path
+  │ classic · every token · lr 2e-5
+  │ output    ~/poros_rel/cert/out/family/fg/runs/qwen2_moe_mref_fast
+  │ eval      none held out  this loop trains every row
+  │           to score held-out rows, give a file of them: eval_dataset, or --eval FILE; or recipe sft (--recipe sft), which holds 5% of 40 rows or more out
+
+● Loaded Qwen_Qwen1.5-MoE-A2.7B__trunc4  10s
+  │ MoE · 4 layers · 60 experts
+step 1/8  loss 13.3332  2.51 s/step  vram 1.7 GiB (peak 4.6)  eta 18s
+MoE expert cache 1.00 GiB, sized on update 1 (every expert (1.00 GiB) is cached: 22.98 GiB this process may hold - 5.41 GiB reserved peak - 0.01 GiB for longer updates - 4.60 GiB margin)
+
+  ╭─ Trained ────────────────────────────────────────────────────────── 8 steps · classic · 11s ─╮
+  │                                                                  ▁▄  final loss              │
+  │      ▄▃▂▁               ▁▂▃▄▄▅▆▇▆▄▃▁                          ▃▅▇██  13.6510  ↑ 2%           │
+  │   13 █████▇▆▅▄▄▄▅▅▆▆▇▇███████████████▆▅▄▂                 ▁▄▆██████  from 13.3332            │
+  │      █████████████████████████████████████▆▅▃▁       ▁▃▄▆▇█████████                          │
+  │      █████████████████████████████████████████▇▆▄▄▅▇███████████████  vram 5.5 GiB peak       │
+  │   12 ██████████████████████████████████████████████████████████████  ram  9.0 GiB peak       │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │   11 ██████████████████████████████████████████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                                  4                         8                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      4,312 tok/s
+  │
+  │ adapter    ~/poros_rel/cert/out/family/fg/runs/qwen2_moe_mref_fast
+  │ receipt    ~/poros_rel/cert/out/family/fg/runs/qwen2_moe_mref_fast/receipt.json
+
+Continue with: poros eval <home>/poros_rel/cert/out/family/fg/cfg/qwen2_moe_mref_fast.yaml
+{"schema":"poros.train.v1","learned":null,"output_dir":"<home>/poros_rel/cert/out/family/fg/runs/qwen2_moe_mref_fast","events":"<home>/poros_rel/cert/out/family/fg/runs/qwen2_moe_mref_fast/events.jsonl","metrics":{"device":"cuda:0","total_steps":8,"final_loss":13.650992393493652,"loss_history":[13.333151817321777,12.990230560302734,13.168264389038086,13.448517799377441,12.927995681762695,12.287064552307129,12.827710151672363,13.650992393493652],"grad_norm_history":[2.75,3.0625,3.328125,2.75,3.078125,3.703125,3.328125,2.21875],"eval_history":[],"total_time_s":5.923422105610371,"step_time_history":[2.510405220091343,0.454843457788229,0.5072064213454723,0.5088174734264612,0.4414058178663254,0.5164557676762342,0.5026115532964468,0.48167639411985874],"vram_alloc_history_mb":[1836.241408,2639.501824,2639.514112,2639.509504,2639.504896,2639.509504,2639.506432,2639.512576],"avg_vram_allocated_mb":2539.100032,"avg_step_time_ms":740.4277632012963,"steps_per_sec":1.350570642673396,"tokens_processed":25543,"tokens_per_sec":4312.20324072582,"peak_vram_allocated_gb":5.855679488,"peak_vram_reserved_gb":6.834618368,"torch_num_threads":16,"quantization":"nf4","block_size":null,"adapter_backend":"native","adapter_summary":null},"run":null,"command":null,"next":[],"plan":null,"from":null,"support":null,"model_type":null}

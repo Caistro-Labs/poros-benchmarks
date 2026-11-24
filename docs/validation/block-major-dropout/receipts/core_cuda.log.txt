@@ -1,0 +1,157 @@
+........................................................................ [ 74%]
+.........................                                                [100%]
+=============================== warnings summary ===============================
+tests/core/test_nf4_cache.py::test_cache_needs_nf4
+tests/core/test_nf4_cache.py::test_offload_boundaries_needs_nf4
+  <path> RuntimeWarning: packed_block_transfers disabled: it is not safe alongside enable_prefetch on the bf16 path (a packed slab can be refilled while the previous block's kernels still read it). Prefetch is kept. Set enable_prefetch=False if you would rather keep packing.
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+____________ test_refused_budget_parks_in_pooled_ram_without_growth ____________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.boundary_offload:boundary_offload.py:158 offload_boundaries: page-locked memory refused (pin budget); boundaries go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 0.50 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+______________ test_pin_failure_switches_to_ram_and_stops_asking _______________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.boundary_offload:boundary_offload.py:158 offload_boundaries: page-locked memory refused (page-locked ceiling); boundaries go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 0.50 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+__________________ test_prealloc_failure_marks_the_host_full ___________________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.boundary_offload:boundary_offload.py:158 offload_boundaries: page-locked memory refused (page-locked ceiling); boundaries go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 0.50 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+____________________ test_ram_cap_keeps_the_rest_on_device _____________________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.boundary_offload:boundary_offload.py:158 offload_boundaries: page-locked memory refused (pin budget); boundaries go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 0.00 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+_____ test_default_cap_is_half_the_free_ram_measured_once[0.0029296875-1] ______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.boundary_offload:boundary_offload.py:158 offload_boundaries: page-locked memory refused (pin budget); boundaries go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 0.00 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+_________ test_default_cap_is_half_the_free_ram_measured_once[None-0] __________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.boundary_offload:boundary_offload.py:158 offload_boundaries: page-locked memory refused (pin budget); boundaries go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 0.00 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+________________ test_host_max_zero_keeps_boundaries_on_device _________________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.boundary_offload:boundary_offload.py:158 offload_boundaries: page-locked memory refused (pin budget); boundaries go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 0.00 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+___________________ test_ram_allocation_failure_stops_asking ___________________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.boundary_offload:boundary_offload.py:158 offload_boundaries: page-locked memory refused (pin budget); boundaries go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 0.50 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+________ test_slabs_reserved_before_the_weights_are_a_head_start[False] ________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.boundary_offload:boundary_offload.py:158 offload_boundaries: page-locked memory refused (pin budget); boundaries go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 0.50 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+_____________ test_pageable_slabs_round_trip_exact_on_cuda[budget] _____________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.boundary_offload:boundary_offload.py:158 offload_boundaries: page-locked memory refused (pin budget); boundaries go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 29.28 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+____________ test_pageable_slabs_round_trip_exact_on_cuda[ceiling] _____________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.boundary_offload:boundary_offload.py:158 offload_boundaries: page-locked memory refused (page-locked ceiling); boundaries go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 29.26 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+________________ test_boundary_offload_refused_stays_on_device _________________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.boundary_offload:boundary_offload.py:158 offload_boundaries: page-locked memory refused (pin budget); boundaries go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 0.00 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+_________ test_a_gpu_that_cannot_map_them_keeps_the_default_allocator __________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:164 expandable_segments: the first allocation in one failed (CUDA driver error: operation not supported); the default allocator is used instead, same results (PYTORCH_ALLOC_CONF=expandable_segments:False skips this check)
+________ test_a_failed_preparation_leaves_the_tables_as_peft_did[True] _________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.model:model.py:569 prepare_model_for_kbit_training failed (no gradient checkpointing here); continuing without it.
+________ test_a_failed_preparation_leaves_the_tables_as_peft_did[False] ________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.model:model.py:569 prepare_model_for_kbit_training failed (no gradient checkpointing here); continuing without it.
+________________ test_arena_stops_asking_once_the_host_refuses _________________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.residency:residency.py:322 Pinned-memory allocation is unavailable in this environment; falling back to regular CPU tensors.
+=========================== short test summary info ============================
+PASSED tests/core/test_boundary_offload.py::test_refused_budget_parks_in_pooled_ram_without_growth
+PASSED tests/core/test_boundary_offload.py::test_pin_failure_switches_to_ram_and_stops_asking
+PASSED tests/core/test_boundary_offload.py::test_prealloc_failure_marks_the_host_full
+PASSED tests/core/test_boundary_offload.py::test_ram_cap_keeps_the_rest_on_device
+PASSED tests/core/test_boundary_offload.py::test_default_cap_is_half_the_free_ram_measured_once[0.0029296875-1]
+PASSED tests/core/test_boundary_offload.py::test_default_cap_is_half_the_free_ram_measured_once[None-0]
+PASSED tests/core/test_boundary_offload.py::test_host_max_zero_keeps_boundaries_on_device
+PASSED tests/core/test_boundary_offload.py::test_ram_allocation_failure_stops_asking
+PASSED tests/core/test_boundary_offload.py::test_pinning_that_works_never_touches_ram
+PASSED tests/core/test_boundary_offload.py::test_slabs_reserved_before_the_weights_are_a_head_start[True]
+PASSED tests/core/test_boundary_offload.py::test_slabs_reserved_before_the_weights_are_a_head_start[False]
+PASSED tests/core/test_boundary_offload.py::test_pageable_slabs_round_trip_exact_on_cuda[budget]
+PASSED tests/core/test_boundary_offload.py::test_pageable_slabs_round_trip_exact_on_cuda[ceiling]
+PASSED tests/core/test_nf4_cache.py::test_cache_needs_nf4
+PASSED tests/core/test_nf4_cache.py::test_offload_boundaries_needs_nf4
+PASSED tests/core/test_nf4_cache.py::test_scope_restores_matmul_4bit
+PASSED tests/core/test_nf4_cache.py::test_cached_matmul_bitwise_equals_stock[True]
+PASSED tests/core/test_nf4_cache.py::test_cached_matmul_bitwise_equals_stock[False]
+PASSED tests/core/test_nf4_cache.py::test_boundary_offload_roundtrip_and_pool_reuse
+PASSED tests/core/test_nf4_cache.py::test_boundary_offload_refused_stays_on_device
+PASSED tests/core/test_nf4_cache.py::test_boundary_offload_allowance_zero_stays_on_device
+PASSED tests/core/test_nf4_cache.py::test_block_major_takes_the_efficient_path_on_nf4
+PASSED tests/core/test_nf4_cache.py::test_boundary_prealloc_locks_whole_slabs
+PASSED tests/core/test_expandable_segments.py::test_an_allocator_the_environment_configures_is_left_alone_and_recorded[True-expandable_segments:False-False-PYTORCH_ALLOC_CONF]
+PASSED tests/core/test_expandable_segments.py::test_an_allocator_the_environment_configures_is_left_alone_and_recorded[True-expandable_segments:False-False-PYTORCH_CUDA_ALLOC_CONF]
+PASSED tests/core/test_expandable_segments.py::test_an_allocator_the_environment_configures_is_left_alone_and_recorded[True-expandable_segments:True-True-PYTORCH_ALLOC_CONF]
+PASSED tests/core/test_expandable_segments.py::test_an_allocator_the_environment_configures_is_left_alone_and_recorded[True-expandable_segments:True-True-PYTORCH_CUDA_ALLOC_CONF]
+PASSED tests/core/test_expandable_segments.py::test_an_allocator_the_environment_configures_is_left_alone_and_recorded[True-max_split_size_mb:128-False-PYTORCH_ALLOC_CONF]
+PASSED tests/core/test_expandable_segments.py::test_an_allocator_the_environment_configures_is_left_alone_and_recorded[True-max_split_size_mb:128-False-PYTORCH_CUDA_ALLOC_CONF]
+PASSED tests/core/test_expandable_segments.py::test_an_allocator_the_environment_configures_is_left_alone_and_recorded[False-expandable_segments:False-False-PYTORCH_ALLOC_CONF]
+PASSED tests/core/test_expandable_segments.py::test_an_allocator_the_environment_configures_is_left_alone_and_recorded[False-expandable_segments:False-False-PYTORCH_CUDA_ALLOC_CONF]
+PASSED tests/core/test_expandable_segments.py::test_an_allocator_the_environment_configures_is_left_alone_and_recorded[False-expandable_segments:True-True-PYTORCH_ALLOC_CONF]
+PASSED tests/core/test_expandable_segments.py::test_an_allocator_the_environment_configures_is_left_alone_and_recorded[False-expandable_segments:True-True-PYTORCH_CUDA_ALLOC_CONF]
+PASSED tests/core/test_expandable_segments.py::test_an_allocator_the_environment_configures_is_left_alone_and_recorded[False-max_split_size_mb:128-False-PYTORCH_ALLOC_CONF]
+PASSED tests/core/test_expandable_segments.py::test_an_allocator_the_environment_configures_is_left_alone_and_recorded[False-max_split_size_mb:128-False-PYTORCH_CUDA_ALLOC_CONF]
+PASSED tests/core/test_expandable_segments.py::test_torch_reads_the_older_name_first
+PASSED tests/core/test_expandable_segments.py::test_where_they_map_they_stay_on
+PASSED tests/core/test_expandable_segments.py::test_off_cuda_nothing_is_set_or_recorded_differently
+PASSED tests/core/test_expandable_segments.py::test_a_gpu_that_cannot_map_them_keeps_the_default_allocator
+PASSED tests/core/test_expandable_segments.py::test_a_process_that_holds_cuda_memory_keeps_its_allocator
+PASSED tests/core/test_expandable_segments.py::test_poros_train_records_the_allocator_the_environment_chose
+PASSED tests/core/test_expandable_segments.py::test_the_setting_reaches_torch_without_its_deprecation_warning
+PASSED tests/core/test_host_ram.py::test_cast_to_equals_a_plain_cast_bit_for_bit[256-shape0-dtype0]
+PASSED tests/core/test_host_ram.py::test_cast_to_equals_a_plain_cast_bit_for_bit[256-shape0-dtype1]
+PASSED tests/core/test_host_ram.py::test_cast_to_equals_a_plain_cast_bit_for_bit[256-shape1-dtype0]
+PASSED tests/core/test_host_ram.py::test_cast_to_equals_a_plain_cast_bit_for_bit[256-shape1-dtype1]
+PASSED tests/core/test_host_ram.py::test_cast_to_equals_a_plain_cast_bit_for_bit[256-shape2-dtype0]
+PASSED tests/core/test_host_ram.py::test_cast_to_equals_a_plain_cast_bit_for_bit[256-shape2-dtype1]
+PASSED tests/core/test_host_ram.py::test_cast_to_equals_a_plain_cast_bit_for_bit[256-shape3-dtype0]
+PASSED tests/core/test_host_ram.py::test_cast_to_equals_a_plain_cast_bit_for_bit[256-shape3-dtype1]
+PASSED tests/core/test_host_ram.py::test_cast_to_equals_a_plain_cast_bit_for_bit[256-shape4-dtype0]
+PASSED tests/core/test_host_ram.py::test_cast_to_equals_a_plain_cast_bit_for_bit[256-shape4-dtype1]
+PASSED tests/core/test_host_ram.py::test_cast_to_equals_a_plain_cast_bit_for_bit[256-shape5-dtype0]
+PASSED tests/core/test_host_ram.py::test_cast_to_equals_a_plain_cast_bit_for_bit[256-shape5-dtype1]
+PASSED tests/core/test_host_ram.py::test_cast_to_equals_a_plain_cast_bit_for_bit[256-shape6-dtype0]
+PASSED tests/core/test_host_ram.py::test_cast_to_equals_a_plain_cast_bit_for_bit[256-shape6-dtype1]
+PASSED tests/core/test_host_ram.py::test_cast_to_equals_a_plain_cast_bit_for_bit[1048576-shape0-dtype0]
+PASSED tests/core/test_host_ram.py::test_cast_to_equals_a_plain_cast_bit_for_bit[1048576-shape0-dtype1]
+PASSED tests/core/test_host_ram.py::test_cast_to_equals_a_plain_cast_bit_for_bit[1048576-shape1-dtype0]
+PASSED tests/core/test_host_ram.py::test_cast_to_equals_a_plain_cast_bit_for_bit[1048576-shape1-dtype1]
+PASSED tests/core/test_host_ram.py::test_cast_to_equals_a_plain_cast_bit_for_bit[1048576-shape2-dtype0]
+PASSED tests/core/test_host_ram.py::test_cast_to_equals_a_plain_cast_bit_for_bit[1048576-shape2-dtype1]
+PASSED tests/core/test_host_ram.py::test_cast_to_equals_a_plain_cast_bit_for_bit[1048576-shape3-dtype0]
+PASSED tests/core/test_host_ram.py::test_cast_to_equals_a_plain_cast_bit_for_bit[1048576-shape3-dtype1]
+PASSED tests/core/test_host_ram.py::test_cast_to_equals_a_plain_cast_bit_for_bit[1048576-shape4-dtype0]
+PASSED tests/core/test_host_ram.py::test_cast_to_equals_a_plain_cast_bit_for_bit[1048576-shape4-dtype1]
+PASSED tests/core/test_host_ram.py::test_cast_to_equals_a_plain_cast_bit_for_bit[1048576-shape5-dtype0]
+PASSED tests/core/test_host_ram.py::test_cast_to_equals_a_plain_cast_bit_for_bit[1048576-shape5-dtype1]
+PASSED tests/core/test_host_ram.py::test_cast_to_equals_a_plain_cast_bit_for_bit[1048576-shape6-dtype0]
+PASSED tests/core/test_host_ram.py::test_cast_to_equals_a_plain_cast_bit_for_bit[1048576-shape6-dtype1]
+PASSED tests/core/test_host_ram.py::test_cast_to_allocates_only_its_result
+PASSED tests/core/test_host_ram.py::test_cast_to_returns_the_tensor_when_nothing_changes
+PASSED tests/core/test_host_ram.py::test_embed_as_equals_the_fp32_table_bit_for_bit[<lambda>0]
+PASSED tests/core/test_host_ram.py::test_embed_as_equals_the_fp32_table_bit_for_bit[<lambda>1]
+PASSED tests/core/test_host_ram.py::test_embed_as_equals_the_fp32_table_bit_for_bit[<lambda>2]
+PASSED tests/core/test_host_ram.py::test_embed_as_is_the_module_itself_when_dtypes_match
+PASSED tests/core/test_host_ram.py::test_vocab_tables_are_the_16bit_embedding_and_head_once[False]
+PASSED tests/core/test_host_ram.py::test_vocab_tables_are_the_16bit_embedding_and_head_once[True]
+PASSED tests/core/test_host_ram.py::test_kbit_prep_holds_the_tables_out_and_the_cast_restores_peft_exactly
+PASSED tests/core/test_host_ram.py::test_a_table_lora_targets_is_cast_before_its_adapter_is_made[targets0]
+PASSED tests/core/test_host_ram.py::test_a_table_lora_targets_is_cast_before_its_adapter_is_made[targets1]
+PASSED tests/core/test_host_ram.py::test_a_table_lora_targets_is_cast_before_its_adapter_is_made[model.*q_proj|lm_head]
+PASSED tests/core/test_host_ram.py::test_all_linear_and_a_list_without_them_hold_both_tables
+PASSED tests/core/test_host_ram.py::test_a_failed_preparation_leaves_the_tables_as_peft_did[True]
+PASSED tests/core/test_host_ram.py::test_a_failed_preparation_leaves_the_tables_as_peft_did[False]
+PASSED tests/core/test_host_ram.py::test_poros_model_keeps_peft_s_host_cast_unless_asked[False]
+PASSED tests/core/test_host_ram.py::test_poros_model_keeps_peft_s_host_cast_unless_asked[True]
+PASSED tests/core/test_host_ram.py::test_arena_carves_exact_copies_first_fit
+PASSED tests/core/test_host_ram.py::test_arena_locks_what_it_stores_where_one_by_one_pinning_rounds[0.5B]
+PASSED tests/core/test_host_ram.py::test_arena_locks_what_it_stores_where_one_by_one_pinning_rounds[32B]
+PASSED tests/core/test_host_ram.py::test_arena_locks_what_it_stores_where_one_by_one_pinning_rounds[72B]
+PASSED tests/core/test_host_ram.py::test_arena_locks_what_it_stores_where_one_by_one_pinning_rounds[7B]
+PASSED tests/core/test_host_ram.py::test_arena_falls_back_to_the_tensor_when_refused
+PASSED tests/core/test_host_ram.py::test_arena_stops_asking_once_the_host_refuses
+PASSED tests/core/test_host_ram.py::test_arena_pins_a_tensor_alone_where_the_budget_has_no_room_for_a_slab
+PASSED tests/core/test_host_ram.py::test_resident_ids_and_layers_spread_evenly
+PASSED tests/core/test_host_ram.py::test_resident_blocks_keep_no_host_copy_and_the_same_tensors
+97 passed, 2 warnings in 8.80s

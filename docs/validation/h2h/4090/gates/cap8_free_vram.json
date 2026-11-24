@@ -1,0 +1,48 @@
+{
+ "what": "the free VRAM the processes had: Poros's own preflight reading at the start of each run (the line from its log), the other process that held the rest of the card (kit/vram_ballast.py), and the same reading on the laptop",
+ "rtx4090_runs": [
+  {
+   "run": "c8_poros_eff_r1",
+   "free_gib": 5.25,
+   "log_line": "\u2502 Qwen/Qwen3-30B-A3B: allocated peak, at most 8.244 GiB, may not fit 5.25 GiB free (estimated: an upper bound from receipts at other settings); the run may run out of GPU memory at its first step"
+  },
+  {
+   "run": "c8_poros_eff_r2",
+   "free_gib": 5.25,
+   "log_line": "\u2502 Qwen/Qwen3-30B-A3B: allocated peak, at most 8.244 GiB, may not fit 5.25 GiB free (estimated: an upper bound from receipts at other settings); the run may run out of GPU memory at its first step"
+  },
+  {
+   "run": "c8_poros_eff_r3",
+   "free_gib": 5.25,
+   "log_line": "\u2502 Qwen/Qwen3-30B-A3B: allocated peak, at most 8.244 GiB, may not fit 5.25 GiB free (estimated: an upper bound from receipts at other settings); the run may run out of GPU memory at its first step"
+  }
+ ],
+ "rtx4090_free_gib_lowest": 5.25,
+ "ballast": {
+  "target_free_mib": 6246,
+  "card_total_mib": 24564,
+  "used_mib": 18318,
+  "free_mib": 6246,
+  "ballast_tensors_mib": 17858,
+  "mem_get_info_free_mib": 5763,
+  "how": "another process holds the rest of the card's memory (kit/vram_ballast.py)"
+ },
+ "laptop_runs": [
+  {
+   "run": "l30_poros_eff_r1",
+   "free_gib": 6.75,
+   "log_line": "\u2502 Qwen/Qwen3-30B-A3B: allocated peak, at most 8.652 GiB, may not fit 6.75 GiB free (estimated: an upper bound from receipts at other settings); the run may run out of GPU memory at its first step"
+  },
+  {
+   "run": "l30_poros_eff_r2",
+   "free_gib": 6.75,
+   "log_line": "\u2502 Qwen/Qwen3-30B-A3B: allocated peak, at most 8.652 GiB, may not fit 6.75 GiB free (estimated: an upper bound from receipts at other settings); the run may run out of GPU memory at its first step"
+  },
+  {
+   "run": "l30_poros_eff_r3",
+   "free_gib": 6.73,
+   "log_line": "\u2502 Qwen/Qwen3-30B-A3B: allocated peak, at most 8.652 GiB, may not fit 6.73 GiB free (estimated: an upper bound from receipts at other settings); the run may run out of GPU memory at its first step"
+  }
+ ],
+ "laptop_free_gib_lowest": 6.73
+}

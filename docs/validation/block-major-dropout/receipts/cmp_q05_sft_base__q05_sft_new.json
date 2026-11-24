@@ -1,0 +1,31 @@
+{
+ "ref": "q05_sft_base",
+ "cand": "q05_sft_new",
+ "steps_compared": [
+  0,
+  1,
+  2,
+  3
+ ],
+ "steps_in_ref": true,
+ "losses_equal": true,
+ "grad_norms_equal": true,
+ "adapter_tensors": 336,
+ "adapter_keys_equal": true,
+ "adapter_unequal": [],
+ "ref_digest": "05d38768ab628279f0cfdd923ae839132be8255556371bc9ccf892aca435eaa9",
+ "cand_digest": "05d38768ab628279f0cfdd923ae839132be8255556371bc9ccf892aca435eaa9",
+ "ref_losses": [
+  2.0534453094005585,
+  1.6015135943889618,
+  2.2300328612327576,
+  1.5730385482311249
+ ],
+ "cand_losses": [
+  2.0534453094005585,
+  1.6015135943889618,
+  2.2300328612327576,
+  1.5730385482311249
+ ],
+ "pass": true
+}

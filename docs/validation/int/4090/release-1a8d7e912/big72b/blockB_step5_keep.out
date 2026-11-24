@@ -1,0 +1,18 @@
+13:56:55 preflight: HEAD 1a8d7e912b166c373fcfec862ad7297221d33a71 clean; git <home>/poros_rel/tools/git/usr/bin/git (git version 2.43.0); poros from <home>/poros_rel/cert/src/poros/__init__.py
+13:56:55 === cert.sh step5 (inline=1)
+13:56:56 step5 start: Qwen/Qwen2.5-72B-Instruct for big-72b big-72b-fast (check-fit: big-72b big-72b-fast)
+13:56:57 fetching Qwen/Qwen2.5-72B-Instruct (146G, hub@495f3936) for step5 big-72b big-72b-fast
+14:02:14 fetched Qwen/Qwen2.5-72B-Instruct -> 495f39366efef23836d0cfae4fbe635880d2be31 main (exit 0)
+14:02:14 big-72b start (Qwen/Qwen2.5-72B-Instruct, disk_gb 20, at most 180 min, home homes/big-72b)
+14:42:29 PASS big-72b: status=ok commit=1a8d7e912b16 tree_clean=True updates=16 s_per_step=19.5039 gpu_mem_gib=None reserved_gib=None resume=True eval=ok preflight_said=0 lines
+14:42:29 SKIP big-72b-fast: needs disk_gb 20G + 10G floor, free 25G
+14:42:31 CHECK-FIT FITS big-72b: verdict='fits' peak_gib=18.078 source=measured basis='reserved peak 18.078 GiB <= 23.51 GiB free' asks=[] doubts=[] refused=False start_refused=[] gate_path=None ran_path=efficient warning=None vram_refusal=None host_refusal=None
+14:42:33 CHECK-FIT FITS big-72b-fast: verdict='fits' peak_gib=21.672 source=measured basis='reserved peak 21.672 GiB <= 23.51 GiB free' asks=[] doubts=[] refused=False start_refused=[] gate_path=None ran_path=fast warning=None vram_refusal=None host_refusal=None
+14:42:33 step5 done (CERT_KEEP72: the 72B and its homes kept for the film)
+14:44:15 preflight: HEAD 1a8d7e912b166c373fcfec862ad7297221d33a71 clean; git <home>/poros_rel/tools/git/usr/bin/git (git version 2.43.0); poros from <home>/poros_rel/cert/src/poros/__init__.py
+14:44:15 === cert.sh step5 (inline=1)
+14:44:15 PASS big-72b (already passing at 1a8d7e912)
+14:44:15 step5 start: Qwen/Qwen2.5-72B-Instruct for big-72b-fast (check-fit: none)
+14:44:16 big-72b-fast start (Qwen/Qwen2.5-72B-Instruct, disk_gb 20, at most 150 min, home homes/big-72b-fast)
+15:21:52 PASS big-72b-fast: status=ok commit=1a8d7e912b16 tree_clean=True updates=16 s_per_step=15.768 gpu_mem_gib=None reserved_gib=None resume=True eval=ok preflight_said=0 lines
+15:21:52 step5 done (CERT_KEEP72: the 72B and its homes kept for the film)

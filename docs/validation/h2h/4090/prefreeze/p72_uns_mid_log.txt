@@ -1,0 +1,60 @@
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+W1117 14:12:42.340000 2994887 torch/utils/_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+W1117 14:12:42.382000 2994887 torch/utils/_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+==((====))==  Unsloth 2026.11.4: Fast Qwen2 patching. Transformers: 5.17.0.
+   \\   /|    NVIDIA GeForce RTX 4090. Num GPUs = 1. Max memory: 23.516 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.14.1+cu130. CUDA: 8.9. CUDA Toolkit: 13.0. Triton: 3.8.0
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.35. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+
+Loading weights:   0%|          | 0/123 [00:00<?, ?it/s]
+Loading weights:   1%|          | 1/123 [00:02<05:36,  2.76s/it]
+Loading weights:   2%|▏         | 2/123 [00:05<05:38,  2.79s/it]
+Loading weights:   3%|▎         | 4/123 [00:05<02:10,  1.09s/it]
+Loading weights:   4%|▍         | 5/123 [00:05<01:34,  1.25it/s]
+Loading weights:   8%|▊         | 10/123 [00:06<00:30,  3.76it/s]
+Loading weights:  11%|█▏        | 14/123 [00:06<00:18,  6.00it/s]
+Loading weights:  14%|█▍        | 17/123 [00:06<00:15,  6.79it/s]
+Loading weights:  18%|█▊        | 22/123 [00:06<00:09, 10.71it/s]
+Loading weights:  21%|██        | 26/123 [00:06<00:07, 13.04it/s]
+Loading weights:  24%|██▎       | 29/123 [00:07<00:07, 12.33it/s]
+Loading weights:  28%|██▊       | 34/123 [00:07<00:05, 17.31it/s]
+Loading weights:  31%|███       | 38/123 [00:07<00:04, 18.82it/s]
+Loading weights:  33%|███▎      | 41/123 [00:07<00:05, 15.52it/s]
+Loading weights:  37%|███▋      | 46/123 [00:07<00:03, 20.55it/s]
+Loading weights:  41%|████      | 50/123 [00:08<00:04, 17.38it/s]
+Loading weights:  43%|████▎     | 53/123 [00:08<00:03, 18.00it/s]
+Loading weights:  49%|████▉     | 60/123 [00:08<00:02, 22.17it/s]
+Loading weights:  51%|█████     | 63/123 [00:08<00:02, 21.40it/s]
+Loading weights:  54%|█████▎    | 66/123 [00:08<00:03, 18.83it/s]
+Loading weights:  60%|██████    | 74/123 [00:09<00:01, 24.73it/s]
+Loading weights:  63%|██████▎   | 77/123 [00:09<00:02, 18.13it/s]
+Loading weights:  68%|██████▊   | 84/123 [00:09<00:01, 25.69it/s]
+Loading weights:  72%|███████▏  | 88/123 [00:09<00:01, 20.55it/s]
+Loading weights:  74%|███████▍  | 91/123 [00:09<00:01, 20.08it/s]
+Loading weights:  80%|███████▉  | 98/123 [00:10<00:01, 18.67it/s]
+Loading weights:  82%|████████▏ | 101/123 [00:10<00:01, 18.39it/s]
+Loading weights:  86%|████████▌ | 106/123 [00:10<00:00, 22.98it/s]
+Loading weights:  89%|████████▊ | 109/123 [00:10<00:00, 22.09it/s]
+Loading weights:  91%|█████████ | 112/123 [00:11<00:00, 16.78it/s]
+Loading weights:  96%|█████████▌| 118/123 [00:11<00:00, 23.56it/s]
+Loading weights: 100%|██████████| 123/123 [00:11<00:00, 10.99it/s]
+[1mQwen2ForCausalLM LOAD REPORT[0m from: ~/rf/h2hf_0398b814/mirror72
+Key                                                    | Status     |  | 
+-------------------------------------------------------+------------+--+-
+model.layers.{10...79}.mlp.up_proj.weight              | UNEXPECTED |  | 
+model.layers.{10...79}.mlp.gate_proj.weight            | UNEXPECTED |  | 
+model.layers.{10...79}.self_attn.q_proj.weight         | UNEXPECTED |  | 
+model.layers.{10...79}.self_attn.q_proj.bias           | UNEXPECTED |  | 
+model.layers.{10...79}.self_attn.v_proj.bias           | UNEXPECTED |  | 
+model.layers.{10...79}.post_attention_layernorm.weight | UNEXPECTED |  | 
+model.layers.{10...79}.self_attn.k_proj.weight         | UNEXPECTED |  | 
+model.layers.{10...79}.self_attn.o_proj.weight         | UNEXPECTED |  | 
+model.layers.{10...79}.self_attn.v_proj.weight         | UNEXPECTED |  | 
+model.layers.{10...79}.self_attn.k_proj.bias           | UNEXPECTED |  | 
+model.layers.{10...79}.input_layernorm.weight          | UNEXPECTED |  | 
+model.layers.{10...79}.mlp.down_proj.weight            | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.

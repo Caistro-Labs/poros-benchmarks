@@ -1,0 +1,28 @@
+▛▜ poros v1.0.0 · Qwen/Qwen2.5-32B-Instruct · RTX 4090 23.5 GiB
+
+● Checked cert-big-32b-prepare  run 1124-0853-8ff9
+  │ nf4 · block 4 · rank 16 · seq 512 · efficient path
+  │ SFT · answers only · lr 2e-4
+  │ output    homes/big-32b/runs/1124-0853-8ff9
+  │ eval      7 rows held out  scored at the start, each checkpoint and the end
+
+● Loaded Qwen2.5-32B-Instruct  2m 07s
+  │ dense · 64 layers · 16 blocks
+● Scored the base  held out 6.5497 · ends its answers 0 of 0
+step 1/1  loss 6.5741  10.49 s/step  vram 7.8 GiB (peak 10.2)
+● Scored the base  held out 6.5497 ↓ 0% · ends its answers 0 of 0
+
+● Trained 1 step · SFT  32s
+  │ final loss 6.5741  from 6.5741  ·  ↓ 0%
+  │ eval loss  6.5497  from 6.5497 on held-out rows  ·  ↓ 0%
+  │
+  │ peak vram  ━━━━━━━─────────  10.2 GiB of 23.5 GiB
+  │ peak ram   ━━━━━━──────────  21.8 GiB of 60 GiB
+  │ speed      391 tok/s
+  │
+  │ adapter    homes/big-32b/runs/1124-0853-8ff9
+  │ receipt    homes/big-32b/runs/1124-0853-8ff9/receipt.json
+
+Continue with: poros eval 1124-0853-8ff9
+Keep it as a recipe: poros recipes save last
+{"schema":"poros.train.v1","learned":null,"output_dir":"<home>/runs/1124-0853-8ff9","events":"<home>/runs/1124-0853-8ff9/events.jsonl","metrics":{"device":"cuda:0","total_steps":1,"final_loss":6.5741482973098755,"loss_history":[6.5741482973098755],"grad_norm_history":[0.7001265287399292],"eval_history":[{"step":0,"eval_loss":6.54971170425415,"eval_perplexity":699.0426137511147,"ends":0,"answer_rows":0},{"step":0,"eval_loss":6.54971170425415,"eval_perplexity":699.0426137511147,"ends":0,"answer_rows":0}],"total_time_s":10.488228771835566,"step_time_history":[10.488228771835566],"vram_alloc_history_mb":[8402.52416],"avg_vram_allocated_mb":8402.52416,"avg_step_time_ms":10488.228771835566,"steps_per_sec":0.09534498357676346,"tokens_processed":4096,"tokens_per_sec":390.53305273042315,"peak_vram_allocated_gb":10.8916352,"peak_vram_reserved_gb":13.518241792,"torch_num_threads":16,"quantization":"nf4","block_size":4,"adapter_backend":"peft","adapter_summary":{"backend":"peft","target_module_names":"all-linear","trainable_param_count":134217728,"total_param_count":17295283200},"eval_loss_start":6.54971170425415,"eval_loss":6.54971170425415,"eval_ends":0,"eval_answer_rows":0},"run":"1124-0853-8ff9","command":"poros train Qwen/Qwen2.5-32B-Instruct --data <work>/sample-chats.jsonl --steps 1 --seq-len 512 --rank 16 --block-size 4 --name cert-big-32b-prepare --recipe sft gradient_accumulation_steps=8 learning_rate=2e-4 lora_alpha=32 lora_dropout=0 per_device_batch_size=1 store=ram --download","next":[],"plan":null,"from":null,"support":null,"model_type":null}

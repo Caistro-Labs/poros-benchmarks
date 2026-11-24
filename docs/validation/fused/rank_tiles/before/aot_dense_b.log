@@ -1,0 +1,17 @@
+122 compiled; 16 do not fit / fail
+{'kernel': '_swiglu_fwd', 'cap': 70, 'tag': 'bf16 R=64 hf=True', 'stages': 3, 'shared': 106496, 'limit': 98304, 'fits': False, 'err': None}
+{'kernel': '_swiglu_fwd', 'cap': 70, 'tag': 'bf16 R=64 hf=False', 'stages': 3, 'shared': 106496, 'limit': 98304, 'fits': False, 'err': None}
+{'kernel': '_lora_out_fwd', 'cap': 70, 'tag': 'bf16 R=128', 'stages': 3, 'shared': 106496, 'limit': 98304, 'fits': False, 'err': None}
+{'kernel': '_swiglu_fwd', 'cap': 70, 'tag': 'bf16 R=128 hf=True', 'stages': 3, 'shared': 204800, 'limit': 98304, 'fits': False, 'err': None}
+{'kernel': '_swiglu_fwd', 'cap': 70, 'tag': 'bf16 R=128 hf=False', 'stages': 3, 'shared': 204800, 'limit': 98304, 'fits': False, 'err': None}
+{'kernel': '_swiglu_bwd', 'cap': 70, 'tag': 'bf16 R=128 drop=False', 'stages': 1, 'shared': 172032, 'limit': 98304, 'fits': False, 'err': None}
+{'kernel': '_swiglu_bwd', 'cap': 70, 'tag': 'bf16 R=128 drop=True', 'stages': 1, 'shared': 172032, 'limit': 98304, 'fits': False, 'err': None}
+{'kernel': '_lora_rope_fwd', 'cap': 70, 'tag': 'bf16 R=128 D=128', 'stages': 3, 'shared': 106496, 'limit': 98304, 'fits': False, 'err': None}
+{'kernel': '_lora_rope_bwd', 'cap': 120, 'tag': 'bf16 R=64 D=128', 'stages': 2, 'shared': 114688, 'limit': 101376, 'fits': False, 'err': None}
+{'kernel': '_lora_out_bwd', 'cap': 120, 'tag': 'bf16 R=128', 'stages': 2, 'shared': 106496, 'limit': 101376, 'fits': False, 'err': None}
+{'kernel': '_swiglu_fwd', 'cap': 120, 'tag': 'bf16 R=128 hf=True', 'stages': 3, 'shared': 198656, 'limit': 101376, 'fits': False, 'err': None}
+{'kernel': '_swiglu_fwd', 'cap': 120, 'tag': 'bf16 R=128 hf=False', 'stages': 3, 'shared': 198656, 'limit': 101376, 'fits': False, 'err': None}
+{'kernel': '_swiglu_bwd', 'cap': 120, 'tag': 'bf16 R=128 drop=False', 'stages': 1, 'shared': 165888, 'limit': 101376, 'fits': False, 'err': None}
+{'kernel': '_swiglu_bwd', 'cap': 120, 'tag': 'bf16 R=128 drop=True', 'stages': 1, 'shared': 165888, 'limit': 101376, 'fits': False, 'err': None}
+{'kernel': '_lora_rope_fwd', 'cap': 120, 'tag': 'bf16 R=128 D=128', 'stages': 3, 'shared': 102400, 'limit': 101376, 'fits': False, 'err': None}
+{'kernel': '_lora_rope_bwd', 'cap': 120, 'tag': 'bf16 R=128 D=128', 'stages': 2, 'shared': 155648, 'limit': 101376, 'fits': False, 'err': None}

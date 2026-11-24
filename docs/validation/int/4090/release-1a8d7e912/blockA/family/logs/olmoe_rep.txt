@@ -1,0 +1,35 @@
+▛▜ poros v1.0.0 · <home>/poros_rel/hf_cert/fg_models/allenai_OLMoE-1B-7B-0924__trunc4
+
+● Checked olmoe_rep.yaml  config
+  │ nf4 · rank 16 · seq 512 · fast path
+  │ classic · every token · lr 2e-5
+  │ output    ~/poros_rel/cert/out/family/fg/runs/olmoe_rep
+  │ eval      none held out  this loop trains every row
+  │           to score held-out rows, give a file of them: eval_dataset, or --eval FILE; or recipe sft (--recipe sft), which holds 5% of 40 rows or more out
+
+● Loaded allenai_OLMoE-1B-7B-0924__trunc4  9.7s
+  │ MoE · 4 layers · 64 experts
+step 1/8  loss 11.0253  2.17 s/step  vram 0.9 GiB (peak 1.9)  eta 15s
+MoE expert cache 0.77 GiB, sized on an update at the full shape (every expert (0.77 GiB) is cached: 22.98 GiB this process may hold - 2.00 GiB reserved peak - 4.60 GiB margin)
+
+  ╭─ Trained ───────────────────────────────────────────────────────── 8 steps · classic · 6.4s ─╮
+  │                                                                      final loss              │
+  │                                                                   ▁  11.1132  ↑ 1%           │
+  │ 11.0 ▅▃▁              ▁▂▂▂▃▃▃▃▄▄▃▁                             ▁▄▇█  from 11.0253            │
+  │      ████▆▄▂     ▂▃▅▆█████████████▇▆▄▃▁                      ▃▆████                          │
+  │      ████████▆▅▇███████████████████████▇▆▄▂               ▂▅███████  vram 2.6 GiB peak       │
+  │ 10.5 ███████████████████████████████████████▆▅▃▁   ▁▂▃▄▅▆██████████  ram  6.0 GiB peak       │
+  │      ███████████████████████████████████████████▇▆█████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │ 10.0 ██████████████████████████████████████████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                                  4                         8                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      7,770 tok/s
+  │
+  │ adapter    ~/poros_rel/cert/out/family/fg/runs/olmoe_rep
+  │ receipt    ~/poros_rel/cert/out/family/fg/runs/olmoe_rep/receipt.json
+
+Continue with: poros eval <home>/poros_rel/cert/out/family/fg/cfg/olmoe_rep.yaml
+{"schema":"poros.train.v1","learned":null,"output_dir":"<home>/poros_rel/cert/out/family/fg/runs/olmoe_rep","events":"<home>/poros_rel/cert/out/family/fg/runs/olmoe_rep/events.jsonl","metrics":{"device":"cuda:0","total_steps":8,"final_loss":11.113211631774902,"loss_history":[11.025286674499512,10.687394142150879,10.951756477355957,11.000812530517578,10.707124710083008,10.374065399169922,10.580659866333008,11.113211631774902],"grad_norm_history":[1.1484375,1.453125,1.3203125,1.1875,1.390625,1.6015625,1.375,1.0546875],"eval_history":[],"total_time_s":3.5586015339940786,"step_time_history":[2.174540728330612,0.21782833896577358,0.18791357055306435,0.1907186396420002,0.2006584256887436,0.19691769406199455,0.19681638106703758,0.1932077556848526],"vram_alloc_history_mb":[923.019264,1546.15296,1546.16064,1546.16832,1546.162176,1546.156032,1546.163712,1546.163712],"avg_vram_allocated_mb":1468.268352,"avg_step_time_ms":444.82519174925983,"steps_per_sec":2.248074116637896,"tokens_processed":27652,"tokens_per_sec":7770.468184158887,"peak_vram_allocated_gb":2.79081984,"peak_vram_reserved_gb":2.94649856,"torch_num_threads":16,"quantization":"nf4","block_size":null,"adapter_backend":"native","adapter_summary":null},"run":null,"command":null,"next":[],"plan":null,"from":null,"support":null,"model_type":null}

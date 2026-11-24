@@ -1,0 +1,13 @@
+2026-11-17T06:44:54Z
+int 919f587547e3c0f6cb0da39014ead8f62ace46b7 + the fix (working tree = tree object 269d3bbcd4cff50829ff3a12aa2787a7713bb1af)
+ruff rc=0
+torch suite (PYTHONPATH = the tree, HF_HUB_OFFLINE=1, 6 GB cap, under the CPU lock):
+4515 passed, 67 skipped, 113 warnings in 970.30s (0:16:10)
+exit=0
+2026-11-17T07:01:09Z
+torch-free suite (Python 3.12 venv with no torch, transformers or safetensors; -m "not gpu"):
+notorch_exit=0
+2657 passed, 534 skipped, 9 deselected, 2 warnings in 297.50s (0:04:57)
+2026-11-17T07:06:07Z
+Baselines at 85203c9e (docs/validation/int/cpu/suite_85203c9e_tail.txt): 4513 passed and 2657 passed. The torch suite adds the 2 new CPU tests (tests/moe/test_adapter_grad_storage.py); the torch-free suite skips that module (one more skip).
+Targeted before the full run (tests/moe tests/sss tests/metal tests/test_block_major_dropout.py tests/test_run_block_major_cuda.py tests/core/test_block_major_default.py tests/core/test_block_major_paths_and_dropout.py): 1749 passed, 35 skipped, 0 failed in 358.68s.

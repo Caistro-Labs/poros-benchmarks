@@ -1,0 +1,5 @@
+1a8d7e912b166c373fcfec862ad7297221d33a71
+# The RTX 4090's self-test (selftest_cuda_time.txt) is block (a)'s first step, a1, of the run whose
+# start line records this commit with no changed tracked file:
+# docs/validation/int/4090/release-1a8d7e912/blockA/blockA_status.txt, lines 1 and 2. The same
+# output is at blockA/out/selftest_cuda_time.txt.

@@ -1,0 +1,43 @@
+▛▜ poros v0.3.0 · Qwen/Qwen2.5-72B · RTX 4090 23.5 GiB
+
+● Checked q72_seq_b1.yaml  config
+  │ nf4 · block 1 · rank 16 · seq 512
+  │ classic · every token · lr 2e-5
+  │ output    runs/q72_seq_b1
+
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+● Loaded Qwen2.5-72B  5m 16s
+  │ dense · 80 layers · 80 blocks
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Map:   0%|          | 0/64 [00:00<?, ? examples/s]Map: 100%|██████████| 64/64 [00:00<00:00, 1041.16 examples/s]
+Filter:   0%|          | 0/64 [00:00<?, ? examples/s]Filter: 100%|██████████| 64/64 [00:00<00:00, 13171.51 examples/s]
+step 1/8  loss 1.0639  38.85 s/step  vram 4.7 GiB (peak 10.8)  eta 4m 32s
+step 2/8  loss 1.1884  37.76 s/step  vram 4.7 GiB (peak 12.4)  eta 3m 50s
+step 3/8  loss 1.1348  37.75 s/step  vram 4.7 GiB (peak 12.4)  eta 3m 11s
+step 4/8  loss 1.0783  37.76 s/step  vram 4.7 GiB (peak 12.4)  eta 2m 32s
+step 5/8  loss 1.0182  37.75 s/step  vram 4.7 GiB (peak 12.4)  eta 1m 54s
+step 6/8  loss 1.0301  37.74 s/step  vram 4.7 GiB (peak 12.4)  eta 1m 16s
+step 7/8  loss 1.0615  37.77 s/step  vram 4.7 GiB (peak 12.4)  eta 38s
+step 8/8  loss 1.0750  37.77 s/step  vram 4.7 GiB (peak 12.4)
+
+  ╭─ Trained ─────────────────────────────────────────────────────── 8 steps · classic · 5m 13s ─╮
+  │                                                                      final loss              │
+  │                                                                      1.0950  ↑ 3%            │
+  │  1.5                                                     ▂▁          from 1.0639             │
+  │             ▁▂▃▁                                     ▂▄▆███▇▅▃▁                              │
+  │        ▂▃▅▆▇████▇▆▄▃▁                           ▁▃▅▇███████████▇▅▃▁  vram 12.4 GiB peak      │
+  │  1.0 ▇████████████████▆▅▄▄▃▂▂▁              ▁▃▅▇███████████████████  ram  41.6 GiB peak      │
+  │      ███████████████████████████▇▆▆▅▄▃▃▂▂▄▅▇███████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │  0.5 ██████████████████████████████████████████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                                  4                         8                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      108 tok/s
+  │
+  │ adapter    runs/q72_seq_b1
+  │ receipt    runs/q72_seq_b1/receipt.json
+
+Continue with: poros eval <path>
+{"schema":"poros.train.v1","learned":null,"output_dir":"<path>","events":"<path>","metrics":{"device":"cuda:0","total_steps":8,"final_loss":1.094982385635376,"loss_history":[1.063904047012329,1.3129762411117554,1.0275264978408813,0.9086714386940002,0.7781181335449219,1.1229729652404785,1.470423698425293,1.094982385635376],"grad_norm_history":[0.23951397836208344,0.14504334330558777,0.10381568968296051,0.11542657762765884,0.10252810269594193,0.12571413815021515,0.1443413645029068,0.12593628466129303],"eval_history":[],"total_time_s":303.14657053537667,"step_time_history":[38.8461411325261,37.76432976964861,37.74553829804063,37.75854797381908,37.74938795808703,37.73521086573601,37.77470346912742,37.7727110683918],"vram_alloc_history_mb":[5073.62048,5073.62048,5073.62048,5073.62048,5073.62048,5074.406912,5073.62048,5073.62048],"avg_vram_allocated_mb":5073.718784,"avg_step_time_ms":37893.32131692208,"steps_per_sec":0.026389874659876498,"tokens_processed":32768,"tokens_per_sec":108.09292660685414,"peak_vram_allocated_gb":13.334750208,"peak_vram_reserved_gb":17.643339776,"torch_num_threads":16,"quantization":"nf4","block_size":1,"adapter_backend":"peft","adapter_summary":{"backend":"peft","target_module_names":["q_proj","k_proj","v_proj","o_proj","gate_proj","up_proj","down_proj"],"trainable_param_count":210534400,"total_param_count":37810413568}},"run":null,"command":null,"next":[],"plan":null,"from":null,"support":null,"model_type":null}

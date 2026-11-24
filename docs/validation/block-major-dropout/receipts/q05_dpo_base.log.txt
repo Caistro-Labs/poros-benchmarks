@@ -1,0 +1,41 @@
+▛▜ poros v0.3.0 · Qwen/Qwen2.5-0.5B · RTX 4090 23.5 GiB
+
+● Checked q05_dpo.yaml  config
+  │ nf4 · block 4 · rank 16 · seq 512
+  │ DPO · beta 0.1 · lr 5e-6
+  │ output    runs/q05_dpo_base
+
+<path> FutureWarning: torch.cuda._set_allocator_settings is deprecated. Use torch._C._accelerator_setAllocatorSettings instead.
+  torch.cuda.memory._set_allocator_settings("expandable_segments:True")
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+● Loaded Qwen2.5-0.5B  7.8s
+  │ dense · 24 layers · 6 blocks
+step 1/3  loss 0.6931  2.16 s/step  vram 0.7 GiB (peak 1.1)  eta 4.3s
+<path> UserWarning: Could not find a config file in Qwen/Qwen2.5-0.5B - will assume that the vocabulary was not modified.
+  warnings.warn(
+
+  ╭─ Trained ────────────────────────────────────────────────────────────── 3 steps · DPO · 13s ─╮
+  │      ▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▂                                final loss              │
+  │      █████████████████████████████████▆▄▂                            0.6805  ↓ 2%            │
+  │ 0.690 █████████████████████████████████████▆▄▂                        from 0.6931            │
+  │      █████████████████████████████████████████▆▄▂                                            │
+  │      █████████████████████████████████████████████▆▄▂                vram 2.2 GiB peak       │
+  │ 0.685 █████████████████████████████████████████████████▆▄▂            ram  3.0 GiB peak      │
+  │      █████████████████████████████████████████████████████▆▄▂                                │
+  │      █████████████████████████████████████████████████████████▆▄▂                            │
+  │ 0.680 █████████████████████████████████████████████████████████████▆                         │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                             1                              3                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ acc        ━━━━━━━━━━━━────  75%  chosen ranked first
+  │ margin     0.026  chosen +0.03 · rejected +0.00
+  │ speed      874 tok/s
+  │
+  │ adapter    runs/q05_dpo_base
+  │ receipt    runs/q05_dpo_base/receipt.json
+
+Continue with:
+  poros eval \
+    <path>
+{"schema":"poros.train.v1","learned":null,"output_dir":"runs/q05_dpo_base","events":"runs/q05_dpo_base/events.jsonl","metrics":{"device":"cuda:0","total_steps":3,"final_loss":0.6805198490619659,"loss_history":[0.6931468397378922,0.6931473761796951,0.6805198490619659],"grad_norm_history":[16.17272186279297,23.2678165435791,29.7454891204834],"eval_history":[],"total_time_s":6.145799099467695,"step_time_history":[2.163361986167729,1.9798788791522384,2.0025582341477275],"vram_alloc_history_mb":[723.35104,723.35104,723.35104],"avg_vram_allocated_mb":723.35104,"avg_step_time_ms":2048.599699822565,"steps_per_sec":0.4881383122757525,"tokens_processed":5371,"tokens_per_sec":873.9302917443555,"peak_vram_allocated_gb":2.370015232,"peak_vram_reserved_gb":3.110076416,"torch_num_threads":16,"quantization":"nf4","block_size":4,"adapter_backend":"peft","adapter_summary":{"backend":"peft","target_module_names":"all-linear","trainable_param_count":8798208,"total_param_count":323917696}},"run":null,"command":null,"next":[],"plan":null,"from":null,"support":null,"model_type":null}

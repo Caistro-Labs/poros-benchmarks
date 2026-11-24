@@ -1,0 +1,456 @@
+{
+ "big-32b": {
+  "config": {
+   "block_size": 4,
+   "dataset": "<work><path>",
+   "gradient_accumulation_steps": "8",
+   "learning_rate": "2e-4",
+   "lora_alpha": "32",
+   "lora_dropout": "0",
+   "lora_rank": 16,
+   "max_seq_length": 512,
+   "max_steps": 8,
+   "model_name_or_path": "Qwen/Qwen2.5-32B-Instruct",
+   "num_epochs": "1",
+   "output_dir": "<out>",
+   "per_device_batch_size": "1",
+   "recipe": "sft",
+   "store": "ram"
+  },
+  "gate": {
+   "host_refusal": null,
+   "offload": null,
+   "path": null,
+   "ran_path": "efficient",
+   "vram_refusal": null,
+   "warning": null
+  },
+  "machine": "RTX 4090",
+  "seq_len": 512,
+  "steps": 8
+ },
+ "big-72b": {
+  "config": {
+   "block_size": 4,
+   "dataset": "<work><path>",
+   "gradient_accumulation_steps": "8",
+   "learning_rate": "2e-4",
+   "lora_alpha": "32",
+   "lora_dropout": "0",
+   "lora_rank": 16,
+   "max_seq_length": 512,
+   "max_steps": 8,
+   "model_name_or_path": "Qwen/Qwen2.5-72B-Instruct",
+   "num_epochs": "1",
+   "offload_embeddings_and_head": "true",
+   "output_dir": "<out>",
+   "per_device_batch_size": "1",
+   "recipe": "sft",
+   "store": "ram"
+  },
+  "gate": {
+   "host_refusal": null,
+   "offload": null,
+   "path": null,
+   "ran_path": "efficient",
+   "vram_refusal": null,
+   "warning": null
+  },
+  "machine": "RTX 4090",
+  "seq_len": 512,
+  "steps": 8
+ },
+ "big-72b-fast": {
+  "config": {
+   "block_size": 4,
+   "dataset": "<work><path>",
+   "gradient_accumulation_steps": "8",
+   "learning_rate": "2e-4",
+   "lora_alpha": "32",
+   "lora_dropout": "0",
+   "lora_rank": 16,
+   "max_seq_length": 512,
+   "max_steps": 8,
+   "model_name_or_path": "Qwen/Qwen2.5-72B-Instruct",
+   "num_epochs": "1",
+   "offload_embeddings_and_head": "true",
+   "output_dir": "<out>",
+   "path": "fast",
+   "per_device_batch_size": "1",
+   "recipe": "sft",
+   "store": "ram"
+  },
+  "gate": {
+   "host_refusal": null,
+   "offload": null,
+   "path": null,
+   "ran_path": "fast",
+   "vram_refusal": null,
+   "warning": null
+  },
+  "machine": "RTX 4090",
+  "seq_len": 512,
+  "steps": 8
+ },
+ "first-run": {
+  "config": {
+   "dataset": "<work><path>",
+   "lora_alpha": 32,
+   "lora_rank": 16,
+   "max_seq_length": 256,
+   "max_steps": 50,
+   "model_name_or_path": "Qwen/Qwen2.5-0.5B-Instruct",
+   "output_dir": "<out>"
+  },
+  "gate": {
+   "host_refusal": null,
+   "offload": null,
+   "path": null,
+   "ran_path": "efficient",
+   "vram_refusal": null,
+   "warning": null
+  },
+  "machine": "RTX 4090",
+  "seq_len": 256,
+  "steps": 50
+ },
+ "mac-32b": {
+  "config": {
+   "block_size": 1,
+   "dataset": "<work><path>",
+   "gradient_accumulation_steps": "1",
+   "learning_rate": "2e-5",
+   "lora_alpha": "32",
+   "lora_dropout": "0",
+   "lora_rank": 16,
+   "max_seq_length": 128,
+   "max_steps": 64,
+   "model_name_or_path": "Qwen/Qwen2.5-32B-Instruct",
+   "num_epochs": "1",
+   "output_dir": "<out>",
+   "per_device_batch_size": "1",
+   "recipe": "sft"
+  },
+  "machine": "Apple M4 10-core GPU 16GB",
+  "seq_len": 128,
+  "steps": 64
+ },
+ "mac-72b": {
+  "config": {
+   "block_size": 1,
+   "dataset": "<work><path>",
+   "gradient_accumulation_steps": "1",
+   "learning_rate": "2e-5",
+   "lora_alpha": "32",
+   "lora_dropout": "0",
+   "lora_rank": 16,
+   "max_seq_length": 128,
+   "max_steps": 64,
+   "model_name_or_path": "Qwen/Qwen2.5-72B-Instruct",
+   "num_epochs": "1",
+   "output_dir": "<out>",
+   "per_device_batch_size": "1",
+   "recipe": "sft"
+  },
+  "machine": "Apple M4 10-core GPU 16GB",
+  "seq_len": 128,
+  "steps": 64
+ },
+ "mac-7b": {
+  "config": {
+   "block_size": 1,
+   "dataset": "<work><path>",
+   "eval_split": "0.05",
+   "gradient_accumulation_steps": "1",
+   "learning_rate": "2e-5",
+   "lora_alpha": "32",
+   "lora_dropout": "0",
+   "lora_rank": 16,
+   "max_seq_length": 256,
+   "max_steps": 61,
+   "model_name_or_path": "Qwen/Qwen2.5-7B-Instruct",
+   "num_epochs": "1",
+   "output_dir": "<out>",
+   "per_device_batch_size": "1",
+   "recipe": "sft"
+  },
+  "machine": "Apple M4 10-core GPU 16GB",
+  "seq_len": 256,
+  "steps": 61
+ },
+ "mac-first-run": {
+  "config": {
+   "dataset": "<work><path>",
+   "lora_alpha": 32,
+   "lora_rank": 16,
+   "max_seq_length": 256,
+   "max_steps": 50,
+   "model_name_or_path": "Qwen/Qwen2.5-0.5B-Instruct",
+   "output_dir": "<out>"
+  },
+  "machine": "Apple M4 10-core GPU 16GB",
+  "seq_len": 256,
+  "steps": 50
+ },
+ "mac-moe": {
+  "config": {
+   "block_size": 1,
+   "dataset": "<work><path>",
+   "gradient_accumulation_steps": "1",
+   "learning_rate": "2e-5",
+   "lora_alpha": "32",
+   "lora_dropout": "0",
+   "lora_rank": 16,
+   "max_seq_length": 128,
+   "max_steps": 64,
+   "model_name_or_path": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "num_epochs": "1",
+   "output_dir": "<out>",
+   "per_device_batch_size": "1",
+   "recipe": "sft"
+  },
+  "machine": "Apple M4 10-core GPU 16GB",
+  "seq_len": 128,
+  "steps": 64
+ },
+ "mac-prefer": {
+  "config": {
+   "dataset": "<work><path>",
+   "dpo_beta": "0.1",
+   "learning_rate": "5e-6",
+   "lora_alpha": 32,
+   "lora_dropout": "0",
+   "lora_rank": 16,
+   "max_seq_length": 512,
+   "max_steps": 64,
+   "model_name_or_path": "Qwen/Qwen2.5-7B-Instruct",
+   "num_epochs": "1",
+   "output_dir": "<out>",
+   "recipe": "dpo"
+  },
+  "machine": "Apple M4 10-core GPU 16GB",
+  "seq_len": 512,
+  "steps": 64
+ },
+ "mac-support": {
+  "config": {
+   "dataset": "<work><path>",
+   "learning_rate": "2e-5",
+   "lora_alpha": 32,
+   "lora_dropout": "0",
+   "lora_rank": 16,
+   "max_seq_length": 512,
+   "max_steps": 128,
+   "model_name_or_path": "Qwen/Qwen2.5-7B-Instruct",
+   "num_epochs": "2",
+   "output_dir": "<out>",
+   "recipe": "sft"
+  },
+  "machine": "Apple M4 10-core GPU 16GB",
+  "seq_len": 512,
+  "steps": 128
+ },
+ "mac-voice": {
+  "config": {
+   "dataset": "<work><path>",
+   "learning_rate": "2e-5",
+   "lora_alpha": 32,
+   "lora_dropout": "0",
+   "lora_rank": 16,
+   "max_seq_length": 512,
+   "max_steps": 192,
+   "model_name_or_path": "Qwen/Qwen2.5-7B-Instruct",
+   "num_epochs": "3",
+   "output_dir": "<out>",
+   "recipe": "sft"
+  },
+  "machine": "Apple M4 10-core GPU 16GB",
+  "seq_len": 512,
+  "steps": 192
+ },
+ "moe-30b": {
+  "config": {
+   "dataset": "<work><path>",
+   "gradient_accumulation_steps": "8",
+   "learning_rate": "2e-4",
+   "lora_alpha": "32",
+   "lora_dropout": "0",
+   "lora_rank": 16,
+   "max_seq_length": 512,
+   "max_steps": 8,
+   "model_name_or_path": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "num_epochs": "1",
+   "output_dir": "<out>",
+   "per_device_batch_size": "1",
+   "recipe": "sft",
+   "store": "ram"
+  },
+  "gate": {
+   "host_refusal": null,
+   "offload": null,
+   "path": null,
+   "ran_path": "efficient",
+   "vram_refusal": null,
+   "warning": null
+  },
+  "machine": "RTX 4090",
+  "seq_len": 512,
+  "steps": 8
+ },
+ "moe-30b-8gb": {
+  "config": {
+   "dataset": "<work><path>",
+   "gradient_accumulation_steps": "8",
+   "learning_rate": "2e-4",
+   "lora_alpha": "16",
+   "lora_dropout": "0",
+   "lora_rank": 8,
+   "max_seq_length": 256,
+   "max_steps": 8,
+   "model_name_or_path": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "num_epochs": "1",
+   "output_dir": "<out>",
+   "per_device_batch_size": "1",
+   "recipe": "sft",
+   "store": "ssd",
+   "store_path": "<home>/sss"
+  },
+  "gate": {
+   "host_refusal": null,
+   "offload": null,
+   "path": null,
+   "ran_path": "efficient",
+   "vram_refusal": null,
+   "warning": null
+  },
+  "machine": "RTX 4090",
+  "seq_len": 256,
+  "steps": 8
+ },
+ "moe-30b-ssd": {
+  "config": {
+   "dataset": "<work><path>",
+   "gradient_accumulation_steps": "8",
+   "learning_rate": "2e-4",
+   "lora_alpha": "32",
+   "lora_dropout": "0",
+   "lora_rank": 16,
+   "max_seq_length": 512,
+   "max_steps": 8,
+   "model_name_or_path": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "moe_expert_cache_gib": "10.5",
+   "num_epochs": "1",
+   "output_dir": "<out>",
+   "path": "fast",
+   "per_device_batch_size": "1",
+   "recipe": "sft",
+   "store": "ssd",
+   "store_options": {
+    "cache": "4G"
+   },
+   "store_path": "<home>/sss"
+  },
+  "gate": {
+   "host_refusal": null,
+   "offload": null,
+   "path": null,
+   "ran_path": "fast",
+   "vram_refusal": null,
+   "warning": null
+  },
+  "machine": "RTX 4090",
+  "seq_len": 512,
+  "steps": 8
+ },
+ "prefer": {
+  "config": {
+   "block_size": 4,
+   "dataset": "<work><path>",
+   "dpo_beta": "0.1",
+   "gradient_accumulation_steps": "8",
+   "learning_rate": "5e-6",
+   "lora_alpha": "32",
+   "lora_dropout": "0",
+   "lora_rank": 16,
+   "max_seq_length": 512,
+   "max_steps": 8,
+   "model_name_or_path": "Qwen/Qwen2.5-7B-Instruct",
+   "num_epochs": "1",
+   "output_dir": "<out>",
+   "per_device_batch_size": "1",
+   "recipe": "dpo",
+   "store": "ram"
+  },
+  "gate": {
+   "host_refusal": null,
+   "offload": null,
+   "path": null,
+   "ran_path": "efficient",
+   "vram_refusal": null,
+   "warning": null
+  },
+  "machine": "RTX 4090",
+  "seq_len": 512,
+  "steps": 8
+ },
+ "support": {
+  "config": {
+   "block_size": 4,
+   "dataset": "<work><path>",
+   "gradient_accumulation_steps": "8",
+   "learning_rate": "2e-4",
+   "lora_alpha": "32",
+   "lora_dropout": "0",
+   "lora_rank": 16,
+   "max_seq_length": 512,
+   "max_steps": 16,
+   "model_name_or_path": "Qwen/Qwen2.5-7B-Instruct",
+   "num_epochs": "2",
+   "output_dir": "<out>",
+   "per_device_batch_size": "1",
+   "recipe": "sft",
+   "store": "ram"
+  },
+  "gate": {
+   "host_refusal": null,
+   "offload": null,
+   "path": null,
+   "ran_path": "efficient",
+   "vram_refusal": null,
+   "warning": null
+  },
+  "machine": "RTX 4090",
+  "seq_len": 512,
+  "steps": 16
+ },
+ "voice": {
+  "config": {
+   "block_size": 4,
+   "dataset": "<work><path>",
+   "gradient_accumulation_steps": "8",
+   "learning_rate": "2e-4",
+   "lora_alpha": "32",
+   "lora_dropout": "0",
+   "lora_rank": 16,
+   "max_seq_length": 512,
+   "max_steps": 24,
+   "model_name_or_path": "Qwen/Qwen2.5-7B-Instruct",
+   "num_epochs": "3",
+   "output_dir": "<out>",
+   "per_device_batch_size": "1",
+   "recipe": "sft",
+   "store": "ram"
+  },
+  "gate": {
+   "host_refusal": null,
+   "offload": null,
+   "path": null,
+   "ran_path": "efficient",
+   "vram_refusal": null,
+   "warning": null
+  },
+  "machine": "RTX 4090",
+  "seq_len": 512,
+  "steps": 24
+ }
+}

@@ -1,0 +1,1 @@
+{"rule": "poros.expert-adamw.v4", "trainable_dtype": "bfloat16", "torch_dtype": "bfloat16", "implementation": {"cuda:0": {"device": "cuda", "path": "kernel", "why": "the kernel stores the reference's bits"}}}

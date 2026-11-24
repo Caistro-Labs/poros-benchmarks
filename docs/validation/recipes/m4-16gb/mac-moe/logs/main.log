@@ -1,0 +1,35 @@
+▛▜ poros v1.0.0 · Qwen/Qwen3-30B-A3B-Instruct-2507 · Apple M4 10-core GPU 16GB
+
+● Checked cert-mac-moe  run 1124-0002-36f3
+  │ rank 16 · 128 tokens
+  │ SFT · answers only · lr 2e-5
+  │ output
+  │ <home>/runs/1124-0002-36f3
+  │ weights   <disk>/poros-metal/hf
+
+● Loaded Qwen3-30B-A3B-Instruct-2507  6.5s
+  │ MoE · 48 layers · 128 experts
+step 1/16  loss 7.2955  31.54 s/step  memory 6.8 GiB (peak 9.1)  eta 7m 53s
+step 3/16  loss 7.1012  18.38 s/step  memory 6.9 GiB (peak 9.1)  eta 4m 55s
+step 5/16  loss 7.0703  18.25 s/step  memory 6.9 GiB (peak 9.1)  eta 3m 50s
+step 7/16  loss 6.9744  18.22 s/step  memory 6.9 GiB (peak 9.2)  eta 3m 02s
+step 9/16  loss 7.0038  18.40 s/step  memory 6.9 GiB (peak 9.2)  eta 2m 18s
+step 11/16  loss 7.0126  18.53 s/step  memory 6.9 GiB (peak 9.2)  eta 1m 38s
+step 13/16  loss 6.9797  18.36 s/step  memory 6.9 GiB (peak 9.2)  eta 58s
+step 15/16  loss 6.8992  18.47 s/step  memory 6.9 GiB (peak 9.2)  eta 19s
+
+● Trained 16 steps · SFT  5m 15s
+  │ final loss 6.9958
+  │
+  │ peak       ━━━━━━━━━───────  9.2 GiB of 16.0 GiB
+  │ speed      7 tok/s
+  │
+  │ adapter
+  │ <home>/runs/1124-0002-36f3
+  │ receipt
+  │ <home>/runs/1124-0002-36f3/receipt.json
+
+Continue with: poros export 1124-0002-36f3
+No rows were held out: `poros eval 1124-0002-36f3 --data FILE` scores a file of yours.
+Keep it as a recipe: poros recipes save last
+{"schema":"poros.train.v1","learned":null,"output_dir":"<home>/runs/1124-0002-36f3","events":"<home>/runs/1124-0002-36f3/events.jsonl","metrics":{"device":"mps","total_steps":16,"final_loss":6.903438091278076,"loss_history":[7.295467853546143,7.106594562530518,6.901480197906494,7.072478294372559,6.975235462188721,6.9980316162109375,6.924845218658447,7.036019325256348,7.084679126739502,7.13944673538208,6.8779683113098145,6.96516227722168,6.831206321716309,6.950543403625488,6.870882511138916,6.903438091278076],"grad_norm_history":[2.609375,2.34375,2.5,2.109375,1.84375,1.96875,1.9296875,2.34375,3.859375,2.09375,2.96875,1.875,2.15625,2.046875,2.078125,2.1875],"eval_history":[],"total_time_s":307.37961850099964,"step_time_history":[31.544242207950447,18.21849108400056,18.38094954198459,18.29077716602478,18.25208670902066,18.285458749975078,18.218682584003545,18.327675292035565,18.401706249976996,18.660986082977615,18.53158104099566,18.459088374977,18.3578182500205,18.498895667027682,18.471097333007492,18.480082167021465],"vram_alloc_history_mb":[],"avg_vram_allocated_mb":0.0,"avg_step_time_ms":19211.226156312478,"steps_per_sec":0.05205289823062217,"tokens_processed":2048,"tokens_per_sec":6.662770973519637,"peak_vram_allocated_gb":9.81570708,"peak_vram_reserved_gb":0.0,"torch_num_threads":4,"quantization":"nf4","block_size":1,"adapter_backend":"experts","adapter_summary":null},"run":"1124-0002-36f3","command":"poros train Qwen/Qwen3-30B-A3B-Instruct-2507 --data <work>/sample-chats.jsonl --steps 16 --seq-len 128 --rank 16 --block-size 1 --name cert-mac-moe --recipe sft gradient_accumulation_steps=1 learning_rate=2e-5 lora_alpha=32 lora_dropout=0 per_device_batch_size=1 --download","next":[],"plan":null,"from":null,"support":null,"model_type":null}

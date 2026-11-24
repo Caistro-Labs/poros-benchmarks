@@ -1,0 +1,44 @@
+{
+  "against": null,
+  "can_train": null,
+  "compared": [
+    "losses",
+    "336 adapter gradients",
+    "336 adapter tensors",
+    "1008 optimizer tensors"
+  ],
+  "differs": [],
+  "digest": "bd5fb4106e0ebedd03496e68001cb31695808198096b26f36ed4ca676012e5f0",
+  "env": {
+    "cuda": "13.0",
+    "driver": "615.78.08",
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "poros": "0.3.0",
+    "python": "3.12.13",
+    "torch": "2.14.1+cu130",
+    "transformers": "5.22.2"
+  },
+  "identical": true,
+  "model": "Qwen/Qwen2.5-0.5B",
+  "one_block": null,
+  "pinned_differs": {},
+  "receipt": "~/poros-run/home/.poros/receipts/prove-1118-204744.json",
+  "reference": "resident",
+  "reproduced": null,
+  "resident": {
+    "block_size": 24,
+    "final_loss": 12.132963180541992,
+    "peak_vram_gib": 2.194,
+    "s_per_step": 0.1969
+  },
+  "schema": "poros.prove.v1",
+  "seq_len": 512,
+  "simulated": false,
+  "steps": 100,
+  "streamed": {
+    "block_size": 4,
+    "final_loss": 12.132963180541992,
+    "peak_vram_gib": 2.03,
+    "s_per_step": 0.2734
+  }
+}

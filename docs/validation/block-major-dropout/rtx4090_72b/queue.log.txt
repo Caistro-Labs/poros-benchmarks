@@ -1,0 +1,93 @@
+CASE machine_check rc=0
+2026-11-12T09:05:07Z q1 start commit earlier-tree src sha 7fde61a8b4590694
+2026-11-12T09:05:07Z start poros q72_eff_b4 (block_major_accumulation=true path=efficient block_size=4 offload_embeddings_and_head=true)
+CASE q72_eff_b4 rc=0
+2026-11-12T09:13:53Z end poros q72_eff_b4: 2_eff_b4",  "peak_host_ram_gb": 46.187,  "peak_vram_allocated_gb": 16.84,  "peak_vram_reserved_gb": 21.29,  "poros": "0.3.0",  "recipe": "classic",  "run": "a7740c15",  "s_per_step": 20.7567,  "simula
+2026-11-12T09:13:53Z start poros q72_seq_b4 (block_major_accumulation=false block_size=4 offload_embeddings_and_head=true)
+CASE q72_seq_b4 rc=0
+2026-11-12T09:26:29Z end poros q72_seq_b4: seq_b4",  "peak_host_ram_gb": 44.687,  "peak_vram_allocated_gb": 12.646,  "peak_vram_reserved_gb": 17.486,  "poros": "0.3.0",  "recipe": "classic",  "run": "6a396c7a",  "s_per_step": 38.1482,  "simula
+COMPARE {"pass": true, "losses_equal": true, "grad_norms_equal": true, "adapter_tensors": 1120, "adapter_unequal_n": 0, "ref_digest": "39a43ed6baa1848a6117566e0f9095acfaf1be2a6573e236450aa90dbc8aa21d", "cand_digest": "39a43ed6baa1848a6117566e0f9095acfaf1be2a6573e236450aa90dbc8aa21d"}
+2026-11-12T09:26:35Z start poros q72_fast_b4 (block_major_accumulation=true path=fast block_size=4 offload_embeddings_and_head=true)
+CASE q72_fast_b4 rc=0
+2026-11-12T09:36:12Z end poros q72_fast_b4: fast_b4",  "peak_host_ram_gb": 44.677,  "peak_vram_allocated_gb": 18.463,  "peak_vram_reserved_gb": 23.918,  "poros": "0.3.0",  "recipe": "classic",  "run": "49edc196",  "s_per_step": 20.1355,  "simul
+COMPARE {"pass": true, "losses_equal": true, "grad_norms_equal": true, "adapter_tensors": 1120, "adapter_unequal_n": 0, "ref_digest": "39a43ed6baa1848a6117566e0f9095acfaf1be2a6573e236450aa90dbc8aa21d", "cand_digest": "39a43ed6baa1848a6117566e0f9095acfaf1be2a6573e236450aa90dbc8aa21d"}
+2026-11-12T09:36:18Z start poros q72_effc0_b4 (block_major_accumulation=true path=efficient block_size=4 nf4_dequant_cache_mb=0 offload_embeddings_and_head=true)
+CASE q72_effc0_b4 rc=0
+2026-11-12T09:46:50Z end poros q72_effc0_b4: effc0_b4",  "peak_host_ram_gb": 46.024,  "peak_vram_allocated_gb": 10.803,  "peak_vram_reserved_gb": 15.11,  "poros": "0.3.0",  "recipe": "classic",  "run": "259a8f3d",  "s_per_step": 24.4688,  "simul
+COMPARE {"pass": true, "losses_equal": true, "grad_norms_equal": true, "adapter_tensors": 1120, "adapter_unequal_n": 0, "ref_digest": "39a43ed6baa1848a6117566e0f9095acfaf1be2a6573e236450aa90dbc8aa21d", "cand_digest": "39a43ed6baa1848a6117566e0f9095acfaf1be2a6573e236450aa90dbc8aa21d"}
+2026-11-12T09:46:56Z start poros q72_effc0_b1 (block_major_accumulation=true path=efficient block_size=1 nf4_dequant_cache_mb=0 offload_embeddings_and_head=true)
+CASE q72_effc0_b1 rc=0
+2026-11-12T09:56:29Z end poros q72_effc0_b1: effc0_b1",  "peak_host_ram_gb": 53.9,  "peak_vram_allocated_gb": 10.231,  "peak_vram_reserved_gb": 10.756,  "poros": "0.3.0",  "recipe": "classic",  "run": "c7cd1257",  "s_per_step": 25.4224,  "simula
+COMPARE {"pass": true, "losses_equal": true, "grad_norms_equal": true, "adapter_tensors": 1120, "adapter_unequal_n": 0, "ref_digest": "39a43ed6baa1848a6117566e0f9095acfaf1be2a6573e236450aa90dbc8aa21d", "cand_digest": "39a43ed6baa1848a6117566e0f9095acfaf1be2a6573e236450aa90dbc8aa21d"}
+2026-11-12T09:56:36Z start poros q72_seq_b1 (block_major_accumulation=false block_size=1 offload_embeddings_and_head=true)
+CASE q72_seq_b1 rc=0
+2026-11-12T10:07:31Z end poros q72_seq_b1: seq_b1",  "peak_host_ram_gb": 44.678,  "peak_vram_allocated_gb": 13.335,  "peak_vram_reserved_gb": 17.643,  "poros": "0.3.0",  "recipe": "classic",  "run": "290ae44c",  "s_per_step": 37.8933,  "simula
+COMPARE {"pass": true, "losses_equal": true, "grad_norms_equal": true, "adapter_tensors": 1120, "adapter_unequal_n": 0, "ref_digest": "39a43ed6baa1848a6117566e0f9095acfaf1be2a6573e236450aa90dbc8aa21d", "cand_digest": "39a43ed6baa1848a6117566e0f9095acfaf1be2a6573e236450aa90dbc8aa21d"}
+2026-11-12T10:07:37Z start poros q72_eff_b4_def (path=efficient)
+CASE q72_eff_b4_def rc=3
+2026-11-12T10:13:35Z end poros q72_eff_b4_def: 
+IndexError: list index out of range
+2026-11-12T10:13:39Z q1 done
+2026-11-12T10:13:57Z q3 start
+2026-11-12T10:14:10Z rm 72B bf16 rc=0 free   162 GiB
+2026-11-12T10:16:11Z download Qwen/Qwen2.5-32B rc=0 121 s rev 1818d35814b8319459f4bd55ed1ac8709630f003
+2026-11-12T10:16:23Z 32B tokenizer rows: "real_ids_sha256": "d124049063f1b5a14a2dccc0d539d93dc918fc20b00f70c587851152829bc29c" (72B: "real_ids_sha256": "d124049063f1b5a14a2dccc0d539d93dc918fc20b00f70c587851152829bc29c")
+2026-11-12T10:16:23Z start poros q32_seq_b4 (block_major_accumulation=false block_size=4 offload_embeddings_and_head=true)
+CASE q32_seq_b4 rc=0
+2026-11-12T10:21:35Z end poros q32_seq_b4: 2_seq_b4",  "peak_host_ram_gb": 23.012,  "peak_vram_allocated_gb": 7.927,  "peak_vram_reserved_gb": 10.721,  "poros": "0.3.0",  "recipe": "classic",  "run": "e6635f52",  "s_per_step": 18.693,  "simula
+2026-11-12T10:21:35Z start poros q32_eff_b4 (block_major_accumulation=true path=efficient block_size=4 offload_embeddings_and_head=true)
+CASE q32_eff_b4 rc=0
+2026-11-12T10:25:31Z end poros q32_eff_b4: _eff_b4",  "peak_host_ram_gb": 23.849,  "peak_vram_allocated_gb": 10.341,  "peak_vram_reserved_gb": 12.734,  "poros": "0.3.0",  "recipe": "classic",  "run": "5d39ce5c",  "s_per_step": 10.4296,  "simul
+COMPARE {"pass": true, "losses_equal": true, "grad_norms_equal": true, "adapter_tensors": 896, "adapter_unequal_n": 0, "ref_digest": "8890eed35466b7aefa415bda2c489072d8cf7674a91b1e40101bc4a889906d38", "cand_digest": "8890eed35466b7aefa415bda2c489072d8cf7674a91b1e40101bc4a889906d38"}
+2026-11-12T10:25:35Z start poros q32_fast_b4 (block_major_accumulation=true path=fast block_size=4 offload_embeddings_and_head=true)
+CASE q32_fast_b4 rc=0
+2026-11-12T10:29:22Z end poros q32_fast_b4: fast_b4",  "peak_host_ram_gb": 23.295,  "peak_vram_allocated_gb": 11.033,  "peak_vram_reserved_gb": 13.856,  "poros": "0.3.0",  "recipe": "classic",  "run": "28cf4cfa",  "s_per_step": 10.1324,  "simul
+COMPARE {"pass": true, "losses_equal": true, "grad_norms_equal": true, "adapter_tensors": 896, "adapter_unequal_n": 0, "ref_digest": "8890eed35466b7aefa415bda2c489072d8cf7674a91b1e40101bc4a889906d38", "cand_digest": "8890eed35466b7aefa415bda2c489072d8cf7674a91b1e40101bc4a889906d38"}
+2026-11-12T10:29:26Z start poros q32_effc0_b4 (block_major_accumulation=true path=efficient block_size=4 nf4_dequant_cache_mb=0 offload_embeddings_and_head=true)
+CASE q32_effc0_b4 rc=0
+2026-11-12T10:34:09Z end poros q32_effc0_b4: _effc0_b4",  "peak_host_ram_gb": 23.539,  "peak_vram_allocated_gb": 6.716,  "peak_vram_reserved_gb": 9.108,  "poros": "0.3.0",  "recipe": "classic",  "run": "9eb4a496",  "s_per_step": 12.4235,  "simul
+COMPARE {"pass": true, "losses_equal": true, "grad_norms_equal": true, "adapter_tensors": 896, "adapter_unequal_n": 0, "ref_digest": "8890eed35466b7aefa415bda2c489072d8cf7674a91b1e40101bc4a889906d38", "cand_digest": "8890eed35466b7aefa415bda2c489072d8cf7674a91b1e40101bc4a889906d38"}
+2026-11-12T10:34:14Z start poros q32_effc0_b1 (block_major_accumulation=true path=efficient block_size=1 nf4_dequant_cache_mb=0 offload_embeddings_and_head=true)
+CASE q32_effc0_b1 rc=0
+2026-11-12T10:39:05Z end poros q32_effc0_b1: effc0_b1",  "peak_host_ram_gb": 27.227,  "peak_vram_allocated_gb": 6.717,  "peak_vram_reserved_gb": 7.317,  "poros": "0.3.0",  "recipe": "classic",  "run": "24ac8710",  "s_per_step": 14.2907,  "simula
+COMPARE {"pass": true, "losses_equal": true, "grad_norms_equal": true, "adapter_tensors": 896, "adapter_unequal_n": 0, "ref_digest": "8890eed35466b7aefa415bda2c489072d8cf7674a91b1e40101bc4a889906d38", "cand_digest": "8890eed35466b7aefa415bda2c489072d8cf7674a91b1e40101bc4a889906d38"}
+2026-11-12T10:39:10Z start poros q32_seq_b1 (block_major_accumulation=false block_size=1 offload_embeddings_and_head=true)
+CASE q32_seq_b1 rc=0
+2026-11-12T10:44:26Z end poros q32_seq_b1: 2_seq_b1",  "peak_host_ram_gb": 23.027,  "peak_vram_allocated_gb": 8.068,  "peak_vram_reserved_gb": 9.402,  "poros": "0.3.0",  "recipe": "classic",  "run": "54431974",  "s_per_step": 18.9148,  "simula
+COMPARE {"pass": true, "losses_equal": true, "grad_norms_equal": true, "adapter_tensors": 896, "adapter_unequal_n": 0, "ref_digest": "8890eed35466b7aefa415bda2c489072d8cf7674a91b1e40101bc4a889906d38", "cand_digest": "8890eed35466b7aefa415bda2c489072d8cf7674a91b1e40101bc4a889906d38"}
+2026-11-12T10:44:31Z start poros q32_eff_b4_def (path=efficient)
+CASE q32_eff_b4_def rc=0
+2026-11-12T10:48:55Z end poros q32_eff_b4_def: ff_b4_def",  "peak_host_ram_gb": 23.537,  "peak_vram_allocated_gb": 16.598,  "peak_vram_reserved_gb": 18.371,  "poros": "0.3.0",  "recipe": "classic",  "run": "a0692690",  "s_per_step": 9.9296,  "simu
+COMPARE {"pass": true, "losses_equal": true, "grad_norms_equal": true, "adapter_tensors": 896, "adapter_unequal_n": 0, "ref_digest": "8890eed35466b7aefa415bda2c489072d8cf7674a91b1e40101bc4a889906d38", "cand_digest": "8890eed35466b7aefa415bda2c489072d8cf7674a91b1e40101bc4a889906d38"}
+2026-11-12T10:49:00Z start poros q32_res_seq_b4 (block_major_accumulation=false block_size=4 resident_blocks=999 offload_embeddings_and_head=true)
+CASE q32_res_seq_b4 rc=0
+2026-11-12T10:52:57Z end poros q32_res_seq_b4: _seq_b4",  "peak_host_ram_gb": 6.893,  "peak_vram_allocated_gb": 22.625,  "peak_vram_reserved_gb": 23.413,  "poros": "0.3.0",  "recipe": "classic",  "run": "163f60b2",  "s_per_step": 16.5801,  "simula
+COMPARE {"pass": true, "losses_equal": true, "grad_norms_equal": true, "adapter_tensors": 896, "adapter_unequal_n": 0, "ref_digest": "8890eed35466b7aefa415bda2c489072d8cf7674a91b1e40101bc4a889906d38", "cand_digest": "8890eed35466b7aefa415bda2c489072d8cf7674a91b1e40101bc4a889906d38"}
+2026-11-12T10:53:02Z start poros q32_res_eff_b4 (block_major_accumulation=true path=efficient block_size=4 resident_blocks=999 offload_embeddings_and_head=true)
+CASE q32_res_eff_b4 rc=0
+2026-11-12T10:55:43Z end poros q32_res_eff_b4: es_eff_b4",  "peak_host_ram_gb": 7.733,  "peak_vram_allocated_gb": 24.06,  "peak_vram_reserved_gb": 24.631,  "poros": "0.3.0",  "recipe": "classic",  "run": "f08468e0",  "s_per_step": 10.2228,  "simul
+COMPARE {"pass": true, "losses_equal": true, "grad_norms_equal": true, "adapter_tensors": 896, "adapter_unequal_n": 0, "ref_digest": "8890eed35466b7aefa415bda2c489072d8cf7674a91b1e40101bc4a889906d38", "cand_digest": "8890eed35466b7aefa415bda2c489072d8cf7674a91b1e40101bc4a889906d38"}
+2026-11-12T10:55:48Z start poros q32_eff_b2 (block_major_accumulation=true path=efficient block_size=2 offload_embeddings_and_head=true)
+CASE q32_eff_b2 rc=0
+2026-11-12T10:59:37Z end poros q32_eff_b2: q32_eff_b2",  "peak_host_ram_gb": 25.078,  "peak_vram_allocated_gb": 6.72,  "peak_vram_reserved_gb": 8.03,  "poros": "0.3.0",  "recipe": "classic",  "run": "861e6291",  "s_per_step": 11.5888,  "simula
+COMPARE {"pass": true, "losses_equal": true, "grad_norms_equal": true, "adapter_tensors": 896, "adapter_unequal_n": 0, "ref_digest": "8890eed35466b7aefa415bda2c489072d8cf7674a91b1e40101bc4a889906d38", "cand_digest": "8890eed35466b7aefa415bda2c489072d8cf7674a91b1e40101bc4a889906d38"}
+2026-11-12T10:59:42Z start poros q32_eff_b8 (block_major_accumulation=true path=efficient block_size=8 offload_embeddings_and_head=true)
+CASE q32_eff_b8 rc=0
+2026-11-12T11:03:59Z end poros q32_eff_b8: 2_eff_b8",  "peak_host_ram_gb": 23.569,  "peak_vram_allocated_gb": 16.314,  "peak_vram_reserved_gb": 20.81,  "poros": "0.3.0",  "recipe": "classic",  "run": "19529031",  "s_per_step": 10.8393,  "simul
+COMPARE {"pass": true, "losses_equal": true, "grad_norms_equal": true, "adapter_tensors": 896, "adapter_unequal_n": 0, "ref_digest": "8890eed35466b7aefa415bda2c489072d8cf7674a91b1e40101bc4a889906d38", "cand_digest": "8890eed35466b7aefa415bda2c489072d8cf7674a91b1e40101bc4a889906d38"}
+2026-11-12T11:04:03Z start poros q32_fast_b2 (block_major_accumulation=true path=fast block_size=2 offload_embeddings_and_head=true)
+CASE q32_fast_b2 rc=0
+2026-11-12T11:08:12Z end poros q32_fast_b2: 2_fast_b2",  "peak_host_ram_gb": 23.001,  "peak_vram_allocated_gb": 9.307,  "peak_vram_reserved_gb": 10.62,  "poros": "0.3.0",  "recipe": "classic",  "run": "650c2647",  "s_per_step": 11.0045,  "simul
+COMPARE {"pass": true, "losses_equal": true, "grad_norms_equal": true, "adapter_tensors": 896, "adapter_unequal_n": 0, "ref_digest": "8890eed35466b7aefa415bda2c489072d8cf7674a91b1e40101bc4a889906d38", "cand_digest": "8890eed35466b7aefa415bda2c489072d8cf7674a91b1e40101bc4a889906d38"}
+2026-11-12T11:08:17Z start poros q32_fast_b8 (block_major_accumulation=true path=fast block_size=8 offload_embeddings_and_head=true)
+CASE q32_fast_b8 rc=0
+2026-11-12T11:12:31Z end poros q32_fast_b8: fast_b8",  "peak_host_ram_gb": 22.996,  "peak_vram_allocated_gb": 16.386,  "peak_vram_reserved_gb": 21.181,  "poros": "0.3.0",  "recipe": "classic",  "run": "c02e4637",  "s_per_step": 10.7572,  "simul
+COMPARE {"pass": true, "losses_equal": true, "grad_norms_equal": true, "adapter_tensors": 896, "adapter_unequal_n": 0, "ref_digest": "8890eed35466b7aefa415bda2c489072d8cf7674a91b1e40101bc4a889906d38", "cand_digest": "8890eed35466b7aefa415bda2c489072d8cf7674a91b1e40101bc4a889906d38"}
+2026-11-12T11:12:40Z 32B head-to-head block sizes: efficient 4, fast 4
+2026-11-12T11:12:40Z start unsloth u32_gpu (--offload-layers none --mb 1 --ga 8 --updates 3)
+CASE u32_gpu rc=0
+2026-11-12T11:14:39Z end unsloth u32_gpu: "stage": "done" 
+2026-11-12T11:14:39Z start unsloth u32_sw_gpu (--offload-layers none --sweep-mb 8,4,2,1)
+CASE u32_sw_gpu rc=0
+2026-11-12T11:16:33Z end unsloth u32_sw_gpu: "stage": "done" 
+2026-11-12T11:16:33Z start unsloth u32_sw_auto (--offload-layers auto --sweep-mb 8,4,2,1)

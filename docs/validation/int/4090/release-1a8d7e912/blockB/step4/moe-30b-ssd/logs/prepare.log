@@ -1,0 +1,29 @@
+▛▜ poros v1.0.0 · Qwen/Qwen3-30B-A3B-Instruct-2507 · RTX 4090 23.5 GiB
+
+● Checked cert-moe-30b-ssd-prepare  run 1124-0927-a9e4
+  │ nf4 · rank 16 · seq 512 · fast+cache path
+  │ SFT · answers only · lr 2e-4
+  │ output    homes/moe-30b-ssd/runs/1124-0927-a9e4
+  │ store     ssd <home>/sss
+  │ eval      7 rows held out  scored at the start, each checkpoint and the end
+
+● Loaded Qwen3-30B-A3B-Instruct-2507  1m 43s
+  │ MoE · 48 layers · 128 experts
+● Scored the base  held out 6.4984 · ends its answers 0 of 0
+step 1/1  loss 6.5034  16.84 s/step  vram 6.2 GiB (peak 7.4)
+● Scored the base  held out 6.4984 ↓ 0% · ends its answers 0 of 0
+
+● Trained 1 step · SFT  1m 43s
+  │ final loss 6.5034  from 6.5034  ·  ↓ 0%
+  │ eval loss  6.4984  from 6.4984 on held-out rows  ·  ↓ 0%
+  │
+  │ peak vram  ━━━━━───────────  7.4 GiB of 23.5 GiB
+  │ peak ram   ━━━─────────────  10.5 GiB of 60 GiB
+  │ speed      243 tok/s
+  │
+  │ adapter    homes/moe-30b-ssd/runs/1124-0927-a9e4
+  │ receipt    homes/moe-30b-ssd/runs/1124-0927-a9e4/receipt.json
+
+Continue with: poros eval 1124-0927-a9e4
+Keep it as a recipe: poros recipes save last
+{"schema":"poros.train.v1","learned":null,"output_dir":"<home>/runs/1124-0927-a9e4","events":"<home>/runs/1124-0927-a9e4/events.jsonl","metrics":{"device":"cuda:0","total_steps":1,"final_loss":6.503381669521332,"loss_history":[6.503381669521332],"grad_norm_history":[0.7578125],"eval_history":[{"step":0,"eval_loss":6.4983610425676614,"eval_perplexity":664.0523870790372,"ends":0,"answer_rows":0},{"step":0,"eval_loss":6.4983610425676614,"eval_perplexity":664.0523870790372,"ends":0,"answer_rows":0}],"total_time_s":16.837303161621094,"step_time_history":[16.837303161621094],"vram_alloc_history_mb":[6682.438656],"avg_vram_allocated_mb":6682.438656,"avg_step_time_ms":16837.303161621094,"steps_per_sec":0.059391934112073094,"tokens_processed":4096,"tokens_per_sec":243.2693621230514,"peak_vram_allocated_gb":7.940747264,"peak_vram_reserved_gb":8.940158976,"torch_num_threads":16,"quantization":"nf4","block_size":null,"adapter_backend":"native","adapter_summary":null,"eval_loss_start":6.4983610425676614,"eval_loss":6.4983610425676614,"eval_ends":0,"eval_answer_rows":0},"run":"1124-0927-a9e4","command":"poros train Qwen/Qwen3-30B-A3B-Instruct-2507 --data <work>/sample-chats.jsonl --steps 1 --seq-len 512 --rank 16 --name cert-moe-30b-ssd-prepare --recipe sft gradient_accumulation_steps=8 learning_rate=2e-4 lora_alpha=32 lora_dropout=0 moe_expert_cache_gib=10.5 path=fast+cache per_device_batch_size=1 store=ssd store_path=<home>/sss --download","next":[],"plan":null,"from":null,"support":null,"model_type":null}

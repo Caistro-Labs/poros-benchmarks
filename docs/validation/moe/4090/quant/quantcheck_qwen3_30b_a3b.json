@@ -1,0 +1,13 @@
+{
+ "checkpoint": "<path>",
+ "moe": true,
+ "tensors": 12288,
+ "mismatches": 0,
+ "first_mismatches": [],
+ "sha256_cpu_all": "6e5e388d1709101498eac3463e5bcc32963137b71d95ce8228e0737b3cbeec67",
+ "sha256_cuda_all": "6e5e388d1709101498eac3463e5bcc32963137b71d95ce8228e0737b3cbeec67",
+ "identical": true,
+ "cpu_s": 257.1,
+ "cuda_s": 47.4,
+ "torch": "2.14.1+cu130"
+}

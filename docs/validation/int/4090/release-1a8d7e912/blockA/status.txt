@@ -1,0 +1,34 @@
+2026-11-24T05:47:16Z preflight: HEAD 1a8d7e912b166c373fcfec862ad7297221d33a71 clean; git <home>/poros_rel/tools/git/usr/bin/git (git version 2.43.0); poros from <home>/poros_rel/cert/src/poros/__init__.py free=88G
+2026-11-24T05:47:16Z === cert.sh family free=88G
+2026-11-24T05:47:16Z family gate start free=88G
+2026-11-24T07:03:27Z family gate rc=1 86 PASS 7 FAIL 0 SKIP free=122G
+2026-11-24T07:03:33Z deleted the model cache (): <home>/poros_rel/hf_cert/hub removed free=145G
+2026-11-24T07:03:50Z preflight: HEAD 1a8d7e912b166c373fcfec862ad7297221d33a71 clean; git <home>/poros_rel/tools/git/usr/bin/git (git version 2.43.0); poros from <home>/poros_rel/cert/src/poros/__init__.py free=145G
+2026-11-24T07:03:50Z === cert.sh dropout free=145G
+2026-11-24T07:03:51Z fetching Qwen/Qwen2.5-7B (16G, hub@d1497293) for dropout 7B free=145G
+2026-11-24T07:04:21Z fetched Qwen/Qwen2.5-7B -> d149729398750b98c0af14eb82c78cfe92750796 pin ok (exit 0) free=131G
+2026-11-24T07:05:27Z train rel_m7_sequential rc=0 "ran_path": "sequential" free=130G
+2026-11-24T07:06:24Z train rel_m7_efficient rc=0 "ran_path": "efficient" free=129G
+2026-11-24T07:07:15Z train rel_m7_fast rc=0 "ran_path": "fast" free=128G
+2026-11-24T07:07:18Z PASS dropout compare rel_m7_sequential vs rel_m7_efficient (block-major): "pass": true COMPARE {"pass": true, "losses_equal": true, "grad_norms_equal": true, "adapter_tensors": 392, "ref_digest": "c96a11b650788e91843e7b29368d9cee7e8a2a649f6208c5a02ab92c118ec53c", "cand_digest": "c96a11b free=128G
+2026-11-24T07:07:20Z PASS dropout compare rel_m7_sequential vs rel_m7_fast (block-major): "pass": true COMPARE {"pass": true, "losses_equal": true, "grad_norms_equal": true, "adapter_tensors": 392, "ref_digest": "c96a11b650788e91843e7b29368d9cee7e8a2a649f6208c5a02ab92c118ec53c", "cand_digest": "c96a11b free=128G
+2026-11-24T07:07:25Z deleted the model cache (Qwen/Qwen2.5-7B ): <home>/poros_rel/hf_cert/hub removed free=145G
+2026-11-24T07:08:05Z make_data rc=0 text320.jsonl 320 8de299064f750988 (the receipts' text320: 8de299064f750988) free=145G
+2026-11-24T07:08:06Z fetching allenai/OLMoE-1B-7B-0924 (14G, hub@6d84c485) for dropout OLMoE free=145G
+2026-11-24T07:08:32Z fetched allenai/OLMoE-1B-7B-0924 -> 6d84c48581ece794365f2b8e9cfb043c68ade9c5 main (exit 0) free=132G
+2026-11-24T07:11:03Z train rel_moe_ref_seq rc=0 "ran_path": "sequential" free=130G
+2026-11-24T07:12:29Z train rel_moe_ref_efficient rc=0 "ran_path": "efficient" free=129G
+2026-11-24T07:12:32Z PASS dropout compare rel_moe_ref_seq vs rel_moe_ref_efficient (block-major-dropout): "pass": true COMPARE {"ref": "rel_moe_ref_seq", "cand": "rel_moe_ref_efficient", "pass": true, "steps_compared": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 2 free=129G
+2026-11-24T07:12:36Z deleted the model cache (allenai/OLMoE-1B-7B-0924 ): <home>/poros_rel/hf_cert/hub removed free=145G
+2026-11-24T07:12:37Z fetching Qwen/Qwen2.5-32B (66G, hub@1818d358) for dropout 32B free=145G
+2026-11-24T07:14:13Z fetched Qwen/Qwen2.5-32B -> 1818d35814b8319459f4bd55ed1ac8709630f003 pin ok (exit 0) free=84G
+2026-11-24T07:19:07Z train rel_m32_sequential rc=0 "ran_path": "sequential" free=81G
+2026-11-24T07:22:30Z train rel_m32_efficient rc=0 "ran_path": "efficient" free=78G
+2026-11-24T07:25:40Z train rel_m32_fast rc=0 "ran_path": "fast" free=75G
+2026-11-24T07:25:45Z PASS dropout compare rel_m32_sequential vs rel_m32_efficient (block-major): "pass": true COMPARE {"pass": true, "losses_equal": true, "grad_norms_equal": true, "adapter_tensors": 896, "ref_digest": "74d206571db24eb1775fdc8e821b5c372e2f12cc114d476b00fdabcc63ec8395", "cand_digest": "74d2065 free=75G
+2026-11-24T07:25:48Z PASS dropout compare rel_m32_sequential vs rel_m32_fast (block-major): "pass": true COMPARE {"pass": true, "losses_equal": true, "grad_norms_equal": true, "adapter_tensors": 896, "ref_digest": "74d206571db24eb1775fdc8e821b5c372e2f12cc114d476b00fdabcc63ec8395", "cand_digest": "74d2065 free=75G
+2026-11-24T07:25:58Z deleted the model cache (Qwen/Qwen2.5-32B ): <home>/poros_rel/hf_cert/hub removed free=145G
+2026-11-24T07:25:58Z dropout done free=145G
+2026-11-24T08:28:51Z preflight: HEAD 1a8d7e912b166c373fcfec862ad7297221d33a71 clean; git <home>/poros_rel/tools/git/usr/bin/git (git version 2.43.0); poros from <home>/poros_rel/cert/src/poros/__init__.py free=138G
+2026-11-24T08:28:51Z === cert.sh prove free=138G
+2026-11-24T08:28:52Z fetching Qwen/Qwen2.5-7B (16G, hub@d1497293) for prove free=138G

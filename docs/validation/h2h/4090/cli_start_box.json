@@ -1,0 +1,7 @@
+{
+ "what": "the second line of the CLI's start box as poros prints it on the idle RTX 4090 at the certification commit",
+ "line2": "RTX 4090 \u00b7 23.5 GiB free",
+ "command": "poros (no arguments) in a 100x40 terminal, stopped after 20 s",
+ "captured_utc": "2026-11-20 16:28:45+00:00",
+ "commit": "67bd13cc63a94c06423aac7ad48ff64a6deb3f7c"
+}

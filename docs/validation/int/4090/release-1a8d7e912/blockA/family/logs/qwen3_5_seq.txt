@@ -1,0 +1,38 @@
+▛▜ poros v1.0.0 · <home>/poros_rel/hf_cert/fg_models/Qwen_Qwen3.5-0.8B__snapshot0
+
+● Checked qwen3_5_seq.yaml  config
+  │ nf4 · block 4 · rank 16 · seq 512
+  │ classic · every token · lr 2e-5
+  │ output    ~/poros_rel/cert/out/family/fg/runs/qwen3_5_seq
+  │ eval      none held out  this loop trains every row
+  │           to score held-out rows, give a file of them: eval_dataset, or --eval FILE; or recipe sft (--recipe sft), which holds 5% of 40 rows or more out
+
+● Loaded Qwen_Qwen3.5-0.8B__snapshot0  7.1s
+  │ dense · 24 layers · 6 blocks
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+step 1/8  loss 1.7337  4.59 s/step  vram 1.1 GiB (peak 5.0)  eta 32s
+<home>/venv_poros/lib/python3.12/site-packages/peft/utils/save_and_load.py:438: UserWarning: Could not find a config file in  - will assume that the vocabulary was not modified.
+  warnings.warn(
+
+  ╭─ Trained ────────────────────────────────────────────────────────── 8 steps · classic · 35s ─╮
+  │                                                                  ▂▅  final loss              │
+  │              ▁▃▃▄▄▄▅▅▆▆▅▃▂                                     ▂▆██  2.3620  ↑ 36%           │
+  │  2.0      ▂▅▇██████████████▆▄▃▁                              ▃▇████  from 1.7337             │
+  │       ▁▄▆██████████████████████▇▅▄▂▁                       ▄▇██████                          │
+  │      ▇██████████████████████████████▇▆▄▃▁▁          ▁▂▃▃▄▅█████████  vram 5.1 GiB peak       │
+  │  1.5 ████████████████████████████████████████▇▇▇▆▆▇████████████████  ram  3.4 GiB peak       │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │  1.0 ██████████████████████████████████████████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                                  4                         8                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      861 tok/s
+  │
+  │ adapter    ~/poros_rel/cert/out/family/fg/runs/qwen3_5_seq
+  │ receipt    ~/poros_rel/cert/out/family/fg/runs/qwen3_5_seq/receipt.json
+
+Continue with: poros eval <home>/poros_rel/cert/out/family/fg/cfg/qwen3_5_seq.yaml
+{"schema":"poros.train.v1","learned":null,"output_dir":"<home>/poros_rel/cert/out/family/fg/runs/qwen3_5_seq","events":"<home>/poros_rel/cert/out/family/fg/runs/qwen3_5_seq/events.jsonl","metrics":{"device":"cuda:0","total_steps":8,"final_loss":2.3620121479034424,"loss_history":[1.7337286472320557,2.136751174926758,2.214850902557373,1.888861894607544,1.6095373630523682,1.5420737266540527,1.694909930229187,2.3620121479034424],"grad_norm_history":[2.15311336517334,1.9211149215698242,1.8189544677734375,1.6981397867202759,1.7887626886367798,1.4694780111312866,1.5869951248168945,1.6164079904556274],"eval_history":[],"total_time_s":27.867047468200326,"step_time_history":[4.585177902132273,3.2409476432949305,3.4597416277974844,3.3223656713962555,3.303451957181096,3.4005967155098915,3.2307403683662415,3.324025582522154],"vram_alloc_history_mb":[1222.449664,1222.446592,1222.449664,1222.445056,1222.445056,1222.440448,1222.445056,1222.448128],"avg_vram_allocated_mb":1222.446208,"avg_step_time_ms":3483.3809335250407,"steps_per_sec":0.2870774167636155,"tokens_processed":23986,"tokens_per_sec":860.7298648115101,"peak_vram_allocated_gb":5.413789696,"peak_vram_reserved_gb":5.551161344,"torch_num_threads":16,"quantization":"nf4","block_size":4,"adapter_backend":"peft","adapter_summary":{"backend":"peft","target_module_names":"all-linear","trainable_param_count":10822656,"total_param_count":514408256}},"run":null,"command":null,"next":[],"plan":null,"from":null,"support":null,"model_type":null}

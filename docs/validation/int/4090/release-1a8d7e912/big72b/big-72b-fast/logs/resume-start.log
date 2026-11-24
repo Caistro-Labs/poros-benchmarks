@@ -1,0 +1,31 @@
+▛▜ poros v1.0.0 · Qwen/Qwen2.5-72B-Instruct · RTX 4090 23.5 GiB
+
+● Checked cert-big-72b-fast-resume  run 1124-1500-2ddc
+  │ nf4 · block 4 · rank 16 · seq 512 · fast path
+  │ SFT · answers only · lr 2e-4
+  │ output    homes/big-72b-fast/runs/1124-1500-2ddc
+  │ eval      7 rows held out  scored at the start, each checkpoint and the end
+
+● Loaded Qwen2.5-72B-Instruct  4m 39s
+  │ dense · 80 layers · 20 blocks
+● Scored the base  held out 6.4748 · ends its answers 0 of 0
+[W1124 15:05:47.223936659 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 20643840, total: 25250627584).
+step 1/16  loss 6.5025  16.22 s/step  vram 3.5 GiB (peak 16.7)  eta 4m 03s
+[W1124 15:06:08.990885333 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 8060928, total: 25250627584).
+[W1124 15:06:24.668434387 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 8060928, total: 25250627584).
+step 3/16  loss 6.4306  15.72 s/step  vram 3.5 GiB (peak 18.3)  eta 3m 47s
+[W1124 15:06:39.427964011 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 8060928, total: 25250627584).
+[W1124 15:06:55.183384831 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 8060928, total: 25250627584).
+step 5/16  loss 6.2737  15.75 s/step  vram 3.5 GiB (peak 18.3)  eta 3m 05s
+[W1124 15:07:11.932505076 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 8060928, total: 25250627584).
+[W1124 15:07:27.675350212 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 8060928, total: 25250627584).
+step 7/16  loss 5.9663  15.76 s/step  vram 3.5 GiB (peak 18.3)  eta 2m 28s
+[W1124 15:07:42.439408798 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 8060928, total: 25250627584).
+[W1124 15:07:58.205669577 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 8060928, total: 25250627584).
+step 9/16  loss 5.7008  15.77 s/step  vram 3.5 GiB (peak 18.3)  eta 1m 54s
+○ Stopped after 9 steps
+  │ saved     homes/big-72b-fast/runs/1124-1500-2ddc/checkpoint-8
+  │           it holds all 9 steps
+
+Continue with: poros runs continue 1124-1500-2ddc
+{"schema":"poros.error.v1","error":{"code":"E_JOB_CANCELLED","exit_code":7,"message":"stopped after step 9; <home>/runs/1124-1500-2ddc/checkpoint-8 holds the run so far","hint":"poros runs continue 1124-1500-2ddc","docs":"poros docs training checkpoints and resume"}}

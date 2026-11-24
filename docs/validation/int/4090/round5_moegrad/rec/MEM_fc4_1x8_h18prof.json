@@ -1,0 +1,274 @@
+{
+ "rows": [
+  {
+   "update": 1,
+   "wall_s": 20.4546,
+   "opt_step_s": 0.1066,
+   "pread_s": 177.9608,
+   "pread_bytes": 25251000320,
+   "pread_n": 10361,
+   "disk_busy_s": 7.8402,
+   "host": {
+    "cuda_sync": [
+     0.0094,
+     0.0094,
+     1
+    ],
+    "item": [
+     0.0025,
+     0.0025,
+     393
+    ],
+    "tolist": [
+     0.0076,
+     0.0076,
+     120
+    ],
+    "to_cpu": [
+     0.0,
+     0.0,
+     16
+    ],
+    "read_into": [
+     7.2896,
+     7.2896,
+     12150
+    ],
+    "ensure": [
+     2.2906,
+     9.5802,
+     104
+    ],
+    "fwd_block": [
+     2.8827,
+     2.983,
+     769
+    ],
+    "visit_finish": [
+     1.0098,
+     6.895,
+     48
+    ],
+    "event_sync": [
+     0.0007,
+     0.0007,
+     94
+    ],
+    "autograd_grad": [
+     1.5203,
+     1.5203,
+     392
+    ],
+    "prefetch": [
+     0.0012,
+     0.0012,
+     15
+    ],
+    "batch_backward": [
+     0.8535,
+     4.4567,
+     48
+    ]
+   },
+   "sss": {
+    "reads": 12150,
+    "prefetch_hits": 10361,
+    "sync_reads": 0,
+    "prefetch_dropped": 0,
+    "bytes_read": 29575335600,
+    "blocked_s": 7.16527196764946,
+    "hinted": 10361,
+    "phase_ahead": 0,
+    "depth": 4,
+    "cache_hits": 1789,
+    "cache_bytes": 4354755176
+   },
+   "mem": {
+    "alloc_peak_gib": 7.395,
+    "reserved_peak_gib": 7.682,
+    "alloc_gib": 5.051
+   }
+  },
+  {
+   "update": 2,
+   "wall_s": 9.7157,
+   "opt_step_s": 0.0345,
+   "pread_s": 17.1458,
+   "pread_bytes": 13231124480,
+   "pread_n": 5429,
+   "disk_busy_s": 3.919,
+   "host": {
+    "cuda_sync": [
+     0.0243,
+     0.0243,
+     2
+    ],
+    "item": [
+     0.0004,
+     0.0004,
+     392
+    ],
+    "tolist": [
+     0.0072,
+     0.0072,
+     96
+    ],
+    "to_cpu": [
+     0.0,
+     0.0,
+     16
+    ],
+    "read_into": [
+     3.7391,
+     3.7391,
+     7431
+    ],
+    "ensure": [
+     0.3205,
+     3.9195,
+     96
+    ],
+    "fwd_block": [
+     2.0823,
+     2.0823,
+     768
+    ],
+    "visit_finish": [
+     0.4544,
+     3.6187,
+     48
+    ],
+    "event_sync": [
+     0.0008,
+     0.0008,
+     94
+    ],
+    "autograd_grad": [
+     1.8239,
+     1.8239,
+     392
+    ],
+    "prefetch": [
+     0.1225,
+     0.2626,
+     61
+    ],
+    "batch_backward": [
+     0.6753,
+     1.7002,
+     48
+    ]
+   },
+   "sss": {
+    "reads": 19581,
+    "prefetch_hits": 15700,
+    "sync_reads": 58,
+    "prefetch_dropped": 0,
+    "bytes_read": 47663756904,
+    "blocked_s": 10.845243213698268,
+    "hinted": 10361,
+    "phase_ahead": 0,
+    "depth": 4,
+    "cache_hits": 3823,
+    "cache_bytes": 9305885432
+   },
+   "mem": {
+    "alloc_peak_gib": 18.099,
+    "reserved_peak_gib": 19.83,
+    "alloc_gib": 15.491
+   },
+   "mem_snapshot": "<path>"
+  },
+  {
+   "update": 3,
+   "wall_s": 4.9397,
+   "opt_step_s": 0.0358,
+   "pread_s": 1.3159,
+   "pread_bytes": 1045524480,
+   "pread_n": 429,
+   "disk_busy_s": 0.3207,
+   "host": {
+    "cuda_sync": [
+     0.0222,
+     0.0222,
+     2
+    ],
+    "item": [
+     0.0006,
+     0.0006,
+     392
+    ],
+    "tolist": [
+     0.0072,
+     0.0072,
+     96
+    ],
+    "to_cpu": [
+     0.0,
+     0.0,
+     16
+    ],
+    "read_into": [
+     0.4562,
+     0.4562,
+     2816
+    ],
+    "ensure": [
+     0.0627,
+     0.3367,
+     96
+    ],
+    "fwd_block": [
+     1.5768,
+     1.5768,
+     768
+    ],
+    "visit_finish": [
+     0.3409,
+     0.7196,
+     48
+    ],
+    "event_sync": [
+     0.0006,
+     0.0006,
+     94
+    ],
+    "autograd_grad": [
+     1.5486,
+     1.5486,
+     392
+    ],
+    "prefetch": [
+     0.0686,
+     0.2507,
+     72
+    ],
+    "batch_backward": [
+     0.6546,
+     0.8706,
+     48
+    ]
+   },
+   "sss": {
+    "reads": 22397,
+    "prefetch_hits": 16064,
+    "sync_reads": 70,
+    "prefetch_dropped": 0,
+    "bytes_read": 54518419048,
+    "blocked_s": 11.28701039031148,
+    "hinted": 10361,
+    "phase_ahead": 0,
+    "depth": 4,
+    "cache_hits": 6263,
+    "cache_bytes": 15245294392
+   },
+   "mem": {
+    "alloc_peak_gib": 18.099,
+    "reserved_peak_gib": 19.83,
+    "alloc_gib": 15.491
+   }
+  }
+ ],
+ "trace_update": 999,
+ "mem_update": 2
+}

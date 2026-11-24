@@ -1,0 +1,57 @@
+{
+ "ref": "<home>/poros_rel/cert/out/family/fg/runs/qwen3_8_seq",
+ "cand": "<home>/poros_rel/cert/out/family/fg/runs/qwen3_8_res",
+ "ref_file": "<home>/poros_rel/cert/out/family/fg/runs/qwen3_8_seq/adapter_model.safetensors",
+ "cand_file": "<home>/poros_rel/cert/out/family/fg/runs/qwen3_8_res/adapter_model.safetensors",
+ "steps_ref": 8,
+ "steps_cand": 8,
+ "losses_equal": true,
+ "grad_norms_equal": true,
+ "adapter_tensors": 124,
+ "adapter_keys_equal": true,
+ "adapter_unequal_n": 0,
+ "adapter_unequal": [],
+ "ref_digest": "54686633bd7ce49ca9d2d1d47812c4cfcf07c13ca099a889ce1229564b6c011e",
+ "cand_digest": "54686633bd7ce49ca9d2d1d47812c4cfcf07c13ca099a889ce1229564b6c011e",
+ "ref_losses": [
+  10.032711029052734,
+  9.62751579284668,
+  9.737557411193848,
+  10.036377906799316,
+  9.518848419189453,
+  9.262327194213867,
+  9.661924362182617,
+  10.151389122009277
+ ],
+ "cand_losses": [
+  10.032711029052734,
+  9.62751579284668,
+  9.737557411193848,
+  10.036377906799316,
+  9.518848419189453,
+  9.262327194213867,
+  9.661924362182617,
+  10.151389122009277
+ ],
+ "ref_grad_norms": [
+  0.3654060363769531,
+  0.4049294590950012,
+  0.42627936601638794,
+  0.37041330337524414,
+  0.4185841977596283,
+  0.4768724739551544,
+  0.4567842483520508,
+  0.3999245762825012
+ ],
+ "cand_grad_norms": [
+  0.3654060363769531,
+  0.4049294590950012,
+  0.42627936601638794,
+  0.37041330337524414,
+  0.4185841977596283,
+  0.4768724739551544,
+  0.4567842483520508,
+  0.3999245762825012
+ ],
+ "pass": true
+}

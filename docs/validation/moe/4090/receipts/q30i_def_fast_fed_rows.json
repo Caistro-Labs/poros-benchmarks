@@ -1,0 +1,76 @@
+{
+ "rows": 64,
+ "seq": 512,
+ "batch_shapes": [
+  [
+   8,
+   512
+  ],
+  [
+   8,
+   512
+  ],
+  [
+   8,
+   512
+  ],
+  [
+   8,
+   512
+  ],
+  [
+   8,
+   512
+  ],
+  [
+   8,
+   512
+  ],
+  [
+   8,
+   512
+  ],
+  [
+   8,
+   512
+  ]
+ ],
+ "sha256_all": "d124049063f1b5a14a2dccc0d539d93dc918fc20b00f70c587851152829bc29c",
+ "sha256_per_batch": [
+  "7dcabf82f2d73538b4964533711d5ed21f212cdd33d70ebe305ae00a11820464",
+  "fbe0d1edc9e59b3da8e7c6ab46cd5b47120da65858302bfa903661e00014cf6c",
+  "03572de966c03cd048764bb1e8a78f0d24fed0303cac88503d840fe125fcaa76",
+  "242250fe90b38fdcc566ff6d752e5af609973692dfde1c026a6f3188d491ab8a",
+  "77c50764baad238846f06da1b1e0b8faa3148f1b57e117b73bb0cb5489453ae7",
+  "4d006bcc11ea2507ca992c013efe6f085d8435b85c246d0d6764ba4a926c317c",
+  "8e74b618ac2f76e3f03c7dc080f44e5e5d2ce31f74965d36cae0bd41849c8b1d",
+  "250f578980f031e722bb3dc2de77f25165876e5a0727fcfdfdaefe4b1329d26e"
+ ],
+ "full_length_and_labels_are_ids": true,
+ "first_tokens": [
+  [
+   95456,
+   0,
+   5692,
+   594
+  ],
+  [
+   2121,
+   2426,
+   7953,
+   662
+  ],
+  [
+   32,
+   46704,
+   8221,
+   37973
+  ],
+  [
+   73498,
+   17998,
+   1802,
+   271
+  ]
+ ]
+}

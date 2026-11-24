@@ -1,0 +1,55 @@
+{
+  "model": "Qwen/Qwen2.5-32B",
+  "quantization": "nf4",
+  "steps": 1000,
+  "seq_len": 512,
+  "batch_size": 1,
+  "gradient_accumulation_steps": 1,
+  "block_size": 4,
+  "dataset": "tatsu-lab/alpaca",
+  "eval_every": 200,
+  "eval_examples": 200,
+  "setup_seconds": 15.52,
+  "wall_seconds": 1710.97,
+  "wall_s_per_step": 1.711,
+  "train_only_s_per_step_median": 1.242,
+  "train_only_s_per_step_mean": 1.245,
+  "train_seconds_total": 1245.27,
+  "eval_seconds_total": 465.37,
+  "eval_history": [
+    {
+      "step": 200,
+      "eval_loss": 1.4355094169825315,
+      "eval_perplexity": 4.201784924284375,
+      "eval_seconds": 116.37414287391584
+    },
+    {
+      "step": 400,
+      "eval_loss": 1.4050252139568329,
+      "eval_perplexity": 4.075629502718358,
+      "eval_seconds": 116.3218806189252
+    },
+    {
+      "step": 600,
+      "eval_loss": 1.3919351007789373,
+      "eval_perplexity": 4.022626714344069,
+      "eval_seconds": 116.31028429209255
+    },
+    {
+      "step": 800,
+      "eval_loss": 1.3861350867152213,
+      "eval_perplexity": 3.9993629531153014,
+      "eval_seconds": 116.36402881203685
+    }
+  ],
+  "final_eval": {
+    "eval_loss": 1.3855859648436308,
+    "eval_perplexity": 3.9971674183085772,
+    "eval_seconds": 116.3
+  },
+  "final_train_loss": 0.997584342956543,
+  "peak_vram_gb": 10.96,
+  "peak_host_rss_gb": 62.25,
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition",
+  "torch": "2.11.0+cu128"
+}

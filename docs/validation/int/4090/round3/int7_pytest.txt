@@ -1,0 +1,60 @@
+E             Use -v to get more diff)
+
+tests/sss/test_ssd.py:305: AssertionError
+=============================== warnings summary ===============================
+tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[bf16-classic-0.0]
+tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[bf16-classic-0.1]
+tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[bf16-run-0.0]
+tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[bf16-run-0.1]
+  <path> UserWarning: bf16 blockwise is EXPERIMENTAL: parity is NOT bitwise and the memory/speed tradeoff is steeper. For dense models use quantization='bf16_bitwise' (bitwise-validated). Plain bf16 remains for arches where bitwise is structurally unavailable (e.g. MXFP4-native MoE dequantized to bf16). Use nf4 for the validated, bitwise path.
+    poros_model = PorosModel.from_pretrained(
+
+tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[fp16-classic-0.0]
+tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[fp16-classic-0.1]
+tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[fp16-run-0.0]
+tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[fp16-run-0.1]
+  <path> UserWarning: fp16 blockwise is EXPERIMENTAL: parity is NOT bitwise and the memory/speed tradeoff is steeper. Experimental; same streaming caveats as bf16. v2. Use nf4 for the validated, bitwise path.
+    poros_model = PorosModel.from_pretrained(
+
+tests/gpu/test_block_major_16bit.py::test_bf16_bitwise_block_major_asked_for_equals_sequential_with_dropout[classic]
+tests/gpu/test_block_major_16bit.py::test_bf16_bitwise_block_major_asked_for_equals_sequential_with_dropout[run]
+  <path> UserWarning: bf16_bitwise blockwise is EXPERIMENTAL: the path targets bitwise parity but is not yet validated at scale. Dense BF16 blockwise runtime with strict determinism and resident adapters. Bitwise parity validated at 32B (docs/validation/bf16/); bandwidth-bound -- prefer high-bandwidth buses. Use nf4 for the validated, bitwise path.
+    poros_model = PorosModel.from_pretrained(
+
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_bf16[None-1]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_bf16[None-2]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_bf16[1-1]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_bf16[1-2]
+  <path> UserWarning: The loaded model is unquantized (bf16/fp16), so Poros is on the EXPERIMENTAL non-bitwise path: roughly 10x slower with NO VRAM win and NO NF4 bitwise-parity guarantee. For the validated NF4 path, load with BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type='nf4', bnb_4bit_compute_dtype=torch.bfloat16, bnb_4bit_use_double_quant=True).
+    poros.patch_hf_model(model, block_size=block_size, arch_check="warn")
+
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[1]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[1]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[2]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[2]
+  <path> UserWarning: inner dimension (16) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+    warn(
+
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[1]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[1]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[2]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[2]
+  <path> UserWarning: inner dimension (32) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+    warn(
+
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[1]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[1]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[2]
+tests/gpu/test_glm_parity.py::test_streamed_equals_resident_nf4[2]
+  <path> UserWarning: inner dimension (96) is not aligned for fast kernel with blocksize=64, falling back to slower implementation.
+    warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/sss/test_ssd.py::test_the_host_cache_serves_what_it_still_holds[1024]
+SKIPPED [1] tests/gpu/test_glm_dsa_flex.py:24: no DSA flex pin for this host: torch-2.14.1+cu130_triton-3.8.0_NVIDIA_GeForce_RTX_4090.json
+SKIPPED [1] tests/gpu/test_glm_fla_pinned.py:25: CUDA and fla-core required
+SKIPPED [1] tests/gpu/test_glm_grouped_experts.py:24: no grouped-expert pin for this host: torch-2.14.1+cu130_NVIDIA_GeForce_RTX_4090.json
+SKIPPED [1] tests/sss/test_gather.py:309: set POROS_SSS_TEST_DIR to a local ext4/xfs dir to test O_DIRECT
+SKIPPED [1] tests/sss/test_ssd.py:63: set POROS_SSS_TEST_DIR to a local ext4/xfs dir to test O_DIRECT
+1 failed, 241 passed, 5 skipped, 26 warnings in 301.75s (0:05:01)

@@ -1,0 +1,750 @@
+.F.F.F.F.F.F.F.F.F.F.F.FFFFF                                             [100%]
+=================================== FAILURES ===================================
+________ test_block_major_equals_sequential[qwen3_moe-ram-pow2-on-0.05] ________
+
+checkpoint = PosixPath('<path>')
+tmp_path = PosixPath('<path>')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7a1d95558110>
+grouping = 'pow2', store = 'ram', offload = 'on', dropout = 0.05
+
+    @pytest.mark.parametrize("dropout", [0.0, 0.05])
+    @pytest.mark.parametrize("offload", ["on", "off", "ram"])
+    @pytest.mark.parametrize("grouping", ["pow2", "single"])
+    @pytest.mark.parametrize("store", ["ram", "ssd"])
+    def test_block_major_equals_sequential(checkpoint, tmp_path, monkeypatch, grouping, store, offload,
+                                           dropout):
+        extra = {"moe_expert_grouping": grouping, "lora_dropout": dropout}
+        if store == "ssd":
+            extra.update(store="ssd", store_path=str(tmp_path / "sss"))
+        # sequential pinned: on CUDA block-major accumulation is the default
+        seq_l, seq_p, _ = _run(checkpoint, tmp_path / "seq", block_major_accumulation=False, **extra)
+        if offload == "on":  # the slabs reserved for a model this small round down to none
+            monkeypatch.setenv("POROS_BOUNDARY_PIN", "256M")
+        elif offload == "ram":  # a host that locks nothing: ordinary-RAM slabs
+            monkeypatch.setattr(pinning, "reserve", lambda n: False)
+        bm_l, bm_p, st = _run(checkpoint, tmp_path / "bm", block_major_accumulation=True,
+                              offload_boundaries=offload != "off", **extra)
+        if offload == "off":
+            assert st is None
+        else:
+            assert st["offloaded"] > 0 and st["kept_on_device"] == 0, st
+            assert offload != "ram" or (st["pageable_slabs"] > 0 and st["slabs"] == 0), st
+        assert seq_l == bm_l
+        assert seq_p.keys() == bm_p.keys() and seq_p
+        for n, p in seq_p.items():
+>           assert torch.equal(p, bm_p[n]), n
+E           AssertionError: model.layers.0.mlp.adapter.lora_A_gate_up
+E           assert False
+E            +  where False = <built-in method equal of type object at 0x7a1e897f2640>(tensor([[[ 0.0957,  0.1035, -0.0293,  ..., -0.0854,  0.0386, -0.0430],\n         [ 0.0383, -0.0260,  0.1035,  ..., -0.0...\n         [-0.1084, -0.0036, -0.0771,  ...,  0.1113, -0.1128,  0.0413]]],\n       device='cuda:0', dtype=torch.bfloat16), tensor([[[ 0.0957,  0.1035, -0.0293,  ..., -0.0854,  0.0386, -0.0430],\n         [ 0.0383, -0.0260,  0.1035,  ..., -0.0...\n         [-0.1084, -0.0036, -0.0771,  ...,  0.1113, -0.1128,  0.0413]]],\n       device='cuda:0', dtype=torch.bfloat16))
+E            +    where <built-in method equal of type object at 0x7a1e897f2640> = torch.equal
+
+tests/moe/test_block_major_families.py:121: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:2179 offload_boundaries after update 1: {'offloaded': 8, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 12800, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 1572864, 'refusals': 0}
+WARNING  poros.train.trainer:trainer.py:2409 block-major MoE expert dequant cache after update 1: hits 1532 misses 360
+WARNING  poros.train.trainer:trainer.py:2427 block-major MoE: expert residency grown to 0 MiB after update 1
+_______ test_block_major_equals_sequential[qwen3_moe-ram-pow2-off-0.05] ________
+
+checkpoint = PosixPath('<path>')
+tmp_path = PosixPath('<path>')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7a1d95559c70>
+grouping = 'pow2', store = 'ram', offload = 'off', dropout = 0.05
+
+    @pytest.mark.parametrize("dropout", [0.0, 0.05])
+    @pytest.mark.parametrize("offload", ["on", "off", "ram"])
+    @pytest.mark.parametrize("grouping", ["pow2", "single"])
+    @pytest.mark.parametrize("store", ["ram", "ssd"])
+    def test_block_major_equals_sequential(checkpoint, tmp_path, monkeypatch, grouping, store, offload,
+                                           dropout):
+        extra = {"moe_expert_grouping": grouping, "lora_dropout": dropout}
+        if store == "ssd":
+            extra.update(store="ssd", store_path=str(tmp_path / "sss"))
+        # sequential pinned: on CUDA block-major accumulation is the default
+        seq_l, seq_p, _ = _run(checkpoint, tmp_path / "seq", block_major_accumulation=False, **extra)
+        if offload == "on":  # the slabs reserved for a model this small round down to none
+            monkeypatch.setenv("POROS_BOUNDARY_PIN", "256M")
+        elif offload == "ram":  # a host that locks nothing: ordinary-RAM slabs
+            monkeypatch.setattr(pinning, "reserve", lambda n: False)
+        bm_l, bm_p, st = _run(checkpoint, tmp_path / "bm", block_major_accumulation=True,
+                              offload_boundaries=offload != "off", **extra)
+        if offload == "off":
+            assert st is None
+        else:
+            assert st["offloaded"] > 0 and st["kept_on_device"] == 0, st
+            assert offload != "ram" or (st["pageable_slabs"] > 0 and st["slabs"] == 0), st
+        assert seq_l == bm_l
+        assert seq_p.keys() == bm_p.keys() and seq_p
+        for n, p in seq_p.items():
+>           assert torch.equal(p, bm_p[n]), n
+E           AssertionError: model.layers.0.mlp.adapter.lora_A_gate_up
+E           assert False
+E            +  where False = <built-in method equal of type object at 0x7a1e897f2640>(tensor([[[ 0.0957,  0.1035, -0.0293,  ..., -0.0854,  0.0386, -0.0430],\n         [ 0.0383, -0.0260,  0.1035,  ..., -0.0...\n         [-0.1084, -0.0036, -0.0771,  ...,  0.1113, -0.1128,  0.0413]]],\n       device='cuda:0', dtype=torch.bfloat16), tensor([[[ 0.0957,  0.1035, -0.0293,  ..., -0.0854,  0.0386, -0.0430],\n         [ 0.0383, -0.0260,  0.1035,  ..., -0.0...\n         [-0.1084, -0.0036, -0.0771,  ...,  0.1113, -0.1128,  0.0413]]],\n       device='cuda:0', dtype=torch.bfloat16))
+E            +    where <built-in method equal of type object at 0x7a1e897f2640> = torch.equal
+
+tests/moe/test_block_major_families.py:121: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:2409 block-major MoE expert dequant cache after update 1: hits 3742 misses 840
+WARNING  poros.train.trainer:trainer.py:2427 block-major MoE: expert residency grown to 0 MiB after update 1
+_______ test_block_major_equals_sequential[qwen3_moe-ram-pow2-ram-0.05] ________
+
+checkpoint = PosixPath('<path>')
+tmp_path = PosixPath('<path>')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7a1d3c121e20>
+grouping = 'pow2', store = 'ram', offload = 'ram', dropout = 0.05
+
+    @pytest.mark.parametrize("dropout", [0.0, 0.05])
+    @pytest.mark.parametrize("offload", ["on", "off", "ram"])
+    @pytest.mark.parametrize("grouping", ["pow2", "single"])
+    @pytest.mark.parametrize("store", ["ram", "ssd"])
+    def test_block_major_equals_sequential(checkpoint, tmp_path, monkeypatch, grouping, store, offload,
+                                           dropout):
+        extra = {"moe_expert_grouping": grouping, "lora_dropout": dropout}
+        if store == "ssd":
+            extra.update(store="ssd", store_path=str(tmp_path / "sss"))
+        # sequential pinned: on CUDA block-major accumulation is the default
+        seq_l, seq_p, _ = _run(checkpoint, tmp_path / "seq", block_major_accumulation=False, **extra)
+        if offload == "on":  # the slabs reserved for a model this small round down to none
+            monkeypatch.setenv("POROS_BOUNDARY_PIN", "256M")
+        elif offload == "ram":  # a host that locks nothing: ordinary-RAM slabs
+            monkeypatch.setattr(pinning, "reserve", lambda n: False)
+        bm_l, bm_p, st = _run(checkpoint, tmp_path / "bm", block_major_accumulation=True,
+                              offload_boundaries=offload != "off", **extra)
+        if offload == "off":
+            assert st is None
+        else:
+            assert st["offloaded"] > 0 and st["kept_on_device"] == 0, st
+            assert offload != "ram" or (st["pageable_slabs"] > 0 and st["slabs"] == 0), st
+        assert seq_l == bm_l
+        assert seq_p.keys() == bm_p.keys() and seq_p
+        for n, p in seq_p.items():
+>           assert torch.equal(p, bm_p[n]), n
+E           AssertionError: model.layers.0.mlp.adapter.lora_A_gate_up
+E           assert False
+E            +  where False = <built-in method equal of type object at 0x7a1e897f2640>(tensor([[[ 0.0957,  0.1035, -0.0293,  ..., -0.0854,  0.0386, -0.0430],\n         [ 0.0383, -0.0260,  0.1035,  ..., -0.0...\n         [-0.1084, -0.0036, -0.0771,  ...,  0.1113, -0.1128,  0.0413]]],\n       device='cuda:0', dtype=torch.bfloat16), tensor([[[ 0.0957,  0.1035, -0.0293,  ..., -0.0854,  0.0386, -0.0430],\n         [ 0.0383, -0.0260,  0.1035,  ..., -0.0...\n         [-0.1084, -0.0036, -0.0771,  ...,  0.1113, -0.1128,  0.0413]]],\n       device='cuda:0', dtype=torch.bfloat16))
+E            +    where <built-in method equal of type object at 0x7a1e897f2640> = torch.equal
+
+tests/moe/test_block_major_families.py:121: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.boundary_offload:boundary_offload.py:158 offload_boundaries: page-locked memory refused (pin budget); boundaries go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 28.46 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+WARNING  poros.train.trainer:trainer.py:2179 offload_boundaries after update 1: {'offloaded': 8, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 12800, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 3932160, 'refusals': 0}
+WARNING  poros.train.trainer:trainer.py:2409 block-major MoE expert dequant cache after update 1: hits 5952 misses 1320
+WARNING  poros.train.trainer:trainer.py:2427 block-major MoE: expert residency grown to 0 MiB after update 1
+_______ test_block_major_equals_sequential[qwen3_moe-ram-single-on-0.05] _______
+
+checkpoint = PosixPath('<path>')
+tmp_path = PosixPath('<path>')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7a1c97cbdf40>
+grouping = 'single', store = 'ram', offload = 'on', dropout = 0.05
+
+    @pytest.mark.parametrize("dropout", [0.0, 0.05])
+    @pytest.mark.parametrize("offload", ["on", "off", "ram"])
+    @pytest.mark.parametrize("grouping", ["pow2", "single"])
+    @pytest.mark.parametrize("store", ["ram", "ssd"])
+    def test_block_major_equals_sequential(checkpoint, tmp_path, monkeypatch, grouping, store, offload,
+                                           dropout):
+        extra = {"moe_expert_grouping": grouping, "lora_dropout": dropout}
+        if store == "ssd":
+            extra.update(store="ssd", store_path=str(tmp_path / "sss"))
+        # sequential pinned: on CUDA block-major accumulation is the default
+        seq_l, seq_p, _ = _run(checkpoint, tmp_path / "seq", block_major_accumulation=False, **extra)
+        if offload == "on":  # the slabs reserved for a model this small round down to none
+            monkeypatch.setenv("POROS_BOUNDARY_PIN", "256M")
+        elif offload == "ram":  # a host that locks nothing: ordinary-RAM slabs
+            monkeypatch.setattr(pinning, "reserve", lambda n: False)
+        bm_l, bm_p, st = _run(checkpoint, tmp_path / "bm", block_major_accumulation=True,
+                              offload_boundaries=offload != "off", **extra)
+        if offload == "off":
+            assert st is None
+        else:
+            assert st["offloaded"] > 0 and st["kept_on_device"] == 0, st
+            assert offload != "ram" or (st["pageable_slabs"] > 0 and st["slabs"] == 0), st
+>       assert seq_l == bm_l
+E       assert [4.5715875625...5894603729248] == [4.5715875625...5890312194824]
+E         
+E         At index 1 diff: 4.565894603729248 != 4.565890312194824
+E         Use -v to get more diff
+
+tests/moe/test_block_major_families.py:118: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:2179 offload_boundaries after update 1: {'offloaded': 8, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 12800, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 5505024, 'refusals': 0}
+WARNING  poros.train.trainer:trainer.py:2409 block-major MoE expert dequant cache after update 1: hits 8162 misses 1800
+WARNING  poros.train.trainer:trainer.py:2427 block-major MoE: expert residency grown to 0 MiB after update 1
+______ test_block_major_equals_sequential[qwen3_moe-ram-single-off-0.05] _______
+
+checkpoint = PosixPath('<path>')
+tmp_path = PosixPath('<path>')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7a1c97d147a0>
+grouping = 'single', store = 'ram', offload = 'off', dropout = 0.05
+
+    @pytest.mark.parametrize("dropout", [0.0, 0.05])
+    @pytest.mark.parametrize("offload", ["on", "off", "ram"])
+    @pytest.mark.parametrize("grouping", ["pow2", "single"])
+    @pytest.mark.parametrize("store", ["ram", "ssd"])
+    def test_block_major_equals_sequential(checkpoint, tmp_path, monkeypatch, grouping, store, offload,
+                                           dropout):
+        extra = {"moe_expert_grouping": grouping, "lora_dropout": dropout}
+        if store == "ssd":
+            extra.update(store="ssd", store_path=str(tmp_path / "sss"))
+        # sequential pinned: on CUDA block-major accumulation is the default
+        seq_l, seq_p, _ = _run(checkpoint, tmp_path / "seq", block_major_accumulation=False, **extra)
+        if offload == "on":  # the slabs reserved for a model this small round down to none
+            monkeypatch.setenv("POROS_BOUNDARY_PIN", "256M")
+        elif offload == "ram":  # a host that locks nothing: ordinary-RAM slabs
+            monkeypatch.setattr(pinning, "reserve", lambda n: False)
+        bm_l, bm_p, st = _run(checkpoint, tmp_path / "bm", block_major_accumulation=True,
+                              offload_boundaries=offload != "off", **extra)
+        if offload == "off":
+            assert st is None
+        else:
+            assert st["offloaded"] > 0 and st["kept_on_device"] == 0, st
+            assert offload != "ram" or (st["pageable_slabs"] > 0 and st["slabs"] == 0), st
+>       assert seq_l == bm_l
+E       assert [4.5715875625...5894603729248] == [4.5715875625...5890312194824]
+E         
+E         At index 1 diff: 4.565894603729248 != 4.565890312194824
+E         Use -v to get more diff
+
+tests/moe/test_block_major_families.py:118: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:2409 block-major MoE expert dequant cache after update 1: hits 10372 misses 2280
+WARNING  poros.train.trainer:trainer.py:2427 block-major MoE: expert residency grown to 0 MiB after update 1
+______ test_block_major_equals_sequential[qwen3_moe-ram-single-ram-0.05] _______
+
+checkpoint = PosixPath('<path>')
+tmp_path = PosixPath('<path>')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7a1c97bff9e0>
+grouping = 'single', store = 'ram', offload = 'ram', dropout = 0.05
+
+    @pytest.mark.parametrize("dropout", [0.0, 0.05])
+    @pytest.mark.parametrize("offload", ["on", "off", "ram"])
+    @pytest.mark.parametrize("grouping", ["pow2", "single"])
+    @pytest.mark.parametrize("store", ["ram", "ssd"])
+    def test_block_major_equals_sequential(checkpoint, tmp_path, monkeypatch, grouping, store, offload,
+                                           dropout):
+        extra = {"moe_expert_grouping": grouping, "lora_dropout": dropout}
+        if store == "ssd":
+            extra.update(store="ssd", store_path=str(tmp_path / "sss"))
+        # sequential pinned: on CUDA block-major accumulation is the default
+        seq_l, seq_p, _ = _run(checkpoint, tmp_path / "seq", block_major_accumulation=False, **extra)
+        if offload == "on":  # the slabs reserved for a model this small round down to none
+            monkeypatch.setenv("POROS_BOUNDARY_PIN", "256M")
+        elif offload == "ram":  # a host that locks nothing: ordinary-RAM slabs
+            monkeypatch.setattr(pinning, "reserve", lambda n: False)
+        bm_l, bm_p, st = _run(checkpoint, tmp_path / "bm", block_major_accumulation=True,
+                              offload_boundaries=offload != "off", **extra)
+        if offload == "off":
+            assert st is None
+        else:
+            assert st["offloaded"] > 0 and st["kept_on_device"] == 0, st
+            assert offload != "ram" or (st["pageable_slabs"] > 0 and st["slabs"] == 0), st
+>       assert seq_l == bm_l
+E       assert [4.5715875625...5894603729248] == [4.5715875625...5890312194824]
+E         
+E         At index 1 diff: 4.565894603729248 != 4.565890312194824
+E         Use -v to get more diff
+
+tests/moe/test_block_major_families.py:118: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.boundary_offload:boundary_offload.py:158 offload_boundaries: page-locked memory refused (pin budget); boundaries go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 28.46 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+WARNING  poros.train.trainer:trainer.py:2179 offload_boundaries after update 1: {'offloaded': 8, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 12800, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 7864320, 'refusals': 0}
+WARNING  poros.train.trainer:trainer.py:2409 block-major MoE expert dequant cache after update 1: hits 12582 misses 2760
+WARNING  poros.train.trainer:trainer.py:2427 block-major MoE: expert residency grown to 0 MiB after update 1
+________ test_block_major_equals_sequential[qwen3_moe-ssd-pow2-on-0.05] ________
+
+checkpoint = PosixPath('<path>')
+tmp_path = PosixPath('<path>')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7a1c97b522d0>
+grouping = 'pow2', store = 'ssd', offload = 'on', dropout = 0.05
+
+    @pytest.mark.parametrize("dropout", [0.0, 0.05])
+    @pytest.mark.parametrize("offload", ["on", "off", "ram"])
+    @pytest.mark.parametrize("grouping", ["pow2", "single"])
+    @pytest.mark.parametrize("store", ["ram", "ssd"])
+    def test_block_major_equals_sequential(checkpoint, tmp_path, monkeypatch, grouping, store, offload,
+                                           dropout):
+        extra = {"moe_expert_grouping": grouping, "lora_dropout": dropout}
+        if store == "ssd":
+            extra.update(store="ssd", store_path=str(tmp_path / "sss"))
+        # sequential pinned: on CUDA block-major accumulation is the default
+        seq_l, seq_p, _ = _run(checkpoint, tmp_path / "seq", block_major_accumulation=False, **extra)
+        if offload == "on":  # the slabs reserved for a model this small round down to none
+            monkeypatch.setenv("POROS_BOUNDARY_PIN", "256M")
+        elif offload == "ram":  # a host that locks nothing: ordinary-RAM slabs
+            monkeypatch.setattr(pinning, "reserve", lambda n: False)
+        bm_l, bm_p, st = _run(checkpoint, tmp_path / "bm", block_major_accumulation=True,
+                              offload_boundaries=offload != "off", **extra)
+        if offload == "off":
+            assert st is None
+        else:
+            assert st["offloaded"] > 0 and st["kept_on_device"] == 0, st
+            assert offload != "ram" or (st["pageable_slabs"] > 0 and st["slabs"] == 0), st
+        assert seq_l == bm_l
+        assert seq_p.keys() == bm_p.keys() and seq_p
+        for n, p in seq_p.items():
+>           assert torch.equal(p, bm_p[n]), n
+E           AssertionError: model.layers.0.mlp.adapter.lora_A_gate_up
+E           assert False
+E            +  where False = <built-in method equal of type object at 0x7a1e897f2640>(tensor([[[ 0.0957,  0.1035, -0.0293,  ..., -0.0854,  0.0386, -0.0430],\n         [ 0.0383, -0.0260,  0.1035,  ..., -0.0...\n         [-0.1084, -0.0036, -0.0771,  ...,  0.1113, -0.1128,  0.0413]]],\n       device='cuda:0', dtype=torch.bfloat16), tensor([[[ 0.0957,  0.1035, -0.0293,  ..., -0.0854,  0.0386, -0.0430],\n         [ 0.0383, -0.0260,  0.1035,  ..., -0.0...\n         [-0.1084, -0.0036, -0.0771,  ...,  0.1113, -0.1128,  0.0413]]],\n       device='cuda:0', dtype=torch.bfloat16))
+E            +    where <built-in method equal of type object at 0x7a1e897f2640> = torch.equal
+
+tests/moe/test_block_major_families.py:121: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:2179 offload_boundaries after update 1: {'offloaded': 8, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 12800, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 10551296, 'refusals': 0}
+WARNING  poros.train.trainer:trainer.py:2409 block-major MoE expert dequant cache after update 1: hits 14792 misses 3240
+_______ test_block_major_equals_sequential[qwen3_moe-ssd-pow2-off-0.05] ________
+
+checkpoint = PosixPath('<path>')
+tmp_path = PosixPath('<path>')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7a1c97b66000>
+grouping = 'pow2', store = 'ssd', offload = 'off', dropout = 0.05
+
+    @pytest.mark.parametrize("dropout", [0.0, 0.05])
+    @pytest.mark.parametrize("offload", ["on", "off", "ram"])
+    @pytest.mark.parametrize("grouping", ["pow2", "single"])
+    @pytest.mark.parametrize("store", ["ram", "ssd"])
+    def test_block_major_equals_sequential(checkpoint, tmp_path, monkeypatch, grouping, store, offload,
+                                           dropout):
+        extra = {"moe_expert_grouping": grouping, "lora_dropout": dropout}
+        if store == "ssd":
+            extra.update(store="ssd", store_path=str(tmp_path / "sss"))
+        # sequential pinned: on CUDA block-major accumulation is the default
+        seq_l, seq_p, _ = _run(checkpoint, tmp_path / "seq", block_major_accumulation=False, **extra)
+        if offload == "on":  # the slabs reserved for a model this small round down to none
+            monkeypatch.setenv("POROS_BOUNDARY_PIN", "256M")
+        elif offload == "ram":  # a host that locks nothing: ordinary-RAM slabs
+            monkeypatch.setattr(pinning, "reserve", lambda n: False)
+        bm_l, bm_p, st = _run(checkpoint, tmp_path / "bm", block_major_accumulation=True,
+                              offload_boundaries=offload != "off", **extra)
+        if offload == "off":
+            assert st is None
+        else:
+            assert st["offloaded"] > 0 and st["kept_on_device"] == 0, st
+            assert offload != "ram" or (st["pageable_slabs"] > 0 and st["slabs"] == 0), st
+        assert seq_l == bm_l
+        assert seq_p.keys() == bm_p.keys() and seq_p
+        for n, p in seq_p.items():
+>           assert torch.equal(p, bm_p[n]), n
+E           AssertionError: model.layers.0.mlp.adapter.lora_A_gate_up
+E           assert False
+E            +  where False = <built-in method equal of type object at 0x7a1e897f2640>(tensor([[[ 0.0957,  0.1035, -0.0293,  ..., -0.0854,  0.0386, -0.0430],\n         [ 0.0383, -0.0260,  0.1035,  ..., -0.0...\n         [-0.1084, -0.0036, -0.0771,  ...,  0.1113, -0.1128,  0.0413]]],\n       device='cuda:0', dtype=torch.bfloat16), tensor([[[ 0.0957,  0.1035, -0.0293,  ..., -0.0854,  0.0386, -0.0430],\n         [ 0.0383, -0.0260,  0.1035,  ..., -0.0...\n         [-0.1084, -0.0036, -0.0771,  ...,  0.1113, -0.1128,  0.0413]]],\n       device='cuda:0', dtype=torch.bfloat16))
+E            +    where <built-in method equal of type object at 0x7a1e897f2640> = torch.equal
+
+tests/moe/test_block_major_families.py:121: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:2409 block-major MoE expert dequant cache after update 1: hits 17002 misses 3720
+_______ test_block_major_equals_sequential[qwen3_moe-ssd-pow2-ram-0.05] ________
+
+checkpoint = PosixPath('<path>')
+tmp_path = PosixPath('<path>')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7a1c97bcb0e0>
+grouping = 'pow2', store = 'ssd', offload = 'ram', dropout = 0.05
+
+    @pytest.mark.parametrize("dropout", [0.0, 0.05])
+    @pytest.mark.parametrize("offload", ["on", "off", "ram"])
+    @pytest.mark.parametrize("grouping", ["pow2", "single"])
+    @pytest.mark.parametrize("store", ["ram", "ssd"])
+    def test_block_major_equals_sequential(checkpoint, tmp_path, monkeypatch, grouping, store, offload,
+                                           dropout):
+        extra = {"moe_expert_grouping": grouping, "lora_dropout": dropout}
+        if store == "ssd":
+            extra.update(store="ssd", store_path=str(tmp_path / "sss"))
+        # sequential pinned: on CUDA block-major accumulation is the default
+        seq_l, seq_p, _ = _run(checkpoint, tmp_path / "seq", block_major_accumulation=False, **extra)
+        if offload == "on":  # the slabs reserved for a model this small round down to none
+            monkeypatch.setenv("POROS_BOUNDARY_PIN", "256M")
+        elif offload == "ram":  # a host that locks nothing: ordinary-RAM slabs
+            monkeypatch.setattr(pinning, "reserve", lambda n: False)
+        bm_l, bm_p, st = _run(checkpoint, tmp_path / "bm", block_major_accumulation=True,
+                              offload_boundaries=offload != "off", **extra)
+        if offload == "off":
+            assert st is None
+        else:
+            assert st["offloaded"] > 0 and st["kept_on_device"] == 0, st
+            assert offload != "ram" or (st["pageable_slabs"] > 0 and st["slabs"] == 0), st
+        assert seq_l == bm_l
+        assert seq_p.keys() == bm_p.keys() and seq_p
+        for n, p in seq_p.items():
+>           assert torch.equal(p, bm_p[n]), n
+E           AssertionError: model.layers.0.mlp.adapter.lora_A_gate_up
+E           assert False
+E            +  where False = <built-in method equal of type object at 0x7a1e897f2640>(tensor([[[ 0.0957,  0.1035, -0.0293,  ..., -0.0854,  0.0386, -0.0430],\n         [ 0.0383, -0.0260,  0.1035,  ..., -0.0...\n         [-0.1084, -0.0036, -0.0771,  ...,  0.1113, -0.1128,  0.0413]]],\n       device='cuda:0', dtype=torch.bfloat16), tensor([[[ 0.0957,  0.1035, -0.0293,  ..., -0.0854,  0.0386, -0.0430],\n         [ 0.0383, -0.0260,  0.1035,  ..., -0.0...\n         [-0.1084, -0.0036, -0.0771,  ...,  0.1113, -0.1128,  0.0413]]],\n       device='cuda:0', dtype=torch.bfloat16))
+E            +    where <built-in method equal of type object at 0x7a1e897f2640> = torch.equal
+
+tests/moe/test_block_major_families.py:121: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  poros.sss.ssd:ssd.py:207 SSS ring left unpinned: this host's page-locked memory budget is exhausted; copies will be synchronous
+WARNING  poros.core.boundary_offload:boundary_offload.py:158 offload_boundaries: page-locked memory refused (pin budget); boundaries go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 28.58 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+WARNING  poros.train.trainer:trainer.py:2179 offload_boundaries after update 1: {'offloaded': 8, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 12800, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 12419072, 'refusals': 0}
+WARNING  poros.train.trainer:trainer.py:2409 block-major MoE expert dequant cache after update 1: hits 19212 misses 4200
+_______ test_block_major_equals_sequential[qwen3_moe-ssd-single-on-0.05] _______
+
+checkpoint = PosixPath('<path>')
+tmp_path = PosixPath('<path>')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7a1d3c134500>
+grouping = 'single', store = 'ssd', offload = 'on', dropout = 0.05
+
+    @pytest.mark.parametrize("dropout", [0.0, 0.05])
+    @pytest.mark.parametrize("offload", ["on", "off", "ram"])
+    @pytest.mark.parametrize("grouping", ["pow2", "single"])
+    @pytest.mark.parametrize("store", ["ram", "ssd"])
+    def test_block_major_equals_sequential(checkpoint, tmp_path, monkeypatch, grouping, store, offload,
+                                           dropout):
+        extra = {"moe_expert_grouping": grouping, "lora_dropout": dropout}
+        if store == "ssd":
+            extra.update(store="ssd", store_path=str(tmp_path / "sss"))
+        # sequential pinned: on CUDA block-major accumulation is the default
+        seq_l, seq_p, _ = _run(checkpoint, tmp_path / "seq", block_major_accumulation=False, **extra)
+        if offload == "on":  # the slabs reserved for a model this small round down to none
+            monkeypatch.setenv("POROS_BOUNDARY_PIN", "256M")
+        elif offload == "ram":  # a host that locks nothing: ordinary-RAM slabs
+            monkeypatch.setattr(pinning, "reserve", lambda n: False)
+        bm_l, bm_p, st = _run(checkpoint, tmp_path / "bm", block_major_accumulation=True,
+                              offload_boundaries=offload != "off", **extra)
+        if offload == "off":
+            assert st is None
+        else:
+            assert st["offloaded"] > 0 and st["kept_on_device"] == 0, st
+            assert offload != "ram" or (st["pageable_slabs"] > 0 and st["slabs"] == 0), st
+>       assert seq_l == bm_l
+E       assert [4.5715875625...5894603729248] == [4.5715875625...5890312194824]
+E         
+E         At index 1 diff: 4.565894603729248 != 4.565890312194824
+E         Use -v to get more diff
+
+tests/moe/test_block_major_families.py:118: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:2179 offload_boundaries after update 1: {'offloaded': 8, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 12800, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 15106048, 'refusals': 0}
+WARNING  poros.train.trainer:trainer.py:2409 block-major MoE expert dequant cache after update 1: hits 21422 misses 4680
+______ test_block_major_equals_sequential[qwen3_moe-ssd-single-off-0.05] _______
+
+checkpoint = PosixPath('<path>')
+tmp_path = PosixPath('<path>')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7a1c97af1130>
+grouping = 'single', store = 'ssd', offload = 'off', dropout = 0.05
+
+    @pytest.mark.parametrize("dropout", [0.0, 0.05])
+    @pytest.mark.parametrize("offload", ["on", "off", "ram"])
+    @pytest.mark.parametrize("grouping", ["pow2", "single"])
+    @pytest.mark.parametrize("store", ["ram", "ssd"])
+    def test_block_major_equals_sequential(checkpoint, tmp_path, monkeypatch, grouping, store, offload,
+                                           dropout):
+        extra = {"moe_expert_grouping": grouping, "lora_dropout": dropout}
+        if store == "ssd":
+            extra.update(store="ssd", store_path=str(tmp_path / "sss"))
+        # sequential pinned: on CUDA block-major accumulation is the default
+        seq_l, seq_p, _ = _run(checkpoint, tmp_path / "seq", block_major_accumulation=False, **extra)
+        if offload == "on":  # the slabs reserved for a model this small round down to none
+            monkeypatch.setenv("POROS_BOUNDARY_PIN", "256M")
+        elif offload == "ram":  # a host that locks nothing: ordinary-RAM slabs
+            monkeypatch.setattr(pinning, "reserve", lambda n: False)
+        bm_l, bm_p, st = _run(checkpoint, tmp_path / "bm", block_major_accumulation=True,
+                              offload_boundaries=offload != "off", **extra)
+        if offload == "off":
+            assert st is None
+        else:
+            assert st["offloaded"] > 0 and st["kept_on_device"] == 0, st
+            assert offload != "ram" or (st["pageable_slabs"] > 0 and st["slabs"] == 0), st
+>       assert seq_l == bm_l
+E       assert [4.5715875625...5894603729248] == [4.5715875625...5890312194824]
+E         
+E         At index 1 diff: 4.565894603729248 != 4.565890312194824
+E         Use -v to get more diff
+
+tests/moe/test_block_major_families.py:118: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:2409 block-major MoE expert dequant cache after update 1: hits 23632 misses 5160
+______ test_block_major_equals_sequential[qwen3_moe-ssd-single-ram-0.05] _______
+
+checkpoint = PosixPath('<path>')
+tmp_path = PosixPath('<path>')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7a1c97b52510>
+grouping = 'single', store = 'ssd', offload = 'ram', dropout = 0.05
+
+    @pytest.mark.parametrize("dropout", [0.0, 0.05])
+    @pytest.mark.parametrize("offload", ["on", "off", "ram"])
+    @pytest.mark.parametrize("grouping", ["pow2", "single"])
+    @pytest.mark.parametrize("store", ["ram", "ssd"])
+    def test_block_major_equals_sequential(checkpoint, tmp_path, monkeypatch, grouping, store, offload,
+                                           dropout):
+        extra = {"moe_expert_grouping": grouping, "lora_dropout": dropout}
+        if store == "ssd":
+            extra.update(store="ssd", store_path=str(tmp_path / "sss"))
+        # sequential pinned: on CUDA block-major accumulation is the default
+        seq_l, seq_p, _ = _run(checkpoint, tmp_path / "seq", block_major_accumulation=False, **extra)
+        if offload == "on":  # the slabs reserved for a model this small round down to none
+            monkeypatch.setenv("POROS_BOUNDARY_PIN", "256M")
+        elif offload == "ram":  # a host that locks nothing: ordinary-RAM slabs
+            monkeypatch.setattr(pinning, "reserve", lambda n: False)
+        bm_l, bm_p, st = _run(checkpoint, tmp_path / "bm", block_major_accumulation=True,
+                              offload_boundaries=offload != "off", **extra)
+        if offload == "off":
+            assert st is None
+        else:
+            assert st["offloaded"] > 0 and st["kept_on_device"] == 0, st
+            assert offload != "ram" or (st["pageable_slabs"] > 0 and st["slabs"] == 0), st
+>       assert seq_l == bm_l
+E       assert [4.5715875625...5894603729248] == [4.5715875625...5890312194824]
+E         
+E         At index 1 diff: 4.565894603729248 != 4.565890312194824
+E         Use -v to get more diff
+
+tests/moe/test_block_major_families.py:118: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  poros.sss.ssd:ssd.py:207 SSS ring left unpinned: this host's page-locked memory budget is exhausted; copies will be synchronous
+WARNING  poros.core.boundary_offload:boundary_offload.py:158 offload_boundaries: page-locked memory refused (pin budget); boundaries go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 28.57 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+WARNING  poros.train.trainer:trainer.py:2179 offload_boundaries after update 1: {'offloaded': 8, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 12800, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 18055168, 'refusals': 0}
+WARNING  poros.train.trainer:trainer.py:2409 block-major MoE expert dequant cache after update 1: hits 25842 misses 5640
+_ test_at_dropout_every_loop_block_size_and_residency_trains_the_same_update[qwen3_moe] _
+
+deep = PosixPath('<path>')
+tmp_path = PosixPath('<path>')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7a1c9c389370>
+
+    def test_at_dropout_every_loop_block_size_and_residency_trains_the_same_update(
+            deep, tmp_path, monkeypatch):
+        """The default dropout: the sequential loop (dense blocks of the engine's default size), the
+        sequential loop at block 1, block-major at dense blocks of 1, 2, 4 and 8 layers, and the
+        model fully resident: every step's loss and grad norm, every adapter tensor, and the CUDA
+        generator after, bit for bit."""
+        ref = _arm(deep, tmp_path / "seq", monkeypatch, block_major_accumulation=False)
+        _same(ref, _arm(deep, tmp_path / "seq1", monkeypatch, dense_block=1,
+                        block_major_accumulation=False))
+        for b in (1, 2, 4, 8):
+>           _same(ref, _arm(deep, tmp_path / f"bm{b}", monkeypatch, dense_block=b,
+                            block_major_accumulation=True))
+
+tests/moe/test_block_major_families.py:191: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+a = ([4.564350605010986, 4.563499450683594, 4.565834045410156], [3.457069396972656e-05, 3.0994415283203125e-05, 3.31401824...}, tensor([ 80, 168, 204, 151, 124, 205, 208,  39,   0,   0,   0,   0,   0,   0,
+          0,   0], dtype=torch.uint8))
+b = ([4.564350605010986, 4.563500881195068, 4.565830707550049], [3.457069396972656e-05, 3.0994415283203125e-05, 3.31401824...}, tensor([ 80, 168, 204, 151, 124, 205, 208,  39,   0,   0,   0,   0,   0,   0,
+          0,   0], dtype=torch.uint8))
+
+    def _same(a, b):
+>       assert a[0] == b[0] and a[1] == b[1]  # every step's loss and grad norm
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       assert ([4.5643506050...5834045410156] == [4.5643506050...5830707550049]
+E         
+E         At index 1 diff: 4.563499450683594 != 4.563500881195068
+E         Use -v to get more diff)
+
+tests/moe/test_block_major_families.py:174: AssertionError
+---------------------------- Captured stderr setup -----------------------------
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 79.21it/s]
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:2179 offload_boundaries after update 1: {'offloaded': 32, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 98304, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 288849920, 'refusals': 0}
+WARNING  poros.train.trainer:trainer.py:2409 block-major MoE expert dequant cache after update 1: hits 28644 misses 6168
+WARNING  poros.train.trainer:trainer.py:2427 block-major MoE: expert residency grown to 0 MiB after update 1
+_ test_at_dropout_a_resumed_run_is_the_uninterrupted_one[qwen3_moe-block-major] _
+
+deep = PosixPath('<path>')
+tmp_path = PosixPath('<path>')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7a1c9c3889b0>
+first = True, then = True
+
+    @pytest.mark.parametrize("first, then", [(True, True), (False, True), (True, False)],
+                             ids=["block-major", "sequential-then-block-major",
+                                  "block-major-then-sequential"])
+    def test_at_dropout_a_resumed_run_is_the_uninterrupted_one(deep, tmp_path, monkeypatch,
+                                                                first, then):
+        """Stopped after its first of three updates and resumed, on either loop: the uninterrupted
+        sequential run's later steps, adapter and CUDA generator. 20 rows are 10 micro-batches an
+        epoch: the second epoch, and its shuffle, starts inside the third update."""
+        from poros.core.errors import PorosCancelledError
+    
+        whole = _arm(deep, tmp_path / "whole", monkeypatch, block_major_accumulation=False)
+        part = PorosTrainer.from_pretrained(
+            str(deep), output_dir=str(tmp_path / "part"), save_steps=0, progress=False,
+            gradient_accumulation_steps=4, learning_rate=1e-3, warmup_steps=0,
+            block_major_accumulation=first, **AT_DROPOUT)
+        with pytest.raises(PorosCancelledError) as stopped:
+            part.train(_padded(), should_stop=lambda: part.global_step == 0)
+        resumed = PorosTrainer.from_pretrained(
+            str(deep), output_dir=str(tmp_path / "part"), save_steps=0, progress=False,
+            gradient_accumulation_steps=4, learning_rate=1e-3, warmup_steps=0,
+            block_major_accumulation=then, **AT_DROPOUT)
+        resumed.train(_padded(), resume_from=str(stopped.value.checkpoint))
+>       assert list(resumed._losses) == whole[0][1:] and list(resumed._grad_norms) == whole[1][1:]
+E       assert ([4.5635008811...5830707550049] == [4.5634994506...5834045410156]
+E         
+E         At index 0 diff: 4.563500881195068 != 4.563499450683594
+E         Use -v to get more diff)
+
+tests/moe/test_block_major_families.py:219: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:2179 offload_boundaries after update 1: {'offloaded': 32, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 98304, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 558858240, 'refusals': 0}
+WARNING  poros.train.trainer:trainer.py:2409 block-major MoE expert dequant cache after update 1: hits 35058 misses 7392
+WARNING  poros.train.trainer:trainer.py:2427 block-major MoE: expert residency grown to 0 MiB after update 1
+WARNING  poros.train.trainer:trainer.py:2179 offload_boundaries after update 1: {'offloaded': 32, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 110592, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 828080128, 'refusals': 0}
+WARNING  poros.train.trainer:trainer.py:2409 block-major MoE expert dequant cache after update 1: hits 37236 misses 7800
+WARNING  poros.train.trainer:trainer.py:2427 block-major MoE: expert residency grown to 0 MiB after update 1
+_ test_at_dropout_a_resumed_run_is_the_uninterrupted_one[qwen3_moe-sequential-then-block-major] _
+
+deep = PosixPath('<path>')
+tmp_path = PosixPath('<path>')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7a1c97b534a0>
+first = False, then = True
+
+    @pytest.mark.parametrize("first, then", [(True, True), (False, True), (True, False)],
+                             ids=["block-major", "sequential-then-block-major",
+                                  "block-major-then-sequential"])
+    def test_at_dropout_a_resumed_run_is_the_uninterrupted_one(deep, tmp_path, monkeypatch,
+                                                                first, then):
+        """Stopped after its first of three updates and resumed, on either loop: the uninterrupted
+        sequential run's later steps, adapter and CUDA generator. 20 rows are 10 micro-batches an
+        epoch: the second epoch, and its shuffle, starts inside the third update."""
+        from poros.core.errors import PorosCancelledError
+    
+        whole = _arm(deep, tmp_path / "whole", monkeypatch, block_major_accumulation=False)
+        part = PorosTrainer.from_pretrained(
+            str(deep), output_dir=str(tmp_path / "part"), save_steps=0, progress=False,
+            gradient_accumulation_steps=4, learning_rate=1e-3, warmup_steps=0,
+            block_major_accumulation=first, **AT_DROPOUT)
+        with pytest.raises(PorosCancelledError) as stopped:
+            part.train(_padded(), should_stop=lambda: part.global_step == 0)
+        resumed = PorosTrainer.from_pretrained(
+            str(deep), output_dir=str(tmp_path / "part"), save_steps=0, progress=False,
+            gradient_accumulation_steps=4, learning_rate=1e-3, warmup_steps=0,
+            block_major_accumulation=then, **AT_DROPOUT)
+        resumed.train(_padded(), resume_from=str(stopped.value.checkpoint))
+>       assert list(resumed._losses) == whole[0][1:] and list(resumed._grad_norms) == whole[1][1:]
+E       assert ([4.5635008811...5831661224365] == [4.5634994506...5834045410156]
+E         
+E         At index 0 diff: 4.563500881195068 != 4.563499450683594
+E         Use -v to get more diff)
+
+tests/moe/test_block_major_families.py:219: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:2179 offload_boundaries after update 1: {'offloaded': 32, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 110592, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 1098874880, 'refusals': 0}
+WARNING  poros.train.trainer:trainer.py:2409 block-major MoE expert dequant cache after update 1: hits 41526 misses 8616
+WARNING  poros.train.trainer:trainer.py:2427 block-major MoE: expert residency grown to 0 MiB after update 1
+_ test_at_dropout_a_resumed_run_is_the_uninterrupted_one[qwen3_moe-block-major-then-sequential] _
+
+deep = PosixPath('<path>')
+tmp_path = PosixPath('<path>')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7a1c9c389340>
+first = True, then = False
+
+    @pytest.mark.parametrize("first, then", [(True, True), (False, True), (True, False)],
+                             ids=["block-major", "sequential-then-block-major",
+                                  "block-major-then-sequential"])
+    def test_at_dropout_a_resumed_run_is_the_uninterrupted_one(deep, tmp_path, monkeypatch,
+                                                                first, then):
+        """Stopped after its first of three updates and resumed, on either loop: the uninterrupted
+        sequential run's later steps, adapter and CUDA generator. 20 rows are 10 micro-batches an
+        epoch: the second epoch, and its shuffle, starts inside the third update."""
+        from poros.core.errors import PorosCancelledError
+    
+        whole = _arm(deep, tmp_path / "whole", monkeypatch, block_major_accumulation=False)
+        part = PorosTrainer.from_pretrained(
+            str(deep), output_dir=str(tmp_path / "part"), save_steps=0, progress=False,
+            gradient_accumulation_steps=4, learning_rate=1e-3, warmup_steps=0,
+            block_major_accumulation=first, **AT_DROPOUT)
+        with pytest.raises(PorosCancelledError) as stopped:
+            part.train(_padded(), should_stop=lambda: part.global_step == 0)
+        resumed = PorosTrainer.from_pretrained(
+            str(deep), output_dir=str(tmp_path / "part"), save_steps=0, progress=False,
+            gradient_accumulation_steps=4, learning_rate=1e-3, warmup_steps=0,
+            block_major_accumulation=then, **AT_DROPOUT)
+        resumed.train(_padded(), resume_from=str(stopped.value.checkpoint))
+>       assert list(resumed._losses) == whole[0][1:] and list(resumed._grad_norms) == whole[1][1:]
+E       assert ([4.5634984970...5834045410156] == [4.5634994506...5834045410156]
+E         
+E         At index 0 diff: 4.563498497009277 != 4.563499450683594
+E         Use -v to get more diff)
+
+tests/moe/test_block_major_families.py:219: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:2179 offload_boundaries after update 1: {'offloaded': 32, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 98304, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 1368883200, 'refusals': 0}
+WARNING  poros.train.trainer:trainer.py:2409 block-major MoE expert dequant cache after update 1: hits 45762 misses 9432
+WARNING  poros.train.trainer:trainer.py:2427 block-major MoE: expert residency grown to 0 MiB after update 1
+==================================== PASSES ====================================
+________ test_block_major_equals_sequential[qwen3_moe-ram-pow2-on-0.0] _________
+---------------------------- Captured stderr setup -----------------------------
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 157.00it/s]
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:2179 offload_boundaries after update 1: {'offloaded': 8, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 12800, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 786432, 'refusals': 0}
+WARNING  poros.train.trainer:trainer.py:2409 block-major MoE expert dequant cache after update 1: hits 424 misses 120
+WARNING  poros.train.trainer:trainer.py:2427 block-major MoE: expert residency grown to 0 MiB after update 1
+________ test_block_major_equals_sequential[qwen3_moe-ram-pow2-off-0.0] ________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:2409 block-major MoE expert dequant cache after update 1: hits 2634 misses 600
+WARNING  poros.train.trainer:trainer.py:2427 block-major MoE: expert residency grown to 0 MiB after update 1
+________ test_block_major_equals_sequential[qwen3_moe-ram-pow2-ram-0.0] ________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.boundary_offload:boundary_offload.py:158 offload_boundaries: page-locked memory refused (pin budget); boundaries go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 28.46 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+WARNING  poros.train.trainer:trainer.py:2179 offload_boundaries after update 1: {'offloaded': 8, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 12800, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 3538944, 'refusals': 0}
+WARNING  poros.train.trainer:trainer.py:2409 block-major MoE expert dequant cache after update 1: hits 4844 misses 1080
+WARNING  poros.train.trainer:trainer.py:2427 block-major MoE: expert residency grown to 0 MiB after update 1
+_______ test_block_major_equals_sequential[qwen3_moe-ram-single-on-0.0] ________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:2179 offload_boundaries after update 1: {'offloaded': 8, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 12800, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 4718592, 'refusals': 0}
+WARNING  poros.train.trainer:trainer.py:2409 block-major MoE expert dequant cache after update 1: hits 7054 misses 1560
+WARNING  poros.train.trainer:trainer.py:2427 block-major MoE: expert residency grown to 0 MiB after update 1
+_______ test_block_major_equals_sequential[qwen3_moe-ram-single-off-0.0] _______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:2409 block-major MoE expert dequant cache after update 1: hits 9264 misses 2040
+WARNING  poros.train.trainer:trainer.py:2427 block-major MoE: expert residency grown to 0 MiB after update 1
+_______ test_block_major_equals_sequential[qwen3_moe-ram-single-ram-0.0] _______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.boundary_offload:boundary_offload.py:158 offload_boundaries: page-locked memory refused (pin budget); boundaries go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 28.46 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+WARNING  poros.train.trainer:trainer.py:2179 offload_boundaries after update 1: {'offloaded': 8, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 12800, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 7471104, 'refusals': 0}
+WARNING  poros.train.trainer:trainer.py:2409 block-major MoE expert dequant cache after update 1: hits 11474 misses 2520
+WARNING  poros.train.trainer:trainer.py:2427 block-major MoE: expert residency grown to 0 MiB after update 1
+________ test_block_major_equals_sequential[qwen3_moe-ssd-pow2-on-0.0] _________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:2179 offload_boundaries after update 1: {'offloaded': 8, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 12800, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 10289152, 'refusals': 0}
+WARNING  poros.train.trainer:trainer.py:2409 block-major MoE expert dequant cache after update 1: hits 13684 misses 3000
+________ test_block_major_equals_sequential[qwen3_moe-ssd-pow2-off-0.0] ________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:2409 block-major MoE expert dequant cache after update 1: hits 15894 misses 3480
+________ test_block_major_equals_sequential[qwen3_moe-ssd-pow2-ram-0.0] ________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.sss.ssd:ssd.py:207 SSS ring left unpinned: this host's page-locked memory budget is exhausted; copies will be synchronous
+WARNING  poros.core.boundary_offload:boundary_offload.py:158 offload_boundaries: page-locked memory refused (pin budget); boundaries go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 28.58 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+WARNING  poros.train.trainer:trainer.py:2179 offload_boundaries after update 1: {'offloaded': 8, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 12800, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 12288000, 'refusals': 0}
+WARNING  poros.train.trainer:trainer.py:2409 block-major MoE expert dequant cache after update 1: hits 18104 misses 3960
+_______ test_block_major_equals_sequential[qwen3_moe-ssd-single-on-0.0] ________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:2179 offload_boundaries after update 1: {'offloaded': 8, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 12800, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 13762560, 'refusals': 0}
+WARNING  poros.train.trainer:trainer.py:2409 block-major MoE expert dequant cache after update 1: hits 20314 misses 4440
+_______ test_block_major_equals_sequential[qwen3_moe-ssd-single-off-0.0] _______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:2409 block-major MoE expert dequant cache after update 1: hits 22524 misses 4920
+_______ test_block_major_equals_sequential[qwen3_moe-ssd-single-ram-0.0] _______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.sss.ssd:ssd.py:207 SSS ring left unpinned: this host's page-locked memory budget is exhausted; copies will be synchronous
+WARNING  poros.core.boundary_offload:boundary_offload.py:158 offload_boundaries: page-locked memory refused (pin budget); boundaries go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 28.57 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+WARNING  poros.train.trainer:trainer.py:2179 offload_boundaries after update 1: {'offloaded': 8, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 12800, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 17924096, 'refusals': 0}
+WARNING  poros.train.trainer:trainer.py:2409 block-major MoE expert dequant cache after update 1: hits 24734 misses 5400
+=========================== short test summary info ============================
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[qwen3_moe-ram-pow2-on-0.0]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[qwen3_moe-ram-pow2-off-0.0]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[qwen3_moe-ram-pow2-ram-0.0]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[qwen3_moe-ram-single-on-0.0]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[qwen3_moe-ram-single-off-0.0]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[qwen3_moe-ram-single-ram-0.0]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[qwen3_moe-ssd-pow2-on-0.0]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[qwen3_moe-ssd-pow2-off-0.0]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[qwen3_moe-ssd-pow2-ram-0.0]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[qwen3_moe-ssd-single-on-0.0]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[qwen3_moe-ssd-single-off-0.0]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[qwen3_moe-ssd-single-ram-0.0]
+FAILED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[qwen3_moe-ram-pow2-on-0.05]
+FAILED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[qwen3_moe-ram-pow2-off-0.05]
+FAILED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[qwen3_moe-ram-pow2-ram-0.05]
+FAILED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[qwen3_moe-ram-single-on-0.05]
+FAILED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[qwen3_moe-ram-single-off-0.05]
+FAILED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[qwen3_moe-ram-single-ram-0.05]
+FAILED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[qwen3_moe-ssd-pow2-on-0.05]
+FAILED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[qwen3_moe-ssd-pow2-off-0.05]
+FAILED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[qwen3_moe-ssd-pow2-ram-0.05]
+FAILED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[qwen3_moe-ssd-single-on-0.05]
+FAILED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[qwen3_moe-ssd-single-off-0.05]
+FAILED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[qwen3_moe-ssd-single-ram-0.05]
+FAILED tests/moe/test_block_major_families.py::test_at_dropout_every_loop_block_size_and_residency_trains_the_same_update[qwen3_moe]
+FAILED tests/moe/test_block_major_families.py::test_at_dropout_a_resumed_run_is_the_uninterrupted_one[qwen3_moe-block-major]
+FAILED tests/moe/test_block_major_families.py::test_at_dropout_a_resumed_run_is_the_uninterrupted_one[qwen3_moe-sequential-then-block-major]
+FAILED tests/moe/test_block_major_families.py::test_at_dropout_a_resumed_run_is_the_uninterrupted_one[qwen3_moe-block-major-then-sequential]
+16 failed, 12 passed, 140 deselected in 146.77s (0:02:26)

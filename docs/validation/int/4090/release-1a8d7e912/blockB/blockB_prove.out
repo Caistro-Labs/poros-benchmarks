@@ -1,0 +1,6 @@
+08:28:51 preflight: HEAD 1a8d7e912b166c373fcfec862ad7297221d33a71 clean; git <home>/poros_rel/tools/git/usr/bin/git (git version 2.43.0); poros from <home>/poros_rel/cert/src/poros/__init__.py
+08:28:51 === cert.sh prove
+08:28:52 fetching Qwen/Qwen2.5-7B (16G, hub@d1497293) for prove
+08:29:20 fetched Qwen/Qwen2.5-7B -> d149729398750b98c0af14eb82c78cfe92750796 pin ok (exit 0)
+08:32:30 PASS prove: rc=0 "identical":true 
+08:32:34 deleted the model cache (Qwen/Qwen2.5-7B ): <home>/poros_rel/hf_cert/hub removed

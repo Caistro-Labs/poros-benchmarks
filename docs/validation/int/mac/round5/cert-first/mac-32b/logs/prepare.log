@@ -1,0 +1,25 @@
+▛▜ poros v0.3.0 · Qwen/Qwen2.5-32B · Apple M4 10-core GPU 16GB
+
+● Checked cert-mac-32b-prepare  run 1118-2018-3b67
+  │ rank 16 · 128 tokens
+  │ SFT · answers only · lr 2e-5
+  │ output    cert/m4-16gb/.mac-32b-work/home/runs/1118-2018-3b67
+  │ weights   <disk>/poros-metal/hf
+
+● Loaded Qwen2.5-32B  3.8s
+  │ dense · 64 layers
+step 1/1  loss 6.8885  42.12 s/step  memory 2.9 GiB (peak 5.8)
+
+● Trained 1 steps · SFT  46s
+  │ final loss 6.8885
+  │
+  │ peak       ━━━━━━──────────  5.8 GiB of 16.0 GiB
+  │ speed      3 tok/s
+  │
+  │ adapter    cert/m4-16gb/.mac-32b-work/home/runs/1118-2018-3b67
+  │ receipt    cert/m4-16gb/.mac-32b-work/home/runs/1118-2018-3b67/receipt.json
+
+Continue with: poros export 1118-2018-3b67
+No rows were held out: `poros eval 1118-2018-3b67 --data FILE` scores a file of yours.
+Keep it as a recipe: poros recipes save last
+{"schema":"poros.train.v1","learned":null,"output_dir":"<home>/runs/1118-2018-3b67","events":"<home>/runs/1118-2018-3b67/events.jsonl","metrics":{"device":"mps","total_steps":1,"final_loss":6.888488292694092,"loss_history":[6.888488292694092],"grad_norm_history":[0.8959329724311829],"eval_history":[],"total_time_s":42.123581291001756,"step_time_history":[42.123581291001756],"vram_alloc_history_mb":[],"avg_vram_allocated_mb":0.0,"avg_step_time_ms":42123.581291001756,"steps_per_sec":0.023739671921333416,"tokens_processed":128,"tokens_per_sec":3.0386780059306773,"peak_vram_allocated_gb":6.147460816,"peak_vram_reserved_gb":0.0,"torch_num_threads":4,"quantization":"nf4","block_size":1,"adapter_backend":"peft","adapter_summary":{"backend":"peft","target_module_names":"all-linear","trainable_param_count":134217728,"total_param_count":135336960}},"run":"1118-2018-3b67","command":"poros train Qwen/Qwen2.5-32B --data <work>/sample-chats.jsonl --steps 1 --seq-len 128 --rank 16 --block-size 1 --name cert-mac-32b-prepare --recipe sft gradient_accumulation_steps=1 learning_rate=2e-5 lora_alpha=32 lora_dropout=0 per_device_batch_size=1 --download","next":[],"plan":null,"from":null,"support":null,"model_type":null}

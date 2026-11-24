@@ -1,0 +1,736 @@
+# Written from the Mac's runs, not by hand: do not edit.
+- id: mac-qwen1.5-moe-a2.7b-s128
+  receipt: docs/validation/metal/m4_16gb/receipts/qwen1.5-moe-a2.7b-s128/receipt.json
+  key:
+    model:
+      ptr: /model
+    quantization:
+      ptr: /config/quantization
+    seq_len:
+      ptr: /config/max_seq_length
+    block_size: null
+    batch: 1
+    grad_accum:
+      ptr: /config/gradient_accumulation_steps
+    lora_rank:
+      ptr: /config/lora_rank
+    lora_dropout: 0.0
+    load_strategy: metal_ssd
+    selfcheck: false
+    entry: moe
+    gpu:
+      ptr: /gpu/name
+  fields:
+    peak_vram_allocated:
+      ptr: /peak_vram_allocated_gb
+      unit: GB
+      method: 20 steps
+    gpu_visible:
+      ptr: /data/vram_reserved_mb
+      unit: MB
+      receipt: docs/validation/metal/m4_16gb/receipts/qwen1.5-moe-a2.7b-s128/events.jsonl
+      select:
+        event_type: step
+        step: 15
+      method: 20 steps
+    s_per_step:
+      ptr: /s_per_step
+      unit: s
+      method: 20 steps
+- id: mac-qwen2.5-0.5b-s256
+  receipt: docs/validation/metal/m4_16gb/receipts/qwen2.5-0.5b-s256/receipt.json
+  key:
+    model:
+      ptr: /model
+    quantization:
+      ptr: /config/quantization
+    seq_len:
+      ptr: /config/max_seq_length
+    block_size:
+      ptr: /config/block_size
+    batch: 1
+    grad_accum:
+      ptr: /config/gradient_accumulation_steps
+    lora_rank:
+      ptr: /config/lora_rank
+    lora_dropout: 0.0
+    load_strategy: metal_ram
+    selfcheck: false
+    entry: dense
+    gpu:
+      ptr: /gpu/name
+  fields:
+    peak_vram_allocated:
+      ptr: /peak_vram_allocated_gb
+      unit: GB
+      method: 20 steps
+    gpu_visible:
+      ptr: /data/vram_reserved_mb
+      unit: MB
+      receipt: docs/validation/metal/m4_16gb/receipts/qwen2.5-0.5b-s256/events.jsonl
+      select:
+        event_type: step
+        step: 1
+      method: 20 steps
+    s_per_step:
+      ptr: /s_per_step
+      unit: s
+      method: 20 steps
+- id: mac-qwen2.5-32b-s128
+  receipt: docs/validation/metal/m4_16gb/receipts/qwen2.5-32b-s128/receipt.json
+  key:
+    model:
+      ptr: /model
+    quantization:
+      ptr: /config/quantization
+    seq_len:
+      ptr: /config/max_seq_length
+    block_size:
+      ptr: /config/block_size
+    batch: 1
+    grad_accum:
+      ptr: /config/gradient_accumulation_steps
+    lora_rank:
+      ptr: /config/lora_rank
+    lora_dropout: 0.0
+    load_strategy: metal_ssd
+    selfcheck: false
+    entry: dense
+    gpu:
+      ptr: /gpu/name
+  fields:
+    peak_vram_allocated:
+      ptr: /peak_vram_allocated_gb
+      unit: GB
+      method: 8 steps
+    gpu_visible:
+      ptr: /data/vram_reserved_mb
+      unit: MB
+      receipt: docs/validation/metal/m4_16gb/receipts/qwen2.5-32b-s128/events.jsonl
+      select:
+        event_type: step
+        step: 1
+      method: 8 steps
+    s_per_step:
+      ptr: /s_per_step
+      unit: s
+      method: 8 steps
+- id: mac-qwen2.5-72b-s128
+  receipt: docs/validation/metal/m4_16gb/receipts/qwen2.5-72b-s128/receipt.json
+  key:
+    model:
+      ptr: /model
+    quantization:
+      ptr: /config/quantization
+    seq_len:
+      ptr: /config/max_seq_length
+    block_size:
+      ptr: /config/block_size
+    batch: 1
+    grad_accum:
+      ptr: /config/gradient_accumulation_steps
+    lora_rank:
+      ptr: /config/lora_rank
+    lora_dropout: 0.0
+    load_strategy: metal_ssd
+    selfcheck: false
+    entry: dense
+    gpu:
+      ptr: /gpu/name
+  fields:
+    peak_vram_allocated:
+      ptr: /peak_vram_allocated_gb
+      unit: GB
+      method: 6 steps
+    gpu_visible:
+      ptr: /data/vram_reserved_mb
+      unit: MB
+      receipt: docs/validation/metal/m4_16gb/receipts/qwen2.5-72b-s128/events.jsonl
+      select:
+        event_type: step
+        step: 1
+      method: 6 steps
+    s_per_step:
+      ptr: /s_per_step
+      unit: s
+      method: 6 steps
+- id: mac-qwen2.5-72b-s256
+  receipt: docs/validation/metal/m4_16gb/receipts/qwen2.5-72b-s256/receipt.json
+  key:
+    model:
+      ptr: /model
+    quantization:
+      ptr: /config/quantization
+    seq_len:
+      ptr: /config/max_seq_length
+    block_size:
+      ptr: /config/block_size
+    batch: 1
+    grad_accum:
+      ptr: /config/gradient_accumulation_steps
+    lora_rank:
+      ptr: /config/lora_rank
+    lora_dropout: 0.0
+    load_strategy: metal_ssd
+    selfcheck: false
+    entry: dense
+    gpu:
+      ptr: /gpu/name
+  fields:
+    peak_vram_allocated:
+      ptr: /peak_vram_allocated_gb
+      unit: GB
+      method: 4 steps
+    gpu_visible:
+      ptr: /data/vram_reserved_mb
+      unit: MB
+      receipt: docs/validation/metal/m4_16gb/receipts/qwen2.5-72b-s256/events.jsonl
+      select:
+        event_type: step
+        step: 2
+      method: 4 steps
+    s_per_step:
+      ptr: /s_per_step
+      unit: s
+      method: 4 steps
+- id: mac-qwen2.5-72b-s512-r8
+  receipt: docs/validation/metal/m4_16gb/receipts/qwen2.5-72b-s512-r8/receipt.json
+  key:
+    model:
+      ptr: /model
+    quantization:
+      ptr: /config/quantization
+    seq_len:
+      ptr: /config/max_seq_length
+    block_size:
+      ptr: /config/block_size
+    batch: 1
+    grad_accum:
+      ptr: /config/gradient_accumulation_steps
+    lora_rank:
+      ptr: /config/lora_rank
+    lora_dropout: 0.0
+    load_strategy: metal_ssd
+    selfcheck: false
+    entry: dense
+    gpu:
+      ptr: /gpu/name
+  fields:
+    peak_vram_allocated:
+      ptr: /peak_vram_allocated_gb
+      unit: GB
+      method: 4 steps
+    gpu_visible:
+      ptr: /data/vram_reserved_mb
+      unit: MB
+      receipt: docs/validation/metal/m4_16gb/receipts/qwen2.5-72b-s512-r8/events.jsonl
+      select:
+        event_type: step
+        step: 1
+      method: 4 steps
+    s_per_step:
+      ptr: /s_per_step
+      unit: s
+      method: 4 steps
+- id: mac-qwen2.5-7b-s256
+  receipt: docs/validation/metal/m4_16gb/receipts/qwen2.5-7b-s256/receipt.json
+  key:
+    model:
+      ptr: /model
+    quantization:
+      ptr: /config/quantization
+    seq_len:
+      ptr: /config/max_seq_length
+    block_size:
+      ptr: /config/block_size
+    batch: 1
+    grad_accum:
+      ptr: /config/gradient_accumulation_steps
+    lora_rank:
+      ptr: /config/lora_rank
+    lora_dropout: 0.0
+    load_strategy: metal_ssd
+    selfcheck: false
+    entry: dense
+    gpu:
+      ptr: /gpu/name
+  fields:
+    peak_vram_allocated:
+      ptr: /peak_vram_allocated_gb
+      unit: GB
+      method: 100 steps
+    gpu_visible:
+      ptr: /data/vram_reserved_mb
+      unit: MB
+      receipt: docs/validation/metal/m4_16gb/receipts/qwen2.5-7b-s256/events.jsonl
+      select:
+        event_type: step
+        step: 1
+      method: 100 steps
+    s_per_step:
+      ptr: /s_per_step
+      unit: s
+      method: 100 steps
+- id: mac-qwen3-0.6b-s256
+  receipt: docs/validation/metal/m4_16gb/receipts/qwen3-0.6b-s256/receipt.json
+  key:
+    model:
+      ptr: /model
+    quantization:
+      ptr: /config/quantization
+    seq_len:
+      ptr: /config/max_seq_length
+    block_size:
+      ptr: /config/block_size
+    batch: 1
+    grad_accum:
+      ptr: /config/gradient_accumulation_steps
+    lora_rank:
+      ptr: /config/lora_rank
+    lora_dropout: 0.0
+    load_strategy: metal_ram
+    selfcheck: false
+    entry: dense
+    gpu:
+      ptr: /gpu/name
+  fields:
+    peak_vram_allocated:
+      ptr: /peak_vram_allocated_gb
+      unit: GB
+      method: 20 steps
+    gpu_visible:
+      ptr: /data/vram_reserved_mb
+      unit: MB
+      receipt: docs/validation/metal/m4_16gb/receipts/qwen3-0.6b-s256/events.jsonl
+      select:
+        event_type: step
+        step: 1
+      method: 20 steps
+    s_per_step:
+      ptr: /s_per_step
+      unit: s
+      method: 20 steps
+- id: mac-qwen3-30b-a3b-instruct-2507-s128
+  receipt: docs/validation/metal/m4_16gb/receipts/qwen3-30b-a3b-instruct-2507-s128/receipt.json
+  key:
+    model:
+      ptr: /model
+    quantization:
+      ptr: /config/quantization
+    seq_len:
+      ptr: /config/max_seq_length
+    block_size: null
+    batch: 1
+    grad_accum:
+      ptr: /config/gradient_accumulation_steps
+    lora_rank:
+      ptr: /config/lora_rank
+    lora_dropout: 0.0
+    load_strategy: metal_ssd
+    selfcheck: false
+    entry: moe
+    gpu:
+      ptr: /gpu/name
+  fields:
+    peak_vram_allocated:
+      ptr: /peak_vram_allocated_gb
+      unit: GB
+      method: 20 steps
+    gpu_visible:
+      ptr: /data/vram_reserved_mb
+      unit: MB
+      receipt: docs/validation/metal/m4_16gb/receipts/qwen3-30b-a3b-instruct-2507-s128/events.jsonl
+      select:
+        event_type: step
+        step: 12
+      method: 20 steps
+    s_per_step:
+      ptr: /s_per_step
+      unit: s
+      method: 20 steps
+- id: mac-qwen3-32b-s128
+  receipt: docs/validation/metal/m4_16gb/receipts/qwen3-32b-s128/receipt.json
+  key:
+    model:
+      ptr: /model
+    quantization:
+      ptr: /config/quantization
+    seq_len:
+      ptr: /config/max_seq_length
+    block_size:
+      ptr: /config/block_size
+    batch: 1
+    grad_accum:
+      ptr: /config/gradient_accumulation_steps
+    lora_rank:
+      ptr: /config/lora_rank
+    lora_dropout: 0.0
+    load_strategy: metal_ssd
+    selfcheck: false
+    entry: dense
+    gpu:
+      ptr: /gpu/name
+  fields:
+    peak_vram_allocated:
+      ptr: /peak_vram_allocated_gb
+      unit: GB
+      method: 6 steps
+    gpu_visible:
+      ptr: /data/vram_reserved_mb
+      unit: MB
+      receipt: docs/validation/metal/m4_16gb/receipts/qwen3-32b-s128/events.jsonl
+      select:
+        event_type: step
+        step: 1
+      method: 6 steps
+    s_per_step:
+      ptr: /s_per_step
+      unit: s
+      method: 6 steps
+- id: mac-qwen3-coder-30b-a3b-instruct-s128
+  receipt: docs/validation/metal/m4_16gb/receipts/qwen3-coder-30b-a3b-instruct-s128/receipt.json
+  key:
+    model:
+      ptr: /model
+    quantization:
+      ptr: /config/quantization
+    seq_len:
+      ptr: /config/max_seq_length
+    block_size: null
+    batch: 1
+    grad_accum:
+      ptr: /config/gradient_accumulation_steps
+    lora_rank:
+      ptr: /config/lora_rank
+    lora_dropout: 0.0
+    load_strategy: metal_ssd
+    selfcheck: false
+    entry: moe
+    gpu:
+      ptr: /gpu/name
+  fields:
+    peak_vram_allocated:
+      ptr: /peak_vram_allocated_gb
+      unit: GB
+      method: 4 steps
+    gpu_visible:
+      ptr: /data/vram_reserved_mb
+      unit: MB
+      receipt: docs/validation/metal/m4_16gb/receipts/qwen3-coder-30b-a3b-instruct-s128/events.jsonl
+      select:
+        event_type: step
+        step: 3
+      method: 4 steps
+    s_per_step:
+      ptr: /s_per_step
+      unit: s
+      method: 4 steps
+- id: mac-qwen3.5-4b-s256
+  receipt: docs/validation/metal/m4_16gb/receipts/qwen3.5-4b-s256/receipt.json
+  key:
+    model:
+      ptr: /model
+    quantization:
+      ptr: /config/quantization
+    seq_len:
+      ptr: /config/max_seq_length
+    block_size:
+      ptr: /config/block_size
+    batch: 1
+    grad_accum:
+      ptr: /config/gradient_accumulation_steps
+    lora_rank:
+      ptr: /config/lora_rank
+    lora_dropout: 0.0
+    load_strategy: metal_ram
+    selfcheck: false
+    entry: dense
+    gpu:
+      ptr: /gpu/name
+  fields:
+    peak_vram_allocated:
+      ptr: /peak_vram_allocated_gb
+      unit: GB
+      method: 20 steps
+    gpu_visible:
+      ptr: /data/vram_reserved_mb
+      unit: MB
+      receipt: docs/validation/metal/m4_16gb/receipts/qwen3.5-4b-s256/events.jsonl
+      select:
+        event_type: step
+        step: 1
+      method: 20 steps
+    s_per_step:
+      ptr: /s_per_step
+      unit: s
+      method: 20 steps
+- id: mac-qwen3.8-27b-s128
+  receipt: docs/validation/metal/m4_16gb/receipts/qwen3.8-27b-s128/receipt.json
+  key:
+    model:
+      ptr: /model
+    quantization:
+      ptr: /config/quantization
+    seq_len:
+      ptr: /config/max_seq_length
+    block_size:
+      ptr: /config/block_size
+    batch: 1
+    grad_accum:
+      ptr: /config/gradient_accumulation_steps
+    lora_rank:
+      ptr: /config/lora_rank
+    lora_dropout: 0.0
+    load_strategy: metal_ssd
+    selfcheck: false
+    entry: dense
+    gpu:
+      ptr: /gpu/name
+  fields:
+    peak_vram_allocated:
+      ptr: /peak_vram_allocated_gb
+      unit: GB
+      method: 6 steps
+    gpu_visible:
+      ptr: /data/vram_reserved_mb
+      unit: MB
+      receipt: docs/validation/metal/m4_16gb/receipts/qwen3.8-27b-s128/events.jsonl
+      select:
+        event_type: step
+        step: 1
+      method: 6 steps
+    s_per_step:
+      ptr: /s_per_step
+      unit: s
+      method: 6 steps
+- id: mac-olmoe-1b-7b-0924-s128
+  receipt: docs/validation/metal/m4_16gb/receipts/olmoe-1b-7b-0924-s128/receipt.json
+  key:
+    model:
+      ptr: /model
+    quantization:
+      ptr: /config/quantization
+    seq_len:
+      ptr: /config/max_seq_length
+    block_size: null
+    batch: 1
+    grad_accum:
+      ptr: /config/gradient_accumulation_steps
+    lora_rank:
+      ptr: /config/lora_rank
+    lora_dropout: 0.0
+    load_strategy: metal_ssd
+    selfcheck: false
+    entry: moe
+    gpu:
+      ptr: /gpu/name
+  fields:
+    peak_vram_allocated:
+      ptr: /peak_vram_allocated_gb
+      unit: GB
+      method: 20 steps
+    gpu_visible:
+      ptr: /data/vram_reserved_mb
+      unit: MB
+      receipt: docs/validation/metal/m4_16gb/receipts/olmoe-1b-7b-0924-s128/events.jsonl
+      select:
+        event_type: step
+        step: 16
+      method: 20 steps
+    s_per_step:
+      ptr: /s_per_step
+      unit: s
+      method: 20 steps
+- id: mac-deepseek-v2-lite-s128
+  receipt: docs/validation/metal/m4_16gb/receipts/deepseek-v2-lite-s128/receipt.json
+  key:
+    model:
+      ptr: /model
+    quantization:
+      ptr: /config/quantization
+    seq_len:
+      ptr: /config/max_seq_length
+    block_size: null
+    batch: 1
+    grad_accum:
+      ptr: /config/gradient_accumulation_steps
+    lora_rank:
+      ptr: /config/lora_rank
+    lora_dropout: 0.0
+    load_strategy: metal_ssd
+    selfcheck: false
+    entry: moe
+    gpu:
+      ptr: /gpu/name
+  fields:
+    peak_vram_allocated:
+      ptr: /peak_vram_allocated_gb
+      unit: GB
+      method: 20 steps
+    gpu_visible:
+      ptr: /data/vram_reserved_mb
+      unit: MB
+      receipt: docs/validation/metal/m4_16gb/receipts/deepseek-v2-lite-s128/events.jsonl
+      select:
+        event_type: step
+        step: 16
+      method: 20 steps
+    s_per_step:
+      ptr: /s_per_step
+      unit: s
+      method: 20 steps
+- id: mac-gemma-3-1b-pt-s256
+  receipt: docs/validation/metal/m4_16gb/receipts/gemma-3-1b-pt-s256/receipt.json
+  key:
+    model:
+      ptr: /model
+    quantization:
+      ptr: /config/quantization
+    seq_len:
+      ptr: /config/max_seq_length
+    block_size:
+      ptr: /config/block_size
+    batch: 1
+    grad_accum:
+      ptr: /config/gradient_accumulation_steps
+    lora_rank:
+      ptr: /config/lora_rank
+    lora_dropout: 0.0
+    load_strategy: metal_ram
+    selfcheck: false
+    entry: dense
+    gpu:
+      ptr: /gpu/name
+  fields:
+    peak_vram_allocated:
+      ptr: /peak_vram_allocated_gb
+      unit: GB
+      method: 20 steps
+    gpu_visible:
+      ptr: /data/vram_reserved_mb
+      unit: MB
+      receipt: docs/validation/metal/m4_16gb/receipts/gemma-3-1b-pt-s256/events.jsonl
+      select:
+        event_type: step
+        step: 1
+      method: 20 steps
+    s_per_step:
+      ptr: /s_per_step
+      unit: s
+      method: 20 steps
+- id: mac-gemma-3-27b-pt-s128
+  receipt: docs/validation/metal/m4_16gb/receipts/gemma-3-27b-pt-s128/receipt.json
+  key:
+    model:
+      ptr: /model
+    quantization:
+      ptr: /config/quantization
+    seq_len:
+      ptr: /config/max_seq_length
+    block_size:
+      ptr: /config/block_size
+    batch: 1
+    grad_accum:
+      ptr: /config/gradient_accumulation_steps
+    lora_rank:
+      ptr: /config/lora_rank
+    lora_dropout: 0.0
+    load_strategy: metal_ssd
+    selfcheck: false
+    entry: dense
+    gpu:
+      ptr: /gpu/name
+  fields:
+    peak_vram_allocated:
+      ptr: /peak_vram_allocated_gb
+      unit: GB
+      method: 6 steps
+    gpu_visible:
+      ptr: /data/vram_reserved_mb
+      unit: MB
+      receipt: docs/validation/metal/m4_16gb/receipts/gemma-3-27b-pt-s128/events.jsonl
+      select:
+        event_type: step
+        step: 1
+      method: 6 steps
+    s_per_step:
+      ptr: /s_per_step
+      unit: s
+      method: 6 steps
+- id: mac-gemma-4-26b-a4b-it-s128
+  receipt: docs/validation/metal/m4_16gb/receipts/gemma-4-26b-a4b-it-s128/receipt.json
+  key:
+    model:
+      ptr: /model
+    quantization:
+      ptr: /config/quantization
+    seq_len:
+      ptr: /config/max_seq_length
+    block_size: null
+    batch: 1
+    grad_accum:
+      ptr: /config/gradient_accumulation_steps
+    lora_rank:
+      ptr: /config/lora_rank
+    lora_dropout: 0.0
+    load_strategy: metal_ssd
+    selfcheck: false
+    entry: moe
+    gpu:
+      ptr: /gpu/name
+  fields:
+    peak_vram_allocated:
+      ptr: /peak_vram_allocated_gb
+      unit: GB
+      method: 6 steps
+    gpu_visible:
+      ptr: /data/vram_reserved_mb
+      unit: MB
+      receipt: docs/validation/metal/m4_16gb/receipts/gemma-4-26b-a4b-it-s128/events.jsonl
+      select:
+        event_type: step
+        step: 4
+      method: 6 steps
+    s_per_step:
+      ptr: /s_per_step
+      unit: s
+      method: 6 steps
+- id: mac-gemma-4-31b-it-s128
+  receipt: docs/validation/metal/m4_16gb/receipts/gemma-4-31b-it-s128/receipt.json
+  key:
+    model:
+      ptr: /model
+    quantization:
+      ptr: /config/quantization
+    seq_len:
+      ptr: /config/max_seq_length
+    block_size:
+      ptr: /config/block_size
+    batch: 1
+    grad_accum:
+      ptr: /config/gradient_accumulation_steps
+    lora_rank:
+      ptr: /config/lora_rank
+    lora_dropout: 0.0
+    load_strategy: metal_ssd
+    selfcheck: false
+    entry: dense
+    gpu:
+      ptr: /gpu/name
+  fields:
+    peak_vram_allocated:
+      ptr: /peak_vram_allocated_gb
+      unit: GB
+      method: 6 steps
+    gpu_visible:
+      ptr: /data/vram_reserved_mb
+      unit: MB
+      receipt: docs/validation/metal/m4_16gb/receipts/gemma-4-31b-it-s128/events.jsonl
+      select:
+        event_type: step
+        step: 5
+      method: 6 steps
+    s_per_step:
+      ptr: /s_per_step
+      unit: s
+      method: 6 steps

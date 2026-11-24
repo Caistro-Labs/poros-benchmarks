@@ -1,0 +1,39 @@
+▛▜ poros v0.3.0 · Qwen/Qwen2.5-7B · RTX 4090 23.5 GiB
+
+● Checked m7_eff_b1_2k.yaml  config
+  │ nf4 · block 1 · rank 16 · seq 2048 · efficient path
+  │ classic · every token · lr 2e-5
+  │ output    runs/m7_eff_b1_2k
+
+Block-streamed NF4 load unavailable for this model/environment (The cached snapshot for 'Qwen/Qwen2.5-7B' (revision 'main', commit d149729398750b98c0af14eb82c78cfe92750796) is incomplete: 1 file(s) are missing (LICENSE). The Hub could not be reached (OfflineModeIsEnabled: Cannot reach https://huggingface.co/api/models/Qwen/Qwen2.5-7B/revision/main: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.). Re-run the download with network access to complete the snapshot.); using the standard loader.
+● Loaded Qwen2.5-7B  30s
+  │ dense · 28 layers · 28 blocks
+offload_boundaries after update 1: {'offloaded': 216, 'kept_on_device': 0, 'slabs': 24, 'slab_bytes': 6442450944, 'bytes_down': 6341787648, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 9797894144, 'refusals': 0}
+step 1/6  loss 12.2437  22.34 s/step  vram 4.7 GiB (peak 9.6)  eta 1m 52s
+step 4/6  loss 12.1976  13.98 s/step  vram 4.7 GiB (peak 9.9)  eta 32s
+<path> UserWarning: Could not find a config file in Qwen/Qwen2.5-7B - will assume that the vocabulary was not modified.
+  warnings.warn(
+
+  ╭─ Trained ─────────────────────────────────────────────────────── 6 steps · classic · 1m 34s ─╮
+  │                                                                      final loss              │
+  │                                                                      12.1446  ↓ 1%           │
+  │ 12.25 ▁                                                               from 12.2437           │
+  │      █▆▄▁                                                                                    │
+  │      ████▇▄▁                                                         vram 9.9 GiB peak       │
+  │ 12.20 ███████▇▄▂                                                      ram  18.1 GiB peak     │
+  │      ██████████▇▄▂▂▂▂▃▃▄▄▅▅▅▆▆▆▆▆▅▅▅▄▄▄▄▃▃▃▂▂▂▁▁▁                                            │
+  │      ███████████████████████████████████████████████▇▇▇▅▄▃▂▁                                 │
+  │ 12.15 ████████████████████████████████████████████████████████▇▆▅▄▂▁                         │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                                    3                       6                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      1,067 tok/s
+  │
+  │ adapter    runs/m7_eff_b1_2k
+  │ receipt    runs/m7_eff_b1_2k/receipt.json
+
+Continue with:
+  poros eval \
+    <path>
+{"schema":"poros.train.v1","learned":null,"output_dir":"runs/m7_eff_b1_2k","events":"runs/m7_eff_b1_2k/events.jsonl","metrics":{"device":"cuda:0","total_steps":6,"final_loss":12.144583702087402,"loss_history":[12.243659019470215,12.177459716796875,12.188373565673828,12.180870056152344,12.17237663269043,12.144583702087402],"grad_norm_history":[1.2166436910629272,1.1786808967590332,1.158843755722046,1.1833940744400024,1.1853134632110596,1.1834453344345093],"eval_history":[],"total_time_s":92.1687725102529,"step_time_history":[22.337259938009083,13.952908346429467,13.965374956838787,13.975021389313042,13.974193603731692,13.964014275930822],"vram_alloc_history_mb":[5036.050944,5036.050944,5036.050944,5036.050944,5036.050944,5036.050944],"avg_vram_allocated_mb":5036.050944,"avg_step_time_ms":15361.462085042149,"steps_per_sec":0.06509797013226533,"tokens_processed":98304,"tokens_per_sec":1066.5651426470351,"peak_vram_allocated_gb":10.651027456,"peak_vram_reserved_gb":15.00512256,"torch_num_threads":16,"quantization":"nf4","block_size":1,"adapter_backend":"peft","adapter_summary":{"backend":"peft","target_module_names":"all-linear","trainable_param_count":40370176,"total_param_count":4393342464}},"run":null,"command":null,"next":[],"plan":null,"from":null,"support":null,"model_type":null}

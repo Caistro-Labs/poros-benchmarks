@@ -1,0 +1,2 @@
+COMPARE {"pass": false, "losses_equal": false, "grad_norms_equal": false, "adapter_tensors": 16, "adapter_unequal_n": 0, "ref_digest": "84136fdf085300e84c782b7018f5e0ef93d9a963223941046a17f70c2f92f578", "cand_digest": "84136fdf085300e84c782b7018f5e0ef93d9a963223941046a17f70c2f92f578"}
+RESUME {"pass": true, "resumed_steps": [5, 6, 7], "steps_equal": true, "adapter_tensors": 16, "adapter_unequal_n": 0, "full_digest": "84136fdf085300e84c782b7018f5e0ef93d9a963223941046a17f70c2f92f578", "resumed_digest": "84136fdf085300e84c782b7018f5e0ef93d9a963223941046a17f70c2f92f578"}

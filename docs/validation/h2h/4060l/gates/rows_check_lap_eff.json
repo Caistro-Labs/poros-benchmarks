@@ -1,0 +1,11 @@
+{
+ "rows_pt": "~/poros-run/run/data/rows_real128_s256.pt",
+ "rows_pt_sha256": "f2627e3f182313debf060549bfd9a1623badbc44e8e800156c2431f36fc370b2",
+ "poros_fed_rows": 128,
+ "poros_fed_seq": 256,
+ "poros_fed_sha256": "f2627e3f182313debf060549bfd9a1623badbc44e8e800156c2431f36fc370b2",
+ "rows_pt_first_n_sha256": "f2627e3f182313debf060549bfd9a1623badbc44e8e800156c2431f36fc370b2",
+ "poros_full_rows": true,
+ "unsloth": {},
+ "pass": true
+}

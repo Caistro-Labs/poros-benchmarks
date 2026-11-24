@@ -1,0 +1,160 @@
+{
+ "harness": "h2h_u6",
+ "tool": "unsloth",
+ "args": {
+  "model": "Qwen/Qwen3-30B-A3B",
+  "rows": "<path>",
+  "updates": 8,
+  "mb": 8,
+  "ga": 1,
+  "seq_len": 512,
+  "offload_layers": "auto",
+  "gc": "unsloth",
+  "deterministic": true,
+  "lr": 2e-05,
+  "wd": 0.01,
+  "clip": 1.0,
+  "seed": 42,
+  "sweep_mb": "",
+  "local_snapshot": true,
+  "profile_update": -1,
+  "profile_out": "",
+  "targets": "q_proj,k_proj,v_proj,o_proj,gate_proj,up_proj,down_proj",
+  "time_limit_s": 5400,
+  "out": "<path>"
+ },
+ "stage": "done",
+ "epoch_start": 1794568317.2318807,
+ "update_s": [
+  16.9146,
+  1.6993,
+  1.6989,
+  1.7041,
+  1.7014,
+  1.7011,
+  1.6783,
+  1.6962
+ ],
+ "microstep_s": [
+  [
+   16.5655
+  ],
+  [
+   1.6254
+  ],
+  [
+   1.6248
+  ],
+  [
+   1.63
+  ],
+  [
+   1.6272
+  ],
+  [
+   1.627
+  ],
+  [
+   1.6044
+  ],
+  [
+   1.6222
+  ]
+ ],
+ "loss": [
+  [
+   1.3173556327819824
+  ],
+  [
+   1.590098261833191
+  ],
+  [
+   1.1976350545883179
+  ],
+  [
+   1.1050564050674438
+  ],
+  [
+   0.9341303110122681
+  ],
+  [
+   1.3544679880142212
+  ],
+  [
+   1.7434072494506836
+  ],
+  [
+   1.2844257354736328
+  ]
+ ],
+ "grad_norm": [
+  0.5014482736587524,
+  0.5881974697113037,
+  0.44953033328056335,
+  0.536371648311615,
+  0.44392675161361694,
+  0.5163750052452087,
+  0.6810020804405212,
+  0.434945285320282
+ ],
+ "tokens": [
+  4096,
+  4096,
+  4096,
+  4096,
+  4096,
+  4096,
+  4096,
+  4096
+ ],
+ "update_end_epoch": [
+  1794568465.9088206,
+  1794568467.6090705,
+  1794568469.308522,
+  1794568471.0132318,
+  1794568472.7152762,
+  1794568474.4169824,
+  1794568476.09592,
+  1794568477.7927873
+ ],
+ "versions": {
+  "unsloth": "2026.11.4",
+  "unsloth_zoo": "2026.11.4",
+  "torch": "2.14.1",
+  "transformers": "5.17.0",
+  "peft": "0.21.2",
+  "bitsandbytes": "0.50.2",
+  "accelerate": "1.15.0",
+  "torch_cuda": "13.0"
+ },
+ "local_snapshot_of": "Qwen/Qwen3-30B-A3B",
+ "local_snapshot_revision": "ad44e777bcd18fa416d9da3bd8f70d33ebb85d39",
+ "load_source": "<path>",
+ "load_model_s": 124.48,
+ "load_s": 131.69,
+ "after_load_allocated_gib": 10.16,
+ "after_load_reserved_gib": 10.318,
+ "load_peak_allocated_gib": 10.168,
+ "load_peak_reserved_gib": 10.393,
+ "after_load_smi_mib": 11106,
+ "model_source": "<path>",
+ "rows_sha256": "d124049063f1b5a14a2dccc0d539d93dc918fc20b00f70c587851152829bc29c",
+ "trainable_params": 642514944,
+ "trainable_dtypes": [
+  "torch.float32"
+ ],
+ "epoch_train_start": 1794568448.9889064,
+ "peak_allocated_gib_update1": 19.783,
+ "peak_reserved_gib_update1": 20.26,
+ "peak_allocated_gib_updates2plus": 19.797,
+ "peak_reserved_gib_updates2plus": 20.361,
+ "peak_allocated_gib_train": 19.797,
+ "peak_reserved_gib_train": 20.361,
+ "adapter_digest_fp32": "17965b63f08875573e2120bdfdbbe3ad428e753762e27e0d76176700669cbc41",
+ "wall_s": 163.92,
+ "host_maxrss_gib": 58.775,
+ "peak_allocated_gib_last_window": 19.797,
+ "peak_reserved_gib_last_window": 20.361,
+ "card_gib": 23.516,
+ "nvidia_smi_used_mib_end": 21426
+}

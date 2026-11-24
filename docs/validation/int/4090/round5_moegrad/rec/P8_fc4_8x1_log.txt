@@ -1,0 +1,28 @@
+▛▜ poros v0.3.0 · Qwen/Qwen3-30B-A3B · RTX 4090 23.5 GiB
+
+● Checked P8_fc4_8x1.yaml  config
+  │ nf4 · block 4 · rank 16 · seq 512 · fast path
+  │ classic · every token · lr 2e-5
+  │ output    runs/P8_fc4_8x1
+  │ store     ssd <path>
+
+● Loaded Qwen3-30B-A3B  14s
+  │ MoE · 48 layers · 128 experts
+Map:   0%|          | 0/64 [00:00<?, ? examples/s]Map: 100%|██████████| 64/64 [00:00<00:00, 1323.72 examples/s]
+Filter:   0%|          | 0/64 [00:00<?, ? examples/s]Filter: 100%|██████████| 64/64 [00:00<00:00, 17954.35 examples/s]
+block-major MoE expert dequant cache after update 1: hits 0 misses 0
+step 1/8  loss 1.3175  14.23 s/step  vram 5.1 GiB (peak 7.4)  eta 1m 40s
+MoE expert cache 10.94 GiB, sized on an update at the full shape (fits this GPU: 22.97 GiB this process may hold - 7.72 GiB reserved peak - 4.59 GiB margin)
+
+● Trained 8 steps · classic  42s
+  │ final loss 1.3153
+  │
+  │ peak vram  ━━━━━━━━━━━━────  18.0 GiB of 24 GiB
+  │ peak ram   ━━━─────────────  11.6 GiB of 60 GiB
+  │ speed      1,125 tok/s
+  │
+  │ adapter    runs/P8_fc4_8x1
+  │ receipt    runs/P8_fc4_8x1/receipt.json
+
+Continue with: poros eval <path>
+{"schema":"poros.train.v1","learned":null,"output_dir":"<path>","events":"<path>","metrics":{"device":"cuda:0","total_steps":8,"final_loss":1.2848973274230957,"loss_history":[1.3175381422042847,1.596143126487732,1.195872187614441,1.1005715131759644,0.9257932305335999,1.3483525514602661,1.7532509565353394,1.2848973274230957],"grad_norm_history":[0.453125,0.55859375,0.408203125,0.4921875,0.423828125,0.625,0.5703125,0.41796875],"eval_history":[],"total_time_s":29.132184740155935,"step_time_history":[14.234332310035825,5.856441542506218,1.7287909276783466,1.4863002430647612,1.4858547896146774,1.4474357347935438,1.4436306338757277,1.4493985585868359],"vram_alloc_history_mb":[5423.980032,16633.396224,16633.393664,16633.393664,16640.697344,16640.697344,16640.697344,16640.697344],"avg_vram_allocated_mb":15235.86912,"avg_step_time_ms":3641.523092519492,"steps_per_sec":0.2746103689563922,"tokens_processed":32768,"tokens_per_sec":1124.8040712453824,"peak_vram_allocated_gb":19.325579776,"peak_vram_reserved_gb":21.544042496,"torch_num_threads":16,"quantization":"nf4","block_size":null,"adapter_backend":"native","adapter_summary":null},"run":null,"command":null,"next":[],"plan":null,"from":null,"support":null,"model_type":null}

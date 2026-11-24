@@ -1,0 +1,5 @@
+05:47:16 preflight: HEAD 1a8d7e912b166c373fcfec862ad7297221d33a71 clean; git <home>/poros_rel/tools/git/usr/bin/git (git version 2.43.0); poros from <home>/poros_rel/cert/src/poros/__init__.py
+05:47:16 === cert.sh family
+05:47:16 family gate start
+07:03:27 family gate rc=1 86 PASS 7 FAIL 0 SKIP
+07:03:33 deleted the model cache (): <home>/poros_rel/hf_cert/hub removed

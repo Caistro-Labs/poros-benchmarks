@@ -1,0 +1,28 @@
+▛▜ poros v0.3.0 · Qwen/Qwen3-30B-A3B · RTX 4090 23.5 GiB
+
+● Checked fc4_128.yaml  config
+  │ nf4 · block 4 · rank 16 · seq 512 · fast path
+  │ classic · every token · lr 2e-5
+  │ output    runs/fc4_128
+  │ store     ssd <path>
+
+● Loaded Qwen3-30B-A3B  13s
+  │ MoE · 48 layers · 128 experts
+Map:   0%|          | 0/128 [00:00<?, ? examples/s]Map: 100%|██████████| 128/128 [00:00<00:00, 1837.18 examples/s]
+Filter:   0%|          | 0/128 [00:00<?, ? examples/s]Filter: 100%|██████████| 128/128 [00:00<00:00, 24493.40 examples/s]
+block-major MoE expert dequant cache after update 1: hits 0 misses 0
+step 1/16  loss 1.1865  13.66 s/step  vram 5.1 GiB (peak 7.4)  eta 3m 25s
+MoE expert cache 10.94 GiB, sized on an update at the full shape (fits this GPU: 22.97 GiB this process may hold - 7.72 GiB reserved peak - 4.59 GiB margin)
+
+● Trained 16 steps · classic  55s
+  │ final loss 1.2506
+  │
+  │ peak vram  ━━━━━━━━━━━━────  18.2 GiB of 24 GiB
+  │ peak ram   ━━━─────────────  11.7 GiB of 60 GiB
+  │ speed      1,576 tok/s
+  │
+  │ adapter    runs/fc4_128
+  │ receipt    runs/fc4_128/receipt.json
+
+Continue with: poros eval <path>
+{"schema":"poros.train.v1","learned":null,"output_dir":"<path>","events":"<path>","metrics":{"device":"cuda:0","total_steps":16,"final_loss":1.11405348777771,"loss_history":[1.1864757537841797,1.4632707834243774,1.3083125352859497,0.9720804691314697,1.2753301858901978,1.3658024072647095,1.3977586030960083,1.6233028173446655,1.2750951051712036,0.9164418578147888,1.1406452655792236,1.0541664361953735,1.1708228588104248,1.3062498569488525,1.4393471479415894,1.11405348777771],"grad_norm_history":[1.125,0.49609375,0.482421875,0.443359375,0.55078125,0.5,0.43359375,0.52734375,0.53515625,0.55859375,0.5,0.53125,0.5546875,0.46484375,0.4296875,0.40625],"eval_history":[],"total_time_s":41.585512556135654,"step_time_history":[13.656560288742185,6.123442966490984,2.2590286657214165,1.8732549156993628,1.6841234769672155,1.454951724037528,1.4438060875982046,1.474369453266263,1.4715036172419786,1.4487810488790274,1.4537664912641048,1.4343749731779099,1.4414615891873837,1.467325234785676,1.4551836363971233,1.4435783866792917],"vram_alloc_history_mb":[5423.980032,16604.261888,16623.737856,16633.47712,16635.908096,16635.908096,16635.908096,16635.908096,16640.777216,16640.777216,16640.777216,16640.777216,16640.777216,16640.777216,16640.777216,16640.777216],"avg_vram_allocated_mb":15934.706687999998,"avg_step_time_ms":2599.0945347584784,"steps_per_sec":0.3847493758409697,"tokens_processed":65536,"tokens_per_sec":1575.9334434446118,"peak_vram_allocated_gb":19.535642112,"peak_vram_reserved_gb":21.732786176,"torch_num_threads":16,"quantization":"nf4","block_size":null,"adapter_backend":"native","adapter_summary":null},"run":null,"command":null,"next":[],"plan":null,"from":null,"support":null,"model_type":null}

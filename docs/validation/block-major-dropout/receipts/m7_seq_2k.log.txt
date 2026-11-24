@@ -1,0 +1,39 @@
+▛▜ poros v0.3.0 · Qwen/Qwen2.5-7B · RTX 4090 23.5 GiB
+
+● Checked m7_seq_2k.yaml  config
+  │ nf4 · block 4 · rank 16 · seq 2048
+  │ classic · every token · lr 2e-5
+  │ output    runs/m7_seq_2k
+
+Block-streamed NF4 load unavailable for this model/environment (The cached snapshot for 'Qwen/Qwen2.5-7B' (revision 'main', commit d149729398750b98c0af14eb82c78cfe92750796) is incomplete: 1 file(s) are missing (LICENSE). The Hub could not be reached (OfflineModeIsEnabled: Cannot reach https://huggingface.co/api/models/Qwen/Qwen2.5-7B/revision/main: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.). Re-run the download with network access to complete the snapshot.); using the standard loader.
+● Loaded Qwen2.5-7B  36s
+  │ dense · 28 layers · 7 blocks
+step 1/6  loss 12.2437  18.91 s/step  vram 4.9 GiB (peak 8.7)  eta 1m 35s
+step 3/6  loss 12.2032  18.29 s/step  vram 4.9 GiB (peak 9.0)  eta 55s
+step 5/6  loss 12.1925  18.34 s/step  vram 4.9 GiB (peak 9.0)  eta 18s
+<path> UserWarning: Could not find a config file in Qwen/Qwen2.5-7B - will assume that the vocabulary was not modified.
+  warnings.warn(
+
+  ╭─ Trained ─────────────────────────────────────────────────────── 6 steps · classic · 1m 52s ─╮
+  │                                                                      final loss              │
+  │                                                                      12.1446  ↓ 1%           │
+  │ 12.25 ▁                                                               from 12.2437           │
+  │      █▆▄▁                                                                                    │
+  │      ████▇▄▁                                                         vram 9.0 GiB peak       │
+  │ 12.20 ███████▇▄▂                                                      ram  15.1 GiB peak     │
+  │      ██████████▇▄▂▂▂▂▃▃▄▄▅▅▅▆▆▆▆▆▅▅▅▄▄▄▄▃▃▃▂▂▂▁▁▁                                            │
+  │      ███████████████████████████████████████████████▇▇▇▅▄▃▂▁                                 │
+  │ 12.15 ████████████████████████████████████████████████████████▇▆▅▄▂▁                         │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                                    3                       6                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      890 tok/s
+  │
+  │ adapter    runs/m7_seq_2k
+  │ receipt    runs/m7_seq_2k/receipt.json
+
+Continue with:
+  poros eval \
+    <path>
+{"schema":"poros.train.v1","learned":null,"output_dir":"runs/m7_seq_2k","events":"runs/m7_seq_2k/events.jsonl","metrics":{"device":"cuda:0","total_steps":6,"final_loss":12.144583702087402,"loss_history":[12.243659019470215,12.177459716796875,12.188373565673828,12.180870056152344,12.17237663269043,12.144583702087402],"grad_norm_history":[1.2166436910629272,1.1786808967590332,1.158843755722046,1.1833940744400024,1.1853134632110596,1.1834453344345093],"eval_history":[],"total_time_s":110.50534524209797,"step_time_history":[18.90842625591904,18.250198859721422,18.292087270878255,18.344045273959637,18.338079068809748,18.372508512809873],"vram_alloc_history_mb":[5270.832128,5270.832128,5270.832128,5270.832128,5270.832128,5270.832128],"avg_vram_allocated_mb":5270.832128,"avg_step_time_ms":18417.557540349662,"steps_per_sec":0.054296016060173785,"tokens_processed":98304,"tokens_per_sec":889.5859271298873,"peak_vram_allocated_gb":9.651208192,"peak_vram_reserved_gb":14.306770944,"torch_num_threads":16,"quantization":"nf4","block_size":4,"adapter_backend":"peft","adapter_summary":{"backend":"peft","target_module_names":"all-linear","trainable_param_count":40370176,"total_param_count":4393342464}},"run":null,"command":null,"next":[],"plan":null,"from":null,"support":null,"model_type":null}

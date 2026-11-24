@@ -1,0 +1,35 @@
+▛▜ poros v1.0.0 · Qwen/Qwen2.5-7B-Instruct · Apple M4 10-core GPU 16GB
+
+● Checked cert-mac-7b  run 1124-0015-2f0f
+  │ rank 16 · 256 tokens
+  │ SFT · answers only · lr 2e-5
+  │ output
+  │ <home>/runs/1124-0015-2f0f
+  │ weights   <disk>/poros-metal/hf
+  │ eval      2 rows held out  scored at the start, each checkpoint and the end
+
+● Loaded Qwen2.5-7B-Instruct  1.7s
+  │ dense · 28 layers
+● Scored the base  held out 6.9573 · ends its answers 0 of 0
+step 1/16  loss 6.9821  5.69 s/step  memory 2.2 GiB (peak 4.3)  eta 1m 25s
+step 7/16  loss 7.0002  5.63 s/step  memory 2.3 GiB (peak 4.4)  eta 51s
+step 13/16  loss 6.6970  5.64 s/step  memory 2.3 GiB (peak 4.4)  eta 17s
+● Scored step 16  held out 6.7198 ↓ 3% · ends its answers 0 of 0
+<disk>/poros-metal/venv/lib/python3.12/site-packages/peft/utils/save_and_load.py:438: UserWarning: Could not find a config file in Qwen/Qwen2.5-7B-Instruct - will assume that the vocabulary was not modified.
+  warnings.warn(
+
+● Trained 16 steps · SFT  1m 42s
+  │ final loss 6.8436
+  │ eval loss  6.7198  from 6.9573 on held-out rows  ·  ↓ 3%
+  │
+  │ peak       ━━━━────────────  4.4 GiB of 16.0 GiB
+  │ speed      45 tok/s
+  │
+  │ adapter
+  │ <home>/runs/1124-0015-2f0f
+  │ receipt
+  │ <home>/runs/1124-0015-2f0f/receipt.json
+
+Continue with: poros eval 1124-0015-2f0f
+Keep it as a recipe: poros recipes save last
+{"schema":"poros.train.v1","learned":null,"output_dir":"<home>/runs/1124-0015-2f0f","events":"<home>/runs/1124-0015-2f0f/events.jsonl","metrics":{"device":"mps","total_steps":16,"final_loss":6.752349853515625,"loss_history":[6.982076168060303,6.989067077636719,7.012357711791992,7.134607791900635,6.9822998046875,6.956065654754639,6.915806293487549,6.696445941925049,6.753438472747803,6.72475004196167,6.751771450042725,6.655889987945557,6.598931789398193,6.747036457061768,6.84403657913208,6.752349853515625],"grad_norm_history":[2.2016382217407227,1.998742938041687,2.161419630050659,2.183187246322632,2.1451334953308105,3.043966054916382,4.338310718536377,1.9314745664596558,1.7159274816513062,1.7184510231018066,1.8367830514907837,1.7055132389068604,1.5323437452316284,1.7181859016418457,1.8428146839141846,2.049511432647705],"eval_history":[{"step":0,"eval_loss":6.957266330718994,"eval_perplexity":1050.757204842783,"ends":0,"answer_rows":0},{"step":15,"eval_loss":6.7197606563568115,"eval_perplexity":828.6191630164024,"ends":0,"answer_rows":0}],"total_time_s":90.23519154003588,"step_time_history":[5.687237415986601,5.6422239590319805,5.648341708001681,5.6212270419928245,5.640844207955524,5.630831666989252,5.630810000002384,5.637254375033081,5.622958166000899,5.6422120410134085,5.633283208007924,5.630698667024262,5.63620887498837,5.63520795799559,5.645339417038485,5.650512832973618],"vram_alloc_history_mb":[],"avg_vram_allocated_mb":0.0,"avg_step_time_ms":5639.699471252243,"steps_per_sec":0.17731441277986384,"tokens_processed":4096,"tokens_per_sec":45.392489671645144,"peak_vram_allocated_gb":4.690676592,"peak_vram_reserved_gb":0.0,"torch_num_threads":4,"quantization":"nf4","block_size":1,"adapter_backend":"peft","adapter_summary":{"backend":"peft","target_module_names":"all-linear","trainable_param_count":40370176,"total_param_count":40703488},"eval_loss_start":6.957266330718994,"eval_loss":6.7197606563568115,"eval_ends":0,"eval_answer_rows":0},"run":"1124-0015-2f0f","command":"poros train Qwen/Qwen2.5-7B-Instruct --data <work>/sample-chats.jsonl --steps 16 --seq-len 256 --rank 16 --block-size 1 --name cert-mac-7b --recipe sft eval_split=0.05 gradient_accumulation_steps=1 learning_rate=2e-5 lora_alpha=32 lora_dropout=0 per_device_batch_size=1 --download","next":[],"plan":null,"from":null,"support":null,"model_type":null}

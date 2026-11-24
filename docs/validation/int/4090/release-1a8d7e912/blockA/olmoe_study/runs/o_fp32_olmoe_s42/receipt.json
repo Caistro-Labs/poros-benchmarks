@@ -1,0 +1,52 @@
+{
+  "arch": "MoE \u00b7 16 layers \u00b7 64 experts",
+  "block_inputs": {
+    "bytes_down": 860160,
+    "host_full": false,
+    "kept_on_device": 0,
+    "offloaded": 15,
+    "pageable_slabs": 0,
+    "slab_bytes": 268435456,
+    "slabs": 1
+  },
+  "config": {
+    "block_size": null,
+    "dataset": "<home>/poros_rel/moeprec/work_ctl_olmoe/data/text_train.jsonl",
+    "gradient_accumulation_steps": 1,
+    "learning_rate": 2e-05,
+    "lora_alpha": 32,
+    "lora_rank": 16,
+    "max_seq_length": 128,
+    "max_steps": 300,
+    "per_device_batch_size": 1,
+    "quantization": "nf4"
+  },
+  "final_loss": 2.047621011734009,
+  "finished_at": "2026-11-24T07:57:31+00:00",
+  "gpu": {
+    "name": "RTX 4090",
+    "total_gb": 25.25
+  },
+  "host_staging": {
+    "budget_basis": "no ceiling found",
+    "granted_bytes": 4160749568,
+    "mode": "pinned",
+    "pinned_budget_bytes": null,
+    "refusals": 0
+  },
+  "kind": "poros.train.receipt",
+  "model": "allenai/OLMoE-1B-7B-0924",
+  "output_dir": "<home>/poros_rel/moeprec/work_ctl_olmoe/runs/o_fp32_olmoe_s42",
+  "peak_host_ram_gb": 10.43,
+  "peak_vram_allocated_gb": 3.496,
+  "peak_vram_reserved_gb": 4.136,
+  "poros": "1.0.0",
+  "recipe": "classic",
+  "run": "687a3d0c",
+  "s_per_step": 0.7323,
+  "simulated": false,
+  "steps": 300,
+  "tokens_per_sec": 153.28,
+  "version": 1,
+  "wall_s": 955.66
+}

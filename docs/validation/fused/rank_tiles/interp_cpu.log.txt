@@ -1,0 +1,43 @@
+============================= test session starts ==============================
+platform linux -- Python 3.14.4, pytest-9.2.0, pluggy-1.7.0 -- <path>
+rootdir: <path>
+configfile: pyproject.toml
+plugins: anyio-4.16.0
+collecting ... collected 34 items
+
+tests/core/test_rank_tiles_interp.py::test_every_rank_matches_fp64_under_the_interpreter PASSED [  2%]
+tests/core/test_fused_tiles.py::test_ranks_up_to_32_keep_the_receipts_tiles PASSED [  5%]
+tests/core/test_fused_tiles.py::test_larger_ranks_take_smaller_tiles_and_chunk_their_rows PASSED [  8%]
+tests/core/test_fused_tiles.py::test_row_chunks_are_whole_blocks_under_the_partial_budget PASSED [ 11%]
+tests/core/test_fused_tiles.py::test_kernels_import_the_same_tiles PASSED [ 14%]
+tests/core/test_fused_tiles.py::test_a_card_name_says_its_capability[NVIDIA GeForce RTX 4090-cap0] PASSED [ 17%]
+tests/core/test_fused_tiles.py::test_a_card_name_says_its_capability[NVIDIA GeForce RTX 3090 Laptop GPU-cap1] PASSED [ 20%]
+tests/core/test_fused_tiles.py::test_a_card_name_says_its_capability[NVIDIA A10G-cap2] PASSED [ 23%]
+tests/core/test_fused_tiles.py::test_a_card_name_says_its_capability[NVIDIA A100-SXM4-80GB-cap3] PASSED [ 26%]
+tests/core/test_fused_tiles.py::test_a_card_name_says_its_capability[NVIDIA L4-cap4] PASSED [ 29%]
+tests/core/test_fused_tiles.py::test_a_card_name_says_its_capability[NVIDIA L40S-cap5] PASSED [ 32%]
+tests/core/test_fused_tiles.py::test_a_card_name_says_its_capability[H100 80GB HBM3-cap6] PASSED [ 35%]
+tests/core/test_fused_tiles.py::test_a_card_name_says_its_capability[Tesla T4-cap7] PASSED [ 38%]
+tests/core/test_fused_tiles.py::test_a_card_name_says_its_capability[Tesla V100-SXM2-16GB-cap8] PASSED [ 41%]
+tests/core/test_fused_tiles.py::test_a_card_name_says_its_capability[NVIDIA GeForce RTX 5090-cap9] PASSED [ 44%]
+tests/core/test_fused_tiles.py::test_a_card_name_says_its_capability[RTX PRO 6000 Blackwell Workstation Edition-cap10] PASSED [ 47%]
+tests/core/test_fused_tiles.py::test_a_card_name_says_its_capability[NVIDIA B300-cap11] PASSED [ 50%]
+tests/core/test_fused_tiles.py::test_a_card_name_says_its_capability[NVIDIA RTX A6000-cap12] PASSED [ 52%]
+tests/core/test_fused_tiles.py::test_a_card_name_says_its_capability[NVIDIA RTX 6000 Ada Generation-cap13] PASSED [ 55%]
+tests/core/test_fused_tiles.py::test_a_card_name_says_its_capability[NVIDIA GeForce GTX 1080-None] PASSED [ 58%]
+tests/core/test_fused_tiles.py::test_a_card_name_says_its_capability[-None] PASSED [ 61%]
+tests/core/test_fused_tiles.py::test_the_fit_table_follows_the_shared_memory PASSED [ 64%]
+tests/core/test_fused_tiles.py::test_partials_grow_with_rank_and_stay_bounded PASSED [ 67%]
+tests/core/test_fused_tiles.py::test_a_plan_takes_the_compute_the_rank_runs_on_the_card[16-RTX 4090-True] PASSED [ 70%]
+tests/core/test_fused_tiles.py::test_a_plan_takes_the_compute_the_rank_runs_on_the_card[64-RTX 4090-True] PASSED [ 73%]
+tests/core/test_fused_tiles.py::test_a_plan_takes_the_compute_the_rank_runs_on_the_card[128-RTX 4090-True] PASSED [ 76%]
+tests/core/test_fused_tiles.py::test_a_plan_takes_the_compute_the_rank_runs_on_the_card[256-RTX 4090-False] PASSED [ 79%]
+tests/core/test_fused_tiles.py::test_a_plan_takes_the_compute_the_rank_runs_on_the_card[256-H100 80GB HBM3-True] PASSED [ 82%]
+tests/core/test_fused_tiles.py::test_a_plan_takes_the_compute_the_rank_runs_on_the_card[128-Tesla T4-False] PASSED [ 85%]
+tests/core/test_fused_tiles.py::test_a_plan_takes_the_compute_the_rank_runs_on_the_card[64-Tesla T4-True] PASSED [ 88%]
+tests/core/test_fused_tiles.py::test_a_plan_takes_the_compute_the_rank_runs_on_the_card[256-None-True] PASSED [ 91%]
+tests/core/test_fused_tiles.py::test_a_moe_plan_takes_the_reference_experts_where_they_do_not_fit PASSED [ 94%]
+tests/core/test_fused_tiles.py::test_a_higher_rank_plans_at_least_the_rank_16_peak_plus_its_partials PASSED [ 97%]
+tests/core/test_fused_tiles.py::test_a_plan_says_when_the_rank_takes_peft_modules_on_the_card PASSED [100%]
+
+======================== 34 passed in 71.81s (0:01:11) =========================

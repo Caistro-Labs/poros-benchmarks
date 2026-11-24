@@ -1,0 +1,157 @@
+{
+ "torch": "2.14.1+cu130",
+ "torch_cuda": "13.0",
+ "gpu": "NVIDIA GeForce RTX 4090",
+ "PYTORCH_CUDA_ALLOC_CONF": null,
+ "PYTORCH_ALLOC_CONF": "expandable_segments:False",
+ "expandable_segments": {
+  "rc": 0,
+  "stdout": "{\"ok\": true, \"n_segments\": 1, \"segment_is_expandable\": [\"True\"], \"segment_types\": [\"large\"], \"reserved_gib\": 6.016, \"allocated_gib\": 5.0}",
+  "stderr_tail": ""
+ },
+ "bandwidth": [
+  {
+   "bytes": 67108864,
+   "best_GBps": 22.67,
+   "median_GBps": 22.52,
+   "dir": "H2D",
+   "pinned": true
+  },
+  {
+   "bytes": 67108864,
+   "best_GBps": 21.73,
+   "median_GBps": 21.69,
+   "dir": "D2H",
+   "pinned": true
+  },
+  {
+   "bytes": 67108864,
+   "best_GBps": 12.02,
+   "median_GBps": 11.85,
+   "dir": "H2D",
+   "pinned": false
+  },
+  {
+   "bytes": 67108864,
+   "best_GBps": 10.28,
+   "median_GBps": 10.23,
+   "dir": "D2H",
+   "pinned": false
+  },
+  {
+   "bytes": 268435456,
+   "best_GBps": 21.77,
+   "median_GBps": 20.74,
+   "dir": "H2D",
+   "pinned": true
+  },
+  {
+   "bytes": 268435456,
+   "best_GBps": 22.83,
+   "median_GBps": 22.51,
+   "dir": "D2H",
+   "pinned": true
+  },
+  {
+   "bytes": 268435456,
+   "best_GBps": 12.06,
+   "median_GBps": 11.99,
+   "dir": "H2D",
+   "pinned": false
+  },
+  {
+   "bytes": 268435456,
+   "best_GBps": 10.22,
+   "median_GBps": 10.19,
+   "dir": "D2H",
+   "pinned": false
+  },
+  {
+   "bytes": 1073741824,
+   "best_GBps": 24.5,
+   "median_GBps": 24.2,
+   "dir": "H2D",
+   "pinned": true
+  },
+  {
+   "bytes": 1073741824,
+   "best_GBps": 24.23,
+   "median_GBps": 23.79,
+   "dir": "D2H",
+   "pinned": true
+  },
+  {
+   "bytes": 1073741824,
+   "best_GBps": 12.03,
+   "median_GBps": 11.94,
+   "dir": "H2D",
+   "pinned": false
+  },
+  {
+   "bytes": 1073741824,
+   "best_GBps": 10.2,
+   "median_GBps": 10.12,
+   "dir": "D2H",
+   "pinned": false
+  },
+  {
+   "bytes": 4294967296,
+   "best_GBps": 23.2,
+   "median_GBps": 23.0,
+   "dir": "H2D",
+   "pinned": true
+  },
+  {
+   "bytes": 4294967296,
+   "best_GBps": 22.59,
+   "median_GBps": 22.34,
+   "dir": "D2H",
+   "pinned": true
+  },
+  {
+   "bytes": 4294967296,
+   "best_GBps": 11.96,
+   "median_GBps": 11.94,
+   "dir": "H2D",
+   "pinned": false
+  },
+  {
+   "bytes": 4294967296,
+   "best_GBps": 10.12,
+   "median_GBps": 10.03,
+   "dir": "D2H",
+   "pinned": false
+  }
+ ],
+ "sustained_pinned_h2d": {
+  "GBps": 24.6,
+  "seconds": 8.03,
+  "samples": 80,
+  "gen_current_seen": [
+   "4"
+  ],
+  "width_current_seen": [
+   "16"
+  ],
+  "gen_max": [
+   "4"
+  ],
+  "width_max": [
+   "16"
+  ],
+  "raw_first_last": [
+   "2026/11/12 09:00:57.213, 4, 16, 4, 16, 64, 74.04",
+   "2026/11/12 09:00:57.316, 4, 16, 4, 16, 64, 74.04",
+   "2026/11/12 09:01:05.033, 4, 16, 4, 16, 100, 78.92",
+   "2026/11/12 09:01:05.133, 4, 16, 4, 16, 100, 78.92"
+  ]
+ },
+ "pinned_capacity": {
+  "slabs_256MiB": 176,
+  "gib": 44.0,
+  "seconds": 52.22,
+  "stop": null,
+  "memavailable_gib_at_stop": 10.1
+ },
+ "bf16_gemm_8192_tflops": 163.1
+}

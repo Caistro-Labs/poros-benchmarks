@@ -1,0 +1,40 @@
+▛▜ poros v0.3.0 · Qwen/Qwen3-30B-A3B · RTX 4090 23.5 GiB
+
+● Checked B_ssd_eff_1x8.yaml  config
+  │ nf4 · block 4 · rank 16 · seq 512 · efficient path
+  │ classic · every token · lr 2e-5
+  │ output    runs/B_ssd_eff_1x8
+  │ store     ssd <path>
+
+● Loaded Qwen3-30B-A3B  13s
+  │ MoE · 48 layers · 128 experts
+Map:   0%|          | 0/64 [00:00<?, ? examples/s]Map: 100%|██████████| 64/64 [00:00<00:00, 1406.81 examples/s]
+Filter:   0%|          | 0/64 [00:00<?, ? examples/s]Filter: 100%|██████████| 64/64 [00:00<00:00, 17012.20 examples/s]
+path efficient after update 1: block inputs {'offloaded': 376, 'kept_on_device': 0, 'slabs': 3, 'slab_bytes': 805306368, 'bytes_down': 788529152, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 3596189696, 'refusals': 0}
+block-major MoE expert dequant cache after update 1: hits 0 misses 0
+step 1/8  loss 1.3177  17.05 s/step  vram 5.1 GiB (peak 7.4)  eta 1m 59s
+step 4/8  loss 1.3027  13.39 s/step  vram 5.1 GiB (peak 7.4)  eta 57s
+step 6/8  loss 1.2329  18.62 s/step  vram 5.1 GiB (peak 7.4)  eta 30s
+step 8/8  loss 1.2819  23.05 s/step  vram 5.1 GiB (peak 7.4)
+
+  ╭─ Trained ─────────────────────────────────────────────────────── 8 steps · classic · 2m 29s ─╮
+  │                                                                      final loss              │
+  │                                                       ▁▃▅▇▆▄▁        1.2859  ↓ 2%            │
+  │  1.5     ▁▃▄▆██▆▄▁                                 ▂▄▇███████▇▄▁     from 1.3177             │
+  │      ▃▅▆██████████▇▅▃▁                         ▁▃▆██████████████▇▄▂                          │
+  │      █████████████████▆▅▅▄▄▃▂▂▁▁            ▂▄▇████████████████████  vram 7.4 GiB peak       │
+  │  1.0 ████████████████████████████▇▆▅▄▃▂▁▁▃▅████████████████████████  ram  8.4 GiB peak       │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │  0.5 ██████████████████████████████████████████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                                  4                         8                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      242 tok/s
+  │
+  │ adapter    runs/B_ssd_eff_1x8
+  │ receipt    runs/B_ssd_eff_1x8/receipt.json
+
+Continue with: poros eval <path>
+{"schema":"poros.train.v1","learned":null,"output_dir":"<path>","events":"<path>","metrics":{"device":"cuda:0","total_steps":8,"final_loss":1.28590726852417,"loss_history":[1.3177067041397095,1.5961382389068604,1.1973118782043457,1.0995770692825317,0.924750804901123,1.3469172716140747,1.752105712890625,1.28590726852417],"grad_norm_history":[0.44921875,0.55859375,0.41015625,0.4921875,0.423828125,0.4765625,0.58984375,0.41796875],"eval_history":[],"total_time_s":135.25148492120206,"step_time_history":[17.050360003486276,13.463858114555478,13.349898545071483,13.393869951367378,15.115380473434925,18.624114552512765,21.20660063251853,23.04740264825523],"vram_alloc_history_mb":[5423.983616,5423.983616,5423.983616,5423.983616,5423.983616,5423.983616,5423.983616,5423.983616],"avg_vram_allocated_mb":5423.983616,"avg_step_time_ms":16906.435615150258,"steps_per_sec":0.05914907333299021,"tokens_processed":32768,"tokens_per_sec":242.2746043719279,"peak_vram_allocated_gb":7.940566528,"peak_vram_reserved_gb":8.290041856,"torch_num_threads":16,"quantization":"nf4","block_size":null,"adapter_backend":"native","adapter_summary":null},"run":null,"command":null,"next":[],"plan":null,"from":null,"support":null,"model_type":null}

@@ -1,0 +1,2144 @@
+# The logs behind the check before a run. Pointers only: every number it decides from is
+# read from the log it names by scripts/build_plan_cells.py, which writes
+# poros/plan/cells.json (a test fails if that file drifts from this one).
+#
+# Per cell:
+#   key      what the run was. A {ptr} is read from the receipt (or from
+#            `receipt`, another file of the same run); a literal is allowed
+#            only where no receipt of the run records the value, with a
+#            comment naming where it does come from (the committed script).
+#   fields   measured values: ptr (RFC 6901), unit (GiB | GB | MB | bytes | s),
+#            optional `receipt` (another file of the same run) and `select`
+#            (a JSONL file: the first row whose keys match), and `method`
+#            (what a figure says of itself).
+#   host     context the plan shows as a warning.
+#   selfcheck  whether the startup parity self-check ran (null: unknown);
+#            it moves load_time, peak host RAM and the reserved VRAM peak.
+#   path     the loop it trained (poros.core.config.train_path): sequential when absent;
+#            efficient or fast for block-major accumulation's two paths. A config plans from its
+#            own path's receipts; else from the sequential ones plus what its path holds on top
+#            (poros.plan.path_extra), as estimates, with a warning.
+#
+# A cell is a run that completed. `gpu` is the name torch reported.
+# The Mac's cells are in metal/m4_16gb/plan_sources.yaml, from scripts/metal/figures.py.
+
+- id: qwen2.5-32b-rtx5090-synthetic
+  receipt: docs/validation/consumer-5090/nf4_5090_syn/summary.json
+  key:
+    model: {ptr: /model}
+    quantization: {ptr: /quantization}
+    seq_len: {ptr: /seq_len}
+    block_size: {ptr: /block_size}
+    batch: 1             # scripts/bf16_blog_pass.py: PorosConfig default
+    grad_accum: 8        # scripts/bf16_blog_pass.py: PorosConfig default
+    lora_rank: 16        # scripts/bf16_blog_pass.py
+    lora_dropout: 0.0    # scripts/bf16_blog_pass.py
+    load_strategy: gpu   # predates nf4_load_strategy: the gpu load was the only one
+    selfcheck: true       # events.jsonl setup timestamp 2026-06-10: before 0.2.2 (2026-07-15) made it opt-in
+    entry: dense
+    gpu: {ptr: /gpu}
+  fields:
+    peak_vram_allocated: {ptr: /data/peak_vram_allocated_gb, unit: GB,
+                          receipt: docs/validation/consumer-5090/nf4_5090_syn/events.jsonl,
+                          select: {event_type: teardown}}
+    peak_vram_reserved: {ptr: /data/peak_vram_reserved_gb, unit: GB,
+                         receipt: docs/validation/consumer-5090/nf4_5090_syn/events.jsonl,
+                         select: {event_type: teardown}}
+    s_per_step: {ptr: /s_per_step, unit: s}
+    load_time: {ptr: /setup_seconds, unit: s}
+
+- id: qwen2.5-7b-rtx5090-synthetic
+  receipt: docs/validation/rss/rss_7b_5090_summary.json
+  key:
+    model: {ptr: /model}
+    quantization: {ptr: /quantization}
+    seq_len: {ptr: /seq_len}
+    block_size: {ptr: /block_size}
+    batch: 1             # scripts/bf16_blog_pass.py: PorosConfig default
+    grad_accum: 8        # scripts/bf16_blog_pass.py: PorosConfig default
+    lora_rank: 16        # scripts/bf16_blog_pass.py
+    lora_dropout: 0.0    # scripts/bf16_blog_pass.py
+    load_strategy: gpu   # predates nf4_load_strategy: the gpu load was the only one
+    selfcheck: null       # undated: cannot tell whether the then-default self-check ran
+    entry: dense
+    gpu: {ptr: /gpu}
+  fields:
+    # scripts/bf16_blog_pass.py: max_memory_allocated / 1024**3, VmHWM / 1024**2
+    peak_vram_allocated: {ptr: /peak_vram_gb, unit: GiB}
+    peak_host_ram: {ptr: /peak_host_rss_gb, unit: GiB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+    load_time: {ptr: /setup_seconds, unit: s}
+
+- id: qwen2.5-7b-rtx5090-synthetic-streamed
+  receipt: docs/validation/streamed-load/sweep/oob_7b/summary.json
+  key:
+    model: {ptr: /model}
+    quantization: {ptr: /quantization}
+    seq_len: {ptr: /seq_len}
+    block_size: {ptr: /block_size}
+    batch: 1             # scripts/bf16_blog_pass.py: PorosConfig default
+    grad_accum: 8        # scripts/bf16_blog_pass.py: PorosConfig default
+    lora_rank: 16        # scripts/bf16_blog_pass.py
+    lora_dropout: 0.0    # scripts/bf16_blog_pass.py
+    load_strategy: {ptr: /nf4_load_strategy}
+    selfcheck: true       # streamed-load/README.md: 2026-06-12, with the self-check
+    entry: dense
+    gpu: {ptr: /gpu}
+  fields:
+    # scripts/bf16_blog_pass.py: max_memory_allocated / 1024**3, VmHWM / 1024**2.
+    # Not s_per_step: a 10-step mean including the first step, not steady state.
+    # Not load_peak_vram_gb: the self-check probe's peak, not the loader's.
+    peak_vram_allocated: {ptr: /peak_vram_gb, unit: GiB}
+    peak_host_ram: {ptr: /peak_host_rss_gb, unit: GiB}
+    load_time: {ptr: /setup_seconds, unit: s}
+
+- id: qwen2.5-32b-rtx5090-synthetic-streamed
+  receipt: docs/validation/streamed-load/sweep/v32b_rss_refix/summary.json
+  key:
+    model: {ptr: /model}
+    quantization: {ptr: /quantization}
+    seq_len: {ptr: /seq_len}
+    block_size: {ptr: /block_size}
+    batch: 1             # scripts/bf16_blog_pass.py: PorosConfig default
+    grad_accum: 8        # scripts/bf16_blog_pass.py: PorosConfig default
+    lora_rank: 16        # scripts/bf16_blog_pass.py
+    lora_dropout: 0.0    # scripts/bf16_blog_pass.py
+    load_strategy: {ptr: /nf4_load_strategy}
+    selfcheck: true       # streamed-load/README.md: 2026-06-12, with the self-check
+    entry: dense
+    gpu: {ptr: /gpu}
+  fields:
+    # scripts/bf16_blog_pass.py: max_memory_allocated / 1024**3, VmHWM / 1024**2.
+    # Not s_per_step: a 10-step mean including the first step, not steady state.
+    # Not load_peak_vram_gb: the self-check probe's peak, not the loader's.
+    peak_vram_allocated: {ptr: /peak_vram_gb, unit: GiB}
+    peak_host_ram: {ptr: /peak_host_rss_gb, unit: GiB}
+    load_time: {ptr: /setup_seconds, unit: s}
+
+- id: qwen2.5-7b-rtx3090-alpaca
+  receipt: docs/validation/audits/audit_7b_3090_rerun/summary.json
+  key:
+    model: {ptr: /model}
+    quantization: {ptr: /quantization}
+    seq_len: {ptr: /seq_len}
+    block_size: {ptr: /block_size}
+    batch: {ptr: /batch_size}
+    grad_accum: {ptr: /gradient_accumulation_steps}
+    lora_rank: 16        # scripts/audit_alpaca.py
+    lora_dropout: 0.0    # scripts/audit_alpaca.py
+    load_strategy: gpu   # predates nf4_load_strategy: the gpu load was the only one
+    selfcheck: null       # undated: cannot tell whether the then-default self-check ran
+    entry: dense
+    gpu: {ptr: /gpu}
+  host: {dataset: tatsu-lab/alpaca}
+  fields:
+    # scripts/audit_alpaca.py: max_memory_allocated / 1024**3, VmHWM / 1024**2
+    peak_vram_allocated: {ptr: /peak_vram_gb, unit: GiB}
+    peak_host_ram: {ptr: /peak_host_rss_gb, unit: GiB}
+    s_per_step: {ptr: /train_only_s_per_step_median, unit: s}
+    load_time: {ptr: /setup_seconds, unit: s}
+
+- id: qwen2.5-32b-pro6000-alpaca
+  receipt: docs/validation/audits/audit_32b_pro6000_rerun/summary.json
+  key:
+    model: {ptr: /model}
+    quantization: {ptr: /quantization}
+    seq_len: {ptr: /seq_len}
+    block_size: {ptr: /block_size}
+    batch: {ptr: /batch_size}
+    grad_accum: {ptr: /gradient_accumulation_steps}
+    lora_rank: 16        # scripts/audit_alpaca.py
+    lora_dropout: 0.0    # scripts/audit_alpaca.py
+    load_strategy: gpu   # predates nf4_load_strategy: the gpu load was the only one
+    selfcheck: null       # undated: cannot tell whether the then-default self-check ran
+    entry: dense
+    gpu: {ptr: /gpu}
+  host: {dataset: tatsu-lab/alpaca}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_gb, unit: GiB}
+    peak_host_ram: {ptr: /peak_host_rss_gb, unit: GiB}
+    s_per_step: {ptr: /train_only_s_per_step_median, unit: s}
+    load_time: {ptr: /setup_seconds, unit: s}
+
+- id: qwen3-30b-a3b-rtx3090-synthetic
+  receipt: docs/validation/moe/3090/table6_qwen3_30b_a3b.json
+  key:
+    model: {ptr: /setup/model}
+    quantization: nf4    # moe/3090/README.md Table 6 row: "Poros, MoE streamed (NF4 experts)"
+    seq_len: {ptr: /setup/seq_len}
+    block_size: null     # poros.moe streams per expert; block_size does not apply
+    batch: {ptr: /setup/batch}
+    grad_accum: 1        # scripts/table6_bench.py: one optimizer step per batch
+    lora_rank: 16        # /arms/poros_streamed/lora: "r16 a32 dropout0.05 experts"
+    lora_dropout: 0.05   # /arms/poros_streamed/lora
+    load_strategy: null  # poros.moe has its own streamed loader
+    selfcheck: false      # scripts/table6_bench.py runs no startup self-check
+    entry: moe
+    gpu: NVIDIA GeForce RTX 3090   # /host/gpu: "NVIDIA GeForce RTX 3090 24 GB"
+  host: {os: WSL2, harness: "scripts/table6_bench.py's own loop, not poros train",
+         note: {ptr: /arms/poros_streamed/note}}
+  fields:
+    peak_vram_allocated: {ptr: /arms/poros_streamed/peak_vram_allocated_gib, unit: GiB}
+    peak_vram_reserved: {ptr: /arms/poros_streamed/peak_vram_reserved_gib, unit: GiB}
+    peak_host_ram: {ptr: /arms/poros_streamed/host_rss_high_water_gib, unit: GiB}
+    s_per_step: {ptr: /arms/poros_streamed/median_s_per_step, unit: s}
+    load_time: {ptr: /arms/poros_streamed/load_prepare_s, unit: s}
+
+# ---- Dense, Qwen2.5-72B -------------------------------------------------
+
+- id: qwen2.5-72b-rtx5090-synthetic-streamed
+  receipt: docs/validation/streamed-load/sweep/v72b_rss_refix/summary.json
+  key:
+    model: {ptr: /model}
+    quantization: {ptr: /quantization}
+    seq_len: {ptr: /seq_len}
+    block_size: {ptr: /block_size}
+    batch: 1             # scripts/bf16_blog_pass.py: PorosConfig default
+    grad_accum: 8        # scripts/bf16_blog_pass.py: PorosConfig default
+    lora_rank: 16        # scripts/bf16_blog_pass.py
+    lora_dropout: 0.0    # scripts/bf16_blog_pass.py
+    load_strategy: {ptr: /nf4_load_strategy}
+    selfcheck: true       # streamed-load/README.md: 2026-06-12, with the self-check
+    entry: dense
+    gpu: {ptr: /gpu}
+  fields:
+    # scripts/bf16_blog_pass.py: max_memory_allocated / 1024**3, VmHWM / 1024**2.
+    # Not s_per_step: a 10-step mean including the first step, not steady state.
+    # Not load_peak_vram_gb: the self-check probe's peak, not the loader's.
+    peak_vram_allocated: {ptr: /peak_vram_gb, unit: GiB}
+    peak_host_ram: {ptr: /peak_host_rss_gb, unit: GiB}
+    load_time: {ptr: /setup_seconds, unit: s}
+
+- id: qwen2.5-72b-pro6000-synthetic
+  receipt: docs/validation/rss/rss_72b_pro6000_summary.json
+  key:
+    model: {ptr: /model}
+    quantization: {ptr: /quantization}
+    seq_len: {ptr: /seq_len}
+    block_size: {ptr: /block_size}
+    batch: 1             # scripts/bf16_blog_pass.py: PorosConfig default
+    grad_accum: 8        # scripts/bf16_blog_pass.py: PorosConfig default
+    lora_rank: 16        # scripts/bf16_blog_pass.py
+    lora_dropout: 0.0    # scripts/bf16_blog_pass.py
+    load_strategy: gpu   # predates nf4_load_strategy: the summary has no nf4_load_strategy field
+    selfcheck: null       # undated: cannot tell whether the then-default self-check ran
+    entry: dense
+    gpu: {ptr: /gpu}
+  fields:
+    # scripts/bf16_blog_pass.py: max_memory_allocated / 1024**3, VmHWM / 1024**2.
+    # Not s_per_step: a 10-step mean including the first step, not steady state.
+    peak_vram_allocated: {ptr: /peak_vram_gb, unit: GiB}
+    peak_host_ram: {ptr: /peak_host_rss_gb, unit: GiB}
+    load_time: {ptr: /setup_seconds, unit: s}
+
+# ---- Dense, Qwen2.5-32B / 0.5B at other configs or GPUs -----------------
+
+- id: qwen2.5-32b-pro6000-oasst1
+  receipt: docs/validation/downstream-eval/train_summary.json
+  key:
+    model: {ptr: /model}
+    quantization: {ptr: /quantization}
+    seq_len: {ptr: /seq_len}
+    block_size: {ptr: /block_size}
+    batch: 1             # scripts/bf16_blog_pass.py: PorosConfig default
+    grad_accum: 8        # scripts/bf16_blog_pass.py: PorosConfig default (downstream-eval/README.md)
+    lora_rank: 16        # scripts/bf16_blog_pass.py
+    lora_dropout: 0.0    # scripts/bf16_blog_pass.py
+    load_strategy: gpu   # predates nf4_load_strategy: the summary has no nf4_load_strategy field
+    selfcheck: true       # train_events.jsonl setup timestamp 2026-06-11: before 0.2.2 (2026-07-15) made it opt-in
+    entry: dense
+    gpu: {ptr: /gpu}
+  host: {dataset: {ptr: /dataset}}
+  fields:
+    # poros/train/trainer.py teardown: max_memory_{allocated,reserved} / 1e9.
+    # scripts/bf16_blog_pass.py: VmHWM / 1024**2.
+    peak_vram_allocated: {ptr: /data/peak_vram_allocated_gb, unit: GB,
+                          receipt: docs/validation/downstream-eval/train_events.jsonl,
+                          select: {event_type: teardown}}
+    peak_vram_reserved: {ptr: /data/peak_vram_reserved_gb, unit: GB,
+                         receipt: docs/validation/downstream-eval/train_events.jsonl,
+                         select: {event_type: teardown}}
+    peak_host_ram: {ptr: /peak_host_rss_gb, unit: GiB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+    load_time: {ptr: /setup_seconds, unit: s}
+
+- id: qwen2.5-32b-rtx5090-oasst1
+  receipt: docs/validation/consumer-5090/nf4_5090_oasst1_masked/summary.json
+  key:
+    model: {ptr: /model}
+    quantization: {ptr: /quantization}
+    seq_len: {ptr: /seq_len}
+    block_size: {ptr: /block_size}
+    batch: 1             # scripts/bf16_blog_pass.py: PorosConfig default
+    grad_accum: 8        # scripts/bf16_blog_pass.py: PorosConfig default (consumer-5090/README.md)
+    lora_rank: 16        # scripts/bf16_blog_pass.py
+    lora_dropout: 0.0    # scripts/bf16_blog_pass.py
+    load_strategy: gpu   # predates nf4_load_strategy: the summary has no nf4_load_strategy field
+    selfcheck: null       # undated (no events.jsonl committed): cannot tell whether the self-check ran
+    entry: dense
+    gpu: {ptr: /gpu}
+  host: {dataset: {ptr: /dataset}}
+  fields:
+    # scripts/bf16_blog_pass.py: max_memory_allocated / 1024**3, VmHWM / 1024**2
+    peak_vram_allocated: {ptr: /peak_vram_gb, unit: GiB}
+    peak_host_ram: {ptr: /peak_host_rss_gb, unit: GiB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+    load_time: {ptr: /setup_seconds, unit: s}
+
+- id: qwen2.5-32b-a100-synthetic
+  receipt: docs/validation/bf16/blog/nf4_qwen32b_syn/summary.json
+  key:
+    model: {ptr: /model}
+    quantization: {ptr: /quantization}
+    seq_len: {ptr: /seq_len}
+    block_size: {ptr: /block_size}
+    batch: 1             # scripts/bf16_blog_pass.py: PorosConfig default (bf16/blog/README.md)
+    grad_accum: 8        # PorosConfig default; teardown tokens_processed 204800 over 50 steps = 1 x 8 x 512
+    lora_rank: 16        # scripts/bf16_blog_pass.py
+    lora_dropout: 0.0    # scripts/bf16_blog_pass.py
+    load_strategy: gpu   # predates nf4_load_strategy: the summary has no nf4_load_strategy field
+    selfcheck: true       # events.jsonl setup timestamp 2026-06-10: before 0.2.2 (2026-07-15) made it opt-in
+    entry: dense
+    gpu: {ptr: /gpu}
+  host: {torch: {ptr: /torch}}
+  fields:
+    # poros/train/trainer.py teardown: max_memory_{allocated,reserved} / 1e9
+    peak_vram_allocated: {ptr: /data/peak_vram_allocated_gb, unit: GB,
+                          receipt: docs/validation/bf16/blog/nf4_qwen32b_syn/events.jsonl,
+                          select: {event_type: teardown}}
+    peak_vram_reserved: {ptr: /data/peak_vram_reserved_gb, unit: GB,
+                         receipt: docs/validation/bf16/blog/nf4_qwen32b_syn/events.jsonl,
+                         select: {event_type: teardown}}
+    s_per_step: {ptr: /s_per_step, unit: s}
+    load_time: {ptr: /setup_seconds, unit: s}
+
+- id: qwen2.5-0.5b-rtx5090-synthetic-streamed
+  receipt: docs/validation/streamed-load/smoke_0p5b/summary.json
+  key:
+    model: {ptr: /model}
+    quantization: {ptr: /quantization}
+    seq_len: {ptr: /seq_len}
+    block_size: {ptr: /block_size}
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/streamed-load/smoke_0p5b/adapter/poros_config.json}
+    grad_accum: {ptr: /gradient_accumulation_steps, receipt: docs/validation/streamed-load/smoke_0p5b/adapter/poros_config.json}
+    lora_rank: {ptr: /lora_rank, receipt: docs/validation/streamed-load/smoke_0p5b/adapter/poros_config.json}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/streamed-load/smoke_0p5b/adapter/poros_config.json}
+    load_strategy: {ptr: /nf4_load_strategy}
+    # adapter/poros_config.json has blockwise_arch_check "error" and no
+    # startup_parity_selfcheck field: written before 0.2.2 (2026-07-15), when
+    # the self-check ran whenever the arch check was on.
+    selfcheck: true
+    entry: dense
+    gpu: {ptr: /gpu}
+  fields:
+    # scripts/bf16_blog_pass.py: max_memory_allocated / 1024**3, VmHWM / 1024**2.
+    # Not s_per_step: a 5-step mean including the first step, not steady state.
+    peak_vram_allocated: {ptr: /peak_vram_gb, unit: GiB}
+    peak_host_ram: {ptr: /peak_host_rss_gb, unit: GiB}
+    load_time: {ptr: /setup_seconds, unit: s}
+
+# ---- MoE ------------------------------------------------------------------
+
+- id: olmoe-1b-7b-rtx3090ti-synthetic
+  receipt: docs/validation/moe/3090/olmoe_synthetic_200.json
+  key:
+    model: {ptr: /model_id}
+    quantization: nf4    # moe/3090/README.md: prepare_moe stores the routed experts in NF4
+    seq_len: {ptr: /protocol/seq_len}
+    block_size: null     # poros.moe streams per expert; block_size does not apply
+    batch: {ptr: /protocol/batch_size}
+    grad_accum: {ptr: /protocol/gradient_accumulation_steps}
+    lora_rank: {ptr: /protocol/lora_rank}
+    lora_dropout: {ptr: /protocol/lora_dropout}
+    load_strategy: null  # poros.moe has its own loader
+    selfcheck: false      # scripts/moe_synthetic_quality.py runs no startup self-check
+    entry: moe
+    gpu: {ptr: /gpu/name}
+  host: {os: WSL2, harness: "scripts/moe_synthetic_quality.py's own loop, not poros train",
+         dataset: {ptr: /protocol/dataset}}
+  fields:
+    # scripts/moe_synthetic_quality.py: the streamed arm's max_memory_allocated
+    # in bytes, reset before that arm's load, so it spans load, prepare,
+    # training and evals (the resident arm runs after it, with its own reset).
+    # Not s_per_step: it includes the arm's 20 eval passes. No host RAM or
+    # load time: the receipt records them for the whole two-arm process only.
+    peak_vram_allocated: {ptr: /streamed/peak_vram_bytes, unit: bytes}
+
+- id: olmoe-1b-7b-rtx3090ti-oasst1
+  receipt: docs/validation/moe/3090/olmoe_oasst1_200.json
+  key:
+    model: {ptr: /model_id}
+    quantization: nf4    # moe/3090/README.md: prepare_moe stores the routed experts in NF4
+    seq_len: {ptr: /protocol/seq_len}
+    block_size: null     # poros.moe streams per expert; block_size does not apply
+    batch: {ptr: /protocol/batch_size}
+    grad_accum: {ptr: /protocol/gradient_accumulation_steps}
+    lora_rank: {ptr: /protocol/lora_rank}
+    lora_dropout: {ptr: /protocol/lora_dropout}
+    load_strategy: null  # poros.moe has its own loader
+    selfcheck: false      # scripts/moe_synthetic_quality.py runs no startup self-check
+    entry: moe
+    gpu: {ptr: /gpu/name}
+  host: {os: WSL2, harness: "scripts/moe_synthetic_quality.py's own loop, not poros train",
+         dataset: {ptr: /protocol/dataset}}
+  fields:
+    # scripts/moe_synthetic_quality.py: the streamed arm's max_memory_allocated
+    # in bytes, reset before that arm's load, so it spans load, prepare,
+    # training and evals (the resident arm runs after it, with its own reset).
+    # Not s_per_step: it includes the arm's 20 eval passes. No host RAM or
+    # load time: the receipt records them for the whole two-arm process only.
+    peak_vram_allocated: {ptr: /streamed/peak_vram_bytes, unit: bytes}
+
+- id: qwen1.5-moe-a2.7b-rtx3090ti-synthetic
+  receipt: docs/validation/moe/3090/qwen15_moe_synthetic_200.json
+  key:
+    model: {ptr: /model_id}
+    quantization: nf4    # moe/3090/README.md: prepare_moe stores the routed experts in NF4
+    seq_len: {ptr: /protocol/seq_len}
+    block_size: null     # poros.moe streams per expert; block_size does not apply
+    batch: {ptr: /protocol/batch_size}
+    grad_accum: {ptr: /protocol/gradient_accumulation_steps}
+    lora_rank: {ptr: /protocol/lora_rank}
+    lora_dropout: {ptr: /protocol/lora_dropout}
+    load_strategy: null  # poros.moe has its own loader
+    selfcheck: false      # scripts/moe_synthetic_quality.py runs no startup self-check
+    entry: moe
+    gpu: {ptr: /gpu/name}
+  host: {os: WSL2, harness: "scripts/moe_synthetic_quality.py's own loop, not poros train",
+         dataset: {ptr: /protocol/dataset}}
+  fields:
+    # scripts/moe_synthetic_quality.py: the streamed arm's max_memory_allocated
+    # in bytes, reset before that arm's load, so it spans load, prepare,
+    # training and evals (the resident arm runs after it, with its own reset).
+    # Not s_per_step: it includes the arm's 20 eval passes. No host RAM or
+    # load time: the receipt records them for the whole two-arm process only.
+    peak_vram_allocated: {ptr: /streamed/peak_vram_bytes, unit: bytes}
+
+- id: qwen1.5-moe-a2.7b-rtx3090ti-oasst1
+  receipt: docs/validation/moe/3090/qwen15_moe_oasst1_200.json
+  key:
+    model: {ptr: /model_id}
+    quantization: nf4    # moe/3090/README.md: prepare_moe stores the routed experts in NF4
+    seq_len: {ptr: /protocol/seq_len}
+    block_size: null     # poros.moe streams per expert; block_size does not apply
+    batch: {ptr: /protocol/batch_size}
+    grad_accum: {ptr: /protocol/gradient_accumulation_steps}
+    lora_rank: {ptr: /protocol/lora_rank}
+    lora_dropout: {ptr: /protocol/lora_dropout}
+    load_strategy: null  # poros.moe has its own loader
+    selfcheck: false      # scripts/moe_synthetic_quality.py runs no startup self-check
+    entry: moe
+    gpu: {ptr: /gpu/name}
+  host: {os: WSL2, harness: "scripts/moe_synthetic_quality.py's own loop, not poros train",
+         dataset: {ptr: /protocol/dataset}}
+  fields:
+    # scripts/moe_synthetic_quality.py: the streamed arm's max_memory_allocated
+    # in bytes, reset before that arm's load, so it spans load, prepare,
+    # training and evals (the resident arm runs after it, with its own reset).
+    # Not s_per_step: it includes the arm's 20 eval passes. No host RAM or
+    # load time: the receipt records them for the whole two-arm process only.
+    peak_vram_allocated: {ptr: /streamed/peak_vram_bytes, unit: bytes}
+
+- id: deepseek-v2-lite-rtx3090ti-synthetic
+  receipt: docs/validation/moe/3090/deepseek_v2_lite_synthetic_200.json
+  key:
+    model: {ptr: /model_id}
+    quantization: nf4    # moe/3090/README.md: prepare_moe stores the routed experts in NF4
+    seq_len: {ptr: /protocol/seq_len}
+    block_size: null     # poros.moe streams per expert; block_size does not apply
+    batch: {ptr: /protocol/batch_size}
+    grad_accum: {ptr: /protocol/gradient_accumulation_steps}
+    lora_rank: {ptr: /protocol/lora_rank}
+    lora_dropout: {ptr: /protocol/lora_dropout}
+    load_strategy: null  # poros.moe has its own loader
+    selfcheck: false      # scripts/moe_synthetic_quality.py runs no startup self-check
+    entry: moe
+    gpu: {ptr: /gpu/name}
+  host: {os: WSL2, harness: "scripts/moe_synthetic_quality.py's own loop, not poros train",
+         dataset: {ptr: /protocol/dataset}}
+  fields:
+    # scripts/moe_synthetic_quality.py: the streamed arm's max_memory_allocated
+    # in bytes, reset before that arm's load, so it spans load, prepare,
+    # training and evals (the resident arm runs after it, with its own reset).
+    # Not s_per_step: it includes the arm's 20 eval passes. No host RAM or
+    # load time: the receipt records them for the whole two-arm process only.
+    peak_vram_allocated: {ptr: /streamed/peak_vram_bytes, unit: bytes}
+
+- id: deepseek-v2-lite-rtx3090ti-oasst1
+  receipt: docs/validation/moe/3090/deepseek_v2_lite_oasst1_200.json
+  key:
+    model: {ptr: /model_id}
+    quantization: nf4    # moe/3090/README.md: prepare_moe stores the routed experts in NF4
+    seq_len: {ptr: /protocol/seq_len}
+    block_size: null     # poros.moe streams per expert; block_size does not apply
+    batch: {ptr: /protocol/batch_size}
+    grad_accum: {ptr: /protocol/gradient_accumulation_steps}
+    lora_rank: {ptr: /protocol/lora_rank}
+    lora_dropout: {ptr: /protocol/lora_dropout}
+    load_strategy: null  # poros.moe has its own loader
+    selfcheck: false      # scripts/moe_synthetic_quality.py runs no startup self-check
+    entry: moe
+    gpu: {ptr: /gpu/name}
+  host: {os: WSL2, harness: "scripts/moe_synthetic_quality.py's own loop, not poros train",
+         dataset: {ptr: /protocol/dataset}}
+  fields:
+    # scripts/moe_synthetic_quality.py: the streamed arm's max_memory_allocated
+    # in bytes, reset before that arm's load, so it spans load, prepare,
+    # training and evals (the resident arm runs after it, with its own reset).
+    # Not s_per_step: it includes the arm's 20 eval passes. No host RAM or
+    # load time: the receipt records them for the whole two-arm process only.
+    peak_vram_allocated: {ptr: /streamed/peak_vram_bytes, unit: bytes}
+
+- id: qwen3-30b-a3b-l40s-synthetic
+  receipt: docs/validation/moe/moe_synthetic_quality_l40s_200.json
+  key:
+    model: {ptr: /model_id}
+    quantization: nf4    # moe/README.md: prepare_moe stores the routed experts in NF4
+    seq_len: {ptr: /protocol/seq_len}
+    block_size: null     # poros.moe streams per expert; block_size does not apply
+    batch: {ptr: /protocol/batch_size}
+    grad_accum: {ptr: /protocol/gradient_accumulation_steps}
+    lora_rank: {ptr: /protocol/lora_rank}
+    lora_dropout: {ptr: /protocol/lora_dropout}
+    load_strategy: null  # poros.moe has its own loader
+    selfcheck: false      # scripts/moe_synthetic_quality.py runs no startup self-check
+    entry: moe
+    gpu: {ptr: /gpu/name}
+  host: {harness: "scripts/moe_synthetic_quality.py's own loop, not poros train",
+         loader: "bf16 from_pretrained on the host, then prepare_moe (moe/README.md)",
+         dataset: {ptr: /protocol/dataset}}
+  fields:
+    # scripts/moe_synthetic_quality.py: the streamed arm's max_memory_allocated
+    # in bytes, reset before that arm's load, so it spans load, prepare,
+    # training and evals (the resident arm runs after it, with its own reset).
+    # Not s_per_step: it includes the arm's 20 eval passes. No host RAM or
+    # load time: the receipt records them for the whole two-arm process only.
+    peak_vram_allocated: {ptr: /streamed/peak_vram_bytes, unit: bytes}
+
+- id: qwen3-30b-a3b-l40s-oasst1
+  receipt: docs/validation/moe/moe_oasst1_quality_l40s_200.json
+  key:
+    model: {ptr: /model_id}
+    quantization: nf4    # moe/README.md: prepare_moe stores the routed experts in NF4
+    seq_len: {ptr: /protocol/seq_len}
+    block_size: null     # poros.moe streams per expert; block_size does not apply
+    batch: {ptr: /protocol/batch_size}
+    grad_accum: {ptr: /protocol/gradient_accumulation_steps}
+    lora_rank: {ptr: /protocol/lora_rank}
+    lora_dropout: {ptr: /protocol/lora_dropout}
+    load_strategy: null  # poros.moe has its own loader
+    selfcheck: false      # scripts/moe_synthetic_quality.py runs no startup self-check
+    entry: moe
+    gpu: {ptr: /gpu/name}
+  host: {harness: "scripts/moe_synthetic_quality.py's own loop, not poros train",
+         loader: "bf16 from_pretrained on the host, then prepare_moe (moe/README.md)",
+         dataset: {ptr: /protocol/dataset}}
+  fields:
+    # scripts/moe_synthetic_quality.py: the streamed arm's max_memory_allocated
+    # in bytes, reset before that arm's load, so it spans load, prepare,
+    # training and evals (the resident arm runs after it, with its own reset).
+    # Not s_per_step: it includes the arm's 20 eval passes. No host RAM or
+    # load time: the receipt records them for the whole two-arm process only.
+    peak_vram_allocated: {ptr: /streamed/peak_vram_bytes, unit: bytes}
+
+- id: qwen3-30b-a3b-a5000-synthetic-d0.05
+  receipt: docs/validation/moe/a5000/t6_poros_streamed_d0.05.json
+  key:
+    model: {ptr: /model}
+    quantization: nf4    # moe/a5000/README.md: Poros streamed, NF4 experts
+    seq_len: {ptr: /seq_len}
+    block_size: null     # poros.moe streams per expert; block_size does not apply
+    batch: {ptr: /batch}
+    grad_accum: 1        # moe/a5000/scripts/table6_native.py: one optimizer step per batch
+    lora_rank: 16        # /lora: "r16 a32 dropout0.05 experts"
+    lora_dropout: 0.05   # /lora (table6_native.py takes it from the arm name)
+    load_strategy: null  # poros.moe has its own streamed loader
+    selfcheck: false      # moe/a5000/scripts/table6_native.py runs no startup self-check
+    entry: moe
+    gpu: NVIDIA RTX A5000   # /env/gpu: nvidia-smi "NVIDIA RTX A5000, 595.91.07, 24564 MiB, 4, 16"
+  host: {os: "native Linux container (7.65-CPU quota)",
+         harness: "moe/a5000/scripts/table6_native.py's own loop, not poros train",
+         omp_num_threads: {ptr: /env/omp_num_threads}}
+  fields:
+    # table6_native.py: max_memory_{allocated,reserved} / 2**30 (reset after
+    # load and prepare), ru_maxrss / 2**20, median of steps 3-20.
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gib, unit: GiB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gib, unit: GiB}
+    peak_host_ram: {ptr: /host_rss_high_water_gib, unit: GiB}
+    s_per_step: {ptr: /median_s_per_step, unit: s}
+    load_time: {ptr: /load_prepare_s, unit: s}
+
+- id: qwen3-30b-a3b-a5000-synthetic-d0
+  receipt: docs/validation/moe/a5000/t6_poros_streamed_d0.json
+  key:
+    model: {ptr: /model}
+    quantization: nf4    # moe/a5000/README.md: Poros streamed, NF4 experts
+    seq_len: {ptr: /seq_len}
+    block_size: null     # poros.moe streams per expert; block_size does not apply
+    batch: {ptr: /batch}
+    grad_accum: 1        # moe/a5000/scripts/table6_native.py: one optimizer step per batch
+    lora_rank: 16        # /lora: "r16 a32 dropout0.0 experts"
+    lora_dropout: 0.0   # /lora (table6_native.py takes it from the arm name)
+    load_strategy: null  # poros.moe has its own streamed loader
+    selfcheck: false      # moe/a5000/scripts/table6_native.py runs no startup self-check
+    entry: moe
+    gpu: NVIDIA RTX A5000   # /env/gpu: nvidia-smi "NVIDIA RTX A5000, 595.91.07, 24564 MiB, 4, 16"
+  host: {os: "native Linux container (7.65-CPU quota)",
+         harness: "moe/a5000/scripts/table6_native.py's own loop, not poros train",
+         omp_num_threads: {ptr: /env/omp_num_threads}}
+  fields:
+    # table6_native.py: max_memory_{allocated,reserved} / 2**30 (reset after
+    # load and prepare), ru_maxrss / 2**20, median of steps 3-20.
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gib, unit: GiB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gib, unit: GiB}
+    peak_host_ram: {ptr: /host_rss_high_water_gib, unit: GiB}
+    s_per_step: {ptr: /median_s_per_step, unit: s}
+    load_time: {ptr: /load_prepare_s, unit: s}
+
+- id: qwen3-coder-30b-a3b-rtx3090-synthetic
+  receipt: docs/validation/moe/3090/qwen3_coder_30b_a3b_e2e.json
+  key:
+    model: {ptr: /hf_repo}
+    quantization: {ptr: /events/0/data/quantization}
+    seq_len: {ptr: /config/max_seq_length}
+    block_size: {ptr: /events/0/data/block_size}
+    batch: 1             # moe/3090/scripts/coder_e2e.py sets none: PorosConfig default (/events tokens: 512 per step = 1 x 2 x 256)
+    grad_accum: {ptr: /config/gradient_accumulation_steps}
+    lora_rank: 16        # moe/3090/scripts/coder_e2e.py sets none: PorosConfig default
+    lora_dropout: 0.05   # /config/lora_dropout: "default 0.05"
+    load_strategy: null  # poros.moe has its own streamed loader
+    selfcheck: false      # poros.moe runs no startup self-check
+    entry: moe
+    gpu: NVIDIA GeForce RTX 3090   # /host/gpu: "NVIDIA GeForce RTX 3090 24 GB"
+  host: {os: WSL2, harness: "poros train (moe/3090/scripts/coder_e2e.py)"}
+  fields:
+    # poros/train/trainer.py teardown: max_memory_{allocated,reserved} / 1e9.
+    # coder_e2e.py: RUSAGE_CHILDREN ru_maxrss / 2**20 after the train child.
+    # Not s_per_step: 4 steps including the first. Not load_time: not recorded.
+    peak_vram_allocated: {ptr: /events/5/data/peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /events/5/data/peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /train/peak_host_rss_gib, unit: GiB}
+
+- id: olmoe-1b-7b-a5000-synthetic
+  receipt: docs/validation/moe/a5000/e2e_olmoe_1b_7b_0924.json
+  key:
+    model: {ptr: /model_id}
+    quantization: nf4    # moe/a5000/scripts/e2e_family.py sets none: PorosConfig default
+    seq_len: {ptr: /config/max_seq_length}
+    block_size: null     # poros.moe streams per expert; block_size does not apply
+    batch: 1             # e2e_family.py sets none: PorosConfig default
+    grad_accum: {ptr: /config/gradient_accumulation_steps}
+    lora_rank: 16        # e2e_family.py sets none: PorosConfig default
+    lora_dropout: 0.05   # e2e_family.py sets none: PorosConfig default
+    load_strategy: null  # poros.moe has its own streamed loader
+    selfcheck: false      # poros.moe runs no startup self-check
+    entry: moe
+    gpu: NVIDIA RTX A5000   # /env/gpu: nvidia-smi "NVIDIA RTX A5000, 595.91.07, 24564 MiB, 4, 16"
+  host: {os: "native Linux container (7.65-CPU quota)", harness: "poros train (moe/a5000/scripts/e2e_family.py)"}
+  fields:
+    # e2e_family.py: RUSAGE_CHILDREN ru_maxrss / 2**20 after the first poros
+    # train child (run A), so that run's own peak. No VRAM: not recorded.
+    peak_host_ram: {ptr: /train_a/max_child_rss_gib, unit: GiB}
+
+- id: qwen1.5-moe-a2.7b-a5000-synthetic
+  receipt: docs/validation/moe/a5000/e2e_qwen1_5_moe_a2_7b.json
+  key:
+    model: {ptr: /model_id}
+    quantization: nf4    # moe/a5000/scripts/e2e_family.py sets none: PorosConfig default
+    seq_len: {ptr: /config/max_seq_length}
+    block_size: null     # poros.moe streams per expert; block_size does not apply
+    batch: 1             # e2e_family.py sets none: PorosConfig default
+    grad_accum: {ptr: /config/gradient_accumulation_steps}
+    lora_rank: 16        # e2e_family.py sets none: PorosConfig default
+    lora_dropout: 0.05   # e2e_family.py sets none: PorosConfig default
+    load_strategy: null  # poros.moe has its own streamed loader
+    selfcheck: false      # poros.moe runs no startup self-check
+    entry: moe
+    gpu: NVIDIA RTX A5000   # /env/gpu: nvidia-smi "NVIDIA RTX A5000, 595.91.07, 24564 MiB, 4, 16"
+  host: {os: "native Linux container (7.65-CPU quota)", harness: "poros train (moe/a5000/scripts/e2e_family.py)"}
+  fields:
+    # e2e_family.py: RUSAGE_CHILDREN ru_maxrss / 2**20 after the first poros
+    # train child (run A), so that run's own peak. No VRAM: not recorded.
+    peak_host_ram: {ptr: /train_a/max_child_rss_gib, unit: GiB}
+
+- id: deepseek-v2-lite-a5000-synthetic
+  receipt: docs/validation/moe/a5000/e2e_deepseek_v2_lite.json
+  key:
+    model: {ptr: /model_id}
+    quantization: nf4    # moe/a5000/scripts/e2e_family.py sets none: PorosConfig default
+    seq_len: {ptr: /config/max_seq_length}
+    block_size: null     # poros.moe streams per expert; block_size does not apply
+    batch: 1             # e2e_family.py sets none: PorosConfig default
+    grad_accum: {ptr: /config/gradient_accumulation_steps}
+    lora_rank: 16        # e2e_family.py sets none: PorosConfig default
+    lora_dropout: 0.05   # e2e_family.py sets none: PorosConfig default
+    load_strategy: null  # poros.moe has its own streamed loader
+    selfcheck: false      # poros.moe runs no startup self-check
+    entry: moe
+    gpu: NVIDIA RTX A5000   # /env/gpu: nvidia-smi "NVIDIA RTX A5000, 595.91.07, 24564 MiB, 4, 16"
+  host: {os: "native Linux container (7.65-CPU quota)", harness: "poros train (moe/a5000/scripts/e2e_family.py)"}
+  fields:
+    # e2e_family.py: RUSAGE_CHILDREN ru_maxrss / 2**20 after the first poros
+    # train child (run A), so that run's own peak. No VRAM: not recorded.
+    peak_host_ram: {ptr: /train_a/max_child_rss_gib, unit: GiB}
+
+# The launch matrix on one RTX 3090, through poros train on padded oasst1.
+
+- id: qwen2.5-72b-rtx3090-oasst1
+  receipt: docs/validation/launch_3090/node5/receipts/x72_a/receipt.json
+  key:
+    model: {ptr: /model}
+    quantization: {ptr: /config/quantization}
+    seq_len: {ptr: /config/max_seq_length}
+    block_size: {ptr: /config/block_size}
+    batch: 1             # the config sets none: PorosConfig default
+    grad_accum: {ptr: /config/gradient_accumulation_steps}
+    lora_rank: {ptr: /config/lora_rank}
+    lora_dropout: 0.05   # poros_config.json beside this receipt
+    load_strategy: block_streamed  # poros_config.json: nf4_load_strategy auto
+    selfcheck: false     # poros_config.json: startup_parity_selfcheck off
+    entry: dense
+    gpu: NVIDIA GeForce RTX 3090
+  host: {os: WSL2, harness: poros train, dataset: OpenAssistant/oasst1}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+
+- id: qwen2.5-32b-rtx3090-oasst1
+  receipt: docs/validation/launch_3090/node6/receipts/q32_a/receipt.json
+  key:
+    model: {ptr: /model}
+    quantization: {ptr: /config/quantization}
+    seq_len: {ptr: /config/max_seq_length}
+    block_size: {ptr: /config/block_size}
+    batch: 1             # the config sets none: PorosConfig default
+    grad_accum: {ptr: /config/gradient_accumulation_steps}
+    lora_rank: {ptr: /config/lora_rank}
+    lora_dropout: 0.05   # poros_config.json beside this receipt
+    load_strategy: block_streamed  # poros_config.json: nf4_load_strategy auto
+    selfcheck: false     # poros_config.json: startup_parity_selfcheck off
+    entry: dense
+    gpu: NVIDIA GeForce RTX 3090
+  host: {os: WSL2, harness: poros train, dataset: OpenAssistant/oasst1}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+
+- id: qwen3.8-27b-rtx3090-oasst1
+  receipt: docs/validation/launch_3090/node7/receipts/q38_a/receipt.json
+  key:
+    model: {ptr: /model}
+    quantization: {ptr: /config/quantization}
+    seq_len: {ptr: /config/max_seq_length}
+    block_size: {ptr: /config/block_size}
+    batch: 1             # the config sets none: PorosConfig default
+    grad_accum: {ptr: /config/gradient_accumulation_steps}
+    lora_rank: {ptr: /config/lora_rank}
+    lora_dropout: 0.05   # poros_config.json beside this receipt
+    load_strategy: block_streamed  # poros_config.json: nf4_load_strategy auto
+    selfcheck: false     # poros_config.json: startup_parity_selfcheck off
+    entry: dense
+    gpu: NVIDIA GeForce RTX 3090
+  host: {os: WSL2, harness: poros train, dataset: OpenAssistant/oasst1}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+
+- id: qwen2.5-7b-rtx4090-synthetic-dropout0.05
+  receipt: docs/validation/block-major-dropout/receipts/m7_seq.receipt.json
+  key:
+    model: {ptr: /model}
+    quantization: {ptr: /config/quantization}
+    seq_len: {ptr: /config/max_seq_length}
+    block_size: {ptr: /config/block_size}
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/block-major-dropout/receipts/m7_seq.config.resolved.json}
+    grad_accum: {ptr: /config/gradient_accumulation_steps}
+    lora_rank: {ptr: /config/lora_rank}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/block-major-dropout/receipts/m7_seq.config.resolved.json}
+    load_strategy: block_streamed  # config.resolved.json: nf4_load_strategy auto
+    selfcheck: false     # config.resolved.json: startup_parity_selfcheck off
+    entry: dense
+    gpu: {ptr: /gpu/name}
+  host: {os: Linux, harness: poros train, dataset: synthetic, allocator: "expandable_segments:False (the host's PYTORCH_ALLOC_CONF)"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+
+- id: qwen2.5-7b-rtx4090-synthetic-efficient
+  receipt: docs/validation/block-major-dropout/receipts/m7_eff.receipt.json
+  key:
+    model: {ptr: /model}
+    quantization: {ptr: /config/quantization}
+    seq_len: {ptr: /config/max_seq_length}
+    block_size: {ptr: /config/block_size}
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/block-major-dropout/receipts/m7_eff.config.resolved.json}
+    grad_accum: {ptr: /config/gradient_accumulation_steps}
+    lora_rank: {ptr: /config/lora_rank}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/block-major-dropout/receipts/m7_eff.config.resolved.json}
+    load_strategy: block_streamed  # config.resolved.json: nf4_load_strategy auto
+    selfcheck: false     # config.resolved.json: startup_parity_selfcheck off
+    entry: dense
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /path, receipt: docs/validation/block-major-dropout/receipts/m7_eff.config.resolved.json}
+  host: {os: Linux, harness: poros train, dataset: synthetic, allocator: "expandable_segments:False (the host's PYTORCH_ALLOC_CONF)"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+
+- id: qwen2.5-7b-rtx4090-synthetic-fast
+  receipt: docs/validation/block-major-dropout/receipts/m7_fast.receipt.json
+  key:
+    model: {ptr: /model}
+    quantization: {ptr: /config/quantization}
+    seq_len: {ptr: /config/max_seq_length}
+    block_size: {ptr: /config/block_size}
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/block-major-dropout/receipts/m7_fast.config.resolved.json}
+    grad_accum: {ptr: /config/gradient_accumulation_steps}
+    lora_rank: {ptr: /config/lora_rank}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/block-major-dropout/receipts/m7_fast.config.resolved.json}
+    load_strategy: block_streamed  # config.resolved.json: nf4_load_strategy auto
+    selfcheck: false     # config.resolved.json: startup_parity_selfcheck off
+    entry: dense
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /path, receipt: docs/validation/block-major-dropout/receipts/m7_fast.config.resolved.json}
+  host: {os: Linux, harness: poros train, dataset: synthetic, allocator: "expandable_segments:False (the host's PYTORCH_ALLOC_CONF)"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+
+- id: qwen2.5-7b-rtx4090-synthetic-efficient-b1
+  receipt: docs/validation/block-major-dropout/receipts/m7_eff_b1.receipt.json
+  key:
+    model: {ptr: /model}
+    quantization: {ptr: /config/quantization}
+    seq_len: {ptr: /config/max_seq_length}
+    block_size: {ptr: /config/block_size}
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/block-major-dropout/receipts/m7_eff_b1.config.resolved.json}
+    grad_accum: {ptr: /config/gradient_accumulation_steps}
+    lora_rank: {ptr: /config/lora_rank}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/block-major-dropout/receipts/m7_eff_b1.config.resolved.json}
+    load_strategy: block_streamed  # config.resolved.json: nf4_load_strategy auto
+    selfcheck: false     # config.resolved.json: startup_parity_selfcheck off
+    entry: dense
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /path, receipt: docs/validation/block-major-dropout/receipts/m7_eff_b1.config.resolved.json}
+  host: {os: Linux, harness: poros train, dataset: synthetic, allocator: "expandable_segments:False (the host's PYTORCH_ALLOC_CONF)"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+
+- id: qwen2.5-32b-rtx4090-synthetic-dropout0.05
+  receipt: docs/validation/block-major-dropout/receipts/m32_seq.receipt.json
+  key:
+    model: {ptr: /model}
+    quantization: {ptr: /config/quantization}
+    seq_len: {ptr: /config/max_seq_length}
+    block_size: {ptr: /config/block_size}
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/block-major-dropout/receipts/m32_seq.config.resolved.json}
+    grad_accum: {ptr: /config/gradient_accumulation_steps}
+    lora_rank: {ptr: /config/lora_rank}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/block-major-dropout/receipts/m32_seq.config.resolved.json}
+    load_strategy: block_streamed  # config.resolved.json: nf4_load_strategy auto
+    selfcheck: false     # config.resolved.json: startup_parity_selfcheck off
+    entry: dense
+    gpu: {ptr: /gpu/name}
+  host: {os: Linux, harness: poros train, dataset: synthetic, allocator: "expandable_segments:False (the host's PYTORCH_ALLOC_CONF)"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+
+- id: qwen2.5-32b-rtx4090-synthetic-efficient
+  receipt: docs/validation/block-major-dropout/receipts/m32_eff.receipt.json
+  key:
+    model: {ptr: /model}
+    quantization: {ptr: /config/quantization}
+    seq_len: {ptr: /config/max_seq_length}
+    block_size: {ptr: /config/block_size}
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/block-major-dropout/receipts/m32_eff.config.resolved.json}
+    grad_accum: {ptr: /config/gradient_accumulation_steps}
+    lora_rank: {ptr: /config/lora_rank}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/block-major-dropout/receipts/m32_eff.config.resolved.json}
+    load_strategy: block_streamed  # config.resolved.json: nf4_load_strategy auto
+    selfcheck: false     # config.resolved.json: startup_parity_selfcheck off
+    entry: dense
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /path, receipt: docs/validation/block-major-dropout/receipts/m32_eff.config.resolved.json}
+  host: {os: Linux, harness: poros train, dataset: synthetic, allocator: "expandable_segments:False (the host's PYTORCH_ALLOC_CONF)"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+
+- id: qwen2.5-32b-rtx4090-synthetic-fast
+  receipt: docs/validation/block-major-dropout/receipts/m32_fast.receipt.json
+  key:
+    model: {ptr: /model}
+    quantization: {ptr: /config/quantization}
+    seq_len: {ptr: /config/max_seq_length}
+    block_size: {ptr: /config/block_size}
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/block-major-dropout/receipts/m32_fast.config.resolved.json}
+    grad_accum: {ptr: /config/gradient_accumulation_steps}
+    lora_rank: {ptr: /config/lora_rank}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/block-major-dropout/receipts/m32_fast.config.resolved.json}
+    load_strategy: block_streamed  # config.resolved.json: nf4_load_strategy auto
+    selfcheck: false     # config.resolved.json: startup_parity_selfcheck off
+    entry: dense
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /path, receipt: docs/validation/block-major-dropout/receipts/m32_fast.config.resolved.json}
+  host: {os: Linux, harness: poros train, dataset: synthetic, allocator: "expandable_segments:False (the host's PYTORCH_ALLOC_CONF)"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+
+- id: qwen2.5-32b-rtx4090-synthetic-efficient-b1
+  receipt: docs/validation/block-major-dropout/receipts/m32_eff_b1.receipt.json
+  key:
+    model: {ptr: /model}
+    quantization: {ptr: /config/quantization}
+    seq_len: {ptr: /config/max_seq_length}
+    block_size: {ptr: /config/block_size}
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/block-major-dropout/receipts/m32_eff_b1.config.resolved.json}
+    grad_accum: {ptr: /config/gradient_accumulation_steps}
+    lora_rank: {ptr: /config/lora_rank}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/block-major-dropout/receipts/m32_eff_b1.config.resolved.json}
+    load_strategy: block_streamed  # config.resolved.json: nf4_load_strategy auto
+    selfcheck: false     # config.resolved.json: startup_parity_selfcheck off
+    entry: dense
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /path, receipt: docs/validation/block-major-dropout/receipts/m32_eff_b1.config.resolved.json}
+  host: {os: Linux, harness: poros train, dataset: synthetic, allocator: "expandable_segments:False (the host's PYTORCH_ALLOC_CONF)"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+
+- id: qwen3-30b-a3b-rtx4090-oasst1-fused-efficient
+  receipt: docs/validation/moe/4090/receipts/q30k_def_eff_receipt.json
+  key:
+    model: {ptr: /model}
+    quantization: {ptr: /config/quantization}
+    seq_len: {ptr: /config/max_seq_length}
+    block_size: null     # poros.moe streams per expert; block_size does not apply
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/moe/4090/receipts/q30k_def_eff_config.resolved.json}
+    grad_accum: {ptr: /config/gradient_accumulation_steps}
+    lora_rank: {ptr: /config/lora_rank}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/moe/4090/receipts/q30k_def_eff_config.resolved.json}
+    load_strategy: null  # poros.moe has its own streamed loader
+    selfcheck: false     # config.resolved.json: startup_parity_selfcheck off
+    entry: moe
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /path, receipt: docs/validation/moe/4090/receipts/q30k_def_eff_config.resolved.json}
+    moe_compute: {ptr: /ran_compute/moe_expert_compute, receipt: docs/validation/moe/4090/receipts/q30k_def_eff_config.resolved.json}
+    expert_cache: {ptr: /moe_expert_cache_gib, receipt: docs/validation/moe/4090/receipts/q30k_def_eff_config.resolved.json}
+  host: {os: Linux, harness: poros train, dataset: "64 oasst1 rows of 512 tokens (the head-to-head rows)",
+         note: "moe_expert_compute and moe_expert_cache_gib unset: the fused default and the path's default cache (one layer), on the release tree (docs/validation/moe/4090/README.md)"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /q30k_def_eff/median_s, unit: s, receipt: docs/validation/moe/4090/summary.json,
+                 method: "the median update after update 1 (summary.json, from q30k_def_eff_events.jsonl)"}
+- id: qwen3-30b-a3b-rtx4090-oasst1-fused-fast
+  receipt: docs/validation/moe/4090/receipts/q30k_def_fast_receipt.json
+  key:
+    model: {ptr: /model}
+    quantization: {ptr: /config/quantization}
+    seq_len: {ptr: /config/max_seq_length}
+    block_size: null     # poros.moe streams per expert; block_size does not apply
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/moe/4090/receipts/q30k_def_fast_config.resolved.json}
+    grad_accum: {ptr: /config/gradient_accumulation_steps}
+    lora_rank: {ptr: /config/lora_rank}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/moe/4090/receipts/q30k_def_fast_config.resolved.json}
+    load_strategy: null  # poros.moe has its own streamed loader
+    selfcheck: false     # config.resolved.json: startup_parity_selfcheck off
+    entry: moe
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /path, receipt: docs/validation/moe/4090/receipts/q30k_def_fast_config.resolved.json}
+    moe_compute: {ptr: /ran_compute/moe_expert_compute, receipt: docs/validation/moe/4090/receipts/q30k_def_fast_config.resolved.json}
+    expert_cache: {ptr: /moe_expert_cache_gib, receipt: docs/validation/moe/4090/receipts/q30k_def_fast_config.resolved.json}
+  host: {os: Linux, harness: poros train, dataset: "64 oasst1 rows of 512 tokens (the head-to-head rows)",
+         note: "moe_expert_compute and moe_expert_cache_gib unset: the fused default and the path's default cache (sized to what this GPU leaves), on the release tree (docs/validation/moe/4090/README.md)"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /q30k_def_fast/median_s, unit: s, receipt: docs/validation/moe/4090/summary.json,
+                 method: "the median update after update 1 (summary.json, from q30k_def_fast_events.jsonl)"}
+    # The cache grew to what this card left free (poros.plan._grows_to_card): the VRAM the
+    # process could hold when it was sized, and the size it reached. A run with less free VRAM
+    # grows a smaller cache, one with more a larger: poros.plan._card_growth.
+    vram_budget: {ptr: /ran_compute/moe_expert_cache_reason, unit: GiB,
+                  receipt: docs/validation/moe/4090/receipts/q30k_def_fast_config.resolved.json,
+                  match: "([0-9.]+) GiB this process may hold"}
+    expert_cache_size: {ptr: /ran_compute/moe_expert_cache_gib, unit: GiB,
+                        receipt: docs/validation/moe/4090/receipts/q30k_def_fast_config.resolved.json}
+# RTX 4090, release-candidate trees, the fused NF4 compute (docs/validation/rtx4090-rc/README.md).
+# The dense runs below are rows of runs.log, which scripts/prun.sh writes: each run's start line
+# (the settings it was given on top of scripts/mkcfg.py's) and its RUN line (the peaks over its
+# steps, vram_peak_mb_max and reserved_mb_max, in MB: the teardown peaks of its events.jsonl).
+- id: qwen2.5-7b-rtx4090-oasst1-fused-efficient-b1-8x1
+  receipt: docs/validation/rtx4090-rc/runs.log
+  select: {name: s7_eff_g1}
+  key:
+    model: Qwen/Qwen2.5-7B   # jobs/j097_7b.sh: the Hub snapshot of Qwen/Qwen2.5-7B
+    quantization: nf4          # scripts/mkcfg.py
+    seq_len: 512               # scripts/mkcfg.py
+    block_size: {ptr: /block_size}
+    batch: {ptr: /per_device_batch_size}
+    grad_accum: {ptr: /gradient_accumulation_steps}
+    lora_rank: 16              # scripts/mkcfg.py
+    lora_dropout: 0.0          # scripts/mkcfg.py
+    load_strategy: block_streamed  # scripts/mkcfg.py leaves nf4_load_strategy auto
+    selfcheck: false           # startup_parity_selfcheck unset: off
+    entry: dense
+    gpu: RTX 4090              # the box's card, as its receipts name it
+    path: {ptr: /path}
+    fused_compute: true        # tree p2 (b5e2a277) with fused_compute unset: the fused default
+    offload: false            # the start line sets no offload_embeddings_and_head: off
+  host: {os: Linux, harness: "poros train (scripts/prun.sh)", tree: "p2 (b5e2a277)", dataset: "64 oasst1 rows of 512 tokens", note: "lora_target_modules: the 7 projections, what auto takes for qwen2"}
+  fields:
+    peak_vram_allocated: {ptr: /vram_peak_mb_max, unit: MB}
+    peak_vram_reserved: {ptr: /reserved_mb_max, unit: MB}
+    s_per_step: {ptr: /s_med_2_8, unit: s, method: "median of steps 2 to 8"}
+- id: qwen2.5-7b-rtx4090-oasst1-fused-sequential-8x1
+  receipt: docs/validation/rtx4090-rc/runs.log
+  select: {name: s7_seq_g1}
+  key:
+    model: Qwen/Qwen2.5-7B   # jobs/j097_7b.sh: the Hub snapshot of Qwen/Qwen2.5-7B
+    quantization: nf4          # scripts/mkcfg.py
+    seq_len: 512               # scripts/mkcfg.py
+    block_size: {ptr: /block_size}
+    batch: {ptr: /per_device_batch_size}
+    grad_accum: {ptr: /gradient_accumulation_steps}
+    lora_rank: 16              # scripts/mkcfg.py
+    lora_dropout: 0.0          # scripts/mkcfg.py
+    load_strategy: block_streamed  # scripts/mkcfg.py leaves nf4_load_strategy auto
+    selfcheck: false           # startup_parity_selfcheck unset: off
+    entry: dense
+    gpu: RTX 4090              # the box's card, as its receipts name it
+    path: {ptr: /path}
+    fused_compute: true        # tree p2 (b5e2a277) with fused_compute unset: the fused default
+    offload: false            # the start line sets no offload_embeddings_and_head: off
+  host: {os: Linux, harness: "poros train (scripts/prun.sh)", tree: "p2 (b5e2a277)", dataset: "64 oasst1 rows of 512 tokens", note: "lora_target_modules: the 7 projections, what auto takes for qwen2"}
+  fields:
+    peak_vram_allocated: {ptr: /vram_peak_mb_max, unit: MB}
+    peak_vram_reserved: {ptr: /reserved_mb_max, unit: MB}
+    s_per_step: {ptr: /s_med_2_8, unit: s, method: "median of steps 2 to 8"}
+- id: qwen2.5-7b-rtx4090-oasst1-fused-sequential-b1-8x1
+  receipt: docs/validation/rtx4090-rc/runs.log
+  select: {name: s7_seqb1_g1}
+  key:
+    model: Qwen/Qwen2.5-7B   # jobs/j097_7b.sh: the Hub snapshot of Qwen/Qwen2.5-7B
+    quantization: nf4          # scripts/mkcfg.py
+    seq_len: 512               # scripts/mkcfg.py
+    block_size: {ptr: /block_size}
+    batch: {ptr: /per_device_batch_size}
+    grad_accum: {ptr: /gradient_accumulation_steps}
+    lora_rank: 16              # scripts/mkcfg.py
+    lora_dropout: 0.0          # scripts/mkcfg.py
+    load_strategy: block_streamed  # scripts/mkcfg.py leaves nf4_load_strategy auto
+    selfcheck: false           # startup_parity_selfcheck unset: off
+    entry: dense
+    gpu: RTX 4090              # the box's card, as its receipts name it
+    path: {ptr: /path}
+    fused_compute: true        # tree p2 (b5e2a277) with fused_compute unset: the fused default
+    offload: false            # the start line sets no offload_embeddings_and_head: off
+  host: {os: Linux, harness: "poros train (scripts/prun.sh)", tree: "p2 (b5e2a277)", dataset: "64 oasst1 rows of 512 tokens", note: "lora_target_modules: the 7 projections, what auto takes for qwen2"}
+  fields:
+    peak_vram_allocated: {ptr: /vram_peak_mb_max, unit: MB}
+    peak_vram_reserved: {ptr: /reserved_mb_max, unit: MB}
+    s_per_step: {ptr: /s_med_2_8, unit: s, method: "median of steps 2 to 8"}
+- id: qwen2.5-7b-rtx4090-oasst1-fused-efficient-b1-1x8
+  receipt: docs/validation/rtx4090-rc/runs.log
+  select: {name: s7_eff_g8}
+  key:
+    model: Qwen/Qwen2.5-7B   # jobs/j097_7b.sh: the Hub snapshot of Qwen/Qwen2.5-7B
+    quantization: nf4          # scripts/mkcfg.py
+    seq_len: 512               # scripts/mkcfg.py
+    block_size: {ptr: /block_size}
+    batch: {ptr: /per_device_batch_size}
+    grad_accum: {ptr: /gradient_accumulation_steps}
+    lora_rank: 16              # scripts/mkcfg.py
+    lora_dropout: 0.0          # scripts/mkcfg.py
+    load_strategy: block_streamed  # scripts/mkcfg.py leaves nf4_load_strategy auto
+    selfcheck: false           # startup_parity_selfcheck unset: off
+    entry: dense
+    gpu: RTX 4090              # the box's card, as its receipts name it
+    path: {ptr: /path}
+    fused_compute: true        # tree p2 (b5e2a277) with fused_compute unset: the fused default
+    offload: false            # the start line sets no offload_embeddings_and_head: off
+  host: {os: Linux, harness: "poros train (scripts/prun.sh)", tree: "p2 (b5e2a277)", dataset: "64 oasst1 rows of 512 tokens", note: "lora_target_modules: the 7 projections, what auto takes for qwen2"}
+  fields:
+    peak_vram_allocated: {ptr: /vram_peak_mb_max, unit: MB}
+    peak_vram_reserved: {ptr: /reserved_mb_max, unit: MB}
+    s_per_step: {ptr: /s_med_2_8, unit: s, method: "median of steps 2 to 8"}
+- id: qwen2.5-7b-rtx4090-oasst1-fused-sequential-1x8
+  receipt: docs/validation/rtx4090-rc/runs.log
+  select: {name: s7_seq_g8}
+  key:
+    model: Qwen/Qwen2.5-7B   # jobs/j097_7b.sh: the Hub snapshot of Qwen/Qwen2.5-7B
+    quantization: nf4          # scripts/mkcfg.py
+    seq_len: 512               # scripts/mkcfg.py
+    block_size: {ptr: /block_size}
+    batch: {ptr: /per_device_batch_size}
+    grad_accum: {ptr: /gradient_accumulation_steps}
+    lora_rank: 16              # scripts/mkcfg.py
+    lora_dropout: 0.0          # scripts/mkcfg.py
+    load_strategy: block_streamed  # scripts/mkcfg.py leaves nf4_load_strategy auto
+    selfcheck: false           # startup_parity_selfcheck unset: off
+    entry: dense
+    gpu: RTX 4090              # the box's card, as its receipts name it
+    path: {ptr: /path}
+    fused_compute: true        # tree p2 (b5e2a277) with fused_compute unset: the fused default
+    offload: false            # the start line sets no offload_embeddings_and_head: off
+  host: {os: Linux, harness: "poros train (scripts/prun.sh)", tree: "p2 (b5e2a277)", dataset: "64 oasst1 rows of 512 tokens", note: "lora_target_modules: the 7 projections, what auto takes for qwen2"}
+  fields:
+    peak_vram_allocated: {ptr: /vram_peak_mb_max, unit: MB}
+    peak_vram_reserved: {ptr: /reserved_mb_max, unit: MB}
+    s_per_step: {ptr: /s_med_2_8, unit: s, method: "median of steps 2 to 8"}
+- id: qwen2.5-7b-rtx4090-oasst1-fused-fast-8x1
+  receipt: docs/validation/rtx4090-rc/runs.log
+  select: {name: s7_fast_g1}
+  key:
+    model: Qwen/Qwen2.5-7B   # jobs/j097_7b.sh: the Hub snapshot of Qwen/Qwen2.5-7B
+    quantization: nf4          # scripts/mkcfg.py
+    seq_len: 512               # scripts/mkcfg.py
+    block_size: {ptr: /block_size}
+    batch: {ptr: /per_device_batch_size}
+    grad_accum: {ptr: /gradient_accumulation_steps}
+    lora_rank: 16              # scripts/mkcfg.py
+    lora_dropout: 0.0          # scripts/mkcfg.py
+    load_strategy: block_streamed  # scripts/mkcfg.py leaves nf4_load_strategy auto
+    selfcheck: false           # startup_parity_selfcheck unset: off
+    entry: dense
+    gpu: RTX 4090              # the box's card, as its receipts name it
+    path: {ptr: /path}
+    fused_compute: true        # tree p2 (b5e2a277) with fused_compute unset: the fused default
+    offload: false            # the start line sets no offload_embeddings_and_head: off
+  host: {os: Linux, harness: "poros train (scripts/prun.sh)", tree: "p2 (b5e2a277)", dataset: "64 oasst1 rows of 512 tokens", note: "lora_target_modules: the 7 projections, what auto takes for qwen2"}
+  fields:
+    peak_vram_allocated: {ptr: /vram_peak_mb_max, unit: MB}
+    peak_vram_reserved: {ptr: /reserved_mb_max, unit: MB}
+    s_per_step: {ptr: /s_med_2_8, unit: s, method: "median of steps 2 to 8"}
+- id: qwen2.5-7b-rtx4090-oasst1-fused-fast-1x8
+  receipt: docs/validation/rtx4090-rc/runs.log
+  select: {name: s7_fast_g8}
+  key:
+    model: Qwen/Qwen2.5-7B   # jobs/j097_7b.sh: the Hub snapshot of Qwen/Qwen2.5-7B
+    quantization: nf4          # scripts/mkcfg.py
+    seq_len: 512               # scripts/mkcfg.py
+    block_size: {ptr: /block_size}
+    batch: {ptr: /per_device_batch_size}
+    grad_accum: {ptr: /gradient_accumulation_steps}
+    lora_rank: 16              # scripts/mkcfg.py
+    lora_dropout: 0.0          # scripts/mkcfg.py
+    load_strategy: block_streamed  # scripts/mkcfg.py leaves nf4_load_strategy auto
+    selfcheck: false           # startup_parity_selfcheck unset: off
+    entry: dense
+    gpu: RTX 4090              # the box's card, as its receipts name it
+    path: {ptr: /path}
+    fused_compute: true        # tree p2 (b5e2a277) with fused_compute unset: the fused default
+    offload: false            # the start line sets no offload_embeddings_and_head: off
+  host: {os: Linux, harness: "poros train (scripts/prun.sh)", tree: "p2 (b5e2a277)", dataset: "64 oasst1 rows of 512 tokens", note: "lora_target_modules: the 7 projections, what auto takes for qwen2"}
+  fields:
+    peak_vram_allocated: {ptr: /vram_peak_mb_max, unit: MB}
+    peak_vram_reserved: {ptr: /reserved_mb_max, unit: MB}
+    s_per_step: {ptr: /s_med_2_8, unit: s, method: "median of steps 2 to 8"}
+- id: qwen2.5-72b-rtx4090-oasst1-fused-efficient-b1-8x1-offload
+  receipt: docs/validation/rtx4090-rc/runs.log
+  select: {name: p72b_eff_mb8_r1}
+  key:
+    model: Qwen/Qwen2.5-72B   # jobs/j0772_p2.sh: the Hub snapshot of Qwen/Qwen2.5-72B
+    quantization: nf4          # scripts/mkcfg.py
+    seq_len: 512               # scripts/mkcfg.py
+    block_size: {ptr: /block_size}
+    batch: {ptr: /per_device_batch_size}
+    grad_accum: {ptr: /gradient_accumulation_steps}
+    lora_rank: 16              # scripts/mkcfg.py
+    lora_dropout: 0.0          # scripts/mkcfg.py
+    load_strategy: block_streamed  # scripts/mkcfg.py leaves nf4_load_strategy auto
+    selfcheck: false           # startup_parity_selfcheck unset: off
+    entry: dense
+    gpu: RTX 4090              # the box's card, as its receipts name it
+    path: {ptr: /path}
+    fused_compute: true        # tree p2 (b5e2a277) with fused_compute unset: the fused default
+    offload: {ptr: /offload_embeddings_and_head}
+  host: {os: Linux, harness: "poros train (scripts/prun.sh)", tree: "p2 (b5e2a277)", dataset: "64 oasst1 rows of 512 tokens", note: "lora_target_modules: the 7 projections, what auto takes for qwen2"}
+  fields:
+    peak_vram_allocated: {ptr: /vram_peak_mb_max, unit: MB}
+    peak_vram_reserved: {ptr: /reserved_mb_max, unit: MB}
+    s_per_step: {ptr: /s_med_2_8, unit: s, method: "median of steps 2 to 8"}
+- id: qwen2.5-72b-rtx4090-oasst1-fused-efficient-b1-8x1-offload-r2
+  receipt: docs/validation/rtx4090-rc/runs.log
+  select: {name: p72b_eff_mb8_r2}
+  key:
+    model: Qwen/Qwen2.5-72B   # jobs/j091_e2.sh: the Hub snapshot of Qwen/Qwen2.5-72B
+    quantization: nf4          # scripts/mkcfg.py
+    seq_len: 512               # scripts/mkcfg.py
+    block_size: {ptr: /block_size}
+    batch: {ptr: /per_device_batch_size}
+    grad_accum: {ptr: /gradient_accumulation_steps}
+    lora_rank: 16              # scripts/mkcfg.py
+    lora_dropout: 0.0          # scripts/mkcfg.py
+    load_strategy: block_streamed  # scripts/mkcfg.py leaves nf4_load_strategy auto
+    selfcheck: false           # startup_parity_selfcheck unset: off
+    entry: dense
+    gpu: RTX 4090              # the box's card, as its receipts name it
+    path: {ptr: /path}
+    fused_compute: true        # tree p2 (b5e2a277) with fused_compute unset: the fused default
+    offload: {ptr: /offload_embeddings_and_head}
+  host: {os: Linux, harness: "poros train (scripts/prun.sh)", tree: "p2 (b5e2a277)", dataset: "64 oasst1 rows of 512 tokens", note: "lora_target_modules: the 7 projections, what auto takes for qwen2"}
+  fields:
+    peak_vram_allocated: {ptr: /vram_peak_mb_max, unit: MB}
+    peak_vram_reserved: {ptr: /reserved_mb_max, unit: MB}
+    s_per_step: {ptr: /s_med_2_8, unit: s, method: "median of steps 2 to 8"}
+- id: qwen2.5-72b-rtx4090-oasst1-fused-efficient-b1-8x1-offload-r3
+  receipt: docs/validation/rtx4090-rc/runs.log
+  select: {name: p72b_eff_mb8_r3}
+  key:
+    model: Qwen/Qwen2.5-72B   # jobs/j093_e3.sh: the Hub snapshot of Qwen/Qwen2.5-72B
+    quantization: nf4          # scripts/mkcfg.py
+    seq_len: 512               # scripts/mkcfg.py
+    block_size: {ptr: /block_size}
+    batch: {ptr: /per_device_batch_size}
+    grad_accum: {ptr: /gradient_accumulation_steps}
+    lora_rank: 16              # scripts/mkcfg.py
+    lora_dropout: 0.0          # scripts/mkcfg.py
+    load_strategy: block_streamed  # scripts/mkcfg.py leaves nf4_load_strategy auto
+    selfcheck: false           # startup_parity_selfcheck unset: off
+    entry: dense
+    gpu: RTX 4090              # the box's card, as its receipts name it
+    path: {ptr: /path}
+    fused_compute: true        # tree p2 (b5e2a277) with fused_compute unset: the fused default
+    offload: {ptr: /offload_embeddings_and_head}
+  host: {os: Linux, harness: "poros train (scripts/prun.sh)", tree: "p2 (b5e2a277)", dataset: "64 oasst1 rows of 512 tokens", note: "lora_target_modules: the 7 projections, what auto takes for qwen2"}
+  fields:
+    peak_vram_allocated: {ptr: /vram_peak_mb_max, unit: MB}
+    peak_vram_reserved: {ptr: /reserved_mb_max, unit: MB}
+    s_per_step: {ptr: /s_med_2_8, unit: s, method: "median of steps 2 to 8"}
+- id: qwen2.5-72b-rtx4090-oasst1-fused-efficient-b1-1x8-offload
+  receipt: docs/validation/rtx4090-rc/runs.log
+  select: {name: p72b_eff_g8}
+  key:
+    model: Qwen/Qwen2.5-72B   # jobs/j095_eg8.sh: the Hub snapshot of Qwen/Qwen2.5-72B
+    quantization: nf4          # scripts/mkcfg.py
+    seq_len: 512               # scripts/mkcfg.py
+    block_size: {ptr: /block_size}
+    batch: {ptr: /per_device_batch_size}
+    grad_accum: {ptr: /gradient_accumulation_steps}
+    lora_rank: 16              # scripts/mkcfg.py
+    lora_dropout: 0.0          # scripts/mkcfg.py
+    load_strategy: block_streamed  # scripts/mkcfg.py leaves nf4_load_strategy auto
+    selfcheck: false           # startup_parity_selfcheck unset: off
+    entry: dense
+    gpu: RTX 4090              # the box's card, as its receipts name it
+    path: {ptr: /path}
+    fused_compute: true        # tree p2 (b5e2a277) with fused_compute unset: the fused default
+    offload: {ptr: /offload_embeddings_and_head}
+  host: {os: Linux, harness: "poros train (scripts/prun.sh)", tree: "p2 (b5e2a277)", dataset: "64 oasst1 rows of 512 tokens", note: "lora_target_modules: the 7 projections, what auto takes for qwen2"}
+  fields:
+    peak_vram_allocated: {ptr: /vram_peak_mb_max, unit: MB}
+    peak_vram_reserved: {ptr: /reserved_mb_max, unit: MB}
+    s_per_step: {ptr: /s_med_2_8, unit: s, method: "median of steps 2 to 8"}
+- id: qwen2.5-72b-rtx4090-oasst1-fused-sequential-1x8-offload
+  receipt: docs/validation/rtx4090-rc/runs.log
+  select: {name: p72b_seq_g8}
+  key:
+    model: Qwen/Qwen2.5-72B   # jobs/j096_sg8.sh: the Hub snapshot of Qwen/Qwen2.5-72B
+    quantization: nf4          # scripts/mkcfg.py
+    seq_len: 512               # scripts/mkcfg.py
+    block_size: {ptr: /block_size}
+    batch: {ptr: /per_device_batch_size}
+    grad_accum: {ptr: /gradient_accumulation_steps}
+    lora_rank: 16              # scripts/mkcfg.py
+    lora_dropout: 0.0          # scripts/mkcfg.py
+    load_strategy: block_streamed  # scripts/mkcfg.py leaves nf4_load_strategy auto
+    selfcheck: false           # startup_parity_selfcheck unset: off
+    entry: dense
+    gpu: RTX 4090              # the box's card, as its receipts name it
+    path: {ptr: /path}
+    fused_compute: true        # tree p2 (b5e2a277) with fused_compute unset: the fused default
+    offload: {ptr: /offload_embeddings_and_head}
+  host: {os: Linux, harness: "poros train (scripts/prun.sh)", tree: "p2 (b5e2a277)", dataset: "64 oasst1 rows of 512 tokens", note: "lora_target_modules: the 7 projections, what auto takes for qwen2"}
+  fields:
+    peak_vram_allocated: {ptr: /vram_peak_mb_max, unit: MB}
+    peak_vram_reserved: {ptr: /reserved_mb_max, unit: MB}
+    s_per_step: {ptr: /s_med_2_8, unit: s, method: "median of steps 2 to 8"}
+- id: qwen2.5-72b-rtx4090-oasst1-fused-fast-b2-8x1-offload
+  receipt: docs/validation/rtx4090-rc/runs.log
+  select: {name: p72b_fastb2_mb8}
+  key:
+    model: Qwen/Qwen2.5-72B   # jobs/j098_fb8.sh: the Hub snapshot of Qwen/Qwen2.5-72B
+    quantization: nf4          # scripts/mkcfg.py
+    seq_len: 512               # scripts/mkcfg.py
+    block_size: {ptr: /block_size}
+    batch: {ptr: /per_device_batch_size}
+    grad_accum: {ptr: /gradient_accumulation_steps}
+    lora_rank: 16              # scripts/mkcfg.py
+    lora_dropout: 0.0          # scripts/mkcfg.py
+    load_strategy: block_streamed  # scripts/mkcfg.py leaves nf4_load_strategy auto
+    selfcheck: false           # startup_parity_selfcheck unset: off
+    entry: dense
+    gpu: RTX 4090              # the box's card, as its receipts name it
+    path: {ptr: /path}
+    fused_compute: true        # tree p2 (b5e2a277) with fused_compute unset: the fused default
+    offload: {ptr: /offload_embeddings_and_head}
+  host: {os: Linux, harness: "poros train (scripts/prun.sh)", tree: "p2 (b5e2a277)", dataset: "64 oasst1 rows of 512 tokens", note: "lora_target_modules: the 7 projections, what auto takes for qwen2"}
+  fields:
+    peak_vram_allocated: {ptr: /vram_peak_mb_max, unit: MB}
+    peak_vram_reserved: {ptr: /reserved_mb_max, unit: MB}
+    s_per_step: {ptr: /s_med_2_8, unit: s, method: "median of steps 2 to 8"}
+- id: qwen2.5-72b-rtx4090-oasst1-fused-fast-2x4-offload
+  receipt: docs/validation/rtx4090-rc/runs.log
+  select: {name: p72b_fast_mb2}
+  key:
+    model: Qwen/Qwen2.5-72B   # jobs/j099_f2.sh: the Hub snapshot of Qwen/Qwen2.5-72B
+    quantization: nf4          # scripts/mkcfg.py
+    seq_len: 512               # scripts/mkcfg.py
+    block_size: {ptr: /block_size}
+    batch: {ptr: /per_device_batch_size}
+    grad_accum: {ptr: /gradient_accumulation_steps}
+    lora_rank: 16              # scripts/mkcfg.py
+    lora_dropout: 0.0          # scripts/mkcfg.py
+    load_strategy: block_streamed  # scripts/mkcfg.py leaves nf4_load_strategy auto
+    selfcheck: false           # startup_parity_selfcheck unset: off
+    entry: dense
+    gpu: RTX 4090              # the box's card, as its receipts name it
+    path: {ptr: /path}
+    fused_compute: true        # tree p2 (b5e2a277) with fused_compute unset: the fused default
+    offload: {ptr: /offload_embeddings_and_head}
+  host: {os: Linux, harness: "poros train (scripts/prun.sh)", tree: "p2 (b5e2a277)", dataset: "64 oasst1 rows of 512 tokens", note: "lora_target_modules: the 7 projections, what auto takes for qwen2"}
+  fields:
+    peak_vram_allocated: {ptr: /vram_peak_mb_max, unit: MB}
+    peak_vram_reserved: {ptr: /reserved_mb_max, unit: MB}
+    s_per_step: {ptr: /s_med_2_8, unit: s, method: "median of steps 2 to 8"}
+- id: qwen2.5-32b-rtx4090-oasst1-fused-efficient-b1-4x2-offload-c1000
+  receipt: docs/validation/rtx4090-rc/receipts/s32rb_eff_b1_mb4_receipt.json
+  key:
+    model: Qwen/Qwen2.5-32B   # config.resolved.json: the Hub snapshot of Qwen/Qwen2.5-32B
+    quantization: {ptr: /quantization, receipt: docs/validation/rtx4090-rc/receipts/s32rb_eff_b1_mb4_config.resolved.json}
+    seq_len: {ptr: /max_seq_length, receipt: docs/validation/rtx4090-rc/receipts/s32rb_eff_b1_mb4_config.resolved.json}
+    block_size: {ptr: /block_size, receipt: docs/validation/rtx4090-rc/receipts/s32rb_eff_b1_mb4_config.resolved.json}
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/rtx4090-rc/receipts/s32rb_eff_b1_mb4_config.resolved.json}
+    grad_accum: {ptr: /gradient_accumulation_steps, receipt: docs/validation/rtx4090-rc/receipts/s32rb_eff_b1_mb4_config.resolved.json}
+    lora_rank: {ptr: /lora_rank, receipt: docs/validation/rtx4090-rc/receipts/s32rb_eff_b1_mb4_config.resolved.json}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/rtx4090-rc/receipts/s32rb_eff_b1_mb4_config.resolved.json}
+    load_strategy: block_streamed  # config.resolved.json: nf4_load_strategy auto
+    selfcheck: false           # config.resolved.json: startup_parity_selfcheck off
+    entry: dense
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /path, receipt: docs/validation/rtx4090-rc/receipts/s32rb_eff_b1_mb4_config.resolved.json}
+    fused_compute: {ptr: /fused_compute, receipt: docs/validation/rtx4090-rc/receipts/s32rb_eff_b1_mb4_config.resolved.json}
+    offload: {ptr: /offload_embeddings_and_head, receipt: docs/validation/rtx4090-rc/receipts/s32rb_eff_b1_mb4_config.resolved.json}
+    dequant_cache: {ptr: /nf4_dequant_cache_mb, receipt: docs/validation/rtx4090-rc/receipts/s32rb_eff_b1_mb4_config.resolved.json}
+  host: {os: Linux, harness: "poros train (scripts/prun.sh)", tree: wiprb, dataset: "64 oasst1 rows of 512 tokens", note: "lora_target_modules: the 7 projections, what auto takes for qwen2"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+- id: qwen2.5-32b-rtx4090-oasst1-fused-efficient-b1-8x1-offload-c1000
+  receipt: docs/validation/rtx4090-rc/receipts/s32rb_eff_b1_mb8_receipt.json
+  key:
+    model: Qwen/Qwen2.5-32B   # config.resolved.json: the Hub snapshot of Qwen/Qwen2.5-32B
+    quantization: {ptr: /quantization, receipt: docs/validation/rtx4090-rc/receipts/s32rb_eff_b1_mb8_config.resolved.json}
+    seq_len: {ptr: /max_seq_length, receipt: docs/validation/rtx4090-rc/receipts/s32rb_eff_b1_mb8_config.resolved.json}
+    block_size: {ptr: /block_size, receipt: docs/validation/rtx4090-rc/receipts/s32rb_eff_b1_mb8_config.resolved.json}
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/rtx4090-rc/receipts/s32rb_eff_b1_mb8_config.resolved.json}
+    grad_accum: {ptr: /gradient_accumulation_steps, receipt: docs/validation/rtx4090-rc/receipts/s32rb_eff_b1_mb8_config.resolved.json}
+    lora_rank: {ptr: /lora_rank, receipt: docs/validation/rtx4090-rc/receipts/s32rb_eff_b1_mb8_config.resolved.json}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/rtx4090-rc/receipts/s32rb_eff_b1_mb8_config.resolved.json}
+    load_strategy: block_streamed  # config.resolved.json: nf4_load_strategy auto
+    selfcheck: false           # config.resolved.json: startup_parity_selfcheck off
+    entry: dense
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /path, receipt: docs/validation/rtx4090-rc/receipts/s32rb_eff_b1_mb8_config.resolved.json}
+    fused_compute: {ptr: /fused_compute, receipt: docs/validation/rtx4090-rc/receipts/s32rb_eff_b1_mb8_config.resolved.json}
+    offload: {ptr: /offload_embeddings_and_head, receipt: docs/validation/rtx4090-rc/receipts/s32rb_eff_b1_mb8_config.resolved.json}
+    dequant_cache: {ptr: /nf4_dequant_cache_mb, receipt: docs/validation/rtx4090-rc/receipts/s32rb_eff_b1_mb8_config.resolved.json}
+  host: {os: Linux, harness: "poros train (scripts/prun.sh)", tree: wiprb, dataset: "64 oasst1 rows of 512 tokens", note: "lora_target_modules: the 7 projections, what auto takes for qwen2"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+- id: qwen2.5-32b-rtx4090-oasst1-fused-sequential-4x2-offload
+  receipt: docs/validation/rtx4090-rc/receipts/s32rb_seq_b4_mb4_receipt.json
+  key:
+    model: Qwen/Qwen2.5-32B   # config.resolved.json: the Hub snapshot of Qwen/Qwen2.5-32B
+    quantization: {ptr: /quantization, receipt: docs/validation/rtx4090-rc/receipts/s32rb_seq_b4_mb4_config.resolved.json}
+    seq_len: {ptr: /max_seq_length, receipt: docs/validation/rtx4090-rc/receipts/s32rb_seq_b4_mb4_config.resolved.json}
+    block_size: {ptr: /block_size, receipt: docs/validation/rtx4090-rc/receipts/s32rb_seq_b4_mb4_config.resolved.json}
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/rtx4090-rc/receipts/s32rb_seq_b4_mb4_config.resolved.json}
+    grad_accum: {ptr: /gradient_accumulation_steps, receipt: docs/validation/rtx4090-rc/receipts/s32rb_seq_b4_mb4_config.resolved.json}
+    lora_rank: {ptr: /lora_rank, receipt: docs/validation/rtx4090-rc/receipts/s32rb_seq_b4_mb4_config.resolved.json}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/rtx4090-rc/receipts/s32rb_seq_b4_mb4_config.resolved.json}
+    load_strategy: block_streamed  # config.resolved.json: nf4_load_strategy auto
+    selfcheck: false           # config.resolved.json: startup_parity_selfcheck off
+    entry: dense
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /path, receipt: docs/validation/rtx4090-rc/receipts/s32rb_seq_b4_mb4_config.resolved.json}
+    fused_compute: {ptr: /fused_compute, receipt: docs/validation/rtx4090-rc/receipts/s32rb_seq_b4_mb4_config.resolved.json}
+    offload: {ptr: /offload_embeddings_and_head, receipt: docs/validation/rtx4090-rc/receipts/s32rb_seq_b4_mb4_config.resolved.json}
+  host: {os: Linux, harness: "poros train (scripts/prun.sh)", tree: wiprb, dataset: "64 oasst1 rows of 512 tokens", note: "lora_target_modules: the 7 projections, what auto takes for qwen2"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+- id: qwen2.5-32b-rtx4090-oasst1-fused-sequential-8x1-offload
+  receipt: docs/validation/rtx4090-rc/receipts/s32rb_seq_b4_mb8_receipt.json
+  key:
+    model: Qwen/Qwen2.5-32B   # config.resolved.json: the Hub snapshot of Qwen/Qwen2.5-32B
+    quantization: {ptr: /quantization, receipt: docs/validation/rtx4090-rc/receipts/s32rb_seq_b4_mb8_config.resolved.json}
+    seq_len: {ptr: /max_seq_length, receipt: docs/validation/rtx4090-rc/receipts/s32rb_seq_b4_mb8_config.resolved.json}
+    block_size: {ptr: /block_size, receipt: docs/validation/rtx4090-rc/receipts/s32rb_seq_b4_mb8_config.resolved.json}
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/rtx4090-rc/receipts/s32rb_seq_b4_mb8_config.resolved.json}
+    grad_accum: {ptr: /gradient_accumulation_steps, receipt: docs/validation/rtx4090-rc/receipts/s32rb_seq_b4_mb8_config.resolved.json}
+    lora_rank: {ptr: /lora_rank, receipt: docs/validation/rtx4090-rc/receipts/s32rb_seq_b4_mb8_config.resolved.json}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/rtx4090-rc/receipts/s32rb_seq_b4_mb8_config.resolved.json}
+    load_strategy: block_streamed  # config.resolved.json: nf4_load_strategy auto
+    selfcheck: false           # config.resolved.json: startup_parity_selfcheck off
+    entry: dense
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /path, receipt: docs/validation/rtx4090-rc/receipts/s32rb_seq_b4_mb8_config.resolved.json}
+    fused_compute: {ptr: /fused_compute, receipt: docs/validation/rtx4090-rc/receipts/s32rb_seq_b4_mb8_config.resolved.json}
+    offload: {ptr: /offload_embeddings_and_head, receipt: docs/validation/rtx4090-rc/receipts/s32rb_seq_b4_mb8_config.resolved.json}
+  host: {os: Linux, harness: "poros train (scripts/prun.sh)", tree: wiprb, dataset: "64 oasst1 rows of 512 tokens", note: "lora_target_modules: the 7 projections, what auto takes for qwen2"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+- id: qwen2.5-0.5b-rtx4090-oasst1-peft-fast-1x8
+  receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r16_peft_mb1_receipt.json
+  key:
+    model: Qwen/Qwen2.5-0.5B   # config.resolved.json: the Hub snapshot of Qwen/Qwen2.5-0.5B
+    quantization: {ptr: /quantization, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r16_peft_mb1_config.resolved.json}
+    seq_len: {ptr: /max_seq_length, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r16_peft_mb1_config.resolved.json}
+    block_size: {ptr: /block_size, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r16_peft_mb1_config.resolved.json}
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r16_peft_mb1_config.resolved.json}
+    grad_accum: {ptr: /gradient_accumulation_steps, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r16_peft_mb1_config.resolved.json}
+    lora_rank: {ptr: /lora_rank, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r16_peft_mb1_config.resolved.json}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r16_peft_mb1_config.resolved.json}
+    load_strategy: block_streamed  # config.resolved.json: nf4_load_strategy auto
+    selfcheck: false           # config.resolved.json: startup_parity_selfcheck off
+    entry: dense
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /ran_path, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r16_peft_mb1_config.resolved.json}
+    fused_compute: {ptr: /ran_compute/fused_compute, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r16_peft_mb1_config.resolved.json}
+    offload: {ptr: /offload_embeddings_and_head, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r16_peft_mb1_config.resolved.json}
+  host: {os: Linux, harness: "poros train (docs/validation/fused/scripts/prun.sh)", tree: "rk1 (docs/validation/fused/rank_tiles/README.md)", dataset: "2,400 oasst1 rows of at least 1,200 characters (docs/validation/fused/scripts/make_rows.py)", note: "lora_target_modules: the 7 projections, what auto takes for qwen2"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+- id: qwen2.5-0.5b-rtx4090-oasst1-peft-fast-2x4
+  receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r16_peft_mb2_receipt.json
+  key:
+    model: Qwen/Qwen2.5-0.5B   # config.resolved.json: the Hub snapshot of Qwen/Qwen2.5-0.5B
+    quantization: {ptr: /quantization, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r16_peft_mb2_config.resolved.json}
+    seq_len: {ptr: /max_seq_length, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r16_peft_mb2_config.resolved.json}
+    block_size: {ptr: /block_size, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r16_peft_mb2_config.resolved.json}
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r16_peft_mb2_config.resolved.json}
+    grad_accum: {ptr: /gradient_accumulation_steps, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r16_peft_mb2_config.resolved.json}
+    lora_rank: {ptr: /lora_rank, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r16_peft_mb2_config.resolved.json}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r16_peft_mb2_config.resolved.json}
+    load_strategy: block_streamed  # config.resolved.json: nf4_load_strategy auto
+    selfcheck: false           # config.resolved.json: startup_parity_selfcheck off
+    entry: dense
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /ran_path, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r16_peft_mb2_config.resolved.json}
+    fused_compute: {ptr: /ran_compute/fused_compute, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r16_peft_mb2_config.resolved.json}
+    offload: {ptr: /offload_embeddings_and_head, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r16_peft_mb2_config.resolved.json}
+  host: {os: Linux, harness: "poros train (docs/validation/fused/scripts/prun.sh)", tree: "rk1 (docs/validation/fused/rank_tiles/README.md)", dataset: "2,400 oasst1 rows of at least 1,200 characters (docs/validation/fused/scripts/make_rows.py)", note: "lora_target_modules: the 7 projections, what auto takes for qwen2"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+- id: qwen2.5-0.5b-rtx4090-oasst1-fused-fast-1x8
+  receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_fused_mb1_receipt.json
+  key:
+    model: Qwen/Qwen2.5-0.5B   # config.resolved.json: the Hub snapshot of Qwen/Qwen2.5-0.5B
+    quantization: {ptr: /quantization, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_fused_mb1_config.resolved.json}
+    seq_len: {ptr: /max_seq_length, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_fused_mb1_config.resolved.json}
+    block_size: {ptr: /block_size, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_fused_mb1_config.resolved.json}
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_fused_mb1_config.resolved.json}
+    grad_accum: {ptr: /gradient_accumulation_steps, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_fused_mb1_config.resolved.json}
+    lora_rank: {ptr: /lora_rank, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_fused_mb1_config.resolved.json}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_fused_mb1_config.resolved.json}
+    load_strategy: block_streamed  # config.resolved.json: nf4_load_strategy auto
+    selfcheck: false           # config.resolved.json: startup_parity_selfcheck off
+    entry: dense
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /ran_path, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_fused_mb1_config.resolved.json}
+    fused_compute: {ptr: /ran_compute/fused_compute, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_fused_mb1_config.resolved.json}
+    offload: {ptr: /offload_embeddings_and_head, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_fused_mb1_config.resolved.json}
+  host: {os: Linux, harness: "poros train (docs/validation/fused/scripts/prun.sh)", tree: "rk1 (docs/validation/fused/rank_tiles/README.md)", dataset: "2,400 oasst1 rows of at least 1,200 characters (docs/validation/fused/scripts/make_rows.py)", note: "lora_target_modules: the 7 projections, what auto takes for qwen2"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+- id: qwen2.5-0.5b-rtx4090-oasst1-fused-sequential-2x4
+  receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_seq_receipt.json
+  key:
+    model: Qwen/Qwen2.5-0.5B   # config.resolved.json: the Hub snapshot of Qwen/Qwen2.5-0.5B
+    quantization: {ptr: /quantization, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_seq_config.resolved.json}
+    seq_len: {ptr: /max_seq_length, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_seq_config.resolved.json}
+    block_size: {ptr: /block_size, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_seq_config.resolved.json}
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_seq_config.resolved.json}
+    grad_accum: {ptr: /gradient_accumulation_steps, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_seq_config.resolved.json}
+    lora_rank: {ptr: /lora_rank, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_seq_config.resolved.json}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_seq_config.resolved.json}
+    load_strategy: block_streamed  # config.resolved.json: nf4_load_strategy auto
+    selfcheck: false           # config.resolved.json: startup_parity_selfcheck off
+    entry: dense
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /ran_path, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_seq_config.resolved.json}
+    fused_compute: {ptr: /ran_compute/fused_compute, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_seq_config.resolved.json}
+    offload: {ptr: /offload_embeddings_and_head, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_seq_config.resolved.json}
+  host: {os: Linux, harness: "poros train (docs/validation/fused/scripts/prun.sh)", tree: "rk1 (docs/validation/fused/rank_tiles/README.md)", dataset: "64 oasst1 rows of 512 tokens", note: "lora_target_modules: the 7 projections, what auto takes for qwen2"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+- id: qwen2.5-0.5b-rtx4090-oasst1-fused-efficient-2x4
+  receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_eff_receipt.json
+  key:
+    model: Qwen/Qwen2.5-0.5B   # config.resolved.json: the Hub snapshot of Qwen/Qwen2.5-0.5B
+    quantization: {ptr: /quantization, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_eff_config.resolved.json}
+    seq_len: {ptr: /max_seq_length, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_eff_config.resolved.json}
+    block_size: {ptr: /block_size, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_eff_config.resolved.json}
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_eff_config.resolved.json}
+    grad_accum: {ptr: /gradient_accumulation_steps, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_eff_config.resolved.json}
+    lora_rank: {ptr: /lora_rank, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_eff_config.resolved.json}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_eff_config.resolved.json}
+    load_strategy: block_streamed  # config.resolved.json: nf4_load_strategy auto
+    selfcheck: false           # config.resolved.json: startup_parity_selfcheck off
+    entry: dense
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /ran_path, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_eff_config.resolved.json}
+    fused_compute: {ptr: /ran_compute/fused_compute, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_eff_config.resolved.json}
+    offload: {ptr: /offload_embeddings_and_head, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_eff_config.resolved.json}
+  host: {os: Linux, harness: "poros train (docs/validation/fused/scripts/prun.sh)", tree: "rk1 (docs/validation/fused/rank_tiles/README.md)", dataset: "64 oasst1 rows of 512 tokens", note: "lora_target_modules: the 7 projections, what auto takes for qwen2"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+- id: qwen2.5-0.5b-rtx4090-oasst1-fused-fast-2x4
+  receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_fast_receipt.json
+  key:
+    model: Qwen/Qwen2.5-0.5B   # config.resolved.json: the Hub snapshot of Qwen/Qwen2.5-0.5B
+    quantization: {ptr: /quantization, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_fast_config.resolved.json}
+    seq_len: {ptr: /max_seq_length, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_fast_config.resolved.json}
+    block_size: {ptr: /block_size, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_fast_config.resolved.json}
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_fast_config.resolved.json}
+    grad_accum: {ptr: /gradient_accumulation_steps, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_fast_config.resolved.json}
+    lora_rank: {ptr: /lora_rank, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_fast_config.resolved.json}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_fast_config.resolved.json}
+    load_strategy: block_streamed  # config.resolved.json: nf4_load_strategy auto
+    selfcheck: false           # config.resolved.json: startup_parity_selfcheck off
+    entry: dense
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /ran_path, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_fast_config.resolved.json}
+    fused_compute: {ptr: /ran_compute/fused_compute, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_fast_config.resolved.json}
+    offload: {ptr: /offload_embeddings_and_head, receipt: docs/validation/fused/rank_tiles/rtx4090/fk_qwen2_fast_config.resolved.json}
+  host: {os: Linux, harness: "poros train (docs/validation/fused/scripts/prun.sh)", tree: "rk1 (docs/validation/fused/rank_tiles/README.md)", dataset: "64 oasst1 rows of 512 tokens", note: "lora_target_modules: the 7 projections, what auto takes for qwen2"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+- id: qwen2.5-0.5b-rtx4090-oasst1-peft-fast-1x8-r64
+  receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r64_peft_mb1_receipt.json
+  key:
+    model: Qwen/Qwen2.5-0.5B   # config.resolved.json: the Hub snapshot of Qwen/Qwen2.5-0.5B
+    quantization: {ptr: /quantization, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r64_peft_mb1_config.resolved.json}
+    seq_len: {ptr: /max_seq_length, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r64_peft_mb1_config.resolved.json}
+    block_size: {ptr: /block_size, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r64_peft_mb1_config.resolved.json}
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r64_peft_mb1_config.resolved.json}
+    grad_accum: {ptr: /gradient_accumulation_steps, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r64_peft_mb1_config.resolved.json}
+    lora_rank: {ptr: /lora_rank, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r64_peft_mb1_config.resolved.json}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r64_peft_mb1_config.resolved.json}
+    load_strategy: block_streamed  # config.resolved.json: nf4_load_strategy auto
+    selfcheck: false           # config.resolved.json: startup_parity_selfcheck off
+    entry: dense
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /ran_path, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r64_peft_mb1_config.resolved.json}
+    fused_compute: {ptr: /ran_compute/fused_compute, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r64_peft_mb1_config.resolved.json}
+    offload: {ptr: /offload_embeddings_and_head, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r64_peft_mb1_config.resolved.json}
+  host: {os: Linux, harness: "poros train (docs/validation/fused/scripts/prun.sh)", tree: "rk1 (docs/validation/fused/rank_tiles/README.md)", dataset: "2,400 oasst1 rows of at least 1,200 characters (docs/validation/fused/scripts/make_rows.py)", note: "lora_target_modules: the 7 projections, what auto takes for qwen2"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+- id: qwen2.5-0.5b-rtx4090-oasst1-fused-fast-1x8-r64
+  receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r64_fused_mb1_receipt.json
+  key:
+    model: Qwen/Qwen2.5-0.5B   # config.resolved.json: the Hub snapshot of Qwen/Qwen2.5-0.5B
+    quantization: {ptr: /quantization, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r64_fused_mb1_config.resolved.json}
+    seq_len: {ptr: /max_seq_length, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r64_fused_mb1_config.resolved.json}
+    block_size: {ptr: /block_size, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r64_fused_mb1_config.resolved.json}
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r64_fused_mb1_config.resolved.json}
+    grad_accum: {ptr: /gradient_accumulation_steps, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r64_fused_mb1_config.resolved.json}
+    lora_rank: {ptr: /lora_rank, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r64_fused_mb1_config.resolved.json}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r64_fused_mb1_config.resolved.json}
+    load_strategy: block_streamed  # config.resolved.json: nf4_load_strategy auto
+    selfcheck: false           # config.resolved.json: startup_parity_selfcheck off
+    entry: dense
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /ran_path, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r64_fused_mb1_config.resolved.json}
+    fused_compute: {ptr: /ran_compute/fused_compute, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r64_fused_mb1_config.resolved.json}
+    offload: {ptr: /offload_embeddings_and_head, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r64_fused_mb1_config.resolved.json}
+  host: {os: Linux, harness: "poros train (docs/validation/fused/scripts/prun.sh)", tree: "rk1 (docs/validation/fused/rank_tiles/README.md)", dataset: "2,400 oasst1 rows of at least 1,200 characters (docs/validation/fused/scripts/make_rows.py)", note: "lora_target_modules: the 7 projections, what auto takes for qwen2"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+- id: qwen2.5-0.5b-rtx4090-oasst1-peft-fast-2x4-r64
+  receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r64_peft_mb2_receipt.json
+  key:
+    model: Qwen/Qwen2.5-0.5B   # config.resolved.json: the Hub snapshot of Qwen/Qwen2.5-0.5B
+    quantization: {ptr: /quantization, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r64_peft_mb2_config.resolved.json}
+    seq_len: {ptr: /max_seq_length, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r64_peft_mb2_config.resolved.json}
+    block_size: {ptr: /block_size, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r64_peft_mb2_config.resolved.json}
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r64_peft_mb2_config.resolved.json}
+    grad_accum: {ptr: /gradient_accumulation_steps, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r64_peft_mb2_config.resolved.json}
+    lora_rank: {ptr: /lora_rank, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r64_peft_mb2_config.resolved.json}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r64_peft_mb2_config.resolved.json}
+    load_strategy: block_streamed  # config.resolved.json: nf4_load_strategy auto
+    selfcheck: false           # config.resolved.json: startup_parity_selfcheck off
+    entry: dense
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /ran_path, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r64_peft_mb2_config.resolved.json}
+    fused_compute: {ptr: /ran_compute/fused_compute, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r64_peft_mb2_config.resolved.json}
+    offload: {ptr: /offload_embeddings_and_head, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r64_peft_mb2_config.resolved.json}
+  host: {os: Linux, harness: "poros train (docs/validation/fused/scripts/prun.sh)", tree: "rk1 (docs/validation/fused/rank_tiles/README.md)", dataset: "2,400 oasst1 rows of at least 1,200 characters (docs/validation/fused/scripts/make_rows.py)", note: "lora_target_modules: the 7 projections, what auto takes for qwen2"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+- id: qwen2.5-0.5b-rtx4090-oasst1-peft-fast-1x8-r128
+  receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r128_peft_mb1_receipt.json
+  key:
+    model: Qwen/Qwen2.5-0.5B   # config.resolved.json: the Hub snapshot of Qwen/Qwen2.5-0.5B
+    quantization: {ptr: /quantization, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r128_peft_mb1_config.resolved.json}
+    seq_len: {ptr: /max_seq_length, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r128_peft_mb1_config.resolved.json}
+    block_size: {ptr: /block_size, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r128_peft_mb1_config.resolved.json}
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r128_peft_mb1_config.resolved.json}
+    grad_accum: {ptr: /gradient_accumulation_steps, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r128_peft_mb1_config.resolved.json}
+    lora_rank: {ptr: /lora_rank, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r128_peft_mb1_config.resolved.json}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r128_peft_mb1_config.resolved.json}
+    load_strategy: block_streamed  # config.resolved.json: nf4_load_strategy auto
+    selfcheck: false           # config.resolved.json: startup_parity_selfcheck off
+    entry: dense
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /ran_path, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r128_peft_mb1_config.resolved.json}
+    fused_compute: {ptr: /ran_compute/fused_compute, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r128_peft_mb1_config.resolved.json}
+    offload: {ptr: /offload_embeddings_and_head, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r128_peft_mb1_config.resolved.json}
+  host: {os: Linux, harness: "poros train (docs/validation/fused/scripts/prun.sh)", tree: "rk1 (docs/validation/fused/rank_tiles/README.md)", dataset: "2,400 oasst1 rows of at least 1,200 characters (docs/validation/fused/scripts/make_rows.py)", note: "lora_target_modules: the 7 projections, what auto takes for qwen2"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+- id: qwen2.5-0.5b-rtx4090-oasst1-fused-fast-1x8-r128
+  receipt: docs/validation/fused/rank_tiles/rtx4090/rT_r128_fused_mb1_receipt.json
+  key:
+    model: Qwen/Qwen2.5-0.5B   # config.resolved.json: the Hub snapshot of Qwen/Qwen2.5-0.5B
+    quantization: {ptr: /quantization, receipt: docs/validation/fused/rank_tiles/rtx4090/rT_r128_fused_mb1_config.resolved.json}
+    seq_len: {ptr: /max_seq_length, receipt: docs/validation/fused/rank_tiles/rtx4090/rT_r128_fused_mb1_config.resolved.json}
+    block_size: {ptr: /block_size, receipt: docs/validation/fused/rank_tiles/rtx4090/rT_r128_fused_mb1_config.resolved.json}
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/fused/rank_tiles/rtx4090/rT_r128_fused_mb1_config.resolved.json}
+    grad_accum: {ptr: /gradient_accumulation_steps, receipt: docs/validation/fused/rank_tiles/rtx4090/rT_r128_fused_mb1_config.resolved.json}
+    lora_rank: {ptr: /lora_rank, receipt: docs/validation/fused/rank_tiles/rtx4090/rT_r128_fused_mb1_config.resolved.json}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/fused/rank_tiles/rtx4090/rT_r128_fused_mb1_config.resolved.json}
+    load_strategy: block_streamed  # config.resolved.json: nf4_load_strategy auto
+    selfcheck: false           # config.resolved.json: startup_parity_selfcheck off
+    entry: dense
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /ran_path, receipt: docs/validation/fused/rank_tiles/rtx4090/rT_r128_fused_mb1_config.resolved.json}
+    fused_compute: {ptr: /ran_compute/fused_compute, receipt: docs/validation/fused/rank_tiles/rtx4090/rT_r128_fused_mb1_config.resolved.json}
+    offload: {ptr: /offload_embeddings_and_head, receipt: docs/validation/fused/rank_tiles/rtx4090/rT_r128_fused_mb1_config.resolved.json}
+  host: {os: Linux, harness: "poros train (docs/validation/fused/scripts/prun.sh)", tree: "rT (docs/validation/fused/rank_tiles/README.md: the final rank-128 launch, commit 2ce61d09)", dataset: "2,400 oasst1 rows of at least 1,200 characters (docs/validation/fused/scripts/make_rows.py)", note: "lora_target_modules: the 7 projections, what auto takes for qwen2"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+- id: qwen2.5-0.5b-rtx4090-oasst1-peft-fast-2x4-r128
+  receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r128_peft_mb2_receipt.json
+  key:
+    model: Qwen/Qwen2.5-0.5B   # config.resolved.json: the Hub snapshot of Qwen/Qwen2.5-0.5B
+    quantization: {ptr: /quantization, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r128_peft_mb2_config.resolved.json}
+    seq_len: {ptr: /max_seq_length, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r128_peft_mb2_config.resolved.json}
+    block_size: {ptr: /block_size, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r128_peft_mb2_config.resolved.json}
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r128_peft_mb2_config.resolved.json}
+    grad_accum: {ptr: /gradient_accumulation_steps, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r128_peft_mb2_config.resolved.json}
+    lora_rank: {ptr: /lora_rank, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r128_peft_mb2_config.resolved.json}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r128_peft_mb2_config.resolved.json}
+    load_strategy: block_streamed  # config.resolved.json: nf4_load_strategy auto
+    selfcheck: false           # config.resolved.json: startup_parity_selfcheck off
+    entry: dense
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /ran_path, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r128_peft_mb2_config.resolved.json}
+    fused_compute: {ptr: /ran_compute/fused_compute, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r128_peft_mb2_config.resolved.json}
+    offload: {ptr: /offload_embeddings_and_head, receipt: docs/validation/fused/rank_tiles/rtx4090/rk_r128_peft_mb2_config.resolved.json}
+  host: {os: Linux, harness: "poros train (docs/validation/fused/scripts/prun.sh)", tree: "rk1 (docs/validation/fused/rank_tiles/README.md)", dataset: "2,400 oasst1 rows of at least 1,200 characters (docs/validation/fused/scripts/make_rows.py)", note: "lora_target_modules: the 7 projections, what auto takes for qwen2"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+- id: qwen3-30b-a3b-rtx4090-oasst1-fused-efficient-g
+  receipt: docs/validation/rtx4090-rc/receipts/q30g_def_eff_receipt.json
+  key:
+    model: {ptr: /model_name_or_path, receipt: docs/validation/rtx4090-rc/receipts/q30g_def_eff_config.resolved.json}   # config.resolved.json
+    quantization: {ptr: /quantization, receipt: docs/validation/rtx4090-rc/receipts/q30g_def_eff_config.resolved.json}
+    seq_len: {ptr: /max_seq_length, receipt: docs/validation/rtx4090-rc/receipts/q30g_def_eff_config.resolved.json}
+    block_size: null     # poros.moe streams per expert; block_size does not apply
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/rtx4090-rc/receipts/q30g_def_eff_config.resolved.json}
+    grad_accum: {ptr: /gradient_accumulation_steps, receipt: docs/validation/rtx4090-rc/receipts/q30g_def_eff_config.resolved.json}
+    lora_rank: {ptr: /lora_rank, receipt: docs/validation/rtx4090-rc/receipts/q30g_def_eff_config.resolved.json}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/rtx4090-rc/receipts/q30g_def_eff_config.resolved.json}
+    load_strategy: null  # poros.moe has its own streamed loader
+    selfcheck: false           # config.resolved.json: startup_parity_selfcheck off
+    entry: moe
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /path, receipt: docs/validation/rtx4090-rc/receipts/q30g_def_eff_config.resolved.json}
+    moe_compute: {ptr: /moe_expert_compute, receipt: docs/validation/rtx4090-rc/receipts/q30g_def_eff_config.resolved.json}
+    expert_cache: {ptr: /moe_expert_cache_gib, receipt: docs/validation/rtx4090-rc/receipts/q30g_def_eff_config.resolved.json}
+  host: {os: Linux, harness: poros train, dataset: "64 oasst1 rows of 512 tokens (the head-to-head rows)"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+- id: qwen3-30b-a3b-rtx4090-oasst1-fused-fast-c9-g
+  receipt: docs/validation/rtx4090-rc/receipts/q30g_c9_receipt.json
+  key:
+    model: {ptr: /model_name_or_path, receipt: docs/validation/rtx4090-rc/receipts/q30g_c9_config.resolved.json}   # config.resolved.json
+    quantization: {ptr: /quantization, receipt: docs/validation/rtx4090-rc/receipts/q30g_c9_config.resolved.json}
+    seq_len: {ptr: /max_seq_length, receipt: docs/validation/rtx4090-rc/receipts/q30g_c9_config.resolved.json}
+    block_size: null     # poros.moe streams per expert; block_size does not apply
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/rtx4090-rc/receipts/q30g_c9_config.resolved.json}
+    grad_accum: {ptr: /gradient_accumulation_steps, receipt: docs/validation/rtx4090-rc/receipts/q30g_c9_config.resolved.json}
+    lora_rank: {ptr: /lora_rank, receipt: docs/validation/rtx4090-rc/receipts/q30g_c9_config.resolved.json}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/rtx4090-rc/receipts/q30g_c9_config.resolved.json}
+    load_strategy: null  # poros.moe has its own streamed loader
+    selfcheck: false           # config.resolved.json: startup_parity_selfcheck off
+    entry: moe
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /path, receipt: docs/validation/rtx4090-rc/receipts/q30g_c9_config.resolved.json}
+    moe_compute: {ptr: /moe_expert_compute, receipt: docs/validation/rtx4090-rc/receipts/q30g_c9_config.resolved.json}
+    expert_cache: {ptr: /moe_expert_cache_gib, receipt: docs/validation/rtx4090-rc/receipts/q30g_c9_config.resolved.json}
+  host: {os: Linux, harness: poros train, dataset: "64 oasst1 rows of 512 tokens (the head-to-head rows)"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+- id: qwen3-30b-a3b-rtx4090-oasst1-fused-fast-c12
+  receipt: docs/validation/rtx4090-rc/receipts/q30_c12_receipt.json
+  key:
+    model: {ptr: /model_name_or_path, receipt: docs/validation/rtx4090-rc/receipts/q30_c12_config.resolved.json}   # config.resolved.json
+    quantization: {ptr: /quantization, receipt: docs/validation/rtx4090-rc/receipts/q30_c12_config.resolved.json}
+    seq_len: {ptr: /max_seq_length, receipt: docs/validation/rtx4090-rc/receipts/q30_c12_config.resolved.json}
+    block_size: null     # poros.moe streams per expert; block_size does not apply
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/rtx4090-rc/receipts/q30_c12_config.resolved.json}
+    grad_accum: {ptr: /gradient_accumulation_steps, receipt: docs/validation/rtx4090-rc/receipts/q30_c12_config.resolved.json}
+    lora_rank: {ptr: /lora_rank, receipt: docs/validation/rtx4090-rc/receipts/q30_c12_config.resolved.json}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/rtx4090-rc/receipts/q30_c12_config.resolved.json}
+    load_strategy: null  # poros.moe has its own streamed loader
+    selfcheck: false           # config.resolved.json: startup_parity_selfcheck off
+    entry: moe
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /path, receipt: docs/validation/rtx4090-rc/receipts/q30_c12_config.resolved.json}
+    moe_compute: {ptr: /moe_expert_compute, receipt: docs/validation/rtx4090-rc/receipts/q30_c12_config.resolved.json}
+    expert_cache: {ptr: /moe_expert_cache_gib, receipt: docs/validation/rtx4090-rc/receipts/q30_c12_config.resolved.json}
+  host: {os: Linux, harness: poros train, dataset: "64 oasst1 rows of 512 tokens (the head-to-head rows)"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+- id: qwen3-30b-a3b-rtx4090-oasst1-fused-fast-4x2-c9-rc
+  receipt: docs/validation/rtx4090-rc/receipts/q30rc_fz_mb4_receipt.json
+  key:
+    model: {ptr: /model_name_or_path, receipt: docs/validation/rtx4090-rc/receipts/q30rc_fz_mb4_config.resolved.json}   # config.resolved.json
+    quantization: {ptr: /quantization, receipt: docs/validation/rtx4090-rc/receipts/q30rc_fz_mb4_config.resolved.json}
+    seq_len: {ptr: /max_seq_length, receipt: docs/validation/rtx4090-rc/receipts/q30rc_fz_mb4_config.resolved.json}
+    block_size: null     # poros.moe streams per expert; block_size does not apply
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/rtx4090-rc/receipts/q30rc_fz_mb4_config.resolved.json}
+    grad_accum: {ptr: /gradient_accumulation_steps, receipt: docs/validation/rtx4090-rc/receipts/q30rc_fz_mb4_config.resolved.json}
+    lora_rank: {ptr: /lora_rank, receipt: docs/validation/rtx4090-rc/receipts/q30rc_fz_mb4_config.resolved.json}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/rtx4090-rc/receipts/q30rc_fz_mb4_config.resolved.json}
+    load_strategy: null  # poros.moe has its own streamed loader
+    selfcheck: false           # config.resolved.json: startup_parity_selfcheck off
+    entry: moe
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /path, receipt: docs/validation/rtx4090-rc/receipts/q30rc_fz_mb4_config.resolved.json}
+    moe_compute: {ptr: /moe_expert_compute, receipt: docs/validation/rtx4090-rc/receipts/q30rc_fz_mb4_config.resolved.json}
+    expert_cache: {ptr: /moe_expert_cache_gib, receipt: docs/validation/rtx4090-rc/receipts/q30rc_fz_mb4_config.resolved.json}
+  host: {os: Linux, harness: poros train, dataset: "oasst1 rows that fill 512 tokens (docs/validation/moe/4090/scripts/full_rows.py)"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+- id: qwen3-30b-a3b-rtx4090-oasst1-fused-fast-c9-rc
+  receipt: docs/validation/rtx4090-rc/receipts/q30rc_fz_mb8_receipt.json
+  key:
+    model: {ptr: /model_name_or_path, receipt: docs/validation/rtx4090-rc/receipts/q30rc_fz_mb8_config.resolved.json}   # config.resolved.json
+    quantization: {ptr: /quantization, receipt: docs/validation/rtx4090-rc/receipts/q30rc_fz_mb8_config.resolved.json}
+    seq_len: {ptr: /max_seq_length, receipt: docs/validation/rtx4090-rc/receipts/q30rc_fz_mb8_config.resolved.json}
+    block_size: null     # poros.moe streams per expert; block_size does not apply
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/rtx4090-rc/receipts/q30rc_fz_mb8_config.resolved.json}
+    grad_accum: {ptr: /gradient_accumulation_steps, receipt: docs/validation/rtx4090-rc/receipts/q30rc_fz_mb8_config.resolved.json}
+    lora_rank: {ptr: /lora_rank, receipt: docs/validation/rtx4090-rc/receipts/q30rc_fz_mb8_config.resolved.json}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/rtx4090-rc/receipts/q30rc_fz_mb8_config.resolved.json}
+    load_strategy: null  # poros.moe has its own streamed loader
+    selfcheck: false           # config.resolved.json: startup_parity_selfcheck off
+    entry: moe
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /path, receipt: docs/validation/rtx4090-rc/receipts/q30rc_fz_mb8_config.resolved.json}
+    moe_compute: {ptr: /moe_expert_compute, receipt: docs/validation/rtx4090-rc/receipts/q30rc_fz_mb8_config.resolved.json}
+    expert_cache: {ptr: /moe_expert_cache_gib, receipt: docs/validation/rtx4090-rc/receipts/q30rc_fz_mb8_config.resolved.json}
+  host: {os: Linux, harness: poros train, dataset: "oasst1 rows that fill 512 tokens (docs/validation/moe/4090/scripts/full_rows.py)"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+- id: qwen3-30b-a3b-rtx4090-oasst1-reference-fast-4x2-c6-rc
+  receipt: docs/validation/rtx4090-rc/receipts/q30rc_ref_mb4_receipt.json
+  key:
+    model: {ptr: /model_name_or_path, receipt: docs/validation/rtx4090-rc/receipts/q30rc_ref_mb4_config.resolved.json}   # config.resolved.json
+    quantization: {ptr: /quantization, receipt: docs/validation/rtx4090-rc/receipts/q30rc_ref_mb4_config.resolved.json}
+    seq_len: {ptr: /max_seq_length, receipt: docs/validation/rtx4090-rc/receipts/q30rc_ref_mb4_config.resolved.json}
+    block_size: null     # poros.moe streams per expert; block_size does not apply
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/rtx4090-rc/receipts/q30rc_ref_mb4_config.resolved.json}
+    grad_accum: {ptr: /gradient_accumulation_steps, receipt: docs/validation/rtx4090-rc/receipts/q30rc_ref_mb4_config.resolved.json}
+    lora_rank: {ptr: /lora_rank, receipt: docs/validation/rtx4090-rc/receipts/q30rc_ref_mb4_config.resolved.json}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/rtx4090-rc/receipts/q30rc_ref_mb4_config.resolved.json}
+    load_strategy: null  # poros.moe has its own streamed loader
+    selfcheck: false           # config.resolved.json: startup_parity_selfcheck off
+    entry: moe
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /path, receipt: docs/validation/rtx4090-rc/receipts/q30rc_ref_mb4_config.resolved.json}
+    moe_compute: {ptr: /moe_expert_compute, receipt: docs/validation/rtx4090-rc/receipts/q30rc_ref_mb4_config.resolved.json}
+    expert_cache: {ptr: /moe_expert_cache_gib, receipt: docs/validation/rtx4090-rc/receipts/q30rc_ref_mb4_config.resolved.json}
+  host: {os: Linux, harness: poros train, dataset: "oasst1 rows that fill 512 tokens (docs/validation/moe/4090/scripts/full_rows.py)"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+- id: qwen3-30b-a3b-rtx4090-oasst1-reference-fast-c6-rc
+  receipt: docs/validation/rtx4090-rc/receipts/q30rc_ref_mb8_receipt.json
+  key:
+    model: {ptr: /model_name_or_path, receipt: docs/validation/rtx4090-rc/receipts/q30rc_ref_mb8_config.resolved.json}   # config.resolved.json
+    quantization: {ptr: /quantization, receipt: docs/validation/rtx4090-rc/receipts/q30rc_ref_mb8_config.resolved.json}
+    seq_len: {ptr: /max_seq_length, receipt: docs/validation/rtx4090-rc/receipts/q30rc_ref_mb8_config.resolved.json}
+    block_size: null     # poros.moe streams per expert; block_size does not apply
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/rtx4090-rc/receipts/q30rc_ref_mb8_config.resolved.json}
+    grad_accum: {ptr: /gradient_accumulation_steps, receipt: docs/validation/rtx4090-rc/receipts/q30rc_ref_mb8_config.resolved.json}
+    lora_rank: {ptr: /lora_rank, receipt: docs/validation/rtx4090-rc/receipts/q30rc_ref_mb8_config.resolved.json}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/rtx4090-rc/receipts/q30rc_ref_mb8_config.resolved.json}
+    load_strategy: null  # poros.moe has its own streamed loader
+    selfcheck: false           # config.resolved.json: startup_parity_selfcheck off
+    entry: moe
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /path, receipt: docs/validation/rtx4090-rc/receipts/q30rc_ref_mb8_config.resolved.json}
+    moe_compute: {ptr: /moe_expert_compute, receipt: docs/validation/rtx4090-rc/receipts/q30rc_ref_mb8_config.resolved.json}
+    expert_cache: {ptr: /moe_expert_cache_gib, receipt: docs/validation/rtx4090-rc/receipts/q30rc_ref_mb8_config.resolved.json}
+  host: {os: Linux, harness: poros train, dataset: "oasst1 rows that fill 512 tokens (docs/validation/moe/4090/scripts/full_rows.py)"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+- id: qwen3-30b-a3b-rtx4090-oasst1-fused-fast-1x8-c9
+  receipt: docs/validation/moe/4090/receipts/q30f_bw_mb1_fast_receipt.json
+  key:
+    model: {ptr: /model_name_or_path, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb1_fast_config.resolved.json}   # config.resolved.json
+    quantization: {ptr: /quantization, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb1_fast_config.resolved.json}
+    seq_len: {ptr: /max_seq_length, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb1_fast_config.resolved.json}
+    block_size: null     # poros.moe streams per expert; block_size does not apply
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb1_fast_config.resolved.json}
+    grad_accum: {ptr: /gradient_accumulation_steps, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb1_fast_config.resolved.json}
+    lora_rank: {ptr: /lora_rank, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb1_fast_config.resolved.json}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb1_fast_config.resolved.json}
+    load_strategy: null  # poros.moe has its own streamed loader
+    selfcheck: false           # config.resolved.json: startup_parity_selfcheck off
+    entry: moe
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /path, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb1_fast_config.resolved.json}
+    moe_compute: {ptr: /moe_expert_compute, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb1_fast_config.resolved.json}
+    expert_cache: {ptr: /moe_expert_cache_gib, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb1_fast_config.resolved.json}
+  host: {os: Linux, harness: poros train, dataset: "64 oasst1 rows of 512 tokens (the head-to-head rows)"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+- id: qwen3-30b-a3b-rtx4090-oasst1-fused-sequential-1x8-c9
+  receipt: docs/validation/moe/4090/receipts/q30f_bw_mb1_sequential_receipt.json
+  key:
+    model: {ptr: /model_name_or_path, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb1_sequential_config.resolved.json}   # config.resolved.json
+    quantization: {ptr: /quantization, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb1_sequential_config.resolved.json}
+    seq_len: {ptr: /max_seq_length, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb1_sequential_config.resolved.json}
+    block_size: null     # poros.moe streams per expert; block_size does not apply
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb1_sequential_config.resolved.json}
+    grad_accum: {ptr: /gradient_accumulation_steps, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb1_sequential_config.resolved.json}
+    lora_rank: {ptr: /lora_rank, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb1_sequential_config.resolved.json}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb1_sequential_config.resolved.json}
+    load_strategy: null  # poros.moe has its own streamed loader
+    selfcheck: false           # config.resolved.json: startup_parity_selfcheck off
+    entry: moe
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /path, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb1_sequential_config.resolved.json}
+    moe_compute: {ptr: /moe_expert_compute, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb1_sequential_config.resolved.json}
+    expert_cache: {ptr: /moe_expert_cache_gib, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb1_sequential_config.resolved.json}
+  host: {os: Linux, harness: poros train, dataset: "64 oasst1 rows of 512 tokens (the head-to-head rows)"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+- id: qwen3-30b-a3b-rtx4090-oasst1-fused-sequential-c9
+  receipt: docs/validation/moe/4090/receipts/q30f_bw_mb8_sequential_receipt.json
+  key:
+    model: {ptr: /model_name_or_path, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb8_sequential_config.resolved.json}   # config.resolved.json
+    quantization: {ptr: /quantization, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb8_sequential_config.resolved.json}
+    seq_len: {ptr: /max_seq_length, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb8_sequential_config.resolved.json}
+    block_size: null     # poros.moe streams per expert; block_size does not apply
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb8_sequential_config.resolved.json}
+    grad_accum: {ptr: /gradient_accumulation_steps, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb8_sequential_config.resolved.json}
+    lora_rank: {ptr: /lora_rank, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb8_sequential_config.resolved.json}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb8_sequential_config.resolved.json}
+    load_strategy: null  # poros.moe has its own streamed loader
+    selfcheck: false           # config.resolved.json: startup_parity_selfcheck off
+    entry: moe
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /path, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb8_sequential_config.resolved.json}
+    moe_compute: {ptr: /moe_expert_compute, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb8_sequential_config.resolved.json}
+    expert_cache: {ptr: /moe_expert_cache_gib, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb8_sequential_config.resolved.json}
+  host: {os: Linux, harness: poros train, dataset: "64 oasst1 rows of 512 tokens (the head-to-head rows)"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+- id: qwen3-30b-a3b-rtx4090-oasst1-fused-efficient-c9
+  receipt: docs/validation/moe/4090/receipts/q30f_bw_mb8_efficient_receipt.json
+  key:
+    model: {ptr: /model_name_or_path, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb8_efficient_config.resolved.json}   # config.resolved.json
+    quantization: {ptr: /quantization, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb8_efficient_config.resolved.json}
+    seq_len: {ptr: /max_seq_length, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb8_efficient_config.resolved.json}
+    block_size: null     # poros.moe streams per expert; block_size does not apply
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb8_efficient_config.resolved.json}
+    grad_accum: {ptr: /gradient_accumulation_steps, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb8_efficient_config.resolved.json}
+    lora_rank: {ptr: /lora_rank, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb8_efficient_config.resolved.json}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb8_efficient_config.resolved.json}
+    load_strategy: null  # poros.moe has its own streamed loader
+    selfcheck: false           # config.resolved.json: startup_parity_selfcheck off
+    entry: moe
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /path, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb8_efficient_config.resolved.json}
+    moe_compute: {ptr: /moe_expert_compute, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb8_efficient_config.resolved.json}
+    expert_cache: {ptr: /moe_expert_cache_gib, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb8_efficient_config.resolved.json}
+  host: {os: Linux, harness: poros train, dataset: "64 oasst1 rows of 512 tokens (the head-to-head rows)"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+- id: qwen3-30b-a3b-rtx4090-oasst1-fused-fast-c9
+  receipt: docs/validation/moe/4090/receipts/q30f_bw_mb8_fast_receipt.json
+  key:
+    model: {ptr: /model_name_or_path, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb8_fast_config.resolved.json}   # config.resolved.json
+    quantization: {ptr: /quantization, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb8_fast_config.resolved.json}
+    seq_len: {ptr: /max_seq_length, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb8_fast_config.resolved.json}
+    block_size: null     # poros.moe streams per expert; block_size does not apply
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb8_fast_config.resolved.json}
+    grad_accum: {ptr: /gradient_accumulation_steps, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb8_fast_config.resolved.json}
+    lora_rank: {ptr: /lora_rank, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb8_fast_config.resolved.json}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb8_fast_config.resolved.json}
+    load_strategy: null  # poros.moe has its own streamed loader
+    selfcheck: false           # config.resolved.json: startup_parity_selfcheck off
+    entry: moe
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /path, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb8_fast_config.resolved.json}
+    moe_compute: {ptr: /moe_expert_compute, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb8_fast_config.resolved.json}
+    expert_cache: {ptr: /moe_expert_cache_gib, receipt: docs/validation/moe/4090/receipts/q30f_bw_mb8_fast_config.resolved.json}
+  host: {os: Linux, harness: poros train, dataset: "64 oasst1 rows of 512 tokens (the head-to-head rows)"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+
+# RTX 4090, the release tree before poros.core.fused (PEFT's modules): the 7B's loops at one
+# micro-batch of 8 rows and of 1 (block-major-dropout/README.md, rel_one). (The 0.5B's rel_q05_*
+# trained data/text40.jsonl, rows shorter than their max_seq_length: no cell keys them at it.)
+- id: qwen2.5-7b-rtx4090-synthetic-sequential-8x1
+  receipt: docs/validation/block-major-dropout/receipts/rel_m7_one8_seq.receipt.json
+  key:
+    model: {ptr: /model}
+    quantization: {ptr: /config/quantization}
+    seq_len: {ptr: /config/max_seq_length}
+    block_size: {ptr: /block_size, receipt: docs/validation/block-major-dropout/receipts/rel_m7_one8_seq.config.resolved.json}
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/block-major-dropout/receipts/rel_m7_one8_seq.config.resolved.json}
+    grad_accum: {ptr: /config/gradient_accumulation_steps}
+    lora_rank: {ptr: /config/lora_rank}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/block-major-dropout/receipts/rel_m7_one8_seq.config.resolved.json}
+    load_strategy: block_streamed  # config.resolved.json: nf4_load_strategy auto
+    selfcheck: false     # config.resolved.json: startup_parity_selfcheck off
+    entry: dense
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /path, receipt: docs/validation/block-major-dropout/receipts/rel_m7_one8_seq.config.resolved.json}
+  host: {os: Linux, harness: poros train, dataset: {ptr: /dataset, receipt: docs/validation/block-major-dropout/receipts/rel_m7_one8_seq.config.resolved.json}, allocator: "expandable_segments:False (the host's PYTORCH_ALLOC_CONF)"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+- id: qwen2.5-7b-rtx4090-synthetic-efficient-8x1
+  receipt: docs/validation/block-major-dropout/receipts/rel_m7_one8_efficient.receipt.json
+  key:
+    model: {ptr: /model}
+    quantization: {ptr: /config/quantization}
+    seq_len: {ptr: /config/max_seq_length}
+    block_size: {ptr: /block_size, receipt: docs/validation/block-major-dropout/receipts/rel_m7_one8_efficient.config.resolved.json}
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/block-major-dropout/receipts/rel_m7_one8_efficient.config.resolved.json}
+    grad_accum: {ptr: /config/gradient_accumulation_steps}
+    lora_rank: {ptr: /config/lora_rank}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/block-major-dropout/receipts/rel_m7_one8_efficient.config.resolved.json}
+    load_strategy: block_streamed  # config.resolved.json: nf4_load_strategy auto
+    selfcheck: false     # config.resolved.json: startup_parity_selfcheck off
+    entry: dense
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /path, receipt: docs/validation/block-major-dropout/receipts/rel_m7_one8_efficient.config.resolved.json}
+  host: {os: Linux, harness: poros train, dataset: {ptr: /dataset, receipt: docs/validation/block-major-dropout/receipts/rel_m7_one8_efficient.config.resolved.json}, allocator: "expandable_segments:False (the host's PYTORCH_ALLOC_CONF)"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+- id: qwen2.5-7b-rtx4090-synthetic-fast-8x1
+  receipt: docs/validation/block-major-dropout/receipts/rel_m7_one8_fast.receipt.json
+  key:
+    model: {ptr: /model}
+    quantization: {ptr: /config/quantization}
+    seq_len: {ptr: /config/max_seq_length}
+    block_size: {ptr: /block_size, receipt: docs/validation/block-major-dropout/receipts/rel_m7_one8_fast.config.resolved.json}
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/block-major-dropout/receipts/rel_m7_one8_fast.config.resolved.json}
+    grad_accum: {ptr: /config/gradient_accumulation_steps}
+    lora_rank: {ptr: /config/lora_rank}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/block-major-dropout/receipts/rel_m7_one8_fast.config.resolved.json}
+    load_strategy: block_streamed  # config.resolved.json: nf4_load_strategy auto
+    selfcheck: false     # config.resolved.json: startup_parity_selfcheck off
+    entry: dense
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /path, receipt: docs/validation/block-major-dropout/receipts/rel_m7_one8_fast.config.resolved.json}
+  host: {os: Linux, harness: poros train, dataset: {ptr: /dataset, receipt: docs/validation/block-major-dropout/receipts/rel_m7_one8_fast.config.resolved.json}, allocator: "expandable_segments:False (the host's PYTORCH_ALLOC_CONF)"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+- id: qwen2.5-7b-rtx4090-synthetic-sequential-1x1
+  receipt: docs/validation/block-major-dropout/receipts/rel_m7_one_seq.receipt.json
+  key:
+    model: {ptr: /model}
+    quantization: {ptr: /config/quantization}
+    seq_len: {ptr: /config/max_seq_length}
+    block_size: {ptr: /block_size, receipt: docs/validation/block-major-dropout/receipts/rel_m7_one_seq.config.resolved.json}
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/block-major-dropout/receipts/rel_m7_one_seq.config.resolved.json}
+    grad_accum: {ptr: /config/gradient_accumulation_steps}
+    lora_rank: {ptr: /config/lora_rank}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/block-major-dropout/receipts/rel_m7_one_seq.config.resolved.json}
+    load_strategy: block_streamed  # config.resolved.json: nf4_load_strategy auto
+    selfcheck: false     # config.resolved.json: startup_parity_selfcheck off
+    entry: dense
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /path, receipt: docs/validation/block-major-dropout/receipts/rel_m7_one_seq.config.resolved.json}
+  host: {os: Linux, harness: poros train, dataset: {ptr: /dataset, receipt: docs/validation/block-major-dropout/receipts/rel_m7_one_seq.config.resolved.json}, allocator: "expandable_segments:False (the host's PYTORCH_ALLOC_CONF)"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+- id: qwen2.5-7b-rtx4090-synthetic-efficient-1x1
+  receipt: docs/validation/block-major-dropout/receipts/rel_m7_one_efficient.receipt.json
+  key:
+    model: {ptr: /model}
+    quantization: {ptr: /config/quantization}
+    seq_len: {ptr: /config/max_seq_length}
+    block_size: {ptr: /block_size, receipt: docs/validation/block-major-dropout/receipts/rel_m7_one_efficient.config.resolved.json}
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/block-major-dropout/receipts/rel_m7_one_efficient.config.resolved.json}
+    grad_accum: {ptr: /config/gradient_accumulation_steps}
+    lora_rank: {ptr: /config/lora_rank}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/block-major-dropout/receipts/rel_m7_one_efficient.config.resolved.json}
+    load_strategy: block_streamed  # config.resolved.json: nf4_load_strategy auto
+    selfcheck: false     # config.resolved.json: startup_parity_selfcheck off
+    entry: dense
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /path, receipt: docs/validation/block-major-dropout/receipts/rel_m7_one_efficient.config.resolved.json}
+  host: {os: Linux, harness: poros train, dataset: {ptr: /dataset, receipt: docs/validation/block-major-dropout/receipts/rel_m7_one_efficient.config.resolved.json}, allocator: "expandable_segments:False (the host's PYTORCH_ALLOC_CONF)"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}
+- id: qwen2.5-7b-rtx4090-synthetic-fast-1x1
+  receipt: docs/validation/block-major-dropout/receipts/rel_m7_one_fast.receipt.json
+  key:
+    model: {ptr: /model}
+    quantization: {ptr: /config/quantization}
+    seq_len: {ptr: /config/max_seq_length}
+    block_size: {ptr: /block_size, receipt: docs/validation/block-major-dropout/receipts/rel_m7_one_fast.config.resolved.json}
+    batch: {ptr: /per_device_batch_size, receipt: docs/validation/block-major-dropout/receipts/rel_m7_one_fast.config.resolved.json}
+    grad_accum: {ptr: /config/gradient_accumulation_steps}
+    lora_rank: {ptr: /config/lora_rank}
+    lora_dropout: {ptr: /lora_dropout, receipt: docs/validation/block-major-dropout/receipts/rel_m7_one_fast.config.resolved.json}
+    load_strategy: block_streamed  # config.resolved.json: nf4_load_strategy auto
+    selfcheck: false     # config.resolved.json: startup_parity_selfcheck off
+    entry: dense
+    gpu: {ptr: /gpu/name}
+    path: {ptr: /path, receipt: docs/validation/block-major-dropout/receipts/rel_m7_one_fast.config.resolved.json}
+  host: {os: Linux, harness: poros train, dataset: {ptr: /dataset, receipt: docs/validation/block-major-dropout/receipts/rel_m7_one_fast.config.resolved.json}, allocator: "expandable_segments:False (the host's PYTORCH_ALLOC_CONF)"}
+  fields:
+    peak_vram_allocated: {ptr: /peak_vram_allocated_gb, unit: GB}
+    peak_vram_reserved: {ptr: /peak_vram_reserved_gb, unit: GB}
+    peak_host_ram: {ptr: /peak_host_ram_gb, unit: GB}
+    s_per_step: {ptr: /s_per_step, unit: s}

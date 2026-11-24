@@ -1,0 +1,52 @@
+{
+  "arch": "dense \u00b7 28 layers \u00b7 7 blocks",
+  "block_inputs": {
+    "bytes_down": 704643072,
+    "host_full": false,
+    "kept_on_device": 0,
+    "offloaded": 48,
+    "pageable_slabs": 0,
+    "slab_bytes": 805306368,
+    "slabs": 3
+  },
+  "config": {
+    "block_size": 4,
+    "dataset": "<work>/sample-pairs.jsonl",
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 5e-06,
+    "lora_alpha": 32,
+    "lora_rank": 16,
+    "max_seq_length": 512,
+    "max_steps": 16,
+    "per_device_batch_size": 1,
+    "quantization": "nf4"
+  },
+  "final_loss": 0.6738844513893127,
+  "finished_at": "2026-11-24T08:47:58+00:00",
+  "gpu": {
+    "name": "RTX 4090",
+    "total_gb": 25.25
+  },
+  "host_staging": {
+    "budget_basis": "no ceiling found",
+    "granted_bytes": 4093640704,
+    "mode": "pinned",
+    "pinned_budget_bytes": null,
+    "refusals": 0
+  },
+  "kind": "poros.train.receipt",
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "output_dir": "<home>/runs/1124-0845-5558",
+  "peak_host_ram_gb": 11.642,
+  "peak_vram_allocated_gb": 7.92,
+  "peak_vram_reserved_gb": 10.366,
+  "poros": "1.0.0",
+  "recipe": "DPO",
+  "run": "47b42f34",
+  "s_per_step": 3.5488,
+  "simulated": false,
+  "steps": 16,
+  "tokens_per_sec": 2308.41,
+  "version": 1,
+  "wall_s": 106.67
+}

@@ -1,0 +1,57 @@
+▛▜ poros v1.0.0 · allenai/OLMoE-1B-7B-0924 · RTX 4090 23.5 GiB
+
+● Checked o_fp32_olmoe_s42.yaml  config
+  │ nf4 · rank 16 · seq 128 · efficient path
+  │ classic · every token · lr 2e-5
+  │ output    work_ctl_olmoe/runs/o_fp32_olmoe_s42
+  │ eval      work_ctl_olmoe/data/text_eval.jsonl
+
+moe_expert_compute: reference: the fused expert compute cannot run layer 0: the expert adapter is not bf16
+● Loaded OLMoE-1B-7B-0924  20s
+  │ MoE · 16 layers · 64 experts
+● Scored the base  held out 1.9422
+step 1/300  loss 2.5740  1.04 s/step  vram 2.0 GiB (peak 2.9)  eta 5m 12s
+● Scored step 26  held out 1.8194 ↓ 6%
+step 27/300  loss 2.0062  0.73 s/step  vram 2.0 GiB (peak 3.3)  eta 3m 21s
+● Scored step 51  held out 1.7731 ↓ 9% · best
+step 52/300  loss 1.8496  0.76 s/step  vram 2.0 GiB (peak 3.3)  eta 3m 02s
+● Scored step 76  held out 1.7292 ↓ 11% · best
+step 77/300  loss 1.8686  0.72 s/step  vram 2.0 GiB (peak 3.3)  eta 2m 42s
+● Scored step 101  held out 1.6944 ↓ 13% · best
+step 102/300  loss 2.1448  0.74 s/step  vram 2.0 GiB (peak 3.3)  eta 2m 23s
+● Scored step 126  held out 1.6746 ↓ 14% · best
+step 127/300  loss 1.5811  0.75 s/step  vram 2.0 GiB (peak 3.3)  eta 2m 05s
+● Scored step 151  held out 1.6618 ↓ 14% · best
+step 152/300  loss 1.6867  0.67 s/step  vram 2.0 GiB (peak 3.3)  eta 1m 48s
+● Scored step 176  held out 1.6550 ↓ 15% · best
+step 177/300  loss 1.2581  0.77 s/step  vram 2.0 GiB (peak 3.3)  eta 1m 31s
+● Scored step 201  held out 1.6471 ↓ 15% · best
+step 202/300  loss 1.8267  0.76 s/step  vram 2.0 GiB (peak 3.3)  eta 1m 11s
+● Scored step 226  held out 1.6397 ↓ 16% · best
+step 227/300  loss 1.7230  0.74 s/step  vram 2.0 GiB (peak 3.3)  eta 54s
+● Scored step 251  held out 1.6360 ↓ 16% · best
+step 252/300  loss 1.4620  0.76 s/step  vram 2.0 GiB (peak 3.3)  eta 36s
+● Scored step 276  held out 1.6342 ↓ 16% · best
+step 277/300  loss 1.3910  0.74 s/step  vram 2.0 GiB (peak 3.3)  eta 17s
+● Scored step 300  held out 1.6344 ↓ 16%
+
+  ╭─ Trained  Learned well ────────────────────────────────────── 300 steps · classic · 15m 56s ─╮
+  │                                                                      final loss              │
+  │           ▄                                                          1.7944  ↑ 0%            │
+  │  2.0 ○    █▂         ▃▇▄    ▄                      ▂▁                                        │
+  │      ▂▆▆ ▇○█▁  ▄ ○   ████▄▁▄█▅                ▅▄  ▁██▆            ▂    step  held out        │
+  │      ████████▂▆██▆▅▅▇○██████○█▄  ○ ▂ ▁▅▅○  ▄▂▅○██▅█○███▄▁▄○▆▃  ○ ▄○  ○ base    1.9422        │
+  │  1.5 ██████████████████████████  ▃██▇████▃▆███████████████████▃▁▆██  ○  251    1.6360        │
+  │      ██████████████████████████▅▄██████████████████████████████████  ●  276    1.6342        │
+  │      ██████████████████████████████████████████████████████████████  ○  300    1.6344        │
+  │  1.0 ██████████████████████████████████████████████████████████████  vram 3.3 GiB peak       │
+  │      ██████████████████████████████████████████████████████████████  ram  9.8 GiB peak       │
+  │      1                             19                            38                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      153 tok/s
+  │
+  │ adapter    work_ctl_olmoe/runs/o_fp32_olmoe_s42
+  │ receipt    work_ctl_olmoe/runs/o_fp32_olmoe_s42/receipt.json
+
+Continue with: poros eval <home>/poros_rel/moeprec/work_ctl_olmoe/jobs/o_fp32_olmoe_s42.yaml

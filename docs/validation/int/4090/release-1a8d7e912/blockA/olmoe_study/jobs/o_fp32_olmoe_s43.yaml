@@ -1,0 +1,20 @@
+{
+ "lora_rank": 16,
+ "lora_alpha": 32,
+ "lora_dropout": 0.0,
+ "per_device_batch_size": 1,
+ "recipe": "auto",
+ "save_steps": 0,
+ "eval_checkpoints": false,
+ "model_name_or_path": "allenai/OLMoE-1B-7B-0924",
+ "gradient_accumulation_steps": 1,
+ "max_seq_length": 128,
+ "max_steps": 300,
+ "eval_steps": 25,
+ "learning_rate": 2e-05,
+ "lr_scheduler": "constant",
+ "warmup_steps": 0,
+ "seed": 43,
+ "dataset": "<home>/poros_rel/moeprec/work_ctl_olmoe/data/text_train.jsonl",
+ "eval_dataset": "<home>/poros_rel/moeprec/work_ctl_olmoe/data/text_eval.jsonl"
+}

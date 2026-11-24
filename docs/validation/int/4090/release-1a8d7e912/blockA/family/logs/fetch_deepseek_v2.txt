@@ -1,0 +1,7 @@
+model-00001-of-000004.safetensors: 25 tensors, 1020.5 MiB
+model-00001-of-000004.safetensors: 186 tensors, 1023.3 MiB
+model-00001-of-000004.safetensors: 186 tensors, 1021.8 MiB
+model-00001-of-000004.safetensors: 186 tensors, 1022.0 MiB
+model-00001-of-000004.safetensors: 38 tensors, 213.5 MiB
+model-00001-of-000004.safetensors: 1 tensors, 0.0 MiB
+FETCH wrote <home>/poros_rel/hf_cert/fg_models/deepseek-ai_DeepSeek-V2-Lite__trunc4 deepseek_v2 2254983168 params sha256 f51befd25a7e6106

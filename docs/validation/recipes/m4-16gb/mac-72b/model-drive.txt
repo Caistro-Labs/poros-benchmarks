@@ -1,0 +1,10 @@
+model read from an external drive: <path>
+store path as the job passed it: <path>
+resolves to: device /dev/disk7s1, mounted at <path>
+diskutil: Device Location: External; Protocol: PCI-Express
+at: 2026-11-24 00:17:16 CST (written after the run, from the job script's own store path, HF_HOME=<path>)
+pack files (read with ls -l after the run, 2026-11-24 02:21:20 CST, in <path>):
+  model.sss 41203601408 bytes
+  model.sss.idx 50201 bytes
+  small.safetensors 4318944 bytes
+  total 41207970553 bytes = 38.378 GiB (41.21 GB)

@@ -1,0 +1,32 @@
+{
+ "commit": "5d75e31a486cdf19e397e2d0f748def98083ecc8",
+ "tree": "0973100366871afc06c796987f5caedf38741b1a",
+ "machine_4090": {
+  "site": "4090",
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "gpu_mib": "24564",
+  "driver": "580.173.02",
+  "cpu": "AMD EPYC 7502 32-Core Processor",
+  "threads": "64",
+  "ram_gib": 59.6,
+  "os": "Ubuntu 24.04.1 LTS",
+  "kernel": "6.8.0-124-generic",
+  "etc_environment_alloc": "PYTORCH_ALLOC_CONF=expandable_segments:False"
+ },
+ "measured_utc": [
+  "2026-11-18T04:52:58Z",
+  "2026-11-18T11:59:39Z"
+ ],
+ "rule": "every value is the median of 3 interleaved same-session runs; each run's s/update is the median of updates 2..N",
+ "memory": "GiB = 2^30 bytes; VRAM is the larger of the load and training phases for both tools (Poros receipts store the training phase in decimal GB and are converted; Unsloth's harness reports GiB)",
+ "host_ram": "host_ram_gb = peak RssAnon + RssShmem over the process tree at 4 Hz (not file-backed); host_vmhwm_gb = VmHWM, reference only",
+ "unsloth_source": {
+  "30b_a3b": "the local bf16 snapshot of the revision Poros reads, quantized at load: Unsloth 2026.11.4 itself resolves Qwen/Qwen3-30B-A3B to a bf16 repo (its -bnb-4bit name is remapped to the 16-bit one)",
+  "72b": "the same local bf16 snapshot for both tools, quantized at load; Unsloth's default source for this model is its pre-quantized 4-bit copy (NF4, double quantization, bf16 compute, as at load); no start from that source was measured in the formal session, so Unsloth's 72B t1_s and load_* keys are null"
+ },
+ "noaccum_model": "30b_a3b",
+ "notes": [
+  "a30_na_uns_r2: host-RAM sampler gap(s) 3.9 s at +110 s (8.39 -> 8.39 GiB), away from the run's peak of 17.88 GiB at +134 s; the process's own 1 Hz reading peaked at 17.936 GiB",
+  "199 notes rewritten as plain text (their long form in note_long)"
+ ]
+}

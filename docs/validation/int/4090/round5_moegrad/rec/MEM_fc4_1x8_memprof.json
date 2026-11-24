@@ -1,0 +1,44 @@
+[
+ {
+  "update": 1,
+  "alloc": 5.051,
+  "alloc_peak": 7.395,
+  "reserved": 7.682,
+  "reserved_peak": 7.682,
+  "inactive_split": 0.0,
+  "inactive_split_peak": 0.0,
+  "segments": 0,
+  "retries": 0,
+  "capacity": 0.29,
+  "resident": 0.29,
+  "runs": 0
+ },
+ {
+  "update": 2,
+  "alloc": 15.491,
+  "alloc_peak": 18.099,
+  "reserved": 19.83,
+  "reserved_peak": 19.83,
+  "inactive_split": 0.0,
+  "inactive_split_peak": 0.0,
+  "segments": 0,
+  "retries": 0,
+  "capacity": 10.982,
+  "resident": 10.73,
+  "runs": 63
+ },
+ {
+  "update": 3,
+  "alloc": 15.491,
+  "alloc_peak": 18.099,
+  "reserved": 19.83,
+  "reserved_peak": 19.83,
+  "inactive_split": 0.0,
+  "inactive_split_peak": 0.0,
+  "segments": 0,
+  "retries": 0,
+  "capacity": 10.982,
+  "resident": 10.73,
+  "runs": 62
+ }
+]

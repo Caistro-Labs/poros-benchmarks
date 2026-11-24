@@ -1,0 +1,13 @@
+2026-11-17T06:38:07Z
+NVIDIA GeForce RTX 4090, 580.173.02, 24564 MiB, 3120 MHz
+poros venv: torch 2.14.1+cu130 cuda 13.0 transformers 5.22.2 peft 0.20.0 bnb 0.50.2 triton 3.8.0
+unsloth venv: {'unsloth': '2026.11.4', 'unsloth_zoo': '2026.11.4', 'torch': '2.14.1', 'transformers': '5.17.0', 'peft': '0.21.2', 'bitsandbytes': '0.50.2', 'accelerate': '1.15.0'}
+               total        used        free      shared  buff/cache   available
+Mem:              59           0          21           0          37          59
+overlay         223G  125G   99G  56% /
+total 14623480
+drwxrwxr-x  2 ubuntu ubuntu        4096 2026-11-16 12:35:29.601696998 +0000 .
+drwxrwxr-x 12 ubuntu ubuntu        4096 2026-11-17 02:41:35.138656687 +0000 ..
+-rw-r--r--  1 ubuntu ubuntu 14973669376 2026-11-16 12:35:19.912375626 +0000 Qwen--Qwen3-30B-A3B.moe.sss
+-rw-r--r--  1 ubuntu ubuntu      758554 2026-11-16 12:35:29.599696931 +0000 Qwen--Qwen3-30B-A3B.moe.sss.idx
+ 06:38:14 up 4 days, 22:05,  0 user,  load average: 3.14, 1.85, 1.70

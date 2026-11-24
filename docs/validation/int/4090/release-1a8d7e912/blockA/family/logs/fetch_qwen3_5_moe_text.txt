@@ -1,0 +1,1 @@
+FETCH wrote <home>/poros_rel/hf_cert/fg_models/Qwen_Qwen3.6-35B-A3B__text4 qwen3_5_moe_text 4381469760 params sha256 4af8da19f10358eb

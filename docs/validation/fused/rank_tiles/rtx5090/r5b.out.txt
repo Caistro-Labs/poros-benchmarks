@@ -1,0 +1,24 @@
+r0 = commit 383d1294c576c171276be08a403dc089e42a1150 (<branch>)
+== before (r0) 2026-11-14T08:05:55Z
+SPEED b5_72_r128_fused_1 rc 0 med 1.744 s [3.621, 1.737, 1.744, 1.748] ran {"fused_compute": true, "nf4_dequant_cache_mb": 0} None peak GB 19.239 22.276 staging null
+SPEED b5_05_r128_fused_1 rc 0 med 0.955 s [3.854, 0.96, 0.953, 0.925, 0.968, 0.935, 0.955, 0.958] ran {"fused_compute": true, "nf4_dequant_cache_mb": 114} None peak GB 2.949 3.383 staging null
+SPEED b5_72_r128_fused_2 rc 0 med 1.749 s [4.176, 1.741, 1.749, 1.755] ran {"fused_compute": true, "nf4_dequant_cache_mb": 0} None peak GB 19.239 22.276 staging null
+SPEED b5_05_r128_fused_2 rc 0 med 0.946 s [3.535, 0.931, 0.953, 0.946, 0.963, 0.946, 0.966, 0.921] ran {"fused_compute": true, "nf4_dequant_cache_mb": 114} None peak GB 2.949 3.408 staging null
+SPEED b5_72_r128_fused_3 rc 0 med 1.758 s [3.805, 1.744, 1.758, 1.759] ran {"fused_compute": true, "nf4_dequant_cache_mb": 0} None peak GB 19.239 22.003 staging null
+SPEED b5_05_r128_fused_3 rc 0 med 0.984 s [3.639, 1.111, 1.005, 0.984, 0.93, 0.971, 1.107, 0.936] ran {"fused_compute": true, "nf4_dequant_cache_mb": 114} None peak GB 2.949 3.385 staging null
+== MoE CPU audits 2026-11-14T08:08:55Z
+tiny qwen3_moe at <path>
+tiny qwen3.6 at <path>
+CPUAUDIT audit_moe_eff.yaml CPU_HALF_BWD 0 cuda_bwd_ops 1872 ran {"moe_expert_compute": "fused", "fused_compute": true, "moe_expert_cache_gib": 0.003, "moe_expert_cache_reason": "one layer: path efficient, the lowest-VRAM path", "nf4_dequant_cache_mb": 0} cpu_half {'cpu|bfloat16|fwd': 296}
+CPUAUDIT audit_q36_eff.yaml CPU_HALF_BWD 0 cuda_bwd_ops 9412 ran {"moe_expert_compute": "fused", "fused_compute": true, "moe_expert_cache_gib": 0.0, "moe_expert_cache_reason": "one layer: path efficient, the lowest-VRAM path", "nf4_dequant_cache_mb": 0} cpu_half {'cpu|bfloat16|fwd': 392}
+CPUAUDIT audit_q36_seq.yaml CPU_HALF_BWD 352 cuda_bwd_ops 16308 ran {"moe_expert_compute": "fused", "fused_compute": true, "moe_expert_cache_gib": 0.0, "moe_expert_cache_reason": "one layer: the sequential loop does not grow it"} cpu_half {'cpu|bfloat16|fwd': 352, 'cpu|bfloat16|bwd': 352}
+== page-locked fallback, POROS_WSL_PIN_PROBE=0 2026-11-14T08:09:43Z
+WARNING  poros.sss.ssd:ssd.py:207 SSS ring left unpinned: this host's page-locked memory budget is exhausted; copies will be synchronous
+============================== 1 passed in 1.62s ===============================
+SPEED pin_on rc 0 med 1.226 s [3.511, 1.226, 1.277, 1.187] ran {"fused_compute": true, "nf4_dequant_cache_mb": 0} None peak GB 2.154 2.46 staging {"budget_basis": "WSL2 (child probe pinned 4 GiB; free RAM less reserve)", "granted_bytes": 536870912, "mode": "pinned", "pinned_budget_bytes": 26642648679, "refusals": 0}
+SPEED pin_off rc 0 med 1.218 s [3.477, 1.252, 1.218, 1.21] ran {"fused_compute": true, "nf4_dequant_cache_mb": 0} None peak GB 2.154 2.46 staging {"budget_basis": "WSL2 (child probe failed or skipped)", "granted_bytes": 0, "mode": "unpinned", "pinned_budget_bytes": 0, "refusals": 334}
+1
+PINFALLBACK same losses and grad norms: True 4 updates; off staging {"budget_basis": "WSL2 (child probe failed or skipped)", "granted_bytes": 0, "mode": "unpinned", "pinned_budget_bytes": 0, "refusals": 334}
+808K	<path>
+overlay        1007G  154G  803G  17% /
+== done 2026-11-14T08:10:18Z

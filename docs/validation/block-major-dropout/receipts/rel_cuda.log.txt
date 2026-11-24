@@ -1,0 +1,365 @@
+..................ssssss.......................................s........ [ 87%]
+..........                                                               [100%]
+=============================== warnings summary ===============================
+tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[bf16-classic-0.0]
+tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[bf16-classic-0.1]
+tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[bf16-run-0.0]
+tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[bf16-run-0.1]
+  <path> UserWarning: bf16 blockwise is EXPERIMENTAL: parity is NOT bitwise and the memory/speed tradeoff is steeper. For dense models use quantization='bf16_bitwise' (bitwise-validated). Plain bf16 remains for arches where bitwise is structurally unavailable (e.g. MXFP4-native MoE dequantized to bf16). Use nf4 for the validated, bitwise path.
+    poros_model = PorosModel.from_pretrained(
+
+tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[fp16-classic-0.0]
+tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[fp16-classic-0.1]
+tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[fp16-run-0.0]
+tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[fp16-run-0.1]
+  <path> UserWarning: fp16 blockwise is EXPERIMENTAL: parity is NOT bitwise and the memory/speed tradeoff is steeper. Experimental; same streaming caveats as bf16. v2. Use nf4 for the validated, bitwise path.
+    poros_model = PorosModel.from_pretrained(
+
+tests/gpu/test_block_major_16bit.py::test_bf16_bitwise_block_major_asked_for_equals_sequential_with_dropout[classic]
+tests/gpu/test_block_major_16bit.py::test_bf16_bitwise_block_major_asked_for_equals_sequential_with_dropout[run]
+  <path> UserWarning: bf16_bitwise blockwise is EXPERIMENTAL: the path targets bitwise parity but is not yet validated at scale. Dense BF16 blockwise runtime with strict determinism and resident adapters. Bitwise parity validated at 32B (docs/validation/bf16/); bandwidth-bound -- prefer high-bandwidth buses. Use nf4 for the validated, bitwise path.
+    poros_model = PorosModel.from_pretrained(
+
+tests/test_block_major_dropout.py::test_resuming_is_the_uninterrupted_sequential_run[block-major-at-an-epoch-start]
+tests/test_block_major_dropout.py::test_resuming_is_the_uninterrupted_sequential_run[block-major-mid-epoch]
+tests/test_block_major_dropout.py::test_resuming_is_the_uninterrupted_sequential_run[sequential-then-block-major-at-an-epoch-start]
+tests/test_block_major_dropout.py::test_resuming_is_the_uninterrupted_sequential_run[sequential-then-block-major-mid-epoch]
+tests/test_block_major_dropout.py::test_resuming_is_the_uninterrupted_sequential_run[block-major-then-sequential-at-an-epoch-start]
+tests/test_block_major_dropout.py::test_resuming_is_the_uninterrupted_sequential_run[block-major-then-sequential-mid-epoch]
+tests/test_block_major_dropout.py::test_poros_run_block_major_is_its_sequential_loop_with_dropout[chats]
+tests/test_block_major_dropout.py::test_poros_run_block_major_is_its_sequential_loop_with_dropout[pairs]
+  <path> UserWarning: Could not find a config file in  - will assume that the vocabulary was not modified.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+___________ test_run_block_major_equals_sequential[qwen2-False-0.0] ____________
+---------------------------- Captured stderr setup -----------------------------
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 279.42it/s]
+----------------------------- Captured stderr call -----------------------------
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+------------------------------ Captured log call -------------------------------
+WARNING  transformers.modeling_utils:logging.py:340 `torch_dtype` is deprecated! Use `dtype` instead!
+WARNING  poros.train.trainer:block_major.py:394 path efficient after update 1: block inputs {'offloaded': 8, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 270336, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 268959744, 'refusals': 0}
+___________ test_run_block_major_equals_sequential[qwen2-False-0.1] ____________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:394 path efficient after update 1: block inputs {'offloaded': 8, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 270336, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 537919488, 'refusals': 0}
+____________ test_run_block_major_equals_sequential[qwen2-True-0.0] ____________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:394 path efficient after update 1: block inputs {'offloaded': 8, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 270336, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 806879232, 'refusals': 0}
+____________ test_run_block_major_equals_sequential[qwen2-True-0.1] ____________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:394 path efficient after update 1: block inputs {'offloaded': 8, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 270336, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 1075838976, 'refusals': 0}
+_______ test_every_recompute_draws_its_forwards_masks[qwen2-1-efficient] _______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:394 path efficient after update 1: block inputs {'offloaded': 8, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 270336, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 1344798720, 'refusals': 0}
+_______ test_every_recompute_draws_its_forwards_masks[qwen2-2-efficient] _______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:394 path efficient after update 1: block inputs {'offloaded': 4, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 135168, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 1614282752, 'refusals': 0}
+_______ test_every_recompute_draws_its_forwards_masks[qwen2-3-efficient] _______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:394 path efficient after update 1: block inputs {'offloaded': 0, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 0, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 1615331328, 'refusals': 0}
+____ test_preference_pairs_block_major_equal_sequential_with_dropout[qwen2] ____
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:394 path efficient after update 1: block inputs {'offloaded': 8, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 401408, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 1884815360, 'refusals': 0}
+_ test_a_run_of_one_micro_batch_a_step_runs_block_major_and_reserves_nothing_at_load[qwen2] _
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:394 path efficient after update 1: block inputs {'offloaded': 2, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 72704, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 2153512960, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:394 path efficient after update 1: block inputs {'offloaded': 8, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 270336, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 2422472704, 'refusals': 0}
+_________ test_run_block_major_equals_sequential[qwen3_moe-False-0.0] __________
+---------------------------- Captured stderr setup -----------------------------
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 268.71it/s]
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:394 path efficient after update 1: block inputs {'offloaded': 8, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 67584, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 2691956736, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:182 block-major MoE expert dequant cache after update 1: hits 296 misses 80
+WARNING  poros.train.trainer:block_major.py:199 block-major MoE: expert residency grown to 0 MiB after update 1
+_________ test_run_block_major_equals_sequential[qwen3_moe-False-0.1] __________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:394 path efficient after update 1: block inputs {'offloaded': 8, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 67584, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 2960916480, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:182 block-major MoE expert dequant cache after update 1: hits 888 misses 240
+WARNING  poros.train.trainer:block_major.py:199 block-major MoE: expert residency grown to 0 MiB after update 1
+__________ test_run_block_major_equals_sequential[qwen3_moe-True-0.0] __________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:394 path efficient after update 1: block inputs {'offloaded': 8, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 67584, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 3229876224, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:182 block-major MoE expert dequant cache after update 1: hits 1480 misses 400
+WARNING  poros.train.trainer:block_major.py:199 block-major MoE: expert residency grown to 0 MiB after update 1
+__________ test_run_block_major_equals_sequential[qwen3_moe-True-0.1] __________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:394 path efficient after update 1: block inputs {'offloaded': 8, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 67584, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 3498835968, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:182 block-major MoE expert dequant cache after update 1: hits 2072 misses 560
+WARNING  poros.train.trainer:block_major.py:199 block-major MoE: expert residency grown to 0 MiB after update 1
+_____ test_every_recompute_draws_its_forwards_masks[qwen3_moe-1-efficient] _____
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:394 path efficient after update 1: block inputs {'offloaded': 8, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 67584, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 3767795712, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:182 block-major MoE expert dequant cache after update 1: hits 2664 misses 720
+WARNING  poros.train.trainer:block_major.py:199 block-major MoE: expert residency grown to 0 MiB after update 1
+_______ test_every_recompute_draws_its_forwards_masks[qwen3_moe-1-fast] ________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:182 block-major MoE expert dequant cache after update 1: hits 3256 misses 880
+WARNING  poros.train.trainer:block_major.py:199 block-major MoE: expert residency grown to 0 MiB after update 1
+_______ test_the_default_block_major_equals_sequential[bf16-classic-0.0] _______
+---------------------------- Captured stderr setup -----------------------------
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 480.45it/s]
+----------------------------- Captured stderr call -----------------------------
+Loading weights:   0%|          | 0/39 [00:00<?, ?it/s]Loading weights: 100%|██████████| 39/39 [00:00<00:00, 5967.16it/s]
+Loading weights:   0%|          | 0/39 [00:00<?, ?it/s]Loading weights: 100%|██████████| 39/39 [00:00<00:00, 4927.19it/s]
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.determinism:determinism.py:62 Determinism enforcement running in warn_only mode. Non-deterministic operations will log warnings instead of raising errors. This is intended for EXPERIMENTAL bf16 parity work only. NF4 should always use warn_only=False.
+WARNING  poros.core.determinism:determinism.py:62 Determinism enforcement running in warn_only mode. Non-deterministic operations will log warnings instead of raising errors. This is intended for EXPERIMENTAL bf16 parity work only. NF4 should always use warn_only=False.
+_______ test_the_default_block_major_equals_sequential[bf16-classic-0.1] _______
+----------------------------- Captured stderr call -----------------------------
+Loading weights:   0%|          | 0/39 [00:00<?, ?it/s]Loading weights: 100%|██████████| 39/39 [00:00<00:00, 4788.02it/s]
+Loading weights:   0%|          | 0/39 [00:00<?, ?it/s]Loading weights: 100%|██████████| 39/39 [00:00<00:00, 4466.66it/s]
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.determinism:determinism.py:62 Determinism enforcement running in warn_only mode. Non-deterministic operations will log warnings instead of raising errors. This is intended for EXPERIMENTAL bf16 parity work only. NF4 should always use warn_only=False.
+WARNING  poros.core.determinism:determinism.py:62 Determinism enforcement running in warn_only mode. Non-deterministic operations will log warnings instead of raising errors. This is intended for EXPERIMENTAL bf16 parity work only. NF4 should always use warn_only=False.
+_________ test_the_default_block_major_equals_sequential[bf16-run-0.0] _________
+----------------------------- Captured stderr call -----------------------------
+Loading weights:   0%|          | 0/39 [00:00<?, ?it/s]Loading weights: 100%|██████████| 39/39 [00:00<00:00, 5089.70it/s]
+Loading weights:   0%|          | 0/39 [00:00<?, ?it/s]Loading weights: 100%|██████████| 39/39 [00:00<00:00, 5316.32it/s]
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.determinism:determinism.py:62 Determinism enforcement running in warn_only mode. Non-deterministic operations will log warnings instead of raising errors. This is intended for EXPERIMENTAL bf16 parity work only. NF4 should always use warn_only=False.
+WARNING  poros.core.determinism:determinism.py:62 Determinism enforcement running in warn_only mode. Non-deterministic operations will log warnings instead of raising errors. This is intended for EXPERIMENTAL bf16 parity work only. NF4 should always use warn_only=False.
+_________ test_the_default_block_major_equals_sequential[bf16-run-0.1] _________
+----------------------------- Captured stderr call -----------------------------
+Loading weights:   0%|          | 0/39 [00:00<?, ?it/s]Loading weights: 100%|██████████| 39/39 [00:00<00:00, 5276.71it/s]
+Loading weights:   0%|          | 0/39 [00:00<?, ?it/s]Loading weights: 100%|██████████| 39/39 [00:00<00:00, 5895.97it/s]
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.determinism:determinism.py:62 Determinism enforcement running in warn_only mode. Non-deterministic operations will log warnings instead of raising errors. This is intended for EXPERIMENTAL bf16 parity work only. NF4 should always use warn_only=False.
+WARNING  poros.core.determinism:determinism.py:62 Determinism enforcement running in warn_only mode. Non-deterministic operations will log warnings instead of raising errors. This is intended for EXPERIMENTAL bf16 parity work only. NF4 should always use warn_only=False.
+_______ test_the_default_block_major_equals_sequential[fp16-classic-0.0] _______
+----------------------------- Captured stderr call -----------------------------
+Loading weights:   0%|          | 0/39 [00:00<?, ?it/s]Loading weights: 100%|██████████| 39/39 [00:00<00:00, 5839.98it/s]
+Loading weights:   0%|          | 0/39 [00:00<?, ?it/s]Loading weights: 100%|██████████| 39/39 [00:00<00:00, 4231.52it/s]
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.determinism:determinism.py:62 Determinism enforcement running in warn_only mode. Non-deterministic operations will log warnings instead of raising errors. This is intended for EXPERIMENTAL bf16 parity work only. NF4 should always use warn_only=False.
+WARNING  poros.core.determinism:determinism.py:62 Determinism enforcement running in warn_only mode. Non-deterministic operations will log warnings instead of raising errors. This is intended for EXPERIMENTAL bf16 parity work only. NF4 should always use warn_only=False.
+_______ test_the_default_block_major_equals_sequential[fp16-classic-0.1] _______
+----------------------------- Captured stderr call -----------------------------
+Loading weights:   0%|          | 0/39 [00:00<?, ?it/s]Loading weights: 100%|██████████| 39/39 [00:00<00:00, 4027.72it/s]
+Loading weights:   0%|          | 0/39 [00:00<?, ?it/s]Loading weights: 100%|██████████| 39/39 [00:00<00:00, 3933.67it/s]
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.determinism:determinism.py:62 Determinism enforcement running in warn_only mode. Non-deterministic operations will log warnings instead of raising errors. This is intended for EXPERIMENTAL bf16 parity work only. NF4 should always use warn_only=False.
+WARNING  poros.core.determinism:determinism.py:62 Determinism enforcement running in warn_only mode. Non-deterministic operations will log warnings instead of raising errors. This is intended for EXPERIMENTAL bf16 parity work only. NF4 should always use warn_only=False.
+_________ test_the_default_block_major_equals_sequential[fp16-run-0.0] _________
+----------------------------- Captured stderr call -----------------------------
+Loading weights:   0%|          | 0/39 [00:00<?, ?it/s]Loading weights: 100%|██████████| 39/39 [00:00<00:00, 4418.75it/s]
+Loading weights:   0%|          | 0/39 [00:00<?, ?it/s]Loading weights: 100%|██████████| 39/39 [00:00<00:00, 5566.52it/s]
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.determinism:determinism.py:62 Determinism enforcement running in warn_only mode. Non-deterministic operations will log warnings instead of raising errors. This is intended for EXPERIMENTAL bf16 parity work only. NF4 should always use warn_only=False.
+WARNING  poros.core.determinism:determinism.py:62 Determinism enforcement running in warn_only mode. Non-deterministic operations will log warnings instead of raising errors. This is intended for EXPERIMENTAL bf16 parity work only. NF4 should always use warn_only=False.
+_________ test_the_default_block_major_equals_sequential[fp16-run-0.1] _________
+----------------------------- Captured stderr call -----------------------------
+Loading weights:   0%|          | 0/39 [00:00<?, ?it/s]Loading weights: 100%|██████████| 39/39 [00:00<00:00, 5392.74it/s]
+Loading weights:   0%|          | 0/39 [00:00<?, ?it/s]Loading weights: 100%|██████████| 39/39 [00:00<00:00, 4029.31it/s]
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.determinism:determinism.py:62 Determinism enforcement running in warn_only mode. Non-deterministic operations will log warnings instead of raising errors. This is intended for EXPERIMENTAL bf16 parity work only. NF4 should always use warn_only=False.
+WARNING  poros.core.determinism:determinism.py:62 Determinism enforcement running in warn_only mode. Non-deterministic operations will log warnings instead of raising errors. This is intended for EXPERIMENTAL bf16 parity work only. NF4 should always use warn_only=False.
+_ test_bf16_bitwise_block_major_asked_for_equals_sequential_with_dropout[classic] _
+----------------------------- Captured stderr call -----------------------------
+Loading weights:   0%|          | 0/39 [00:00<?, ?it/s]Loading weights: 100%|██████████| 39/39 [00:00<00:00, 6294.60it/s]
+Loading weights:   0%|          | 0/39 [00:00<?, ?it/s]Loading weights: 100%|██████████| 39/39 [00:00<00:00, 4731.51it/s]
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:438 path: sequential: quantization bf16_bitwise (path: fast trains it block-major)
+_ test_bf16_bitwise_block_major_asked_for_equals_sequential_with_dropout[run] __
+----------------------------- Captured stderr call -----------------------------
+Loading weights:   0%|          | 0/39 [00:00<?, ?it/s]Loading weights: 100%|██████████| 39/39 [00:00<00:00, 4738.09it/s]
+Loading weights:   0%|          | 0/39 [00:00<?, ?it/s]Loading weights: 100%|██████████| 39/39 [00:00<00:00, 5046.99it/s]
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:438 path: sequential: quantization bf16_bitwise (path: fast trains it block-major)
+_ test_resuming_is_the_uninterrupted_sequential_run[block-major-at-an-epoch-start] _
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:1440 Could not save tokenizer for dummy: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'. (load it from the base model when running inference).
+___ test_resuming_is_the_uninterrupted_sequential_run[block-major-mid-epoch] ___
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:1440 Could not save tokenizer for dummy: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'. (load it from the base model when running inference).
+_ test_resuming_is_the_uninterrupted_sequential_run[sequential-then-block-major-at-an-epoch-start] _
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:1440 Could not save tokenizer for dummy: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'. (load it from the base model when running inference).
+_ test_resuming_is_the_uninterrupted_sequential_run[sequential-then-block-major-mid-epoch] _
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:1440 Could not save tokenizer for dummy: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'. (load it from the base model when running inference).
+_ test_resuming_is_the_uninterrupted_sequential_run[block-major-then-sequential-at-an-epoch-start] _
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:1440 Could not save tokenizer for dummy: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'. (load it from the base model when running inference).
+_ test_resuming_is_the_uninterrupted_sequential_run[block-major-then-sequential-mid-epoch] _
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:1440 Could not save tokenizer for dummy: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'. (load it from the base model when running inference).
+____ test_poros_run_block_major_is_its_sequential_loop_with_dropout[chats] _____
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:1440 Could not save tokenizer for dummy: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'. (load it from the base model when running inference).
+WARNING  poros.train.trainer:trainer.py:1440 Could not save tokenizer for dummy: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'. (load it from the base model when running inference).
+____ test_poros_run_block_major_is_its_sequential_loop_with_dropout[pairs] _____
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:1440 Could not save tokenizer for dummy: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'. (load it from the base model when running inference).
+WARNING  poros.train.trainer:trainer.py:1440 Could not save tokenizer for dummy: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'. (load it from the base model when running inference).
+__________ test_a_draw_outside_the_lora_dropouts_trains_sequentially ___________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:91 block-major accumulation cannot follow the sequential loop's random draws here: block 0 of micro-batch 0 drew random numbers its LoRA dropouts do not account for. This update and the rest of the run train sequentially: the same update, each block streamed once per micro-batch.
+________ test_a_dropout_module_the_walk_cannot_size_trains_sequentially ________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:91 block-major accumulation cannot follow the sequential loop's random draws here: a dropout outside the LoRA adapters (Dropout, p=0.1) draws in the block's forward. This update and the rest of the run train sequentially: the same update, each block streamed once per micro-batch.
+___________________ test_a_draw_between_layers_moves_no_mask ___________________
+---------------------------- Captured stderr setup -----------------------------
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 411.93it/s]
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:394 path efficient after update 1: block inputs {'offloaded': 4, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 13568, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 4036886528, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:182 block-major MoE expert dequant cache after update 1: hits 3760 misses 1008
+WARNING  poros.train.trainer:block_major.py:199 block-major MoE: expert residency grown to 0 MiB after update 1
+WARNING  poros.train.trainer:block_major.py:394 path efficient after update 1: block inputs {'offloaded': 4, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 13568, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 4305453056, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:182 block-major MoE expert dequant cache after update 1: hits 4176 misses 1104
+WARNING  poros.train.trainer:block_major.py:199 block-major MoE: expert residency grown to 0 MiB after update 1
+_____ test_streamed_and_fully_resident_train_the_same_update_at_dropout[4] _____
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:394 path efficient after update 1: block inputs {'offloaded': 4, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 13568, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 4574019584, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:182 block-major MoE expert dequant cache after update 1: hits 4592 misses 1200
+WARNING  poros.train.trainer:block_major.py:199 block-major MoE: expert residency grown to 0 MiB after update 1
+_____ test_streamed_and_fully_resident_train_the_same_update_at_dropout[1] _____
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:394 path efficient after update 1: block inputs {'offloaded': 1, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 4096, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 4842651648, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:182 block-major MoE expert dequant cache after update 1: hits 5232 misses 1392
+WARNING  poros.train.trainer:block_major.py:199 block-major MoE: expert residency grown to 0 MiB after update 1
+____________________ test_without_the_keys_the_masks_differ ____________________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:394 path efficient after update 1: block inputs {'offloaded': 4, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 13568, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 5111283712, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:182 block-major MoE expert dequant cache after update 1: hits 5488 misses 1584
+WARNING  poros.train.trainer:block_major.py:199 block-major MoE: expert residency grown to 0 MiB after update 1
+WARNING  poros.train.trainer:block_major.py:394 path efficient after update 1: block inputs {'offloaded': 4, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 13568, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 5379850240, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:182 block-major MoE expert dequant cache after update 1: hits 6032 misses 1680
+WARNING  poros.train.trainer:block_major.py:199 block-major MoE: expert residency grown to 0 MiB after update 1
+____________ test_a_resumed_run_is_the_uninterrupted_one[mid-epoch] ____________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:394 path efficient after update 1: block inputs {'offloaded': 4, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 13568, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 5648416768, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:182 block-major MoE expert dequant cache after update 1: hits 6576 misses 1776
+WARNING  poros.train.trainer:block_major.py:199 block-major MoE: expert residency grown to 0 MiB after update 1
+WARNING  poros.train.trainer:block_major.py:394 path efficient after update 1: block inputs {'offloaded': 4, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 13568, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 5916983296, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:182 block-major MoE expert dequant cache after update 1: hits 7408 misses 1968
+WARNING  poros.train.trainer:block_major.py:199 block-major MoE: expert residency grown to 0 MiB after update 1
+WARNING  poros.train.trainer:block_major.py:394 path efficient after update 1: block inputs {'offloaded': 4, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 10752, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 6185549824, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:182 block-major MoE expert dequant cache after update 1: hits 7824 misses 2064
+WARNING  poros.train.trainer:block_major.py:199 block-major MoE: expert residency grown to 0 MiB after update 1
+________ test_a_resumed_run_is_the_uninterrupted_one[at-an-epoch-start] ________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:394 path efficient after update 1: block inputs {'offloaded': 4, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 15104, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 6454116352, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:182 block-major MoE expert dequant cache after update 1: hits 8240 misses 2160
+WARNING  poros.train.trainer:block_major.py:199 block-major MoE: expert residency grown to 0 MiB after update 1
+WARNING  poros.train.trainer:block_major.py:394 path efficient after update 1: block inputs {'offloaded': 4, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 15104, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 6722682880, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:182 block-major MoE expert dequant cache after update 1: hits 9068 misses 2352
+WARNING  poros.train.trainer:block_major.py:199 block-major MoE: expert residency grown to 0 MiB after update 1
+WARNING  poros.train.trainer:block_major.py:394 path efficient after update 1: block inputs {'offloaded': 4, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 13056, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 6991249408, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:182 block-major MoE expert dequant cache after update 1: hits 9480 misses 2448
+WARNING  poros.train.trainer:block_major.py:199 block-major MoE: expert residency grown to 0 MiB after update 1
+____________ test_every_expert_recompute_draws_its_forward_s_masks _____________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:394 path efficient after update 1: block inputs {'offloaded': 4, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 13568, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 7259815936, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:182 block-major MoE expert dequant cache after update 1: hits 9896 misses 2544
+WARNING  poros.train.trainer:block_major.py:199 block-major MoE: expert residency grown to 0 MiB after update 1
+_________________ test_block_major_moe_equals_sequential[ram] __________________
+---------------------------- Captured stderr setup -----------------------------
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 230.89it/s]
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:394 path efficient after update 1: block inputs {'offloaded': 12, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 19200, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 7528841216, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:182 block-major MoE expert dequant cache after update 1: hits 10472 misses 2704
+WARNING  poros.train.trainer:block_major.py:199 block-major MoE: expert residency grown to 0 MiB after update 1
+_________________ test_block_major_moe_equals_sequential[ssd] __________________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:394 path efficient after update 1: block inputs {'offloaded': 12, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 19200, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 7799701504, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:182 block-major MoE expert dequant cache after update 1: hits 11220 misses 2928
+____________ test_resident_layers_load_onto_the_gpu_byte_identical _____________
+---------------------------- Captured stderr setup -----------------------------
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 43.57it/s]
+__________________ test_every_placement_trains_the_same_bits ___________________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:394 path efficient after update 1: block inputs {'offloaded': 20, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 491520, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 8069677056, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:394 path efficient after update 1: block inputs {'offloaded': 20, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 491520, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 8338079744, 'refusals': 0}
+=========================== short test summary info ============================
+PASSED tests/test_run_block_major_cuda.py::test_run_block_major_equals_sequential[qwen2-False-0.0]
+PASSED tests/test_run_block_major_cuda.py::test_run_block_major_equals_sequential[qwen2-False-0.1]
+PASSED tests/test_run_block_major_cuda.py::test_run_block_major_equals_sequential[qwen2-True-0.0]
+PASSED tests/test_run_block_major_cuda.py::test_run_block_major_equals_sequential[qwen2-True-0.1]
+PASSED tests/test_run_block_major_cuda.py::test_every_recompute_draws_its_forwards_masks[qwen2-1-efficient]
+PASSED tests/test_run_block_major_cuda.py::test_every_recompute_draws_its_forwards_masks[qwen2-1-fast]
+PASSED tests/test_run_block_major_cuda.py::test_every_recompute_draws_its_forwards_masks[qwen2-2-efficient]
+PASSED tests/test_run_block_major_cuda.py::test_every_recompute_draws_its_forwards_masks[qwen2-2-fast]
+PASSED tests/test_run_block_major_cuda.py::test_every_recompute_draws_its_forwards_masks[qwen2-3-efficient]
+PASSED tests/test_run_block_major_cuda.py::test_every_recompute_draws_its_forwards_masks[qwen2-3-fast]
+PASSED tests/test_run_block_major_cuda.py::test_preference_pairs_block_major_equal_sequential_with_dropout[qwen2]
+PASSED tests/test_run_block_major_cuda.py::test_a_run_of_one_micro_batch_a_step_runs_block_major_and_reserves_nothing_at_load[qwen2]
+PASSED tests/test_run_block_major_cuda.py::test_run_block_major_equals_sequential[qwen3_moe-False-0.0]
+PASSED tests/test_run_block_major_cuda.py::test_run_block_major_equals_sequential[qwen3_moe-False-0.1]
+PASSED tests/test_run_block_major_cuda.py::test_run_block_major_equals_sequential[qwen3_moe-True-0.0]
+PASSED tests/test_run_block_major_cuda.py::test_run_block_major_equals_sequential[qwen3_moe-True-0.1]
+PASSED tests/test_run_block_major_cuda.py::test_every_recompute_draws_its_forwards_masks[qwen3_moe-1-efficient]
+PASSED tests/test_run_block_major_cuda.py::test_every_recompute_draws_its_forwards_masks[qwen3_moe-1-fast]
+PASSED tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[bf16-classic-0.0]
+PASSED tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[bf16-classic-0.1]
+PASSED tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[bf16-run-0.0]
+PASSED tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[bf16-run-0.1]
+PASSED tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[fp16-classic-0.0]
+PASSED tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[fp16-classic-0.1]
+PASSED tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[fp16-run-0.0]
+PASSED tests/gpu/test_block_major_16bit.py::test_the_default_block_major_equals_sequential[fp16-run-0.1]
+PASSED tests/gpu/test_block_major_16bit.py::test_bf16_bitwise_block_major_asked_for_equals_sequential_with_dropout[classic]
+PASSED tests/gpu/test_block_major_16bit.py::test_bf16_bitwise_block_major_asked_for_equals_sequential_with_dropout[run]
+PASSED tests/test_block_major_dropout.py::test_block_major_is_the_sequential_update_with_dropout[0.0]
+PASSED tests/test_block_major_dropout.py::test_block_major_is_the_sequential_update_with_dropout[0.1]
+PASSED tests/test_block_major_dropout.py::test_one_micro_batch_a_step_runs_block_major_as_the_sequential_update
+PASSED tests/test_block_major_dropout.py::test_every_block_size_is_the_sequential_update[1]
+PASSED tests/test_block_major_dropout.py::test_every_block_size_is_the_sequential_update[2]
+PASSED tests/test_block_major_dropout.py::test_every_block_size_is_the_sequential_update[4]
+PASSED tests/test_block_major_dropout.py::test_every_block_size_is_the_sequential_update[8]
+PASSED tests/test_block_major_dropout.py::test_every_recompute_draws_its_forwards_masks[1]
+PASSED tests/test_block_major_dropout.py::test_every_recompute_draws_its_forwards_masks[2]
+PASSED tests/test_block_major_dropout.py::test_every_recompute_draws_its_forwards_masks[4]
+PASSED tests/test_block_major_dropout.py::test_without_the_walk_the_masks_differ
+PASSED tests/test_block_major_dropout.py::test_resuming_is_the_uninterrupted_sequential_run[block-major-at-an-epoch-start]
+PASSED tests/test_block_major_dropout.py::test_resuming_is_the_uninterrupted_sequential_run[block-major-mid-epoch]
+PASSED tests/test_block_major_dropout.py::test_resuming_is_the_uninterrupted_sequential_run[sequential-then-block-major-at-an-epoch-start]
+PASSED tests/test_block_major_dropout.py::test_resuming_is_the_uninterrupted_sequential_run[sequential-then-block-major-mid-epoch]
+PASSED tests/test_block_major_dropout.py::test_resuming_is_the_uninterrupted_sequential_run[block-major-then-sequential-at-an-epoch-start]
+PASSED tests/test_block_major_dropout.py::test_resuming_is_the_uninterrupted_sequential_run[block-major-then-sequential-mid-epoch]
+PASSED tests/test_block_major_dropout.py::test_poros_run_block_major_is_its_sequential_loop_with_dropout[chats]
+PASSED tests/test_block_major_dropout.py::test_poros_run_block_major_is_its_sequential_loop_with_dropout[pairs]
+PASSED tests/test_block_major_dropout.py::test_a_draw_outside_the_lora_dropouts_trains_sequentially
+PASSED tests/test_block_major_dropout.py::test_a_dropout_module_the_walk_cannot_size_trains_sequentially
+PASSED tests/test_block_major_dropout.py::test_the_walk_records_where_each_block_starts
+PASSED tests/test_block_major_dropout.py::test_a_vlm_s_tower_adapters_leave_block_major_the_sequential_update[gemma3]
+PASSED tests/test_block_major_dropout.py::test_a_vlm_s_tower_adapters_leave_block_major_the_sequential_update[gemma4]
+PASSED tests/test_block_major_dropout.py::test_a_tower_adapter_that_gets_a_gradient_stops_the_run[False]
+PASSED tests/test_block_major_dropout.py::test_a_tower_adapter_that_gets_a_gradient_stops_the_run[True]
+PASSED tests/moe/test_keyed_rng.py::test_a_layer_s_state_is_a_pure_function_of_its_key
+PASSED tests/moe/test_keyed_rng.py::test_a_layer_the_forward_never_keyed_stops_the_update
+PASSED tests/moe/test_keyed_rng.py::test_a_draw_between_layers_moves_no_mask
+PASSED tests/moe/test_keyed_rng.py::test_streamed_and_fully_resident_train_the_same_update_at_dropout[4]
+PASSED tests/moe/test_keyed_rng.py::test_streamed_and_fully_resident_train_the_same_update_at_dropout[1]
+PASSED tests/moe/test_keyed_rng.py::test_without_the_keys_the_masks_differ
+PASSED tests/moe/test_keyed_rng.py::test_a_resumed_run_is_the_uninterrupted_one[mid-epoch]
+PASSED tests/moe/test_keyed_rng.py::test_a_resumed_run_is_the_uninterrupted_one[at-an-epoch-start]
+PASSED tests/moe/test_keyed_rng.py::test_every_expert_recompute_draws_its_forward_s_masks
+PASSED tests/test_gemma4_variants.py::test_the_registry_names_the_variant[text0-True]
+PASSED tests/test_gemma4_variants.py::test_the_registry_names_the_variant[text1-True]
+PASSED tests/test_gemma4_variants.py::test_the_registry_names_the_variant[text2-False]
+PASSED tests/test_gemma4_variants.py::test_the_registry_names_the_variant[text3-False]
+PASSED tests/test_gemma4_variants.py::test_the_gate_refuses_it_in_every_mode[error]
+PASSED tests/test_gemma4_variants.py::test_the_gate_refuses_it_in_every_mode[warn]
+PASSED tests/test_gemma4_variants.py::test_the_gate_refuses_it_in_every_mode[off]
+PASSED tests/test_gemma4_variants.py::test_poros_check_says_unsupported_with_the_reason
+PASSED tests/moe/test_block_major_moe.py::test_block_major_moe_equals_sequential[ram]
+PASSED tests/moe/test_block_major_moe.py::test_block_major_moe_equals_sequential[ssd]
+PASSED tests/gpu/test_host_ram_nf4.py::test_resident_layers_load_onto_the_gpu_byte_identical
+PASSED tests/gpu/test_host_ram_nf4.py::test_every_placement_trains_the_same_bits
+SKIPPED [4] tests/test_run_block_major_cuda.py:106: a MoE model's block sizes: tests/moe/test_block_major_families.py
+SKIPPED [1] tests/test_run_block_major_cuda.py:138: dense
+SKIPPED [1] tests/test_run_block_major_cuda.py:166: dense
+SKIPPED [1] tests/moe/test_keyed_rng.py:159: a CPU model (on CUDA: the tests below)
+75 passed, 7 skipped, 18 warnings in 121.20s (0:02:01)

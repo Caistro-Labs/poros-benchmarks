@@ -1,0 +1,35 @@
+▛▜ poros v0.3.0 · Qwen/Qwen2.5-7B · RTX 4090 23.5 GiB
+
+● Checked c7_poros_r1.yaml  config
+  │ nf4 · block 4 · rank 16 · seq 512 · efficient path
+  │ classic · every token · lr 2e-5
+  │ output    runs/c7_poros_r1
+
+● Loaded Qwen2.5-7B  18s
+  │ dense · 28 layers · 7 blocks
+step 1/16  loss 1.1560  4.46 s/step  vram 4.7 GiB (peak 8.0)  eta 1m 07s
+step 12/16  loss 1.1445  2.80 s/step  vram 4.7 GiB (peak 8.0)  eta 12s
+~/venv_poros/lib/python3.12/site-packages/peft/utils/save_and_load.py:438: UserWarning: Could not find a config file in Qwen/Qwen2.5-7B - will assume that the vocabulary was not modified.
+  warnings.warn(
+
+  ╭─ Trained ───────────────────────────────────────────────────────── 16 steps · classic · 54s ─╮
+  │                                                                      final loss              │
+  │                                                                      1.1234  ↓ 3%            │
+  │  1.5     ▁                     ▂▄▆▅▁                                 from 1.1560             │
+  │        ▂▆█▇▅▃▁          ▁▃▄▅▆▆██████▅▁                  ▁▄▆▇▇██▄▁                            │
+  │      ▃▇███████▅▂    ▂▅▇███████████████▅▁             ▂▄▇█████████▅▂  vram 8.0 GiB peak       │
+  │  1.0 ███████████▇▃▅▇████████████████████▅▁ ▂▄▆▇▆▅▄▄▆███████████████  ram  10.8 GiB peak      │
+  │      █████████████████████████████████████▇████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │  0.5 ██████████████████████████████████████████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                                8                          16                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      1,323 tok/s
+  │
+  │ adapter    runs/c7_poros_r1
+  │ receipt    runs/c7_poros_r1/receipt.json
+
+Continue with: poros eval ~/rf/h2hf_5d75e31a/rec/c7_poros_r1.yaml
+{"schema":"poros.train.v1","learned":null,"output_dir":"~/rf/h2hf_5d75e31a/runs/c7_poros_r1","events":"~/rf/h2hf_5d75e31a/runs/c7_poros_r1/events.jsonl","metrics":{"device":"cuda:0","total_steps":16,"final_loss":1.1234146356582642,"loss_history":[1.1559929847717285,1.4442839622497559,1.2602916955947876,0.9659445881843567,1.207337498664856,1.3147786855697632,1.3916672468185425,1.557429313659668,1.2309632301330566,0.8886476755142212,1.064691185951233,0.9809967875480652,1.1623717546463013,1.3742187023162842,1.4201560020446777,1.1234146356582642],"grad_norm_history":[0.17227481305599213,0.19478757679462433,0.17528539896011353,0.18275533616542816,0.1836843639612198,0.19101956486701965,0.1850649118423462,0.1882420927286148,0.21060194075107574,0.2026466429233551,0.1946169137954712,0.1882869303226471,0.23204760253429413,0.21532055735588074,0.2129024863243103,0.1900075227022171],"eval_history":[],"total_time_s":49.53992493264377,"step_time_history":[4.463420649990439,3.2072088457643986,3.1363044641911983,3.0714151095598936,2.9861880000680685,2.857613004744053,2.8535374887287617,2.968499917536974,2.9221780337393284,2.9228078965097666,2.981585118919611,2.802671628072858,2.995957162231207,2.957554627209902,3.0879904236644506,3.324992561712861],"vram_alloc_history_mb":[5015.65696,5015.65696,5015.65696,5015.65696,5015.65696,5015.65696,5015.65696,5015.65696,5015.65696,5015.65696,5015.65696,5015.65696,5015.65696,5015.65696,5015.65696,5015.65696],"avg_vram_allocated_mb":5015.65696,"avg_step_time_ms":3096.2453082902357,"steps_per_sec":0.3229718256891621,"tokens_processed":65536,"tokens_per_sec":1322.892598022808,"peak_vram_allocated_gb":8.531750912,"peak_vram_reserved_gb":9.544138752,"torch_num_threads":16,"quantization":"nf4","block_size":4,"adapter_backend":"peft","adapter_summary":{"backend":"peft","target_module_names":"all-linear","trainable_param_count":40370176,"total_param_count":4393342464}},"run":null,"command":null,"next":[],"plan":null,"from":null,"support":null,"model_type":null}

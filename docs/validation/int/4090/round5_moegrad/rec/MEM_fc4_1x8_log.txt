@@ -1,0 +1,39 @@
+○ may not fit
+  │ Qwen/Qwen3-30B-A3B: allocated peak 19.347 GiB fits 23.13 GiB free, but the reserved peak, at most 23.418 GiB, may not (estimated: an upper bound from receipts at other settings); the run may run out of GPU memory at its first step
+▛▜ poros v0.3.0 · Qwen/Qwen3-30B-A3B · RTX 4090 23.5 GiB
+
+● Checked MEM_fc4_1x8.yaml  config
+  │ nf4 · block 4 · rank 16 · seq 512 · fast path
+  │ classic · every token · lr 2e-5
+  │ output    runs/MEM_fc4_1x8
+  │ store     ssd <path>
+
+● Loaded Qwen3-30B-A3B  12s
+  │ MoE · 48 layers · 128 experts
+Map:   0%|          | 0/64 [00:00<?, ? examples/s]Map: 100%|██████████| 64/64 [00:00<00:00, 1600.31 examples/s]
+Filter:   0%|          | 0/64 [00:00<?, ? examples/s]Filter: 100%|██████████| 64/64 [00:00<00:00, 17343.03 examples/s]
+block-major MoE expert dequant cache after update 1: hits 0 misses 0
+step 1/3  loss 1.3177  17.29 s/step  vram 5.1 GiB (peak 7.4)  eta 35s
+MoE expert cache 10.98 GiB, sized on an update at the full shape (fits this GPU: 22.97 GiB this process may hold - 7.68 GiB reserved peak - 4.59 GiB margin)
+
+  ╭─ Trained ────────────────────────────────────────────────────────── 3 steps · classic · 46s ─╮
+  │                                                                      final loss              │
+  │                                                                      1.1973  ↓ 9%            │
+  │  1.6                             ▁▂▃▃▁                               from 1.3177             │
+  │                           ▁▂▃▄▆▇███████▆▄▃▁                                                  │
+  │                    ▁▃▄▅▆▇███████████████████▆▅▃▁                     vram 18.1 GiB peak      │
+  │  1.4       ▁▂▃▄▅▆▇███████████████████████████████▆▅▃▂                ram  11.7 GiB peak      │
+  │      ▂▃▄▅▇████████████████████████████████████████████▇▅▃▂                                   │
+  │      ██████████████████████████████████████████████████████▇▅▄▂                              │
+  │  1.2 ███████████████████████████████████████████████████████████▇▅▄                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                             1                              3                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      376 tok/s
+  │
+  │ adapter    runs/MEM_fc4_1x8
+  │ receipt    runs/MEM_fc4_1x8/receipt.json
+
+Continue with: poros eval <path>
+{"schema":"poros.train.v1","learned":null,"output_dir":"<path>","events":"<path>","metrics":{"device":"cuda:0","total_steps":3,"final_loss":1.1973118782043457,"loss_history":[1.3177067041397095,1.5961382389068604,1.1973118782043457],"grad_norm_history":[0.44921875,0.55859375,0.41015625],"eval_history":[],"total_time_s":32.67366776242852,"step_time_history":[17.287057070061564,10.44480043463409,4.941810257732868],"vram_alloc_history_mb":[5423.983616,16633.394176,16633.391616],"avg_vram_allocated_mb":12896.923136,"avg_step_time_ms":10891.222587476173,"steps_per_sec":0.09181705653044873,"tokens_processed":12288,"tokens_per_sec":376.082663548718,"peak_vram_allocated_gb":19.433784832,"peak_vram_reserved_gb":21.292384256,"torch_num_threads":16,"quantization":"nf4","block_size":null,"adapter_backend":"native","adapter_summary":null},"run":null,"command":null,"next":[],"plan":null,"from":null,"support":null,"model_type":null}

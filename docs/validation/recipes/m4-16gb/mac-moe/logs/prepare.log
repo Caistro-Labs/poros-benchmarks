@@ -1,0 +1,28 @@
+▛▜ poros v1.0.0 · Qwen/Qwen3-30B-A3B-Instruct-2507 · Apple M4 10-core GPU 16GB
+
+● Checked cert-mac-moe-prepare  run 1124-0001-a455
+  │ rank 16 · 128 tokens
+  │ SFT · answers only · lr 2e-5
+  │ output
+  │ <home>/runs/1124-0001-a455
+  │ weights   <disk>/poros-metal/hf
+
+● Loaded Qwen3-30B-A3B-Instruct-2507  6.4s
+  │ MoE · 48 layers · 128 experts
+step 1/1  loss 7.2955  31.64 s/step  memory 6.8 GiB (peak 9.0)
+
+● Trained 1 step · SFT  36s
+  │ final loss 7.2955
+  │
+  │ peak       ━━━━━━━━━───────  9.0 GiB of 16.0 GiB
+  │ speed      4 tok/s
+  │
+  │ adapter
+  │ <home>/runs/1124-0001-a455
+  │ receipt
+  │ <home>/runs/1124-0001-a455/receipt.json
+
+Continue with: poros export 1124-0001-a455
+No rows were held out: `poros eval 1124-0001-a455 --data FILE` scores a file of yours.
+Keep it as a recipe: poros recipes save last
+{"schema":"poros.train.v1","learned":null,"output_dir":"<home>/runs/1124-0001-a455","events":"<home>/runs/1124-0001-a455/events.jsonl","metrics":{"device":"mps","total_steps":1,"final_loss":7.295467853546143,"loss_history":[7.295467853546143],"grad_norm_history":[2.609375],"eval_history":[],"total_time_s":31.635843625001144,"step_time_history":[31.635843625001144],"vram_alloc_history_mb":[],"avg_vram_allocated_mb":0.0,"avg_step_time_ms":31635.843625001144,"steps_per_sec":0.03160971497563356,"tokens_processed":128,"tokens_per_sec":4.046043516881095,"peak_vram_allocated_gb":9.645788544,"peak_vram_reserved_gb":0.0,"torch_num_threads":4,"quantization":"nf4","block_size":1,"adapter_backend":"experts","adapter_summary":null},"run":"1124-0001-a455","command":"poros train Qwen/Qwen3-30B-A3B-Instruct-2507 --data <work>/sample-chats.jsonl --steps 1 --seq-len 128 --rank 16 --block-size 1 --name cert-mac-moe-prepare --recipe sft gradient_accumulation_steps=1 learning_rate=2e-5 lora_alpha=32 lora_dropout=0 per_device_batch_size=1 --download","next":[],"plan":null,"from":null,"support":null,"model_type":null}

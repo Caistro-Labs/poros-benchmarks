@@ -1,0 +1,9 @@
+MEMSNAP {"events": 191360, "allocs": 63724, "peak_over_start_gib": 13.163, "peak_event": 190589, "live_at_peak_n": 459, "allocated_at_dump_gib": 7.377}
+SITE {"gib": 9.375, "n": 192, "site": "moe/fused.py:540:<genexpr>", "chain": "fused.py:540:<genexpr> < fused.py:540:experts_backward < batching.py:94:backward < block_major.py:409:_drive"}
+SITE {"gib": 2.575, "n": 23, "site": "moe/residency.py:199:_transfer_source_run", "chain": "residency.py:199:_transfer_source_run < residency.py:172:transfer_run < residency.py:407:_bulk < residency.py:370:prefetch"}
+SITE {"gib": 1.172, "n": 192, "site": "train/loop.py:624:_adapter_optimizer_step", "chain": "loop.py:624:_adapter_optimizer_step < loop.py:189:_train_blockwise_adapters < trainer.py:935:train < train_cmd.py:518:_train_and_save"}
+SITE {"gib": 0.041, "n": 18, "site": "moe/residency.py:99:transfer", "chain": "residency.py:99:transfer < residency.py:470:_ensure_one < residency.py:325:ensure < fused.py:280:_ensure"}
+SITE {"gib": 0.0, "n": 24, "site": "train/loop.py:699:_move_batch_to_device", "chain": "loop.py:699:_move_batch_to_device < loop.py:143:_train_blockwise_adapters < trainer.py:935:train < train_cmd.py:518:_train_and_save"}
+SITE {"gib": 0.0, "n": 8, "site": "core/fused/head.py:209:forward", "chain": "head.py:209:forward < head.py:235:head_loss < head.py:115:moe_loss < head.py:94:loss"}
+SITE {"gib": 0.0, "n": 1, "site": "train/loop.py:157:_train_blockwise_adapters", "chain": "loop.py:157:_train_blockwise_adapters < trainer.py:935:train < train_cmd.py:518:_train_and_save < train_cmd.py:218:run"}
+SITE {"gib": 0.0, "n": 1, "site": "train/loop.py:613:_adapter_optimizer_step", "chain": "loop.py:613:_adapter_optimizer_step < loop.py:189:_train_blockwise_adapters < trainer.py:935:train < train_cmd.py:518:_train_and_save"}

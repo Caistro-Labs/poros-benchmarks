@@ -1,0 +1,5 @@
+fma32 against exact rationals: 0 differences
+sqrt_rn against the correctly rounded result through F: 10,485,750 values, 0 differences
+div_rn against the correctly rounded result through F: 10,486,155 values, 0 differences
+the shader's own sqrt_rn, div_rn and rtne_bf16, compiled as C++: {'values': 20000000, 'sqrt_differences': 0, 'div_differences': 0, 'rtne_differences': 0}
+{"fma_differences": 0, "sqrt": {"values": 10485750, "differences": 0, "first": null}, "div": {"values": 10486155, "differences": 0, "first": null}, "compiled_source": {"values": 20000000, "sqrt_differences": 0, "div_differences": 0, "rtne_differences": 0}, "guess_units": 1024, "seconds": 21.1}

@@ -1,0 +1,55 @@
+{
+ "model": "Qwen/Qwen3-30B-A3B",
+ "revision": "ad44e777bcd18fa416d9da3bd8f70d33ebb85d39",
+ "steps": 2,
+ "lr": 0.05,
+ "resident_tries": [
+  {
+   "streamed": false,
+   "mb": 4,
+   "load_s": 67.5,
+   "guarantee": "resident_reference",
+   "dense_streamed": false,
+   "ok": false,
+   "error": "CUDA out of memory. Tried to allocate 192.00 MiB. GPU 0 has a total capacity of 23.52 GiB of which 129.69 MiB is free. Including non-PyTorch memory, this process has 0 bytes memory in use. Of the allo",
+   "peak_alloc_gib": 22.77,
+   "peak_reserved_gib": 22.86,
+   "s": 73.2
+  },
+  {
+   "streamed": false,
+   "mb": 2,
+   "load_s": 70.0,
+   "guarantee": "resident_reference",
+   "dense_streamed": false,
+   "ok": true,
+   "peak_alloc_gib": 22.1,
+   "peak_reserved_gib": 22.53,
+   "s": 75.5
+  }
+ ],
+ "streamed": {
+  "streamed": true,
+  "mb": 2,
+  "load_s": 61.7,
+  "guarantee": "validated_bitwise",
+  "dense_streamed": true,
+  "ok": true,
+  "peak_alloc_gib": 5.46,
+  "peak_reserved_gib": 6.37,
+  "s": 74.3
+ },
+ "losses_streamed": [
+  1.4009414911270142,
+  1.3792616128921509
+ ],
+ "losses_resident": [
+  1.4009414911270142,
+  1.3792616128921509
+ ],
+ "losses_equal": true,
+ "grad_norms_equal": true,
+ "adapters_equal": true,
+ "adapter_tensors": 192,
+ "pass": true
+}

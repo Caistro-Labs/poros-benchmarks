@@ -1,0 +1,1274 @@
+{
+"R": 128,
+"limit": 101376,
+"base": {
+"out_fwd": [
+32,
+64,
+4
+],
+"out_bwd": [
+32,
+64,
+4,
+1
+],
+"swiglu_fwd": [
+16,
+32,
+4
+],
+"swiglu_bwd": [
+16,
+32,
+4,
+1
+],
+"rope_fwd": [
+16,
+4
+],
+"rope_bwd": [
+16,
+4,
+1
+],
+"chunk": true,
+"partial_elems": 67108864
+},
+"dev": "NVIDIA GeForce RTX 4090",
+"rows": [
+{
+"kernel": "base",
+"cand": null,
+"72b:swiglu_fwd": 20.537,
+"72b:out_fwd_H": 12.322,
+"72b:out_fwd_kv": 1.471,
+"72b:rope_fwd_q": 8.675,
+"72b:rope_fwd_kv": 1.095,
+"72b:swiglu_bwd": 30.894,
+"72b:out_bwd_H": 6.67,
+"72b:out_bwd_kv": 0.885,
+"72b:rope_bwd_q": 1.447,
+"72b:rope_bwd_kv": 0.249,
+"72b:swiglu_fwd_hf": 14.852,
+"72b:swiglu_bwd_drop": 27.465,
+"05b:swiglu_fwd": 0.371,
+"05b:out_fwd_H": 0.163,
+"05b:out_fwd_kv": 0.068,
+"05b:rope_fwd_q": 0.07,
+"05b:rope_fwd_kv": 0.056,
+"05b:swiglu_bwd": 0.7,
+"05b:out_bwd_H": 0.167,
+"05b:out_bwd_kv": 0.151,
+"05b:rope_bwd_q": 0.126,
+"05b:rope_bwd_kv": 0.124,
+"05b:swiglu_fwd_hf": 0.305,
+"05b:swiglu_bwd_drop": 0.622
+},
+{
+"kernel": "out_fwd",
+"cand": [
+16,
+32,
+4
+],
+"72b:out_fwd_H": 1.917,
+"smem_regs_spills": [
+24576,
+44,
+0
+],
+"72b:out_fwd_kv": 0.243,
+"05b:out_fwd_H": 0.069,
+"05b:out_fwd_kv": 0.06
+},
+{
+"kernel": "out_fwd",
+"cand": [
+16,
+32,
+8
+],
+"72b:out_fwd_H": 1.917,
+"smem_regs_spills": [
+25600,
+43,
+0
+],
+"72b:out_fwd_kv": 0.239,
+"05b:out_fwd_H": 0.069,
+"05b:out_fwd_kv": 0.059
+},
+{
+"kernel": "out_fwd",
+"cand": [
+16,
+64,
+4
+],
+"72b:out_fwd_H": 1.394,
+"smem_regs_spills": [
+43008,
+54,
+0
+],
+"72b:out_fwd_kv": 0.166,
+"05b:out_fwd_H": 0.065,
+"05b:out_fwd_kv": 0.059
+},
+{
+"kernel": "out_fwd",
+"cand": [
+16,
+64,
+8
+],
+"72b:out_fwd_H": 2.171,
+"smem_regs_spills": [
+40960,
+44,
+0
+],
+"72b:out_fwd_kv": 0.275,
+"05b:out_fwd_H": 0.07,
+"05b:out_fwd_kv": 0.059
+},
+{
+"kernel": "out_fwd",
+"cand": [
+16,
+128,
+4
+],
+"72b:out_fwd_H": 13.914,
+"smem_regs_spills": [
+77824,
+40,
+1254
+],
+"72b:out_fwd_kv": 1.622,
+"05b:out_fwd_H": 0.182,
+"05b:out_fwd_kv": 0.07
+},
+{
+"kernel": "out_fwd",
+"cand": [
+16,
+128,
+8
+],
+"72b:out_fwd_H": 1.479,
+"smem_regs_spills": [
+77824,
+255,
+50
+],
+"72b:out_fwd_kv": 0.189,
+"05b:out_fwd_H": 0.066,
+"05b:out_fwd_kv": 0.058
+},
+{
+"kernel": "out_fwd",
+"cand": [
+32,
+32,
+4
+],
+"72b:out_fwd_H": 1.377,
+"smem_regs_spills": [
+34816,
+54,
+0
+],
+"72b:out_fwd_kv": 0.16,
+"05b:out_fwd_H": 0.066,
+"05b:out_fwd_kv": 0.062
+},
+{
+"kernel": "out_fwd",
+"cand": [
+32,
+32,
+8
+],
+"72b:out_fwd_H": 2.016,
+"smem_regs_spills": [
+32768,
+44,
+0
+],
+"72b:out_fwd_kv": 0.256,
+"05b:out_fwd_H": 0.07,
+"05b:out_fwd_kv": 0.059
+},
+{
+"kernel": "out_fwd",
+"cand": [
+32,
+64,
+4
+],
+"72b:out_fwd_H": 12.802,
+"smem_regs_spills": [
+53248,
+40,
+1184
+],
+"72b:out_fwd_kv": 1.532,
+"05b:out_fwd_H": 0.17,
+"05b:out_fwd_kv": 0.07
+},
+{
+"kernel": "out_fwd",
+"cand": [
+32,
+64,
+8
+],
+"72b:out_fwd_H": 1.344,
+"smem_regs_spills": [
+53248,
+52,
+0
+],
+"72b:out_fwd_kv": 0.157,
+"05b:out_fwd_H": 0.063,
+"05b:out_fwd_kv": 0.059
+},
+{
+"kernel": "out_fwd",
+"cand": [
+32,
+128,
+4
+],
+"72b:out_fwd_H": 10.337,
+"smem_regs_spills": [
+90112,
+40,
+1556
+],
+"72b:out_fwd_kv": 1.22,
+"05b:out_fwd_H": 0.147,
+"05b:out_fwd_kv": 0.082
+},
+{
+"kernel": "out_fwd",
+"cand": [
+32,
+128,
+8
+],
+"72b:out_fwd_H": 14.696,
+"smem_regs_spills": [
+90112,
+40,
+1148
+],
+"72b:out_fwd_kv": 1.797,
+"05b:out_fwd_H": 0.203,
+"05b:out_fwd_kv": 0.069
+},
+{
+"kernel": "out_fwd",
+"cand": [
+64,
+32,
+4
+],
+"72b:out_fwd_H": 12.561,
+"smem_regs_spills": [
+53248,
+40,
+1202
+],
+"72b:out_fwd_kv": 1.549,
+"05b:out_fwd_H": 0.159,
+"05b:out_fwd_kv": 0.069
+},
+{
+"kernel": "out_fwd",
+"cand": [
+64,
+32,
+8
+],
+"72b:out_fwd_H": 1.43,
+"smem_regs_spills": [
+53248,
+48,
+0
+],
+"72b:out_fwd_kv": 0.161,
+"05b:out_fwd_H": 0.064,
+"05b:out_fwd_kv": 0.058
+},
+{
+"kernel": "out_fwd",
+"cand": [
+64,
+64,
+4
+],
+"72b:out_fwd_H": 9.313,
+"smem_regs_spills": [
+73728,
+40,
+1584
+],
+"72b:out_fwd_kv": 1.185,
+"05b:out_fwd_H": 0.139,
+"05b:out_fwd_kv": 0.076
+},
+{
+"kernel": "out_fwd",
+"cand": [
+64,
+64,
+8
+],
+"72b:out_fwd_H": 14.46,
+"smem_regs_spills": [
+73728,
+40,
+1158
+],
+"72b:out_fwd_kv": 1.844,
+"05b:out_fwd_H": 0.197,
+"05b:out_fwd_kv": 0.069
+},
+{
+"kernel": "out_fwd",
+"cand": [
+64,
+128,
+4
+],
+"72b:out_fwd_H": "OutOfResources: out of resource: shared memory, Required: 106496, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"72b:out_fwd_kv": "OutOfResources: out of resource: shared memory, Required: 106496, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"05b:out_fwd_H": "OutOfResources: out of resource: shared memory, Required: 106496, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"05b:out_fwd_kv": "OutOfResources: out of resource: shared memory, Required: 106496, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+},
+{
+"kernel": "out_fwd",
+"cand": [
+64,
+128,
+8
+],
+"72b:out_fwd_H": "OutOfResources: out of resource: shared memory, Required: 114688, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"72b:out_fwd_kv": "OutOfResources: out of resource: shared memory, Required: 114688, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"05b:out_fwd_H": "OutOfResources: out of resource: shared memory, Required: 114688, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"05b:out_fwd_kv": "OutOfResources: out of resource: shared memory, Required: 114688, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+},
+{
+"kernel": "out_bwd",
+"cand": [
+16,
+32,
+4,
+1
+],
+"72b:out_bwd_H": 1.559,
+"smem_regs_spills": [
+26624,
+200,
+0
+],
+"72b:out_bwd_kv": 0.176,
+"05b:out_bwd_H": 0.154,
+"05b:out_bwd_kv": 0.154
+},
+{
+"kernel": "out_bwd",
+"cand": [
+16,
+32,
+4,
+2
+],
+"72b:out_bwd_H": 1.573,
+"smem_regs_spills": [
+34816,
+125,
+0
+],
+"72b:out_bwd_kv": 0.174,
+"05b:out_bwd_H": 0.156,
+"05b:out_bwd_kv": 0.153
+},
+{
+"kernel": "out_bwd",
+"cand": [
+16,
+32,
+8,
+1
+],
+"72b:out_bwd_H": 1.57,
+"smem_regs_spills": [
+26624,
+128,
+0
+],
+"72b:out_bwd_kv": 0.173,
+"05b:out_bwd_H": 0.154,
+"05b:out_bwd_kv": 0.152
+},
+{
+"kernel": "out_bwd",
+"cand": [
+16,
+32,
+8,
+2
+],
+"72b:out_bwd_H": 1.589,
+"smem_regs_spills": [
+34816,
+80,
+0
+],
+"72b:out_bwd_kv": 0.173,
+"05b:out_bwd_H": 0.155,
+"05b:out_bwd_kv": 0.151
+},
+{
+"kernel": "out_bwd",
+"cand": [
+16,
+64,
+4,
+1
+],
+"72b:out_bwd_H": 2.219,
+"smem_regs_spills": [
+45056,
+255,
+146
+],
+"72b:out_bwd_kv": 0.312,
+"05b:out_bwd_H": 0.155,
+"05b:out_bwd_kv": 0.154
+},
+{
+"kernel": "out_bwd",
+"cand": [
+16,
+64,
+4,
+2
+],
+"72b:out_bwd_H": 1.694,
+"smem_regs_spills": [
+53248,
+255,
+132
+],
+"72b:out_bwd_kv": 0.219,
+"05b:out_bwd_H": 0.158,
+"05b:out_bwd_kv": 0.158
+},
+{
+"kernel": "out_bwd",
+"cand": [
+16,
+64,
+8,
+1
+],
+"72b:out_bwd_H": 1.112,
+"smem_regs_spills": [
+45056,
+200,
+0
+],
+"72b:out_bwd_kv": 0.169,
+"05b:out_bwd_H": 0.155,
+"05b:out_bwd_kv": 0.153
+},
+{
+"kernel": "out_bwd",
+"cand": [
+16,
+64,
+8,
+2
+],
+"72b:out_bwd_H": 1.037,
+"smem_regs_spills": [
+53248,
+103,
+0
+],
+"72b:out_bwd_kv": 0.168,
+"05b:out_bwd_H": 0.154,
+"05b:out_bwd_kv": 0.151
+},
+{
+"kernel": "out_bwd",
+"cand": [
+16,
+128,
+4,
+1
+],
+"72b:out_bwd_H": 17.748,
+"smem_regs_spills": [
+81920,
+56,
+1536
+],
+"72b:out_bwd_kv": 2.319,
+"05b:out_bwd_H": 0.285,
+"05b:out_bwd_kv": 0.153
+},
+{
+"kernel": "out_bwd",
+"cand": [
+16,
+128,
+4,
+2
+],
+"72b:out_bwd_H": 11.363,
+"smem_regs_spills": [
+90112,
+56,
+862
+],
+"72b:out_bwd_kv": 1.61,
+"05b:out_bwd_H": 0.224,
+"05b:out_bwd_kv": 0.155
+},
+{
+"kernel": "out_bwd",
+"cand": [
+16,
+128,
+8,
+1
+],
+"72b:out_bwd_H": 1.703,
+"smem_regs_spills": [
+81920,
+255,
+144
+],
+"72b:out_bwd_kv": 0.301,
+"05b:out_bwd_H": 0.165,
+"05b:out_bwd_kv": 0.158
+},
+{
+"kernel": "out_bwd",
+"cand": [
+16,
+128,
+8,
+2
+],
+"72b:out_bwd_H": 0.805,
+"smem_regs_spills": [
+90112,
+128,
+2
+],
+"72b:out_bwd_kv": 0.169,
+"05b:out_bwd_H": 0.155,
+"05b:out_bwd_kv": 0.151
+},
+{
+"kernel": "out_bwd",
+"cand": [
+32,
+32,
+4,
+1
+],
+"72b:out_bwd_H": 2.36,
+"smem_regs_spills": [
+36864,
+255,
+84
+],
+"72b:out_bwd_kv": 0.279,
+"05b:out_bwd_H": 0.154,
+"05b:out_bwd_kv": 0.153
+},
+{
+"kernel": "out_bwd",
+"cand": [
+32,
+32,
+4,
+2
+],
+"72b:out_bwd_H": 1.573,
+"smem_regs_spills": [
+45056,
+252,
+0
+],
+"72b:out_bwd_kv": 0.172,
+"05b:out_bwd_H": 0.155,
+"05b:out_bwd_kv": 0.151
+},
+{
+"kernel": "out_bwd",
+"cand": [
+32,
+32,
+8,
+1
+],
+"72b:out_bwd_H": 1.602,
+"smem_regs_spills": [
+36864,
+186,
+0
+],
+"72b:out_bwd_kv": 0.18,
+"05b:out_bwd_H": 0.152,
+"05b:out_bwd_kv": 0.152
+},
+{
+"kernel": "out_bwd",
+"cand": [
+32,
+32,
+8,
+2
+],
+"72b:out_bwd_H": 1.566,
+"smem_regs_spills": [
+53248,
+221,
+0
+],
+"72b:out_bwd_kv": 0.174,
+"05b:out_bwd_H": 0.154,
+"05b:out_bwd_kv": 0.151
+},
+{
+"kernel": "out_bwd",
+"cand": [
+32,
+64,
+4,
+1
+],
+"72b:out_bwd_H": 6.806,
+"smem_regs_spills": [
+57344,
+80,
+788
+],
+"72b:out_bwd_kv": 0.9,
+"05b:out_bwd_H": 0.166,
+"05b:out_bwd_kv": 0.153
+},
+{
+"kernel": "out_bwd",
+"cand": [
+32,
+64,
+4,
+2
+],
+"72b:out_bwd_H": 1.779,
+"smem_regs_spills": [
+65536,
+255,
+168
+],
+"72b:out_bwd_kv": 0.232,
+"05b:out_bwd_H": 0.153,
+"05b:out_bwd_kv": 0.151
+},
+{
+"kernel": "out_bwd",
+"cand": [
+32,
+64,
+8,
+1
+],
+"72b:out_bwd_H": 1.525,
+"smem_regs_spills": [
+57344,
+255,
+82
+],
+"72b:out_bwd_kv": 0.197,
+"05b:out_bwd_H": 0.158,
+"05b:out_bwd_kv": 0.157
+},
+{
+"kernel": "out_bwd",
+"cand": [
+32,
+64,
+8,
+2
+],
+"72b:out_bwd_H": 1.107,
+"smem_regs_spills": [
+73728,
+255,
+52
+],
+"72b:out_bwd_kv": 0.17,
+"05b:out_bwd_H": 0.156,
+"05b:out_bwd_kv": 0.153
+},
+{
+"kernel": "out_bwd",
+"cand": [
+32,
+128,
+4,
+1
+],
+"72b:out_bwd_H": 31.217,
+"smem_regs_spills": [
+98304,
+40,
+2852
+],
+"72b:out_bwd_kv": 4.075,
+"05b:out_bwd_H": 0.477,
+"05b:out_bwd_kv": 0.161
+},
+{
+"kernel": "out_bwd",
+"cand": [
+32,
+128,
+4,
+2
+],
+"72b:out_bwd_H": "OutOfResources: out of resource: shared memory, Required: 106496, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"72b:out_bwd_kv": "OutOfResources: out of resource: shared memory, Required: 106496, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"05b:out_bwd_H": "OutOfResources: out of resource: shared memory, Required: 106496, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"05b:out_bwd_kv": "OutOfResources: out of resource: shared memory, Required: 106496, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+},
+{
+"kernel": "out_bwd",
+"cand": [
+32,
+128,
+8,
+1
+],
+"72b:out_bwd_H": 12.183,
+"smem_regs_spills": [
+98304,
+64,
+976
+],
+"72b:out_bwd_kv": 1.628,
+"05b:out_bwd_H": 0.182,
+"05b:out_bwd_kv": 0.154
+},
+{
+"kernel": "out_bwd",
+"cand": [
+32,
+128,
+8,
+2
+],
+"72b:out_bwd_H": "OutOfResources: out of resource: shared memory, Required: 114688, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"72b:out_bwd_kv": "OutOfResources: out of resource: shared memory, Required: 114688, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"05b:out_bwd_H": "OutOfResources: out of resource: shared memory, Required: 114688, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"05b:out_bwd_kv": "OutOfResources: out of resource: shared memory, Required: 114688, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+},
+{
+"kernel": "out_bwd",
+"cand": [
+64,
+32,
+4,
+1
+],
+"72b:out_bwd_H": 3.717,
+"smem_regs_spills": [
+57344,
+255,
+368
+],
+"72b:out_bwd_kv": 0.453,
+"05b:out_bwd_H": 0.153,
+"05b:out_bwd_kv": 0.151
+},
+{
+"kernel": "out_bwd",
+"cand": [
+64,
+32,
+4,
+2
+],
+"72b:out_bwd_H": 1.682,
+"smem_regs_spills": [
+65536,
+255,
+24
+],
+"72b:out_bwd_kv": 0.191,
+"05b:out_bwd_H": 0.153,
+"05b:out_bwd_kv": 0.152
+},
+{
+"kernel": "out_bwd",
+"cand": [
+64,
+32,
+8,
+1
+],
+"72b:out_bwd_H": 1.968,
+"smem_regs_spills": [
+57344,
+255,
+50
+],
+"72b:out_bwd_kv": 0.227,
+"05b:out_bwd_H": 0.154,
+"05b:out_bwd_kv": 0.151
+},
+{
+"kernel": "out_bwd",
+"cand": [
+64,
+32,
+8,
+2
+],
+"72b:out_bwd_H": 1.58,
+"smem_regs_spills": [
+73728,
+255,
+0
+],
+"72b:out_bwd_kv": 0.171,
+"05b:out_bwd_H": 0.154,
+"05b:out_bwd_kv": 0.151
+},
+{
+"kernel": "out_bwd",
+"cand": [
+64,
+64,
+4,
+1
+],
+"72b:out_bwd_H": 24.262,
+"smem_regs_spills": [
+81920,
+40,
+2494
+],
+"72b:out_bwd_kv": 3.18,
+"05b:out_bwd_H": 0.382,
+"05b:out_bwd_kv": 0.164
+},
+{
+"kernel": "out_bwd",
+"cand": [
+64,
+64,
+4,
+2
+],
+"72b:out_bwd_H": 25.474,
+"smem_regs_spills": [
+90112,
+40,
+2526
+],
+"72b:out_bwd_kv": 3.291,
+"05b:out_bwd_H": 0.378,
+"05b:out_bwd_kv": 0.165
+},
+{
+"kernel": "out_bwd",
+"cand": [
+64,
+64,
+8,
+1
+],
+"72b:out_bwd_H": 3.925,
+"smem_regs_spills": [
+81920,
+255,
+368
+],
+"72b:out_bwd_kv": 0.492,
+"05b:out_bwd_H": 0.154,
+"05b:out_bwd_kv": 0.152
+},
+{
+"kernel": "out_bwd",
+"cand": [
+64,
+64,
+8,
+2
+],
+"72b:out_bwd_H": 1.409,
+"smem_regs_spills": [
+98304,
+255,
+104
+],
+"72b:out_bwd_kv": 0.187,
+"05b:out_bwd_H": 0.154,
+"05b:out_bwd_kv": 0.151
+},
+{
+"kernel": "out_bwd",
+"cand": [
+64,
+128,
+4,
+1
+],
+"72b:out_bwd_H": "OutOfResources: out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"72b:out_bwd_kv": "OutOfResources: out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"05b:out_bwd_H": "OutOfResources: out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"05b:out_bwd_kv": "OutOfResources: out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+},
+{
+"kernel": "out_bwd",
+"cand": [
+64,
+128,
+4,
+2
+],
+"72b:out_bwd_H": "OutOfResources: out of resource: shared memory, Required: 139264, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"72b:out_bwd_kv": "OutOfResources: out of resource: shared memory, Required: 139264, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"05b:out_bwd_H": "OutOfResources: out of resource: shared memory, Required: 139264, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"05b:out_bwd_kv": "OutOfResources: out of resource: shared memory, Required: 139264, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+},
+{
+"kernel": "out_bwd",
+"cand": [
+64,
+128,
+8,
+1
+],
+"72b:out_bwd_H": "OutOfResources: out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"72b:out_bwd_kv": "OutOfResources: out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"05b:out_bwd_H": "OutOfResources: out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"05b:out_bwd_kv": "OutOfResources: out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+},
+{
+"kernel": "out_bwd",
+"cand": [
+64,
+128,
+8,
+2
+],
+"72b:out_bwd_H": "OutOfResources: out of resource: shared memory, Required: 147456, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"72b:out_bwd_kv": "OutOfResources: out of resource: shared memory, Required: 147456, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"05b:out_bwd_H": "OutOfResources: out of resource: shared memory, Required: 147456, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"05b:out_bwd_kv": "OutOfResources: out of resource: shared memory, Required: 147456, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+},
+{
+"kernel": "rope_fwd",
+"cand": [
+16,
+4
+],
+"72b:rope_fwd_q": 8.753,
+"smem_regs_spills": [
+40960,
+255,
+56
+],
+"72b:rope_fwd_kv": 1.117,
+"05b:rope_fwd_q": 0.069,
+"05b:rope_fwd_kv": 0.058
+},
+{
+"kernel": "rope_fwd",
+"cand": [
+16,
+8
+],
+"72b:rope_fwd_q": 1.965,
+"smem_regs_spills": [
+41984,
+255,
+22
+],
+"72b:rope_fwd_kv": 0.254,
+"05b:rope_fwd_q": 0.071,
+"05b:rope_fwd_kv": 0.057
+},
+{
+"kernel": "rope_fwd",
+"cand": [
+32,
+4
+],
+"72b:rope_fwd_q": 10.737,
+"smem_regs_spills": [
+51200,
+56,
+864
+],
+"72b:rope_fwd_kv": 1.348,
+"05b:rope_fwd_q": 0.093,
+"05b:rope_fwd_kv": 0.063
+},
+{
+"kernel": "rope_fwd",
+"cand": [
+32,
+8
+],
+"72b:rope_fwd_q": 15.766,
+"smem_regs_spills": [
+49152,
+255,
+56
+],
+"72b:rope_fwd_kv": 2.036,
+"05b:rope_fwd_q": 0.071,
+"05b:rope_fwd_kv": 0.058
+},
+{
+"kernel": "rope_fwd",
+"cand": [
+64,
+4
+],
+"72b:rope_fwd_q": "OutOfResources: out of resource: shared memory, Required: 106496, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"72b:rope_fwd_kv": "OutOfResources: out of resource: shared memory, Required: 106496, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"05b:rope_fwd_q": 0.146,
+"smem_regs_spills": [
+69632,
+40,
+1622
+],
+"05b:rope_fwd_kv": 0.079
+},
+{
+"kernel": "rope_fwd",
+"cand": [
+64,
+8
+],
+"72b:rope_fwd_q": "OutOfResources: out of resource: shared memory, Required: 106496, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"72b:rope_fwd_kv": "OutOfResources: out of resource: shared memory, Required: 106496, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"05b:rope_fwd_q": 0.158,
+"smem_regs_spills": [
+69632,
+48,
+918
+],
+"05b:rope_fwd_kv": 0.068
+},
+{
+"kernel": "rope_bwd",
+"cand": [
+16,
+4,
+1
+],
+"72b:rope_bwd_q": 1.509,
+"smem_regs_spills": [
+45056,
+240,
+0
+],
+"72b:rope_bwd_kv": 0.25,
+"05b:rope_bwd_q": 0.124,
+"05b:rope_bwd_kv": 0.123
+},
+{
+"kernel": "rope_bwd",
+"cand": [
+16,
+4,
+2
+],
+"72b:rope_bwd_q": "OutOfResources: out of resource: shared memory, Required: 114688, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"72b:rope_bwd_kv": "OutOfResources: out of resource: shared memory, Required: 114688, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"05b:rope_bwd_q": 0.131,
+"smem_regs_spills": [
+65536,
+155,
+0
+],
+"05b:rope_bwd_kv": 0.129
+},
+{
+"kernel": "rope_bwd",
+"cand": [
+16,
+8,
+1
+],
+"72b:rope_bwd_q": 0.892,
+"smem_regs_spills": [
+45056,
+128,
+2
+],
+"72b:rope_bwd_kv": 0.137,
+"05b:rope_bwd_q": 0.132,
+"05b:rope_bwd_kv": 0.127
+},
+{
+"kernel": "rope_bwd",
+"cand": [
+16,
+8,
+2
+],
+"72b:rope_bwd_q": "OutOfResources: out of resource: shared memory, Required: 114688, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"72b:rope_bwd_kv": "OutOfResources: out of resource: shared memory, Required: 114688, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"05b:rope_bwd_q": 0.14,
+"smem_regs_spills": [
+65536,
+96,
+0
+],
+"05b:rope_bwd_kv": 0.132
+},
+{
+"kernel": "rope_bwd",
+"cand": [
+32,
+4,
+1
+],
+"72b:rope_bwd_q": 2.863,
+"smem_regs_spills": [
+57344,
+255,
+144
+],
+"72b:rope_bwd_kv": 0.511,
+"05b:rope_bwd_q": 0.13,
+"05b:rope_bwd_kv": 0.126
+},
+{
+"kernel": "rope_bwd",
+"cand": [
+32,
+4,
+2
+],
+"72b:rope_bwd_q": "OutOfResources: out of resource: shared memory, Required: 155648, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"72b:rope_bwd_kv": "OutOfResources: out of resource: shared memory, Required: 155648, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"05b:rope_bwd_q": 0.129,
+"smem_regs_spills": [
+90112,
+213,
+0
+],
+"05b:rope_bwd_kv": 0.127
+},
+{
+"kernel": "rope_bwd",
+"cand": [
+32,
+8,
+1
+],
+"72b:rope_bwd_q": 1.427,
+"smem_regs_spills": [
+57344,
+206,
+0
+],
+"72b:rope_bwd_kv": 0.259,
+"05b:rope_bwd_q": 0.131,
+"05b:rope_bwd_kv": 0.129
+},
+{
+"kernel": "rope_bwd",
+"cand": [
+32,
+8,
+2
+],
+"72b:rope_bwd_q": "OutOfResources: out of resource: shared memory, Required: 163840, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"72b:rope_bwd_kv": "OutOfResources: out of resource: shared memory, Required: 163840, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"05b:rope_bwd_q": 0.128,
+"smem_regs_spills": [
+98304,
+124,
+0
+],
+"05b:rope_bwd_kv": 0.128
+},
+{
+"kernel": "rope_bwd",
+"cand": [
+64,
+4,
+1
+],
+"72b:rope_bwd_q": "OutOfResources: out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"72b:rope_bwd_kv": "OutOfResources: out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"05b:rope_bwd_q": 0.13,
+"smem_regs_spills": [
+81920,
+255,
+454
+],
+"05b:rope_bwd_kv": 0.127
+},
+{
+"kernel": "rope_bwd",
+"cand": [
+64,
+4,
+2
+],
+"72b:rope_bwd_q": "OutOfResources: out of resource: shared memory, Required: 237568, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"72b:rope_bwd_kv": "OutOfResources: out of resource: shared memory, Required: 237568, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"05b:rope_bwd_q": "OutOfResources: out of resource: shared memory, Required: 139264, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"05b:rope_bwd_kv": "OutOfResources: out of resource: shared memory, Required: 139264, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+},
+{
+"kernel": "rope_bwd",
+"cand": [
+64,
+8,
+1
+],
+"72b:rope_bwd_q": "OutOfResources: out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"72b:rope_bwd_kv": "OutOfResources: out of resource: shared memory, Required: 131072, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"05b:rope_bwd_q": 0.131,
+"smem_regs_spills": [
+81920,
+255,
+82
+],
+"05b:rope_bwd_kv": 0.126
+},
+{
+"kernel": "rope_bwd",
+"cand": [
+64,
+8,
+2
+],
+"72b:rope_bwd_q": "OutOfResources: out of resource: shared memory, Required: 245760, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"72b:rope_bwd_kv": "OutOfResources: out of resource: shared memory, Required: 245760, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"05b:rope_bwd_q": "OutOfResources: out of resource: shared memory, Required: 147456, Hardware limit: 101376. Reducing block sizes or `num_stages` may help.",
+"05b:rope_bwd_kv": "OutOfResources: out of resource: shared memory, Required: 147456, Hardware limit: 101376. Reducing block sizes or `num_stages` may help."
+}
+]
+}

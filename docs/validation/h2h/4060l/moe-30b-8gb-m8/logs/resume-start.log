@@ -1,0 +1,24 @@
+○ path: fast
+  │ efficient may not fit the GPU (allocated peak, at most 8.652 GiB, may not fit 6.71 GiB free (estimated: an upper bound from receipts at other settings)); fast is estimated to fit (no measured run of this config)
+▛▜ poros v1.0.0 · Qwen/Qwen3-30B-A3B-Instruct-2507 · RTX 4060 Laptop GPU 7.7 GiB
+
+● Checked cert-moe-30b-8gb-resume  run 1120-0320-65b4
+  │ nf4 · rank 8 · seq 256 · fast path
+  │ SFT · answers only · lr 2e-4
+  │ output    certhome-m8/runs/1120-0320-65b4
+  │ store     ssd <home>/sss
+  │ eval      7 rows held out  scored at the start, each checkpoint and the end
+
+● Loaded Qwen3-30B-A3B-Instruct-2507  7.6s
+  │ MoE · 48 layers · 128 experts
+● Scored the base  held out 6.7448 · ends its answers 0 of 0
+step 1/16  loss 6.8198  15.15 s/step  vram 3.3 GiB (peak 4.5)  eta 3m 47s
+MoE expert cache 0.29 GiB, sized on an update at the full shape (fits this GPU: 6.60 GiB this process may hold - 5.49 GiB reserved peak - 3.00 GiB margin)
+step 4/16  loss 6.6716  12.73 s/step  vram 3.3 GiB (peak 4.7)  eta 2m 45s
+step 7/16  loss 6.4271  13.09 s/step  vram 3.3 GiB (peak 4.7)  eta 2m 00s
+○ Stopped after 9 steps
+  │ saved     certhome-m8/runs/1120-0320-65b4/checkpoint-8
+  │           it holds all 9 steps
+
+Continue with: poros runs continue 1120-0320-65b4
+{"schema":"poros.error.v1","error":{"code":"E_JOB_CANCELLED","exit_code":7,"message":"stopped after step 9; <home>/runs/1120-0320-65b4/checkpoint-8 holds the run so far","hint":"poros runs continue 1120-0320-65b4","docs":"poros docs training checkpoints and resume"}}

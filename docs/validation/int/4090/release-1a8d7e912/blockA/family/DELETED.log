@@ -1,0 +1,16 @@
+2026-11-24T05:51:09Z deleted <home>/poros_rel/hf_cert/hub/models--Qwen--Qwen2.5-0.5B (11M) after qwen2
+2026-11-24T05:54:10Z deleted <home>/poros_rel/hf_cert/hub/models--Qwen--Qwen3-0.6B (4.4M) after qwen3
+2026-11-24T05:58:00Z deleted <home>/poros_rel/hf_cert/hub/models--Qwen--Qwen3.5-0.8B (9.8M) after qwen3_5
+2026-11-24T06:04:27Z deleted <home>/poros_rel/hf_cert/fg_models/Qwen_Qwen3.8-27B__trunc8 (12G) after qwen3_8
+2026-11-24T06:07:59Z deleted <home>/poros_rel/hf_cert/hub/models--unsloth--gemma-3-270m (1.2M) after gemma3_text
+2026-11-24T06:12:16Z deleted <home>/poros_rel/hf_cert/fg_models/unsloth_gemma-3-4b-it__trunc6 (3.2G) after gemma3
+2026-11-24T06:23:46Z deleted <home>/poros_rel/hf_cert/fg_models/google_gemma-4-31B__text6 (8.2G) after gemma4_text
+2026-11-24T06:23:48Z deleted <home>/poros_rel/hf_cert/fg_models/google_gemma-4-31B__trunc6 (9.2G) after gemma4_text
+2026-11-24T06:29:09Z deleted <home>/poros_rel/hf_cert/fg_models/Qwen_Qwen3-30B-A3B__trunc4 (5.9G) after qwen3_moe
+2026-11-24T06:33:42Z deleted <home>/poros_rel/hf_cert/fg_models/allenai_OLMoE-1B-7B-0924__trunc4 (3.6G) after olmoe
+2026-11-24T06:38:29Z deleted <home>/poros_rel/hf_cert/fg_models/Qwen_Qwen1.5-MoE-A2.7B__trunc4 (5.5G) after qwen2_moe
+2026-11-24T06:42:35Z deleted <home>/poros_rel/hf_cert/fg_models/deepseek-ai_DeepSeek-V2-Lite__trunc4 (4.3G) after deepseek_v2
+2026-11-24T06:54:56Z deleted <home>/poros_rel/hf_cert/fg_models/Qwen_Qwen3.6-35B-A3B__text4 (8.2G) after qwen3_5_moe_text
+2026-11-24T06:54:58Z deleted <home>/poros_rel/hf_cert/fg_models/Qwen_Qwen3.6-35B-A3B__trunc4 (9.1G) after qwen3_5_moe_text
+2026-11-24T07:02:35Z deleted <home>/poros_rel/hf_cert/fg_models/google_gemma-4-26B-A4B-it__trunc6 (12G) after gemma4_moe
+2026-11-24T07:03:27Z deleted <home>/poros_rel/hf_cert/hub/models--thinkingmachines--Inkling-2-Mini (276K) after inkling2_loop

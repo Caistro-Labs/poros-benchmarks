@@ -1,0 +1,2 @@
+00:55:59 start pid 41790 swap 1831
+02:36:35 end rc 0 swap 1775

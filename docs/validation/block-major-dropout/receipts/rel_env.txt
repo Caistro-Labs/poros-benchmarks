@@ -1,0 +1,8 @@
+2026-11-12T23:22:38Z
+name, driver_version, memory.total [MiB]
+NVIDIA GeForce RTX 4090, 580.173.02, 24564 MiB
+venv python 3.12.3 torch 2.14.1+cu130 cuda 13.0 transformers 5.22.2 peft 0.20.0 bitsandbytes 0.50.2
+venv520 python 3.12.3 torch 2.14.1+cu130 cuda 13.0 transformers 5.20.2 peft 0.20.0 bitsandbytes 0.50.2
+POROS_HOME=<path>
+POROS_PROGRESS=0
+PYTORCH_ALLOC_CONF=expandable_segments:False

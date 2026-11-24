@@ -1,0 +1,4 @@
+rkF = the release-candidate tree before the final rank-128 launch (env.txt)
+rc=0
+433 passed, 39 skipped, 4339 deselected, 31 warnings in 1609.78s (0:26:49)
+2026-11-14T04:21:50Z

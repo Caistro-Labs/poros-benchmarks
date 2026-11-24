@@ -1,0 +1,195 @@
+family_gate: tree <path> -> <path>
+start 2026-11-16T19:47:45Z
+PASS  env                                sha f163c28d2b62 dirty=0 {"gpu": "NVIDIA GeForce RTX 4090", "capability": [8, 9], "vram_gib": 23.52, "driver": "580.173.02", "torch": "2.14.1+cu130", "cuda": "13.0", "transformers": "5.22.2", "peft": "0.20.0", "bitsandbytes": "0.50.2", "triton": "3.8.0", "python": "3.12.3", "poros": "
+PASS  data                               6c8609d5be317280 <path>
+--- qwen2 (Qwen/Qwen2.5-0.5B @ 060db649 snapshot 0) 2026-11-16T19:47:53Z
+PASS  qwen2:fetch                        FETCH cached <path>
+PASS  qwen2:check                        model_type=qwen2 status=validated
+PASS  qwen2:paths                        seq==eff==fast==resident digest 827d930457002514 | ran_path=fast fused_compute=True moe_expert_compute=None moe_expert_cache_gib=None compute_reason=None
+PASS  qwen2:repeat                       fast twice bitwise, digest 827d930457002514
+PASS  qwen2:ran                          every run: the path asked ran, no offload_reason, fused=True reason=none
+PASS  qwen2:refcheck                     {"updates": 100, "dev_mean": 0.00042616009712219237, "dev_max": 0.0015017986297607422, "noise_mean": 0.021121573448181153, "noise_max": 0.10565328598022461, "pass": true}
+PASS  qwen2:parity                       training gate (scripts/bf16_bitwise_training_parity.py nf4, 8 steps): resident==streamed loss_max_abs_diff=0.0 grads_max_abs_diff=0.0 first_losses=13.902334213256836/13.902334213256836
+PASS  qwen2:resume                       {"pass": true, "resumed_steps": [5, 6, 7], "steps_equal": true, "adapter_tensors": 336, "adapter_unequal_n": 0, "full_digest": "827d930457002514cb8338286c24a5f88a117ff61be096f4180943eeb838acf4", "resumed_digest": 
+--- qwen3 (Qwen/Qwen3-0.6B @ c1899de2 snapshot 0) 2026-11-16T20:03:05Z
+PASS  qwen3:fetch                        FETCH cached <path>
+PASS  qwen3:check                        model_type=qwen3 status=validated
+PASS  qwen3:paths                        seq==eff==fast==resident digest 546830171eaa9d3b | ran_path=fast fused_compute=True moe_expert_compute=None moe_expert_cache_gib=None compute_reason=None
+PASS  qwen3:repeat                       fast twice bitwise, digest 546830171eaa9d3b
+PASS  qwen3:ran                          every run: the path asked ran, no offload_reason, fused=True reason=none
+PASS  qwen3:refcheck                     {"updates": 100, "dev_mean": 0.00036125898361206055, "dev_max": 0.002101898193359375, "noise_mean": 0.02265635848045349, "noise_max": 0.11059713363647461, "pass": true}
+PASS  qwen3:parity                       training gate (scripts/bf16_bitwise_training_parity.py nf4, 8 steps): resident==streamed loss_max_abs_diff=0.0 grads_max_abs_diff=0.0 first_losses=14.182171821594238/14.182171821594238
+--- qwen3_5 (Qwen/Qwen3.5-0.8B @ 2fc06364 snapshot 0) 2026-11-16T20:20:44Z
+PASS  qwen3_5:fetch                      FETCH cached <path>
+PASS  qwen3_5:check                      model_type=qwen3_5 status=validated
+PASS  qwen3_5:paths                      seq==eff==fast==resident digest 0ca8d93ea060894b | ran_path=fast fused_compute=True moe_expert_compute=None moe_expert_cache_gib=None compute_reason=None
+PASS  qwen3_5:repeat                     fast twice bitwise, digest 0ca8d93ea060894b
+PASS  qwen3_5:ran                        every run: the path asked ran, no offload_reason, fused=True reason=none
+PASS  qwen3_5:refcheck                   {"updates": 100, "dev_mean": 0.0002558839321136475, "dev_max": 0.00083160400390625, "noise_mean": 0.0252178955078125, "noise_max": 0.09660100936889648, "pass": true}
+PASS  qwen3_5:parity                     training gate (scripts/bf16_bitwise_training_parity.py nf4, 8 steps): resident==streamed loss_max_abs_diff=0.0 grads_max_abs_diff=0.0 first_losses=14.863286018371582/14.863286018371582
+--- qwen3_8 (Qwen/Qwen3.8-27B @ 37561816 trunc 8) 2026-11-16T20:46:13Z
+PASS  qwen3_8:fetch                      FETCH wrote <path> qwen3_5 6047681584 params sha256 4e08e40396cb7a1e
+PASS  qwen3_8:check                      model_type=qwen3_5 status=validated
+PASS  qwen3_8:paths                      seq==eff==fast==resident digest 54686633bd7ce49c | ran_path=fast fused_compute=True moe_expert_compute=None moe_expert_cache_gib=None compute_reason=None
+PASS  qwen3_8:repeat                     fast twice bitwise, digest 54686633bd7ce49c
+PASS  qwen3_8:ran                        every run: the path asked ran, no offload_reason, fused=True reason=none
+PASS  qwen3_8:refcheck                   {"updates": 100, "dev_mean": 0.00015321731567382812, "dev_max": 0.0005922317504882812, "noise_mean": 0.045235028266906736, "noise_max": 0.1764669418334961, "pass": true}
+PASS  qwen3_8:parity                     training gate (scripts/bf16_bitwise_training_parity.py nf4, 8 steps): resident==streamed loss_max_abs_diff=0.0 grads_max_abs_diff=0.0 first_losses=13.737996101379395/13.737996101379395
+--- gemma3_text (unsloth/gemma-3-270m @ edcf1fe3 snapshot 0) 2026-11-16T21:04:42Z
+PASS  gemma3_text:fetch                  FETCH cached <path>
+PASS  gemma3_text:check                  model_type=gemma3_text status=validated
+PASS  gemma3_text:paths                  seq==eff==fast==resident digest ffc37dbf44ecb17d | ran_path=fast fused_compute=True moe_expert_compute=None moe_expert_cache_gib=None compute_reason=None
+PASS  gemma3_text:repeat                 fast twice bitwise, digest ffc37dbf44ecb17d
+PASS  gemma3_text:ran                    every run: the path asked ran, no offload_reason, fused=True reason=none
+PASS  gemma3_text:refcheck               {"updates": 100, "dev_mean": 0.0007111656665802001, "dev_max": 0.002420186996459961, "noise_mean": 0.024906808137893678, "noise_max": 0.07390427589416504, "pass": true}
+PASS  gemma3_text:parity                 training gate (scripts/bf16_bitwise_training_parity.py nf4, 8 steps): resident==streamed loss_max_abs_diff=0.0 grads_max_abs_diff=0.0 first_losses=17.27417755126953/17.27417755126953
+--- gemma3 (unsloth/gemma-3-4b-it @ bf46152c trunc 6) 2026-11-16T21:20:05Z
+PASS  gemma3:fetch                       FETCH wrote <path> gemma3 1657366896 params sha256 0f9a522192582845
+PASS  gemma3:check                       model_type=gemma3 status=validated
+PASS  gemma3:paths                       seq==eff==fast==resident digest 982926c61db2aa82 | ran_path=fast fused_compute=True moe_expert_compute=None moe_expert_cache_gib=None compute_reason=None
+PASS  gemma3:repeat                      fast twice bitwise, digest 982926c61db2aa82
+PASS  gemma3:ran                         every run: the path asked ran, no offload_reason, fused=True reason=none
+PASS  gemma3:parity                      training gate (scripts/bf16_bitwise_training_parity.py nf4, 8 steps): resident==streamed loss_max_abs_diff=0.0 grads_max_abs_diff=0.0 first_losses=44.10128402709961/44.10128402709961
+--- gemma4 (google/gemma-4-31B @ 5bbc2fb1 trunc 6) 2026-11-16T21:24:36Z
+PASS  gemma4:fetch                       FETCH wrote <path> gemma4 4913840438 params sha256 53f53742bec6d579
+PASS  gemma4:check                       model_type=gemma4 status=validated
+PASS  gemma4:paths                       seq==eff==fast==resident digest c17be93107c5243b | ran_path=fast fused_compute=True moe_expert_compute=None moe_expert_cache_gib=None compute_reason=None
+PASS  gemma4:repeat                      fast twice bitwise, digest c17be93107c5243b
+PASS  gemma4:ran                         every run: the path asked ran, no offload_reason, fused=True reason=none
+PASS  gemma4:parity                      training gate (scripts/bf16_bitwise_training_parity.py nf4, 8 steps): resident==streamed loss_max_abs_diff=0.0 grads_max_abs_diff=0.0 first_losses=36.503047943115234/36.503047943115234
+--- gemma4_text (google/gemma-4-31B @ 5bbc2fb1 text 6) 2026-11-16T21:31:54Z
+PASS  gemma4_text:fetch                  FETCH wrote <path> gemma4_text 4338096902 params sha256 c7823b0f4e2dcd0a
+PASS  gemma4_text:check                  model_type=gemma4_text status=validated
+PASS  gemma4_text:paths                  seq==eff==fast==resident digest 46d68730a837403c | ran_path=fast fused_compute=True moe_expert_compute=None moe_expert_cache_gib=None compute_reason=None
+PASS  gemma4_text:repeat                 fast twice bitwise, digest 46d68730a837403c
+PASS  gemma4_text:ran                    every run: the path asked ran, no offload_reason, fused=True reason=none
+PASS  gemma4_text:refcheck               {"updates": 100, "dev_mean": 0.0009060096740722656, "dev_max": 0.0037689208984375, "noise_mean": 0.16406770706176757, "noise_max": 0.6515407562255859, "pass": true}
+PASS  gemma4_text:parity                 training gate (scripts/bf16_bitwise_training_parity.py nf4, 8 steps): resident==streamed loss_max_abs_diff=0.0 grads_max_abs_diff=0.0 first_losses=37.573246002197266/37.573246002197266
+--- qwen3_moe (Qwen/Qwen3-30B-A3B @ ad44e777 trunc 4) 2026-11-16T21:45:10Z
+PASS  qwen3_moe:fetch                    FETCH wrote <path> qwen3_moe 3114814464 params sha256 194b46afa881670d
+PASS  qwen3_moe:check                    model_type=qwen3_moe status=validated
+PASS  qwen3_moe:paths                    seq==eff==fast==resident digest dd694a6f7f6150ef | ran_path=fast fused_compute=True moe_expert_compute=fused moe_expert_cache_gib=1.161 compute_reason=None
+PASS  qwen3_moe:repeat                   fast twice bitwise, digest dd694a6f7f6150ef
+PASS  qwen3_moe:ran                      every run: the path asked ran, no offload_reason, moe=fused reason=none, expert cache one layer on seq+eff, sized on fast
+PASS  qwen3_moe:moe-ref                  reference experts seq==fast digest ae9754c8ddbdce97
+PASS  qwen3_moe:refcheck                 {"updates": 100, "dev_mean": 0.02847663879394531, "dev_max": 0.16353321075439453, "noise_mean": 0.067527756690979, "noise_max": 0.3258657455444336, "pass": true}
+PASS  qwen3_moe:moe-gate                 streamed==resident (losses, grad norms, adapters, eval CE) streamed_over_resident": 2.791567661605041
+--- olmoe (allenai/OLMoE-1B-7B-0924 @ 6d84c485 trunc 4) 2026-11-16T21:56:37Z
+PASS  olmoe:fetch                        FETCH wrote <path> olmoe 1884325888 params sha256 4a6e5b5e6e29ba0e
+PASS  olmoe:check                        model_type=olmoe status=validated
+PASS  olmoe:paths                        seq==eff==fast==resident digest d396c71fd5422bbc | ran_path=fast fused_compute=True moe_expert_compute=fused moe_expert_cache_gib=0.774 compute_reason=None
+PASS  olmoe:repeat                       fast twice bitwise, digest d396c71fd5422bbc
+PASS  olmoe:ran                          every run: the path asked ran, no offload_reason, moe=fused reason=none, expert cache one layer on seq+eff, sized on fast
+PASS  olmoe:moe-ref                      reference experts seq==fast digest 18c896571965d1e6
+PASS  olmoe:refcheck                     {"updates": 100, "dev_mean": 0.007293157577514649, "dev_max": 0.02964305877685547, "noise_mean": 0.04645274162292481, "noise_max": 0.30848169326782227, "pass": true}
+PASS  olmoe:moe-gate                     streamed==resident (losses, grad norms, adapters, eval CE) streamed_over_resident": 2.4584840455778822
+PASS  olmoe:resume                       {"pass": true, "resumed_steps": [5, 6, 7], "steps_equal": true, "adapter_tensors": 16, "adapter_unequal_n": 0, "full_digest": "d396c71fd5422bbc30d7b775b448bbcc69f5c0e8f374d735eb605f9c58fd0ad0", "resumed_digest": "
+--- qwen2_moe (Qwen/Qwen1.5-MoE-A2.7B @ 1a758c50 trunc 4) 2026-11-16T22:05:38Z
+PASS  qwen2_moe:fetch                    FETCH wrote <path> qwen2_moe 2904573952 params sha256 625ac1525ce5e412
+PASS  qwen2_moe:check                    model_type=qwen2_moe status=validated
+PASS  qwen2_moe:paths                    seq==eff==fast==resident digest e16cfdfa3dc51fcf | ran_path=fast fused_compute=True moe_expert_compute=fused moe_expert_cache_gib=0.997 compute_reason=None
+PASS  qwen2_moe:repeat                   fast twice bitwise, digest e16cfdfa3dc51fcf
+PASS  qwen2_moe:ran                      every run: the path asked ran, no offload_reason, moe=fused reason=none, expert cache one layer on seq+eff, sized on fast
+PASS  qwen2_moe:moe-ref                  reference experts seq==fast digest 9144fb36ccdf0a03
+PASS  qwen2_moe:refcheck                 {"updates": 100, "dev_mean": 0.025503063201904298, "dev_max": 0.10593605041503906, "noise_mean": 0.0765846300125122, "noise_max": 0.32118701934814453, "pass": true}
+PASS  qwen2_moe:moe-gate                 streamed==resident (losses, grad norms, adapters, eval CE) streamed_over_resident": 2.745550511954591
+--- deepseek_v2 (deepseek-ai/DeepSeek-V2-Lite @ 604d5664 trunc 4) 2026-11-16T22:15:45Z
+PASS  deepseek_v2:fetch                  FETCH wrote <path> deepseek_v2 2254983168 params sha256 f51befd25a7e6106
+PASS  deepseek_v2:check                  model_type=deepseek_v2 status=validated
+PASS  deepseek_v2:paths                  seq==eff==fast==resident digest c0f23524a1c843da | ran_path=fast fused_compute=True moe_expert_compute=fused moe_expert_cache_gib=0.798 compute_reason=None
+PASS  deepseek_v2:repeat                 fast twice bitwise, digest c0f23524a1c843da
+PASS  deepseek_v2:ran                    every run: the path asked ran, no offload_reason, moe=fused reason=none, expert cache one layer on seq+eff, sized on fast
+PASS  deepseek_v2:moe-ref                reference experts seq==fast digest 6fa83ddbbca88423
+PASS  deepseek_v2:refcheck               {"updates": 100, "dev_mean": 0.005583739280700684, "dev_max": 0.035248756408691406, "noise_mean": 0.06735361099243165, "noise_max": 0.35637950897216797, "pass": true}
+PASS  deepseek_v2:moe-gate               streamed==resident (losses, grad norms, adapters, eval CE) streamed_over_resident": 2.910855580025927
+--- qwen3_5_moe (Qwen/Qwen3.6-35B-A3B @ 345d467b trunc 4) 2026-11-16T22:24:31Z
+PASS  qwen3_5_moe:fetch                  FETCH wrote <path> qwen3_5_moe 4828041008 params sha256 c407f1dfb3d605e5
+PASS  qwen3_5_moe:check                  model_type=qwen3_5_moe status=validated
+PASS  qwen3_5_moe:paths                  seq==eff==fast==resident digest 4c9f5c4f940bf98c | ran_path=fast fused_compute=True moe_expert_compute=fused moe_expert_cache_gib=1.548 compute_reason=None
+PASS  qwen3_5_moe:repeat                 fast twice bitwise, digest 4c9f5c4f940bf98c
+PASS  qwen3_5_moe:ran                    every run: the path asked ran, no offload_reason, moe=fused reason=none, expert cache one layer on seq+eff, sized on fast
+PASS  qwen3_5_moe:moe-ref                reference experts seq==fast digest bd2c4c633073c982
+PASS  qwen3_5_moe:refcheck               {"updates": 100, "dev_mean": 0.0015364456176757812, "dev_max": 0.007103919982910156, "noise_mean": 0.043197836875915524, "noise_max": 0.18052005767822266, "pass": true}
+PASS  qwen3_5_moe:moe-gate               streamed==resident (losses, grad norms, adapters, eval CE) streamed_over_resident": 2.8177858631036448
+--- qwen3_5_moe_text (Qwen/Qwen3.6-35B-A3B @ 345d467b text 4) 2026-11-16T22:41:41Z
+PASS  qwen3_5_moe_text:fetch             FETCH wrote <path> qwen3_5_moe_text 4381469760 params sha256 4af8da19f10358eb
+PASS  qwen3_5_moe_text:check             model_type=qwen3_5_moe_text status=validated
+PASS  qwen3_5_moe_text:paths             seq==eff==fast==resident digest 4c9f5c4f940bf98c | ran_path=fast fused_compute=True moe_expert_compute=fused moe_expert_cache_gib=1.548 compute_reason=None
+PASS  qwen3_5_moe_text:repeat            fast twice bitwise, digest 4c9f5c4f940bf98c
+PASS  qwen3_5_moe_text:ran               every run: the path asked ran, no offload_reason, moe=fused reason=none, expert cache one layer on seq+eff, sized on fast
+PASS  qwen3_5_moe_text:moe-ref           reference experts seq==fast digest bd2c4c633073c982
+--- gemma4_moe (google/gemma-4-26B-A4B-it @ 4d7ae498 trunc 6) 2026-11-16T22:46:36Z
+PASS  gemma4_moe:fetch                   FETCH wrote <path> gemma4 6209983030 params sha256 44eb54d5fa568d47
+PASS  gemma4_moe:check                   model_type=gemma4_moe status=validated
+PASS  gemma4_moe:paths                   seq==eff==fast==resident digest 9cb0d6fcbc9bca7a | ran_path=fast fused_compute=False moe_expert_compute=reference moe_expert_cache_gib=2.194 compute_reason=the fused expert compute cannot run layer 0: its experts' activation is GELUTanh; the fused kernels compute SiLU
+PASS  gemma4_moe:repeat                  fast twice bitwise, digest 9cb0d6fcbc9bca7a
+PASS  gemma4_moe:ran                     every run: the path asked ran, no offload_reason, moe=reference reason~SiLU, expert cache one layer on seq+eff, sized on fast
+SKIP  gemma4_moe:refcheck                the default is the reference experts here (fused cannot run them: the fused expert compute cannot run layer 0: its experts' activation is GELUTanh; the fused kernels compute SiLU)
+PASS  gemma4_moe:moe-gate                streamed==resident (losses, grad norms, adapters, eval CE) streamed_over_resident": 1.9502586615512467
+--- any:llama (HuggingFaceTB/SmolLM2-135M @ 93efa2f0) 2026-11-16T22:58:09Z
+PASS  any:llama:check                    exit 4 model_type=llama status=not-in-registry
+PASS  any:llama:arch                     status=not-in-registry weights.usable=True next=['poros agents arch try HuggingFaceTB/SmolLM2-135M']
+PASS  any:llama:arch-try                 trainer.ok=True bitwise=True patch.ok=True next=['poros agents prove HuggingFaceTB/SmolLM2-135M']
+PASS  any:llama:prove-asks               exit 2 poros.needs_input.v1
+PASS  any:llama:prove                    load.identical=True (1324 tensors) training.identical=True support=user_asserted 38s
+PASS  any:llama:train-noflag             refused, exit 4 in 3.0s, no weights fetched: "code":"E_ARCH_UNSUPPORTED", asks --unvalidated
+PASS  any:llama:train-unvalidated        support=user_asserted model_type=llama loss=12.647146224975586
+PASS  any:llama:train-env-asserted       POROS_USER_ASSERTED_ARCHS=llama support=user_asserted
+PASS  any:llama:api                      {"pass": true, "gate_error": true, "gate_warn": true, "gate_off": true, "prepare_unregistered": true, "register": true, "trainer_registered": true}
+--- any:mistral (Locutusque/TinyMistral-248M @ e84fb529) 2026-11-16T23:00:09Z
+PASS  any:mistral:check                  exit 4 model_type=mistral status=not-in-registry
+PASS  any:mistral:arch                   status=not-in-registry weights.usable=True next=['poros agents arch try Locutusque/TinyMistral-248M']
+PASS  any:mistral:arch-try               trainer.ok=True bitwise=True patch.ok=True next=['poros agents prove Locutusque/TinyMistral-248M']
+PASS  any:mistral:prove-asks             exit 2 poros.needs_input.v1
+PASS  any:mistral:prove                  load.identical=True (533 tensors) training.identical=True support=user_asserted 26s
+PASS  any:mistral:train-noflag           refused, exit 4 in 3.0s, no weights fetched: "code":"E_ARCH_UNSUPPORTED", asks --unvalidated
+PASS  any:mistral:train-unvalidated      support=user_asserted model_type=mistral loss=12.371232986450195
+PASS  any:mistral:train-env-asserted     POROS_USER_ASSERTED_ARCHS=mistral support=user_asserted
+PASS  any:mistral:api                    {"pass": true, "gate_error": true, "gate_warn": true, "gate_off": true, "prepare_unregistered": true, "register": true, "trainer_registered": true}
+--- any:phi3 (microsoft/Phi-3-mini-4k-instruct @ f39ac1d2) 2026-11-16T23:01:49Z
+PASS  any:phi3:check                     exit 4 model_type=phi3 status=not-in-registry
+PASS  any:phi3:arch                      status=not-in-registry weights.usable=True next=['poros agents arch try microsoft/Phi-3-mini-4k-instruct']
+PASS  any:phi3:arch-try                  trainer.ok=True bitwise=True patch.ok=True next=['poros agents prove microsoft/Phi-3-mini-4k-instruct']
+PASS  any:phi3:prove-asks                exit 2 poros.needs_input.v1
+PASS  any:phi3:prove                     load.identical=True (837 tensors) training.identical=True support=user_asserted 76s
+PASS  any:phi3:train-noflag              refused, exit 4 in 3.0s, no weights fetched: "code":"E_ARCH_UNSUPPORTED", asks --unvalidated
+PASS  any:phi3:train-unvalidated         support=user_asserted model_type=phi3 loss=12.979195594787598
+PASS  any:phi3:train-env-asserted        POROS_USER_ASSERTED_ARCHS=phi3 support=user_asserted
+PASS  any:phi3:api                       {"pass": true, "gate_error": true, "gate_warn": true, "gate_off": true, "prepare_unregistered": true, "register": true, "trainer_registered": true}
+--- any:gpt_neox (EleutherAI/pythia-70m @ a39f36b1) 2026-11-16T23:05:11Z
+PASS  any:gpt_neox:check                 exit 4 model_type=gpt_neox status=not-in-registry
+PASS  any:gpt_neox:arch                  status=not-in-registry weights.usable=True next=['poros agents arch try EleutherAI/pythia-70m']
+PASS  any:gpt_neox:arch-try              trainer.ok=True bitwise=True patch.ok=True next=['poros agents prove EleutherAI/pythia-70m']
+PASS  any:gpt_neox:prove-asks            exit 2 poros.needs_input.v1
+PASS  any:gpt_neox:prove                 load.identical=True (198 tensors) training.identical=True support=user_asserted 17s
+PASS  any:gpt_neox:train-noflag          refused, exit 4 in 3.0s, no weights fetched: "code":"E_ARCH_UNSUPPORTED", asks --unvalidated
+PASS  any:gpt_neox:train-unvalidated     support=user_asserted model_type=gpt_neox loss=19.794109344482422
+PASS  any:gpt_neox:train-env-asserted    POROS_USER_ASSERTED_ARCHS=gpt_neox support=user_asserted
+PASS  any:gpt_neox:api                   {"pass": true, "gate_error": true, "gate_warn": true, "gate_off": true, "prepare_unregistered": true, "register": true, "trainer_registered": true}
+--- any:mixtral (TitanML/tiny-mixtral @ 40b934a7, must refuse) 2026-11-16T23:06:37Z
+PASS  any:mixtral:check                  exit 4 status=not-in-registry model_type=mixtral
+PASS  any:mixtral:arch                   refused exit 4 "code":"E_ARCH_UNSUPPORTED"
+PASS  any:mixtral:trainnoflag            refused exit 4 in 3.0s "code":"E_ARCH_UNSUPPORTED", no weights fetched (997 B cached)
+PASS  any:mixtral:train--unvalidated     refused exit 4 in 8.5s "code":"E_ARCH_UNSUPPORTED", no weights fetched (997 B cached)
+--- any:gpt_oss (openai/gpt-oss-20b @ 6cee5e81, must refuse) 2026-11-16T23:06:57Z
+PASS  any:gpt_oss:check                  exit 4 status=target model_type=gpt_oss
+PASS  any:gpt_oss:arch                   refused exit 4 "code":"E_ARCH_UNSUPPORTED"
+PASS  any:gpt_oss:trainnoflag            refused exit 4 in 3.0s "code":"E_ARCH_UNSUPPORTED", no weights fetched (2089 B cached)
+PASS  any:gpt_oss:train--unvalidated     refused exit 4 in 8.5s "code":"E_ARCH_UNSUPPORTED", no weights fetched (2089 B cached)
+--- any:gemma4_per_layer (google/gemma-4-E2B @ 433813a6, must refuse) 2026-11-16T23:07:18Z
+PASS  any:gemma4_per_layer:check         exit 4 status=unsupported model_type=gemma4_per_layer
+PASS  any:gemma4_per_layer:arch          refused exit 4 "code":"E_ARCH_UNSUPPORTED"
+PASS  any:gemma4_per_layer:trainnoflag   refused exit 4 in 3.0s "code":"E_ARCH_UNSUPPORTED", no weights fetched (5197 B cached)
+PASS  any:gemma4_per_layer:train--unvalidated refused exit 4 in 8.0s "code":"E_ARCH_UNSUPPORTED", no weights fetched (5197 B cached)
+--- any:gemma2 (unsloth/gemma-2-2b @ 25319945) 2026-11-16T23:07:38Z
+PASS  any:gemma2:check                   exit 4 model_type=gemma2 status=target
+PASS  any:gemma2:arch                    status=target weights.usable=True next=['poros agents arch try unsloth/gemma-2-2b']
+PASS  any:gemma2:arch-try                trainer.ok=True bitwise=True patch.ok=True next=['poros agents prove unsloth/gemma-2-2b']
+PASS  any:gemma2:prove-asks              exit 2 poros.needs_input.v1
+PASS  any:gemma2:prove                   load.identical=True (1201 tensors) training.identical=True support=user_asserted 71s
+PASS  any:gemma2:train-noflag            refused, exit 4 in 3.0s, no weights fetched: "code":"E_ARCH_UNSUPPORTED", asks --unvalidated
+PASS  any:gemma2:train-unvalidated       support=user_asserted model_type=gemma2 loss=15.531028747558594
+PASS  any:gemma2:train-env-asserted      POROS_USER_ASSERTED_ARCHS=gemma2 support=user_asserted
+PASS  any:gemma2:api                     {"pass": true, "gate_error": true, "gate_warn": true, "gate_off": true, "prepare_unregistered": true, "register": true, "trainer_registered": true}
+end 2026-11-16T23:10:44Z
+FAILS=0

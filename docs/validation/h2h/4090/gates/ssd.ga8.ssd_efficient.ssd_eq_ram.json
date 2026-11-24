@@ -1,0 +1,25 @@
+{
+ "gate": "SSD = RAM",
+ "pass": true,
+ "ssd_runs": [
+  "a30_ga8_ssdeff_r1",
+  "a30_ga8_ssdeff_r2",
+  "a30_ga8_ssdeff_r3"
+ ],
+ "ram_runs": [
+  "a30_ga8_ram_r1",
+  "a30_ga8_ram_r2",
+  "a30_ga8_ram_r3"
+ ],
+ "what": "the SSD-store runs give the RAM-store run's adapter, bit for bit: one sha256 over every adapter tensor, and every update's loss and grad norm equal",
+ "ssd_digest": [
+  "7ce59384dbd970ff1fadf82be492d671875d04ba4ff9af780e30789491cb77b7",
+  "7ce59384dbd970ff1fadf82be492d671875d04ba4ff9af780e30789491cb77b7",
+  "7ce59384dbd970ff1fadf82be492d671875d04ba4ff9af780e30789491cb77b7"
+ ],
+ "ram_digest": [
+  "7ce59384dbd970ff1fadf82be492d671875d04ba4ff9af780e30789491cb77b7",
+  "7ce59384dbd970ff1fadf82be492d671875d04ba4ff9af780e30789491cb77b7",
+  "7ce59384dbd970ff1fadf82be492d671875d04ba4ff9af780e30789491cb77b7"
+ ]
+}

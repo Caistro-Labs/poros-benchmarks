@@ -1,0 +1,40 @@
+{
+  "against": null,
+  "can_train": "Qwen/Qwen2.5-72B",
+  "compared": [
+    "losses",
+    "392 adapter tensors"
+  ],
+  "differs": [],
+  "digest": "ae26d5ca7dda8188e5227305b5f4f0b6826099eee9c9e8193e5fc81dd99ae4c6",
+  "env": {
+    "cuda": "13.0",
+    "driver": "580.173.02",
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "poros": "0.3.0",
+    "python": "3.12.3",
+    "torch": "2.14.1+cu130",
+    "transformers": "5.22.2"
+  },
+  "identical": true,
+  "model": "Qwen/Qwen2.5-7B",
+  "pinned_differs": {},
+  "receipt": "~/rf/h2hf_5d75e31a/home_exact/receipts/prove-1118-113921.json",
+  "reproduced": null,
+  "resident": {
+    "block_size": 28,
+    "final_loss": 11.228434562683105,
+    "peak_vram_gib": 12.29141504,
+    "s_per_step": 2.4273
+  },
+  "schema": "poros.prove.v1",
+  "seq_len": 512,
+  "simulated": false,
+  "steps": 100,
+  "streamed": {
+    "block_size": 4,
+    "final_loss": 11.228434562683105,
+    "peak_vram_gib": 8.531750912,
+    "s_per_step": 2.9784
+  }
+}

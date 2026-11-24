@@ -1,0 +1,138 @@
+{
+ "what": "The Hub's own sha256 and size of every weight shard of two gated Google repos, read as metadata with access to them (nothing downloaded), beside their ungated copies': the catalog rows fetch the copies.",
+ "read": "2026-11-17",
+ "models": {
+  "google/gemma-3-1b-pt": {
+   "google/gemma-3-1b-pt": {
+    "revision": "fcf18a2a879aab110ca39f8bffbccd5d49d8eb29",
+    "shards": {
+     "model.safetensors": [
+      1999811208,
+      "ee5250f6eb1aa7cfb729dfd4dc8d9964fd772324776c6d00bf2bc674c069cb27"
+     ]
+    }
+   },
+   "unsloth/gemma-3-1b-pt": {
+    "revision": "34a98bf3eaecc08c699516f625eb5e56e4c5d99d",
+    "shards": {
+     "model.safetensors": [
+      1999811208,
+      "ee5250f6eb1aa7cfb729dfd4dc8d9964fd772324776c6d00bf2bc674c069cb27"
+     ]
+    }
+   },
+   "identical": true,
+   "differ": []
+  },
+  "google/gemma-3-27b-pt": {
+   "google/gemma-3-27b-pt": {
+    "revision": "9fe3c4ebc93fbadb14913801536d022054ef11cc",
+    "shards": {
+     "model-00001-of-00012.safetensors": [
+      4854573696,
+      "fbd8138d46f6f44099c4c2488cd02d738ce82af8d69e076f905d1ad8e2e228ca"
+     ],
+     "model-00002-of-00012.safetensors": [
+      4954792944,
+      "29600e3a1728c64296d8c2b3ac55e4fd3c6249945c193cb3c7b6bf0aaf950247"
+     ],
+     "model-00003-of-00012.safetensors": [
+      4954792976,
+      "b09ea9e6e912eac394556344ba3556c4e017ee12bf7e1b8b4ec188df6f9aab51"
+     ],
+     "model-00004-of-00012.safetensors": [
+      4954793016,
+      "0c43345912a6c260139439e2a1a0fea0d5114dd2f59bfe1a4afa385fc12e4b78"
+     ],
+     "model-00005-of-00012.safetensors": [
+      4954793016,
+      "af9a5b18c3b725c0221df2f09371a43d9096becf001a41efdcb375954d2dab2c"
+     ],
+     "model-00006-of-00012.safetensors": [
+      4954793016,
+      "c6aa813f8991ca2eee99955a764c153ed56f22863b6d898a994a0b125d5bab99"
+     ],
+     "model-00007-of-00012.safetensors": [
+      4954793016,
+      "d2c627c3bf8d3641bb3f40165d2a27d834230cedfab836f5a2f954e4e2b20f91"
+     ],
+     "model-00008-of-00012.safetensors": [
+      4954793016,
+      "1de6ab69b4e17bb54b1536a9e6b593a7d3e927d31cf1c75dfff82ac71fb9f96e"
+     ],
+     "model-00009-of-00012.safetensors": [
+      4954793016,
+      "ca653bc91f1d4df924640386011789be43e5e95a3480e6adbb5028da85b2f8ea"
+     ],
+     "model-00010-of-00012.safetensors": [
+      4954793016,
+      "7356b01d5ecddeb58c33e6750df65552eb916600cfd5e24002cd72e90ceae42e"
+     ],
+     "model-00011-of-00012.safetensors": [
+      4954793016,
+      "75568b29ce3aa9e231e1ac3b37ef64d9eb174da991d9709764b678b462a37e83"
+     ],
+     "model-00012-of-00012.safetensors": [
+      462476696,
+      "51df12abc8e4d4e46fb855ef561c96be40427234a307a1f523f9eb8db173ab34"
+     ]
+    }
+   },
+   "unsloth/gemma-3-27b-pt": {
+    "revision": "eb493e07419db4938e915c619689bb513181aebb",
+    "shards": {
+     "model-00001-of-00012.safetensors": [
+      4854573696,
+      "fbd8138d46f6f44099c4c2488cd02d738ce82af8d69e076f905d1ad8e2e228ca"
+     ],
+     "model-00002-of-00012.safetensors": [
+      4954792944,
+      "29600e3a1728c64296d8c2b3ac55e4fd3c6249945c193cb3c7b6bf0aaf950247"
+     ],
+     "model-00003-of-00012.safetensors": [
+      4954792976,
+      "b09ea9e6e912eac394556344ba3556c4e017ee12bf7e1b8b4ec188df6f9aab51"
+     ],
+     "model-00004-of-00012.safetensors": [
+      4954793016,
+      "0c43345912a6c260139439e2a1a0fea0d5114dd2f59bfe1a4afa385fc12e4b78"
+     ],
+     "model-00005-of-00012.safetensors": [
+      4954793016,
+      "af9a5b18c3b725c0221df2f09371a43d9096becf001a41efdcb375954d2dab2c"
+     ],
+     "model-00006-of-00012.safetensors": [
+      4954793016,
+      "c6aa813f8991ca2eee99955a764c153ed56f22863b6d898a994a0b125d5bab99"
+     ],
+     "model-00007-of-00012.safetensors": [
+      4954793016,
+      "d2c627c3bf8d3641bb3f40165d2a27d834230cedfab836f5a2f954e4e2b20f91"
+     ],
+     "model-00008-of-00012.safetensors": [
+      4954793016,
+      "1de6ab69b4e17bb54b1536a9e6b593a7d3e927d31cf1c75dfff82ac71fb9f96e"
+     ],
+     "model-00009-of-00012.safetensors": [
+      4954793016,
+      "ca653bc91f1d4df924640386011789be43e5e95a3480e6adbb5028da85b2f8ea"
+     ],
+     "model-00010-of-00012.safetensors": [
+      4954793016,
+      "7356b01d5ecddeb58c33e6750df65552eb916600cfd5e24002cd72e90ceae42e"
+     ],
+     "model-00011-of-00012.safetensors": [
+      4954793016,
+      "75568b29ce3aa9e231e1ac3b37ef64d9eb174da991d9709764b678b462a37e83"
+     ],
+     "model-00012-of-00012.safetensors": [
+      462476696,
+      "51df12abc8e4d4e46fb855ef561c96be40427234a307a1f523f9eb8db173ab34"
+     ]
+    }
+   },
+   "identical": true,
+   "differ": []
+  }
+ }
+}

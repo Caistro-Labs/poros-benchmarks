@@ -1,0 +1,1 @@
+{"schema":"poros.check.v1","model":"<home>/poros_rel/hf_cert/fg_models/unsloth_gemma-3-4b-it__trunc6","model_type":"gemma3","status":"validated","entry":"dense","reason":"","next":[]}

@@ -1,0 +1,105 @@
+▛▜ poros v0.3.0 · Qwen/Qwen2.5-72B · RTX 4090 23.5 GiB
+
+● Checked q72_eff_b4_def.yaml  config
+  │ nf4 · block 4 · rank 16 · seq 512 · efficient path
+  │ classic · every token · lr 2e-5
+  │ output    runs/q72_eff_b4_def
+
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+● Loaded Qwen2.5-72B  5m 22s
+  │ dense · 80 layers · 20 blocks
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Map:   0%|          | 0/64 [00:00<?, ? examples/s]Map: 100%|██████████| 64/64 [00:00<00:00, 1272.06 examples/s]
+Filter:   0%|          | 0/64 [00:00<?, ? examples/s]Filter: 100%|██████████| 64/64 [00:00<00:00, 18055.79 examples/s]
+[W1112 10:13:17.820942892 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 484442112 bytes (free: 209387520, total: 25250627584).
+[W1112 10:13:17.102321738 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 484442112 bytes (free: 125501440, total: 25250627584).
+[W1112 10:13:18.528292995 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 484442112 bytes (free: 127598592, total: 25250627584).
+Traceback (most recent call last):
+  File "<path>", line 1487, in _train_blockwise_adapters
+    else self._train_block_major_qlora8_adapters_no_hf_ckpt(batches)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<path>", line 2130, in _train_block_major_qlora8_adapters_no_hf_ckpt
+    return self._train_block_major_qlora8_adapters(batches, head_fns)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<path>", line 2073, in _train_block_major_qlora8_adapters
+    remat_output = self._forward_block_layers(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<path>", line 2420, in _forward_block_layers
+    hidden_states = self._forward_one_layer(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<path>", line 2442, in _forward_one_layer
+    return self._call_layer(
+           ^^^^^^^^^^^^^^^^^
+  File "<path>", line 2590, in _call_layer
+    output = layer(hidden_states, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<path>", line 111, in __call__
+    return super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<path>", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<path>", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<path>", line 288, in forward
+    hidden_states = self.mlp(hidden_states)
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "<path>", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<path>", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<path>", line 46, in forward
+    down_proj = self.down_proj(self.act_fn(self.gate_proj(x)) * self.up_proj(x))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<path>", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<path>", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<path>", line 527, in forward
+    result = self.base_layer(x, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<path>", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<path>", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<path>", line 637, in forward
+    return bnb.matmul_4bit(x, self.weight, bias=bias, quant_state=quant_state).to(inp_dtype)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<path>", line 209, in _matmul_4bit
+    return _CachedMatMul4Bit.apply(A, B, bias, qs, use_custom, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<path>", line 221, in forward
+    output = F.linear(A, cache._weight(B, qs, A.dtype, "fwd"), bias)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<path>", line 157, in _weight
+    w = make(B, qs, dtype)
+        ^^^^^^^^^^^^^^^^^^
+  File "<path>", line 128, in _fwd_dequant
+    out = torch.empty(qs.shape, dtype=dtype, device=B.device)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 462.00 MiB. GPU 0 has a total capacity of 23.52 GiB of which 121.69 MiB is free. Including non-PyTorch memory, this process has 0 bytes memory in use. Of the allocated memory 22.19 GiB is allocated by PyTorch, and 613.22 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<path>", line 448, in run
+    metrics = trainer.train(
+              ^^^^^^^^^^^^^^
+  File "<path>", line 927, in train
+    return self._train_blockwise_adapters(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<path>", line 1521, in _train_blockwise_adapters
+    raise PorosOOMError(
+poros.core.errors.PorosOOMError: GPU out of memory during blockwise training.
+
+Remediation: Try reducing block_size or seq_len. Current block_size=4; try block_size=2. Current seq_len=512; try seq_len=256.
+
+Docs: docs/limitations.md
+{"schema":"poros.error.v1","error":{"code":"E_OOM","exit_code":3,"message":"GPU out of memory during blockwise training.","hint":"Try reducing block_size or seq_len. Current block_size=4; try block_size=2. Current seq_len=512; try seq_len=256.","remediation":{"block_size":2,"max_seq_length":256},"docs":"docs/limitations.md"}}

@@ -1,0 +1,60 @@
+{
+ "full": "<home>/poros_rel/cert/out/family/fg/runs/qwen2_resA",
+ "resumed": "<home>/poros_rel/cert/out/family/fg/runs/qwen2_resB",
+ "from_step": 4,
+ "resumed_steps": [
+  5,
+  6,
+  7
+ ],
+ "full_steps": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7
+ ],
+ "steps_equal": true,
+ "last_step_equal": true,
+ "adapter_tensors": 336,
+ "adapter_keys_equal": true,
+ "adapter_unequal_n": 0,
+ "full_digest": "827d930457002514cb8338286c24a5f88a117ff61be096f4180943eeb838acf4",
+ "resumed_digest": "827d930457002514cb8338286c24a5f88a117ff61be096f4180943eeb838acf4",
+ "losses": {
+  "5": [
+   [
+    1.5721993446350098,
+    0.9231849908828735
+   ],
+   [
+    1.5721993446350098,
+    0.9231849908828735
+   ]
+  ],
+  "6": [
+   [
+    1.7282828092575073,
+    0.954939067363739
+   ],
+   [
+    1.7282828092575073,
+    0.954939067363739
+   ]
+  ],
+  "7": [
+   [
+    2.2626852989196777,
+    0.897750735282898
+   ],
+   [
+    2.2626852989196777,
+    0.897750735282898
+   ]
+  ]
+ },
+ "pass": true
+}

@@ -1,0 +1,46 @@
+{
+ "model": "Qwen/Qwen3-30B-A3B",
+ "rows": 8,
+ "load_s": 344.3,
+ "layers": {
+  "24": {
+   "tokens": 4096,
+   "fused": {
+    "output": {
+     "max_abs": 0.020727295393239586,
+     "rel_l2": 0.0022530557679321874
+    },
+    "adapter_grads": {
+     "max_abs": 0.000127369431296806,
+     "rel_l2": 0.0023436845869038514
+    },
+    "input_grad": {
+     "max_abs": 5.738289360133217e-06,
+     "rel_l2": 0.002284405298498122
+    }
+   },
+   "reference": {
+    "output": {
+     "max_abs": 0.020727295393239586,
+     "rel_l2": 0.004933581532953818
+    },
+    "adapter_grads": {
+     "max_abs": 0.00014552884480739658,
+     "rel_l2": 0.0050558153505341
+    },
+    "input_grad": {
+     "max_abs": 1.3027312270086724e-05,
+     "rel_l2": 0.0059198284329976735
+    }
+   },
+   "fused_le_reference": {
+    "output.max_abs": true,
+    "output.rel_l2": true,
+    "adapter_grads.max_abs": true,
+    "adapter_grads.rel_l2": true
+   },
+   "pass": true
+  }
+ },
+ "pass": true
+}

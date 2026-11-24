@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "<home>/poros_rel/cert/src/scripts/family_gate/compare_runs.py", line 65, in <module>
+    sr, sc = steps(ref), steps(cand)
+             ^^^^^^^^^^
+  File "<home>/poros_rel/cert/src/scripts/family_gate/compare_runs.py", line 19, in steps
+    ev = [json.loads(line) for line in open(os.path.join(d, "events.jsonl"))]
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '<home>/poros_rel/cert/out/family/fg/runs/inkling2_loop_seq/events.jsonl'

@@ -1,0 +1,1 @@
+{"schema":"poros.error.v1","error":{"code":"E_OOM","exit_code":3,"message":"the resident reference ran out of GPU memory on Qwen/Qwen3.5-4B at 512 tokens; prove --block-sizes compares two streamed block sizes; it is no resident reference","hint":"poros prove Qwen/Qwen3.5-4B --block-sizes","docs":"poros docs training what fits"}}

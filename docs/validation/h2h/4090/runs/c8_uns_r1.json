@@ -1,0 +1,203 @@
+{
+ "schema": "h2hf.run.v1",
+ "name": "c8_uns_r1",
+ "tool": "unsloth",
+ "arm": "c8_uns",
+ "round": 1,
+ "site": "4090",
+ "commit": "5d75e31a486cdf19e397e2d0f748def98083ecc8",
+ "tree": "0973100366871afc06c796987f5caedf38741b1a",
+ "model": "Qwen/Qwen3-30B-A3B",
+ "model_revision": "ad44e777bcd18fa416d9da3bd8f70d33ebb85d39",
+ "model_key": "30b_a3b",
+ "rc": 1,
+ "launch_epoch": 1794987133.4009805,
+ "launch_utc": "2026-11-18T07:32:13Z",
+ "queued_utc": "2026-11-18T07:32:13Z",
+ "cmd": "~/venv_unsloth/bin/python ~/rf/h2hf_5d75e31a/kit/h2h_u7.py --model Qwen/Qwen3-30B-A3B --rows ~/rf/h2hf_5d75e31a/data/rows_cap_s256.pt --deterministic --out ~/rf/h2hf_5d75e31a/rec/c8_uns_r1_raw.json --local-snapshot --offload-layers 48 --mb 1 --ga 8 --updates 16 --time-limit-s 2400 --targets o_proj,gate_proj,up_proj,down_proj --freeze-targets o_proj --offload-embedding true --seq-len 256 --rank 8",
+ "env": {
+  "H2HF_ALLOW_DROP_30B": "1",
+  "H2HF_DATA_ROWS": "~/rf/h2hf_5d75e31a/data/rows_cap_s256.pt",
+  "H2HF_GPU_IDLE_MIB": "18618",
+  "H2HF_HELD": "1",
+  "H2HF_HOST_CAP": "none (no cgroup manager for this user on the box); the laptop has 14.9 GiB",
+  "H2HF_SHA": "5d75e31a486cdf19e397e2d0f748def98083ecc8",
+  "H2HF_VRAM_CAP": "free 6246 MiB: kit/vram_ballast.py holds the rest of the card",
+  "HF_HOME": "~/hf",
+  "HF_HUB_DISABLE_TELEMETRY": "1",
+  "HF_HUB_OFFLINE": "1",
+  "TMPDIR": "~/rf/h2hf_5d75e31a/tmp",
+  "TRITON_CACHE_DIR": "~/rf/h2hf_5d75e31a/triton/cache",
+  "PYTORCH_ALLOC_CONF": "unset",
+  "PYTORCH_CUDA_ALLOC_CONF": "unset"
+ },
+ "seq_len": 256,
+ "alloc_env": {
+  "PYTORCH_ALLOC_CONF": "unset",
+  "PYTORCH_CUDA_ALLOC_CONF": "unset"
+ },
+ "caps": {
+  "vram": "free 6246 MiB: kit/vram_ballast.py holds the rest of the card",
+  "host": "<host>",
+  "ballast": {
+   "target_free_mib": 6246,
+   "card_total_mib": 24564,
+   "used_mib": 18318,
+   "free_mib": 6246,
+   "ballast_tensors_mib": 17858,
+   "mem_get_info_free_mib": 5763,
+   "how": "another process holds the rest of the card's memory (kit/vram_ballast.py)"
+  }
+ },
+ "pre": {
+  "gpu_used_mib": 18318,
+  "mem_available_gib": 59,
+  "waited_s": 0,
+  "settled": true
+ },
+ "machine": {
+  "site": "4090",
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "gpu_mib": "24564",
+  "driver": "580.173.02",
+  "cpu": "AMD EPYC 7502 32-Core Processor",
+  "threads": "64",
+  "ram_gib": 59.6,
+  "os": "Ubuntu 24.04.1 LTS",
+  "kernel": "6.8.0-124-generic",
+  "etc_environment_alloc": "PYTORCH_ALLOC_CONF=expandable_segments:False"
+ },
+ "status": "failed",
+ "stage": "train",
+ "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 768.00 MiB. GPU 0 has a total capacity of 23.52 GiB of which 758.38 MiB is free. Process 3457488 has 0 bytes memory in use. Including non-PyTorch memory, this process has 0 bytes memory in use. Of the allocated memory 4.18 GiB is allocated by PyTorch, and 143.27 MiB is reserved by PyTorch but unallocated.",
+ "traceback_tail": ")\", line 10, in impl_fn\n  File \"~/venv_unsloth/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py\", line 3613, in _backward_impl\n    return call_func_at_runtime_with_args(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"~/venv_unsloth/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/utils.py\", line 151, in call_func_at_runtime_with_args\n    out = normalize_as_list(f(args))\n                            ^^^^^^^\n  File \"~/venv_unsloth/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py\", line 1548, in _fn\n    return fn(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"~/venv_unsloth/lib/python3.12/site-packages/torch/_inductor/output_code.py\", line 828, in __call__\n    return self.current_callable(inputs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"~/rf/h2hf_5d75e31a/tmp/torchinductor_USER/ew/cew2755pyxt4v6wongd7pvx2dcry4qwc74d6zst3t3sq7kwkvq2b.py\", line 2074, in call\n    buf22 = empty_strided_cuda((402653184, ), (1, ), torch.bfloat16)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntorch.OutOfMemoryError: CUDA out of memory. Tried to allocate 768.00 MiB. GPU 0 has a total capacity of 23.52 GiB of which 758.38 MiB is free. Process 3457488 has 0 bytes memory in use. Including non-PyTorch memory, this process has 0 bytes memory in use. Of the allocated memory 4.18 GiB is allocated by PyTorch, and 143.27 MiB is reserved by PyTorch but unallocated.\n",
+ "shape": {
+  "mb": 1,
+  "ga": 8
+ },
+ "updates": 0,
+ "s_per_update": [],
+ "s_med_2_N": null,
+ "s_med_3_N": null,
+ "n_measured": 0,
+ "load_s": 126.78,
+ "load_peak_vram_alloc_gib": 3.22,
+ "load_peak_vram_reserved_gib": 3.988,
+ "load_peak_host_gib": 29.715,
+ "load_host": {
+  "at": "after from_pretrained + get_peft_model",
+  "status_kb": {
+   "VmLck_kb": 0,
+   "VmPin_kb": 0,
+   "VmHWM_kb": 60978608,
+   "VmRSS_kb": 16746880,
+   "RssAnon_kb": 16616784,
+   "RssFile_kb": 111656,
+   "RssShmem_kb": 18440
+  },
+  "peak_anon_shmem_gib": 29.415,
+  "after_load_allocated_gib": 3.106,
+  "after_load_reserved_gib": 3.137,
+  "after_load_smi_mib": 22077
+ },
+ "host_peak_anon_shmem_gib": 29.415,
+ "load_end_epoch": 1794987260.175303,
+ "t1_s": null,
+ "vram_alloc_gib": null,
+ "vram_reserved_gib": null,
+ "train_peak_vram_alloc_gib": null,
+ "train_peak_vram_reserved_gib": null,
+ "host_ram_gib": 29.715,
+ "memory_unit": "GiB",
+ "memory_source": "h2h_u7: torch.cuda.max_memory_* / 2^30, max(load window, training window); VmHWM / 2^20",
+ "raw": {
+  "unit": "GiB",
+  "load_peak_allocated_gib": 3.22,
+  "load_peak_reserved_gib": 3.988,
+  "peak_allocated_gib_train": null,
+  "peak_reserved_gib_train": null,
+  "host_maxrss_gib": 58.154,
+  "host_vmhwm_gib": 58.154
+ },
+ "adapter_digest": null,
+ "rows_sha256": "f2627e3f182313debf060549bfd9a1623badbc44e8e800156c2431f36fc370b2",
+ "trainable": {
+  "params": 314572800,
+  "dtypes": [
+   "torch.float32"
+  ],
+  "asked_targets": "o_proj,gate_proj,up_proj,down_proj",
+  "groups": {
+   "base_model.model.model.layers.N.mlp.experts.base_layer.lora_A.default.weight": 100663296,
+   "base_model.model.model.layers.N.mlp.experts.base_layer.lora_B.default.weight": 75497472,
+   "base_model.model.model.layers.N.mlp.experts.lora_A.default.weight": 37748736,
+   "base_model.model.model.layers.N.mlp.experts.lora_B.default.weight": 100663296
+  },
+  "rank": 8,
+  "frozen_adapters": {
+   "modules": [
+    "o_proj"
+   ],
+   "tensors": 96,
+   "elements": 2359296
+  }
+ },
+ "losses": [],
+ "grad_norms": [],
+ "versions": {
+  "unsloth": "2026.11.4",
+  "unsloth_zoo": "2026.11.4",
+  "torch": "2.14.1",
+  "transformers": "5.17.0",
+  "peft": "0.21.2",
+  "bitsandbytes": "0.50.2",
+  "accelerate": "1.15.0",
+  "torch_cuda": "13.0"
+ },
+ "load_source": "local snapshot of Qwen/Qwen3-30B-A3B@ad44e777bcd18fa416d9da3bd8f70d33ebb85d39",
+ "unsloth": {
+  "offload_layers": "48",
+  "offload_embedding": "true",
+  "prefetch_depth": "unset",
+  "decoder_layers": 48,
+  "swapped_layers": 48,
+  "pinned_bytes": 14974107648,
+  "host_bytes": 14974107648,
+  "input_embedding_device": "cpu",
+  "gc": "unsloth",
+  "targets": "o_proj,gate_proj,up_proj,down_proj"
+ },
+ "alloc_env_seen": {
+  "PYTORCH_ALLOC_CONF": "unset",
+  "PYTORCH_CUDA_ALLOC_CONF": "unset"
+ },
+ "alloc_env_set_by_tool": {
+  "PYTORCH_ALLOC_CONF": "expandable_segments:True",
+  "PYTORCH_CUDA_ALLOC_CONF": "unset"
+ },
+ "unsloth_lines": [],
+ "log_tail": "smi_mib\": 22077, \"model_source\": \"~/hf/hub/models--Qwen--Qwen3-30B-A3B/snapshots/ad44e777bcd18fa416d9da3bd8f70d33ebb85d39\", \"rows_sha256\": \"f2627e3f182313debf060549bfd9a1623badbc44e8e800156c2431f36fc370b2\", \"trainable_params\": 314572800, \"trainable_dtypes\": [\"torch.float32\"], \"trainable_groups\": {\"base_model.model.model.layers.N.mlp.experts.base_layer.lora_A.default.weight\": 100663296, \"base_model.model.model.layers.N.mlp.experts.base_layer.lora_B.default.weight\": 75497472, \"base_model.model.model.layers.N.mlp.experts.lora_A.default.weight\": 37748736, \"base_model.model.model.layers.N.mlp.experts.lora_B.default.weight\": 100663296}, \"trainable_group_count\": 4, \"epoch_train_start\": 1794987260.2341442, \"error\": \"OutOfMemoryError: CUDA out of memory. Tried to allocate 768.00 MiB. GPU 0 has a total capacity of 23.52 GiB of which 758.38 MiB is free. Process 3457488 has 0 bytes memory in use. Including non-PyTorch memory, this process has 0 bytes memory in use. Of the allocated memory 4.18 GiB is allocated by PyTorch, and 143.27 MiB is reserved by PyTorch but unallocated.\", \"host_vmhwm_gib\": 58.154, \"host_status_end\": {\"VmLck_kb\": 0, \"VmPin_kb\": 0, \"VmHWM_kb\": 60978608, \"VmRSS_kb\": 17327300, \"RssAnon_kb\": 17054972, \"RssFile_kb\": 253888, \"RssShmem_kb\": 18440}, \"host_peak_anon_shmem_kb\": 30843640, \"wall_s\": 143.87, \"host_maxrss_gib\": 58.154, \"peak_allocated_gib_last_window\": 4.917, \"peak_reserved_gib_last_window\": 5.059, \"card_gib\": 23.516, \"nvidia_smi_used_mib_end\": 23323}\n",
+ "host_vmhwm_gib": 58.154,
+ "load_peak_host_vmhwm_gib": 58.154,
+ "host_sampler": {
+  "source": "kit/hostsamp.py: RssAnon + RssShmem summed over the process tree",
+  "interval_s": 0.25,
+  "samples": 605,
+  "longest_gap_s": 0.301,
+  "processes_max": 3,
+  "anon_gib_at_peak": 29.697,
+  "shmem_gib_at_peak": 0.018,
+  "file_backed_gib_max": 44.222,
+  "vmhwm_gib_seen": 58.154,
+  "inprocess_1hz_peak_anon_shmem_gib": 29.415,
+  "inprocess_1hz_load_peak_anon_shmem_gib": 29.415
+ },
+ "smi": {
+  "samples": 142,
+  "baseline_mib": 18318,
+  "load_peak_gib": 4.476,
+  "run_peak_gib": 4.888,
+  "note": "nvidia-smi memory.used minus the pre-launch reading; includes the CUDA context (~0.3-0.5 GiB) torch's counters leave out"
+ },
+ "rows_file": "rows_cap_s256.pt"
+}

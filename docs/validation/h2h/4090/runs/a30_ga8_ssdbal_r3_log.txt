@@ -1,0 +1,36 @@
+▛▜ poros v0.3.0 · Qwen/Qwen3-30B-A3B · RTX 4090 23.5 GiB
+
+● Checked a30_ga8_ssdbal_r3.yaml  config
+  │ nf4 · block 4 · rank 16 · seq 512 · fast path
+  │ classic · every token · lr 2e-5
+  │ output    runs/a30_ga8_ssdbal_r3
+  │ store     ssd ~/rf/h2hf_5d75e31a/store
+
+● Loaded Qwen3-30B-A3B  16s
+  │ MoE · 48 layers · 128 experts
+step 1/16  loss 1.1857  15.77 s/step  vram 5.1 GiB (peak 7.4)  eta 3m 57s
+MoE expert cache 7.00 GiB, sized on an update at the full shape (moe_expert_cache_gib caps it (22.96 GiB this process may hold - 7.78 GiB reserved peak - 4.59 GiB margin leaves more))
+step 9/16  loss 1.3842  4.46 s/step  vram 11.7 GiB (peak 14.1)  eta 38s
+step 16/16  loss 1.2134  4.44 s/step  vram 11.7 GiB (peak 14.1)
+
+  ╭─ Trained ────────────────────────────────────────────────────── 16 steps · classic · 1m 34s ─╮
+  │                                                                      final loss              │
+  │                                  ▅▃                                  1.1102  ↓ 6%            │
+  │ 1.50                           ▂███▃                                 from 1.1857             │
+  │         ▁█▅▁                ▁▁▅█████▃                        ▃▆                              │
+  │        ▃████▆▂         ▂▄▆▇██████████▃                    ▁▅███▆     vram 14.1 GiB peak      │
+  │ 1.25  ▄███████▃      ▄████████████████▂                 ▃▆██████▆    ram  15.7 GiB peak      │
+  │      ▆█████████▃    ▅██████████████████▂      ▁      ▂▅██████████▆                           │
+  │      ███████████▃  ▆████████████████████▁   ▁▆█▆▄▂▂▄▇█████████████▇                          │
+  │ 1.00 ████████████▃▇██████████████████████▁ ▃███████████████████████                          │
+  │      █████████████████████████████████████▆████████████████████████                          │
+  │      1                                8                          16                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      829 tok/s
+  │
+  │ adapter    runs/a30_ga8_ssdbal_r3
+  │ receipt    runs/a30_ga8_ssdbal_r3/receipt.json
+
+Continue with: poros eval ~/rf/h2hf_5d75e31a/rec/a30_ga8_ssdbal_r3.yaml
+{"schema":"poros.train.v1","learned":null,"output_dir":"~/rf/h2hf_5d75e31a/runs/a30_ga8_ssdbal_r3","events":"~/rf/h2hf_5d75e31a/runs/a30_ga8_ssdbal_r3/events.jsonl","metrics":{"device":"cuda:0","total_steps":16,"final_loss":1.1101921796798706,"loss_history":[1.1856834888458252,1.460667610168457,1.3068935871124268,0.9707450866699219,1.2717106342315674,1.363610863685608,1.3934178352355957,1.6199301481246948,1.2721953392028809,0.9162167310714722,1.1379345655441284,1.0505033731460571,1.1667691469192505,1.3010951280593872,1.43825364112854,1.1101921796798706],"grad_norm_history":[0.55859375,0.48828125,0.478515625,0.44921875,0.5390625,0.490234375,0.423828125,0.50390625,0.51953125,0.55859375,0.498046875,0.7265625,0.546875,0.451171875,0.427734375,0.5078125],"eval_history":[],"total_time_s":79.03749408572912,"step_time_history":[15.773490451276302,7.2561118099838495,3.691183630377054,3.5092193093150854,3.5077701173722744,2.916244512423873,3.403937039896846,3.932810138911009,4.461611503735185,4.297036591917276,4.220598725602031,4.560434740036726,4.184781223535538,4.434183996170759,4.447727058082819,4.440353237092495],"vram_alloc_history_mb":[5423.983616,12585.355264,12582.920192,12585.354752,12587.789312,12587.789312,12587.789312,12587.789312,12590.223872,12590.223872,12590.223872,12590.223872,12590.223872,12590.223872,12590.223872,12590.223872],"avg_vram_allocated_mb":12140.660128,"avg_step_time_ms":4939.84338035807,"steps_per_sec":0.20243556789193465,"tokens_processed":65536,"tokens_per_sec":829.1760860853643,"peak_vram_allocated_gb":15.132596224,"peak_vram_reserved_gb":17.265852416,"torch_num_threads":16,"quantization":"nf4","block_size":null,"adapter_backend":"native","adapter_summary":null},"run":null,"command":null,"next":[],"plan":null,"from":null,"support":null,"model_type":null}

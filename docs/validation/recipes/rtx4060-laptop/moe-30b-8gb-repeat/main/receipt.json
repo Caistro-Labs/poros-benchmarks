@@ -1,0 +1,43 @@
+{
+  "arch": "MoE \u00b7 48 layers \u00b7 128 experts",
+  "config": {
+    "block_size": null,
+    "dataset": "<work>/sample-chats.jsonl",
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 0.0002,
+    "lora_alpha": 16,
+    "lora_rank": 8,
+    "max_seq_length": 256,
+    "max_steps": 16,
+    "per_device_batch_size": 1,
+    "quantization": "nf4"
+  },
+  "final_loss": 6.027230858802795,
+  "finished_at": "2026-11-24T07:16:20+00:00",
+  "gpu": {
+    "name": "RTX 4060 Laptop GPU",
+    "total_gb": 8.25
+  },
+  "host_staging": {
+    "budget_basis": "no ceiling found",
+    "granted_bytes": 2790883328,
+    "mode": "pinned",
+    "pinned_budget_bytes": null,
+    "refusals": 0
+  },
+  "kind": "poros.train.receipt",
+  "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+  "output_dir": "<home>/runs/1124-0110-a524",
+  "peak_host_ram_gb": 7.292,
+  "peak_vram_allocated_gb": 5.62,
+  "peak_vram_reserved_gb": 6.445,
+  "poros": "1.0.0",
+  "recipe": "SFT",
+  "run": "504c20a8",
+  "s_per_step": 13.8195,
+  "simulated": false,
+  "steps": 16,
+  "tokens_per_sec": 148.2,
+  "version": 1,
+  "wall_s": 305.51
+}

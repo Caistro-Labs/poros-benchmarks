@@ -1,0 +1,91 @@
+{
+ "sequential": {
+  "digest": "4f697a2763f1e0e913dfddb696cf23a7a9fe0378ee319938a3ce48160f671aab",
+  "losses": [
+   5.547067165374756,
+   5.543402671813965
+  ],
+  "grad_norms": [
+   0.017069965600967407,
+   0.016050903126597404
+  ],
+  "tensors": 42,
+  "ran_compute": {
+   "fused_compute": true
+  },
+  "compute_reason": null,
+  "peak_alloc_gib": 0.786
+ },
+ "fast": {
+  "digest": "4f697a2763f1e0e913dfddb696cf23a7a9fe0378ee319938a3ce48160f671aab",
+  "losses": [
+   5.547067165374756,
+   5.543402671813965
+  ],
+  "grad_norms": [
+   0.017069965600967407,
+   0.016050903126597404
+  ],
+  "tensors": 42,
+  "ran_compute": {
+   "fused_compute": true,
+   "nf4_dequant_cache_mb": 19
+  },
+  "compute_reason": null,
+  "peak_alloc_gib": 0.908
+ },
+ "efficient": {
+  "digest": "4f697a2763f1e0e913dfddb696cf23a7a9fe0378ee319938a3ce48160f671aab",
+  "losses": [
+   5.547067165374756,
+   5.543402671813965
+  ],
+  "grad_norms": [
+   0.017069965600967407,
+   0.016050903126597404
+  ],
+  "tensors": 42,
+  "ran_compute": {
+   "fused_compute": true,
+   "nf4_dequant_cache_mb": 0
+  },
+  "compute_reason": null,
+  "peak_alloc_gib": 0.992
+ },
+ "fast_resident": {
+  "digest": "4f697a2763f1e0e913dfddb696cf23a7a9fe0378ee319938a3ce48160f671aab",
+  "losses": [
+   5.547067165374756,
+   5.543402671813965
+  ],
+  "grad_norms": [
+   0.017069965600967407,
+   0.016050903126597404
+  ],
+  "tensors": 42,
+  "ran_compute": {
+   "fused_compute": true,
+   "nf4_dequant_cache_mb": 19
+  },
+  "compute_reason": null,
+  "peak_alloc_gib": 1.112
+ },
+ "sequential_peft": {
+  "digest": "198b510d28fae7c13699b100ce923a6c50386a8761e98a4d878e93b150290475",
+  "losses": [
+   5.547066688537598,
+   5.543403625488281
+  ],
+  "grad_norms": [
+   0.017070231959223747,
+   0.01605156995356083
+  ],
+  "tensors": 42,
+  "ran_compute": {
+   "fused_compute": false
+  },
+  "compute_reason": null,
+  "peak_alloc_gib": 0.96
+ },
+ "four_paths_bitwise": true
+}

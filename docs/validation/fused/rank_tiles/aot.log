@@ -1,0 +1,61 @@
+Sat Nov 14 07:19:14 AM UTC 2026
+<path> UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)
+done 70
+done 75
+done 80
+done 86
+done 89
+done 90
+done 100
+done 120
+1180 compiled; 0 errors
+{'cap': 70, 'rank': 8, 'padded': 16, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'dense_fp16': True, 'dense_fp16_rope_hd64': True, 'dense_fp16_rope_hd128': True}
+{'cap': 70, 'rank': 16, 'padded': 16, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'dense_fp16': True, 'dense_fp16_rope_hd64': True, 'dense_fp16_rope_hd128': True}
+{'cap': 70, 'rank': 32, 'padded': 32, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'dense_fp16': True, 'dense_fp16_rope_hd64': True, 'dense_fp16_rope_hd128': True}
+{'cap': 70, 'rank': 64, 'padded': 64, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'dense_fp16': True, 'dense_fp16_rope_hd64': True, 'dense_fp16_rope_hd128': True}
+{'cap': 70, 'rank': 128, 'padded': 128, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'dense_fp16': True, 'dense_fp16_rope_hd64': True, 'dense_fp16_rope_hd128': True}
+{'cap': 70, 'rank': 256, 'padded': 256, 'dense_bf16': False, 'dense_bf16_rope_hd64': False, 'dense_bf16_rope_hd128': False, 'dense_fp16': False, 'dense_fp16_rope_hd64': False, 'dense_fp16_rope_hd128': False}
+{'cap': 75, 'rank': 8, 'padded': 16, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'dense_fp16': True, 'dense_fp16_rope_hd64': True, 'dense_fp16_rope_hd128': True}
+{'cap': 75, 'rank': 16, 'padded': 16, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'dense_fp16': True, 'dense_fp16_rope_hd64': True, 'dense_fp16_rope_hd128': True}
+{'cap': 75, 'rank': 32, 'padded': 32, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'dense_fp16': True, 'dense_fp16_rope_hd64': True, 'dense_fp16_rope_hd128': True}
+{'cap': 75, 'rank': 64, 'padded': 64, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'dense_fp16': True, 'dense_fp16_rope_hd64': True, 'dense_fp16_rope_hd128': True}
+{'cap': 75, 'rank': 128, 'padded': 128, 'dense_bf16': False, 'dense_bf16_rope_hd64': False, 'dense_bf16_rope_hd128': False, 'dense_fp16': False, 'dense_fp16_rope_hd64': False, 'dense_fp16_rope_hd128': False}
+{'cap': 75, 'rank': 256, 'padded': 256, 'dense_bf16': False, 'dense_bf16_rope_hd64': False, 'dense_bf16_rope_hd128': False, 'dense_fp16': False, 'dense_fp16_rope_hd64': False, 'dense_fp16_rope_hd128': False}
+{'cap': 80, 'rank': 8, 'padded': 16, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'moe_bf16': True}
+{'cap': 80, 'rank': 16, 'padded': 16, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'moe_bf16': True}
+{'cap': 80, 'rank': 32, 'padded': 32, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'moe_bf16': True}
+{'cap': 80, 'rank': 64, 'padded': 64, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'moe_bf16': True}
+{'cap': 80, 'rank': 128, 'padded': 128, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'moe_bf16': True}
+{'cap': 80, 'rank': 256, 'padded': 256, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'moe_bf16': True}
+{'cap': 86, 'rank': 8, 'padded': 16, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'moe_bf16': True}
+{'cap': 86, 'rank': 16, 'padded': 16, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'moe_bf16': True}
+{'cap': 86, 'rank': 32, 'padded': 32, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'moe_bf16': True}
+{'cap': 86, 'rank': 64, 'padded': 64, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'moe_bf16': True}
+{'cap': 86, 'rank': 128, 'padded': 128, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'moe_bf16': True}
+{'cap': 86, 'rank': 256, 'padded': 256, 'dense_bf16': False, 'dense_bf16_rope_hd64': False, 'dense_bf16_rope_hd128': False, 'moe_bf16': False}
+{'cap': 89, 'rank': 8, 'padded': 16, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'moe_bf16': True}
+{'cap': 89, 'rank': 16, 'padded': 16, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'moe_bf16': True}
+{'cap': 89, 'rank': 32, 'padded': 32, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'moe_bf16': True}
+{'cap': 89, 'rank': 64, 'padded': 64, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'moe_bf16': True}
+{'cap': 89, 'rank': 128, 'padded': 128, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'moe_bf16': True}
+{'cap': 89, 'rank': 256, 'padded': 256, 'dense_bf16': False, 'dense_bf16_rope_hd64': False, 'dense_bf16_rope_hd128': False, 'moe_bf16': False}
+{'cap': 90, 'rank': 8, 'padded': 16, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'moe_bf16': True}
+{'cap': 90, 'rank': 16, 'padded': 16, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'moe_bf16': True}
+{'cap': 90, 'rank': 32, 'padded': 32, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'moe_bf16': True}
+{'cap': 90, 'rank': 64, 'padded': 64, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'moe_bf16': True}
+{'cap': 90, 'rank': 128, 'padded': 128, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'moe_bf16': True}
+{'cap': 90, 'rank': 256, 'padded': 256, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'moe_bf16': True}
+{'cap': 100, 'rank': 8, 'padded': 16, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'moe_bf16': True}
+{'cap': 100, 'rank': 16, 'padded': 16, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'moe_bf16': True}
+{'cap': 100, 'rank': 32, 'padded': 32, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'moe_bf16': True}
+{'cap': 100, 'rank': 64, 'padded': 64, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'moe_bf16': True}
+{'cap': 100, 'rank': 128, 'padded': 128, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'moe_bf16': True}
+{'cap': 100, 'rank': 256, 'padded': 256, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'moe_bf16': True}
+{'cap': 120, 'rank': 8, 'padded': 16, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'moe_bf16': True}
+{'cap': 120, 'rank': 16, 'padded': 16, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'moe_bf16': True}
+{'cap': 120, 'rank': 32, 'padded': 32, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'moe_bf16': True}
+{'cap': 120, 'rank': 64, 'padded': 64, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'moe_bf16': True}
+{'cap': 120, 'rank': 128, 'padded': 128, 'dense_bf16': True, 'dense_bf16_rope_hd64': True, 'dense_bf16_rope_hd128': True, 'moe_bf16': True}
+{'cap': 120, 'rank': 256, 'padded': 256, 'dense_bf16': False, 'dense_bf16_rope_hd64': False, 'dense_bf16_rope_hd128': False, 'moe_bf16': False}
+Sat Nov 14 07:48:48 AM UTC 2026

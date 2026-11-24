@@ -1,0 +1,16 @@
+start alloc=unset offline=unset tree=f163c28d2b627b1af96e1d34232a2458be76ff99 2026-11-16T17:31:41Z free=88G
+digests rc=0 2026-11-16T17:33:00Z free=88G
+q72v8 build rc=0 18G {"preset": "q72", "layers": 8, "vocab": 152064} 2026-11-16T17:35:39Z free=70G
+abx rc=0 2026-11-16T18:17:31Z free=70G
+q72v8 deleted 2026-11-16T18:17:33Z free=88G
+sss rc=0 2026-11-16T18:39:46Z free=88G
+xcard rc=1 2026-11-16T19:43:27Z free=83G
+g2moe download rc=0 size=27G 2026-11-16T19:44:16Z free=56G
+g2moe done, its blobs deleted 2026-11-16T19:47:39Z free=83G
+fg all rc=0 167 PASS 1 FAIL 1 SKIP 2026-11-16T23:10:44Z free=86G
+fgssd rc=0 50 PASS 0 FAIL 2026-11-17T00:00:33Z free=89G
+pytest rc=0 1 failed, 241 passed, 5 skipped, 26 warnings in 301.75s (0:05:01) 2026-11-17T00:05:38Z free=89G
+INT7_DONE 2026-11-17T00:05:38Z free=89G
+q72v8 rebuilt with tokenizer: config.json generation_config.json merges.txt mkmodel.json model.safetensors tokenizer.json tokenizer_config.json vocab.json  2026-11-17T00:08:53Z free=71G
+abx72 rc=0 2026-11-17T00:13:24Z free=71G
+q72v8 deleted; INT7C_DONE 2026-11-17T00:13:29Z free=89G

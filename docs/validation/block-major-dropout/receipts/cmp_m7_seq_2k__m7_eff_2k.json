@@ -1,0 +1,37 @@
+{
+ "ref": "m7_seq_2k",
+ "cand": "m7_eff_2k",
+ "steps_compared": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "steps_in_ref": true,
+ "losses_equal": true,
+ "grad_norms_equal": true,
+ "adapter_tensors": 392,
+ "adapter_keys_equal": true,
+ "adapter_unequal": [],
+ "ref_digest": "43d3013101c93ea115f2af966105cd59c3862b491e774ee3da095c9a496af9ee",
+ "cand_digest": "43d3013101c93ea115f2af966105cd59c3862b491e774ee3da095c9a496af9ee",
+ "ref_losses": [
+  12.243659019470215,
+  12.177459716796875,
+  12.188373565673828,
+  12.180870056152344,
+  12.17237663269043,
+  12.144583702087402
+ ],
+ "cand_losses": [
+  12.243659019470215,
+  12.177459716796875,
+  12.188373565673828,
+  12.180870056152344,
+  12.17237663269043,
+  12.144583702087402
+ ],
+ "pass": true
+}

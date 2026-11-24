@@ -1,0 +1,632 @@
+{
+"source": "https://huggingface.co/Qwen/Qwen3-30B-A3B/resolve/ad44e777bcd18fa416d9da3bd8f70d33ebb85d39",
+"revision": "ad44e777bcd18fa416d9da3bd8f70d33ebb85d39",
+"ranges": [
+{
+"file": ".gitattributes",
+"first_byte": 0,
+"last_byte": 1569
+},
+{
+"file": "LICENSE",
+"first_byte": 0,
+"last_byte": 11342
+},
+{
+"file": "README.md",
+"first_byte": 0,
+"last_byte": 16797
+},
+{
+"file": "config.json",
+"first_byte": 0,
+"last_byte": 962
+},
+{
+"file": "generation_config.json",
+"first_byte": 0,
+"last_byte": 238
+},
+{
+"file": "merges.txt",
+"first_byte": 0,
+"last_byte": 1671852
+},
+{
+"file": "model-00001-of-00016.safetensors",
+"first_byte": 0,
+"last_byte": 7
+},
+{
+"file": "model-00001-of-00016.safetensors",
+"first_byte": 8,
+"last_byte": 130719
+},
+{
+"file": "model-00001-of-00016.safetensors",
+"first_byte": 130720,
+"last_byte": 268566175
+},
+{
+"file": "model-00001-of-00016.safetensors",
+"first_byte": 268566176,
+"last_byte": 537001631
+},
+{
+"file": "model-00001-of-00016.safetensors",
+"first_byte": 537001632,
+"last_byte": 622464671
+},
+{
+"file": "model-00001-of-00016.safetensors",
+"first_byte": 1830424224,
+"last_byte": 1868705951
+},
+{
+"file": "model-00001-of-00016.safetensors",
+"first_byte": 3076665504,
+"last_byte": 3114943135
+},
+{
+"file": "model-00001-of-00016.safetensors",
+"first_byte": 3961143968,
+"last_byte": 3999417503
+},
+{
+"file": "model-00002-of-00016.safetensors",
+"first_byte": 0,
+"last_byte": 7
+},
+{
+"file": "model-00002-of-00016.safetensors",
+"first_byte": 8,
+"last_byte": 154927
+},
+{
+"file": "model-00002-of-00016.safetensors",
+"first_byte": 154928,
+"last_byte": 159023
+},
+{
+"file": "model-00002-of-00016.safetensors",
+"first_byte": 361917744,
+"last_byte": 361925935
+},
+{
+"file": "model-00002-of-00016.safetensors",
+"first_byte": 1569885488,
+"last_byte": 1608167215
+},
+{
+"file": "model-00002-of-00016.safetensors",
+"first_byte": 2816126768,
+"last_byte": 2854404399
+},
+{
+"file": "model-00002-of-00016.safetensors",
+"first_byte": 3961700656,
+"last_byte": 3999974191
+},
+{
+"file": "model-00003-of-00016.safetensors",
+"first_byte": 0,
+"last_byte": 7
+},
+{
+"file": "model-00003-of-00016.safetensors",
+"first_byte": 8,
+"last_byte": 154303
+},
+{
+"file": "model-00003-of-00016.safetensors",
+"first_byte": 154304,
+"last_byte": 158399
+},
+{
+"file": "model-00003-of-00016.safetensors",
+"first_byte": 100821696,
+"last_byte": 100829887
+},
+{
+"file": "model-00003-of-00016.safetensors",
+"first_byte": 1308789440,
+"last_byte": 1347071167
+},
+{
+"file": "model-00003-of-00016.safetensors",
+"first_byte": 2555030720,
+"last_byte": 2593312447
+},
+{
+"file": "model-00003-of-00016.safetensors",
+"first_byte": 3801272000,
+"last_byte": 3839549631
+},
+{
+"file": "model-00003-of-00016.safetensors",
+"first_byte": 3959087296,
+"last_byte": 3997360831
+},
+{
+"file": "model-00004-of-00016.safetensors",
+"first_byte": 0,
+"last_byte": 7
+},
+{
+"file": "model-00004-of-00016.safetensors",
+"first_byte": 8,
+"last_byte": 155791
+},
+{
+"file": "model-00004-of-00016.safetensors",
+"first_byte": 155792,
+"last_byte": 159887
+},
+{
+"file": "model-00004-of-00016.safetensors",
+"first_byte": 1208119440,
+"last_byte": 1246401167
+},
+{
+"file": "model-00004-of-00016.safetensors",
+"first_byte": 2454360720,
+"last_byte": 2492638351
+},
+{
+"file": "model-00004-of-00016.safetensors",
+"first_byte": 2873271440,
+"last_byte": 2911549071
+},
+{
+"file": "model-00004-of-00016.safetensors",
+"first_byte": 3999970960,
+"last_byte": 3999975055
+},
+{
+"file": "model-00005-of-00016.safetensors",
+"first_byte": 0,
+"last_byte": 7
+},
+{
+"file": "model-00005-of-00016.safetensors",
+"first_byte": 8,
+"last_byte": 156135
+},
+{
+"file": "model-00005-of-00016.safetensors",
+"first_byte": 156136,
+"last_byte": 160231
+},
+{
+"file": "model-00005-of-00016.safetensors",
+"first_byte": 827486696,
+"last_byte": 827494887
+},
+{
+"file": "model-00005-of-00016.safetensors",
+"first_byte": 2035454440,
+"last_byte": 2073736167
+},
+{
+"file": "model-00005-of-00016.safetensors",
+"first_byte": 3281695720,
+"last_byte": 3319973351
+},
+{
+"file": "model-00005-of-00016.safetensors",
+"first_byte": 3961701864,
+"last_byte": 3999975399
+},
+{
+"file": "model-00006-of-00016.safetensors",
+"first_byte": 0,
+"last_byte": 7
+},
+{
+"file": "model-00006-of-00016.safetensors",
+"first_byte": 8,
+"last_byte": 156135
+},
+{
+"file": "model-00006-of-00016.safetensors",
+"first_byte": 156136,
+"last_byte": 160231
+},
+{
+"file": "model-00006-of-00016.safetensors",
+"first_byte": 566391272,
+"last_byte": 566399463
+},
+{
+"file": "model-00006-of-00016.safetensors",
+"first_byte": 1774359016,
+"last_byte": 1812640743
+},
+{
+"file": "model-00006-of-00016.safetensors",
+"first_byte": 3020600296,
+"last_byte": 3058877927
+},
+{
+"file": "model-00006-of-00016.safetensors",
+"first_byte": 3961701864,
+"last_byte": 3999975399
+},
+{
+"file": "model-00007-of-00016.safetensors",
+"first_byte": 0,
+"last_byte": 7
+},
+{
+"file": "model-00007-of-00016.safetensors",
+"first_byte": 8,
+"last_byte": 156207
+},
+{
+"file": "model-00007-of-00016.safetensors",
+"first_byte": 156208,
+"last_byte": 160303
+},
+{
+"file": "model-00007-of-00016.safetensors",
+"first_byte": 305295920,
+"last_byte": 305304111
+},
+{
+"file": "model-00007-of-00016.safetensors",
+"first_byte": 1513263664,
+"last_byte": 1551545391
+},
+{
+"file": "model-00007-of-00016.safetensors",
+"first_byte": 2759504944,
+"last_byte": 2797782575
+},
+{
+"file": "model-00007-of-00016.safetensors",
+"first_byte": 3961701936,
+"last_byte": 3999975471
+},
+{
+"file": "model-00008-of-00016.safetensors",
+"first_byte": 0,
+"last_byte": 7
+},
+{
+"file": "model-00008-of-00016.safetensors",
+"first_byte": 8,
+"last_byte": 155535
+},
+{
+"file": "model-00008-of-00016.safetensors",
+"first_byte": 155536,
+"last_byte": 159631
+},
+{
+"file": "model-00008-of-00016.safetensors",
+"first_byte": 44199824,
+"last_byte": 44208015
+},
+{
+"file": "model-00008-of-00016.safetensors",
+"first_byte": 1252167568,
+"last_byte": 1290449295
+},
+{
+"file": "model-00008-of-00016.safetensors",
+"first_byte": 2498408848,
+"last_byte": 2536690575
+},
+{
+"file": "model-00008-of-00016.safetensors",
+"first_byte": 3744650128,
+"last_byte": 3782927759
+},
+{
+"file": "model-00008-of-00016.safetensors",
+"first_byte": 3959088528,
+"last_byte": 3997362063
+},
+{
+"file": "model-00009-of-00016.safetensors",
+"first_byte": 0,
+"last_byte": 7
+},
+{
+"file": "model-00009-of-00016.safetensors",
+"first_byte": 8,
+"last_byte": 156143
+},
+{
+"file": "model-00009-of-00016.safetensors",
+"first_byte": 156144,
+"last_byte": 160239
+},
+{
+"file": "model-00009-of-00016.safetensors",
+"first_byte": 1031959024,
+"last_byte": 1031967215
+},
+{
+"file": "model-00009-of-00016.safetensors",
+"first_byte": 2239926768,
+"last_byte": 2278208495
+},
+{
+"file": "model-00009-of-00016.safetensors",
+"first_byte": 3486168048,
+"last_byte": 3524445679
+},
+{
+"file": "model-00009-of-00016.safetensors",
+"first_byte": 3961701872,
+"last_byte": 3999975407
+},
+{
+"file": "model-00010-of-00016.safetensors",
+"first_byte": 0,
+"last_byte": 7
+},
+{
+"file": "model-00010-of-00016.safetensors",
+"first_byte": 8,
+"last_byte": 156135
+},
+{
+"file": "model-00010-of-00016.safetensors",
+"first_byte": 156136,
+"last_byte": 160231
+},
+{
+"file": "model-00010-of-00016.safetensors",
+"first_byte": 770863592,
+"last_byte": 770871783
+},
+{
+"file": "model-00010-of-00016.safetensors",
+"first_byte": 1978831336,
+"last_byte": 2017113063
+},
+{
+"file": "model-00010-of-00016.safetensors",
+"first_byte": 3225072616,
+"last_byte": 3263350247
+},
+{
+"file": "model-00010-of-00016.safetensors",
+"first_byte": 3961701864,
+"last_byte": 3999975399
+},
+{
+"file": "model-00011-of-00016.safetensors",
+"first_byte": 0,
+"last_byte": 7
+},
+{
+"file": "model-00011-of-00016.safetensors",
+"first_byte": 8,
+"last_byte": 156143
+},
+{
+"file": "model-00011-of-00016.safetensors",
+"first_byte": 156144,
+"last_byte": 160239
+},
+{
+"file": "model-00011-of-00016.safetensors",
+"first_byte": 509768176,
+"last_byte": 509776367
+},
+{
+"file": "model-00011-of-00016.safetensors",
+"first_byte": 1717735920,
+"last_byte": 1756017647
+},
+{
+"file": "model-00011-of-00016.safetensors",
+"first_byte": 2963977200,
+"last_byte": 3002254831
+},
+{
+"file": "model-00011-of-00016.safetensors",
+"first_byte": 3961701872,
+"last_byte": 3999975407
+},
+{
+"file": "model-00012-of-00016.safetensors",
+"first_byte": 0,
+"last_byte": 7
+},
+{
+"file": "model-00012-of-00016.safetensors",
+"first_byte": 8,
+"last_byte": 155951
+},
+{
+"file": "model-00012-of-00016.safetensors",
+"first_byte": 155952,
+"last_byte": 160047
+},
+{
+"file": "model-00012-of-00016.safetensors",
+"first_byte": 248672560,
+"last_byte": 248680751
+},
+{
+"file": "model-00012-of-00016.safetensors",
+"first_byte": 1456640304,
+"last_byte": 1494922031
+},
+{
+"file": "model-00012-of-00016.safetensors",
+"first_byte": 2702881584,
+"last_byte": 2741163311
+},
+{
+"file": "model-00012-of-00016.safetensors",
+"first_byte": 3949122864,
+"last_byte": 3987400495
+},
+{
+"file": "model-00013-of-00016.safetensors",
+"first_byte": 0,
+"last_byte": 7
+},
+{
+"file": "model-00013-of-00016.safetensors",
+"first_byte": 8,
+"last_byte": 155295
+},
+{
+"file": "model-00013-of-00016.safetensors",
+"first_byte": 155296,
+"last_byte": 159391
+},
+{
+"file": "model-00013-of-00016.safetensors",
+"first_byte": 1208118944,
+"last_byte": 1246400671
+},
+{
+"file": "model-00013-of-00016.safetensors",
+"first_byte": 2454360224,
+"last_byte": 2492641951
+},
+{
+"file": "model-00013-of-00016.safetensors",
+"first_byte": 3700601504,
+"last_byte": 3738879135
+},
+{
+"file": "model-00013-of-00016.safetensors",
+"first_byte": 3959080096,
+"last_byte": 3997353631
+},
+{
+"file": "model-00014-of-00016.safetensors",
+"first_byte": 0,
+"last_byte": 7
+},
+{
+"file": "model-00014-of-00016.safetensors",
+"first_byte": 8,
+"last_byte": 156135
+},
+{
+"file": "model-00014-of-00016.safetensors",
+"first_byte": 156136,
+"last_byte": 160231
+},
+{
+"file": "model-00014-of-00016.safetensors",
+"first_byte": 987918824,
+"last_byte": 987927015
+},
+{
+"file": "model-00014-of-00016.safetensors",
+"first_byte": 2195886568,
+"last_byte": 2234168295
+},
+{
+"file": "model-00014-of-00016.safetensors",
+"first_byte": 3442127848,
+"last_byte": 3480405479
+},
+{
+"file": "model-00014-of-00016.safetensors",
+"first_byte": 3961701864,
+"last_byte": 3999975399
+},
+{
+"file": "model-00015-of-00016.safetensors",
+"first_byte": 0,
+"last_byte": 7
+},
+{
+"file": "model-00015-of-00016.safetensors",
+"first_byte": 8,
+"last_byte": 156135
+},
+{
+"file": "model-00015-of-00016.safetensors",
+"first_byte": 156136,
+"last_byte": 160231
+},
+{
+"file": "model-00015-of-00016.safetensors",
+"first_byte": 726823400,
+"last_byte": 726831591
+},
+{
+"file": "model-00015-of-00016.safetensors",
+"first_byte": 1934791144,
+"last_byte": 1973072871
+},
+{
+"file": "model-00015-of-00016.safetensors",
+"first_byte": 3181032424,
+"last_byte": 3219310055
+},
+{
+"file": "model-00015-of-00016.safetensors",
+"first_byte": 3961701864,
+"last_byte": 3999975399
+},
+{
+"file": "model-00016-of-00016.safetensors",
+"first_byte": 0,
+"last_byte": 7
+},
+{
+"file": "model-00016-of-00016.safetensors",
+"first_byte": 8,
+"last_byte": 18695
+},
+{
+"file": "model-00016-of-00016.safetensors",
+"first_byte": 18696,
+"last_byte": 268454151
+},
+{
+"file": "model-00016-of-00016.safetensors",
+"first_byte": 268454152,
+"last_byte": 536889607
+},
+{
+"file": "model-00016-of-00016.safetensors",
+"first_byte": 536889608,
+"last_byte": 622352647
+},
+{
+"file": "model-00016-of-00016.safetensors",
+"first_byte": 1087920392,
+"last_byte": 1087928583
+},
+{
+"file": "model.safetensors.index.json",
+"first_byte": 0,
+"last_byte": 1699757
+},
+{
+"file": "tokenizer.json",
+"first_byte": 0,
+"last_byte": 11422653
+},
+{
+"file": "tokenizer_config.json",
+"first_byte": 0,
+"last_byte": 9731
+},
+{
+"file": "vocab.json",
+"first_byte": 0,
+"last_byte": 2776832
+}
+],
+"bytes_fetched": 3102128895,
+"requests": 124,
+"bytes_on_disk": 3102441472,
+"files": 26,
+"expert_tensors_left_out": 18432,
+"expert_bytes_left_out": 57982058496
+}

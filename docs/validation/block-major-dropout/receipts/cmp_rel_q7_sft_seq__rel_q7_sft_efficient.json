@@ -1,0 +1,31 @@
+{
+ "ref": "rel_q7_sft_seq",
+ "cand": "rel_q7_sft_efficient",
+ "steps_compared": [
+  0,
+  1,
+  2,
+  3
+ ],
+ "steps_in_ref": true,
+ "losses_equal": true,
+ "grad_norms_equal": true,
+ "adapter_tensors": 392,
+ "adapter_keys_equal": true,
+ "adapter_unequal": [],
+ "ref_digest": "2ca49ba329521d852f4cae9c1f3457c57c0b1c977fd8cf5ef91a2dda3b8d5fb2",
+ "cand_digest": "2ca49ba329521d852f4cae9c1f3457c57c0b1c977fd8cf5ef91a2dda3b8d5fb2",
+ "ref_losses": [
+  1.4428657442331314,
+  1.1063350588083267,
+  1.6702431440353394,
+  1.0975400656461716
+ ],
+ "cand_losses": [
+  1.4428657442331314,
+  1.1063350588083267,
+  1.6702431440353394,
+  1.0975400656461716
+ ],
+ "pass": true
+}

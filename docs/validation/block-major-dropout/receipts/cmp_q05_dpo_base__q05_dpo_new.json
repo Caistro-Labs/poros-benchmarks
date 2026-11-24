@@ -1,0 +1,28 @@
+{
+ "ref": "q05_dpo_base",
+ "cand": "q05_dpo_new",
+ "steps_compared": [
+  0,
+  1,
+  2
+ ],
+ "steps_in_ref": true,
+ "losses_equal": true,
+ "grad_norms_equal": true,
+ "adapter_tensors": 336,
+ "adapter_keys_equal": true,
+ "adapter_unequal": [],
+ "ref_digest": "875a70df874b36148c8547c409be6362a7e5439f6557fb07f5a9b93e21924bd8",
+ "cand_digest": "875a70df874b36148c8547c409be6362a7e5439f6557fb07f5a9b93e21924bd8",
+ "ref_losses": [
+  0.6931468397378922,
+  0.6931473761796951,
+  0.6805198490619659
+ ],
+ "cand_losses": [
+  0.6931468397378922,
+  0.6931473761796951,
+  0.6805198490619659
+ ],
+ "pass": true
+}

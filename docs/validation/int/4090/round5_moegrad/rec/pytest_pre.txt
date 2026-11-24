@@ -1,0 +1,25 @@
+------------------------------ Captured log call -------------------------------
+WARNING  transformers.modeling_utils:logging.py:340 `torch_dtype` is deprecated! Use `dtype` instead!
+_________ test_eight_segments_store_owned_grads_with_the_in_order_bits _________
+
+    def test_eight_segments_store_owned_grads_with_the_in_order_bits():
+        adapter = ExpertLoraAdapter(4, 16, 8, rank=4, alpha=8)
+        bufs, segments = _segment_grads(adapter, 8)
+        expected = [buf[0].clone() for buf in bufs]
+        for k in range(1, 8):
+            for want, buf in zip(expected, bufs, strict=True):
+                want.add_(buf[k])
+        for grads in segments:
+            accumulate_adapter_grads(adapter, grads)
+        for param, want in zip(_params(adapter), expected, strict=True):
+>           assert _owns_storage(param.grad)
+E           assert False
+E            +  where False = _owns_storage(tensor([[[-0.0000, -2.3438, -0.4766,  0.0586,  4.5625, -2.2344,  2.1094,\n          -3.6250, -0.3789,  1.7734, -0.2188,...     2.5156, -0.8242,  3.9688,  1.3281, -0.2305, -5.5625, -3.3594,\n           2.0156, -3.5312]]], dtype=torch.bfloat16))
+E            +    where tensor([[[-0.0000, -2.3438, -0.4766,  0.0586,  4.5625, -2.2344,  2.1094,\n          -3.6250, -0.3789,  1.7734, -0.2188,...     2.5156, -0.8242,  3.9688,  1.3281, -0.2305, -5.5625, -3.3594,\n           2.0156, -3.5312]]], dtype=torch.bfloat16) = Parameter containing:\ntensor([[[ 0.0175, -0.1504,  0.0796,  0.0786, -0.1338, -0.0374, -0.1465,\n           0.0649, -0.0...,  0.0306,  0.1465,  0.1221, -0.1621,  0.1963,\n          -0.1187, -0.0437]]], dtype=torch.bfloat16, requires_grad=True).grad
+
+tests/moe/test_adapter_grad_storage.py:57: AssertionError
+=========================== short test summary info ============================
+FAILED tests/gpu/test_moe_fused_block_major.py::test_one_by_eight_expert_grads_own_their_memory
+FAILED tests/gpu/test_fused_compute.py::test_padded_rank_grads_own_their_memory
+FAILED tests/moe/test_adapter_grad_storage.py::test_eight_segments_store_owned_grads_with_the_in_order_bits
+3 failed, 1 passed in 12.79s

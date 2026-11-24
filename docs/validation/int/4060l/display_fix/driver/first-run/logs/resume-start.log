@@ -1,0 +1,18 @@
+▛▜ poros v1.0.0 · Qwen/Qwen2.5-0.5B-Instruct · RTX 4060 Laptop GPU 7.7 GiB
+
+● Checked cert-first-run-resume  run 1124-0455-b740
+  │ nf4 · block 4 · rank 16 · seq 256 · efficient path
+  │ SFT · answers only · lr 2e-4
+  │ output    s1/cert/rtx4060-laptop/.first-run-work/home/runs/1124-0455-b740
+  │ eval      7 rows held out  scored at the start, each checkpoint and the end
+
+● Loaded Qwen2.5-0.5B-Instruct  3.2s
+  │ dense · 24 layers · 6 blocks
+● Scored the base  held out 7.3467 · ends its answers 0 of 0
+step 1/16  loss 7.3163  1.52 s/step  vram 0.7 GiB (peak 1.3)  eta 23s
+○ Stopped after 9 steps
+  │ saved     s1/cert/rtx4060-laptop/.first-run-work/home/runs/1124-0455-b740/checkpoint-8
+  │           it holds all 9 steps
+
+Continue with: poros runs continue 1124-0455-b740
+{"schema":"poros.error.v1","error":{"code":"E_JOB_CANCELLED","exit_code":7,"message":"stopped after step 9; <home>/runs/1124-0455-b740/checkpoint-8 holds the run so far","hint":"poros runs continue 1124-0455-b740","docs":"poros docs training checkpoints and resume"}}

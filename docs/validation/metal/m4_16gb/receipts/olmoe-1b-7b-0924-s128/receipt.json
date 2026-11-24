@@ -1,0 +1,47 @@
+{
+  "arch": "MoE \u00b7 16 layers \u00b7 64 experts",
+  "config": {
+    "block_size": 1,
+    "dataset": "<path>",
+    "gradient_accumulation_steps": 1,
+    "learning_rate": 2e-05,
+    "lora_alpha": 32,
+    "lora_rank": 16,
+    "max_seq_length": 128,
+    "max_steps": 20,
+    "per_device_train_batch_size": null,
+    "quantization": "nf4"
+  },
+  "device_class": "apple-m4-10gpu-16gb",
+  "final_loss": 1.7610414028167725,
+  "finished_at": "2026-11-03T21:32:46+00:00",
+  "gpu": {
+    "name": "Apple M4 10-core GPU 16GB",
+    "total_gb": 17.18
+  },
+  "kind": "poros.train.receipt",
+  "macos_build": "26B123",
+  "model": "allenai/OLMoE-1B-7B-0924",
+  "output_dir": "<path>",
+  "peak_host_ram_gb": null,
+  "peak_vram_allocated_gb": 4.411,
+  "peak_vram_reserved_gb": 0.0,
+  "platform": "darwin",
+  "poros": "0.3.0",
+  "recipe": "SFT",
+  "run": "45cdebaa",
+  "s_per_step": 3.8887,
+  "simulated": false,
+  "spilled": false,
+  "steps": 20,
+  "table_build": null,
+  "table_row": 128,
+  "tier": "ssd",
+  "tokens_per_sec": 17.19,
+  "version": 1,
+  "wall_s": 79.86,
+  "witness": {
+    "checked": 320,
+    "mismatches": 0
+  }
+}

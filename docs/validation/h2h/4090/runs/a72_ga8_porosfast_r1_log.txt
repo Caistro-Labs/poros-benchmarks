@@ -1,0 +1,42 @@
+○ offload_embeddings_and_head: on
+  │ with the embedding table and LM head on the GPU it may not fit (allocated peak, at most 29.407 GiB, may not fit 23.13 GiB free (estimated: an upper bound from receipts at other settings)); in host RAM: bounded: a run at least this large (qwen2.5-72b-rtx4090-oasst1-fused-fast-2x4-offload, RTX 4090) reserved at most 22.62 GiB; 23.13 GiB here
+▛▜ poros v0.3.0 · Qwen/Qwen2.5-72B · RTX 4090 23.5 GiB
+
+● Checked a72_ga8_porosfast_r1.yaml  config
+  │ nf4 · block 4 · rank 16 · seq 512 · fast path
+  │ classic · every token · lr 2e-5
+  │ output    runs/a72_ga8_porosfast_r1
+
+offload_embeddings_and_head: on: with the embedding table and LM head on the GPU it may not fit (allocated peak, at most 29.407 GiB, may not fit 23.13 GiB free (estimated: an upper bound from receipts at other settings)); in host RAM: bounded: a run at least this large (qwen2.5-72b-rtx4090-oasst1-fused-fast-2x4-offload, RTX 4090) reserved at most 22.62 GiB; 23.13 GiB here
+● Loaded Qwen2.5-72B  4m 36s
+  │ dense · 80 layers · 20 blocks
+step 1/16  loss 0.9734  14.95 s/step  vram 3.5 GiB (peak 16.7)  eta 3m 44s
+step 3/16  loss 1.1064  13.62 s/step  vram 3.5 GiB (peak 18.3)  eta 3m 24s
+step 6/16  loss 1.0460  13.66 s/step  vram 3.5 GiB (peak 18.3)  eta 2m 27s
+step 9/16  loss 1.1393  13.68 s/step  vram 3.5 GiB (peak 18.3)  eta 1m 40s
+step 12/16  loss 0.9856  13.69 s/step  vram 3.5 GiB (peak 18.3)  eta 57s
+step 15/16  loss 1.0086  13.69 s/step  vram 3.5 GiB (peak 18.3)  eta 14s
+~/venv_poros/lib/python3.12/site-packages/peft/utils/save_and_load.py:438: UserWarning: Could not find a config file in Qwen/Qwen2.5-72B - will assume that the vocabulary was not modified.
+  warnings.warn(
+
+  ╭─ Trained ────────────────────────────────────────────────────── 16 steps · classic · 3m 59s ─╮
+  │                                                                      final loss              │
+  │                                 ▂▇▅                                  0.9362  ↓ 4%            │
+  │ 1.25     ▃                    ▁▆███▅                                 from 0.9734             │
+  │         ▄██▅▂              ▁▃▆██████▅                     ▃▃▃▃▂                              │
+  │        ▆█████▇          ▁▅▇██████████▅                  ▂▇█████▅     vram 18.3 GiB peak      │
+  │ 1.00 ▁█████████▁      ▃▆██████████████▅                ▅█████████▃   ram  43.2 GiB peak      │
+  │      ███████████▃  ▁▄██████████████████▅     ▁▄▂▁  ▁▃▆████████████▆                          │
+  │      ████████████▄▅█████████████████████▅   ▄████▇▇████████████████                          │
+  │ 0.75 ████████████████████████████████████▆▃████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                                8                          16                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      291 tok/s
+  │
+  │ adapter    runs/a72_ga8_porosfast_r1
+  │ receipt    runs/a72_ga8_porosfast_r1/receipt.json
+
+Continue with: poros eval ~/rf/h2hf_5d75e31a/rec/a72_ga8_porosfast_r1.yaml
+{"schema":"poros.train.v1","learned":null,"output_dir":"~/rf/h2hf_5d75e31a/runs/a72_ga8_porosfast_r1","events":"~/rf/h2hf_5d75e31a/runs/a72_ga8_porosfast_r1/events.jsonl","metrics":{"device":"cuda:0","total_steps":16,"final_loss":0.9361788630485535,"loss_history":[0.973385214805603,1.2391446828842163,1.1066646575927734,0.8163154721260071,0.9683647751808167,1.0995378494262695,1.1933671236038208,1.384403944015503,1.0507346391677856,0.7176765203475952,0.9218597412109375,0.853432297706604,0.9529498815536499,1.161709189414978,1.1529579162597656,0.9361788630485535],"grad_norm_history":[0.10130801051855087,0.1556079387664795,0.13067616522312164,0.11599371582269669,0.11886048316955566,0.1427937000989914,0.12413095682859421,0.12193833291530609,0.14124813675880432,0.23097743093967438,0.1255188286304474,0.1134413629770279,0.11970046907663345,0.1493857502937317,0.21845075488090515,0.1521528959274292],"eval_history":[],"total_time_s":224.91818676143885,"step_time_history":[14.94503820873797,18.506485303863883,13.622593879699707,13.642625197768211,13.662042962387204,13.664583494886756,13.661953449249268,13.671913271769881,13.684413280338049,13.679188918322325,13.679199740290642,13.690672332420945,13.714816892519593,13.707066042348742,13.694624034687877,13.690969752147794],"vram_alloc_history_mb":[3709.082112,3709.082112,3709.082112,3709.082112,3709.082112,3709.082112,3709.082112,3709.082112,3709.082112,3709.082112,3709.082112,3709.082112,3709.082112,3709.082112,3709.082112,3709.082112],"avg_vram_allocated_mb":3709.082112,"avg_step_time_ms":14057.386672589928,"steps_per_sec":0.07113697754006225,"tokens_processed":65536,"tokens_per_sec":291.377060004095,"peak_vram_allocated_gb":19.626027008,"peak_vram_reserved_gb":23.165140992,"torch_num_threads":16,"quantization":"nf4","block_size":4,"adapter_backend":"peft","adapter_summary":{"backend":"peft","target_module_names":"all-linear","trainable_param_count":210534400,"total_param_count":37810413568}},"run":null,"command":null,"next":[],"plan":null,"from":null,"support":null,"model_type":null}

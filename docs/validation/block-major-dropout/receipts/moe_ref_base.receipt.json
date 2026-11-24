@@ -1,0 +1,36 @@
+{
+  "arch": "MoE \u00b7 16 layers \u00b7 64 experts",
+  "config": {
+    "block_size": null,
+    "dataset": "data/text320.jsonl",
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 2e-05,
+    "lora_alpha": 32,
+    "lora_rank": 16,
+    "max_seq_length": 256,
+    "max_steps": 40,
+    "per_device_train_batch_size": null,
+    "quantization": "nf4"
+  },
+  "final_loss": 2.4553890228271484,
+  "finished_at": "2026-11-12T18:03:38+00:00",
+  "gpu": {
+    "name": "RTX 4090",
+    "total_gb": 25.25
+  },
+  "kind": "poros.train.receipt",
+  "model": "allenai/OLMoE-1B-7B-0924",
+  "output_dir": "runs/moe_ref_base",
+  "peak_host_ram_gb": 10.286,
+  "peak_vram_allocated_gb": 3.967,
+  "peak_vram_reserved_gb": 4.565,
+  "poros": "0.3.0",
+  "recipe": "classic",
+  "run": "0f19bcaa",
+  "s_per_step": 6.7522,
+  "simulated": false,
+  "steps": 40,
+  "tokens_per_sec": 124.67,
+  "version": 1,
+  "wall_s": 272.78
+}

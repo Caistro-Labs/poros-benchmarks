@@ -1,0 +1,26 @@
+▛▜ poros v0.3.0 · Qwen/Qwen3-30B-A3B · RTX 4090 23.5 GiB
+
+● Checked a30_na_ssdfast_r2.yaml  config
+  │ nf4 · block 4 · rank 16 · seq 512 · fast path
+  │ classic · every token · lr 2e-5
+  │ output    runs/a30_na_ssdfast_r2
+  │ store     ssd ~/rf/h2hf_5d75e31a/store
+
+● Loaded Qwen3-30B-A3B  14s
+  │ MoE · 48 layers · 128 experts
+step 1/16  loss 1.1865  13.67 s/step  vram 5.1 GiB (peak 7.4)  eta 3m 25s
+MoE expert cache 10.97 GiB, sized on an update at the full shape (fits this GPU: 22.97 GiB this process may hold - 7.70 GiB reserved peak - 4.59 GiB margin)
+step 10/16  loss 1.3157  3.46 s/step  vram 15.7 GiB (peak 18.3)  eta 28s
+
+● Trained 16 steps · classic  1m 19s
+  │ final loss 1.2506
+  │
+  │ peak vram  ━━━━━━━━━━━━────  18.3 GiB of 23.5 GiB
+  │ peak ram   ━━──────────────  7.2 GiB of 60 GiB
+  │ speed      1,001 tok/s
+  │
+  │ adapter    runs/a30_na_ssdfast_r2
+  │ receipt    runs/a30_na_ssdfast_r2/receipt.json
+
+Continue with: poros eval ~/rf/h2hf_5d75e31a/rec/a30_na_ssdfast_r2.yaml
+{"schema":"poros.train.v1","learned":null,"output_dir":"~/rf/h2hf_5d75e31a/runs/a30_na_ssdfast_r2","events":"~/rf/h2hf_5d75e31a/runs/a30_na_ssdfast_r2/events.jsonl","metrics":{"device":"cuda:0","total_steps":16,"final_loss":1.11405348777771,"loss_history":[1.1864757537841797,1.4632707834243774,1.3083125352859497,0.9720804691314697,1.2753301858901978,1.3658024072647095,1.3977586030960083,1.6233028173446655,1.2750951051712036,0.9164418578147888,1.1406452655792236,1.0541664361953735,1.1708228588104248,1.3062498569488525,1.4393471479415894,1.11405348777771],"grad_norm_history":[1.125,0.49609375,0.482421875,0.443359375,0.55078125,0.5,0.43359375,0.52734375,0.53515625,0.55859375,0.5,0.53125,0.5546875,0.46484375,0.4296875,0.40625],"eval_history":[],"total_time_s":65.473941154778,"step_time_history":[13.669674325734377,7.252781635150313,3.4228964392095804,3.058083713054657,2.94941514916718,2.871303940191865,2.8895534444600344,3.303637308999896,3.1294527892023325,3.458996729925275,3.495490901172161,3.0962397418916225,3.1686242800205946,3.4120543468743563,3.1157312523573637,3.180005157366395],"vram_alloc_history_mb":[5423.980032,16890.757632,16890.757632,16890.757632,16890.757632,16890.757632,16890.757632,16890.757632,16890.757632,16890.757632,16890.757632,16890.757632,16890.757632,16890.757632,16890.757632,16890.757632],"avg_vram_allocated_mb":16174.084032,"avg_step_time_ms":4092.1213221736252,"steps_per_sec":0.2443720313426159,"tokens_processed":65536,"tokens_per_sec":1000.9478403793547,"peak_vram_allocated_gb":19.575639552,"peak_vram_reserved_gb":20.264779776,"torch_num_threads":16,"quantization":"nf4","block_size":null,"adapter_backend":"native","adapter_summary":null},"run":null,"command":null,"next":[],"plan":null,"from":null,"support":null,"model_type":null}

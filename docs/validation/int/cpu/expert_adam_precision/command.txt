@@ -1,0 +1,9 @@
+# every file here was made at commit 1a8d7e912b166c373fcfec862ad7297221d33a71, from a clean git archive export of it
+# python 3.12.13 torch 2.14.1+cpu start method fork
+summary_2000.json, expert_adam_precision_stdout.txt:
+cd <clean export of 1a8d7e912> && OMP_NUM_THREADS=8 python3.12 scripts/expert_adam_precision.py --steps 2000 --seeds 3 --workers 1 --arms fp32 bf16 v2 expert_adamw --conditions 2e-6:constant 2e-5:constant 2e-4:constant 2e-5:cosine 2e-4:cosine '2e-5:constant:idle=50/500,wd=0.01' '2e-5:constant:idle=50/500,wd=0.1' '2e-5:cosine:steps=4000' 2e-7:constant '2e-5:constant:beta1=0.99,noise=0.01' '2e-5:constant:beta1=0.95,noise=0.01' --tmp <work>/deltas --out <work>/precision_2000.json
+metal_exact_arith.json, metal_exact_arith_stdout.txt:
+cd <clean export of 1a8d7e912> && OMP_NUM_THREADS=1 PYTHONPATH=<that export> python3.12 scripts/moe_precision/metal_exact_arith.py --values 100000000 --workers 2
+metal_exact_arith_guess1024.json, metal_exact_arith_guess1024_stdout.txt:
+cd <clean export of 1a8d7e912> && OMP_NUM_THREADS=1 PYTHONPATH=<that export> python3.12 scripts/moe_precision/metal_exact_arith.py --values 20000000 --workers 2 --guess 1024 --skip-rtne
+(each under systemd-run --user --scope -p MemoryMax=4G -p MemorySwapMax=0 nice)

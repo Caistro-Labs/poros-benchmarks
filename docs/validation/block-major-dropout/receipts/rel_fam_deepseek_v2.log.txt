@@ -1,0 +1,195 @@
+............................                                             [100%]
+==================================== PASSES ====================================
+_______ test_block_major_equals_sequential[deepseek_v2-ram-pow2-on-0.0] ________
+---------------------------- Captured stderr setup -----------------------------
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 193.91it/s]
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 8, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 12800, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 786432, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 284 misses 72
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+_______ test_block_major_equals_sequential[deepseek_v2-ram-pow2-on-0.05] _______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 8, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 12800, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 1572864, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 860 misses 216
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+_______ test_block_major_equals_sequential[deepseek_v2-ram-pow2-off-0.0] _______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 1436 misses 360
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+______ test_block_major_equals_sequential[deepseek_v2-ram-pow2-off-0.05] _______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 2012 misses 504
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+_______ test_block_major_equals_sequential[deepseek_v2-ram-pow2-ram-0.0] _______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.boundary_offload:boundary_offload.py:159 path efficient: page-locked memory refused (pin budget); block inputs go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 28.47 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 8, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 12800, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 3538944, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 2588 misses 648
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+______ test_block_major_equals_sequential[deepseek_v2-ram-pow2-ram-0.05] _______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.boundary_offload:boundary_offload.py:159 path efficient: page-locked memory refused (pin budget); block inputs go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 28.47 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 8, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 12800, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 3932160, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 3164 misses 792
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+______ test_block_major_equals_sequential[deepseek_v2-ram-single-on-0.0] _______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 8, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 12800, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 4718592, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 3740 misses 936
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+______ test_block_major_equals_sequential[deepseek_v2-ram-single-on-0.05] ______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 8, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 12800, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 5505024, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 4316 misses 1080
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+______ test_block_major_equals_sequential[deepseek_v2-ram-single-off-0.0] ______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 4892 misses 1224
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+_____ test_block_major_equals_sequential[deepseek_v2-ram-single-off-0.05] ______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 5468 misses 1368
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+______ test_block_major_equals_sequential[deepseek_v2-ram-single-ram-0.0] ______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.boundary_offload:boundary_offload.py:159 path efficient: page-locked memory refused (pin budget); block inputs go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 28.47 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 8, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 12800, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 7471104, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 6044 misses 1512
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+_____ test_block_major_equals_sequential[deepseek_v2-ram-single-ram-0.05] ______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.boundary_offload:boundary_offload.py:159 path efficient: page-locked memory refused (pin budget); block inputs go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 28.46 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 8, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 12800, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 7864320, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 6620 misses 1656
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+_______ test_block_major_equals_sequential[deepseek_v2-ssd-pow2-on-0.0] ________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 8, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 12800, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 10551296, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 7196 misses 1800
+_______ test_block_major_equals_sequential[deepseek_v2-ssd-pow2-on-0.05] _______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 8, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 12800, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 11075584, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 7772 misses 1944
+_______ test_block_major_equals_sequential[deepseek_v2-ssd-pow2-off-0.0] _______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 8348 misses 2088
+______ test_block_major_equals_sequential[deepseek_v2-ssd-pow2-off-0.05] _______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 8924 misses 2232
+_______ test_block_major_equals_sequential[deepseek_v2-ssd-pow2-ram-0.0] _______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.sss.ssd:ssd.py:207 SSS ring left unpinned: this host's page-locked memory budget is exhausted; copies will be synchronous
+WARNING  poros.core.boundary_offload:boundary_offload.py:159 path efficient: page-locked memory refused (pin budget); block inputs go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 28.58 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 8, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 12800, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 14548992, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 9500 misses 2376
+______ test_block_major_equals_sequential[deepseek_v2-ssd-pow2-ram-0.05] _______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.sss.ssd:ssd.py:207 SSS ring left unpinned: this host's page-locked memory budget is exhausted; copies will be synchronous
+WARNING  poros.core.boundary_offload:boundary_offload.py:159 path efficient: page-locked memory refused (pin budget); block inputs go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 28.58 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 8, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 12800, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 14811136, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 10076 misses 2520
+______ test_block_major_equals_sequential[deepseek_v2-ssd-single-on-0.0] _______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 8, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 12800, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 16416768, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 10652 misses 2664
+______ test_block_major_equals_sequential[deepseek_v2-ssd-single-on-0.05] ______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 8, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 12800, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 16941056, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 11228 misses 2808
+______ test_block_major_equals_sequential[deepseek_v2-ssd-single-off-0.0] ______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 11804 misses 2952
+_____ test_block_major_equals_sequential[deepseek_v2-ssd-single-off-0.05] ______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 12380 misses 3096
+______ test_block_major_equals_sequential[deepseek_v2-ssd-single-ram-0.0] ______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.sss.ssd:ssd.py:207 SSS ring left unpinned: this host's page-locked memory budget is exhausted; copies will be synchronous
+WARNING  poros.core.boundary_offload:boundary_offload.py:159 path efficient: page-locked memory refused (pin budget); block inputs go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 28.58 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 8, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 12800, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 20414464, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 12956 misses 3240
+_____ test_block_major_equals_sequential[deepseek_v2-ssd-single-ram-0.05] ______
+------------------------------ Captured log call -------------------------------
+WARNING  poros.sss.ssd:ssd.py:207 SSS ring left unpinned: this host's page-locked memory budget is exhausted; copies will be synchronous
+WARNING  poros.core.boundary_offload:boundary_offload.py:159 path efficient: page-locked memory refused (pin budget); block inputs go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 28.57 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 8, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 12800, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 20676608, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 13532 misses 3384
+_ test_at_dropout_every_loop_block_size_and_residency_trains_the_same_update[deepseek_v2] _
+---------------------------- Captured stderr setup -----------------------------
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 81.98it/s]
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 32, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 98304, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 292749312, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 14984 misses 3816
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 16, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 49152, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 562757632, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 17620 misses 5748
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 8, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 24576, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 832765952, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 18400 misses 9536
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 4, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 12288, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 1102774272, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 18892 misses 13612
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+_ test_at_dropout_a_resumed_run_is_the_uninterrupted_one[deepseek_v2-block-major] _
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 32, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 98304, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 1374879744, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 20380 misses 16692
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+WARNING  poros.train.trainer:trainer.py:1441 Could not save tokenizer for <path> Couldn't instantiate the backend tokenizer from one of: 
+(1) a `tokenizers` library serialization file, 
+(2) a slow tokenizer instance to convert or 
+(3) an equivalent slow tokenizer class to instantiate and convert. 
+You need to have sentencepiece or tiktoken installed to convert a slow tokenizer to a fast one. (load it from the base model when running inference).
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 32, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 110592, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 1644888064, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 21548 misses 17052
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+_ test_at_dropout_a_resumed_run_is_the_uninterrupted_one[deepseek_v2-sequential-then-block-major] _
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:1441 Could not save tokenizer for <path> Couldn't instantiate the backend tokenizer from one of: 
+(1) a `tokenizers` library serialization file, 
+(2) a slow tokenizer instance to convert or 
+(3) an equivalent slow tokenizer class to instantiate and convert. 
+You need to have sentencepiece or tiktoken installed to convert a slow tokenizer to a fast one. (load it from the base model when running inference).
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 32, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 110592, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 1918042112, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 23876 misses 17772
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+_ test_at_dropout_a_resumed_run_is_the_uninterrupted_one[deepseek_v2-block-major-then-sequential] _
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:block_major.py:389 path efficient after update 1: block inputs {'offloaded': 32, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 98304, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 2189623296, 'refusals': 0}
+WARNING  poros.train.trainer:block_major.py:177 block-major MoE expert dequant cache after update 1: hits 26196 misses 18492
+WARNING  poros.train.trainer:block_major.py:194 block-major MoE: expert residency grown to 0 MiB after update 1
+WARNING  poros.train.trainer:trainer.py:1441 Could not save tokenizer for <path> Couldn't instantiate the backend tokenizer from one of: 
+(1) a `tokenizers` library serialization file, 
+(2) a slow tokenizer instance to convert or 
+(3) an equivalent slow tokenizer class to instantiate and convert. 
+You need to have sentencepiece or tiktoken installed to convert a slow tokenizer to a fast one. (load it from the base model when running inference).
+=========================== short test summary info ============================
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[deepseek_v2-ram-pow2-on-0.0]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[deepseek_v2-ram-pow2-on-0.05]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[deepseek_v2-ram-pow2-off-0.0]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[deepseek_v2-ram-pow2-off-0.05]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[deepseek_v2-ram-pow2-ram-0.0]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[deepseek_v2-ram-pow2-ram-0.05]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[deepseek_v2-ram-single-on-0.0]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[deepseek_v2-ram-single-on-0.05]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[deepseek_v2-ram-single-off-0.0]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[deepseek_v2-ram-single-off-0.05]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[deepseek_v2-ram-single-ram-0.0]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[deepseek_v2-ram-single-ram-0.05]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[deepseek_v2-ssd-pow2-on-0.0]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[deepseek_v2-ssd-pow2-on-0.05]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[deepseek_v2-ssd-pow2-off-0.0]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[deepseek_v2-ssd-pow2-off-0.05]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[deepseek_v2-ssd-pow2-ram-0.0]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[deepseek_v2-ssd-pow2-ram-0.05]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[deepseek_v2-ssd-single-on-0.0]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[deepseek_v2-ssd-single-on-0.05]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[deepseek_v2-ssd-single-off-0.0]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[deepseek_v2-ssd-single-off-0.05]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[deepseek_v2-ssd-single-ram-0.0]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[deepseek_v2-ssd-single-ram-0.05]
+PASSED tests/moe/test_block_major_families.py::test_at_dropout_every_loop_block_size_and_residency_trains_the_same_update[deepseek_v2]
+PASSED tests/moe/test_block_major_families.py::test_at_dropout_a_resumed_run_is_the_uninterrupted_one[deepseek_v2-block-major]
+PASSED tests/moe/test_block_major_families.py::test_at_dropout_a_resumed_run_is_the_uninterrupted_one[deepseek_v2-sequential-then-block-major]
+PASSED tests/moe/test_block_major_families.py::test_at_dropout_a_resumed_run_is_the_uninterrupted_one[deepseek_v2-block-major-then-sequential]
+28 passed, 140 deselected in 150.11s (0:02:30)

@@ -1,0 +1,38 @@
+2026-11-24T12:32:30Z REORDER start free=86G
+2026-11-24T12:32:30Z after3.sh (pid 2635508) stopped; its study driver goes on free=86G
+2026-11-24T12:32:32Z study driver running: [12:29:22] start q_fp32_c2e5_s43 (fp32, q30 learning_rate=2e-5 lr_scheduler=constant warmup_steps=0 max_steps=200 seed=43) free=86G
+2026-11-24T12:32:32Z room check: owner folders gone=no; free 86G + 30B 58G + finished arms' checkpoints 13G = 157G (the 72B needs 176) free=86G
+2026-11-24T12:35:50Z REORDER2 start free=111G
+2026-11-24T12:35:50Z reorder.sh (pid 2678684) stopped (it held no arm: 0 lines in held_arms.txt) free=111G
+2026-11-24T12:35:52Z study driver running: [12:29:22] start q_fp32_c2e5_s43 (fp32, q30 learning_rate=2e-5 lr_scheduler=constant warmup_steps=0 max_steps=200 seed=43) free=111G
+2026-11-24T12:35:52Z record of q_new_c2e5_s42 ready in cert/out/study (for <host>) free=111G
+2026-11-24T12:35:52Z record of q_fp32_c2e5_s42 ready in cert/out/study (for <host>) free=111G
+2026-11-24T12:35:52Z room check: owner folders gone=no; free 111G + 30B 58G + flagged finished arms' heavy files 0G = 169G (the 72B needs 176) free=111G
+2026-11-24T12:40:52Z room check: owner folders gone=no; free 111G + 30B 58G + flagged finished arms' heavy files 0G = 169G (the 72B needs 176) free=111G
+2026-11-24T12:45:52Z room check: owner folders gone=no; free 111G + 30B 58G + flagged finished arms' heavy files 0G = 169G (the 72B needs 176) free=111G
+2026-11-24T12:46:50Z REORDER3 start free=111G
+2026-11-24T12:46:50Z reorder2.sh (pid 2679698) stopped (no arm held) free=111G
+2026-11-24T12:46:52Z study driver running: [12:29:22] start q_fp32_c2e5_s43 (fp32, q30 learning_rate=2e-5 lr_scheduler=constant warmup_steps=0 max_steps=200 seed=43) free=111G
+2026-11-24T12:46:52Z room check: owner folders gone=no; free 111G + 30B 58G + flagged finished arms' heavy files 0G = 169G (the 72B needs 176) free=111G
+2026-11-24T12:51:53Z room check: owner folders gone=no; free 111G + 30B 58G + flagged finished arms' heavy files 0G = 169G (the 72B needs 176) free=111G
+2026-11-24T12:56:53Z room check: owner folders gone=no; free 111G + 30B 58G + flagged finished arms' heavy files 0G = 169G (the 72B needs 176) free=111G
+2026-11-24T13:01:53Z room check: owner folders gone=no; free 111G + 30B 58G + flagged finished arms' heavy files 0G = 169G (the 72B needs 176) free=111G
+2026-11-24T13:06:53Z room check: owner folders gone=no; free 111G + 30B 58G + flagged finished arms' heavy files 0G = 169G (the 72B needs 176) free=111G
+2026-11-24T13:11:53Z room check: owner folders gone=no; free 111G + 30B 58G + flagged finished arms' heavy files 0G = 169G (the 72B needs 176) free=111G
+2026-11-24T13:16:53Z room check: owner folders gone=no; free 111G + 30B 58G + flagged finished arms' heavy files 0G = 169G (the 72B needs 176) free=111G
+2026-11-24T13:20:54Z room 187G: the running arm finishes; not started: q_ctl_c2e5_s42  free=129G
+2026-11-24T13:41:24Z study driver ended: [12:29:22] start q_fp32_c2e5_s43 (fp32, q30 learning_rate=2e-5 lr_scheduler=constant warmup_steps=0 max_steps=200 seed=43) [13:41:14] done q_fp32_c2e5_s43 in 4312 s  free=115G
+2026-11-24T13:41:40Z record of q_fp32_c2e5_s43 ready in cert/out/study (for <host>) free=115G
+2026-11-24T13:41:47Z 30B Instruct-2507 removed (study done: 0) free=172G
+2026-11-24T13:42:55Z heavy files of q_fp32_c2e5_s43 removed from <host> side after its record was copied (flag set)
+2026-11-24T13:42:55Z control arm held again (jobs/q_ctl_c2e5_s42.yaml is a folder) until the coordinator says
+2026-11-24T13:53:25Z REORDER4 start free=187G
+2026-11-24T13:53:25Z reorder3.sh (pid 2682243) stopped free=187G
+2026-11-24T13:56:55Z live card item 1: 2026-11-24T13:56:52Z LIVECARD1 DONE free=184G
+2026-11-24T13:56:55Z room for the 72B recipes: cert_keep.sh step5 free=184G
+2026-11-24T14:42:33Z step5 rc=0 2026-11-24T14:42:33Z CHECK-FIT FITS big-72b-fast: verdict='fits' peak_gib=21.672 source=measured basis='reserved peak 21.672 GiB <= 23.51 GiB free' asks=[] doubts=[] refused=False start_refused=[] gate_path=None ran_path=fast warning=None vram_refusal=None host_refusal=None free=25G 2026-11-24T14:42 free=25G
+2026-11-24T14:44:13Z RUN72F start free=25G
+2026-11-24T14:44:13Z reorder4.sh (pid 2698825) stopped (it was waiting for 176G after the skip) free=25G
+2026-11-24T14:44:14Z big-72b's home removed (its receipt is in cert/out/step5/big-72b) free=41G
+2026-11-24T15:21:52Z step5 (big-72b-fast) rc=0 2026-11-24T15:21:52Z PASS big-72b-fast: status=ok commit=1a8d7e912b16 tree_clean=True updates=16 s_per_step=15.768 gpu_mem_gib=None reserved_gib=None resume=True eval=ok preflight_said=0 lines free=25G 2026-11-24T15:21:52Z step5 done (CERT_KEEP72: the 72B and its homes kept for the film) free=25G  free=25G
+2026-11-24T15:21:52Z RUN72F DONE: queue stopped, the 72B Instruct kept on disk free=25G

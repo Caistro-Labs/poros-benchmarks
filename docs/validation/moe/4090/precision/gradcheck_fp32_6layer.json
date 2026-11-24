@@ -1,0 +1,311 @@
+{
+ "rows": 8,
+ "loss": {
+  "ref": 12.317024230957031,
+  "ref_single": 12.31690502166748,
+  "stock": 12.316683769226074,
+  "fused": 12.317095756530762,
+  "fused_all": 12.317072868347168,
+  "exact": 12.316878318786621
+ },
+ "vs_ref": {
+  "ref_single": {
+   "A_gate_up": {
+    "rel_err": 0.018314,
+    "norm_ratio": 1.000325,
+    "cos": 0.999832,
+    "bias_along_ref": 0.000157
+   },
+   "B_gate_up": {
+    "rel_err": 0.01859,
+    "norm_ratio": 1.000072,
+    "cos": 0.999827,
+    "bias_along_ref": -0.000101
+   },
+   "A_down": {
+    "rel_err": 0.018253,
+    "norm_ratio": 0.999905,
+    "cos": 0.999833,
+    "bias_along_ref": -0.000261
+   },
+   "B_down": {
+    "rel_err": 0.017917,
+    "norm_ratio": 1.000012,
+    "cos": 0.999839,
+    "bias_along_ref": -0.000148
+   },
+   "all": {
+    "rel_err": 0.018206,
+    "norm_ratio": 1.000038,
+    "cos": 0.999834,
+    "bias_along_ref": -0.000128
+   }
+  },
+  "stock": {
+   "A_gate_up": {
+    "rel_err": 0.020136,
+    "norm_ratio": 1.000192,
+    "cos": 0.999797,
+    "bias_along_ref": -1.1e-05
+   },
+   "B_gate_up": {
+    "rel_err": 0.020685,
+    "norm_ratio": 1.000112,
+    "cos": 0.999786,
+    "bias_along_ref": -0.000102
+   },
+   "A_down": {
+    "rel_err": 0.020168,
+    "norm_ratio": 0.999968,
+    "cos": 0.999797,
+    "bias_along_ref": -0.000235
+   },
+   "B_down": {
+    "rel_err": 0.020089,
+    "norm_ratio": 1.000078,
+    "cos": 0.999798,
+    "bias_along_ref": -0.000124
+   },
+   "all": {
+    "rel_err": 0.020343,
+    "norm_ratio": 1.000093,
+    "cos": 0.999793,
+    "bias_along_ref": -0.000114
+   }
+  },
+  "fused": {
+   "A_gate_up": {
+    "rel_err": 0.020569,
+    "norm_ratio": 1.000457,
+    "cos": 0.999789,
+    "bias_along_ref": 0.000245
+   },
+   "B_gate_up": {
+    "rel_err": 0.020921,
+    "norm_ratio": 1.000233,
+    "cos": 0.999781,
+    "bias_along_ref": 1.4e-05
+   },
+   "A_down": {
+    "rel_err": 0.020521,
+    "norm_ratio": 1.000185,
+    "cos": 0.999789,
+    "bias_along_ref": -2.6e-05
+   },
+   "B_down": {
+    "rel_err": 0.02029,
+    "norm_ratio": 1.000207,
+    "cos": 0.999794,
+    "bias_along_ref": 2e-06
+   },
+   "all": {
+    "rel_err": 0.02056,
+    "norm_ratio": 1.000219,
+    "cos": 0.999789,
+    "bias_along_ref": 8e-06
+   }
+  },
+  "fused_all": {
+   "A_gate_up": {
+    "rel_err": 0.029434,
+    "norm_ratio": 1.000397,
+    "cos": 0.999567,
+    "bias_along_ref": -3.6e-05
+   },
+   "B_gate_up": {
+    "rel_err": 0.029711,
+    "norm_ratio": 1.000167,
+    "cos": 0.999559,
+    "bias_along_ref": -0.000275
+   },
+   "A_down": {
+    "rel_err": 0.029397,
+    "norm_ratio": 1.000458,
+    "cos": 0.999568,
+    "bias_along_ref": 2.6e-05
+   },
+   "B_down": {
+    "rel_err": 0.02929,
+    "norm_ratio": 1.0005,
+    "cos": 0.999571,
+    "bias_along_ref": 7.1e-05
+   },
+   "all": {
+    "rel_err": 0.029469,
+    "norm_ratio": 1.000359,
+    "cos": 0.999566,
+    "bias_along_ref": -7.5e-05
+   }
+  },
+  "exact": {
+   "A_gate_up": {
+    "rel_err": 0.037622,
+    "norm_ratio": 1.002608,
+    "cos": 0.999297,
+    "bias_along_ref": 0.001904
+   },
+   "B_gate_up": {
+    "rel_err": 0.038017,
+    "norm_ratio": 1.002216,
+    "cos": 0.999281,
+    "bias_along_ref": 0.001496
+   },
+   "A_down": {
+    "rel_err": 0.03719,
+    "norm_ratio": 1.002576,
+    "cos": 0.999313,
+    "bias_along_ref": 0.001888
+   },
+   "B_down": {
+    "rel_err": 0.036985,
+    "norm_ratio": 1.002552,
+    "cos": 0.999321,
+    "bias_along_ref": 0.001871
+   },
+   "all": {
+    "rel_err": 0.037426,
+    "norm_ratio": 1.00241,
+    "cos": 0.999304,
+    "bias_along_ref": 0.001713
+   }
+  }
+ },
+ "vs_exact": {
+  "ref": {
+   "A_gate_up": {
+    "rel_err": 0.037524,
+    "sign_agree": 0.974494,
+    "sign_agree_small_half": 0.949242
+   },
+   "B_gate_up": {
+    "rel_err": 0.037933,
+    "sign_agree": 0.972144,
+    "sign_agree_small_half": 0.945732
+   },
+   "A_down": {
+    "rel_err": 0.037095,
+    "sign_agree": 0.972584,
+    "sign_agree_small_half": 0.94652
+   },
+   "B_down": {
+    "rel_err": 0.036891,
+    "sign_agree": 0.97417,
+    "sign_agree_small_half": 0.948556
+   },
+   "all": {
+    "rel_err": 0.037336,
+    "sign_agree": 0.973597,
+    "sign_agree_small_half": 0.950594
+   }
+  },
+  "ref_single": {
+   "A_gate_up": {
+    "rel_err": 0.037195,
+    "sign_agree": 0.975795,
+    "sign_agree_small_half": 0.951834
+   },
+   "B_gate_up": {
+    "rel_err": 0.037847,
+    "sign_agree": 0.973652,
+    "sign_agree_small_half": 0.948728
+   },
+   "A_down": {
+    "rel_err": 0.036944,
+    "sign_agree": 0.973978,
+    "sign_agree_small_half": 0.949243
+   },
+   "B_down": {
+    "rel_err": 0.036789,
+    "sign_agree": 0.975691,
+    "sign_agree_small_half": 0.951601
+   },
+   "all": {
+    "rel_err": 0.03724,
+    "sign_agree": 0.97503,
+    "sign_agree_small_half": 0.953426
+   }
+  },
+  "stock": {
+   "A_gate_up": {
+    "rel_err": 0.037528,
+    "sign_agree": 0.975456,
+    "sign_agree_small_half": 0.951163
+   },
+   "B_gate_up": {
+    "rel_err": 0.038182,
+    "sign_agree": 0.973012,
+    "sign_agree_small_half": 0.947498
+   },
+   "A_down": {
+    "rel_err": 0.037537,
+    "sign_agree": 0.973459,
+    "sign_agree_small_half": 0.948293
+   },
+   "B_down": {
+    "rel_err": 0.037046,
+    "sign_agree": 0.975349,
+    "sign_agree_small_half": 0.950923
+   },
+   "all": {
+    "rel_err": 0.037531,
+    "sign_agree": 0.974596,
+    "sign_agree_small_half": 0.952639
+   }
+  },
+  "fused": {
+   "A_gate_up": {
+    "rel_err": 0.037629,
+    "sign_agree": 0.976071,
+    "sign_agree_small_half": 0.952382
+   },
+   "B_gate_up": {
+    "rel_err": 0.038024,
+    "sign_agree": 0.973656,
+    "sign_agree_small_half": 0.948748
+   },
+   "A_down": {
+    "rel_err": 0.037197,
+    "sign_agree": 0.974069,
+    "sign_agree_small_half": 0.94945
+   },
+   "B_down": {
+    "rel_err": 0.036964,
+    "sign_agree": 0.975612,
+    "sign_agree_small_half": 0.951447
+   },
+   "all": {
+    "rel_err": 0.037417,
+    "sign_agree": 0.975104,
+    "sign_agree_small_half": 0.953607
+   }
+  },
+  "fused_all": {
+   "A_gate_up": {
+    "rel_err": 0.037411,
+    "sign_agree": 0.977034,
+    "sign_agree_small_half": 0.954328
+   },
+   "B_gate_up": {
+    "rel_err": 0.037883,
+    "sign_agree": 0.974923,
+    "sign_agree_small_half": 0.951264
+   },
+   "A_down": {
+    "rel_err": 0.03746,
+    "sign_agree": 0.975194,
+    "sign_agree_small_half": 0.951742
+   },
+   "B_down": {
+    "rel_err": 0.036849,
+    "sign_agree": 0.977123,
+    "sign_agree_small_half": 0.954474
+   },
+   "all": {
+    "rel_err": 0.037292,
+    "sign_agree": 0.976335,
+    "sign_agree_small_half": 0.955966
+   }
+  }
+ },
+ "note": "kit/gradcheck.py on ~/moe/m30_L6 (the 6-layer random-weight checkpoint), 8 h2h rows, job b19 (2026-11-13T05:56Z), tree t23"
+}

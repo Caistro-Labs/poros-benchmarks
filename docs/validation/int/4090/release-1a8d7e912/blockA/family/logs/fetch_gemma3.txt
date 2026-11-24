@@ -1,0 +1,6 @@
+model-00001-of-00002.safetensors: 1 tensors, 1280.3 MiB
+model-00001-of-00002.safetensors: 26 tensors, 360.0 MiB
+model-00001-of-00002.safetensors: 52 tensors, 720.1 MiB
+model-00001-of-00002.safetensors: 439 tensors, 800.7 MiB
+model-00002-of-00002.safetensors: 1 tensors, 0.0 MiB
+FETCH wrote <home>/poros_rel/hf_cert/fg_models/unsloth_gemma-3-4b-it__trunc6 gemma3 1657366896 params sha256 0f9a522192582845

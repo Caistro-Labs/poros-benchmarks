@@ -1,0 +1,95 @@
+{
+ "schema": "h2hf.nf4size.v1",
+ "model": "Qwen/Qwen2.5-72B",
+ "revision": "efba10c8e54e91e0d9570ab5f7b51a958474d4cb",
+ "nf4_weights_gib": 41.427,
+ "quantized_linear_gib": 36.782,
+ "kept_bf16_gib": 4.645,
+ "quantized_weights": 560,
+ "quantized_elements": 70212648960,
+ "kept_tensors": 403,
+ "kept_elements": 2493554688,
+ "kept_in_full_precision_modules": [
+  "lm_head"
+ ],
+ "tie_word_embeddings": false,
+ "checkpoint_tensors": 963,
+ "checkpoint_bf16_gib": 135.426,
+ "bnb_measured_on_layer": 0,
+ "bnb_measured": [
+  {
+   "tensor": "model.layers.0.mlp.down_proj.weight",
+   "shape": [
+    8192,
+    29568
+   ],
+   "elements": 242221056,
+   "packed_bytes": 121110528,
+   "state_bytes": {
+    "absmax": 15138816,
+    "code": 64
+   },
+   "blocksize": 64,
+   "bytes": 136249408
+  },
+  {
+   "tensor": "model.layers.0.mlp.gate_proj.weight",
+   "shape": [
+    29568,
+    8192
+   ],
+   "elements": 242221056,
+   "packed_bytes": 121110528,
+   "state_bytes": {
+    "absmax": 15138816,
+    "code": 64
+   },
+   "blocksize": 64,
+   "bytes": 136249408
+  },
+  {
+   "tensor": "model.layers.0.self_attn.k_proj.weight",
+   "shape": [
+    1024,
+    8192
+   ],
+   "elements": 8388608,
+   "packed_bytes": 4194304,
+   "state_bytes": {
+    "absmax": 524288,
+    "code": 64
+   },
+   "blocksize": 64,
+   "bytes": 4718656
+  },
+  {
+   "tensor": "model.layers.0.self_attn.o_proj.weight",
+   "shape": [
+    8192,
+    8192
+   ],
+   "elements": 67108864,
+   "packed_bytes": 33554432,
+   "state_bytes": {
+    "absmax": 4194304,
+    "code": 64
+   },
+   "blocksize": 64,
+   "bytes": 37748800
+  }
+ ],
+ "problems": {
+  "quantized_not_in_checkpoint": [],
+  "shape_not_measured": []
+ },
+ "config": "BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type='nf4', bnb_4bit_compute_dtype=torch.bfloat16), bnb_4bit_use_double_quant False (its default), dtype=torch.bfloat16",
+ "how": "1. every tensor's name, dtype and shape from the local snapshot's safetensors headers (no weight data read);\n  2. which weights bitsandbytes quantizes: every nn.Linear of the model built on the meta device from the snapshot's\n     config, except the modules transformers keeps in full precision (transformers.quantizers.base.get_keys_to_not_convert,\n     e.g. lm_head); everything else (embeddings, norms, biases, an unquantized head) stays bf16 (2 bytes per element);\n  3. for every distinct shape of a quantized weight, the real tensor of decoder layer --check-layer is quantized on the\n     GPU by bitsandbytes exactly as transformers does it (bnb.nn.Params4bit(..., quant_type=\"nf4\",\n     compress_statistics=False, quant_storage=torch.uint8).to(\"cuda\")), and its bytes are counted: the packed 4-bit\n     codes plus the quantization state's tensors (absmax per block, the 16-value code book); every weight of that\n     shape is counted at those bytes.\nPure Python + torch + bitsandbytes; takes the GPU for seconds (one layer's weights).",
+ "versions": {
+  "torch": "2.14.1+cu130",
+  "transformers": "5.22.2",
+  "bitsandbytes": "0.50.2"
+ },
+ "gpu": "NVIDIA GeForce RTX 4090",
+ "wall_s": 1.31,
+ "ok": true
+}

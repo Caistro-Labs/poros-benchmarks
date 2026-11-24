@@ -1,0 +1,58 @@
+ok   bits key=0 start=0 draw=0
+ok   bits key=0 start=0 draw=1
+ok   bits key=0 start=0 draw=2
+ok   bits key=0 start=16777219 draw=0
+ok   bits key=0 start=16777219 draw=1
+ok   bits key=0 start=16777219 draw=2
+ok   bits key=0 start=2147483631 draw=0
+ok   bits key=0 start=2147483631 draw=1
+ok   bits key=0 start=2147483631 draw=2
+ok   bits key=1 start=0 draw=0
+ok   bits key=1 start=0 draw=1
+ok   bits key=1 start=0 draw=2
+ok   bits key=1 start=16777219 draw=0
+ok   bits key=1 start=16777219 draw=1
+ok   bits key=1 start=16777219 draw=2
+ok   bits key=1 start=2147483631 draw=0
+ok   bits key=1 start=2147483631 draw=1
+ok   bits key=1 start=2147483631 draw=2
+ok   bits key=4294967295 start=0 draw=0
+ok   bits key=4294967295 start=0 draw=1
+ok   bits key=4294967295 start=0 draw=2
+ok   bits key=4294967295 start=16777219 draw=0
+ok   bits key=4294967295 start=16777219 draw=1
+ok   bits key=4294967295 start=16777219 draw=2
+ok   bits key=4294967295 start=2147483631 draw=0
+ok   bits key=4294967295 start=2147483631 draw=1
+ok   bits key=4294967295 start=2147483631 draw=2
+ok   bits key=9223372036854775783 start=0 draw=0
+ok   bits key=9223372036854775783 start=0 draw=1
+ok   bits key=9223372036854775783 start=0 draw=2
+ok   bits key=9223372036854775783 start=16777219 draw=0
+ok   bits key=9223372036854775783 start=16777219 draw=1
+ok   bits key=9223372036854775783 start=16777219 draw=2
+ok   bits key=9223372036854775783 start=2147483631 draw=0
+ok   bits key=9223372036854775783 start=2147483631 draw=1
+ok   bits key=9223372036854775783 start=2147483631 draw=2
+ok   bits key=16000895604418609543 start=0 draw=0
+ok   bits key=16000895604418609543 start=0 draw=1
+ok   bits key=16000895604418609543 start=0 draw=2
+ok   bits key=16000895604418609543 start=16777219 draw=0
+ok   bits key=16000895604418609543 start=16777219 draw=1
+ok   bits key=16000895604418609543 start=16777219 draw=2
+ok   bits key=16000895604418609543 start=2147483631 draw=0
+ok   bits key=16000895604418609543 start=2147483631 draw=1
+ok   bits key=16000895604418609543 start=2147483631 draw=2
+ok   stochastic rounding
+ok   fused kernel, the optimizer's own probe (F's edge, a bf16 tie, both Triton variants): every setting, bit for bit
+ok   fused kernel, whole update, 4195344 elements, lr 0.0002 betas (0.9, 0.999) eps 1e-08 wd 0.01: weight, remainder, m and v bit for bit
+ok   fused kernel, run twice, 4195344 elements: the same bits
+ok   fused kernel, whole update, 4195344 elements, lr 2e-05 betas (0.99, 0.95) eps 1e-06 wd 0.1: weight, remainder, m and v bit for bit
+ok   fused kernel, whole update, 4195344 elements, lr 0.001 betas (0.0, 0.5) eps 0 wd 0: weight, remainder, m and v bit for bit
+ok   fused kernel, whole update, 4195341 elements, lr 0.0002 betas (0.9, 0.999) eps 1e-08 wd 0.01: weight, remainder, m and v bit for bit
+ok   fused kernel, run twice, 4195341 elements: the same bits
+ok   fused kernel, whole update, 4195341 elements, lr 2e-05 betas (0.99, 0.95) eps 1e-06 wd 0.1: weight, remainder, m and v bit for bit
+ok   fused kernel, whole update, 4195341 elements, lr 0.001 betas (0.0, 0.5) eps 0 wd 0: weight, remainder, m and v bit for bit
+ok   the optimizer chooses the fused kernel: the kernel stores the reference's bits
+time: one step over 128M bf16 elements: ExpertAdamW 0.0072 s, torch AdamW (bf16) 0.0060 s
+{"device": "cuda", "torch": "2.14.1+cu130", "rule": "poros.expert-adamw.v4", "machine": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39", "checks": {"bits key=0 start=0 draw=0": true, "bits key=0 start=0 draw=1": true, "bits key=0 start=0 draw=2": true, "bits key=0 start=16777219 draw=0": true, "bits key=0 start=16777219 draw=1": true, "bits key=0 start=16777219 draw=2": true, "bits key=0 start=2147483631 draw=0": true, "bits key=0 start=2147483631 draw=1": true, "bits key=0 start=2147483631 draw=2": true, "bits key=1 start=0 draw=0": true, "bits key=1 start=0 draw=1": true, "bits key=1 start=0 draw=2": true, "bits key=1 start=16777219 draw=0": true, "bits key=1 start=16777219 draw=1": true, "bits key=1 start=16777219 draw=2": true, "bits key=1 start=2147483631 draw=0": true, "bits key=1 start=2147483631 draw=1": true, "bits key=1 start=2147483631 draw=2": true, "bits key=4294967295 start=0 draw=0": true, "bits key=4294967295 start=0 draw=1": true, "bits key=4294967295 start=0 draw=2": true, "bits key=4294967295 start=16777219 draw=0": true, "bits key=4294967295 start=16777219 draw=1": true, "bits key=4294967295 start=16777219 draw=2": true, "bits key=4294967295 start=2147483631 draw=0": true, "bits key=4294967295 start=2147483631 draw=1": true, "bits key=4294967295 start=2147483631 draw=2": true, "bits key=9223372036854775783 start=0 draw=0": true, "bits key=9223372036854775783 start=0 draw=1": true, "bits key=9223372036854775783 start=0 draw=2": true, "bits key=9223372036854775783 start=16777219 draw=0": true, "bits key=9223372036854775783 start=16777219 draw=1": true, "bits key=9223372036854775783 start=16777219 draw=2": true, "bits key=9223372036854775783 start=2147483631 draw=0": true, "bits key=9223372036854775783 start=2147483631 draw=1": true, "bits key=9223372036854775783 start=2147483631 draw=2": true, "bits key=16000895604418609543 start=0 draw=0": true, "bits key=16000895604418609543 start=0 draw=1": true, "bits key=16000895604418609543 start=0 draw=2": true, "bits key=16000895604418609543 start=16777219 draw=0": true, "bits key=16000895604418609543 start=16777219 draw=1": true, "bits key=16000895604418609543 start=16777219 draw=2": true, "bits key=16000895604418609543 start=2147483631 draw=0": true, "bits key=16000895604418609543 start=2147483631 draw=1": true, "bits key=16000895604418609543 start=2147483631 draw=2": true, "stochastic rounding": true, "fused kernel, the optimizer's own probe (F's edge, a bf16 tie, both Triton variants)": true, "fused kernel, whole update, 4195344 elements, lr 0.0002 betas (0.9, 0.999) eps 1e-08 wd 0.01": true, "fused kernel, run twice, 4195344 elements": true, "fused kernel, whole update, 4195344 elements, lr 2e-05 betas (0.99, 0.95) eps 1e-06 wd 0.1": true, "fused kernel, whole update, 4195344 elements, lr 0.001 betas (0.0, 0.5) eps 0 wd 0": true, "fused kernel, whole update, 4195341 elements, lr 0.0002 betas (0.9, 0.999) eps 1e-08 wd 0.01": true, "fused kernel, run twice, 4195341 elements": true, "fused kernel, whole update, 4195341 elements, lr 2e-05 betas (0.99, 0.95) eps 1e-06 wd 0.1": true, "fused kernel, whole update, 4195341 elements, lr 0.001 betas (0.0, 0.5) eps 0 wd 0": true, "the optimizer chooses the fused kernel": true}, "kernel_unavailable": null, "implementation": {"device": "cuda", "path": "kernel", "why": "the kernel stores the reference's bits"}, "step_seconds": {"expert_adamw": 0.007185706309974194, "torch_adamw_bf16": 0.006007532402873039}, "pass": true}

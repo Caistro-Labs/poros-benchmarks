@@ -1,0 +1,159 @@
+{
+ "schema": "poros.certify.run.v1",
+ "recipe": "moe-30b-8gb",
+ "commit": "1a8d7e912b166c373fcfec862ad7297221d33a71",
+ "tree_clean": true,
+ "poros": "1.0.0",
+ "simulated": false,
+ "machine": {
+  "platform": "cuda",
+  "gpu": "RTX 4090",
+  "vram_gib": 23.52,
+  "host_ram_gib": 59.605,
+  "mac_class": null,
+  "os": "Linux-6.8.0-124-generic-x86_64-with-glibc2.39",
+  "os_version": "Ubuntu 24.04.1 LTS",
+  "python": "3.12.3",
+  "torch": "2.14.1",
+  "transformers": "5.22.2",
+  "bitsandbytes": "0.50.2",
+  "driver": "580.173.02"
+ },
+ "command": [
+  "poros",
+  "train",
+  "Qwen/Qwen3-30B-A3B-Instruct-2507",
+  "--data",
+  "<chats sample>",
+  "--recipe",
+  "sft",
+  "--seq-len",
+  "256",
+  "--rank",
+  "8",
+  "--store",
+  "ssd",
+  "lora_alpha=16",
+  "lora_dropout=0",
+  "per_device_batch_size=1",
+  "gradient_accumulation_steps=8",
+  "learning_rate=2e-4",
+  "--steps",
+  "16",
+  "--name",
+  "cert-moe-30b-8gb",
+  "--yes",
+  "--json",
+  "--download"
+ ],
+ "data": {
+  "kind": "chats",
+  "rows": 143,
+  "held_out": 7,
+  "held_out_planned": 7,
+  "held_out_rule": "the run's own resolved eval_split and eval_rows (config.resolved.json), by poros.data's rule",
+  "rows_rule": "at least 40 rows, by poros.data's rule, and enough to train 16 updates",
+  "sha256": "a82f0b173e9739089cf38b3c66a6e730bcff27772390e355c3d7733f16213d5c",
+  "seq_len": 256,
+  "tokens_per_update": [
+   1888,
+   1887,
+   1887,
+   1888,
+   1888,
+   1888,
+   1887,
+   1888,
+   1888,
+   1888,
+   1888,
+   1888,
+   1888,
+   1887,
+   1888,
+   1888
+  ],
+  "tokens_are": "each update's own",
+  "rows_full": true,
+  "rows_full_rule": "each update's tokens >= (length - 64) x rows"
+ },
+ "main": {
+  "rc": 0,
+  "updates": 16,
+  "s_per_update": [
+   18.618665834888816,
+   17.919507451355457,
+   15.795362619683146,
+   16.075649186968803,
+   16.227273302152753,
+   15.694599872455,
+   15.436875253915787,
+   16.445433910936117,
+   15.697749627754092,
+   15.51531800813973,
+   16.603918800130486,
+   15.761427348479629,
+   15.624202167615294,
+   15.97940869629383,
+   16.4057976603508,
+   15.319121740758419
+  ],
+  "adapter_sha256": "1d2e940e1d7d2cfd9df5aec05e9deebfc4a708d4ad0c2de68dc35701bdcfb062",
+  "s_per_step": 15.7954,
+  "s_per_step_rule": "median of updates 2..N"
+ },
+ "gpu_memory": {
+  "used_gib": 5.658,
+  "source": "nvidia-smi card total less its reading before launch",
+  "what": "the GPU memory the run's processes used, load and training, as nvidia-smi shows it"
+ },
+ "torch_memory": {
+  "reserved_peak_gib": 5.65,
+  "allocated_peak_gib": 5.074,
+  "what": "torch's caching allocator in training (receipt.json)"
+ },
+ "host_ram": {
+  "peak_gib": 7.345,
+  "what": "RssAnon + RssShmem of the process tree, sampled 4 times a second",
+  "samples": 1278
+ },
+ "preflight_said": [],
+ "plan": {
+  "updates": 16,
+  "resume": true,
+  "eval": true,
+  "machine": "rtx4090"
+ },
+ "resume": {
+  "stopped": true,
+  "stopped_after": 9,
+  "stop_rc": 0,
+  "first_rc": 7,
+  "continue_rc": 0,
+  "continued": true,
+  "adapter_file": "adapter_weights.pt",
+  "adapter_sha256": "1d2e940e1d7d2cfd9df5aec05e9deebfc4a708d4ad0c2de68dc35701bdcfb062",
+  "resumed_adapter_sha256": "1d2e940e1d7d2cfd9df5aec05e9deebfc4a708d4ad0c2de68dc35701bdcfb062",
+  "adapter_equal": true,
+  "note": "every key and tensor compared"
+ },
+ "eval": {
+  "status": "ok",
+  "rc": 0,
+  "metrics": {
+   "eval_loss": 5.992953096117292,
+   "eval_perplexity": 400.5958629793227
+  },
+  "verdict": "Learned well",
+  "rows_from": "held_out",
+  "rows": 7,
+  "shape": "chats",
+  "metric": {
+   "eval_loss": 5.992953096117292,
+   "base_loss": 6.739199706486293
+  },
+  "has_metric": true,
+  "data": "the rows the run held out"
+ },
+ "status": "ok"
+}

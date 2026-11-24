@@ -1,0 +1,36 @@
+{
+  "arch": "dense \u00b7 64 layers \u00b7 16 blocks",
+  "config": {
+    "block_size": 4,
+    "dataset": "OpenAssistant/oasst1",
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 2e-05,
+    "lora_alpha": 32,
+    "lora_rank": 16,
+    "max_seq_length": 512,
+    "max_steps": 50,
+    "per_device_train_batch_size": null,
+    "quantization": "nf4"
+  },
+  "final_loss": 2.0039377212524414,
+  "finished_at": "2026-11-04T01:07:02+00:00",
+  "gpu": {
+    "name": "RTX 3090",
+    "total_gb": 25.77
+  },
+  "kind": "poros.train.receipt",
+  "model": "Qwen/Qwen2.5-32B",
+  "output_dir": "<path>",
+  "peak_host_ram_gb": 24.299,
+  "peak_vram_allocated_gb": 11.942,
+  "peak_vram_reserved_gb": 14.147,
+  "poros": "0.3.0",
+  "recipe": "classic",
+  "run": "99350d3e",
+  "s_per_step": 56.9072,
+  "simulated": false,
+  "steps": 50,
+  "tokens_per_sec": 16.18,
+  "version": 1,
+  "wall_s": 2924.12
+}

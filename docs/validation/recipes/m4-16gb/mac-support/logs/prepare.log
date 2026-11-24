@@ -1,0 +1,30 @@
+▛▜ poros v1.0.0 · Qwen/Qwen2.5-7B-Instruct · Apple M4 10-core GPU 16GB
+
+● Checked cert-mac-support-prepare  run 1124-0019-92b2
+  │ rank 16 · 512 tokens
+  │ SFT · answers only · lr 2e-5
+  │ output
+  │ <home>/runs/1124-0019-92b2
+  │ weights   <disk>/poros-metal/hf
+
+● Loaded Qwen2.5-7B-Instruct  1.8s
+  │ dense · 28 layers
+step 1/1  loss 6.5543  11.72 s/step  memory 3.3 GiB (peak 5.3)
+<disk>/poros-metal/venv/lib/python3.12/site-packages/peft/utils/save_and_load.py:438: UserWarning: Could not find a config file in Qwen/Qwen2.5-7B-Instruct - will assume that the vocabulary was not modified.
+  warnings.warn(
+
+● Trained 1 step · SFT  13s
+  │ final loss 6.5543
+  │
+  │ peak       ━━━━━───────────  5.3 GiB of 16.0 GiB
+  │ speed      44 tok/s
+  │
+  │ adapter
+  │ <home>/runs/1124-0019-92b2
+  │ receipt
+  │ <home>/runs/1124-0019-92b2/receipt.json
+
+Continue with: poros export 1124-0019-92b2
+No rows were held out: `poros eval 1124-0019-92b2 --data FILE` scores a file of yours.
+Keep it as a recipe: poros recipes save last
+{"schema":"poros.train.v1","learned":null,"output_dir":"<home>/runs/1124-0019-92b2","events":"<home>/runs/1124-0019-92b2/events.jsonl","metrics":{"device":"mps","total_steps":1,"final_loss":6.5542778968811035,"loss_history":[6.5542778968811035],"grad_norm_history":[1.4121156930923462],"eval_history":[],"total_time_s":11.719823708990589,"step_time_history":[11.719823708990589],"vram_alloc_history_mb":[],"avg_vram_allocated_mb":0.0,"avg_step_time_ms":11719.823708990589,"steps_per_sec":0.08532551553935691,"tokens_processed":512,"tokens_per_sec":43.68666395615074,"peak_vram_allocated_gb":5.661526944,"peak_vram_reserved_gb":0.0,"torch_num_threads":4,"quantization":"nf4","block_size":1,"adapter_backend":"peft","adapter_summary":{"backend":"peft","target_module_names":"all-linear","trainable_param_count":40370176,"total_param_count":40703488}},"run":"1124-0019-92b2","command":"poros train Qwen/Qwen2.5-7B-Instruct --data <work>/sample-qa.jsonl --steps 1 --seq-len 512 --rank 16 --name cert-mac-support-prepare --recipe sft learning_rate=2e-5 lora_dropout=0 --download","next":[],"plan":null,"from":null,"support":null,"model_type":null}

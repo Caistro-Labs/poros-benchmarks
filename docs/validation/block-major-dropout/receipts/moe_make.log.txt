@@ -1,0 +1,7 @@
+[transformers] Model config: eos_token_id must be `None` or an integer within the vocabulary (between 0 and 95), got 50279. This may result in unexpected behavior.
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 167.75it/s]
+made qwen3_moe
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 301.51it/s]
+made olmoe
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 267.39it/s]
+made qwen2_moe

@@ -1,0 +1,98 @@
+{
+ "arm": "c8_poros",
+ "claims_keys": [],
+ "not_claimed": {
+  "why": "measured beside the arm h2h.cap8.30b_a3b (the RTX 4090 with part of its VRAM held by another process) presents; no claims key cites it"
+ },
+ "outcome": "0 of 3 runs trained",
+ "median_of_ok_runs": null,
+ "runs": [
+  {
+   "run": "c8_poros_r1",
+   "status": "failed",
+   "rc": 3,
+   "updates": 1,
+   "ran_path": null,
+   "asked_path": "fast",
+   "error_last_line": "{\"schema\":\"poros.error.v1\",\"error\":{\"code\":\"E_OOM\",\"exit_code\":3,\"message\":\"GPU out of memory during blockwise training.\",\"hint\":\"Try reducing block_size or seq_len. Current seq_len=256; try seq_len=128.\",\"remediation\":{\"max_seq_length\":128},\"docs\":\"poros docs limitations\"}}",
+   "s_per_step_s": null,
+   "t1_s": 54.55,
+   "vram_alloc_gb": 3.456,
+   "vram_reserved_gb": 3.463,
+   "host_ram_gb": 6.248,
+   "host_vmhwm_gb": 6.605,
+   "host_ram_load_gb": 6.248,
+   "host_ram_train_gb": 5.505,
+   "load_s": 13.74,
+   "load_vram_reserved_gb": 3.463,
+   "load_host_ram_gb": 6.248,
+   "load_host_vmhwm_gb": 6.605,
+   "smi": {
+    "samples": 61,
+    "baseline_mib": 18318,
+    "load_peak_gib": 3.864,
+    "run_peak_gib": 5.604,
+    "note": "nvidia-smi memory.used minus the pre-launch reading; includes the CUDA context (~0.3-0.5 GiB) torch's counters leave out"
+   },
+   "record": "docs/validation/h2h/4090/runs/c8_poros_r1.json"
+  },
+  {
+   "run": "c8_poros_r2",
+   "status": "failed",
+   "rc": 3,
+   "updates": 1,
+   "ran_path": null,
+   "asked_path": "fast",
+   "error_last_line": "{\"schema\":\"poros.error.v1\",\"error\":{\"code\":\"E_OOM\",\"exit_code\":3,\"message\":\"GPU out of memory during blockwise training.\",\"hint\":\"Try reducing block_size or seq_len. Current seq_len=256; try seq_len=128.\",\"remediation\":{\"max_seq_length\":128},\"docs\":\"poros docs limitations\"}}",
+   "s_per_step_s": null,
+   "t1_s": 37.76,
+   "vram_alloc_gb": 3.456,
+   "vram_reserved_gb": 3.463,
+   "host_ram_gb": 6.249,
+   "host_vmhwm_gb": 6.596,
+   "host_ram_load_gb": 6.249,
+   "host_ram_train_gb": 5.473,
+   "load_s": 17.7,
+   "load_vram_reserved_gb": 3.463,
+   "load_host_ram_gb": 6.249,
+   "load_host_vmhwm_gb": 6.596,
+   "smi": {
+    "samples": 46,
+    "baseline_mib": 18318,
+    "load_peak_gib": 3.864,
+    "run_peak_gib": 5.603,
+    "note": "nvidia-smi memory.used minus the pre-launch reading; includes the CUDA context (~0.3-0.5 GiB) torch's counters leave out"
+   },
+   "record": "docs/validation/h2h/4090/runs/c8_poros_r2.json"
+  },
+  {
+   "run": "c8_poros_r3",
+   "status": "failed",
+   "rc": 3,
+   "updates": 1,
+   "ran_path": null,
+   "asked_path": "fast",
+   "error_last_line": "{\"schema\":\"poros.error.v1\",\"error\":{\"code\":\"E_OOM\",\"exit_code\":3,\"message\":\"GPU out of memory during blockwise training.\",\"hint\":\"Try reducing block_size or seq_len. Current seq_len=256; try seq_len=128.\",\"remediation\":{\"max_seq_length\":128},\"docs\":\"poros docs limitations\"}}",
+   "s_per_step_s": null,
+   "t1_s": 33.12,
+   "vram_alloc_gb": 3.456,
+   "vram_reserved_gb": 3.463,
+   "host_ram_gb": 6.248,
+   "host_vmhwm_gb": 6.61,
+   "host_ram_load_gb": 6.248,
+   "host_ram_train_gb": 5.461,
+   "load_s": 13.79,
+   "load_vram_reserved_gb": 3.463,
+   "load_host_ram_gb": 6.248,
+   "load_host_vmhwm_gb": 6.61,
+   "smi": {
+    "samples": 41,
+    "baseline_mib": 18318,
+    "load_peak_gib": 3.864,
+    "run_peak_gib": 5.628,
+    "note": "nvidia-smi memory.used minus the pre-launch reading; includes the CUDA context (~0.3-0.5 GiB) torch's counters leave out"
+   },
+   "record": "docs/validation/h2h/4090/runs/c8_poros_r3.json"
+  }
+ ]
+}

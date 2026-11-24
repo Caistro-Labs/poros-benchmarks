@@ -1,0 +1,1 @@
+~/poros-run/env/py_poros/bin/python3.12 -c "import sys; sys.path[:0] = ['~/poros-run/run/kit']; import fed_rows, hostpeak; from poros.cli.main import cli; cli()" train ~/poros-run/run/rec/l30_poros_eff_r1.yaml --output-dir ~/poros-run/run/runs/l30_poros_eff_r1 --yes --json

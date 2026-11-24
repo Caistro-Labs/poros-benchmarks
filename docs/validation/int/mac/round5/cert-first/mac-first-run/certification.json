@@ -1,0 +1,136 @@
+{
+ "schema": "poros.certify.run.v1",
+ "recipe": "mac-first-run",
+ "commit": "748099f5922f01372aa62482f21b8b891aa6fbce",
+ "tree_clean": true,
+ "poros": "0.3.0",
+ "simulated": false,
+ "machine": {
+  "platform": "mac",
+  "gpu": "Apple M4 10-core GPU 16GB",
+  "vram_gib": 16.0,
+  "host_ram_gib": null,
+  "mac_class": "apple-m4-10gpu-16gb",
+  "os": "macOS-27.2.1-arm64-arm-64bit",
+  "os_version": "macOS 27.2.1",
+  "python": "3.12.16",
+  "torch": "2.15.0",
+  "transformers": "5.20.2",
+  "bitsandbytes": null
+ },
+ "command": [
+  "poros",
+  "train",
+  "Qwen/Qwen2.5-0.5B-Instruct",
+  "--data",
+  "<chats sample>",
+  "--seq-len",
+  "256",
+  "--rank",
+  "16",
+  "--steps",
+  "16",
+  "--name",
+  "cert-mac-first-run",
+  "--yes",
+  "--json",
+  "--download"
+ ],
+ "data": {
+  "kind": "chats",
+  "rows": 40,
+  "held_out": 2,
+  "rows_rule": "enough that the run holds rows out to score (at least 40 rows) and still trains 16 updates",
+  "sha256": "39905e6f4f249dc8e39d4b84ff8df70fe030ee78a9ef6fa884c95a472c375feb",
+  "seq_len": 256,
+  "tokens_per_update": [
+   215,
+   215,
+   215,
+   215,
+   215,
+   215,
+   215,
+   215,
+   215,
+   215,
+   214,
+   215,
+   215,
+   215,
+   214,
+   215
+  ],
+  "tokens_are": "each update's own",
+  "rows_full": true,
+  "rows_full_rule": "each update's tokens >= 0.75 x length x rows"
+ },
+ "main": {
+  "rc": 0,
+  "updates": 16,
+  "s_per_update": [
+   0.7593369999958668,
+   0.7242373339977348,
+   0.7220831249942421,
+   0.7241319160020794,
+   0.7241266669952893,
+   0.7237224170021364,
+   0.7224928329960676,
+   0.7240407499994035,
+   0.7243647499999497,
+   0.7238608749976265,
+   0.7251432919947547,
+   0.724500791002356,
+   0.7234900830007973,
+   0.7221457919949898,
+   0.723232166004891,
+   0.722661457999493
+  ],
+  "s_per_step": 0.7239,
+  "s_per_step_rule": "median of updates 2..N"
+ },
+ "gpu_memory": {
+  "used_gib": null,
+  "why_none": "nvidia-smi: not on a Mac"
+ },
+ "torch_memory": {
+  "reserved_peak_gib": null,
+  "why_none": "a Mac's one pool has no reserved peak",
+  "allocated_peak_gib": 2.272,
+  "what": "the run's peak of the one pool (receipt.json)"
+ },
+ "host_ram": {
+  "peak_gib": null,
+  "why_none": "one pool: the run's peak is torch_memory's"
+ },
+ "preflight_said": [],
+ "plan": {
+  "updates": 16,
+  "resume": true,
+  "eval": true,
+  "machine": "m4-16gb"
+ },
+ "resume": {
+  "stopped": true,
+  "stopped_after": 9,
+  "stop_rc": 0,
+  "first_rc": 7,
+  "continue_rc": 0,
+  "continued": true,
+  "adapter_file": "adapter_model.safetensors",
+  "adapter_sha256": "39febdef5492aefc2eccdf4144b600cfb6561ccb3614c101a7bcae547769db17",
+  "resumed_adapter_sha256": "39febdef5492aefc2eccdf4144b600cfb6561ccb3614c101a7bcae547769db17",
+  "adapter_equal": true,
+  "note": "bytes compared"
+ },
+ "eval": {
+  "status": "ok",
+  "rc": 0,
+  "metrics": {
+   "eval_loss": 6.927533388137817,
+   "eval_perplexity": 1019.9749918032692
+  },
+  "verdict": "Learned well"
+ },
+ "status": "ok"
+}

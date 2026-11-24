@@ -1,0 +1,37 @@
+▛▜ poros v1.0.0 · Qwen/Qwen2.5-0.5B-Instruct · RTX 4090 23.5 GiB
+
+● Checked cert-first-run-resume  run 1124-1342-1016
+  │ nf4 · block 4 · rank 16 · seq 256 · efficient path
+  │ SFT · answers only · lr 2e-4
+  │ output    homes/first-run/runs/1124-1342-1016
+  │ resume    homes/first-run/runs/1124-1342-1016/checkpoint-8
+  │ eval      7 rows held out  scored at the start, each checkpoint and the end
+
+● Loaded Qwen2.5-0.5B-Instruct  5.2s
+  │ dense · 24 layers · 6 blocks
+● Resumed after step 9/16
+step 10/16  loss 6.1101  3.35 s/step  vram 0.7 GiB (peak 1.3)  eta 20s
+● Scored step 16  held out 5.9526 · ends its answers 0 of 0
+
+  ╭─ Trained  Learned well ──────────────────────────────────────────────── 7 steps · SFT · 19s ─╮
+  │                                                                      final loss              │
+  │                                                                      5.9456  ↓ 3%            │
+  │  6.1 ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆                          │
+  │      ██████████████████████████████████████████████████████████████    step  held out  ends  │
+  │      ██████████████████████████████████████████████████████████████  ●   16    5.9526   0/0  │
+  │  6.0 ██████████████████████████████████████████████████████████████                          │
+  │      █████████████████████████████████████████████████████████████○  vram 1.3 GiB peak       │
+  │      ██████████████████████████████████████████████████████████████  ram  3.1 GiB peak       │
+  │  5.9 ██████████████████████████████████████████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                             3                              7                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      828 tok/s
+  │
+  │ adapter    homes/first-run/runs/1124-1342-1016
+  │ receipt    homes/first-run/runs/1124-1342-1016/receipt.json
+
+Continue with: poros eval 1124-1342-1016
+Keep it as a recipe: poros recipes save last
+{"schema":"poros.runs.v1","learned":null,"do":"continue","runs":[{"id":"1124-1342-1016","kind":"run","state":"succeeded","model":"Qwen/Qwen2.5-0.5B-Instruct","name":"cert-first-run-resume","output_dir":"<home>/runs/1124-1342-1016","created_at":"2026-11-24T13:42:36+00:00","started_at":"2026-11-24T13:43:12+00:00","finished_at":"2026-11-24T13:43:42+00:00","step":16,"total":16,"loss":5.945626676082611,"error":null,"folder":"<home>/runs/1124-1342-1016","from":null,"eval_loss_start":7.3463921546936035,"eval_loss":5.952553476606096,"eval_rows":7,"eval_ends":0,"eval_answer_rows":0,"eval_prefers_start":null,"eval_prefers":null,"best":"poros://1124-1342-1016/weights/16"}],"report":null,"next":["poros runs 1124-1342-1016 --live --wait 30"],"more":0,"starts_next":null}

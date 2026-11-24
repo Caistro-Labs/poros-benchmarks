@@ -1,0 +1,51 @@
+{
+  "arch": "MoE \u00b7 48 layers \u00b7 128 experts",
+  "config": {
+    "block_size": 1,
+    "dataset": "<work>/sample-chats.jsonl",
+    "gradient_accumulation_steps": 1,
+    "learning_rate": 2e-05,
+    "lora_alpha": 32,
+    "lora_rank": 16,
+    "max_seq_length": 128,
+    "max_steps": 16,
+    "per_device_batch_size": 1,
+    "quantization": "nf4"
+  },
+  "device_class": "apple-m4-10gpu-16gb",
+  "final_loss": 6.903438091278076,
+  "finished_at": "2026-11-24T06:08:05+00:00",
+  "gpu": {
+    "name": "Apple M4 10-core GPU 16GB",
+    "total_gb": 17.18
+  },
+  "kind": "poros.train.receipt",
+  "load_s": 6.47,
+  "lora_dropout": 0.0,
+  "macos_build": "26B131",
+  "memory_budget_gb": null,
+  "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+  "output_dir": "<home>/runs/1124-0002-36f3",
+  "peak_host_ram_gb": null,
+  "peak_vram_allocated_gb": 9.816,
+  "peak_vram_reserved_gb": 0.0,
+  "platform": "darwin",
+  "poros": "1.0.0",
+  "recipe": "SFT",
+  "run": "fe6c36be",
+  "s_per_step": 19.2112,
+  "simulated": false,
+  "spilled": false,
+  "steps": 16,
+  "swap_growth_mb": 0.0,
+  "table_build": "26B123",
+  "table_row": 128,
+  "tier": "ssd",
+  "tokens_per_sec": 6.66,
+  "version": 1,
+  "wall_s": 314.7,
+  "witness": {
+    "checked": 768,
+    "mismatches": 0
+  }
+}

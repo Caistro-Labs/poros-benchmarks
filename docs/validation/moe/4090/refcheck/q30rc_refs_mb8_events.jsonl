@@ -1,0 +1,2 @@
+{"event_type":"setup","timestamp":1794558597.3623428,"step":null,"block_id":null,"data":{"model":"Qwen/Qwen3-30B-A3B","quantization":"nf4","block_size":null,"steps":30,"path":"fast","torch_num_threads":16}}
+{"event_type":"step","timestamp":1794558607.7069848,"step":0,"block_id":null,"data":{"loss":1.286544919013977,"grad_norm":0.63671875,"lr":0.0001,"s_per_step":10.339024891145527,"vram_allocated_mb":5438.928384,"vram_reserved_mb":23146.266624,"tokens":4096,"vram_peak_mb":16029.253632}}

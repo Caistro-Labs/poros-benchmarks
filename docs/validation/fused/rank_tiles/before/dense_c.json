@@ -1,0 +1,482 @@
+[
+{
+"kernel": "_lora_out_fwd",
+"cap": 75,
+"tag": "fp16 R=16",
+"stages": 3,
+"shared": 20480,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_out_bwd",
+"cap": 75,
+"tag": "fp16 R=16",
+"stages": 1,
+"shared": 26624,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_out_bwd",
+"cap": 75,
+"tag": "fp16 R=16",
+"stages": 2,
+"shared": 26624,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_swiglu_fwd",
+"cap": 75,
+"tag": "fp16 R=16 hf=True",
+"stages": 3,
+"shared": 32768,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_swiglu_fwd",
+"cap": 75,
+"tag": "fp16 R=16 hf=False",
+"stages": 3,
+"shared": 40960,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_swiglu_bwd",
+"cap": 75,
+"tag": "fp16 R=16 drop=False",
+"stages": 1,
+"shared": 36864,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_swiglu_bwd",
+"cap": 75,
+"tag": "fp16 R=16 drop=True",
+"stages": 1,
+"shared": 36864,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_fwd",
+"cap": 75,
+"tag": "fp16 R=16 D=64",
+"stages": 3,
+"shared": 12288,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 75,
+"tag": "fp16 R=16 D=64",
+"stages": 1,
+"shared": 14336,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 75,
+"tag": "fp16 R=16 D=64",
+"stages": 2,
+"shared": 14336,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_fwd",
+"cap": 75,
+"tag": "fp16 R=16 D=128",
+"stages": 3,
+"shared": 20480,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 75,
+"tag": "fp16 R=16 D=128",
+"stages": 1,
+"shared": 26624,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 75,
+"tag": "fp16 R=16 D=128",
+"stages": 2,
+"shared": 26624,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_out_fwd",
+"cap": 75,
+"tag": "fp16 R=32",
+"stages": 3,
+"shared": 32768,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_out_bwd",
+"cap": 75,
+"tag": "fp16 R=32",
+"stages": 1,
+"shared": 36864,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_out_bwd",
+"cap": 75,
+"tag": "fp16 R=32",
+"stages": 2,
+"shared": 36864,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_swiglu_fwd",
+"cap": 75,
+"tag": "fp16 R=32 hf=True",
+"stages": 3,
+"shared": 57344,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_swiglu_fwd",
+"cap": 75,
+"tag": "fp16 R=32 hf=False",
+"stages": 3,
+"shared": 57344,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_swiglu_bwd",
+"cap": 75,
+"tag": "fp16 R=32 drop=False",
+"stages": 1,
+"shared": 57344,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_swiglu_bwd",
+"cap": 75,
+"tag": "fp16 R=32 drop=True",
+"stages": 1,
+"shared": 57344,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_fwd",
+"cap": 75,
+"tag": "fp16 R=32 D=64",
+"stages": 3,
+"shared": 20480,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 75,
+"tag": "fp16 R=32 D=64",
+"stages": 1,
+"shared": 20480,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 75,
+"tag": "fp16 R=32 D=64",
+"stages": 2,
+"shared": 20480,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_fwd",
+"cap": 75,
+"tag": "fp16 R=32 D=128",
+"stages": 3,
+"shared": 32768,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 75,
+"tag": "fp16 R=32 D=128",
+"stages": 1,
+"shared": 36864,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 75,
+"tag": "fp16 R=32 D=128",
+"stages": 2,
+"shared": 36864,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_out_fwd",
+"cap": 75,
+"tag": "fp16 R=64",
+"stages": 3,
+"shared": 57344,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_out_bwd",
+"cap": 75,
+"tag": "fp16 R=64",
+"stages": 1,
+"shared": 57344,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_out_bwd",
+"cap": 75,
+"tag": "fp16 R=64",
+"stages": 2,
+"shared": 57344,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_swiglu_fwd",
+"cap": 75,
+"tag": "fp16 R=64 hf=True",
+"stages": 3,
+"shared": 106496,
+"limit": 65536,
+"fits": false,
+"err": null
+},
+{
+"kernel": "_swiglu_fwd",
+"cap": 75,
+"tag": "fp16 R=64 hf=False",
+"stages": 3,
+"shared": 106496,
+"limit": 65536,
+"fits": false,
+"err": null
+},
+{
+"kernel": "_swiglu_bwd",
+"cap": 75,
+"tag": "fp16 R=64 drop=False",
+"stages": 1,
+"shared": 94208,
+"limit": 65536,
+"fits": false,
+"err": null
+},
+{
+"kernel": "_swiglu_bwd",
+"cap": 75,
+"tag": "fp16 R=64 drop=True",
+"stages": 1,
+"shared": 94208,
+"limit": 65536,
+"fits": false,
+"err": null
+},
+{
+"kernel": "_lora_rope_fwd",
+"cap": 75,
+"tag": "fp16 R=64 D=64",
+"stages": 3,
+"shared": 36864,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 75,
+"tag": "fp16 R=64 D=64",
+"stages": 1,
+"shared": 32768,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 75,
+"tag": "fp16 R=64 D=64",
+"stages": 2,
+"shared": 32768,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_fwd",
+"cap": 75,
+"tag": "fp16 R=64 D=128",
+"stages": 3,
+"shared": 57344,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 75,
+"tag": "fp16 R=64 D=128",
+"stages": 1,
+"shared": 57344,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_lora_rope_bwd",
+"cap": 75,
+"tag": "fp16 R=64 D=128",
+"stages": 2,
+"shared": 57344,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_add_f32",
+"cap": 75,
+"tag": "bf16",
+"stages": 3,
+"shared": 0,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_add_f32",
+"cap": 75,
+"tag": "fp16",
+"stages": 3,
+"shared": 0,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_add_f32",
+"cap": 75,
+"tag": "fp32",
+"stages": 3,
+"shared": 0,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_rmsnorm_fwd",
+"cap": 75,
+"tag": "H=896",
+"stages": 3,
+"shared": 16,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_rmsnorm_bwd",
+"cap": 75,
+"tag": "H=896",
+"stages": 3,
+"shared": 16,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_rmsnorm_fwd",
+"cap": 75,
+"tag": "H=3584",
+"stages": 3,
+"shared": 32,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_rmsnorm_bwd",
+"cap": 75,
+"tag": "H=3584",
+"stages": 3,
+"shared": 32,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_rmsnorm_fwd",
+"cap": 75,
+"tag": "H=8192",
+"stages": 3,
+"shared": 32,
+"limit": 65536,
+"fits": true,
+"err": null
+},
+{
+"kernel": "_rmsnorm_bwd",
+"cap": 75,
+"tag": "H=8192",
+"stages": 3,
+"shared": 32,
+"limit": 65536,
+"fits": true,
+"err": null
+}
+]

@@ -1,0 +1,48 @@
+{
+ "gpu": "NVIDIA GeForce RTX 4090",
+ "multiprocessors": 128,
+ "max_threads_per_multiprocessor": 1536,
+ "torch": "2.14.1+cu130",
+ "draws": [
+  {
+   "elements": 1,
+   "offset_step": 4
+  },
+  {
+   "elements": 1024,
+   "offset_step": 4
+  },
+  {
+   "elements": 65536,
+   "offset_step": 4
+  },
+  {
+   "elements": 262144,
+   "offset_step": 4
+  },
+  {
+   "elements": 786432,
+   "offset_step": 4
+  },
+  {
+   "elements": 786433,
+   "offset_step": 8
+  },
+  {
+   "elements": 1048576,
+   "offset_step": 8
+  },
+  {
+   "elements": 2097152,
+   "offset_step": 12
+  },
+  {
+   "elements": 4194304,
+   "offset_step": 24
+  },
+  {
+   "elements": 16777216,
+   "offset_step": 88
+  }
+ ]
+}

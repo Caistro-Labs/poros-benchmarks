@@ -1,0 +1,2 @@
+1a8d7e912b166c373fcfec862ad7297221d33a71
+The self-test (selftest_cuda.txt, selftest_last_line.json) ran at this commit, from a clean clone.

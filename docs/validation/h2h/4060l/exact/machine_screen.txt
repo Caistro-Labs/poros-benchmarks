@@ -1,0 +1,30 @@
+▛▜ Ready to train
+                              ⣀⠄⠒⠉⠒⠒⠤⠤⣀⣀
+                              ⡏⠉⠛⠓⠶⠤⣤⣀⣀ ⠉⠑⠒⠢⠤⢄⣀
+                              ⡇     ⢀⣀⣉⡙⠓⠲⠦⢤⣄⣀ ⠉⠉⠒⠒⠤⠤⣀⡀
+                              ⡇  ⢀⠔⠉⠡⢀ ⠈⠉⠒⠤⡀ ⠈⠉⠛⠒⠶⠤⣤⣀⡀⠈⠉⠑⠒⠢⠤⢄⣀
+                              ⡇ ⢰⠃    ⠑⢄   ⠈⠣⡀      ⠈⠉⠙⠓⠲⠦⢤⣀⣀ ⠉⠉⠒⠒⠤⠤⣀⡀
+                              ⡇ ⡎  ⣀⣀⣀⡠⠤⣅   ⡅⠑⡄    ⢀⠴⠒⠊⠉⠒⠒⠤⢄⠉⠉⠒⠒⠤⠤⣀⠤⠐⢹
+                              ⡇ ⢣⠠⠊  ⢸⢰⠋⠲⡱⡄⣠⠂ ⠸⡀  ⡜⠁⠐⠂⠤⢀    ⠕⢄⡀   ⢸⣀⣤⣾
+                              ⡇ ⠘⡄   ⢸⢞⡲⠴⢃⠏    ⡇ ⢰⠁     ⣱   ⢃ ⠑⡄  ⢸⠿⣻⣽
+                              ⡇  ⠘⢄  ⢨ ⠈⠉⠣⣀    ⡇ ⢸  ⢀⠤⢴⢋⠤⢭⡳⣀⡅  ⠘⡄ ⢸⣿⢷⣻
+                              ⡇   ⠈⠢⣀ ⠆    ⠁⠉⠈⡼  ⠐⡄⡰⠁ ⠘⣜⢦⣀⡇⡇    ⢣ ⢸⣶⡿⢿
+                              ⠑⠒⠤⠤⣀⣀ ⠑⠬⢄⣀⣀⣀⣀⠔⠋    ⠱⡀   ⢸⠑⠒⠚⠥⣀⢀⣀⠄⡸ ⢸⣝⣾⣿
+                                    ⠉⠉⠒⠢⠤⢄⣀⡀       ⠈⢢   ⢆      ⢀⠇ ⢸⣻⣵⣾
+                                           ⠈⠉⠒⠒⠤⠤⣀⣀  ⠉⠢⢄⡀⠂⠄  ⣀⡤⠋  ⢸⢯⣫⣽
+                                                   ⠉⠑⠒⠢⠤⢌⣉⡉⠉⠉     ⢸⡿⠟⢻
+                                                          ⠈⠉⠒⠒⠤⠤⣀⡀⢸⣀⠠⠚
+                                                                 ⠈⠉
+                             NVIDIA GeForce RTX 4060 Laptop GPU  ASUS
+                             driver 615.78.08 · CUDA 13.0 · PCIe 1 x8
+    vram                   load                   temp                   power
+    6.8 GiB free           3%                     40°C                   4 W
+    ━━──────────────────   ━───────────────────   ━━━━━━━━━───────────   ────────────────────
+  │ now     voxtype-osd-gtk4 (pid 2011)  0.0 GiB  not Poros
+  │ host    Linux 7.2 · x86_64 · Python 3.12.13
+  │ ram     ━━━━────────────  11 GiB free of 15
+  │ disk    ━━━━━━━━━━━━━━━─  94 GB free of 1022
+  │ stack   ✓ torch 2.14.1+cu130 · transformers · peft · bitsandbytes · accelerate
+  │ fits    dense  Qwen2.5-0.5B      ━━━━━━━─────────   ~3.3 GiB   estimated · sequential path
+  │         MoE    DeepSeek-V2-Lite  ━━━━━━━━━━━━━━━─   ~7.1 GiB   estimated · sequential path
+Continue with: poros train Qwen2.5-0.5B-Instruct --data <file>

@@ -1,0 +1,37 @@
+▛▜ poros v0.3.0 · Qwen/Qwen2.5-7B · RTX 4090 23.5 GiB
+
+● Checked rel_m7_efficient_b1.yaml  config
+  │ nf4 · block 1 · rank 16 · seq 512 · efficient path
+  │ classic · every token · lr 2e-5
+  │ output    runs/rel_m7_efficient_b1
+
+Block-streamed NF4 load unavailable for this model/environment (The cached snapshot for 'Qwen/Qwen2.5-7B' (revision 'main', commit d149729398750b98c0af14eb82c78cfe92750796) is incomplete: 1 file(s) are missing (LICENSE). The Hub could not be reached (OfflineModeIsEnabled: Cannot reach https://huggingface.co/api/models/Qwen/Qwen2.5-7B/revision/main: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.). Re-run the download with network access to complete the snapshot.); using the standard loader.
+● Loaded Qwen2.5-7B  22s
+  │ dense · 28 layers · 28 blocks
+path efficient after update 1: block inputs {'offloaded': 216, 'kept_on_device': 0, 'slabs': 6, 'slab_bytes': 1610612736, 'bytes_down': 1585446912, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 4966055936, 'refusals': 0}
+step 1/10  loss 12.4532  9.36 s/step  vram 4.7 GiB (peak 5.8)  eta 1m 24s
+step 7/10  loss 12.2980  5.06 s/step  vram 4.7 GiB (peak 6.1)  eta 17s
+<path> UserWarning: Could not find a config file in Qwen/Qwen2.5-7B - will assume that the vocabulary was not modified.
+  warnings.warn(
+
+  ╭─ Trained ───────────────────────────────────────────────────────── 10 steps · classic · 56s ─╮
+  │      ▁                                                               final loss              │
+  │      █▇▆▅▄▂▁                                                         12.2131  ↓ 2%           │
+  │ 12.4 ████████▇▆▆▅▄▃▂▁                                                from 12.4532            │
+  │      ████████████████▇▅▃▂                                                                    │
+  │      █████████████████████▅▂                                         vram 6.1 GiB peak       │
+  │ 12.3 ███████████████████████▇▄▁                                      ram  15.1 GiB peak      │
+  │      ██████████████████████████▅▂▂▁▁▁                                                        │
+  │      ████████████████████████████████████▇▇▆▆▆▆▆▆▇▇███▇▆▆▅▄▃▃▂▂▁                             │
+  │ 12.2 █████████████████████████████████████████████████████████████▇                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                                 5                         10                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      744 tok/s
+  │
+  │ adapter    runs/rel_m7_efficient_b1
+  │ receipt    runs/rel_m7_efficient_b1/receipt.json
+
+Continue with: poros eval <path>
+{"schema":"poros.train.v1","learned":null,"output_dir":"runs/rel_m7_efficient_b1","events":"runs/rel_m7_efficient_b1/events.jsonl","metrics":{"device":"cuda:0","total_steps":10,"final_loss":12.213113784790039,"loss_history":[12.453227043151855,12.416793823242188,12.395838737487793,12.347513198852539,12.2576322555542,12.249645233154297,12.239201545715332,12.250370979309082,12.230144500732422,12.213113784790039],"grad_norm_history":[1.2749900817871094,1.2413970232009888,1.2452112436294556,1.2263257503509521,1.2216042280197144,1.2219444513320923,1.2449722290039062,1.2992457151412964,1.2407684326171875,1.2647145986557007],"eval_history":[],"total_time_s":55.05052967648953,"step_time_history":[9.360117097385228,5.0916243605315685,4.962274314835668,5.153988742269576,5.080658019520342,5.073129485361278,5.064166343770921,5.105037818662822,5.099422019906342,5.060111474245787],"vram_alloc_history_mb":[5036.8128,5036.8128,5036.8128,5036.8128,5036.8128,5036.8128,5036.8128,5036.8128,5036.8128,5036.8128],"avg_vram_allocated_mb":5036.8128,"avg_step_time_ms":5505.052967648953,"steps_per_sec":0.18165129488791654,"tokens_processed":40960,"tokens_per_sec":744.0437038609061,"peak_vram_allocated_gb":6.526308352,"peak_vram_reserved_gb":10.877927424,"torch_num_threads":16,"quantization":"nf4","block_size":1,"adapter_backend":"peft","adapter_summary":{"backend":"peft","target_module_names":"all-linear","trainable_param_count":40370176,"total_param_count":4393342464}},"run":null,"command":null,"next":[],"plan":null,"from":null,"support":null,"model_type":null}

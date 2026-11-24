@@ -1,0 +1,19 @@
+refused: mac-72b (docs/validation/int/mac/round4/receipts/qwen2.5-72b-s128): it ran commit 5d75e31a486c, not the release's 748099f5922f
+refused: mac-32b (docs/validation/int/mac/round4/receipts/qwen2.5-32b-s128): it ran commit 5d75e31a486c, not the release's 748099f5922f
+refused: mac-moe (docs/validation/int/mac/round4/receipts/qwen3-30b-a3b-instruct-2507-s128): it ran commit 5d75e31a486c, not the release's 748099f5922f
+pending: first-run (waits for docs/validation/recipes/rtx4090/first-run)
+pending: support (waits for docs/validation/recipes/rtx4090/support)
+pending: voice (waits for docs/validation/recipes/rtx4090/voice)
+pending: prefer (waits for docs/validation/recipes/rtx4090/prefer)
+pending: big-32b (waits for docs/validation/recipes/rtx4090/big-32b)
+pending: big-72b (waits for docs/validation/recipes/rtx4090/big-72b)
+pending: big-72b-fast (waits for docs/validation/recipes/rtx4090/big-72b-fast)
+pending: moe-30b (waits for docs/validation/recipes/rtx4090/moe-30b)
+pending: moe-30b-ssd (waits for docs/validation/recipes/rtx4090/moe-30b-ssd)
+pending: moe-30b-8gb (waits for docs/validation/recipes/rtx4060-laptop/moe-30b-8gb)
+pending: mac-support (waits for docs/validation/recipes/m4-16gb/mac-support)
+pending: mac-voice (waits for docs/validation/recipes/m4-16gb/mac-voice)
+pending: mac-72b (no source names a receipt)
+pending: mac-32b (no source names a receipt)
+pending: mac-moe (no source names a receipt)
+generate: nothing written

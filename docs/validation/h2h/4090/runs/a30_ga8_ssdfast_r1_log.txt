@@ -1,0 +1,38 @@
+○ may not fit
+  │ Qwen/Qwen3-30B-A3B: allocated peak 19.347 GiB fits 23.13 GiB free, but the reserved peak, at most 23.418 GiB, may not (estimated: an upper bound from receipts at other settings); the run may run out of GPU memory at its first step
+▛▜ poros v0.3.0 · Qwen/Qwen3-30B-A3B · RTX 4090 23.5 GiB
+
+● Checked a30_ga8_ssdfast_r1.yaml  config
+  │ nf4 · block 4 · rank 16 · seq 512 · fast path
+  │ classic · every token · lr 2e-5
+  │ output    runs/a30_ga8_ssdfast_r1
+  │ store     ssd ~/rf/h2hf_5d75e31a/store
+
+● Loaded Qwen3-30B-A3B  12s
+  │ MoE · 48 layers · 128 experts
+step 1/16  loss 1.1857  16.33 s/step  vram 5.1 GiB (peak 7.4)  eta 4m 05s
+MoE expert cache 10.97 GiB, sized on an update at the full shape (fits this GPU: 22.97 GiB this process may hold - 7.70 GiB reserved peak - 4.59 GiB margin)
+step 6/16  loss 1.2747  4.69 s/step  vram 15.7 GiB (peak 18.1)  eta 1m 22s
+step 12/16  loss 1.1994  6.30 s/step  vram 15.7 GiB (peak 18.1)  eta 28s
+
+  ╭─ Trained ────────────────────────────────────────────────────── 16 steps · classic · 2m 02s ─╮
+  │                                                                      final loss              │
+  │                                  ▅▃                                  1.1102  ↓ 6%            │
+  │ 1.50                           ▂███▃                                 from 1.1857             │
+  │         ▁█▅▁                ▁▁▅█████▃                        ▃▆                              │
+  │        ▃████▆▂         ▂▄▆▇██████████▃                    ▁▅███▆     vram 18.1 GiB peak      │
+  │ 1.25  ▄███████▃      ▄████████████████▂                 ▃▆██████▆    ram  7.2 GiB peak       │
+  │      ▆█████████▃    ▅██████████████████▂      ▁      ▂▅██████████▆                           │
+  │      ███████████▃  ▆████████████████████▁   ▁▆█▆▄▂▂▄▇█████████████▇                          │
+  │ 1.00 ████████████▃▇██████████████████████▁ ▃███████████████████████                          │
+  │      █████████████████████████████████████▆████████████████████████                          │
+  │      1                                8                          16                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      603 tok/s
+  │
+  │ adapter    runs/a30_ga8_ssdfast_r1
+  │ receipt    runs/a30_ga8_ssdfast_r1/receipt.json
+
+Continue with: poros eval ~/rf/h2hf_5d75e31a/rec/a30_ga8_ssdfast_r1.yaml
+{"schema":"poros.train.v1","learned":null,"output_dir":"~/rf/h2hf_5d75e31a/runs/a30_ga8_ssdfast_r1","events":"~/rf/h2hf_5d75e31a/runs/a30_ga8_ssdfast_r1/events.jsonl","metrics":{"device":"cuda:0","total_steps":16,"final_loss":1.1101921796798706,"loss_history":[1.1856834888458252,1.460667610168457,1.3068935871124268,0.9707450866699219,1.2717106342315674,1.363610863685608,1.3934178352355957,1.6199301481246948,1.2721953392028809,0.9162167310714722,1.1379345655441284,1.0505033731460571,1.1667691469192505,1.3010951280593872,1.43825364112854,1.1101921796798706],"grad_norm_history":[0.55859375,0.48828125,0.478515625,0.44921875,0.5390625,0.490234375,0.423828125,0.50390625,0.51953125,0.55859375,0.498046875,0.7265625,0.546875,0.451171875,0.427734375,0.5078125],"eval_history":[],"total_time_s":108.65657565928996,"step_time_history":[16.33066956885159,10.320331513881683,6.427617881447077,5.922897182404995,5.437314458191395,4.689982553943992,5.707742150872946,5.551352160051465,5.949270119890571,5.926512846723199,6.246548373252153,6.300776990130544,6.1848460249602795,6.258314488455653,5.698253465816379,5.704145880416036],"vram_alloc_history_mb":[5423.983616,16890.761216,16890.761216,16890.761216,16890.761216,16890.761216,16890.761216,16890.761216,16890.761216,16890.761216,16890.761216,16890.761216,16890.761216,16890.761216,16890.761216,16890.761216],"avg_vram_allocated_mb":16174.087615999999,"avg_step_time_ms":6791.035978705622,"steps_per_sec":0.14725293801058625,"tokens_processed":65536,"tokens_per_sec":603.1480340913613,"peak_vram_allocated_gb":19.420956672,"peak_vram_reserved_gb":19.740491776,"torch_num_threads":16,"quantization":"nf4","block_size":null,"adapter_backend":"native","adapter_summary":null},"run":null,"command":null,"next":[],"plan":null,"from":null,"support":null,"model_type":null}

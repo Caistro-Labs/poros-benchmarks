@@ -1,0 +1,337 @@
+{
+ "harness": "h2h_u7",
+ "tool": "unsloth",
+ "args": {
+  "model": "Qwen/Qwen3-30B-A3B",
+  "rows": "~/rf/h2hf_5d75e31a/data/rows_real128.pt",
+  "updates": 16,
+  "mb": 8,
+  "ga": 1,
+  "seq_len": 512,
+  "offload_layers": "auto",
+  "gc": "unsloth",
+  "deterministic": true,
+  "lr": 2e-05,
+  "wd": 0.01,
+  "clip": 1.0,
+  "seed": 42,
+  "sweep_mb": "",
+  "local_snapshot": true,
+  "profile_update": -1,
+  "profile_out": "",
+  "targets": "o_proj,gate_proj,up_proj,down_proj",
+  "time_limit_s": 2400,
+  "load_id": "",
+  "offload_embedding": "unset",
+  "prefetch_depth": "unset",
+  "freeze_targets": "o_proj",
+  "rank": 16,
+  "dry_args": false,
+  "out": "~/rf/h2hf_5d75e31a/rec/a30_na_uns_r1_raw.json"
+ },
+ "stage": "done",
+ "epoch_start": 1794984725.699642,
+ "alloc_env_at_start": {
+  "PYTORCH_ALLOC_CONF": "unset",
+  "PYTORCH_CUDA_ALLOC_CONF": "unset"
+ },
+ "update_s": [
+  30.1717,
+  1.6606,
+  1.6587,
+  1.6615,
+  1.6697,
+  1.6848,
+  1.6446,
+  1.6688,
+  1.6618,
+  1.6347,
+  1.6608,
+  1.6559,
+  1.6642,
+  1.6704,
+  1.6558,
+  1.6512
+ ],
+ "microstep_s": [
+  [
+   29.8519
+  ],
+  [
+   1.5908
+  ],
+  [
+   1.5888
+  ],
+  [
+   1.5917
+  ],
+  [
+   1.5999
+  ],
+  [
+   1.6147
+  ],
+  [
+   1.5746
+  ],
+  [
+   1.5989
+  ],
+  [
+   1.592
+  ],
+  [
+   1.5648
+  ],
+  [
+   1.591
+  ],
+  [
+   1.5858
+  ],
+  [
+   1.5943
+  ],
+  [
+   1.6011
+  ],
+  [
+   1.5865
+  ],
+  [
+   1.5819
+  ]
+ ],
+ "loss": [
+  [
+   1.17829430103302
+  ],
+  [
+   1.4549542665481567
+  ],
+  [
+   1.30693519115448
+  ],
+  [
+   0.9722238779067993
+  ],
+  [
+   1.2809218168258667
+  ],
+  [
+   1.3689533472061157
+  ],
+  [
+   1.4007028341293335
+  ],
+  [
+   1.6264866590499878
+  ],
+  [
+   1.2856115102767944
+  ],
+  [
+   0.9375299215316772
+  ],
+  [
+   1.1384376287460327
+  ],
+  [
+   1.0591905117034912
+  ],
+  [
+   1.1774241924285889
+  ],
+  [
+   1.3045610189437866
+  ],
+  [
+   1.442012071609497
+  ],
+  [
+   1.1204537153244019
+  ]
+ ],
+ "grad_norm": [
+  0.47669529914855957,
+  0.43963631987571716,
+  0.43052512407302856,
+  0.39585840702056885,
+  0.5036500692367554,
+  0.455725759267807,
+  0.3864910304546356,
+  0.46709561347961426,
+  0.49034354090690613,
+  0.5301269888877869,
+  0.4444179832935333,
+  0.462546169757843,
+  0.8941918015480042,
+  0.3968433439731598,
+  0.4088391363620758,
+  0.3927081823348999
+ ],
+ "tokens": [
+  4096,
+  4096,
+  4096,
+  4096,
+  4096,
+  4096,
+  4096,
+  4096,
+  4096,
+  4096,
+  4096,
+  4096,
+  4096,
+  4096,
+  4096,
+  4096
+ ],
+ "update_end_epoch": [
+  1794984890.4419427,
+  1794984892.103496,
+  1794984893.7628665,
+  1794984895.4250453,
+  1794984897.0954604,
+  1794984898.781069,
+  1794984900.4265754,
+  1794984902.0961227,
+  1794984903.7586775,
+  1794984905.394127,
+  1794984907.0557203,
+  1794984908.7124085,
+  1794984910.3774152,
+  1794984912.0486023,
+  1794984913.705252,
+  1794984915.3573213
+ ],
+ "versions": {
+  "unsloth": "2026.11.4",
+  "unsloth_zoo": "2026.11.4",
+  "torch": "2.14.1",
+  "transformers": "5.17.0",
+  "peft": "0.21.2",
+  "bitsandbytes": "0.50.2",
+  "accelerate": "1.15.0",
+  "torch_cuda": "13.0"
+ },
+ "from_pretrained_kwargs": {
+  "offload_layers": "auto"
+ },
+ "alloc_env_after_unsloth_import": {
+  "PYTORCH_ALLOC_CONF": "expandable_segments:True",
+  "PYTORCH_CUDA_ALLOC_CONF": "unset"
+ },
+ "local_snapshot_of": "Qwen/Qwen3-30B-A3B",
+ "local_snapshot_revision": "ad44e777bcd18fa416d9da3bd8f70d33ebb85d39",
+ "load_source": "~/hf/hub/models--Qwen--Qwen3-30B-A3B/snapshots/ad44e777bcd18fa416d9da3bd8f70d33ebb85d39",
+ "load_model_s": 127.83,
+ "block_swap": {
+  "decoder_layers": 48,
+  "swappers": [
+   {
+    "indices": [
+     0,
+     2,
+     4,
+     5,
+     7,
+     9,
+     11,
+     12,
+     14,
+     16,
+     17,
+     19,
+     21,
+     23,
+     24,
+     26,
+     28,
+     29,
+     31,
+     33,
+     35,
+     36,
+     38,
+     40,
+     41,
+     43,
+     45,
+     47
+    ],
+    "n": 28,
+    "depth": 2,
+    "pinned_bytes": 8734896128,
+    "host_bytes": 8734896128
+   }
+  ],
+  "swapped": 28
+ },
+ "input_embedding_device": "cpu",
+ "frozen_adapters": {
+  "modules": [
+   "o_proj"
+  ],
+  "tensors": 96,
+  "elements": 4718592
+ },
+ "load_s": 134.5,
+ "load_end_epoch": 1794984860.202828,
+ "load_host_status": {
+  "VmLck_kb": 0,
+  "VmPin_kb": 0,
+  "VmHWM_kb": 61260900,
+  "VmRSS_kb": 10933596,
+  "RssAnon_kb": 10748692,
+  "RssFile_kb": 115264,
+  "RssShmem_kb": 69640
+ },
+ "load_host_vmhwm_gib": 58.423,
+ "load_host_peak_anon_shmem_kb": 19046532,
+ "after_load_allocated_gib": 10.097,
+ "after_load_reserved_gib": 10.166,
+ "load_peak_allocated_gib": 10.105,
+ "load_peak_reserved_gib": 10.186,
+ "after_load_smi_mib": 10950,
+ "model_source": "~/hf/hub/models--Qwen--Qwen3-30B-A3B/snapshots/ad44e777bcd18fa416d9da3bd8f70d33ebb85d39",
+ "rows_sha256": "13b5db2ab23e70733130be4a416042a5893d73852d4e5bf426709352c3507fdd",
+ "trainable_params": 629145600,
+ "trainable_dtypes": [
+  "torch.float32"
+ ],
+ "trainable_groups": {
+  "base_model.model.model.layers.N.mlp.experts.base_layer.lora_A.default.weight": 201326592,
+  "base_model.model.model.layers.N.mlp.experts.base_layer.lora_B.default.weight": 150994944,
+  "base_model.model.model.layers.N.mlp.experts.lora_A.default.weight": 75497472,
+  "base_model.model.model.layers.N.mlp.experts.lora_B.default.weight": 201326592
+ },
+ "trainable_group_count": 4,
+ "epoch_train_start": 1794984860.264751,
+ "peak_allocated_gib_update1": 19.521,
+ "peak_reserved_gib_update1": 19.764,
+ "peak_allocated_gib_updates2plus": 19.534,
+ "peak_reserved_gib_updates2plus": 19.764,
+ "peak_allocated_gib_train": 19.534,
+ "peak_reserved_gib_train": 19.764,
+ "adapter_digest_fp32": "23e6012e83a126530307c8feb5381801df7afba8bea36947b7fec00d617a62c7",
+ "host_vmhwm_gib": 58.423,
+ "host_status_end": {
+  "VmLck_kb": 0,
+  "VmPin_kb": 0,
+  "VmHWM_kb": 61260900,
+  "VmRSS_kb": 12561056,
+  "RssAnon_kb": 11308176,
+  "RssFile_kb": 265736,
+  "RssShmem_kb": 987144
+ },
+ "host_peak_anon_shmem_kb": 19046532,
+ "wall_s": 193.03,
+ "host_maxrss_gib": 58.423,
+ "peak_allocated_gib_last_window": 19.534,
+ "peak_reserved_gib_last_window": 19.764,
+ "card_gib": 23.516,
+ "nvidia_smi_used_mib_end": 20814
+}

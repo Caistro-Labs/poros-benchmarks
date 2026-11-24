@@ -1,0 +1,111 @@
+{
+ "arm": "c8_poros_auto",
+ "claims_keys": [],
+ "not_claimed": {
+  "why": "measured beside the arm h2h.cap8.30b_a3b (the RTX 4090 with part of its VRAM held by another process) presents; no claims key cites it"
+ },
+ "outcome": "ran",
+ "median_of_ok_runs": {
+  "s_per_step_s": 19.573,
+  "t1_s": 33.2,
+  "vram_alloc_gb": 4.49,
+  "vram_reserved_gb": 5.09,
+  "host_ram_gb": 7.35,
+  "host_vmhwm_gb": 7.83,
+  "host_ram_load_gb": 6.25,
+  "host_ram_train_gb": 7.35,
+  "load_s": 13.6,
+  "load_vram_reserved_gb": 3.46,
+  "load_host_ram_gb": 6.25,
+  "load_host_vmhwm_gb": 6.61
+ },
+ "runs": [
+  {
+   "run": "c8_poros_auto_r1",
+   "status": "ok",
+   "rc": 0,
+   "updates": 16,
+   "ran_path": "efficient",
+   "asked_path": null,
+   "error_last_line": null,
+   "s_per_step_s": 19.7455,
+   "t1_s": 33.21,
+   "vram_alloc_gb": 4.488,
+   "vram_reserved_gb": 5.088,
+   "host_ram_gb": 7.348,
+   "host_vmhwm_gb": 7.826,
+   "host_ram_load_gb": 6.248,
+   "host_ram_train_gb": 7.348,
+   "load_s": 13.67,
+   "load_vram_reserved_gb": 3.463,
+   "load_host_ram_gb": 6.248,
+   "load_host_vmhwm_gb": 6.611,
+   "smi": {
+    "samples": 312,
+    "baseline_mib": 18318,
+    "load_peak_gib": 3.864,
+    "run_peak_gib": 5.624,
+    "note": "nvidia-smi memory.used minus the pre-launch reading; includes the CUDA context (~0.3-0.5 GiB) torch's counters leave out"
+   },
+   "record": "docs/validation/h2h/4090/runs/c8_poros_auto_r1.json"
+  },
+  {
+   "run": "c8_poros_auto_r2",
+   "status": "ok",
+   "rc": 0,
+   "updates": 16,
+   "ran_path": "efficient",
+   "asked_path": null,
+   "error_last_line": null,
+   "s_per_step_s": 19.5731,
+   "t1_s": 33.04,
+   "vram_alloc_gb": 4.488,
+   "vram_reserved_gb": 5.088,
+   "host_ram_gb": 7.349,
+   "host_vmhwm_gb": 7.825,
+   "host_ram_load_gb": 6.249,
+   "host_ram_train_gb": 7.349,
+   "load_s": 13.61,
+   "load_vram_reserved_gb": 3.463,
+   "load_host_ram_gb": 6.249,
+   "load_host_vmhwm_gb": 6.608,
+   "smi": {
+    "samples": 317,
+    "baseline_mib": 18318,
+    "load_peak_gib": 3.864,
+    "run_peak_gib": 5.624,
+    "note": "nvidia-smi memory.used minus the pre-launch reading; includes the CUDA context (~0.3-0.5 GiB) torch's counters leave out"
+   },
+   "record": "docs/validation/h2h/4090/runs/c8_poros_auto_r2.json"
+  },
+  {
+   "run": "c8_poros_auto_r3",
+   "status": "ok",
+   "rc": 0,
+   "updates": 16,
+   "ran_path": "efficient",
+   "asked_path": null,
+   "error_last_line": null,
+   "s_per_step_s": 18.5671,
+   "t1_s": 38.27,
+   "vram_alloc_gb": 4.488,
+   "vram_reserved_gb": 5.088,
+   "host_ram_gb": 7.348,
+   "host_vmhwm_gb": 7.822,
+   "host_ram_load_gb": 6.248,
+   "host_ram_train_gb": 7.348,
+   "load_s": 13.53,
+   "load_vram_reserved_gb": 3.463,
+   "load_host_ram_gb": 6.248,
+   "load_host_vmhwm_gb": 6.609,
+   "smi": {
+    "samples": 319,
+    "baseline_mib": 18318,
+    "load_peak_gib": 3.864,
+    "run_peak_gib": 5.624,
+    "note": "nvidia-smi memory.used minus the pre-launch reading; includes the CUDA context (~0.3-0.5 GiB) torch's counters leave out"
+   },
+   "record": "docs/validation/h2h/4090/runs/c8_poros_auto_r3.json"
+  }
+ ]
+}

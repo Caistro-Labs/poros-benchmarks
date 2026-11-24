@@ -1,0 +1,192 @@
+2026-11-24T05:47:53Z run qwen2_seq lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=sequential 
+2026-11-24T05:48:24Z end qwen2_seq rc=0 31s
+2026-11-24T05:48:24Z run qwen2_eff lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=efficient 
+2026-11-24T05:48:52Z end qwen2_eff rc=0 28s
+2026-11-24T05:48:52Z run qwen2_fast lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast 
+2026-11-24T05:49:19Z end qwen2_fast rc=0 27s
+2026-11-24T05:49:19Z run qwen2_res lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast resident_blocks=999 
+2026-11-24T05:49:44Z end qwen2_res rc=0 25s
+2026-11-24T05:49:44Z run qwen2_rep lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast 
+2026-11-24T05:50:10Z end qwen2_rep rc=0 26s
+2026-11-24T05:50:19Z run qwen2_resA lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast save_steps=4 
+2026-11-24T05:50:46Z end qwen2_resA rc=0 27s
+2026-11-24T05:50:46Z run qwen2_resB lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast save_steps=4 --resume-from <home>/poros_rel/cert/out/family/fg/runs/qwen2_resA/checkpoint-4
+2026-11-24T05:51:07Z end qwen2_resB rc=0 21s
+2026-11-24T05:51:21Z run qwen3_seq lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=sequential 
+2026-11-24T05:51:56Z end qwen3_seq rc=0 35s
+2026-11-24T05:51:57Z run qwen3_eff lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=efficient 
+2026-11-24T05:52:30Z end qwen3_eff rc=0 33s
+2026-11-24T05:52:30Z run qwen3_fast lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast 
+2026-11-24T05:53:01Z end qwen3_fast rc=0 31s
+2026-11-24T05:53:01Z run qwen3_res lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast resident_blocks=999 
+2026-11-24T05:53:31Z end qwen3_res rc=0 30s
+2026-11-24T05:53:31Z run qwen3_rep lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast 
+2026-11-24T05:54:02Z end qwen3_rep rc=0 31s
+2026-11-24T05:54:23Z run qwen3_5_seq lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=sequential 
+2026-11-24T05:55:10Z end qwen3_5_seq rc=0 47s
+2026-11-24T05:55:10Z run qwen3_5_eff lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=efficient 
+2026-11-24T05:55:52Z end qwen3_5_eff rc=0 42s
+2026-11-24T05:55:52Z run qwen3_5_fast lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast 
+2026-11-24T05:56:33Z end qwen3_5_fast rc=0 41s
+2026-11-24T05:56:33Z run qwen3_5_res lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast resident_blocks=999 
+2026-11-24T05:57:11Z end qwen3_5_res rc=0 38s
+2026-11-24T05:57:12Z run qwen3_5_rep lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast 
+2026-11-24T05:57:52Z end qwen3_5_rep rc=0 40s
+2026-11-24T06:01:18Z run qwen3_8_seq lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=sequential 
+2026-11-24T06:01:57Z end qwen3_8_seq rc=0 39s
+2026-11-24T06:01:58Z run qwen3_8_eff lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=efficient 
+2026-11-24T06:02:35Z end qwen3_8_eff rc=0 37s
+2026-11-24T06:02:35Z run qwen3_8_fast lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast 
+2026-11-24T06:03:11Z end qwen3_8_fast rc=0 36s
+2026-11-24T06:03:12Z run qwen3_8_res lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast resident_blocks=999 
+2026-11-24T06:03:43Z end qwen3_8_res rc=0 31s
+2026-11-24T06:03:43Z run qwen3_8_rep lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast 
+2026-11-24T06:04:19Z end qwen3_8_rep rc=0 36s
+2026-11-24T06:04:41Z run gemma3_text_seq lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=sequential 
+2026-11-24T06:05:22Z end gemma3_text_seq rc=0 41s
+2026-11-24T06:05:22Z run gemma3_text_eff lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=efficient 
+2026-11-24T06:06:00Z end gemma3_text_eff rc=0 38s
+2026-11-24T06:06:01Z run gemma3_text_fast lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast 
+2026-11-24T06:06:37Z end gemma3_text_fast rc=0 36s
+2026-11-24T06:06:38Z run gemma3_text_res lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast resident_blocks=999 
+2026-11-24T06:07:14Z end gemma3_text_res rc=0 36s
+2026-11-24T06:07:14Z run gemma3_text_rep lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast 
+2026-11-24T06:07:51Z end gemma3_text_rep rc=0 37s
+2026-11-24T06:09:17Z run gemma3_seq lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=sequential 
+2026-11-24T06:09:53Z end gemma3_seq rc=0 36s
+2026-11-24T06:09:53Z run gemma3_eff lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=efficient 
+2026-11-24T06:10:28Z end gemma3_eff rc=0 35s
+2026-11-24T06:10:28Z run gemma3_fast lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast 
+2026-11-24T06:11:01Z end gemma3_fast rc=0 33s
+2026-11-24T06:11:01Z run gemma3_res lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast resident_blocks=999 
+2026-11-24T06:11:34Z end gemma3_res rc=0 33s
+2026-11-24T06:11:34Z run gemma3_rep lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast 
+2026-11-24T06:12:07Z end gemma3_rep rc=0 33s
+2026-11-24T06:15:19Z run gemma4_seq lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=sequential 
+2026-11-24T06:16:08Z end gemma4_seq rc=0 49s
+2026-11-24T06:16:08Z run gemma4_eff lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=efficient 
+2026-11-24T06:16:57Z end gemma4_eff rc=0 49s
+2026-11-24T06:16:57Z run gemma4_fast lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast 
+2026-11-24T06:17:44Z end gemma4_fast rc=0 47s
+2026-11-24T06:17:44Z run gemma4_res lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast resident_blocks=999 
+2026-11-24T06:18:27Z end gemma4_res rc=0 43s
+2026-11-24T06:18:27Z run gemma4_rep lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast 
+2026-11-24T06:19:13Z end gemma4_rep rc=0 46s
+2026-11-24T06:19:49Z run gemma4_text_seq lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=sequential 
+2026-11-24T06:20:35Z end gemma4_text_seq rc=0 46s
+2026-11-24T06:20:36Z run gemma4_text_eff lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=efficient 
+2026-11-24T06:21:20Z end gemma4_text_eff rc=0 44s
+2026-11-24T06:21:20Z run gemma4_text_fast lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast 
+2026-11-24T06:22:07Z end gemma4_text_fast rc=0 47s
+2026-11-24T06:22:08Z run gemma4_text_res lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast resident_blocks=999 
+2026-11-24T06:22:49Z end gemma4_text_res rc=0 41s
+2026-11-24T06:22:49Z run gemma4_text_rep lora_dropout=0.05 block_size=4 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast 
+2026-11-24T06:23:37Z end gemma4_text_rep rc=0 48s
+2026-11-24T06:25:42Z run qwen3_moe_seq lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=sequential 
+2026-11-24T06:26:10Z end qwen3_moe_seq rc=0 28s
+2026-11-24T06:26:11Z run qwen3_moe_eff lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=efficient 
+2026-11-24T06:26:37Z end qwen3_moe_eff rc=0 26s
+2026-11-24T06:26:37Z run qwen3_moe_fast lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast 
+2026-11-24T06:27:03Z end qwen3_moe_fast rc=0 26s
+2026-11-24T06:27:04Z run qwen3_moe_res lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast resident_blocks=999 
+2026-11-24T06:27:30Z end qwen3_moe_res rc=0 26s
+2026-11-24T06:27:30Z run qwen3_moe_rep lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast 
+2026-11-24T06:27:56Z end qwen3_moe_rep rc=0 26s
+2026-11-24T06:28:06Z run qwen3_moe_mref_seq lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=sequential moe_expert_compute=reference 
+2026-11-24T06:28:35Z end qwen3_moe_mref_seq rc=0 29s
+2026-11-24T06:28:36Z run qwen3_moe_mref_fast lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast moe_expert_compute=reference 
+2026-11-24T06:29:06Z end qwen3_moe_mref_fast rc=0 30s
+2026-11-24T06:30:14Z run olmoe_seq lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=sequential 
+2026-11-24T06:30:35Z end olmoe_seq rc=0 21s
+2026-11-24T06:30:36Z run olmoe_eff lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=efficient 
+2026-11-24T06:30:56Z end olmoe_eff rc=0 20s
+2026-11-24T06:30:56Z run olmoe_fast lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast 
+2026-11-24T06:31:17Z end olmoe_fast rc=0 21s
+2026-11-24T06:31:17Z run olmoe_res lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast resident_blocks=999 
+2026-11-24T06:31:38Z end olmoe_res rc=0 21s
+2026-11-24T06:31:38Z run olmoe_rep lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast 
+2026-11-24T06:31:59Z end olmoe_rep rc=0 21s
+2026-11-24T06:32:08Z run olmoe_mref_seq lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=sequential moe_expert_compute=reference 
+2026-11-24T06:32:31Z end olmoe_mref_seq rc=0 23s
+2026-11-24T06:32:31Z run olmoe_mref_fast lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast moe_expert_compute=reference 
+2026-11-24T06:32:55Z end olmoe_mref_fast rc=0 24s
+2026-11-24T06:32:57Z run olmoe_resA lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast save_steps=4 
+2026-11-24T06:33:19Z end olmoe_resA rc=0 22s
+2026-11-24T06:33:19Z run olmoe_resB lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast save_steps=4 --resume-from <home>/poros_rel/cert/out/family/fg/runs/olmoe_resA/checkpoint-4
+2026-11-24T06:33:39Z end olmoe_resB rc=0 20s
+2026-11-24T06:35:18Z run qwen2_moe_seq lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=sequential 
+2026-11-24T06:35:44Z end qwen2_moe_seq rc=0 26s
+2026-11-24T06:35:45Z run qwen2_moe_eff lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=efficient 
+2026-11-24T06:36:09Z end qwen2_moe_eff rc=0 24s
+2026-11-24T06:36:09Z run qwen2_moe_fast lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast 
+2026-11-24T06:36:34Z end qwen2_moe_fast rc=0 25s
+2026-11-24T06:36:35Z run qwen2_moe_res lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast resident_blocks=999 
+2026-11-24T06:36:59Z end qwen2_moe_res rc=0 24s
+2026-11-24T06:37:00Z run qwen2_moe_rep lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast 
+2026-11-24T06:37:25Z end qwen2_moe_rep rc=0 25s
+2026-11-24T06:37:33Z run qwen2_moe_mref_seq lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=sequential moe_expert_compute=reference 
+2026-11-24T06:38:00Z end qwen2_moe_mref_seq rc=0 27s
+2026-11-24T06:38:00Z run qwen2_moe_mref_fast lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast moe_expert_compute=reference 
+2026-11-24T06:38:27Z end qwen2_moe_mref_fast rc=0 27s
+2026-11-24T06:39:48Z run deepseek_v2_seq lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=sequential 
+2026-11-24T06:40:10Z end deepseek_v2_seq rc=0 22s
+2026-11-24T06:40:11Z run deepseek_v2_eff lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=efficient 
+2026-11-24T06:40:32Z end deepseek_v2_eff rc=0 21s
+2026-11-24T06:40:32Z run deepseek_v2_fast lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast 
+2026-11-24T06:40:54Z end deepseek_v2_fast rc=0 22s
+2026-11-24T06:40:54Z run deepseek_v2_res lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast resident_blocks=999 
+2026-11-24T06:41:16Z end deepseek_v2_res rc=0 22s
+2026-11-24T06:41:16Z run deepseek_v2_rep lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast 
+2026-11-24T06:41:38Z end deepseek_v2_rep rc=0 22s
+2026-11-24T06:41:47Z run deepseek_v2_mref_seq lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=sequential moe_expert_compute=reference 
+2026-11-24T06:42:09Z end deepseek_v2_mref_seq rc=0 22s
+2026-11-24T06:42:10Z run deepseek_v2_mref_fast lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast moe_expert_compute=reference 
+2026-11-24T06:42:33Z end deepseek_v2_mref_fast rc=0 23s
+2026-11-24T06:45:17Z run qwen3_5_moe_seq lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=sequential 
+2026-11-24T06:45:55Z end qwen3_5_moe_seq rc=0 38s
+2026-11-24T06:45:55Z run qwen3_5_moe_eff lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=efficient 
+2026-11-24T06:46:31Z end qwen3_5_moe_eff rc=0 36s
+2026-11-24T06:46:32Z run qwen3_5_moe_fast lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast 
+2026-11-24T06:47:09Z end qwen3_5_moe_fast rc=0 37s
+2026-11-24T06:47:09Z run qwen3_5_moe_res lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast resident_blocks=999 
+2026-11-24T06:47:46Z end qwen3_5_moe_res rc=0 37s
+2026-11-24T06:47:47Z run qwen3_5_moe_rep lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast 
+2026-11-24T06:48:23Z end qwen3_5_moe_rep rc=0 36s
+2026-11-24T06:48:34Z run qwen3_5_moe_mref_seq lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=sequential moe_expert_compute=reference 
+2026-11-24T06:49:12Z end qwen3_5_moe_mref_seq rc=0 38s
+2026-11-24T06:49:13Z run qwen3_5_moe_mref_fast lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast moe_expert_compute=reference 
+2026-11-24T06:49:51Z end qwen3_5_moe_mref_fast rc=0 38s
+2026-11-24T06:50:21Z run qwen3_5_moe_text_seq lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=sequential 
+2026-11-24T06:50:58Z end qwen3_5_moe_text_seq rc=0 37s
+2026-11-24T06:50:59Z run qwen3_5_moe_text_eff lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=efficient 
+2026-11-24T06:51:34Z end qwen3_5_moe_text_eff rc=0 35s
+2026-11-24T06:51:35Z run qwen3_5_moe_text_fast lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast 
+2026-11-24T06:52:11Z end qwen3_5_moe_text_fast rc=0 36s
+2026-11-24T06:52:12Z run qwen3_5_moe_text_res lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast resident_blocks=999 
+2026-11-24T06:52:48Z end qwen3_5_moe_text_res rc=0 36s
+2026-11-24T06:52:49Z run qwen3_5_moe_text_rep lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast 
+2026-11-24T06:53:25Z end qwen3_5_moe_text_rep rc=0 36s
+2026-11-24T06:53:36Z run qwen3_5_moe_text_mref_seq lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=sequential moe_expert_compute=reference 
+2026-11-24T06:54:14Z end qwen3_5_moe_text_mref_seq rc=0 38s
+2026-11-24T06:54:15Z run qwen3_5_moe_text_mref_fast lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast moe_expert_compute=reference 
+2026-11-24T06:54:53Z end qwen3_5_moe_text_mref_fast rc=0 38s
+2026-11-24T06:58:07Z run gemma4_moe_seq lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=sequential 
+2026-11-24T06:58:59Z end gemma4_moe_seq rc=0 52s
+2026-11-24T06:59:00Z run gemma4_moe_eff lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=efficient 
+2026-11-24T06:59:50Z end gemma4_moe_eff rc=0 50s
+2026-11-24T06:59:51Z run gemma4_moe_fast lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast 
+2026-11-24T07:00:42Z end gemma4_moe_fast rc=0 51s
+2026-11-24T07:00:42Z run gemma4_moe_res lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast resident_blocks=999 
+2026-11-24T07:01:33Z end gemma4_moe_res rc=0 51s
+2026-11-24T07:01:33Z run gemma4_moe_rep lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast 
+2026-11-24T07:02:24Z end gemma4_moe_rep rc=0 52s
+2026-11-24T07:03:22Z run inkling2_loop_eff lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=efficient 
+2026-11-24T07:03:23Z end inkling2_loop_eff rc=4 1s
+2026-11-24T07:03:23Z run inkling2_loop_fast lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null path=fast 
+2026-11-24T07:03:23Z end inkling2_loop_fast rc=4 0s
+2026-11-24T07:03:23Z run inkling2_loop_seq lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null 
+2026-11-24T07:03:24Z end inkling2_loop_seq rc=4 1s
+2026-11-24T07:03:24Z run inkling2_loop_rep lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null 
+2026-11-24T07:03:24Z end inkling2_loop_rep rc=4 0s
+2026-11-24T07:03:26Z run inkling2_loop_resA lora_dropout=0.05 per_device_batch_size=2 gradient_accumulation_steps=4 max_steps=8 seed=42 lora_target_modules=null save_steps=4 
+2026-11-24T07:03:27Z end inkling2_loop_resA rc=4 1s

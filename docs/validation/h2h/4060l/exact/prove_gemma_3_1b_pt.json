@@ -1,0 +1,1 @@
+{"schema":"poros.error.v1","error":{"code":"E_HUB_AUTH","exit_code":5,"message":"the model is gated on the Hugging Face Hub: accept its license on its page at huggingface.co, then log in (hf auth login)"}}

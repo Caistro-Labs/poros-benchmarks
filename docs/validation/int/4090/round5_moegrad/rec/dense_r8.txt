@@ -1,0 +1,5 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+DENSE_R8 <path> {'drop0.0': 16, 'drop0.0_owned': 7, 'drop0.0_n': 14, 'drop0.1': 16, 'drop0.1_owned': 13, 'drop0.1_n': 14}
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+DENSE_R8 <path> {'drop0.0': 16, 'drop0.0_owned': 14, 'drop0.0_n': 14, 'drop0.1': 16, 'drop0.1_owned': 14, 'drop0.1_n': 14}
+CMP_R8 PASS 32 tensors unequal=[] {'drop0.0_owned': (7, 14), 'drop0.0_n': (14, 14), 'drop0.1_owned': (13, 14), 'drop0.1_n': (14, 14)}

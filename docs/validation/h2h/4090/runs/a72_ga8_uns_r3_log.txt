@@ -1,0 +1,177 @@
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+W1118 11:04:29.151000 3570432 torch/utils/_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+W1118 11:04:29.193000 3570432 torch/utils/_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+==((====))==  Unsloth 2026.11.4: Fast Qwen2 patching. Transformers: 5.17.0.
+   \\   /|    NVIDIA GeForce RTX 4090. Num GPUs = 1. Max memory: 23.516 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.14.1+cu130. CUDA: 8.9. CUDA Toolkit: 13.0. Triton: 3.8.0
+\        /    Bfloat16 = TRUE. FA [Xformers = 0.0.35. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: offload_layers = 'auto': the input embedding (2.32 GiB) and 51 of 80 decoder layers (20.85 GiB) stay in host RAM so 4.92 GiB stays free for training
+
+Loading weights:   0%|          | 0/351 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/351 [00:00<02:27,  2.37it/s]
+Loading weights:   1%|          | 2/351 [00:03<10:15,  1.76s/it]
+Loading weights:   1%|          | 4/351 [00:03<04:46,  1.21it/s]
+Loading weights:   1%|▏         | 5/351 [00:04<04:20,  1.33it/s]
+Loading weights:   2%|▏         | 6/351 [00:04<03:59,  1.44it/s]
+Loading weights:   3%|▎         | 10/351 [00:04<01:36,  3.55it/s]
+Loading weights:   3%|▎         | 12/351 [00:05<01:14,  4.57it/s]
+Loading weights:   5%|▍         | 16/351 [00:05<01:00,  5.57it/s]
+Loading weights:   5%|▍         | 17/351 [00:06<01:16,  4.39it/s]
+Loading weights:   5%|▌         | 18/351 [00:06<01:33,  3.56it/s]
+Loading weights:   6%|▋         | 22/351 [00:06<00:54,  6.08it/s]
+Loading weights:   7%|▋         | 24/351 [00:07<00:46,  7.00it/s]
+Loading weights:   8%|▊         | 28/351 [00:07<00:47,  6.84it/s]
+Loading weights:   8%|▊         | 29/351 [00:08<01:05,  4.95it/s]
+Loading weights:   9%|▊         | 30/351 [00:08<01:24,  3.82it/s]
+Loading weights:  10%|▉         | 34/351 [00:09<00:50,  6.32it/s]
+Loading weights:  10%|█         | 36/351 [00:09<00:43,  7.27it/s]
+Loading weights:  11%|█▏        | 40/351 [00:09<00:41,  7.47it/s]
+Loading weights:  12%|█▏        | 42/351 [00:10<01:08,  4.54it/s]
+Loading weights:  13%|█▎        | 46/351 [00:10<00:45,  6.72it/s]
+Loading weights:  14%|█▎        | 48/351 [00:11<00:39,  7.59it/s]
+Loading weights:  15%|█▍        | 52/351 [00:11<00:41,  7.25it/s]
+Loading weights:  15%|█▌        | 54/351 [00:12<01:08,  4.34it/s]
+Loading weights:  17%|█▋        | 58/351 [00:12<00:46,  6.28it/s]
+Loading weights:  17%|█▋        | 60/351 [00:13<00:41,  7.05it/s]
+Loading weights:  18%|█▊        | 64/351 [00:13<00:39,  7.18it/s]
+Loading weights:  19%|█▉        | 66/351 [00:14<01:02,  4.56it/s]
+Loading weights:  20%|█▉        | 70/351 [00:14<00:43,  6.52it/s]
+Loading weights:  21%|██        | 72/351 [00:14<00:38,  7.28it/s]
+Loading weights:  22%|██▏       | 76/351 [00:15<00:37,  7.35it/s]
+Loading weights:  22%|██▏       | 78/351 [00:16<00:58,  4.67it/s]
+Loading weights:  23%|██▎       | 82/351 [00:16<00:40,  6.72it/s]
+Loading weights:  24%|██▍       | 84/351 [00:16<00:35,  7.53it/s]
+Loading weights:  25%|██▌       | 88/351 [00:17<00:34,  7.53it/s]
+Loading weights:  26%|██▌       | 90/351 [00:18<00:57,  4.56it/s]
+Loading weights:  27%|██▋       | 94/351 [00:18<00:39,  6.52it/s]
+Loading weights:  27%|██▋       | 96/351 [00:18<00:35,  7.27it/s]
+Loading weights:  28%|██▊       | 100/351 [00:19<00:33,  7.41it/s]
+Loading weights:  29%|██▉       | 102/351 [00:20<00:55,  4.50it/s]
+Loading weights:  30%|███       | 106/351 [00:20<00:37,  6.46it/s]
+Loading weights:  31%|███       | 108/351 [00:20<00:33,  7.22it/s]
+Loading weights:  32%|███▏      | 112/351 [00:21<00:32,  7.37it/s]
+Loading weights:  32%|███▏      | 114/351 [00:22<00:53,  4.45it/s]
+Loading weights:  34%|███▎      | 118/351 [00:22<00:36,  6.39it/s]
+Loading weights:  34%|███▍      | 120/351 [00:22<00:32,  7.17it/s]
+Loading weights:  35%|███▌      | 124/351 [00:23<00:31,  7.32it/s]
+Loading weights:  36%|███▌      | 126/351 [00:24<00:49,  4.58it/s]
+Loading weights:  37%|███▋      | 130/351 [00:24<00:33,  6.60it/s]
+Loading weights:  38%|███▊      | 132/351 [00:24<00:29,  7.41it/s]
+Loading weights:  39%|███▊      | 136/351 [00:25<00:28,  7.44it/s]
+Loading weights:  39%|███▉      | 138/351 [00:26<00:46,  4.63it/s]
+Loading weights:  40%|████      | 142/351 [00:26<00:31,  6.66it/s]
+Loading weights:  41%|████      | 144/351 [00:26<00:27,  7.47it/s]
+Loading weights:  42%|████▏     | 148/351 [00:26<00:26,  7.55it/s]
+Loading weights:  43%|████▎     | 150/351 [00:27<00:42,  4.70it/s]
+Loading weights:  44%|████▍     | 154/351 [00:28<00:29,  6.79it/s]
+Loading weights:  44%|████▍     | 156/351 [00:28<00:25,  7.60it/s]
+Loading weights:  46%|████▌     | 160/351 [00:28<00:26,  7.34it/s]
+Loading weights:  46%|████▌     | 162/351 [00:29<00:42,  4.42it/s]
+Loading weights:  47%|████▋     | 166/351 [00:30<00:29,  6.38it/s]
+Loading weights:  48%|████▊     | 168/351 [00:30<00:25,  7.15it/s]
+Loading weights:  49%|████▉     | 172/351 [00:30<00:24,  7.34it/s]
+Loading weights:  50%|████▉     | 174/351 [00:31<00:38,  4.64it/s]
+Loading weights:  51%|█████     | 178/351 [00:32<00:26,  6.62it/s]
+Loading weights:  51%|█████▏    | 180/351 [00:32<00:23,  7.38it/s]
+Loading weights:  52%|█████▏    | 184/351 [00:32<00:22,  7.45it/s]
+Loading weights:  53%|█████▎    | 186/351 [00:33<00:34,  4.72it/s]
+Loading weights:  54%|█████▍    | 190/351 [00:33<00:23,  6.82it/s]
+Loading weights:  55%|█████▍    | 192/351 [00:34<00:20,  7.66it/s]
+Loading weights:  56%|█████▌    | 196/351 [00:34<00:20,  7.61it/s]
+Loading weights:  56%|█████▋    | 198/351 [00:35<00:33,  4.60it/s]
+Loading weights:  58%|█████▊    | 202/351 [00:35<00:22,  6.64it/s]
+Loading weights:  58%|█████▊    | 204/351 [00:35<00:19,  7.49it/s]
+Loading weights:  59%|█████▉    | 208/351 [00:36<00:19,  7.47it/s]
+Loading weights:  60%|█████▉    | 210/351 [00:37<00:30,  4.61it/s]
+Loading weights:  61%|██████    | 214/351 [00:37<00:20,  6.66it/s]
+Loading weights:  62%|██████▏   | 216/351 [00:37<00:18,  7.49it/s]
+Loading weights:  63%|██████▎   | 220/351 [00:38<00:18,  7.26it/s]
+Loading weights:  63%|██████▎   | 222/351 [00:39<00:28,  4.60it/s]
+Loading weights:  64%|██████▍   | 226/351 [00:39<00:18,  6.62it/s]
+Loading weights:  65%|██████▍   | 228/351 [00:39<00:16,  7.46it/s]
+Loading weights:  66%|██████▌   | 232/351 [00:40<00:16,  7.34it/s]
+Loading weights:  67%|██████▋   | 234/351 [00:41<00:25,  4.65it/s]
+Loading weights:  68%|██████▊   | 238/351 [00:41<00:16,  6.68it/s]
+Loading weights:  68%|██████▊   | 240/351 [00:41<00:14,  7.51it/s]
+Loading weights:  70%|██████▉   | 244/351 [00:42<00:14,  7.44it/s]
+Loading weights:  70%|███████   | 246/351 [00:43<00:22,  4.61it/s]
+Loading weights:  71%|███████   | 250/351 [00:43<00:15,  6.63it/s]
+Loading weights:  72%|███████▏  | 252/351 [00:43<00:13,  7.42it/s]
+Loading weights:  73%|███████▎  | 256/351 [00:44<00:12,  7.49it/s]
+Loading weights:  74%|███████▎  | 258/351 [00:45<00:20,  4.64it/s]
+Loading weights:  75%|███████▍  | 262/351 [00:45<00:13,  6.68it/s]
+Loading weights:  75%|███████▌  | 264/351 [00:45<00:11,  7.50it/s]
+Loading weights:  76%|███████▋  | 268/351 [00:45<00:11,  7.52it/s]
+Loading weights:  77%|███████▋  | 270/351 [00:46<00:17,  4.60it/s]
+Loading weights:  78%|███████▊  | 274/351 [00:47<00:11,  6.63it/s]
+Loading weights:  79%|███████▊  | 276/351 [00:47<00:10,  7.44it/s]
+Loading weights:  80%|███████▉  | 280/351 [00:47<00:09,  7.41it/s]
+Loading weights:  80%|████████  | 282/351 [00:48<00:14,  4.61it/s]
+Loading weights:  81%|████████▏ | 286/351 [00:49<00:09,  6.63it/s]
+Loading weights:  82%|████████▏ | 288/351 [00:49<00:08,  7.47it/s]
+Loading weights:  83%|████████▎ | 292/351 [00:49<00:07,  7.50it/s]
+Loading weights:  84%|████████▍ | 294/351 [00:50<00:12,  4.67it/s]
+Loading weights:  85%|████████▍ | 298/351 [00:50<00:07,  6.73it/s]
+Loading weights:  85%|████████▌ | 300/351 [00:51<00:06,  7.58it/s]
+Loading weights:  87%|████████▋ | 304/351 [00:51<00:06,  7.63it/s]
+Loading weights:  87%|████████▋ | 306/351 [00:52<00:09,  4.65it/s]
+Loading weights:  88%|████████▊ | 310/351 [00:52<00:06,  6.68it/s]
+Loading weights:  89%|████████▉ | 312/351 [00:52<00:05,  7.31it/s]
+Loading weights:  90%|█████████ | 316/351 [00:53<00:05,  6.90it/s]
+Loading weights:  91%|█████████ | 318/351 [00:54<00:08,  4.03it/s]
+Loading weights:  92%|█████████▏| 322/351 [00:55<00:05,  5.77it/s]
+Loading weights:  92%|█████████▏| 324/351 [00:55<00:04,  6.43it/s]
+Loading weights:  93%|█████████▎| 328/351 [00:55<00:03,  6.32it/s]
+Loading weights:  94%|█████████▎| 329/351 [00:56<00:04,  4.65it/s]
+Loading weights:  94%|█████████▍| 330/351 [00:57<00:05,  3.62it/s]
+Loading weights:  95%|█████████▌| 334/351 [00:57<00:03,  5.55it/s]
+Loading weights:  96%|█████████▌| 336/351 [00:57<00:02,  6.32it/s]
+Loading weights:  97%|█████████▋| 340/351 [00:58<00:02,  4.46it/s]
+Loading weights:  97%|█████████▋| 341/351 [00:59<00:02,  3.62it/s]
+Loading weights:  97%|█████████▋| 342/351 [01:00<00:02,  3.02it/s]
+Loading weights:  99%|█████████▊| 346/351 [01:00<00:01,  4.94it/s]
+Loading weights:  99%|█████████▉| 348/351 [01:00<00:00,  5.72it/s]
+Loading weights: 100%|██████████| 351/351 [01:00<00:00,  5.79it/s]
+[1mQwen2ForCausalLM LOAD REPORT[0m from: ~/hf/hub/models--Qwen--Qwen2.5-72B/snapshots/efba10c8e54e91e0d9570ab5f7b51a958474d4cb
+Key                                                    | Status     |  | 
+-------------------------------------------------------+------------+--+-
+model.layers.{29...79}.mlp.up_proj.weight              | UNEXPECTED |  | 
+model.layers.{29...79}.self_attn.k_proj.bias           | UNEXPECTED |  | 
+model.layers.{29...79}.self_attn.q_proj.bias           | UNEXPECTED |  | 
+model.layers.{29...79}.self_attn.k_proj.weight         | UNEXPECTED |  | 
+model.layers.{29...79}.self_attn.o_proj.weight         | UNEXPECTED |  | 
+model.layers.{29...79}.self_attn.v_proj.bias           | UNEXPECTED |  | 
+model.layers.{29...79}.self_attn.q_proj.weight         | UNEXPECTED |  | 
+model.layers.{29...79}.mlp.gate_proj.weight            | UNEXPECTED |  | 
+model.layers.{29...79}.input_layernorm.weight          | UNEXPECTED |  | 
+model.layers.{29...79}.self_attn.v_proj.weight         | UNEXPECTED |  | 
+model.layers.{29...79}.post_attention_layernorm.weight | UNEXPECTED |  | 
+model.layers.{29...79}.mlp.down_proj.weight            | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+Unsloth: ~/hf/hub/models--Qwen--Qwen2.5-72B/snapshots/efba10c8e54e91e0d9570ab5f7b51a958474d4cb had a bad pad_token (<|endoftext|>). Using pad_token = <|vision_pad|>.
+Unsloth: Offloading embeddings to RAM to save 2.32 GB.
+Unsloth 2026.11.4 patched 80 layers with 80 QKV layers, 80 O layers and 80 MLP layers.
+Unsloth: compiling each transformer block as one region (Qwen2DecoderLayer).
+Unsloth: Will smartly offload gradients to save VRAM!
+Unsloth: Double buffering enabled (parallel H2D + compute) for backward pass.
+update 0 33.68s loss 0.97296 gn 0.10375168174505234
+update 1 22.33s loss 1.23936 gn 0.12770409882068634
+update 2 21.73s loss 1.10670 gn 0.13229994475841522
+update 3 21.87s loss 0.81635 gn 0.11560845375061035
+update 4 22.10s loss 0.96923 gn 0.13394609093666077
+update 5 22.40s loss 1.09989 gn 0.13185329735279083
+update 6 22.02s loss 1.19371 gn 0.11876296997070312
+update 7 22.34s loss 1.38452 gn 0.14733952283859253
+update 8 22.07s loss 1.05128 gn 0.1453784853219986
+update 9 21.66s loss 0.71767 gn 0.11130190640687943
+update 10 22.02s loss 0.92165 gn 0.945675253868103
+update 11 22.07s loss 0.85404 gn 0.121231809258461
+update 12 22.28s loss 0.95313 gn 0.11875245720148087
+update 13 22.10s loss 1.16068 gn 0.1425255537033081
+update 14 22.28s loss 1.15332 gn 0.20995239913463593
+update 15 21.75s loss 0.93590 gn 0.1253189593553543
+H2H_RESULT {"harness": "h2h_u7", "tool": "unsloth", "stage": "done", "epoch_start": 1794999861.334944, "alloc_env_at_start": {"PYTORCH_ALLOC_CONF": "unset", "PYTORCH_CUDA_ALLOC_CONF": "unset"}, "update_s": [33.6786, 22.3263, 21.7278, 21.8744, 22.0959, 22.4048, 22.0227, 22.3403, 22.0716, 21.6614, 22.0243, 22.0716, 22.2798, 22.1025, 22.284, 21.7535], "grad_norm": [0.10375168174505234, 0.12770409882068634, 0.13229994475841522, 0.11560845375061035, 0.13394609093666077, 0.13185329735279083, 0.11876296997070312, 0.14733952283859253, 0.1453784853219986, 0.11130190640687943, 0.945675253868103, 0.121231809258461, 0.11875245720148087, 0.1425255537033081, 0.20995239913463593, 0.1253189593553543], "tokens": [4096, 4096, 4096, 4096, 4096, 4096, 4096, 4096, 4096, 4096, 4096, 4096, 4096, 4096, 4096, 4096], "versions": {"unsloth": "2026.11.4", "unsloth_zoo": "2026.11.4", "torch": "2.14.1", "transformers": "5.17.0", "peft": "0.21.2", "bitsandbytes": "0.50.2", "accelerate": "1.15.0", "torch_cuda": "13.0"}, "from_pretrained_kwargs": {"offload_layers": "auto"}, "alloc_env_after_unsloth_import": {"PYTORCH_ALLOC_CONF": "expandable_segments:True", "PYTORCH_CUDA_ALLOC_CONF": "unset"}, "local_snapshot_of": "Qwen/Qwen2.5-72B", "local_snapshot_revision": "efba10c8e54e91e0d9570ab5f7b51a958474d4cb", "load_source": "~/hf/hub/models--Qwen--Qwen2.5-72B/snapshots/efba10c8e54e91e0d9570ab5f7b51a958474d4cb", "load_model_s": 296.11, "block_swap": {"decoder_layers": 80, "swappers": [{"indices": [29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79], "n": 51, "depth": 2, "pinned_bytes": 22382997504, "host_bytes": 22382997504}], "swapped": 51}, "input_embedding_device": "cpu", "load_s": 302.72, "load_end_epoch": 1795000164.0572867, "load_host_status": {"VmLck_kb": 0, "VmPin_kb": 0, "VmHWM_kb": 61591308, "VmRSS_kb": 26172964, "RssAnon_kb": 25993996, "RssFile_kb": 109328, "RssShmem_kb": 69640}, "load_host_vmhwm_gib": 58.738, "load_host_peak_anon_shmem_kb": 44633996, "after_load_allocated_gib": 17.254, "after_load_reserved_gib": 17.336, "load_peak_allocated_gib": 18.79, "load_peak_reserved_gib": 18.984, "after_load_smi_mib": 18318, "model_source": "~/hf/hub/models--Qwen--Qwen2.5-72B/snapshots/efba10c8e54e91e0d9570ab5f7b51a958474d4cb", "rows_sha256": "13b5db2ab23e70733130be4a416042a5893d73852d4e5bf426709352c3507fdd", "trainable_params": 210534400, "trainable_dtypes": ["torch.float32"], "trainable_groups": {"base_model.model.model.layers.N.mlp.down_proj.lora_A.default.weight": 37847040, "base_model.model.model.layers.N.mlp.down_proj.lora_B.default.weight": 10485760, "base_model.model.model.layers.N.mlp.gate_proj.lora_A.default.weight": 10485760, "base_model.model.model.layers.N.mlp.gate_proj.lora_B.default.weight": 37847040, "base_model.model.model.layers.N.mlp.up_proj.lora_A.default.weight": 10485760, "base_model.model.model.layers.N.mlp.up_proj.lora_B.default.weight": 37847040, "base_model.model.model.layers.N.self_attn.k_proj.lora_A.default.weight": 10485760, "base_model.model.model.layers.N.self_attn.k_proj.lora_B.default.weight": 1310720, "base_model.model.model.layers.N.self_attn.o_proj.lora_A.default.weight": 10485760, "base_model.model.model.layers.N.self_attn.o_proj.lora_B.default.weight": 10485760, "base_model.model.model.layers.N.self_attn.q_proj.lora_A.default.weight": 10485760, "base_model.model.model.layers.N.self_attn.q_proj.lora_B.default.weight": 10485760, "base_model.model.model.layers.N.self_attn.v_proj.lora_A.default.weight": 10485760, "base_model.model.model.layers.N.self_attn.v_proj.lora_B.default.weight": 1310720}, "trainable_group_count": 14, "epoch_train_start": 1795000164.1552737, "peak_allocated_gib_update1": 20.454, "peak_reserved_gib_update1": 20.576, "peak_allocated_gib_updates2plus": 20.454, "peak_reserved_gib_updates2plus": 21.123, "peak_allocated_gib_train": 20.454, "peak_reserved_gib_train": 21.123, "adapter_digest_fp32": "6efaaa365e76e5b6512e6ec914101866d6be11da3ec1f01a7093df4347bd9e32", "host_vmhwm_gib": 58.738, "host_status_end": {"VmLck_kb": 0, "VmPin_kb": 0, "VmHWM_kb": 61591308, "VmRSS_kb": 27181280, "RssAnon_kb": 26265016, "RssFile_kb": 191264, "RssShmem_kb": 725000}, "host_peak_anon_shmem_kb": 44633996, "wall_s": 669.28, "host_maxrss_gib": 58.738, "peak_allocated_gib_last_window": 20.454, "peak_reserved_gib_last_window": 21.123, "card_gib": 23.516, "nvidia_smi_used_mib_end": 22228}

@@ -1,0 +1,39 @@
+▛▜ poros v0.3.0 · Qwen/Qwen3-30B-A3B · RTX 4090 23.5 GiB
+
+● Checked a30_ga8_ssdeff_r2.yaml  config
+  │ nf4 · block 4 · rank 16 · seq 512 · efficient path
+  │ classic · every token · lr 2e-5
+  │ output    runs/a30_ga8_ssdeff_r2
+  │ store     ssd ~/rf/h2hf_5d75e31a/store
+
+● Loaded Qwen3-30B-A3B  14s
+  │ MoE · 48 layers · 128 experts
+step 1/16  loss 1.1857  17.05 s/step  vram 5.1 GiB (peak 7.4)  eta 4m 16s
+step 4/16  loss 1.2310  13.49 s/step  vram 5.1 GiB (peak 7.4)  eta 2m 55s
+step 7/16  loss 1.2613  19.96 s/step  vram 5.1 GiB (peak 7.4)  eta 2m 17s
+step 9/16  loss 1.3842  20.29 s/step  vram 5.1 GiB (peak 7.4)  eta 1m 55s
+step 11/16  loss 1.2679  21.62 s/step  vram 5.1 GiB (peak 7.4)  eta 1m 27s
+step 13/16  loss 1.1087  18.38 s/step  vram 5.1 GiB (peak 7.4)  eta 52s
+step 15/16  loss 1.2189  17.70 s/step  vram 5.1 GiB (peak 7.4)  eta 18s
+
+  ╭─ Trained ────────────────────────────────────────────────────── 16 steps · classic · 4m 56s ─╮
+  │                                                                      final loss              │
+  │                                  ▅▃                                  1.1102  ↓ 6%            │
+  │ 1.50                           ▂███▃                                 from 1.1857             │
+  │         ▁█▅▁                ▁▁▅█████▃                        ▃▆                              │
+  │        ▃████▆▂         ▂▄▆▇██████████▃                    ▁▅███▆     vram 7.4 GiB peak       │
+  │ 1.25  ▄███████▃      ▄████████████████▂                 ▃▆██████▆    ram  8.5 GiB peak       │
+  │      ▆█████████▃    ▅██████████████████▂      ▁      ▂▅██████████▆                           │
+  │      ███████████▃  ▆████████████████████▁   ▁▆█▆▄▂▂▄▇█████████████▇                          │
+  │ 1.00 ████████████▃▇██████████████████████▁ ▃███████████████████████                          │
+  │      █████████████████████████████████████▆████████████████████████                          │
+  │      1                                8                          16                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      234 tok/s
+  │
+  │ adapter    runs/a30_ga8_ssdeff_r2
+  │ receipt    runs/a30_ga8_ssdeff_r2/receipt.json
+
+Continue with: poros eval ~/rf/h2hf_5d75e31a/rec/a30_ga8_ssdeff_r2.yaml
+{"schema":"poros.train.v1","learned":null,"output_dir":"~/rf/h2hf_5d75e31a/runs/a30_ga8_ssdeff_r2","events":"~/rf/h2hf_5d75e31a/runs/a30_ga8_ssdeff_r2/events.jsonl","metrics":{"device":"cuda:0","total_steps":16,"final_loss":1.1101921796798706,"loss_history":[1.1856834888458252,1.460667610168457,1.3068935871124268,0.9707450866699219,1.2717106342315674,1.363610863685608,1.3934178352355957,1.6199301481246948,1.2721953392028809,0.9162167310714722,1.1379345655441284,1.0505033731460571,1.1667691469192505,1.3010951280593872,1.43825364112854,1.1101921796798706],"grad_norm_history":[0.55859375,0.48828125,0.478515625,0.44921875,0.5390625,0.490234375,0.423828125,0.50390625,0.51953125,0.55859375,0.498046875,0.7265625,0.546875,0.451171875,0.427734375,0.5078125],"eval_history":[],"total_time_s":280.42961432784796,"step_time_history":[17.04517868719995,13.839934349060059,14.001441365107894,13.48640113323927,12.834130944684148,15.613728132098913,19.95552183687687,21.09132151864469,20.29376164637506,20.529132444411516,21.62090619467199,17.90146515518427,18.380398457869887,18.244169736281037,17.69517441280186,17.896948313340545],"vram_alloc_history_mb":[5423.983616,5423.983616,5423.983616,5423.983616,5423.983616,5423.983616,5423.983616,5423.983616,5423.983616,5423.983616,5423.983616,5423.983616,5423.983616,5423.983616,5423.983616,5423.983616],"avg_vram_allocated_mb":5423.983616,"avg_step_time_ms":17526.850895490497,"steps_per_sec":0.057055315068452545,"tokens_processed":65536,"tokens_per_sec":233.69857052038162,"peak_vram_allocated_gb":7.940566528,"peak_vram_reserved_gb":8.311013376,"torch_num_threads":16,"quantization":"nf4","block_size":null,"adapter_backend":"native","adapter_summary":null},"run":null,"command":null,"next":[],"plan":null,"from":null,"support":null,"model_type":null}

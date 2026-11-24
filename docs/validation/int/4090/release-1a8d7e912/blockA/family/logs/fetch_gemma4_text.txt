@@ -1,0 +1,1 @@
+FETCH wrote <home>/poros_rel/hf_cert/fg_models/google_gemma-4-31B__text6 gemma4_text 4338096902 params sha256 c7823b0f4e2dcd0a

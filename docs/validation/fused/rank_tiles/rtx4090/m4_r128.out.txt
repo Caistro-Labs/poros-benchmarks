@@ -1,0 +1,13 @@
+rkG = the release-candidate tree + the rank-128 launch: SwiGLU backward column tile 32, 256 MiB partials (env.txt)
+RANK dense 128 sequential c3a4099b2ca277c4 [5.547067, 5.543403] {"fused_compute": true} None
+RANK dense 128 fast c3a4099b2ca277c4 [5.547067, 5.543403] {"fused_compute": true, "nf4_dequant_cache_mb": 19} None
+RANK dense 128 efficient c3a4099b2ca277c4 [5.547067, 5.543403] {"fused_compute": true, "nf4_dequant_cache_mb": 0} None
+RANK dense 128 fast_resident c3a4099b2ca277c4 [5.547067, 5.543403] {"fused_compute": true, "nf4_dequant_cache_mb": 19} None
+RANK dense 128 sequential_peft 198b510d28fae7c1 [5.547067, 5.543404] {"fused_compute": false} None
+RANKPATHS dense 128 PASS c3a4099b2ca277c4
+.........................................................                [100%]
+57 passed in 26.08s
+RUN rkG_r128_fused_mb1 rc=0 steps=100 s_med_2_8=2.094 s=[2.889, 2.598, 2.071, 2.041, 2.632, 2.066, 2.056, 2.036, 2.053, 
+REFCHECK128 100 dev 0.000567 0.002487 noise 0.021638 0.107541 PASS s 2.2818 peak 2.992 4.075
+SPEED sp128_rkG [3.895, 2.65, 2.657, 2.658] med2-4 2.657 peak GB 19.24 23.893
+2026-11-14T04:34:10Z

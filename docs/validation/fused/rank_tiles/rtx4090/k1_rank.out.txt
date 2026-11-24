@@ -1,0 +1,45 @@
+rk1 = the release-candidate tree + the rank-aware tiles, as working changes (env.txt)
+tree ok
+date: extra operand ‘got’
+Try 'date --help' for more information.
+tiny qwen3_moe at <path>
+date: extra operand ‘got’
+Try 'date --help' for more information.
+RANK dense 64 sequential 1c9db53e3f04166d [5.547067, 5.544262] {"fused_compute": true} None
+RANK dense 64 fast 1c9db53e3f04166d [5.547067, 5.544262] {"fused_compute": true, "nf4_dequant_cache_mb": 19} None
+RANK dense 64 efficient 1c9db53e3f04166d [5.547067, 5.544262] {"fused_compute": true, "nf4_dequant_cache_mb": 0} None
+RANK dense 64 fast_resident 1c9db53e3f04166d [5.547067, 5.544262] {"fused_compute": true, "nf4_dequant_cache_mb": 19} None
+RANK dense 64 sequential_peft f101d855eadfc13b [5.547067, 5.544259] {"fused_compute": false} None
+RANKPATHS dense 64 PASS 1c9db53e3f04166d
+date: extra operand ‘got’
+Try 'date --help' for more information.
+RANK moe 64 sequential a8b11340ef35d67c [11.929375, 11.929638] {"moe_expert_compute": "fused", "fused_compute": true, "moe_expert_cache_gib": 0.003, "moe_expert_cache_reason": "one layer: the sequential loop does not grow it"} None
+RANK moe 64 fast a8b11340ef35d67c [11.929375, 11.929638] {"moe_expert_compute": "fused", "fused_compute": true, "moe_expert_cache_gib": 0.018, "moe_expert_cache_reason": "every expert (0.02 GiB) fits: 21.97 GiB this process may hold - 0.93 GiB reserved peak - 4.39 GiB margin", "nf4_dequant_cache_mb": 0} None
+RANK moe 64 efficient a8b11340ef35d67c [11.929375, 11.929638] {"moe_expert_compute": "fused", "fused_compute": true, "moe_expert_cache_gib": 0.003, "moe_expert_cache_reason": "one layer: path efficient, the lowest-VRAM path", "nf4_dequant_cache_mb": 0} None
+RANK moe 64 fast_resident a8b11340ef35d67c [11.929375, 11.929638] {"moe_expert_compute": "fused", "fused_compute": true, "moe_expert_cache_gib": 0.018, "moe_expert_cache_reason": "every expert (0.02 GiB) fits: 21.97 GiB this process may hold - 1.30 GiB reserved peak - 4.39 GiB margin", "nf4_dequant_cache_mb": 0} None
+RANK moe 64 sequential_reference a52435d626893e98 [11.929375, 11.929638] {"moe_expert_compute": "reference", "fused_compute": false, "moe_expert_cache_gib": 0.003, "moe_expert_cache_reason": "one layer: the sequential loop does not grow it"} None
+RANKPATHS moe 64 PASS a8b11340ef35d67c
+date: extra operand ‘got’
+Try 'date --help' for more information.
+RANK dense 128 sequential 1cd4dd004c5c3dc4 [5.547067, 5.543403] {"fused_compute": true} None
+RANK dense 128 fast 1cd4dd004c5c3dc4 [5.547067, 5.543403] {"fused_compute": true, "nf4_dequant_cache_mb": 19} None
+RANK dense 128 efficient 1cd4dd004c5c3dc4 [5.547067, 5.543403] {"fused_compute": true, "nf4_dequant_cache_mb": 0} None
+RANK dense 128 fast_resident 1cd4dd004c5c3dc4 [5.547067, 5.543403] {"fused_compute": true, "nf4_dequant_cache_mb": 19} None
+RANK dense 128 sequential_peft 198b510d28fae7c1 [5.547067, 5.543404] {"fused_compute": false} None
+RANKPATHS dense 128 PASS 1cd4dd004c5c3dc4
+date: extra operand ‘got’
+Try 'date --help' for more information.
+RANK moe 128 sequential 076fbf7778e950d2 [11.929375, 11.929638] {"moe_expert_compute": "fused", "fused_compute": true, "moe_expert_cache_gib": 0.003, "moe_expert_cache_reason": "one layer: the sequential loop does not grow it"} None
+RANK moe 128 fast 076fbf7778e950d2 [11.929375, 11.929638] {"moe_expert_compute": "fused", "fused_compute": true, "moe_expert_cache_gib": 0.018, "moe_expert_cache_reason": "every expert (0.02 GiB) fits: 22.27 GiB this process may hold - 1.00 GiB reserved peak - 4.45 GiB margin", "nf4_dequant_cache_mb": 0} None
+RANK moe 128 efficient 076fbf7778e950d2 [11.929375, 11.929638] {"moe_expert_compute": "fused", "fused_compute": true, "moe_expert_cache_gib": 0.003, "moe_expert_cache_reason": "one layer: path efficient, the lowest-VRAM path", "nf4_dequant_cache_mb": 0} None
+RANK moe 128 fast_resident 076fbf7778e950d2 [11.929375, 11.929638] {"moe_expert_compute": "fused", "fused_compute": true, "moe_expert_cache_gib": 0.018, "moe_expert_cache_reason": "every expert (0.02 GiB) fits: 22.27 GiB this process may hold - 1.80 GiB reserved peak - 4.45 GiB margin", "nf4_dequant_cache_mb": 0} None
+RANK moe 128 sequential_reference be1231b0a936dcd1 [11.929375, 11.929638] {"moe_expert_compute": "reference", "fused_compute": false, "moe_expert_cache_gib": 0.003, "moe_expert_cache_reason": "one layer: the sequential loop does not grow it"} None
+RANKPATHS moe 128 PASS 076fbf7778e950d2
+date: extra operand ‘got’
+Try 'date --help' for more information.
+DENSE sequential c90b03c78f6d2542 [5.542368, 5.540823] fused True
+DENSE fast c90b03c78f6d2542 [5.542368, 5.540823] fused True
+DENSE efficient c90b03c78f6d2542 [5.542368, 5.540823] fused True
+DENSE fast_offhead c90b03c78f6d2542 [5.542368, 5.540823] fused True
+(dense digest before: c90b03c78f6d2542)
+2026-11-14T01:54:42Z

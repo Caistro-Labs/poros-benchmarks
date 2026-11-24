@@ -1,0 +1,37 @@
+▛▜ poros v0.3.0 · Qwen/Qwen1.5-MoE-A2.7B · RTX 4090 23.5 GiB
+
+● Checked G2_qwen15moe_1x8.yaml  config
+  │ nf4 · block 4 · rank 16 · seq 512 · efficient path
+  │ classic · every token · lr 2e-5
+  │ output    runs/G2_qwen15moe_1x8
+
+● Loaded Qwen1.5-MoE-A2.7B  39s
+  │ MoE · 24 layers · 60 experts
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 64 examples [00:00, 18072.81 examples/s]
+Map:   0%|          | 0/64 [00:00<?, ? examples/s]Map: 100%|██████████| 64/64 [00:00<00:00, 1495.00 examples/s]
+Filter:   0%|          | 0/64 [00:00<?, ? examples/s]Filter: 100%|██████████| 64/64 [00:00<00:00, 15244.22 examples/s]
+path efficient after update 1: block inputs {'offloaded': 184, 'kept_on_device': 0, 'slabs': 2, 'slab_bytes': 536870912, 'bytes_down': 385875968, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 9663676416, 'refusals': 0}
+block-major MoE expert dequant cache after update 1: hits 0 misses 0
+step 1/8  loss 1.5005  4.79 s/step  vram 2.5 GiB (peak 3.5)  eta 34s
+
+  ╭─ Trained ────────────────────────────────────────────────────────── 8 steps · classic · 38s ─╮
+  │                                                                      final loss              │
+  │          ▁▂▃▅▆▆▃▁                                     ▁▃▄▆▅▄▂        1.4221  ↓ 5%            │
+  │  1.5 ▄▅▆█████████▆▃▁                             ▁▃▄▆█████████▇▅▄▂   from 1.5005             │
+  │      ███████████████▆▄▁                       ▂▄▇██████████████████                          │
+  │      ███████████████████▇▇▇▆▆▆▅▅▄▃▂▁       ▃▅██████████████████████  vram 4.2 GiB peak       │
+  │  1.0 ████████████████████████████████▇▅▄▄▆█████████████████████████  ram  14.8 GiB peak      │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │  0.5 ██████████████████████████████████████████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                                  4                         8                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      1,023 tok/s
+  │
+  │ adapter    runs/G2_qwen15moe_1x8
+  │ receipt    runs/G2_qwen15moe_1x8/receipt.json
+
+Continue with: poros eval <path>
+{"schema":"poros.train.v1","learned":null,"output_dir":"<path>","events":"<path>","metrics":{"device":"cuda:0","total_steps":8,"final_loss":1.4220914840698242,"loss_history":[1.5004509687423706,1.7229748964309692,1.2475671768188477,1.1903687715530396,0.986117959022522,1.4216116666793823,1.7211389541625977,1.4220914840698242],"grad_norm_history":[0.310546875,0.30859375,0.251953125,0.314453125,0.2734375,0.30859375,0.2734375,0.296875],"eval_history":[],"total_time_s":32.017501974478364,"step_time_history":[4.788858186453581,3.873280569911003,3.9131649676710367,3.9216310009360313,3.873802088201046,3.8275007735937834,3.911394238471985,3.9078701492398977],"vram_alloc_history_mb":[2735.890432,2735.890432,2735.890432,2735.890432,2735.890432,2735.890944,2735.890432,2735.890432],"avg_vram_allocated_mb":2735.890496,"avg_step_time_ms":4002.1877468097955,"steps_per_sec":0.24986334056844664,"tokens_processed":32768,"tokens_per_sec":1023.4402429683574,"peak_vram_allocated_gb":4.418127872,"peak_vram_reserved_gb":4.651483136,"torch_num_threads":16,"quantization":"nf4","block_size":null,"adapter_backend":"native","adapter_summary":null},"run":null,"command":null,"next":[],"plan":null,"from":null,"support":null,"model_type":null}

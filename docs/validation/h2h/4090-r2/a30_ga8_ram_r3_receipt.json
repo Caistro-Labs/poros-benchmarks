@@ -1,0 +1,52 @@
+{
+  "arch": "MoE \u00b7 48 layers \u00b7 128 experts",
+  "block_inputs": {
+    "bytes_down": 788529152,
+    "host_full": false,
+    "kept_on_device": 0,
+    "offloaded": 376,
+    "pageable_slabs": 0,
+    "slab_bytes": 805306368,
+    "slabs": 3
+  },
+  "config": {
+    "block_size": null,
+    "dataset": "<home>/poros_rel/h2h_rel/data/oasst_full128.jsonl",
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 2e-05,
+    "lora_alpha": 32,
+    "lora_rank": 16,
+    "max_seq_length": 512,
+    "max_steps": 16,
+    "per_device_batch_size": 1,
+    "quantization": "nf4"
+  },
+  "final_loss": 1.10980224609375,
+  "finished_at": "2026-11-24T10:40:54+00:00",
+  "gpu": {
+    "name": "RTX 4090",
+    "total_gb": 25.25
+  },
+  "host_staging": {
+    "budget_basis": "no ceiling found",
+    "granted_bytes": 17985175552,
+    "mode": "pinned",
+    "pinned_budget_bytes": null,
+    "refusals": 0
+  },
+  "kind": "poros.train.receipt",
+  "model": "Qwen/Qwen3-30B-A3B",
+  "output_dir": "<home>/poros_rel/h2h_rel/runs/a30_ga8_ram_r3",
+  "peak_host_ram_gb": 23.805,
+  "peak_vram_allocated_gb": 8.87,
+  "peak_vram_reserved_gb": 9.758,
+  "poros": "1.0.0",
+  "recipe": "classic",
+  "run": "56f83eff",
+  "s_per_step": 4.7642,
+  "simulated": false,
+  "steps": 16,
+  "tokens_per_sec": 859.74,
+  "version": 1,
+  "wall_s": 93.81
+}

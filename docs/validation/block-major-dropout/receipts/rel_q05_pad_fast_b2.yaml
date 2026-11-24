@@ -1,0 +1,12 @@
+model_name_or_path: Qwen/Qwen2.5-0.5B
+dataset: data/text40.jsonl
+gradient_accumulation_steps: 4
+per_device_batch_size: 2
+max_steps: 5
+max_seq_length: 512
+save_steps: 0
+logging_steps: 1
+eval_split: 0
+progress: false
+path: fast
+block_size: 2

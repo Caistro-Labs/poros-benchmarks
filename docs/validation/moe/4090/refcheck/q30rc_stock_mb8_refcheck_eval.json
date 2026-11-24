@@ -1,0 +1,5 @@
+{
+ "eval_dataset": "<path>",
+ "eval_loss": 1.1523054313659669,
+ "eval_perplexity": 3.1654823060564485
+}

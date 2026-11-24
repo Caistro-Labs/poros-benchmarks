@@ -1,0 +1,1 @@
+poros train Qwen/Qwen2.5-72B-Instruct --data <path> --steps 144 eval_split=0.05 eval_rows=4 --name launch-mac72b-144-1a8d7e91-i --yes --json store_path=~/<store>

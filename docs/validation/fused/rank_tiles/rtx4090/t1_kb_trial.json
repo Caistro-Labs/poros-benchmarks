@@ -1,0 +1,70 @@
+{
+"R": 128,
+"limit": 101376,
+"base": {
+"out_fwd": [
+32,
+64,
+8
+],
+"out_bwd": [
+16,
+64,
+8,
+2
+],
+"swiglu_fwd": [
+32,
+32,
+4
+],
+"swiglu_bwd": [
+16,
+32,
+4,
+1
+],
+"rope_fwd": [
+16,
+8
+],
+"rope_bwd": [
+16,
+8,
+1
+],
+"chunk": true,
+"partial_elems": 67108864
+},
+"dev": "NVIDIA GeForce RTX 4090",
+"rows": [
+{
+"kernel": "base",
+"cand": null,
+"72b:swiglu_fwd": 17.081,
+"72b:out_fwd_H": 1.338,
+"72b:out_fwd_kv": 0.157,
+"72b:rope_fwd_q": 1.96,
+"72b:rope_fwd_kv": 0.253,
+"72b:swiglu_bwd": 30.888,
+"72b:out_bwd_H": 1.013,
+"72b:out_bwd_kv": 0.169,
+"72b:rope_bwd_q": 0.869,
+"72b:rope_bwd_kv": 0.137,
+"72b:swiglu_fwd_hf": 8.4,
+"72b:swiglu_bwd_drop": 27.462,
+"05b:swiglu_fwd": 0.305,
+"05b:out_fwd_H": 0.06,
+"05b:out_fwd_kv": 0.059,
+"05b:rope_fwd_q": 0.067,
+"05b:rope_fwd_kv": 0.055,
+"05b:swiglu_bwd": 0.7,
+"05b:out_bwd_H": 0.155,
+"05b:out_bwd_kv": 0.151,
+"05b:rope_bwd_q": 0.124,
+"05b:rope_bwd_kv": 0.122,
+"05b:swiglu_fwd_hf": 0.177,
+"05b:swiglu_bwd_drop": 0.622
+}
+]
+}

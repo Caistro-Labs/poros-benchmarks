@@ -1,0 +1,9 @@
+
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+Fetching 12 files:  25%|██▌       | 3/12 [00:00<00:00, 28.98it/s]
+Fetching 12 files:  75%|███████▌  | 9/12 [00:00<00:00, 10.93it/s]
+Fetching 12 files:  92%|█████████▏| 11/12 [00:05<00:00,  1.45it/s]
+Fetching 12 files: 100%|██████████| 12/12 [00:37<00:00,  5.57s/it]
+Fetching 12 files: 100%|██████████| 12/12 [00:37<00:00,  3.11s/it]
+FETCH snapshot <home>/poros_rel/hf_cert/fg_models/thinkingmachines_Inkling-2-Mini__snapshot0 -> <home>/poros_rel/hf_cert/hub/models--thinkingmachines--Inkling-2-Mini/snapshots/7a67ae2314b44ef05c87fd1d4d311c58aaeb18f6

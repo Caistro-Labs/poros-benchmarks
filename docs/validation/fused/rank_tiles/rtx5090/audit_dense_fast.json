@@ -1,0 +1,20 @@
+{
+ "config": "<path>",
+ "ran_compute": {
+  "fused_compute": true,
+  "nf4_dequant_cache_mb": 114
+ },
+ "counts": {
+  "cpu|bfloat16|fwd": 192,
+  "cpu|float32|fwd": 2372,
+  "cuda|bfloat16|bwd": 1739,
+  "cuda|bfloat16|fwd": 3659,
+  "cuda|float32|bwd": 9513,
+  "cuda|float32|fwd": 16016
+ },
+ "cpu_half_ops": {
+  "cpu|bfloat16|fwd": {
+   "aten.detach.default": 192
+  }
+ }
+}

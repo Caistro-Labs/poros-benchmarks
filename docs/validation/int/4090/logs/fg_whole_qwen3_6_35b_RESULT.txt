@@ -1,0 +1,16 @@
+family_gate: tree <path> -> <path>
+start 2026-11-16T07:46:24Z
+PASS  env                                sha b6e03fc8b363 dirty=0 {"gpu": "NVIDIA GeForce RTX 4090", "capability": [8, 9], "vram_gib": 23.52, "driver": "580.173.02", "torch": "2.14.1+cu130", "cuda": "13.0", "transformers": "5.22.2", "peft": "0.20.0", "bitsandbytes": "0.50.2", "triton": "3.8.0", "python": "3.12.3", "poros": "
+PASS  data                               6c8609d5be317280 <path>
+--- qwen3_5_moe_whole (Qwen/Qwen3.6-35B-A3B @ 345d467b snapshot 0) 2026-11-16T07:46:43Z
+PASS  qwen3_5_moe_whole:fetch            FETCH snapshot <path> -> <path>
+PASS  qwen3_5_moe_whole:check            model_type=qwen3_5_moe status=validated
+PASS  qwen3_5_moe_whole:paths            seq==eff==fast==resident digest 6b684797b103e5c4 | ran_path=fast fused_compute=True moe_expert_compute=fused moe_expert_cache_gib=7.04 compute_reason=None
+PASS  qwen3_5_moe_whole:repeat           fast twice bitwise, digest 6b684797b103e5c4
+PASS  qwen3_5_moe_whole:ran              every run: the path asked ran, no offload_reason, moe=fused reason=none, expert cache one layer on seq+eff, sized on fast
+PASS  qwen3_5_moe_whole:moe-ref          reference experts seq==fast digest 4adc8f170cec806f
+PASS  qwen3_5_moe_whole:refcheck         {"updates": 100, "dev_mean": 0.0010323715209960937, "dev_max": 0.004605472087860107, "noise_mean": 0.021119110584259033, "noise_max": 0.08086228370666504, "pass": true}
+FAIL  qwen3_5_moe_whole:moe-gate         rc=1 parity= torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 970.00 MiB. GPU 0 has a total capacity of 23.52 GiB of which 335.69 MiB is free. Including non-PyT
+FAIL  qwen3_5_moe_whole:resume           rc=1 
+end 2026-11-16T09:54:12Z
+FAILS=2

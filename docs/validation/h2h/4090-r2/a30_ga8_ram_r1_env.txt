@@ -1,0 +1,20 @@
+launch 2026-11-24T10:15:11Z site 4090   (queued: the run's launch time is NAME.t0, taken once the GPU lock is held)
+H2HF_B=~/poros_rel/h2h_rel
+H2HF_CACHE_NOTE=~/poros_rel/h2h_rel/cache_note.txt
+H2HF_DATA_SRC=~/poros_rel/data128
+H2HF_FLOOR_G=10
+H2HF_HELD=1
+H2HF_HF_HOME=~/poros_rel/hf_h2h
+H2HF_HWM_OUT=~/poros_rel/h2h_rel/rec/a30_ga8_ram_r1_hostpeak.json
+H2HF_SHA=1a8d7e912b166c373fcfec862ad7297221d33a71
+HF_HOME=~/poros_rel/hf_h2h
+HF_HUB_DISABLE_TELEMETRY=1
+HF_HUB_OFFLINE=1
+POROS_HOME=~/poros_rel/h2h_rel/home
+POROS_PROGRESS=0
+POROS_SSS_NATIVE_DIR=~/poros_rel/h2h_rel/sssnative
+PYTHONPATH=~/poros_rel/h2h_rel/src
+TMPDIR=~/poros_rel/h2h_rel/tmp
+TRITON_CACHE_DIR=~/poros_rel/h2h_rel/triton/cache
+PYTORCH_ALLOC_CONF=unset
+PYTORCH_CUDA_ALLOC_CONF=unset

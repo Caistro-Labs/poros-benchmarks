@@ -1,0 +1,6 @@
+..                                                                       [100%]
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/gpu/test_expandable_segments_cuda.py::test_a_run_allocates_after_the_allocator_is_set_up[fresh]
+PASSED tests/gpu/test_expandable_segments_cuda.py::test_a_run_allocates_after_the_allocator_is_set_up[held]
+2 passed in 6.32s

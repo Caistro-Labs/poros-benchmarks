@@ -1,0 +1,106 @@
+{
+ "sequential": {
+  "digest": "a8b11340ef35d67c908192f865ed77e272a7ca7f5bf66daac45b7d5289466311",
+  "losses": [
+   11.929374694824219,
+   11.929637908935547
+  ],
+  "grad_norms": [
+   1.5497207641601562e-06,
+   1.5497207641601562e-06
+  ],
+  "tensors": 24,
+  "ran_compute": {
+   "moe_expert_compute": "fused",
+   "fused_compute": true,
+   "moe_expert_cache_gib": 0.003,
+   "moe_expert_cache_reason": "one layer: the sequential loop does not grow it"
+  },
+  "compute_reason": null,
+  "peak_alloc_gib": 0.763
+ },
+ "fast": {
+  "digest": "a8b11340ef35d67c908192f865ed77e272a7ca7f5bf66daac45b7d5289466311",
+  "losses": [
+   11.929374694824219,
+   11.929637908935547
+  ],
+  "grad_norms": [
+   1.5497207641601562e-06,
+   1.5497207641601562e-06
+  ],
+  "tensors": 24,
+  "ran_compute": {
+   "moe_expert_compute": "fused",
+   "fused_compute": true,
+   "moe_expert_cache_gib": 0.018,
+   "moe_expert_cache_reason": "every expert (0.02 GiB) fits: 21.97 GiB this process may hold - 0.93 GiB reserved peak - 4.39 GiB margin",
+   "nf4_dequant_cache_mb": 0
+  },
+  "compute_reason": null,
+  "peak_alloc_gib": 0.789
+ },
+ "efficient": {
+  "digest": "a8b11340ef35d67c908192f865ed77e272a7ca7f5bf66daac45b7d5289466311",
+  "losses": [
+   11.929374694824219,
+   11.929637908935547
+  ],
+  "grad_norms": [
+   1.5497207641601562e-06,
+   1.5497207641601562e-06
+  ],
+  "tensors": 24,
+  "ran_compute": {
+   "moe_expert_compute": "fused",
+   "fused_compute": true,
+   "moe_expert_cache_gib": 0.003,
+   "moe_expert_cache_reason": "one layer: path efficient, the lowest-VRAM path",
+   "nf4_dequant_cache_mb": 0
+  },
+  "compute_reason": null,
+  "peak_alloc_gib": 1.125
+ },
+ "fast_resident": {
+  "digest": "a8b11340ef35d67c908192f865ed77e272a7ca7f5bf66daac45b7d5289466311",
+  "losses": [
+   11.929374694824219,
+   11.929637908935547
+  ],
+  "grad_norms": [
+   1.5497207641601562e-06,
+   1.5497207641601562e-06
+  ],
+  "tensors": 24,
+  "ran_compute": {
+   "moe_expert_compute": "fused",
+   "fused_compute": true,
+   "moe_expert_cache_gib": 0.018,
+   "moe_expert_cache_reason": "every expert (0.02 GiB) fits: 21.97 GiB this process may hold - 1.30 GiB reserved peak - 4.39 GiB margin",
+   "nf4_dequant_cache_mb": 0
+  },
+  "compute_reason": null,
+  "peak_alloc_gib": 1.158
+ },
+ "sequential_reference": {
+  "digest": "a52435d626893e983b9b50313665c4efeb0fda3195c678b4f805ff34be6fa69e",
+  "losses": [
+   11.929374694824219,
+   11.929637908935547
+  ],
+  "grad_norms": [
+   1.5497207641601562e-06,
+   1.5497207641601562e-06
+  ],
+  "tensors": 24,
+  "ran_compute": {
+   "moe_expert_compute": "reference",
+   "fused_compute": false,
+   "moe_expert_cache_gib": 0.003,
+   "moe_expert_cache_reason": "one layer: the sequential loop does not grow it"
+  },
+  "compute_reason": null,
+  "peak_alloc_gib": 4.679
+ },
+ "four_paths_bitwise": true
+}

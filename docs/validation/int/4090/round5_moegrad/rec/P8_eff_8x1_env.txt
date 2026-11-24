@@ -1,0 +1,13 @@
+launch 2026-11-17T06:47:23Z host <id> kit=[fed_rows sssprof memprof]
+HF_HOME=<path>
+HF_HUB_DISABLE_TELEMETRY=1
+HF_HUB_OFFLINE=1
+POROS_HOME=<path>
+POROS_PROGRESS=0
+POROS_SSS_NATIVE_DIR=<path>
+PYTHONPATH=<path>
+SSSKIT=fed_rows sssprof memprof
+SSSPROF_UPDATE=999
+TMPDIR=<path>
+TRITON_CACHE_DIR=<path>
+PYTORCH_ALLOC_CONF=unset PYTORCH_CUDA_ALLOC_CONF=unset

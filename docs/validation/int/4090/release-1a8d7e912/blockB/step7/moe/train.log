@@ -1,0 +1,37 @@
+▛▜ poros v1.0.0 · Qwen/Qwen3-30B-A3B-Instruct-2507 · RTX 4090 23.5 GiB
+
+● Checked norecipe-moe  run 1124-0956-dee3
+  │ nf4 · rank 16 · seq 512 · efficient path
+  │ SFT · answers only · lr 2e-4
+  │ output    homes/norecipe-moe/runs/1124-0956-dee3
+  │ eval      20 rows held out  scored at the start, each checkpoint and the end
+
+● Loaded Qwen3-30B-A3B-Instruct-2507  2m 01s
+  │ MoE · 48 layers · 128 experts
+● Scored the base  held out 6.4813 · ends its answers 0 of 0
+step 1/16  loss 6.4695  6.55 s/step  vram 6.2 GiB (peak 7.4)  eta 1m 38s
+step 8/16  loss 6.0481  4.39 s/step  vram 6.2 GiB (peak 8.3)  eta 38s
+step 15/16  loss 5.7529  4.60 s/step  vram 6.2 GiB (peak 8.3)  eta 4.7s
+● Scored step 16  held out 5.7150 ↓ 12% · ends its answers 0 of 0
+
+  ╭─ Trained  Learned well ──────────────────────────────────────────── 16 steps · SFT · 1m 57s ─╮
+  │                                                                      final loss              │
+  │                                                                      5.7125  ↓ 12%           │
+  │  6.5 ○▃▃▃▄▂▁                                                                                 │
+  │      ███████▇▅▃▂                                                       step  held out  ends  │
+  │      ████████████▆▅▄▃▂▁                                              ○ base    6.4813   0/0  │
+  │  6.0 ███████████████████▇▆▅▄▄▃▂▁▁                                    ●   16    5.7150   0/0  │
+  │      █████████████████████████████▇▇▆▆▅▅▄▄▃▃▃▂▂▂▂▁▁▁                                         │
+  │      █████████████████████████████████████████████████████▇▇▇▇▆▆▆▆○  vram 8.3 GiB peak       │
+  │  5.5 ██████████████████████████████████████████████████████████████  ram  22.0 GiB peak      │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                                8                          16                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      873 tok/s
+  │
+  │ adapter    homes/norecipe-moe/runs/1124-0956-dee3
+  │ receipt    homes/norecipe-moe/runs/1124-0956-dee3/receipt.json
+
+Continue with: poros eval 1124-0956-dee3
+Keep it as a recipe: poros recipes save last

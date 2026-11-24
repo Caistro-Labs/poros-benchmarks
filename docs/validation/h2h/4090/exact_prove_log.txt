@@ -1,0 +1,4 @@
+● Trained streamed  5m 19s
+may not fit: Qwen/Qwen2.5-7B: allocated peak, at most 27.205 GiB, may not fit 22.91 GiB free (estimated: an upper bound from receipts at other settings); the run may run out of GPU memory at its first step. block_size: 17 is estimated to fit; block_size is never changed for you
+● Trained resident  4m 14s
+rc=0

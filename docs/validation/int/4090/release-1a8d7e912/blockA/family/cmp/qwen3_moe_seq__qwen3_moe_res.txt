@@ -1,0 +1,1 @@
+COMPARE {"pass": true, "losses_equal": true, "grad_norms_equal": true, "adapter_tensors": 16, "adapter_unequal_n": 0, "ref_digest": "d562de5cfeaa249750a153ce634a39bec358c77452c7243c25f555ed1f96e520", "cand_digest": "d562de5cfeaa249750a153ce634a39bec358c77452c7243c25f555ed1f96e520"}

@@ -1,0 +1,23 @@
+▛▜ poros v1.0.0 · Qwen/Qwen3-30B-A3B-Instruct-2507 · Apple M4 10-core GPU 16GB
+
+● Checked cert-mac-moe-resume  run 1124-0008-5c02
+  │ rank 16 · 128 tokens
+  │ SFT · answers only · lr 2e-5
+  │ output
+  │ <home>/runs/1124-0008-5c02
+  │ weights   <disk>/poros-metal/hf
+
+● Loaded Qwen3-30B-A3B-Instruct-2507  6.4s
+  │ MoE · 48 layers · 128 experts
+step 1/16  loss 7.2955  31.60 s/step  memory 6.8 GiB (peak 9.1)  eta 7m 54s
+step 3/16  loss 7.1012  18.28 s/step  memory 6.9 GiB (peak 9.1)  eta 4m 55s
+step 5/16  loss 7.0703  18.32 s/step  memory 6.9 GiB (peak 9.2)  eta 3m 50s
+step 7/16  loss 6.9744  18.32 s/step  memory 6.9 GiB (peak 9.2)  eta 3m 02s
+step 9/16  loss 7.0038  18.58 s/step  memory 6.9 GiB (peak 9.2)  eta 2m 19s
+○ Stopped after 9 steps
+  │ saved
+  │ <home>/runs/1124-0008-5c02/checkpoint-8
+  │           it holds all 9 steps
+
+Continue with: poros runs continue 1124-0008-5c02
+{"schema":"poros.error.v1","error":{"code":"E_JOB_CANCELLED","exit_code":7,"message":"stopped after step 9; <home>/runs/1124-0008-5c02/checkpoint-8 holds the run so far","hint":"poros runs continue 1124-0008-5c02","docs":"poros docs training checkpoints and resume"}}

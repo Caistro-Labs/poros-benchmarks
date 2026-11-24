@@ -1,0 +1,30 @@
+▛▜ poros v1.0.0 · Qwen/Qwen2.5-72B-Instruct · Apple M4 10-core GPU 16GB
+
+● Checked cert-mac-72b-prepare  run 1123-2345-f181
+  │ rank 16 · 128 tokens
+  │ SFT · answers only · lr 2e-5
+  │ output
+  │ <home>/runs/1123-2345-f181
+  │ weights   <disk>/poros-metal/hf
+
+● Loaded Qwen2.5-72B-Instruct  6.2s
+  │ dense · 80 layers
+step 1/1  loss 7.4755  69.34 s/step  memory 5.5 GiB (peak 9.7)
+<disk>/poros-metal/venv/lib/python3.12/site-packages/peft/utils/save_and_load.py:438: UserWarning: Could not find a config file in Qwen/Qwen2.5-72B-Instruct - will assume that the vocabulary was not modified.
+  warnings.warn(
+
+● Trained 1 step · SFT  1m 13s
+  │ final loss 7.4755
+  │
+  │ peak       ━━━━━━━━━━──────  9.7 GiB of 16.0 GiB
+  │ speed      2 tok/s
+  │
+  │ adapter
+  │ <home>/runs/1123-2345-f181
+  │ receipt
+  │ <home>/runs/1123-2345-f181/receipt.json
+
+Continue with: poros export 1123-2345-f181
+No rows were held out: `poros eval 1123-2345-f181 --data FILE` scores a file of yours.
+Keep it as a recipe: poros recipes save last
+{"schema":"poros.train.v1","learned":null,"output_dir":"<home>/runs/1123-2345-f181","events":"<home>/runs/1123-2345-f181/events.jsonl","metrics":{"device":"mps","total_steps":1,"final_loss":7.475514888763428,"loss_history":[7.475514888763428],"grad_norm_history":[2.54380464553833],"eval_history":[],"total_time_s":69.3422950830427,"step_time_history":[69.3422950830427],"vram_alloc_history_mb":[],"avg_vram_allocated_mb":0.0,"avg_step_time_ms":69342.2950830427,"steps_per_sec":0.01442121289470479,"tokens_processed":128,"tokens_per_sec":1.8459152505222132,"peak_vram_allocated_gb":10.320794664,"peak_vram_reserved_gb":0.0,"torch_num_threads":4,"quantization":"nf4","block_size":1,"adapter_backend":"peft","adapter_summary":{"backend":"peft","target_module_names":"all-linear","trainable_param_count":210534400,"total_param_count":212672512}},"run":"1123-2345-f181","command":"poros train Qwen/Qwen2.5-72B-Instruct --data <work>/sample-chats.jsonl --steps 1 --seq-len 128 --rank 16 --block-size 1 --name cert-mac-72b-prepare --recipe sft gradient_accumulation_steps=1 learning_rate=2e-5 lora_alpha=32 lora_dropout=0 per_device_batch_size=1 --download","next":[],"plan":null,"from":null,"support":null,"model_type":null}

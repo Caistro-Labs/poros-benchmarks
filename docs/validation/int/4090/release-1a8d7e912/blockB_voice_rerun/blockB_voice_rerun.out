@@ -1,0 +1,9 @@
+10:07:20 preflight: HEAD 1a8d7e912b166c373fcfec862ad7297221d33a71 clean; git <home>/poros_rel/tools/git/usr/bin/git (git version 2.43.0); poros from <home>/poros_rel/cert/src/poros/__init__.py
+10:07:20 === cert.sh rerun step2-voice-rerun voice (diagnostic, into <home>/poros_rel/cert/out/step2-voice-rerun)
+10:07:21 step2-voice-rerun start: Qwen/Qwen2.5-7B-Instruct for voice (check-fit: none)
+10:07:22 fetching Qwen/Qwen2.5-7B-Instruct (16G, hub@a09a3545) for step2-voice-rerun voice
+10:07:51 fetched Qwen/Qwen2.5-7B-Instruct -> a09a35458c702b33eeacc393d103063234e8bc28 main (exit 0)
+10:07:51 voice start (Qwen/Qwen2.5-7B-Instruct, disk_gb 8, at most 45 min, home homes/voice)
+10:12:09 PASS voice: status=ok commit=1a8d7e912b16 tree_clean=True updates=16 s_per_step=2.9342 gpu_mem_gib=None reserved_gib=None resume=True eval=ok preflight_said=0 lines
+10:12:14 deleted the model cache (Qwen/Qwen2.5-7B-Instruct ): <home>/poros_rel/hf_cert/hub removed
+10:12:14 step2-voice-rerun done

@@ -1,0 +1,27 @@
+2026-11-24T11:06:57Z clone HEAD 40c2e9e348811cc608bc0fa5c2aad53eacbf2554 porcelain=0
+2026-11-24T11:06:57Z diff --stat:  6 files changed, 284 insertions(+), 99 deletions(-)
+2026-11-24T11:06:57Z preflight: HEAD 40c2e9e348811cc608bc0fa5c2aad53eacbf2554 clean; git <home>/poros_rel/tools/git/usr/bin/git (git version 2.43.0); poros from <home>/poros_rel/lc/src/poros/__init__.py free=111G
+2026-11-24T11:06:57Z === cert.sh step1 (inline=1) free=111G
+2026-11-24T11:06:58Z step1 start: Qwen/Qwen2.5-0.5B-Instruct for first-run (check-fit: first-run) free=111G
+2026-11-24T11:06:59Z fetching Qwen/Qwen2.5-0.5B-Instruct (1G, hub@7ae55760) for step1 first-run free=111G
+2026-11-24T11:07:05Z fetched Qwen/Qwen2.5-0.5B-Instruct -> 7ae557604adf67be50417f59c2c2f167def9a775 main (exit 0) free=110G
+2026-11-24T11:07:05Z first-run start (Qwen/Qwen2.5-0.5B-Instruct, disk_gb 3, at most 30 min, home homes/first-run) free=110G
+2026-11-24T13:43:57Z PASS first-run: status=ok commit=40c2e9e34881 tree_clean=True updates=16 s_per_step=2.3123 gpu_mem_gib=None reserved_gib=None resume=True eval=ok preflight_said=0 lines free=185G
+2026-11-24T13:43:57Z first-run's certification.json: tree_clean true free=186G
+2026-11-24T13:43:59Z CHECK-FIT FITS first-run: verdict='fits' peak_gib=1.445 source=measured basis='reserved peak 1.445 GiB <= 23.51 GiB free' asks=[] doubts=[] refused=False start_refused=[] gate_path=None ran_path=efficient warning=None vram_refusal=None host_refusal=None free=186G
+2026-11-24T13:43:59Z deleted the model cache (Qwen/Qwen2.5-0.5B-Instruct ): <home>/poros_rel/hf_lc/hub removed free=187G
+2026-11-24T13:43:59Z step1 done free=187G
+2026-11-24T13:43:59Z driver first-run rc=0 2026-11-24T13:43:57Z PASS first-run: status=ok commit=40c2e9e34881 tree_clean=True updates=16 s_per_step=2.3123 gpu_mem_gib=None reserved_gib=None resume=True eval=ok preflight_said=0 lines free=185G
+2026-11-24T13:56:16Z session first-run stopped by hand: its line had --data with an empty path (the driver work folder was emptied); livecard1b.sh runs it again
+2026-11-24T13:56:16Z session first-run: Terminated
+2026-11-24T13:56:16Z cast_check rc=1
+2026-11-24T13:56:16Z compare: certified adapter ccdcb923ed250836c1916091b55b5be4167774ba1e27a27938b026ad8e41e525 driver adapter    ccdcb923ed250836c1916091b55b5be4167774ba1e27a27938b026ad8e41e525 equal: True driver losses equal: True eval: {'eval_loss': 5.952553476606096, 'base_loss': 7.3463921546936035} vs {'eval_loss': 5.952553476606096, 'base_loss': 7.3463921546936035} equal: True session: no run folder 
+2026-11-24T13:56:16Z session rows again: rows 143 kind chats seq_len 256 sha256 c1d8d43177fb7e8420839a496fb901c4f9ca9907c8adc6fe01efe94f115f310a equal to the driver's: False
+2026-11-24T13:56:16Z LIVECARD1B STOP: rows differ
+2026-11-24T13:56:42Z session rows again: rows 143 kind chats seq_len 256 sha256 a997f1ba3e73fa78e24b266ed83c3a4911b9cde1044230e36c162144af11b500 equal to the driver's: True
+2026-11-24T13:56:52Z gpu tests rc=0 11 passed in 34.05s
+2026-11-24T13:56:52Z LIVECARD1 DONE
+2026-11-24T13:59:19Z session first-run (b): {"exit": 0, "seconds": 127.17, "finished": true, "run": "<home>/poros_rel/lc/sess_home/runs/1124-1357-f0ff", "cast": "<home>/poros_rel/lc/res/first-run-session.cast", "joined": 2}
+2026-11-24T13:59:19Z cast_check rc=0
+2026-11-24T13:59:19Z compare (b): certified adapter ccdcb923ed250836c1916091b55b5be4167774ba1e27a27938b026ad8e41e525 driver adapter    ccdcb923ed250836c1916091b55b5be4167774ba1e27a27938b026ad8e41e525 equal: True driver losses equal: True eval: {'eval_loss': 5.952553476606096, 'base_loss': 7.3463921546936035} vs {'eval_loss': 5.952553476606096, 'base_loss': 7.3463921546936035} equal: True session adapter   ccdcb923ed250836c1916091b
+2026-11-24T13:59:19Z LIVECARD1B DONE

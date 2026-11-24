@@ -1,0 +1,39 @@
+▛▜ poros v0.3.0 · Qwen/Qwen2.5-72B · RTX 4090 23.5 GiB
+
+● Checked q72_fast_b4.yaml  config
+  │ nf4 · block 4 · rank 16 · seq 512 · fast path
+  │ classic · every token · lr 2e-5
+  │ output    runs/q72_fast_b4
+
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+● Loaded Qwen2.5-72B  5m 19s
+  │ dense · 80 layers · 20 blocks
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Map:   0%|          | 0/64 [00:00<?, ? examples/s]Map: 100%|██████████| 64/64 [00:00<00:00, 1213.33 examples/s]
+Filter:   0%|          | 0/64 [00:00<?, ? examples/s]Filter: 100%|██████████| 64/64 [00:00<00:00, 17537.92 examples/s]
+step 1/8  loss 1.0639  20.69 s/step  vram 3.5 GiB (peak 15.6)  eta 2m 25s
+step 3/8  loss 1.1348  20.04 s/step  vram 3.5 GiB (peak 17.2)  eta 1m 41s
+step 5/8  loss 1.0182  20.06 s/step  vram 3.5 GiB (peak 17.2)  eta 1m 01s
+step 7/8  loss 1.0615  20.08 s/step  vram 3.5 GiB (peak 17.2)  eta 20s
+
+  ╭─ Trained ─────────────────────────────────────────────────────── 8 steps · classic · 2m 51s ─╮
+  │                                                                      final loss              │
+  │                                                                      1.0950  ↑ 3%            │
+  │  1.5                                                     ▂▁          from 1.0639             │
+  │             ▁▂▃▁                                     ▂▄▆███▇▅▃▁                              │
+  │        ▂▃▅▆▇████▇▆▄▃▁                           ▁▃▅▇███████████▇▅▃▁  vram 17.2 GiB peak      │
+  │  1.0 ▇████████████████▆▅▄▄▃▂▂▁              ▁▃▅▇███████████████████  ram  41.6 GiB peak      │
+  │      ███████████████████████████▇▆▆▅▄▃▃▂▂▄▅▇███████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │  0.5 ██████████████████████████████████████████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                                  4                         8                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      203 tok/s
+  │
+  │ adapter    runs/q72_fast_b4
+  │ receipt    runs/q72_fast_b4/receipt.json
+
+Continue with: poros eval <path>
+{"schema":"poros.train.v1","learned":null,"output_dir":"<path>","events":"<path>","metrics":{"device":"cuda:0","total_steps":8,"final_loss":1.094982385635376,"loss_history":[1.063904047012329,1.3129762411117554,1.0275264978408813,0.9086714386940002,0.7781181335449219,1.1229729652404785,1.470423698425293,1.094982385635376],"grad_norm_history":[0.23951397836208344,0.14504334330558777,0.10381568968296051,0.11542657762765884,0.10252810269594193,0.12571413815021515,0.1443413645029068,0.12593628466129303],"eval_history":[],"total_time_s":161.08383906632662,"step_time_history":[20.686824834905565,20.006969710811973,20.04335660673678,20.060999115929008,20.05997186060995,20.06514933425933,20.075536818243563,20.08503078483045],"vram_alloc_history_mb":[3712.35072,3712.35072,3712.35072,3712.35072,3712.35072,3712.35072,3712.35072,3712.35072],"avg_vram_allocated_mb":3712.35072,"avg_step_time_ms":20135.479883290827,"steps_per_sec":0.04966357920427997,"tokens_processed":32768,"tokens_per_sec":203.42202042073075,"peak_vram_allocated_gb":18.462578688,"peak_vram_reserved_gb":23.91801856,"torch_num_threads":16,"quantization":"nf4","block_size":4,"adapter_backend":"peft","adapter_summary":{"backend":"peft","target_module_names":["q_proj","k_proj","v_proj","o_proj","gate_proj","up_proj","down_proj"],"trainable_param_count":210534400,"total_param_count":37810413568}},"run":null,"command":null,"next":[],"plan":null,"from":null,"support":null,"model_type":null}

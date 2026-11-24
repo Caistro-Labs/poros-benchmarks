@@ -1,0 +1,8 @@
+utc_start 2026-11-12T09:37:37.032Z
+epoch_start 1794476257.034905105
+commit earlier-tree
+env PYTORCH_CUDA_ALLOC_CONF= PYTORCH_ALLOC_CONF=expandable_segments:False POROS_PIN_BUDGET= POROS_BOUNDARY_PIN= POROS_PROGRESS=0 CUBLAS_WORKSPACE_CONFIG= LD_PRELOAD=
+timeout_s 3600
+cmd <path> train <path> --output-dir <path> --yes --json
+utc_end 2026-11-12T09:46:50.822Z rc=0
+epoch_end 1794476810.826208538

@@ -1,0 +1,150 @@
+{
+ "schema": "poros.metal.receipt.v1",
+ "gate": "repeat",
+ "model": "deepseek-ai/DeepSeek-V2-Lite",
+ "seq": 128,
+ "g": 1,
+ "steps": 20,
+ "first_microstep": 0,
+ "expected_records": 20,
+ "lora_dropout": 0.05,
+ "pin": {
+  "chip": "apple-m4",
+  "gpu_cores": "10",
+  "macos_build": "26B123",
+  "python": "3.12.16",
+  "torch": "2.15.0",
+  "torch_hash": "d0f2af8b66b20da4baa50644c0cd3f887a2eae2e",
+  "transformers": "5.20.2",
+  "peft": "0.20.0",
+  "shader_sha256": "e4583316b09a4112c2e9dcbad22d3604e421f0f076fb52eb0f1203429639b24a",
+  "route": "linear",
+  "ssd_sha256": "f2172e00f30ad0cfc232e84c2e6a906e6e7d253daa7d544a2b5d2d6c3776bb10",
+  "poros_commit": "9a6d9793",
+  "engine_tree_hash": "07a47433212d3fea4c8b599f807d59c67141a784bb2050753e77ad40cff792ac",
+  "wheel_hash": "none"
+ },
+ "arms": [
+  {
+   "name": "ssd",
+   "records": 20,
+   "microsteps": 20,
+   "nonfinite": 0,
+   "nonzero_grad_fraction": 0.460935527192065,
+   "transcript_b2": "25578c79b706fd40fa90edb34f9ea01b10b8c2a99c968cd77b1fe58016cc220a",
+   "pin": {
+    "chip": "apple-m4",
+    "gpu_cores": "10",
+    "macos_build": "26B123",
+    "python": "3.12.16",
+    "torch": "2.15.0",
+    "torch_hash": "d0f2af8b66b20da4baa50644c0cd3f887a2eae2e",
+    "transformers": "5.20.2",
+    "peft": "0.20.0",
+    "shader_sha256": "e4583316b09a4112c2e9dcbad22d3604e421f0f076fb52eb0f1203429639b24a",
+    "route": "linear",
+    "ssd_sha256": "f2172e00f30ad0cfc232e84c2e6a906e6e7d253daa7d544a2b5d2d6c3776bb10",
+    "poros_commit": "9a6d9793",
+    "engine_tree_hash": "07a47433212d3fea4c8b599f807d59c67141a784bb2050753e77ad40cff792ac",
+    "wheel_hash": "none"
+   },
+   "digests": {
+    "losses": "471379966603f9cf36f9e3e325c609036cd81a2896e36e5a84c9c6d648bae8f4",
+    "logits": "b94124d4391919896da33a5ad4b79bb50668c67c9271fc9371cb6d1403c6a554",
+    "grads": "32dd1d0990a03d43743b7532bc37c2413f333f2b573ee660b95d8a7afdae4120",
+    "adapter": "4b2886e15f551f0bd775b3aa6d343052ded77c94680bd98f231d8a4e5fbbd9df",
+    "adam": "e824839ce7856cf08c082c326ac2cebb0ada790e75fed19664008a746ab8f003",
+    "scheduler": "89a2bd5ea75509169f296f4a119b41e3820abad5457eee08a740c78c9bb51299"
+   },
+   "disk": {
+    "preflight_resident_fraction": 0.0,
+    "predicted_read_bytes": 368136355840,
+    "read_bytes": 369142677504
+   }
+  },
+  {
+   "name": "ssd-sync",
+   "records": 20,
+   "microsteps": 20,
+   "nonfinite": 0,
+   "nonzero_grad_fraction": 0.460935527192065,
+   "transcript_b2": "cb11599d873893ddfa9456893f7851debe04877f937a59fb8aaa0d206f2a49e5",
+   "pin": {
+    "chip": "apple-m4",
+    "gpu_cores": "10",
+    "macos_build": "26B123",
+    "python": "3.12.16",
+    "torch": "2.15.0",
+    "torch_hash": "d0f2af8b66b20da4baa50644c0cd3f887a2eae2e",
+    "transformers": "5.20.2",
+    "peft": "0.20.0",
+    "shader_sha256": "e4583316b09a4112c2e9dcbad22d3604e421f0f076fb52eb0f1203429639b24a",
+    "route": "linear",
+    "ssd_sha256": "f2172e00f30ad0cfc232e84c2e6a906e6e7d253daa7d544a2b5d2d6c3776bb10",
+    "poros_commit": "9a6d9793",
+    "engine_tree_hash": "07a47433212d3fea4c8b599f807d59c67141a784bb2050753e77ad40cff792ac",
+    "wheel_hash": "none"
+   },
+   "digests": {
+    "losses": "471379966603f9cf36f9e3e325c609036cd81a2896e36e5a84c9c6d648bae8f4",
+    "logits": "b94124d4391919896da33a5ad4b79bb50668c67c9271fc9371cb6d1403c6a554",
+    "grads": "32dd1d0990a03d43743b7532bc37c2413f333f2b573ee660b95d8a7afdae4120",
+    "adapter": "4b2886e15f551f0bd775b3aa6d343052ded77c94680bd98f231d8a4e5fbbd9df",
+    "adam": "e824839ce7856cf08c082c326ac2cebb0ada790e75fed19664008a746ab8f003",
+    "scheduler": "89a2bd5ea75509169f296f4a119b41e3820abad5457eee08a740c78c9bb51299"
+   },
+   "disk": {
+    "preflight_resident_fraction": 0.0,
+    "predicted_read_bytes": 368136355840,
+    "read_bytes": 368975712256
+   }
+  },
+  {
+   "name": "ssd.2",
+   "records": 20,
+   "microsteps": 20,
+   "nonfinite": 0,
+   "nonzero_grad_fraction": 0.460935527192065,
+   "transcript_b2": "5934c326ac25138ed0b466cc1eb8bfdbf1fb6025cac2057882eac19d6e20574e",
+   "pin": {
+    "chip": "apple-m4",
+    "gpu_cores": "10",
+    "macos_build": "26B123",
+    "python": "3.12.16",
+    "torch": "2.15.0",
+    "torch_hash": "d0f2af8b66b20da4baa50644c0cd3f887a2eae2e",
+    "transformers": "5.20.2",
+    "peft": "0.20.0",
+    "shader_sha256": "e4583316b09a4112c2e9dcbad22d3604e421f0f076fb52eb0f1203429639b24a",
+    "route": "linear",
+    "ssd_sha256": "f2172e00f30ad0cfc232e84c2e6a906e6e7d253daa7d544a2b5d2d6c3776bb10",
+    "poros_commit": "9a6d9793",
+    "engine_tree_hash": "07a47433212d3fea4c8b599f807d59c67141a784bb2050753e77ad40cff792ac",
+    "wheel_hash": "none"
+   },
+   "digests": {
+    "losses": "471379966603f9cf36f9e3e325c609036cd81a2896e36e5a84c9c6d648bae8f4",
+    "logits": "b94124d4391919896da33a5ad4b79bb50668c67c9271fc9371cb6d1403c6a554",
+    "grads": "32dd1d0990a03d43743b7532bc37c2413f333f2b573ee660b95d8a7afdae4120",
+    "adapter": "4b2886e15f551f0bd775b3aa6d343052ded77c94680bd98f231d8a4e5fbbd9df",
+    "adam": "e824839ce7856cf08c082c326ac2cebb0ada790e75fed19664008a746ab8f003",
+    "scheduler": "89a2bd5ea75509169f296f4a119b41e3820abad5457eee08a740c78c9bb51299"
+   },
+   "disk": {
+    "preflight_resident_fraction": 0.0,
+    "predicted_read_bytes": 368136355840,
+    "read_bytes": 369141862400
+   }
+  }
+ ],
+ "witness": {
+  "checked": 1620,
+  "expected": 1620,
+  "mismatches": 0
+ },
+ "swap_delta_gb": 0.0,
+ "pass": true,
+ "probe": null,
+ "failures": [],
+ "sealed_b2": "8b8e34671291ea69697d0dec3e552234fe35496cf3f06f873755cff819c34b8f"
+}

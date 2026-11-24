@@ -1,0 +1,671 @@
+2026-11-18T03:17:39Z MAIN START pid 3296291 commit 5d75e31a486cdf19e397e2d0f748def98083ecc8 phases [dry] lockmode group free=102G
+2026-11-18T03:17:39Z PHASE dry start free=102G
+2026-11-18T03:17:39Z g_30b start shapes=[ga8 na] rounds=[1 2 3] updates=16 free=102G
+2026-11-18T03:17:39Z DRY_OK poros b30_build path efficient store ssd mb x ga 1 8 steps 2
+2026-11-18T03:17:39Z DRY_OK poros a30_ga8_ram_r1 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:17:39Z DRY_OK poros a30_ga8_ssdeff_r1 path efficient store ssd mb x ga 1 8 steps 16
+2026-11-18T03:17:40Z DRY_OK poros a30_ga8_ssdfast_r1 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T03:17:40Z DRY_OK poros a30_ga8_ssdfc_r1 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T03:17:40Z DRY_OK poros a30_ga8_ssdbal_r1 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T03:17:41Z DRY_OK unsloth a30_ga8_uns_r1_raw.json mb x ga 1 8 offload auto embedding unset updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:17:41Z DRY_OK unsloth a30_ga8_unsmin_r1_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:17:41Z DRY_OK unsloth a30_ga8_unsmid_r1_raw.json mb x ga 1 8 offload 38 embedding true updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:17:41Z g_30b ga8 round 1 done
+2026-11-18T03:17:41Z DRY_OK poros a30_ga8_ssdeff_r2 path efficient store ssd mb x ga 1 8 steps 16
+2026-11-18T03:17:41Z DRY_OK poros a30_ga8_ssdbal_r2 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T03:17:42Z DRY_OK poros a30_ga8_ssdfc_r2 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T03:17:42Z DRY_OK unsloth a30_ga8_unsmin_r2_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:17:42Z DRY_OK poros a30_ga8_ram_r2 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:17:42Z DRY_OK unsloth a30_ga8_unsmid_r2_raw.json mb x ga 1 8 offload 38 embedding true updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:17:42Z DRY_OK unsloth a30_ga8_uns_r2_raw.json mb x ga 1 8 offload auto embedding unset updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:17:43Z DRY_OK poros a30_ga8_ssdfast_r2 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T03:17:43Z g_30b ga8 round 2 done
+2026-11-18T03:17:43Z DRY_OK unsloth a30_ga8_unsmin_r3_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:17:43Z DRY_OK unsloth a30_ga8_uns_r3_raw.json mb x ga 1 8 offload auto embedding unset updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:17:43Z DRY_OK unsloth a30_ga8_unsmid_r3_raw.json mb x ga 1 8 offload 38 embedding true updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:17:43Z DRY_OK poros a30_ga8_ssdbal_r3 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T03:17:43Z DRY_OK poros a30_ga8_ram_r3 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:17:44Z DRY_OK poros a30_ga8_ssdfc_r3 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T03:17:44Z DRY_OK poros a30_ga8_ssdfast_r3 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T03:17:44Z DRY_OK poros a30_ga8_ssdeff_r3 path efficient store ssd mb x ga 1 8 steps 16
+2026-11-18T03:17:44Z g_30b ga8 round 3 done
+2026-11-18T03:17:45Z DRY_OK poros a30_na_ram_r1 path None store ram mb x ga 8 1 steps 16
+2026-11-18T03:17:45Z DRY_OK poros a30_na_ssdeff_r1 path efficient store ssd mb x ga 8 1 steps 16
+2026-11-18T03:17:45Z DRY_OK poros a30_na_ssdfast_r1 path fast store ssd mb x ga 8 1 steps 16
+2026-11-18T03:17:45Z DRY_OK poros a30_na_ssdfc_r1 path fast store ssd mb x ga 8 1 steps 16
+2026-11-18T03:17:46Z DRY_OK unsloth a30_na_uns_r1_raw.json mb x ga 8 1 offload auto embedding unset updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:17:46Z g_30b na round 1 done
+2026-11-18T03:17:46Z DRY_OK poros a30_na_ssdeff_r2 path efficient store ssd mb x ga 8 1 steps 16
+2026-11-18T03:17:46Z DRY_OK poros a30_na_ssdfc_r2 path fast store ssd mb x ga 8 1 steps 16
+2026-11-18T03:17:46Z DRY_OK poros a30_na_ram_r2 path None store ram mb x ga 8 1 steps 16
+2026-11-18T03:17:46Z DRY_OK unsloth a30_na_uns_r2_raw.json mb x ga 8 1 offload auto embedding unset updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:17:47Z DRY_OK poros a30_na_ssdfast_r2 path fast store ssd mb x ga 8 1 steps 16
+2026-11-18T03:17:47Z g_30b na round 2 done
+2026-11-18T03:17:47Z DRY_OK unsloth a30_na_uns_r3_raw.json mb x ga 8 1 offload auto embedding unset updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:17:47Z DRY_OK poros a30_na_ram_r3 path None store ram mb x ga 8 1 steps 16
+2026-11-18T03:17:47Z DRY_OK poros a30_na_ssdfc_r3 path fast store ssd mb x ga 8 1 steps 16
+2026-11-18T03:17:47Z DRY_OK poros a30_na_ssdfast_r3 path fast store ssd mb x ga 8 1 steps 16
+2026-11-18T03:17:48Z DRY_OK poros a30_na_ssdeff_r3 path efficient store ssd mb x ga 8 1 steps 16
+2026-11-18T03:17:48Z g_30b na round 3 done
+2026-11-18T03:17:48Z g_30b done free=102G
+2026-11-18T03:17:48Z g_cap8 start seq=256 rank=8 free VRAM target 6246 MiB host prefix=[none]
+2026-11-18T03:17:48Z DRY_OK poros c8_poros_r1 path None store ssd mb x ga 1 8 steps 16
+2026-11-18T03:17:48Z DRY_OK unsloth c8_uns_r1_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows False snapshots 1 load_id -
+2026-11-18T03:17:48Z DRY_OK poros c8_poros_r2 path None store ssd mb x ga 1 8 steps 16
+2026-11-18T03:17:49Z DRY_OK unsloth c8_uns_r2_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows False snapshots 1 load_id -
+2026-11-18T03:17:49Z DRY_OK poros c8_poros_r3 path None store ssd mb x ga 1 8 steps 16
+2026-11-18T03:17:49Z DRY_OK unsloth c8_uns_r3_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows False snapshots 1 load_id -
+2026-11-18T03:17:49Z ballast released
+2026-11-18T03:17:49Z DRY_OK unsloth c8_uns_nocap_r1_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows False snapshots 1 load_id -
+2026-11-18T03:17:49Z DRY_OK unsloth c8_uns_nocap_r2_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows False snapshots 1 load_id -
+2026-11-18T03:17:49Z DRY_OK unsloth c8_uns_nocap_r3_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows False snapshots 1 load_id -
+2026-11-18T03:17:49Z g_cap8 done
+2026-11-18T03:17:49Z g_card 7b start free=102G
+2026-11-18T03:17:49Z DRY_OK poros c7_poros_r1 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:17:50Z DRY_OK poros c7_poros_r2 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:17:50Z DRY_OK poros c7_poros_r3 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:17:50Z g_card 7b done
+2026-11-18T03:17:50Z g_card 32b start free=102G
+2026-11-18T03:17:50Z DRY_OK poros c32_poros_r1 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:17:51Z DRY_OK poros c32_poros_r2 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:17:51Z DRY_OK poros c32_poros_r3 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:17:51Z g_card 32b done
+2026-11-18T03:17:51Z g_72b start rounds=[1 2 3] updates=16 noaccum=30b_a3b minvram=[80 --offload-embedding true] free=102G
+2026-11-18T03:17:51Z DRY_OK poros a72_ga8_poros_r1 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:17:51Z DRY_OK unsloth a72_ga8_uns_r1_raw.json mb x ga 1 8 offload auto embedding unset updates 16 rows True snapshots 0 load_id -
+2026-11-18T03:17:51Z DRY_OK unsloth a72_ga8_unsmin_r1_raw.json mb x ga 1 8 offload 80 embedding true updates 16 rows True snapshots 0 load_id -
+2026-11-18T03:17:52Z DRY_OK poros a72_ga8_porosfast_r1 path fast store ram mb x ga 1 8 steps 16
+2026-11-18T03:17:52Z g_72b round 1 done
+2026-11-18T03:17:52Z DRY_OK unsloth a72_ga8_uns_r2_raw.json mb x ga 1 8 offload auto embedding unset updates 16 rows True snapshots 0 load_id -
+2026-11-18T03:17:52Z DRY_OK poros a72_ga8_porosfast_r2 path fast store ram mb x ga 1 8 steps 16
+2026-11-18T03:17:52Z DRY_OK poros a72_ga8_poros_r2 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:17:52Z DRY_OK unsloth a72_ga8_unsmin_r2_raw.json mb x ga 1 8 offload 80 embedding true updates 16 rows True snapshots 0 load_id -
+2026-11-18T03:17:53Z g_72b round 2 done
+2026-11-18T03:17:53Z DRY_OK poros a72_ga8_porosfast_r3 path fast store ram mb x ga 1 8 steps 16
+2026-11-18T03:17:53Z DRY_OK unsloth a72_ga8_unsmin_r3_raw.json mb x ga 1 8 offload 80 embedding true updates 16 rows True snapshots 0 load_id -
+2026-11-18T03:17:53Z DRY_OK unsloth a72_ga8_uns_r3_raw.json mb x ga 1 8 offload auto embedding unset updates 16 rows True snapshots 0 load_id -
+2026-11-18T03:17:53Z DRY_OK poros a72_ga8_poros_r3 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:17:53Z g_72b round 3 done
+2026-11-18T03:17:53Z g_72b done free=102G
+2026-11-18T03:17:53Z DRY_OK baseline b72_base_raw.json rows True snapshot False poros_blocked True pythonpath unset versions {"torch":"2.14.1","transformers":"5.22.2","peft":"0.20.0","bitsandbytes":"0.50.2","accelerate":"1.15.0"}
+2026-11-18T03:17:53Z DRY_OK nf4 b72_nf4.json snapshot False bitsandbytes 0.50.2 transformers 5.22.2
+2026-11-18T03:17:53Z dry: 69 arm checks passed, expected 69: DRY PASS
+2026-11-18T03:17:54Z PHASE dry end 14 s free=102G
+2026-11-18T03:17:54Z MAIN DONE elapsed 15 s free=102G
+2026-11-18T03:18:17Z prestore: b30_build started for the laptop store (waits for the GPU lock)
+2026-11-18T03:52:25Z MAIN START pid 3321897 commit 5d75e31a486cdf19e397e2d0f748def98083ecc8 phases [dry] lockmode group free=86G
+2026-11-18T03:52:25Z PHASE dry start free=86G
+2026-11-18T03:52:25Z g_30b start shapes=[ga8 na] rounds=[1 2 3] updates=16 free=86G
+2026-11-18T03:52:26Z DRY_OK poros a30_ga8_ram_r1 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:52:26Z DRY_OK poros a30_ga8_ssdeff_r1 path efficient store ssd mb x ga 1 8 steps 16
+2026-11-18T03:52:26Z DRY_OK poros a30_ga8_ssdfast_r1 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T03:52:26Z DRY_OK poros a30_ga8_ssdfc_r1 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T03:52:27Z DRY_OK poros a30_ga8_ssdbal_r1 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T03:52:27Z DRY_OK unsloth a30_ga8_uns_r1_raw.json mb x ga 1 8 offload auto embedding unset updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:52:27Z DRY_OK unsloth a30_ga8_unsmin_r1_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:52:27Z DRY_OK unsloth a30_ga8_unsmid_r1_raw.json mb x ga 1 8 offload 38 embedding true updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:52:27Z g_30b ga8 round 1 done
+2026-11-18T03:52:27Z DRY_OK poros a30_ga8_ssdeff_r2 path efficient store ssd mb x ga 1 8 steps 16
+2026-11-18T03:52:27Z DRY_OK poros a30_ga8_ssdbal_r2 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T03:52:28Z DRY_OK poros a30_ga8_ssdfc_r2 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T03:52:28Z DRY_OK unsloth a30_ga8_unsmin_r2_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:52:28Z DRY_OK poros a30_ga8_ram_r2 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:52:28Z DRY_OK unsloth a30_ga8_unsmid_r2_raw.json mb x ga 1 8 offload 38 embedding true updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:52:28Z DRY_OK unsloth a30_ga8_uns_r2_raw.json mb x ga 1 8 offload auto embedding unset updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:52:29Z DRY_OK poros a30_ga8_ssdfast_r2 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T03:52:29Z g_30b ga8 round 2 done
+2026-11-18T03:52:29Z DRY_OK unsloth a30_ga8_unsmin_r3_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:52:29Z DRY_OK unsloth a30_ga8_uns_r3_raw.json mb x ga 1 8 offload auto embedding unset updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:52:29Z DRY_OK unsloth a30_ga8_unsmid_r3_raw.json mb x ga 1 8 offload 38 embedding true updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:52:29Z DRY_OK poros a30_ga8_ssdbal_r3 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T03:52:29Z DRY_OK poros a30_ga8_ram_r3 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:52:30Z DRY_OK poros a30_ga8_ssdfc_r3 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T03:52:30Z DRY_OK poros a30_ga8_ssdfast_r3 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T03:52:30Z DRY_OK poros a30_ga8_ssdeff_r3 path efficient store ssd mb x ga 1 8 steps 16
+2026-11-18T03:52:30Z g_30b ga8 round 3 done
+2026-11-18T03:52:30Z DRY_OK poros a30_na_ram_r1 path None store ram mb x ga 8 1 steps 16
+2026-11-18T03:52:31Z DRY_OK poros a30_na_ssdeff_r1 path efficient store ssd mb x ga 8 1 steps 16
+2026-11-18T03:52:31Z DRY_OK poros a30_na_ssdfast_r1 path fast store ssd mb x ga 8 1 steps 16
+2026-11-18T03:52:31Z DRY_OK poros a30_na_ssdfc_r1 path fast store ssd mb x ga 8 1 steps 16
+2026-11-18T03:52:32Z DRY_OK unsloth a30_na_uns_r1_raw.json mb x ga 8 1 offload auto embedding unset updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:52:32Z g_30b na round 1 done
+2026-11-18T03:52:32Z DRY_OK poros a30_na_ssdeff_r2 path efficient store ssd mb x ga 8 1 steps 16
+2026-11-18T03:52:32Z DRY_OK poros a30_na_ssdfc_r2 path fast store ssd mb x ga 8 1 steps 16
+2026-11-18T03:52:32Z DRY_OK poros a30_na_ram_r2 path None store ram mb x ga 8 1 steps 16
+2026-11-18T03:52:32Z DRY_OK unsloth a30_na_uns_r2_raw.json mb x ga 8 1 offload auto embedding unset updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:52:33Z DRY_OK poros a30_na_ssdfast_r2 path fast store ssd mb x ga 8 1 steps 16
+2026-11-18T03:52:33Z g_30b na round 2 done
+2026-11-18T03:52:33Z DRY_OK unsloth a30_na_uns_r3_raw.json mb x ga 8 1 offload auto embedding unset updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:52:33Z DRY_OK poros a30_na_ram_r3 path None store ram mb x ga 8 1 steps 16
+2026-11-18T03:52:33Z DRY_OK poros a30_na_ssdfc_r3 path fast store ssd mb x ga 8 1 steps 16
+2026-11-18T03:52:33Z DRY_OK poros a30_na_ssdfast_r3 path fast store ssd mb x ga 8 1 steps 16
+2026-11-18T03:52:34Z DRY_OK poros a30_na_ssdeff_r3 path efficient store ssd mb x ga 8 1 steps 16
+2026-11-18T03:52:34Z g_30b na round 3 done
+2026-11-18T03:52:34Z g_30b done free=86G
+2026-11-18T03:52:34Z g_cap8 start seq=256 rank=8 free VRAM target 6246 MiB host prefix=[none]
+2026-11-18T03:52:34Z DRY_OK poros c8_poros_r1 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T03:52:34Z DRY_OK unsloth c8_uns_r1_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows False snapshots 1 load_id -
+2026-11-18T03:52:34Z DRY_OK poros c8_poros_r2 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T03:52:35Z DRY_OK unsloth c8_uns_r2_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows False snapshots 1 load_id -
+2026-11-18T03:52:35Z DRY_OK poros c8_poros_r3 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T03:52:35Z DRY_OK unsloth c8_uns_r3_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows False snapshots 1 load_id -
+2026-11-18T03:52:35Z ballast released
+2026-11-18T03:52:35Z DRY_OK unsloth c8_uns_nocap_r1_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows False snapshots 1 load_id -
+2026-11-18T03:52:35Z DRY_OK unsloth c8_uns_nocap_r2_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows False snapshots 1 load_id -
+2026-11-18T03:52:35Z DRY_OK unsloth c8_uns_nocap_r3_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows False snapshots 1 load_id -
+2026-11-18T03:52:35Z g_cap8 done
+2026-11-18T03:52:35Z g_card 7b start free=86G
+2026-11-18T03:52:35Z DRY_OK poros c7_poros_r1 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:52:36Z DRY_OK poros c7_poros_r2 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:52:36Z DRY_OK poros c7_poros_r3 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:52:36Z g_card 7b done
+2026-11-18T03:52:36Z g_card 32b start free=86G
+2026-11-18T03:52:36Z DRY_OK poros c32_poros_r1 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:52:36Z DRY_OK poros c32_poros_r2 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:52:37Z DRY_OK poros c32_poros_r3 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:52:37Z g_card 32b done
+2026-11-18T03:52:37Z g_72b start rounds=[1 2 3] updates=16 noaccum=30b_a3b minvram=[80 --offload-embedding true] free=86G
+2026-11-18T03:52:37Z DRY_OK poros a72_ga8_poros_r1 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:52:37Z DRY_OK unsloth a72_ga8_uns_r1_raw.json mb x ga 1 8 offload auto embedding unset updates 16 rows True snapshots 0 load_id -
+2026-11-18T03:52:37Z DRY_OK unsloth a72_ga8_unsmin_r1_raw.json mb x ga 1 8 offload 80 embedding true updates 16 rows True snapshots 0 load_id -
+2026-11-18T03:52:38Z DRY_OK poros a72_ga8_porosfast_r1 path fast store ram mb x ga 1 8 steps 16
+2026-11-18T03:52:38Z g_72b round 1 done
+2026-11-18T03:52:38Z DRY_OK unsloth a72_ga8_uns_r2_raw.json mb x ga 1 8 offload auto embedding unset updates 16 rows True snapshots 0 load_id -
+2026-11-18T03:52:38Z DRY_OK poros a72_ga8_porosfast_r2 path fast store ram mb x ga 1 8 steps 16
+2026-11-18T03:52:38Z DRY_OK poros a72_ga8_poros_r2 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:52:38Z DRY_OK unsloth a72_ga8_unsmin_r2_raw.json mb x ga 1 8 offload 80 embedding true updates 16 rows True snapshots 0 load_id -
+2026-11-18T03:52:38Z g_72b round 2 done
+2026-11-18T03:52:39Z DRY_OK poros a72_ga8_porosfast_r3 path fast store ram mb x ga 1 8 steps 16
+2026-11-18T03:52:39Z DRY_OK unsloth a72_ga8_unsmin_r3_raw.json mb x ga 1 8 offload 80 embedding true updates 16 rows True snapshots 0 load_id -
+2026-11-18T03:52:39Z DRY_OK unsloth a72_ga8_uns_r3_raw.json mb x ga 1 8 offload auto embedding unset updates 16 rows True snapshots 0 load_id -
+2026-11-18T03:52:39Z DRY_OK poros a72_ga8_poros_r3 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:52:39Z g_72b round 3 done
+2026-11-18T03:52:39Z g_72b done free=86G
+2026-11-18T03:52:39Z DRY_OK baseline b72_base_raw.json rows True snapshot False poros_blocked True pythonpath unset versions {"torch":"2.14.1","transformers":"5.22.2","peft":"0.20.0","bitsandbytes":"0.50.2","accelerate":"1.15.0"}
+2026-11-18T03:52:39Z DRY_OK nf4 b72_nf4.json snapshot False bitsandbytes 0.50.2 transformers 5.22.2
+2026-11-18T03:52:39Z dry: 68 arm checks passed, expected 69: DRY FAIL
+2026-11-18T03:52:39Z PHASE dry end 14 s free=86G
+2026-11-18T03:52:39Z MAIN DONE elapsed 14 s free=86G
+2026-11-18T03:53:04Z MAIN START pid 3324245 commit 5d75e31a486cdf19e397e2d0f748def98083ecc8 phases [dry] lockmode group free=86G
+2026-11-18T03:53:04Z PHASE dry start free=86G
+2026-11-18T03:53:04Z g_30b start shapes=[ga8 na] rounds=[1 2 3] updates=16 free=86G
+2026-11-18T03:53:04Z DRY_OK poros a30_ga8_ram_r1 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:53:05Z DRY_OK poros a30_ga8_ssdeff_r1 path efficient store ssd mb x ga 1 8 steps 16
+2026-11-18T03:53:05Z DRY_OK poros a30_ga8_ssdfast_r1 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T03:53:05Z DRY_OK poros a30_ga8_ssdfc_r1 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T03:53:06Z DRY_OK poros a30_ga8_ssdbal_r1 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T03:53:06Z DRY_OK unsloth a30_ga8_uns_r1_raw.json mb x ga 1 8 offload auto embedding unset updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:53:06Z DRY_OK unsloth a30_ga8_unsmin_r1_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:53:06Z DRY_OK unsloth a30_ga8_unsmid_r1_raw.json mb x ga 1 8 offload 38 embedding true updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:53:06Z g_30b ga8 round 1 done
+2026-11-18T03:53:06Z DRY_OK poros a30_ga8_ssdeff_r2 path efficient store ssd mb x ga 1 8 steps 16
+2026-11-18T03:53:06Z DRY_OK poros a30_ga8_ssdbal_r2 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T03:53:07Z DRY_OK poros a30_ga8_ssdfc_r2 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T03:53:07Z DRY_OK unsloth a30_ga8_unsmin_r2_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:53:07Z DRY_OK poros a30_ga8_ram_r2 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:53:07Z DRY_OK unsloth a30_ga8_unsmid_r2_raw.json mb x ga 1 8 offload 38 embedding true updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:53:07Z DRY_OK unsloth a30_ga8_uns_r2_raw.json mb x ga 1 8 offload auto embedding unset updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:53:07Z DRY_OK poros a30_ga8_ssdfast_r2 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T03:53:08Z g_30b ga8 round 2 done
+2026-11-18T03:53:08Z DRY_OK unsloth a30_ga8_unsmin_r3_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:53:08Z DRY_OK unsloth a30_ga8_uns_r3_raw.json mb x ga 1 8 offload auto embedding unset updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:53:08Z DRY_OK unsloth a30_ga8_unsmid_r3_raw.json mb x ga 1 8 offload 38 embedding true updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:53:08Z DRY_OK poros a30_ga8_ssdbal_r3 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T03:53:08Z DRY_OK poros a30_ga8_ram_r3 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:53:09Z DRY_OK poros a30_ga8_ssdfc_r3 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T03:53:09Z DRY_OK poros a30_ga8_ssdfast_r3 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T03:53:09Z DRY_OK poros a30_ga8_ssdeff_r3 path efficient store ssd mb x ga 1 8 steps 16
+2026-11-18T03:53:09Z g_30b ga8 round 3 done
+2026-11-18T03:53:09Z DRY_OK poros a30_na_ram_r1 path None store ram mb x ga 8 1 steps 16
+2026-11-18T03:53:10Z DRY_OK poros a30_na_ssdeff_r1 path efficient store ssd mb x ga 8 1 steps 16
+2026-11-18T03:53:10Z DRY_OK poros a30_na_ssdfast_r1 path fast store ssd mb x ga 8 1 steps 16
+2026-11-18T03:53:10Z DRY_OK poros a30_na_ssdfc_r1 path fast store ssd mb x ga 8 1 steps 16
+2026-11-18T03:53:10Z DRY_OK unsloth a30_na_uns_r1_raw.json mb x ga 8 1 offload auto embedding unset updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:53:11Z g_30b na round 1 done
+2026-11-18T03:53:11Z DRY_OK poros a30_na_ssdeff_r2 path efficient store ssd mb x ga 8 1 steps 16
+2026-11-18T03:53:11Z DRY_OK poros a30_na_ssdfc_r2 path fast store ssd mb x ga 8 1 steps 16
+2026-11-18T03:53:11Z DRY_OK poros a30_na_ram_r2 path None store ram mb x ga 8 1 steps 16
+2026-11-18T03:53:11Z DRY_OK unsloth a30_na_uns_r2_raw.json mb x ga 8 1 offload auto embedding unset updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:53:11Z DRY_OK poros a30_na_ssdfast_r2 path fast store ssd mb x ga 8 1 steps 16
+2026-11-18T03:53:12Z g_30b na round 2 done
+2026-11-18T03:53:12Z DRY_OK unsloth a30_na_uns_r3_raw.json mb x ga 8 1 offload auto embedding unset updates 16 rows True snapshots 1 load_id -
+2026-11-18T03:53:12Z DRY_OK poros a30_na_ram_r3 path None store ram mb x ga 8 1 steps 16
+2026-11-18T03:53:12Z DRY_OK poros a30_na_ssdfc_r3 path fast store ssd mb x ga 8 1 steps 16
+2026-11-18T03:53:12Z DRY_OK poros a30_na_ssdfast_r3 path fast store ssd mb x ga 8 1 steps 16
+2026-11-18T03:53:13Z DRY_OK poros a30_na_ssdeff_r3 path efficient store ssd mb x ga 8 1 steps 16
+2026-11-18T03:53:13Z g_30b na round 3 done
+2026-11-18T03:53:13Z g_30b done free=86G
+2026-11-18T03:53:13Z g_cap8 start seq=256 rank=8 free VRAM target 6246 MiB host prefix=[none]
+2026-11-18T03:53:13Z DRY_OK poros c8_poros_r1 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T03:53:13Z DRY_OK unsloth c8_uns_r1_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows False snapshots 1 load_id -
+2026-11-18T03:53:13Z DRY_OK poros c8_poros_r2 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T03:53:14Z DRY_OK unsloth c8_uns_r2_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows False snapshots 1 load_id -
+2026-11-18T03:53:14Z DRY_OK poros c8_poros_r3 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T03:53:14Z DRY_OK unsloth c8_uns_r3_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows False snapshots 1 load_id -
+2026-11-18T03:53:14Z ballast released
+2026-11-18T03:53:14Z DRY_OK unsloth c8_uns_nocap_r1_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows False snapshots 1 load_id -
+2026-11-18T03:53:14Z DRY_OK unsloth c8_uns_nocap_r2_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows False snapshots 1 load_id -
+2026-11-18T03:53:14Z DRY_OK unsloth c8_uns_nocap_r3_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows False snapshots 1 load_id -
+2026-11-18T03:53:14Z g_cap8 done
+2026-11-18T03:53:14Z g_card 7b start free=86G
+2026-11-18T03:53:14Z DRY_OK poros c7_poros_r1 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:53:15Z DRY_OK poros c7_poros_r2 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:53:15Z DRY_OK poros c7_poros_r3 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:53:15Z g_card 7b done
+2026-11-18T03:53:15Z g_card 32b start free=86G
+2026-11-18T03:53:15Z DRY_OK poros c32_poros_r1 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:53:15Z DRY_OK poros c32_poros_r2 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:53:16Z DRY_OK poros c32_poros_r3 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:53:16Z g_card 32b done
+2026-11-18T03:53:16Z g_72b start rounds=[1 2 3] updates=16 noaccum=30b_a3b minvram=[80 --offload-embedding true] free=86G
+2026-11-18T03:53:16Z DRY_OK poros a72_ga8_poros_r1 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:53:16Z DRY_OK unsloth a72_ga8_uns_r1_raw.json mb x ga 1 8 offload auto embedding unset updates 16 rows True snapshots 0 load_id -
+2026-11-18T03:53:16Z DRY_OK unsloth a72_ga8_unsmin_r1_raw.json mb x ga 1 8 offload 80 embedding true updates 16 rows True snapshots 0 load_id -
+2026-11-18T03:53:17Z DRY_OK poros a72_ga8_porosfast_r1 path fast store ram mb x ga 1 8 steps 16
+2026-11-18T03:53:17Z g_72b round 1 done
+2026-11-18T03:53:17Z DRY_OK unsloth a72_ga8_uns_r2_raw.json mb x ga 1 8 offload auto embedding unset updates 16 rows True snapshots 0 load_id -
+2026-11-18T03:53:17Z DRY_OK poros a72_ga8_porosfast_r2 path fast store ram mb x ga 1 8 steps 16
+2026-11-18T03:53:17Z DRY_OK poros a72_ga8_poros_r2 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:53:17Z DRY_OK unsloth a72_ga8_unsmin_r2_raw.json mb x ga 1 8 offload 80 embedding true updates 16 rows True snapshots 0 load_id -
+2026-11-18T03:53:17Z g_72b round 2 done
+2026-11-18T03:53:18Z DRY_OK poros a72_ga8_porosfast_r3 path fast store ram mb x ga 1 8 steps 16
+2026-11-18T03:53:18Z DRY_OK unsloth a72_ga8_unsmin_r3_raw.json mb x ga 1 8 offload 80 embedding true updates 16 rows True snapshots 0 load_id -
+2026-11-18T03:53:18Z DRY_OK unsloth a72_ga8_uns_r3_raw.json mb x ga 1 8 offload auto embedding unset updates 16 rows True snapshots 0 load_id -
+2026-11-18T03:53:18Z DRY_OK poros a72_ga8_poros_r3 path None store ram mb x ga 1 8 steps 16
+2026-11-18T03:53:18Z g_72b round 3 done
+2026-11-18T03:53:18Z g_72b done free=86G
+2026-11-18T03:53:18Z DRY_OK baseline b72_base_raw.json rows True snapshot False poros_blocked True pythonpath unset versions {"torch":"2.14.1","transformers":"5.22.2","peft":"0.20.0","bitsandbytes":"0.50.2","accelerate":"1.15.0"}
+2026-11-18T03:53:18Z DRY_OK nf4 b72_nf4.json snapshot False bitsandbytes 0.50.2 transformers 5.22.2
+2026-11-18T03:53:18Z dry: 68 arm checks passed, expected 68: DRY PASS
+2026-11-18T03:53:18Z PHASE dry end 14 s free=86G
+2026-11-18T03:53:18Z MAIN DONE elapsed 14 s free=86G
+2026-11-18T04:52:22Z MAIN START pid 3357969 commit 5d75e31a486cdf19e397e2d0f748def98083ecc8 phases [dry] lockmode group free=153G
+2026-11-18T04:52:22Z PHASE dry start free=153G
+2026-11-18T04:52:22Z g_30b start shapes=[ga8 na] rounds=[1 2 3] updates=16 free=153G
+2026-11-18T04:52:22Z DRY_OK poros a30_ga8_ram_r1 path None store ram mb x ga 1 8 steps 16
+2026-11-18T04:52:22Z DRY_OK poros a30_ga8_ssdeff_r1 path efficient store ssd mb x ga 1 8 steps 16
+2026-11-18T04:52:23Z DRY_OK poros a30_ga8_ssdfast_r1 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T04:52:23Z DRY_OK poros a30_ga8_ssdfc_r1 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T04:52:23Z DRY_OK poros a30_ga8_ssdbal_r1 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T04:52:23Z DRY_OK unsloth a30_ga8_uns_r1_raw.json mb x ga 1 8 offload auto embedding unset updates 16 rows True snapshots 1 load_id -
+2026-11-18T04:52:24Z DRY_OK unsloth a30_ga8_unsmin_r1_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows True snapshots 1 load_id -
+2026-11-18T04:52:24Z DRY_OK unsloth a30_ga8_unsmid_r1_raw.json mb x ga 1 8 offload 38 embedding true updates 16 rows True snapshots 1 load_id -
+2026-11-18T04:52:24Z g_30b ga8 round 1 done
+2026-11-18T04:52:24Z DRY_OK poros a30_ga8_ssdeff_r2 path efficient store ssd mb x ga 1 8 steps 16
+2026-11-18T04:52:24Z DRY_OK poros a30_ga8_ssdbal_r2 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T04:52:24Z DRY_OK poros a30_ga8_ssdfc_r2 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T04:52:25Z DRY_OK unsloth a30_ga8_unsmin_r2_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows True snapshots 1 load_id -
+2026-11-18T04:52:25Z DRY_OK poros a30_ga8_ram_r2 path None store ram mb x ga 1 8 steps 16
+2026-11-18T04:52:25Z DRY_OK unsloth a30_ga8_unsmid_r2_raw.json mb x ga 1 8 offload 38 embedding true updates 16 rows True snapshots 1 load_id -
+2026-11-18T04:52:25Z DRY_OK unsloth a30_ga8_uns_r2_raw.json mb x ga 1 8 offload auto embedding unset updates 16 rows True snapshots 1 load_id -
+2026-11-18T04:52:25Z DRY_OK poros a30_ga8_ssdfast_r2 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T04:52:25Z g_30b ga8 round 2 done
+2026-11-18T04:52:25Z DRY_OK unsloth a30_ga8_unsmin_r3_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows True snapshots 1 load_id -
+2026-11-18T04:52:26Z DRY_OK unsloth a30_ga8_uns_r3_raw.json mb x ga 1 8 offload auto embedding unset updates 16 rows True snapshots 1 load_id -
+2026-11-18T04:52:26Z DRY_OK unsloth a30_ga8_unsmid_r3_raw.json mb x ga 1 8 offload 38 embedding true updates 16 rows True snapshots 1 load_id -
+2026-11-18T04:52:26Z DRY_OK poros a30_ga8_ssdbal_r3 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T04:52:26Z DRY_OK poros a30_ga8_ram_r3 path None store ram mb x ga 1 8 steps 16
+2026-11-18T04:52:26Z DRY_OK poros a30_ga8_ssdfc_r3 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T04:52:27Z DRY_OK poros a30_ga8_ssdfast_r3 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T04:52:27Z DRY_OK poros a30_ga8_ssdeff_r3 path efficient store ssd mb x ga 1 8 steps 16
+2026-11-18T04:52:27Z g_30b ga8 round 3 done
+2026-11-18T04:52:27Z DRY_OK poros a30_na_ram_r1 path None store ram mb x ga 8 1 steps 16
+2026-11-18T04:52:27Z DRY_OK poros a30_na_ssdeff_r1 path efficient store ssd mb x ga 8 1 steps 16
+2026-11-18T04:52:28Z DRY_OK poros a30_na_ssdfast_r1 path fast store ssd mb x ga 8 1 steps 16
+2026-11-18T04:52:28Z DRY_OK poros a30_na_ssdfc_r1 path fast store ssd mb x ga 8 1 steps 16
+2026-11-18T04:52:28Z DRY_OK unsloth a30_na_uns_r1_raw.json mb x ga 8 1 offload auto embedding unset updates 16 rows True snapshots 1 load_id -
+2026-11-18T04:52:28Z g_30b na round 1 done
+2026-11-18T04:52:28Z DRY_OK poros a30_na_ssdeff_r2 path efficient store ssd mb x ga 8 1 steps 16
+2026-11-18T04:52:29Z DRY_OK poros a30_na_ssdfc_r2 path fast store ssd mb x ga 8 1 steps 16
+2026-11-18T04:52:29Z DRY_OK poros a30_na_ram_r2 path None store ram mb x ga 8 1 steps 16
+2026-11-18T04:52:29Z DRY_OK unsloth a30_na_uns_r2_raw.json mb x ga 8 1 offload auto embedding unset updates 16 rows True snapshots 1 load_id -
+2026-11-18T04:52:29Z DRY_OK poros a30_na_ssdfast_r2 path fast store ssd mb x ga 8 1 steps 16
+2026-11-18T04:52:30Z g_30b na round 2 done
+2026-11-18T04:52:30Z DRY_OK unsloth a30_na_uns_r3_raw.json mb x ga 8 1 offload auto embedding unset updates 16 rows True snapshots 1 load_id -
+2026-11-18T04:52:30Z DRY_OK poros a30_na_ram_r3 path None store ram mb x ga 8 1 steps 16
+2026-11-18T04:52:30Z DRY_OK poros a30_na_ssdfc_r3 path fast store ssd mb x ga 8 1 steps 16
+2026-11-18T04:52:30Z DRY_OK poros a30_na_ssdfast_r3 path fast store ssd mb x ga 8 1 steps 16
+2026-11-18T04:52:30Z DRY_OK poros a30_na_ssdeff_r3 path efficient store ssd mb x ga 8 1 steps 16
+2026-11-18T04:52:31Z g_30b na round 3 done
+2026-11-18T04:52:31Z g_30b done free=153G
+2026-11-18T04:52:31Z g_cap8 start seq=256 rank=8 free VRAM target 6246 MiB host prefix=[none]
+2026-11-18T04:52:31Z DRY_OK poros c8_poros_r1 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T04:52:31Z DRY_OK unsloth c8_uns_r1_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows False snapshots 1 load_id -
+2026-11-18T04:52:31Z DRY_OK poros c8_poros_r2 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T04:52:31Z DRY_OK unsloth c8_uns_r2_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows False snapshots 1 load_id -
+2026-11-18T04:52:32Z DRY_OK poros c8_poros_r3 path fast store ssd mb x ga 1 8 steps 16
+2026-11-18T04:52:32Z DRY_OK unsloth c8_uns_r3_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows False snapshots 1 load_id -
+2026-11-18T04:52:32Z ballast released
+2026-11-18T04:52:32Z DRY_OK unsloth c8_uns_nocap_r1_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows False snapshots 1 load_id -
+2026-11-18T04:52:32Z DRY_OK unsloth c8_uns_nocap_r2_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows False snapshots 1 load_id -
+2026-11-18T04:52:32Z DRY_OK unsloth c8_uns_nocap_r3_raw.json mb x ga 1 8 offload 48 embedding true updates 16 rows False snapshots 1 load_id -
+2026-11-18T04:52:32Z g_cap8 done
+2026-11-18T04:52:32Z g_card 7b start free=153G
+2026-11-18T04:52:32Z DRY_OK poros c7_poros_r1 path None store ram mb x ga 1 8 steps 16
+2026-11-18T04:52:32Z DRY_OK poros c7_poros_r2 path None store ram mb x ga 1 8 steps 16
+2026-11-18T04:52:33Z DRY_OK poros c7_poros_r3 path None store ram mb x ga 1 8 steps 16
+2026-11-18T04:52:33Z g_card 7b done
+2026-11-18T04:52:33Z g_card 32b start free=153G
+2026-11-18T04:52:33Z DRY_OK poros c32_poros_r1 path None store ram mb x ga 1 8 steps 16
+2026-11-18T04:52:33Z DRY_OK poros c32_poros_r2 path None store ram mb x ga 1 8 steps 16
+2026-11-18T04:52:34Z DRY_OK poros c32_poros_r3 path None store ram mb x ga 1 8 steps 16
+2026-11-18T04:52:34Z g_card 32b done
+2026-11-18T04:52:34Z g_72b start rounds=[1 2 3] updates=16 noaccum=30b_a3b minvram=[80 --offload-embedding true] free=153G
+2026-11-18T04:52:34Z DRY_OK poros a72_ga8_poros_r1 path None store ram mb x ga 1 8 steps 16
+2026-11-18T04:52:34Z DRY_OK unsloth a72_ga8_uns_r1_raw.json mb x ga 1 8 offload auto embedding unset updates 16 rows True snapshots 0 load_id -
+2026-11-18T04:52:34Z DRY_OK unsloth a72_ga8_unsmin_r1_raw.json mb x ga 1 8 offload 80 embedding true updates 16 rows True snapshots 0 load_id -
+2026-11-18T04:52:34Z DRY_OK poros a72_ga8_porosfast_r1 path fast store ram mb x ga 1 8 steps 16
+2026-11-18T04:52:35Z g_72b round 1 done
+2026-11-18T04:52:35Z DRY_OK unsloth a72_ga8_uns_r2_raw.json mb x ga 1 8 offload auto embedding unset updates 16 rows True snapshots 0 load_id -
+2026-11-18T04:52:35Z DRY_OK poros a72_ga8_porosfast_r2 path fast store ram mb x ga 1 8 steps 16
+2026-11-18T04:52:35Z DRY_OK poros a72_ga8_poros_r2 path None store ram mb x ga 1 8 steps 16
+2026-11-18T04:52:35Z DRY_OK unsloth a72_ga8_unsmin_r2_raw.json mb x ga 1 8 offload 80 embedding true updates 16 rows True snapshots 0 load_id -
+2026-11-18T04:52:35Z g_72b round 2 done
+2026-11-18T04:52:35Z DRY_OK poros a72_ga8_porosfast_r3 path fast store ram mb x ga 1 8 steps 16
+2026-11-18T04:52:36Z DRY_OK unsloth a72_ga8_unsmin_r3_raw.json mb x ga 1 8 offload 80 embedding true updates 16 rows True snapshots 0 load_id -
+2026-11-18T04:52:36Z DRY_OK unsloth a72_ga8_uns_r3_raw.json mb x ga 1 8 offload auto embedding unset updates 16 rows True snapshots 0 load_id -
+2026-11-18T04:52:36Z DRY_OK poros a72_ga8_poros_r3 path None store ram mb x ga 1 8 steps 16
+2026-11-18T04:52:36Z g_72b round 3 done
+2026-11-18T04:52:36Z g_72b done free=153G
+2026-11-18T04:52:36Z DRY_OK baseline b72_base_raw.json rows True snapshot False poros_blocked True pythonpath unset versions {"torch":"2.14.1","transformers":"5.22.2","peft":"0.20.0","bitsandbytes":"0.50.2","accelerate":"1.15.0"}
+2026-11-18T04:52:36Z DRY_OK nf4 b72_nf4.json snapshot False bitsandbytes 0.50.2 transformers 5.22.2
+2026-11-18T04:52:36Z dry: 68 arm checks passed, expected 68: DRY PASS
+2026-11-18T04:52:36Z PHASE dry end 14 s free=153G
+2026-11-18T04:52:36Z MAIN DONE elapsed 14 s free=153G
+2026-11-18T04:52:58Z MAIN START pid 3360151 commit 5d75e31a486cdf19e397e2d0f748def98083ecc8 phases [30b cap8 card7 exact card32 72b baseline72 film end] lockmode group free=153G
+2026-11-18T04:52:58Z disk plan: free now 153G, floor 25G; on disk: 30B-A3B=1 7B=0 32B=0 72B=0 own .sss=1; H2HF_ALLOW_DROP_30B=1
+2026-11-18T04:52:58Z   30b     30B-A3B bf16 1=have (57G), own .sss 15G, mirror 0G         free before  153G, lowest  153G ok
+2026-11-18T04:52:58Z   cap8    (nothing new on disk: it reuses the 30B phase's store)     free before  153G, lowest  153G 
+2026-11-18T04:52:58Z   card7   7B bf16 (15G)                                              free before  153G, lowest  138G ok
+2026-11-18T04:52:58Z   exact   7B bf16 (15G); dropped after if this run fetched it        free before  138G, lowest  138G ok
+2026-11-18T04:52:58Z   card32  own .sss gone, 30B-A3B dropped if allowed; 32B bf16 (62G), dropped after free before  225G, lowest  163G ok
+2026-11-18T04:52:58Z   72b     72B bf16 (136G): needs 161G free before the download       free before  225G, lowest   89G ok
+2026-11-18T04:52:58Z   baseline72 (the 72B on disk; writes < 0.1G; GPU up to H2HF_TO_BASE s) free before   89G, lowest   89G 
+2026-11-18T04:52:58Z   film    (the 72B stays on disk)                                    free before   89G, lowest   89G 
+2026-11-18T04:52:58Z   end     72B dropped                                                free before   89G, lowest  225G 
+2026-11-18T04:52:58Z DISK PLAN OK: no phase goes below 25G free
+2026-11-18T04:52:58Z PHASE 30b start free=153G
+2026-11-18T04:52:58Z g_30b start shapes=[ga8 na] rounds=[1 2 3] updates=16 free=153G
+2026-11-18T04:52:58Z start a30_ga8_ram_r1
+2026-11-18T04:57:04Z end RUN a30_ga8_ram_r1 {"status": "ok", "arm": "a30_ga8_ram", "round": 1, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 4.5574, "t1_s": 137.03, "load_s": 127.05, "vram_alloc_gib": 7.396, "vram_reserved_gib": 8.306, "host_ram_gib": 19.89, "host_vmhwm_gib": 21.995, "load_peak_vram_alloc_gib": 4.042, "load_peak_vram_reserved_gib": 4.049, "load_peak_host_gib": 18.705, "load_peak_host_vmhwm_gib": 21.995, "s_med_3_N
+2026-11-18T04:58:04Z start a30_ga8_ssdeff_r1
+2026-11-18T05:03:40Z end RUN a30_ga8_ssdeff_r1 {"status": "ok", "arm": "a30_ga8_ssdeff", "round": 1, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 19.2489, "t1_s": 36.93, "load_s": 17.07, "vram_alloc_gib": 7.396, "vram_reserved_gib": 7.74, "host_ram_gib": 7.936, "host_vmhwm_gib": 8.396, "load_peak_vram_alloc_gib": 4.042, "load_peak_vram_reserved_gib": 4.049, "load_peak_host_gib": 6.834, "load_peak_host_vmhwm_gib": 7.184, "s_med_3_
+2026-11-18T05:04:40Z start a30_ga8_ssdfast_r1
+2026-11-18T05:07:14Z end RUN a30_ga8_ssdfast_r1 {"status": "ok", "arm": "a30_ga8_ssdfast", "round": 1, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 5.9265, "t1_s": 33.93, "load_s": 14.54, "vram_alloc_gib": 18.087, "vram_reserved_gib": 18.384, "host_ram_gib": 6.834, "host_vmhwm_gib": 7.195, "load_peak_vram_alloc_gib": 4.042, "load_peak_vram_reserved_gib": 4.049, "load_peak_host_gib": 6.834, "load_peak_host_vmhwm_gib": 7.195, "s_me
+2026-11-18T05:08:14Z start a30_ga8_ssdfc_r1
+2026-11-18T05:10:26Z end RUN a30_ga8_ssdfc_r1 {"status": "ok", "arm": "a30_ga8_ssdfc", "round": 1, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 4.1454, "t1_s": 34.48, "load_s": 14.45, "vram_alloc_gib": 18.052, "vram_reserved_gib": 19.751, "host_ram_gib": 11.192, "host_vmhwm_gib": 11.664, "load_peak_vram_alloc_gib": 4.042, "load_peak_vram_reserved_gib": 4.049, "load_peak_host_gib": 6.834, "load_peak_host_vmhwm_gib": 7.197, "s_med_
+2026-11-18T05:11:26Z start a30_ga8_ssdbal_r1
+2026-11-18T05:13:40Z end RUN a30_ga8_ssdbal_r1 {"status": "ok", "arm": "a30_ga8_ssdbal", "round": 1, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 4.3389, "t1_s": 34.89, "load_s": 14.65, "vram_alloc_gib": 14.094, "vram_reserved_gib": 16.568, "host_ram_gib": 15.193, "host_vmhwm_gib": 15.662, "load_peak_vram_alloc_gib": 4.042, "load_peak_vram_reserved_gib": 4.049, "load_peak_host_gib": 6.834, "load_peak_host_vmhwm_gib": 7.197, "s_me
+2026-11-18T05:13:40Z start a30_ga8_uns_r1
+2026-11-18T05:17:54Z end RUN a30_ga8_uns_r1 {"status": "ok", "arm": "a30_ga8_uns", "round": 1, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 5.7638, "t1_s": 158.65, "load_s": 132.18, "vram_alloc_gib": 19.503, "vram_reserved_gib": 19.76, "host_ram_gib": 18.065, "host_vmhwm_gib": 58.562, "load_peak_vram_alloc_gib": 10.105, "load_peak_vram_reserved_gib": 10.186, "load_peak_host_gib": 18.065, "load_peak_host_vmhwm_gib": 58.562, "s_med
+2026-11-18T05:17:54Z start a30_ga8_unsmin_r1
+2026-11-18T05:22:43Z end RUN a30_ga8_unsmin_r1 {"status": "ok", "arm": "a30_ga8_unsmin", "round": 1, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 9.5049, "t1_s": 134.51, "load_s": 113.38, "vram_alloc_gib": 13.692, "vram_reserved_gib": 13.871, "host_ram_gib": 29.718, "host_vmhwm_gib": 58.793, "load_peak_vram_alloc_gib": 4.294, "load_peak_vram_reserved_gib": 4.336, "load_peak_host_gib": 29.718, "load_peak_host_vmhwm_gib": 58.793, "
+2026-11-18T05:22:43Z start a30_ga8_unsmid_r1
+2026-11-18T05:27:07Z end RUN a30_ga8_unsmid_r1 {"status": "ok", "arm": "a30_ga8_unsmid", "round": 1, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 7.4823, "t1_s": 141.51, "load_s": 122.49, "vram_alloc_gib": 16.598, "vram_reserved_gib": 16.873, "host_ram_gib": 23.945, "host_vmhwm_gib": 58.695, "load_peak_vram_alloc_gib": 7.2, "load_peak_vram_reserved_gib": 7.262, "load_peak_host_gib": 23.945, "load_peak_host_vmhwm_gib": 58.695, "s_
+2026-11-18T05:27:07Z g_30b ga8 round 1 done
+2026-11-18T05:28:07Z start a30_ga8_ssdeff_r2
+2026-11-18T05:33:42Z end RUN a30_ga8_ssdeff_r2 {"status": "ok", "arm": "a30_ga8_ssdeff", "round": 2, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 17.9015, "t1_s": 38.57, "load_s": 18.08, "vram_alloc_gib": 7.396, "vram_reserved_gib": 7.74, "host_ram_gib": 7.936, "host_vmhwm_gib": 8.402, "load_peak_vram_alloc_gib": 4.042, "load_peak_vram_reserved_gib": 4.049, "load_peak_host_gib": 6.834, "load_peak_host_vmhwm_gib": 7.187, "s_med_3_
+2026-11-18T05:34:42Z start a30_ga8_ssdbal_r2
+2026-11-18T05:36:56Z end RUN a30_ga8_ssdbal_r2 {"status": "ok", "arm": "a30_ga8_ssdbal", "round": 2, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 4.42, "t1_s": 35.19, "load_s": 14.56, "vram_alloc_gib": 14.094, "vram_reserved_gib": 16.607, "host_ram_gib": 15.193, "host_vmhwm_gib": 15.671, "load_peak_vram_alloc_gib": 4.042, "load_peak_vram_reserved_gib": 4.049, "load_peak_host_gib": 6.834, "load_peak_host_vmhwm_gib": 7.2, "s_med_3_
+2026-11-18T05:37:56Z start a30_ga8_ssdfc_r2
+2026-11-18T05:40:09Z end RUN a30_ga8_ssdfc_r2 {"status": "ok", "arm": "a30_ga8_ssdfc", "round": 2, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 4.1571, "t1_s": 34.27, "load_s": 14.42, "vram_alloc_gib": 18.052, "vram_reserved_gib": 20.24, "host_ram_gib": 11.193, "host_vmhwm_gib": 11.671, "load_peak_vram_alloc_gib": 4.042, "load_peak_vram_reserved_gib": 4.049, "load_peak_host_gib": 6.834, "load_peak_host_vmhwm_gib": 7.195, "s_med_3
+2026-11-18T05:40:09Z start a30_ga8_unsmin_r2
+2026-11-18T05:45:13Z end RUN a30_ga8_unsmin_r2 {"status": "ok", "arm": "a30_ga8_unsmin", "round": 2, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 9.2848, "t1_s": 152.99, "load_s": 131.74, "vram_alloc_gib": 13.692, "vram_reserved_gib": 13.871, "host_ram_gib": 29.777, "host_vmhwm_gib": 58.265, "load_peak_vram_alloc_gib": 4.294, "load_peak_vram_reserved_gib": 4.336, "load_peak_host_gib": 29.777, "load_peak_host_vmhwm_gib": 58.265, "
+2026-11-18T05:45:13Z start a30_ga8_ram_r2
+2026-11-18T05:49:36Z end RUN a30_ga8_ram_r2 {"status": "ok", "arm": "a30_ga8_ram", "round": 2, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 4.6048, "t1_s": 154.62, "load_s": 143.65, "vram_alloc_gib": 7.396, "vram_reserved_gib": 8.073, "host_ram_gib": 19.988, "host_vmhwm_gib": 21.863, "load_peak_vram_alloc_gib": 4.042, "load_peak_vram_reserved_gib": 4.049, "load_peak_host_gib": 18.776, "load_peak_host_vmhwm_gib": 21.863, "s_med_3_
+2026-11-18T05:49:36Z start a30_ga8_unsmid_r2
+2026-11-18T05:54:34Z end RUN a30_ga8_unsmid_r2 {"status": "ok", "arm": "a30_ga8_unsmid", "round": 2, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 8.4419, "t1_s": 165.32, "load_s": 146.01, "vram_alloc_gib": 16.598, "vram_reserved_gib": 16.873, "host_ram_gib": 23.771, "host_vmhwm_gib": 58.503, "load_peak_vram_alloc_gib": 7.2, "load_peak_vram_reserved_gib": 7.262, "load_peak_host_gib": 23.771, "load_peak_host_vmhwm_gib": 58.503, "s_
+2026-11-18T05:54:34Z start a30_ga8_uns_r2
+2026-11-18T05:58:51Z end RUN a30_ga8_uns_r2 {"status": "ok", "arm": "a30_ga8_uns", "round": 2, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 6.325, "t1_s": 154.53, "load_s": 135.62, "vram_alloc_gib": 19.503, "vram_reserved_gib": 19.76, "host_ram_gib": 18.091, "host_vmhwm_gib": 58.775, "load_peak_vram_alloc_gib": 10.105, "load_peak_vram_reserved_gib": 10.186, "load_peak_host_gib": 18.091, "load_peak_host_vmhwm_gib": 58.775, "s_med_
+2026-11-18T05:59:51Z start a30_ga8_ssdfast_r2
+2026-11-18T06:02:23Z end RUN a30_ga8_ssdfast_r2 {"status": "ok", "arm": "a30_ga8_ssdfast", "round": 2, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 5.1525, "t1_s": 39.1, "load_s": 20.08, "vram_alloc_gib": 18.087, "vram_reserved_gib": 18.404, "host_ram_gib": 6.834, "host_vmhwm_gib": 7.177, "load_peak_vram_alloc_gib": 4.042, "load_peak_vram_reserved_gib": 4.049, "load_peak_host_gib": 6.834, "load_peak_host_vmhwm_gib": 7.177, "s_med
+2026-11-18T06:02:23Z g_30b ga8 round 2 done
+2026-11-18T06:02:23Z start a30_ga8_unsmin_r3
+2026-11-18T06:07:41Z end RUN a30_ga8_unsmin_r3 {"status": "ok", "arm": "a30_ga8_unsmin", "round": 3, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 10.7161, "t1_s": 146.19, "load_s": 122.58, "vram_alloc_gib": 13.692, "vram_reserved_gib": 13.871, "host_ram_gib": 29.78, "host_vmhwm_gib": 58.704, "load_peak_vram_alloc_gib": 4.294, "load_peak_vram_reserved_gib": 4.336, "load_peak_host_gib": 29.78, "load_peak_host_vmhwm_gib": 58.704, "s
+2026-11-18T06:07:41Z start a30_ga8_uns_r3
+2026-11-18T06:12:04Z end RUN a30_ga8_uns_r3 {"status": "ok", "arm": "a30_ga8_uns", "round": 3, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 6.1806, "t1_s": 161.29, "load_s": 143.14, "vram_alloc_gib": 19.503, "vram_reserved_gib": 19.76, "host_ram_gib": 18.089, "host_vmhwm_gib": 58.706, "load_peak_vram_alloc_gib": 10.105, "load_peak_vram_reserved_gib": 10.186, "load_peak_host_gib": 18.089, "load_peak_host_vmhwm_gib": 58.706, "s_med
+2026-11-18T06:12:04Z start a30_ga8_unsmid_r3
+2026-11-18T06:16:32Z end RUN a30_ga8_unsmid_r3 {"status": "ok", "arm": "a30_ga8_unsmid", "round": 3, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 8.1297, "t1_s": 135.64, "load_s": 115.21, "vram_alloc_gib": 16.598, "vram_reserved_gib": 16.873, "host_ram_gib": 23.675, "host_vmhwm_gib": 58.819, "load_peak_vram_alloc_gib": 7.2, "load_peak_vram_reserved_gib": 7.262, "load_peak_host_gib": 23.675, "load_peak_host_vmhwm_gib": 58.819, "s_
+2026-11-18T06:17:32Z start a30_ga8_ssdbal_r3
+2026-11-18T06:19:48Z end RUN a30_ga8_ssdbal_r3 {"status": "ok", "arm": "a30_ga8_ssdbal", "round": 3, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 4.2206, "t1_s": 39.78, "load_s": 19.77, "vram_alloc_gib": 14.094, "vram_reserved_gib": 16.08, "host_ram_gib": 15.193, "host_vmhwm_gib": 15.652, "load_peak_vram_alloc_gib": 4.042, "load_peak_vram_reserved_gib": 4.049, "load_peak_host_gib": 6.834, "load_peak_host_vmhwm_gib": 7.18, "s_med_
+2026-11-18T06:19:48Z start a30_ga8_ram_r3
+2026-11-18T06:23:47Z end RUN a30_ga8_ram_r3 {"status": "ok", "arm": "a30_ga8_ram", "round": 3, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 4.5573, "t1_s": 132.59, "load_s": 121.3, "vram_alloc_gib": 7.396, "vram_reserved_gib": 8.053, "host_ram_gib": 19.89, "host_vmhwm_gib": 21.843, "load_peak_vram_alloc_gib": 4.042, "load_peak_vram_reserved_gib": 4.049, "load_peak_host_gib": 18.704, "load_peak_host_vmhwm_gib": 21.843, "s_med_3_N"
+2026-11-18T06:24:47Z start a30_ga8_ssdfc_r3
+2026-11-18T06:27:01Z end RUN a30_ga8_ssdfc_r3 {"status": "ok", "arm": "a30_ga8_ssdfc", "round": 3, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 4.1785, "t1_s": 37.29, "load_s": 17.07, "vram_alloc_gib": 18.052, "vram_reserved_gib": 19.733, "host_ram_gib": 11.191, "host_vmhwm_gib": 11.657, "load_peak_vram_alloc_gib": 4.042, "load_peak_vram_reserved_gib": 4.049, "load_peak_host_gib": 6.834, "load_peak_host_vmhwm_gib": 7.184, "s_med_
+2026-11-18T06:28:01Z start a30_ga8_ssdfast_r3
+2026-11-18T06:30:37Z end RUN a30_ga8_ssdfast_r3 {"status": "ok", "arm": "a30_ga8_ssdfast", "round": 3, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 6.1642, "t1_s": 33.62, "load_s": 14.44, "vram_alloc_gib": 18.087, "vram_reserved_gib": 18.404, "host_ram_gib": 6.835, "host_vmhwm_gib": 7.197, "load_peak_vram_alloc_gib": 4.042, "load_peak_vram_reserved_gib": 4.049, "load_peak_host_gib": 6.835, "load_peak_host_vmhwm_gib": 7.197, "s_me
+2026-11-18T06:31:37Z start a30_ga8_ssdeff_r3
+2026-11-18T06:37:10Z end RUN a30_ga8_ssdeff_r3 {"status": "ok", "arm": "a30_ga8_ssdeff", "round": 3, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 17.9592, "t1_s": 34.22, "load_s": 14.43, "vram_alloc_gib": 7.396, "vram_reserved_gib": 7.76, "host_ram_gib": 7.935, "host_vmhwm_gib": 8.41, "load_peak_vram_alloc_gib": 4.042, "load_peak_vram_reserved_gib": 4.049, "load_peak_host_gib": 6.834, "load_peak_host_vmhwm_gib": 7.195, "s_med_3_N
+2026-11-18T06:37:10Z g_30b ga8 round 3 done
+2026-11-18T06:37:12Z rows_check 30b_ga8 {"rows_pt": "~/rf/h2hf_5d75e31a/data/rows_real128.pt", "rows_pt_sha256": "13b5db2ab23e70733130be4a416042a5893d73852d4e5bf426709352c3507fdd", "poros_fed_rows": 128, "poros_fed_seq": 512, "poros_fed_sha
+2026-11-18T06:37:12Z start a30_na_ram_r1
+2026-11-18T06:40:44Z end RUN a30_na_ram_r1 {"status": "ok", "arm": "a30_na_ram", "round": 1, "shape": {"mb": 8, "ga": 1}, "updates": 16, "s_med_2_N": 2.4449, "t1_s": 136.47, "load_s": 127.62, "vram_alloc_gib": 7.396, "vram_reserved_gib": 8.111, "host_ram_gib": 19.908, "host_vmhwm_gib": 21.875, "load_peak_vram_alloc_gib": 4.042, "load_peak_vram_reserved_gib": 4.049, "load_peak_host_gib": 18.704, "load_peak_host_vmhwm_gib": 21.875, "s_med_3_N"
+2026-11-18T06:41:44Z start a30_na_ssdeff_r1
+2026-11-18T06:46:41Z end RUN a30_na_ssdeff_r1 {"status": "ok", "arm": "a30_na_ssdeff", "round": 1, "shape": {"mb": 8, "ga": 1}, "updates": 16, "s_med_2_N": 16.5572, "t1_s": 33.96, "load_s": 17.37, "vram_alloc_gib": 7.396, "vram_reserved_gib": 7.799, "host_ram_gib": 7.935, "host_vmhwm_gib": 8.401, "load_peak_vram_alloc_gib": 4.042, "load_peak_vram_reserved_gib": 4.049, "load_peak_host_gib": 6.834, "load_peak_host_vmhwm_gib": 7.186, "s_med_3_N
+2026-11-18T06:47:41Z start a30_na_ssdfast_r1
+2026-11-18T06:49:39Z end RUN a30_na_ssdfast_r1 {"status": "ok", "arm": "a30_na_ssdfast", "round": 1, "shape": {"mb": 8, "ga": 1}, "updates": 16, "s_med_2_N": 3.5077, "t1_s": 31.65, "load_s": 14.38, "vram_alloc_gib": 18.232, "vram_reserved_gib": 18.854, "host_ram_gib": 6.834, "host_vmhwm_gib": 7.197, "load_peak_vram_alloc_gib": 4.042, "load_peak_vram_reserved_gib": 4.049, "load_peak_host_gib": 6.834, "load_peak_host_vmhwm_gib": 7.197, "s_med_
+2026-11-18T06:50:39Z start a30_na_ssdfc_r1
+2026-11-18T06:52:05Z end RUN a30_na_ssdfc_r1 {"status": "ok", "arm": "a30_na_ssdfc", "round": 1, "shape": {"mb": 8, "ga": 1}, "updates": 16, "s_med_2_N": 1.3893, "t1_s": 30.26, "load_s": 14.1, "vram_alloc_gib": 18.001, "vram_reserved_gib": 20.045, "host_ram_gib": 11.192, "host_vmhwm_gib": 11.668, "load_peak_vram_alloc_gib": 4.042, "load_peak_vram_reserved_gib": 4.049, "load_peak_host_gib": 6.834, "load_peak_host_vmhwm_gib": 7.195, "s_med_3_N
+2026-11-18T06:52:05Z start a30_na_uns_r1
+2026-11-18T06:55:25Z end RUN a30_na_uns_r1 {"status": "ok", "arm": "a30_na_uns", "round": 1, "shape": {"mb": 8, "ga": 1}, "updates": 16, "s_med_2_N": 1.6608, "t1_s": 164.81, "load_s": 134.57, "vram_alloc_gib": 19.534, "vram_reserved_gib": 19.764, "host_ram_gib": 18.154, "host_vmhwm_gib": 58.423, "load_peak_vram_alloc_gib": 10.105, "load_peak_vram_reserved_gib": 10.186, "load_peak_host_gib": 18.154, "load_peak_host_vmhwm_gib": 58.423, "s_med_
+2026-11-18T06:55:25Z g_30b na round 1 done
+2026-11-18T06:56:25Z start a30_na_ssdeff_r2
+2026-11-18T07:01:40Z end RUN a30_na_ssdeff_r2 {"status": "ok", "arm": "a30_na_ssdeff", "round": 2, "shape": {"mb": 8, "ga": 1}, "updates": 16, "s_med_2_N": 17.0779, "t1_s": 34.07, "load_s": 17.01, "vram_alloc_gib": 7.396, "vram_reserved_gib": 7.799, "host_ram_gib": 7.936, "host_vmhwm_gib": 8.404, "load_peak_vram_alloc_gib": 4.042, "load_peak_vram_reserved_gib": 4.049, "load_peak_host_gib": 6.834, "load_peak_host_vmhwm_gib": 7.191, "s_med_3_N
+2026-11-18T07:02:40Z start a30_na_ssdfc_r2
+2026-11-18T07:04:06Z end RUN a30_na_ssdfc_r2 {"status": "ok", "arm": "a30_na_ssdfc", "round": 2, "shape": {"mb": 8, "ga": 1}, "updates": 16, "s_med_2_N": 1.3708, "t1_s": 30.29, "load_s": 14.04, "vram_alloc_gib": 18.182, "vram_reserved_gib": 20.24, "host_ram_gib": 11.193, "host_vmhwm_gib": 11.667, "load_peak_vram_alloc_gib": 4.042, "load_peak_vram_reserved_gib": 4.049, "load_peak_host_gib": 6.834, "load_peak_host_vmhwm_gib": 7.197, "s_med_3_N
+2026-11-18T07:04:06Z start a30_na_ram_r2
+2026-11-18T07:07:33Z end RUN a30_na_ram_r2 {"status": "ok", "arm": "a30_na_ram", "round": 2, "shape": {"mb": 8, "ga": 1}, "updates": 16, "s_med_2_N": 2.4686, "t1_s": 132.84, "load_s": 124.38, "vram_alloc_gib": 7.396, "vram_reserved_gib": 8.111, "host_ram_gib": 19.799, "host_vmhwm_gib": 22.095, "load_peak_vram_alloc_gib": 4.042, "load_peak_vram_reserved_gib": 4.049, "load_peak_host_gib": 18.707, "load_peak_host_vmhwm_gib": 22.095, "s_med_3_N"
+2026-11-18T07:07:33Z start a30_na_uns_r2
+2026-11-18T07:10:48Z end RUN a30_na_uns_r2 {"status": "ok", "arm": "a30_na_uns", "round": 2, "shape": {"mb": 8, "ga": 1}, "updates": 16, "s_med_2_N": 1.6669, "t1_s": 160.2, "load_s": 144.39, "vram_alloc_gib": 19.597, "vram_reserved_gib": 19.842, "host_ram_gib": 17.884, "host_vmhwm_gib": 58.571, "load_peak_vram_alloc_gib": 10.105, "load_peak_vram_reserved_gib": 10.186, "load_peak_host_gib": 17.884, "load_peak_host_vmhwm_gib": 58.571, "s_med_3
+2026-11-18T07:11:48Z start a30_na_ssdfast_r2
+2026-11-18T07:13:44Z end RUN a30_na_ssdfast_r2 {"status": "ok", "arm": "a30_na_ssdfast", "round": 2, "shape": {"mb": 8, "ga": 1}, "updates": 16, "s_med_2_N": 3.1686, "t1_s": 35.32, "load_s": 18.24, "vram_alloc_gib": 18.232, "vram_reserved_gib": 18.873, "host_ram_gib": 6.834, "host_vmhwm_gib": 7.183, "load_peak_vram_alloc_gib": 4.042, "load_peak_vram_reserved_gib": 4.049, "load_peak_host_gib": 6.834, "load_peak_host_vmhwm_gib": 7.183, "s_med_
+2026-11-18T07:13:44Z g_30b na round 2 done
+2026-11-18T07:13:44Z start a30_na_uns_r3
+2026-11-18T07:16:33Z end RUN a30_na_uns_r3 {"status": "ok", "arm": "a30_na_uns", "round": 3, "shape": {"mb": 8, "ga": 1}, "updates": 16, "s_med_2_N": 1.6691, "t1_s": 134.04, "load_s": 118.12, "vram_alloc_gib": 19.597, "vram_reserved_gib": 19.842, "host_ram_gib": 18.149, "host_vmhwm_gib": 58.715, "load_peak_vram_alloc_gib": 10.105, "load_peak_vram_reserved_gib": 10.186, "load_peak_host_gib": 18.149, "load_peak_host_vmhwm_gib": 58.715, "s_med_
+2026-11-18T07:16:33Z start a30_na_ram_r3
+2026-11-18T07:20:00Z end RUN a30_na_ram_r3 {"status": "ok", "arm": "a30_na_ram", "round": 3, "shape": {"mb": 8, "ga": 1}, "updates": 16, "s_med_2_N": 2.4858, "t1_s": 131.09, "load_s": 122.54, "vram_alloc_gib": 7.396, "vram_reserved_gib": 8.111, "host_ram_gib": 19.807, "host_vmhwm_gib": 21.882, "load_peak_vram_alloc_gib": 4.042, "load_peak_vram_reserved_gib": 4.049, "load_peak_host_gib": 18.714, "load_peak_host_vmhwm_gib": 21.882, "s_med_3_N"
+2026-11-18T07:21:00Z start a30_na_ssdfc_r3
+2026-11-18T07:22:30Z end RUN a30_na_ssdfc_r3 {"status": "ok", "arm": "a30_na_ssdfc", "round": 3, "shape": {"mb": 8, "ga": 1}, "updates": 16, "s_med_2_N": 1.4073, "t1_s": 33.22, "load_s": 16.43, "vram_alloc_gib": 18.162, "vram_reserved_gib": 20.221, "host_ram_gib": 11.192, "host_vmhwm_gib": 11.654, "load_peak_vram_alloc_gib": 4.042, "load_peak_vram_reserved_gib": 4.049, "load_peak_host_gib": 6.834, "load_peak_host_vmhwm_gib": 7.18, "s_med_3_N
+2026-11-18T07:23:30Z start a30_na_ssdfast_r3
+2026-11-18T07:25:23Z end RUN a30_na_ssdfast_r3 {"status": "ok", "arm": "a30_na_ssdfast", "round": 3, "shape": {"mb": 8, "ga": 1}, "updates": 16, "s_med_2_N": 3.2786, "t1_s": 31.02, "load_s": 14.85, "vram_alloc_gib": 18.211, "vram_reserved_gib": 18.854, "host_ram_gib": 6.834, "host_vmhwm_gib": 7.194, "load_peak_vram_alloc_gib": 4.042, "load_peak_vram_reserved_gib": 4.049, "load_peak_host_gib": 6.834, "load_peak_host_vmhwm_gib": 7.194, "s_med_
+2026-11-18T07:26:23Z start a30_na_ssdeff_r3
+2026-11-18T07:31:00Z end RUN a30_na_ssdeff_r3 {"status": "ok", "arm": "a30_na_ssdeff", "round": 3, "shape": {"mb": 8, "ga": 1}, "updates": 16, "s_med_2_N": 14.7924, "t1_s": 31.7, "load_s": 15.07, "vram_alloc_gib": 7.396, "vram_reserved_gib": 7.779, "host_ram_gib": 7.934, "host_vmhwm_gib": 8.405, "load_peak_vram_alloc_gib": 4.042, "load_peak_vram_reserved_gib": 4.049, "load_peak_host_gib": 6.834, "load_peak_host_vmhwm_gib": 7.191, "s_med_3_N"
+2026-11-18T07:31:00Z g_30b na round 3 done
+2026-11-18T07:31:02Z rows_check 30b_na {"rows_pt": "~/rf/h2hf_5d75e31a/data/rows_real128.pt", "rows_pt_sha256": "13b5db2ab23e70733130be4a416042a5893d73852d4e5bf426709352c3507fdd", "poros_fed_rows": 128, "poros_fed_seq": 512, "poros_fed_sha
+2026-11-18T07:31:02Z g_30b done free=153G
+2026-11-18T07:31:02Z PHASE 30b end 9484 s free=153G
+2026-11-18T07:31:02Z PHASE cap8 start free=153G
+2026-11-18T07:31:02Z g_cap8 start seq=256 rank=8 free VRAM target 6246 MiB host prefix=[none]
+TRUNC (128, 256) f2627e3f182313debf060549bfd9a1623badbc44e8e800156c2431f36fc370b2
+2026-11-18T07:31:07Z ballast up: {"target_free_mib": 6246, "card_total_mib": 24564, "used_mib": 18318, "free_mib": 6246, "ballast_tensors_mib": 17858, "mem_get_info_free_mib": 5763, "how": "another process holds the rest of the card's memory (kit/vram_ballast.py)"}
+2026-11-18T07:31:07Z start c8_poros_r1
+2026-11-18T07:32:13Z end RUN c8_poros_r1 {"status": "failed", "arm": "c8_poros", "round": 1, "shape": {"mb": 1, "ga": 8}, "updates": 1, "s_med_2_N": null, "t1_s": 54.55, "load_s": 13.74, "vram_alloc_gib": 3.456, "vram_reserved_gib": 3.463, "host_ram_gib": 6.248, "host_vmhwm_gib": 6.605, "load_peak_vram_alloc_gib": 3.456, "load_peak_vram_reserved_gib": 3.463, "load_peak_host_gib": 6.248, "load_peak_host_vmhwm_gib": 6.605, "s_med_3_N": null, "
+2026-11-18T07:32:13Z start c8_uns_r1
+2026-11-18T07:34:45Z end RUN c8_uns_r1 {"status": "failed", "arm": "c8_uns", "round": 1, "shape": {"mb": 1, "ga": 8}, "updates": 0, "s_med_2_N": null, "t1_s": null, "load_s": 126.78, "vram_alloc_gib": null, "vram_reserved_gib": null, "host_ram_gib": 29.715, "host_vmhwm_gib": 58.154, "load_peak_vram_alloc_gib": 3.22, "load_peak_vram_reserved_gib": 3.988, "load_peak_host_gib": 29.715, "load_peak_host_vmhwm_gib": 58.154, "s_med_3_N": null, "dis
+2026-11-18T07:34:45Z start c8_poros_r2
+2026-11-18T07:35:34Z end RUN c8_poros_r2 {"status": "failed", "arm": "c8_poros", "round": 2, "shape": {"mb": 1, "ga": 8}, "updates": 1, "s_med_2_N": null, "t1_s": 37.76, "load_s": 17.7, "vram_alloc_gib": 3.456, "vram_reserved_gib": 3.463, "host_ram_gib": 6.249, "host_vmhwm_gib": 6.596, "load_peak_vram_alloc_gib": 3.456, "load_peak_vram_reserved_gib": 3.463, "load_peak_host_gib": 6.249, "load_peak_host_vmhwm_gib": 6.596, "s_med_3_N": null, "d
+2026-11-18T07:35:34Z start c8_poros_r3
+2026-11-18T07:36:19Z end RUN c8_poros_r3 {"status": "failed", "arm": "c8_poros", "round": 3, "shape": {"mb": 1, "ga": 8}, "updates": 1, "s_med_2_N": null, "t1_s": 33.12, "load_s": 13.79, "vram_alloc_gib": 3.456, "vram_reserved_gib": 3.463, "host_ram_gib": 6.248, "host_vmhwm_gib": 6.61, "load_peak_vram_alloc_gib": 3.456, "load_peak_vram_reserved_gib": 3.463, "load_peak_host_gib": 6.248, "load_peak_host_vmhwm_gib": 6.61, "s_med_3_N": null, "di
+2026-11-18T07:36:22Z ballast released
+2026-11-18T07:36:22Z start c8_uns_nocap_r1
+2026-11-18T07:38:48Z MAIN PAUSED by the operator after the cap8 fast-path Poros arm ran out of memory under the limit (3 of 3, recorded as measured): main.sh stopped; g_cap8 finishes its Unsloth runs; then the efficient-path Poros arm under the same limit (c8_poros_eff), then main.sh resumes with card7 exact card32 72b baseline72 film end
+2026-11-18T07:39:13Z g_cap8eff start seq=256 rank=8 path=efficient free VRAM target 6246 MiB
+2026-11-18T07:39:13Z DRY_OK poros c8_poros_eff_r1 path efficient store ssd mb x ga 1 8 steps 16
+2026-11-18T07:39:13Z DRY_OK poros c8_poros_eff_r2 path efficient store ssd mb x ga 1 8 steps 16
+2026-11-18T07:39:14Z DRY_OK poros c8_poros_eff_r3 path efficient store ssd mb x ga 1 8 steps 16
+2026-11-18T07:39:14Z ballast released
+2026-11-18T07:39:14Z g_cap8eff done
+2026-11-18T07:41:11Z g_cap8auto start seq=256 rank=8 path unset (the run picks) free VRAM target 6246 MiB
+2026-11-18T07:41:11Z DRY_OK poros c8_poros_auto_r1 path None store ssd mb x ga 1 8 steps 16
+2026-11-18T07:41:12Z DRY_OK poros c8_poros_auto_r2 path None store ssd mb x ga 1 8 steps 16
+2026-11-18T07:41:12Z DRY_OK poros c8_poros_auto_r3 path None store ssd mb x ga 1 8 steps 16
+2026-11-18T07:41:12Z ballast released
+2026-11-18T07:41:12Z g_cap8auto done
+2026-11-18T07:41:31Z end RUN c8_uns_nocap_r1 {"status": "ok", "arm": "c8_uns_nocap", "round": 1, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 9.8376, "t1_s": 151.17, "load_s": 129.7, "vram_alloc_gib": 7.824, "vram_reserved_gib": 8.033, "host_ram_gib": 29.44, "host_vmhwm_gib": 58.027, "load_peak_vram_alloc_gib": 3.22, "load_peak_vram_reserved_gib": 3.988, "load_peak_host_gib": 29.44, "load_peak_host_vmhwm_gib": 58.027, "s_med_3_N"
+2026-11-18T07:41:31Z start c8_uns_nocap_r2
+2026-11-18T07:46:32Z end RUN c8_uns_nocap_r2 {"status": "ok", "arm": "c8_uns_nocap", "round": 2, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 9.7582, "t1_s": 144.8, "load_s": 123.14, "vram_alloc_gib": 7.824, "vram_reserved_gib": 8.033, "host_ram_gib": 29.41, "host_vmhwm_gib": 58.822, "load_peak_vram_alloc_gib": 3.22, "load_peak_vram_reserved_gib": 3.988, "load_peak_host_gib": 29.41, "load_peak_host_vmhwm_gib": 58.822, "s_med_3_N"
+2026-11-18T07:46:32Z start c8_uns_nocap_r3
+2026-11-18T07:51:50Z end RUN c8_uns_nocap_r3 {"status": "ok", "arm": "c8_uns_nocap", "round": 3, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 9.9904, "t1_s": 158.63, "load_s": 136.91, "vram_alloc_gib": 7.824, "vram_reserved_gib": 8.033, "host_ram_gib": 29.729, "host_vmhwm_gib": 58.52, "load_peak_vram_alloc_gib": 3.22, "load_peak_vram_reserved_gib": 3.988, "load_peak_host_gib": 29.729, "load_peak_host_vmhwm_gib": 58.52, "s_med_3_N
+2026-11-18T07:51:54Z rows_check cap8 {"rows_pt": "~/rf/h2hf_5d75e31a/data/rows_cap_s256.pt", "rows_pt_sha256": "f2627e3f182313debf060549bfd9a1623badbc44e8e800156c2431f36fc370b2", "poros_fed_rows": 16, "poros_fed_seq": 256, "poros_fed_sha
+2026-11-18T07:51:54Z g_cap8 done
+2026-11-18T07:52:04Z g_cap8 finished; starting g_cap8eff
+2026-11-18T07:52:04Z g_cap8eff start seq=256 rank=8 path=efficient free VRAM target 6246 MiB
+2026-11-18T07:52:07Z ballast up: {"target_free_mib": 6246, "card_total_mib": 24564, "used_mib": 18318, "free_mib": 6246, "ballast_tensors_mib": 17858, "mem_get_info_free_mib": 5763, "how": "another process holds the rest of the card's memory (kit/vram_ballast.py)"}
+2026-11-18T07:52:07Z start c8_poros_eff_r1
+2026-11-18T07:56:52Z end RUN c8_poros_eff_r1 {"status": "ok", "arm": "c8_poros_eff", "round": 1, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 15.1311, "t1_s": 36.5, "load_s": 16.43, "vram_alloc_gib": 4.488, "vram_reserved_gib": 5.088, "host_ram_gib": 7.348, "host_vmhwm_gib": 7.813, "load_peak_vram_alloc_gib": 3.456, "load_peak_vram_reserved_gib": 3.463, "load_peak_host_gib": 6.249, "load_peak_host_vmhwm_gib": 6.598, "s_med_3_N": 
+2026-11-18T07:56:52Z start c8_poros_eff_r2
+2026-11-18T08:01:31Z end RUN c8_poros_eff_r2 {"status": "ok", "arm": "c8_poros_eff", "round": 2, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 15.1495, "t1_s": 32.76, "load_s": 13.57, "vram_alloc_gib": 4.488, "vram_reserved_gib": 5.088, "host_ram_gib": 7.348, "host_vmhwm_gib": 7.823, "load_peak_vram_alloc_gib": 3.456, "load_peak_vram_reserved_gib": 3.463, "load_peak_host_gib": 6.248, "load_peak_host_vmhwm_gib": 6.605, "s_med_3_N":
+2026-11-18T08:01:31Z start c8_poros_eff_r3
+2026-11-18T08:07:13Z end RUN c8_poros_eff_r3 {"status": "ok", "arm": "c8_poros_eff", "round": 3, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 19.7821, "t1_s": 32.8, "load_s": 13.67, "vram_alloc_gib": 4.488, "vram_reserved_gib": 5.088, "host_ram_gib": 7.349, "host_vmhwm_gib": 7.826, "load_peak_vram_alloc_gib": 3.456, "load_peak_vram_reserved_gib": 3.463, "load_peak_host_gib": 6.249, "load_peak_host_vmhwm_gib": 6.611, "s_med_3_N": 
+2026-11-18T08:07:16Z ballast released
+2026-11-18T08:07:18Z rows_check cap8eff {"rows_pt": "~/rf/h2hf_5d75e31a/data/rows_cap_s256.pt", "rows_pt_sha256": "f2627e3f182313debf060549bfd9a1623badbc44e8e800156c2431f36fc370b2", "poros_fed_rows": 128, "poros_fed_seq": 256, "poros_fed_sh
+2026-11-18T08:07:18Z g_cap8eff done
+2026-11-18T08:07:18Z g_cap8auto start seq=256 rank=8 path unset (the run picks) free VRAM target 6246 MiB
+2026-11-18T08:07:21Z ballast up: {"target_free_mib": 6246, "card_total_mib": 24564, "used_mib": 18318, "free_mib": 6246, "ballast_tensors_mib": 17858, "mem_get_info_free_mib": 5763, "how": "another process holds the rest of the card's memory (kit/vram_ballast.py)"}
+2026-11-18T08:07:22Z c8_auto fit: default path efficient fits None | allocated peak, at most 8.244 GiB, may not fit 5.63 GiB free (estimated: an upper bound from receipts at other settings) | free 5.63 total 23.52 | efficient=unknown; fast=unknown; fast+cache=unknown; sequential=unknown
+2026-11-18T08:07:22Z start c8_poros_auto_r1
+2026-11-18T08:12:52Z end RUN c8_poros_auto_r1 {"status": "ok", "arm": "c8_poros_auto", "round": 1, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 19.7455, "t1_s": 33.21, "load_s": 13.67, "vram_alloc_gib": 4.488, "vram_reserved_gib": 5.088, "host_ram_gib": 7.348, "host_vmhwm_gib": 7.826, "load_peak_vram_alloc_gib": 3.456, "load_peak_vram_reserved_gib": 3.463, "load_peak_host_gib": 6.248, "load_peak_host_vmhwm_gib": 6.611, "s_med_3_N
+2026-11-18T08:12:52Z c8_poros_auto_r1 picked: efficient | None
+2026-11-18T08:12:52Z start c8_poros_auto_r2
+2026-11-18T08:18:27Z end RUN c8_poros_auto_r2 {"status": "ok", "arm": "c8_poros_auto", "round": 2, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 19.5731, "t1_s": 33.04, "load_s": 13.61, "vram_alloc_gib": 4.488, "vram_reserved_gib": 5.088, "host_ram_gib": 7.349, "host_vmhwm_gib": 7.825, "load_peak_vram_alloc_gib": 3.456, "load_peak_vram_reserved_gib": 3.463, "load_peak_host_gib": 6.249, "load_peak_host_vmhwm_gib": 6.608, "s_med_3_N
+2026-11-18T08:18:27Z start c8_poros_auto_r3
+2026-11-18T08:24:04Z end RUN c8_poros_auto_r3 {"status": "ok", "arm": "c8_poros_auto", "round": 3, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 18.5671, "t1_s": 38.27, "load_s": 13.53, "vram_alloc_gib": 4.488, "vram_reserved_gib": 5.088, "host_ram_gib": 7.348, "host_vmhwm_gib": 7.822, "load_peak_vram_alloc_gib": 3.456, "load_peak_vram_reserved_gib": 3.463, "load_peak_host_gib": 6.248, "load_peak_host_vmhwm_gib": 6.609, "s_med_3_N
+2026-11-18T08:24:08Z ballast released
+2026-11-18T08:24:08Z g_cap8auto done
+2026-11-18T08:24:08Z resuming main.sh: card7 exact card32 72b baseline72 film end
+2026-11-18T08:24:08Z MAIN START pid 3465482 commit 5d75e31a486cdf19e397e2d0f748def98083ecc8 phases [card7 exact card32 72b baseline72 film end] lockmode group free=154G
+2026-11-18T08:24:08Z disk plan: free now 154G, floor 25G; on disk: 30B-A3B=1 7B=0 32B=0 72B=0 own .sss=1; H2HF_ALLOW_DROP_30B=1
+2026-11-18T08:24:08Z   card7   7B bf16 (15G)                                              free before  154G, lowest  139G ok
+2026-11-18T08:24:08Z   exact   7B bf16 (15G); dropped after if this run fetched it        free before  139G, lowest  139G ok
+2026-11-18T08:24:08Z   card32  own .sss gone, 30B-A3B dropped if allowed; 32B bf16 (62G), dropped after free before  226G, lowest  164G ok
+2026-11-18T08:24:08Z   72b     72B bf16 (136G): needs 161G free before the download       free before  226G, lowest   90G ok
+2026-11-18T08:24:08Z   baseline72 (the 72B on disk; writes < 0.1G; GPU up to H2HF_TO_BASE s) free before   90G, lowest   90G 
+2026-11-18T08:24:08Z   film    (the 72B stays on disk)                                    free before   90G, lowest   90G 
+2026-11-18T08:24:08Z   end     72B dropped                                                free before   90G, lowest  226G 
+2026-11-18T08:24:08Z DISK PLAN OK: no phase goes below 25G free
+2026-11-18T08:24:08Z PHASE card7 start free=154G
+2026-11-18T08:24:45Z disk: fetched Qwen/Qwen2.5-7B rev d149729398750b98c0af14eb82c78cfe92750796 rc=0 37 s; free 140G
+2026-11-18T08:24:46Z g_card 7b start free=140G
+2026-11-18T08:24:46Z start c7_poros_r1
+2026-11-18T08:26:08Z end RUN c7_poros_r1 {"status": "ok", "arm": "c7_poros", "round": 1, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 2.9816, "t1_s": 27.71, "load_s": 20.41, "vram_alloc_gib": 7.946, "vram_reserved_gib": 8.889, "host_ram_gib": 7.135, "host_vmhwm_gib": 10.756, "load_peak_vram_alloc_gib": 4.308, "load_peak_vram_reserved_gib": 4.328, "load_peak_host_gib": 7.135, "load_peak_host_vmhwm_gib": 10.756, "s_med_3_N": 2.975,
+2026-11-18T08:26:08Z start c7_poros_r2
+2026-11-18T08:27:32Z end RUN c7_poros_r2 {"status": "ok", "arm": "c7_poros", "round": 2, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 3.0822, "t1_s": 27.7, "load_s": 20.12, "vram_alloc_gib": 7.946, "vram_reserved_gib": 8.848, "host_ram_gib": 7.061, "host_vmhwm_gib": 10.756, "load_peak_vram_alloc_gib": 4.308, "load_peak_vram_reserved_gib": 4.328, "load_peak_host_gib": 7.061, "load_peak_host_vmhwm_gib": 10.756, "s_med_3_N": 3.1128,
+2026-11-18T08:27:32Z start c7_poros_r3
+2026-11-18T08:28:52Z end RUN c7_poros_r3 {"status": "ok", "arm": "c7_poros", "round": 3, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 2.8397, "t1_s": 27.02, "load_s": 19.98, "vram_alloc_gib": 7.946, "vram_reserved_gib": 8.828, "host_ram_gib": 7.136, "host_vmhwm_gib": 10.759, "load_peak_vram_alloc_gib": 4.308, "load_peak_vram_reserved_gib": 4.328, "load_peak_host_gib": 7.136, "load_peak_host_vmhwm_gib": 10.759, "s_med_3_N": 2.8376
+2026-11-18T08:28:52Z g_card 7b done
+2026-11-18T08:28:52Z PHASE card7 end 284 s free=141G
+2026-11-18T08:28:52Z PHASE exact start free=141G
+2026-11-18T08:28:52Z disk: Qwen/Qwen2.5-7B already in the cache
+2026-11-18T08:28:52Z g_exact start Qwen/Qwen2.5-7B prove_steps=100 resume=16@8
+2026-11-18T08:28:53Z g_exact prove identical None steps None compared None differs None
+2026-11-18T08:31:09Z g_exact resume RESUME_GATE {"pass": true, "steps": 16, "resumed_at": 8, "adapter_tensors": 392, "delta": "0.00e+00"}
+2026-11-18T08:31:12Z g_exact repo resume gate 
+2026-11-18T08:31:12Z g_exact done
+2026-11-18T08:31:16Z disk: removed Qwen/Qwen2.5-7B rc=0; free 155G
+2026-11-18T08:31:16Z PHASE exact end 144 s free=155G
+2026-11-18T08:31:16Z PHASE card32 start free=155G
+2026-11-18T08:31:17Z removed this run's own .sss (~/rf/h2hf_5d75e31a/store); free=169G
+2026-11-18T08:31:24Z disk: removed Qwen/Qwen3-30B-A3B rc=0; free 223G
+2026-11-18T08:33:16Z operator: the exact phase prove gate was refused offline (bare model name; the cache holds only the pinned revision, no refs/main); g_exact.sh fixed to use the snapshot folder; the exact phase re-runs after end (after_end.sh)
+2026-11-18T09:10:04Z disk: fetched Qwen/Qwen2.5-32B rev 1818d35814b8319459f4bd55ed1ac8709630f003 rc=0 2320 s; free 162G
+2026-11-18T09:10:04Z g_card 32b start free=162G
+2026-11-18T09:10:04Z start c32_poros_r1
+2026-11-18T09:14:43Z end RUN c32_poros_r1 {"status": "ok", "arm": "c32_poros", "round": 1, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 8.2036, "t1_s": 133.07, "load_s": 119.07, "vram_alloc_gib": 12.233, "vram_reserved_gib": 15.129, "host_ram_gib": 19.016, "host_vmhwm_gib": 21.73, "load_peak_vram_alloc_gib": 6.763, "load_peak_vram_reserved_gib": 6.775, "load_peak_host_gib": 19.016, "load_peak_host_vmhwm_gib": 21.73, "s_med_3_N": 
+2026-11-18T09:14:43Z start c32_poros_r2
+2026-11-18T09:19:02Z end RUN c32_poros_r2 {"status": "ok", "arm": "c32_poros", "round": 2, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 8.1946, "t1_s": 114.53, "load_s": 100.1, "vram_alloc_gib": 12.233, "vram_reserved_gib": 15.129, "host_ram_gib": 19.016, "host_vmhwm_gib": 21.73, "load_peak_vram_alloc_gib": 6.763, "load_peak_vram_reserved_gib": 6.775, "load_peak_host_gib": 19.016, "load_peak_host_vmhwm_gib": 21.73, "s_med_3_N": 8
+2026-11-18T09:19:02Z start c32_poros_r3
+2026-11-18T09:23:13Z end RUN c32_poros_r3 {"status": "ok", "arm": "c32_poros", "round": 3, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 8.1938, "t1_s": 106.82, "load_s": 92.25, "vram_alloc_gib": 12.233, "vram_reserved_gib": 15.11, "host_ram_gib": 19.016, "host_vmhwm_gib": 21.725, "load_peak_vram_alloc_gib": 6.763, "load_peak_vram_reserved_gib": 6.775, "load_peak_host_gib": 19.016, "load_peak_host_vmhwm_gib": 21.725, "s_med_3_N": 
+2026-11-18T09:23:13Z g_card 32b done
+2026-11-18T09:23:22Z disk: removed Qwen/Qwen2.5-32B rc=0; free 223G
+2026-11-18T09:23:22Z PHASE card32 end 3126 s free=223G
+2026-11-18T09:23:22Z PHASE 72b start free=223G
+2026-11-18T09:48:52Z disk: fetched Qwen/Qwen2.5-72B rev efba10c8e54e91e0d9570ab5f7b51a958474d4cb rc=0 1530 s; free 89G
+2026-11-18T09:48:52Z g_72b start rounds=[1 2 3] updates=16 noaccum=30b_a3b minvram=[80 --offload-embedding true] free=89G
+2026-11-18T09:48:52Z start a72_ga8_poros_r1
+2026-11-18T09:59:29Z end RUN a72_ga8_poros_r1 {"status": "ok", "arm": "a72_ga8_poros", "round": 1, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 17.6998, "t1_s": 326.74, "load_s": 300.55, "vram_alloc_gib": 9.859, "vram_reserved_gib": 13.82, "host_ram_gib": 45.102, "host_vmhwm_gib": 45.326, "load_peak_vram_alloc_gib": 1.824, "load_peak_vram_reserved_gib": 1.844, "load_peak_host_gib": 39.071, "load_peak_host_vmhwm_gib": 41.614, "s_m
+2026-11-18T09:59:29Z start a72_ga8_uns_r1
+2026-11-18T10:10:35Z end RUN a72_ga8_uns_r1 {"status": "ok", "arm": "a72_ga8_uns", "round": 1, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 20.9189, "t1_s": 340.39, "load_s": 303.84, "vram_alloc_gib": 20.454, "vram_reserved_gib": 21.123, "host_ram_gib": 42.967, "host_vmhwm_gib": 58.769, "load_peak_vram_alloc_gib": 18.79, "load_peak_vram_reserved_gib": 18.984, "load_peak_host_gib": 42.967, "load_peak_host_vmhwm_gib": 58.769, "s_me
+2026-11-18T10:10:35Z start a72_ga8_unsmin_r1
+2026-11-18T10:15:15Z end RUN a72_ga8_unsmin_r1 {"status": "failed", "arm": "a72_ga8_unsmin", "round": 1, "shape": {"mb": null, "ga": null}, "updates": 0, "s_med_2_N": null, "t1_s": null, "load_s": null, "vram_alloc_gib": null, "vram_reserved_gib": null, "host_ram_gib": 58.14, "host_vmhwm_gib": 58.765, "load_peak_vram_alloc_gib": null, "load_peak_vram_reserved_gib": null, "load_peak_host_gib": null, "load_peak_host_vmhwm_gib": null, "s_med_3_
+2026-11-18T10:15:15Z start a72_ga8_porosfast_r1
+2026-11-18T10:24:23Z end RUN a72_ga8_porosfast_r1 {"status": "ok", "arm": "a72_ga8_porosfast", "round": 1, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 13.6792, "t1_s": 298.54, "load_s": 280.18, "vram_alloc_gib": 18.278, "vram_reserved_gib": 21.574, "host_ram_gib": 42.945, "host_vmhwm_gib": 43.164, "load_peak_vram_alloc_gib": 1.824, "load_peak_vram_reserved_gib": 1.844, "load_peak_host_gib": 39.072, "load_peak_host_vmhwm_gib": 41
+2026-11-18T10:24:23Z g_72b round 1 done
+2026-11-18T10:24:23Z start a72_ga8_uns_r2
+2026-11-18T10:35:44Z end RUN a72_ga8_uns_r2 {"status": "ok", "arm": "a72_ga8_uns", "round": 2, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 22.1064, "t1_s": 339.08, "load_s": 305.09, "vram_alloc_gib": 20.454, "vram_reserved_gib": 21.123, "host_ram_gib": 42.961, "host_vmhwm_gib": 58.732, "load_peak_vram_alloc_gib": 18.79, "load_peak_vram_reserved_gib": 18.984, "load_peak_host_gib": 42.961, "load_peak_host_vmhwm_gib": 58.732, "s_me
+2026-11-18T10:35:44Z start a72_ga8_porosfast_r2
+2026-11-18T10:44:57Z end RUN a72_ga8_porosfast_r2 {"status": "ok", "arm": "a72_ga8_porosfast", "round": 2, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 13.6794, "t1_s": 301.1, "load_s": 282.68, "vram_alloc_gib": 18.278, "vram_reserved_gib": 21.574, "host_ram_gib": 42.867, "host_vmhwm_gib": 43.084, "load_peak_vram_alloc_gib": 1.824, "load_peak_vram_reserved_gib": 1.844, "load_peak_host_gib": 39.071, "load_peak_host_vmhwm_gib": 41.
+2026-11-18T10:44:57Z start a72_ga8_poros_r2
+2026-11-18T10:55:12Z end RUN a72_ga8_poros_r2 {"status": "ok", "arm": "a72_ga8_poros", "round": 2, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 17.7027, "t1_s": 305.62, "load_s": 279.86, "vram_alloc_gib": 9.859, "vram_reserved_gib": 13.449, "host_ram_gib": 45.198, "host_vmhwm_gib": 45.423, "load_peak_vram_alloc_gib": 1.824, "load_peak_vram_reserved_gib": 1.844, "load_peak_host_gib": 39.083, "load_peak_host_vmhwm_gib": 41.618, "s_
+2026-11-18T10:55:12Z a72_ga8_unsmin_r2 not tried: round 1 did not train (see its record)
+2026-11-18T10:55:12Z g_72b round 2 done
+2026-11-18T10:55:12Z start a72_ga8_porosfast_r3
+2026-11-18T11:04:21Z end RUN a72_ga8_porosfast_r3 {"status": "ok", "arm": "a72_ga8_porosfast", "round": 3, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 13.6671, "t1_s": 297.93, "load_s": 279.42, "vram_alloc_gib": 18.278, "vram_reserved_gib": 21.574, "host_ram_gib": 42.87, "host_vmhwm_gib": 43.092, "load_peak_vram_alloc_gib": 1.824, "load_peak_vram_reserved_gib": 1.844, "load_peak_host_gib": 39.072, "load_peak_host_vmhwm_gib": 41.
+2026-11-18T11:04:21Z a72_ga8_unsmin_r3 not tried: round 1 did not train (see its record)
+2026-11-18T11:04:21Z start a72_ga8_uns_r3
+2026-11-18T11:15:40Z end RUN a72_ga8_uns_r3 {"status": "ok", "arm": "a72_ga8_uns", "round": 3, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 22.0716, "t1_s": 336.59, "load_s": 302.79, "vram_alloc_gib": 20.454, "vram_reserved_gib": 21.123, "host_ram_gib": 42.722, "host_vmhwm_gib": 58.738, "load_peak_vram_alloc_gib": 18.79, "load_peak_vram_reserved_gib": 18.984, "load_peak_host_gib": 42.722, "load_peak_host_vmhwm_gib": 58.738, "s_me
+2026-11-18T11:15:40Z start a72_ga8_poros_r3
+2026-11-18T11:26:01Z end RUN a72_ga8_poros_r3 {"status": "ok", "arm": "a72_ga8_poros", "round": 3, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 17.7422, "t1_s": 309.81, "load_s": 283.43, "vram_alloc_gib": 9.859, "vram_reserved_gib": 13.508, "host_ram_gib": 45.101, "host_vmhwm_gib": 45.326, "load_peak_vram_alloc_gib": 1.824, "load_peak_vram_reserved_gib": 1.844, "load_peak_host_gib": 39.071, "load_peak_host_vmhwm_gib": 41.617, "s_
+2026-11-18T11:26:01Z g_72b round 3 done
+2026-11-18T11:26:03Z rows_check 72b {"rows_pt": "~/rf/h2hf_5d75e31a/data/rows_real128.pt", "rows_pt_sha256": "13b5db2ab23e70733130be4a416042a5893d73852d4e5bf426709352c3507fdd", "poros_fed_rows": 128, "poros_fed_seq": 512, "poros_fed_sha
+2026-11-18T11:26:03Z g_72b done free=89G
+2026-11-18T11:26:03Z PHASE 72b end 7361 s free=89G
+2026-11-18T11:26:03Z PHASE baseline72 start free=89G
+2026-11-18T11:26:03Z g_base72 start Qwen/Qwen2.5-72B free=89G
+2026-11-18T11:26:03Z start b72_base
+2026-11-18T11:27:46Z end RUN b72_base {"outcome": "failed", "stage": "load", "rc": 1, "error_line": "torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 462.00 MiB. GPU 0 has a total capacity of 23.52 GiB of which 33.69 MiB is free. Including non-PyTorch memory, this process has 0 bytes memory in use. Of the allocated memory 22.59 GiB is allocated by PyTorch, and 454.50 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/d
+2026-11-18T11:27:55Z b72_nf4 NF4_SIZE {"nf4_weights_gib": 41.427, "quantized_linear_gib": 36.782, "kept_bf16_gib": 4.645, "quantized_weights": 560, "ok": true}
+2026-11-18T11:27:55Z g_base72 done free=89G
+2026-11-18T11:27:55Z PHASE baseline72 end 112 s free=89G
+2026-11-18T11:27:55Z PHASE film start free=89G
+2026-11-18T11:27:57Z film: recording 'poros train train.yaml --steps 6 --yes' on Qwen/Qwen2.5-72B (6 updates, at most 1200s)
+2026-11-18T11:34:48Z film: recorder rc=0 411 s
+2026-11-18T11:34:51Z film: check pass True replay True clean True other files {'home_path': False, 'user_name': False, 'host_name': False, 'host_address': False} bytes 1174239
+2026-11-18T11:34:52Z PHASE film end 417 s free=89G
+2026-11-18T11:34:52Z PHASE end start free=89G
+2026-11-18T11:35:02Z disk: removed Qwen/Qwen2.5-72B rc=0; free 223G
+2026-11-18T11:35:03Z PHASE end end 11 s free=223G
+2026-11-18T11:35:03Z MAIN DONE elapsed 11455 s free=223G
+2026-11-18T11:35:07Z after_end: re-running the exact phase (prove) with the pinned snapshot folder
+2026-11-18T11:35:07Z MAIN START pid 3499981 commit 5d75e31a486cdf19e397e2d0f748def98083ecc8 phases [exact] lockmode group free=223G
+2026-11-18T11:35:07Z disk plan: free now 223G, floor 25G; on disk: 30B-A3B=0 7B=0 32B=0 72B=0 own .sss=0; H2HF_ALLOW_DROP_30B=1
+2026-11-18T11:35:07Z   exact   7B bf16 (15G); dropped after if this run fetched it        free before  223G, lowest  208G ok
+2026-11-18T11:35:07Z DISK PLAN OK: no phase goes below 25G free
+2026-11-18T11:35:07Z PHASE exact start free=223G
+2026-11-18T11:35:36Z disk: fetched Qwen/Qwen2.5-7B rev d149729398750b98c0af14eb82c78cfe92750796 rc=0 29 s; free 209G
+2026-11-18T11:35:36Z g_exact start Qwen/Qwen2.5-7B prove_steps=100 resume=16@8
+2026-11-18T11:35:46Z g_exact prove identical None steps None compared None differs None
+2026-11-18T11:35:46Z g_exact resume RESUME_GATE {"pass": true, "steps": 16, "resumed_at": 8, "adapter_tensors": 392, "delta": "0.00e+00"}
+2026-11-18T11:37:04Z g_exact repo resume gate DENSE_RESUME_RESULT {"model": "~/hf/hub/models--Qwen--Qwen2.5-7B/snapshots/d149729398750b98c0af14eb82c78cfe92750796", "adapter_tensors": 392, "adapters_bitwise_equal": true, "optimizer_state_bitwise_equal": true, "passed": true}
+2026-11-18T11:37:04Z g_exact done
+2026-11-18T11:37:08Z disk: removed Qwen/Qwen2.5-7B rc=0; free 223G
+2026-11-18T11:37:08Z PHASE exact end 121 s free=223G
+2026-11-18T11:37:08Z MAIN DONE elapsed 121 s free=223G
+2026-11-18T11:38:34Z operator: prove refused a snapshot folder (E_USAGE: it takes a model a parity receipt covers, by name); the Hub main of Qwen/Qwen2.5-7B is the pinned revision, so prove runs by name with the Hub reachable and no --download (g_exact.sh)
+2026-11-18T11:38:34Z MAIN START pid 3588840 commit 5d75e31a486cdf19e397e2d0f748def98083ecc8 phases [exact] lockmode group free=223G
+2026-11-18T11:38:34Z disk plan: free now 223G, floor 25G; on disk: 30B-A3B=0 7B=0 32B=0 72B=0 own .sss=0; H2HF_ALLOW_DROP_30B=1
+2026-11-18T11:38:34Z   exact   7B bf16 (15G); dropped after if this run fetched it        free before  223G, lowest  208G ok
+2026-11-18T11:38:34Z DISK PLAN OK: no phase goes below 25G free
+2026-11-18T11:38:34Z PHASE exact start free=223G
+2026-11-18T11:39:18Z disk: fetched Qwen/Qwen2.5-7B rev d149729398750b98c0af14eb82c78cfe92750796 rc=0 44 s; free 209G
+2026-11-18T11:39:18Z g_exact start Qwen/Qwen2.5-7B prove_steps=100 resume=16@8
+2026-11-18T11:48:59Z g_exact prove identical True steps 100 compared ['losses', '392 adapter tensors'] differs []
+2026-11-18T11:48:59Z g_exact resume RESUME_GATE {"pass": true, "steps": 16, "resumed_at": 8, "adapter_tensors": 392, "delta": "0.00e+00"}
+2026-11-18T11:48:59Z g_exact done
+2026-11-18T11:49:03Z disk: removed Qwen/Qwen2.5-7B rc=0; free 223G
+2026-11-18T11:49:03Z PHASE exact end 629 s free=223G
+2026-11-18T11:49:03Z MAIN DONE elapsed 629 s free=223G
+2026-11-18T11:57:30Z operator: c32_poros_r1 refused by the claims builder (host-RAM sampler gap of 4.1 s next to its peak); its files moved to rec/refused/c32_poros_r1_sampler_gap/; rerun with the same settings (main.sh card32, H2HF_ROUNDS=1)
+2026-11-18T11:57:30Z MAIN START pid 3593245 commit 5d75e31a486cdf19e397e2d0f748def98083ecc8 phases [card32] lockmode group free=223G
+2026-11-18T11:57:30Z disk plan: free now 223G, floor 25G; on disk: 30B-A3B=0 7B=0 32B=0 72B=0 own .sss=0; H2HF_ALLOW_DROP_30B=1
+2026-11-18T11:57:30Z   card32  own .sss gone, 30B-A3B dropped if allowed; 32B bf16 (62G), dropped after free before  223G, lowest  161G ok
+2026-11-18T11:57:30Z DISK PLAN OK: no phase goes below 25G free
+2026-11-18T11:57:30Z PHASE card32 start free=223G
+2026-11-18T11:57:30Z disk: Qwen/Qwen3-30B-A3B is not in the cache
+2026-11-18T11:59:39Z disk: fetched Qwen/Qwen2.5-32B rev 1818d35814b8319459f4bd55ed1ac8709630f003 rc=0 129 s; free 162G
+2026-11-18T11:59:39Z g_card 32b start free=162G
+2026-11-18T11:59:39Z start c32_poros_r1
+2026-11-18T12:04:25Z end RUN c32_poros_r1 {"status": "ok", "arm": "c32_poros", "round": 1, "shape": {"mb": 1, "ga": 8}, "updates": 16, "s_med_2_N": 8.1857, "t1_s": 140.68, "load_s": 125.75, "vram_alloc_gib": 12.233, "vram_reserved_gib": 15.129, "host_ram_gib": 19.016, "host_vmhwm_gib": 21.44, "load_peak_vram_alloc_gib": 6.763, "load_peak_vram_reserved_gib": 6.775, "load_peak_host_gib": 19.016, "load_peak_host_vmhwm_gib": 21.44, "s_med_3_N": 
+2026-11-18T12:04:25Z g_card 32b done
+2026-11-18T12:04:33Z disk: removed Qwen/Qwen2.5-32B rc=0; free 223G
+2026-11-18T12:04:33Z PHASE card32 end 423 s free=223G
+2026-11-18T12:04:33Z MAIN DONE elapsed 423 s free=223G

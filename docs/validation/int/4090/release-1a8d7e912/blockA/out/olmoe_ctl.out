@@ -1,0 +1,24 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+Generating train split:   0%|          | 0/84437 [00:00<?, ? examples/s]
+Generating train split:  17%|█▋        | 14000/84437 [00:00<00:00, 105964.74 examples/s]
+Generating train split:  54%|█████▍    | 46000/84437 [00:00<00:00, 214745.46 examples/s]
+Generating train split:  85%|████████▌ | 72000/84437 [00:00<00:00, 229304.40 examples/s]
+Generating train split: 100%|██████████| 84437/84437 [00:00<00:00, 219864.37 examples/s]
+
+Generating validation split:   0%|          | 0/4401 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 4401/4401 [00:00<00:00, 170087.92 examples/s]
+912678fc5784ccc0cc1fcb414cc577bb17ba9289fae8f5602bb6bafe9ddce644  chats_train.jsonl  (3092 rows)
+5aca3262b6285588d1394fdbf55b4b080d20358baa3aa68a3b628be24dd85dbb  chats_eval.jsonl  (256 rows)
+0d66e546d1aeaabd31dfd1ba864ed4ad0eadfb2b8e90032c050d6b6e72862c4e  text_train.jsonl  (3092 rows)
+b851b8b26e029ed9da701bda2db72eb9cac72ee28224dea49b4f507ae3c6530f  text_eval.jsonl  (256 rows)
+[07:26:52] start o_new_olmoe_s42 (new, olmoe seed=42)
+[07:41:09] done o_new_olmoe_s42 in 857 s
+[07:41:09] start o_fp32_olmoe_s42 (fp32, olmoe seed=42)
+[07:57:34] done o_fp32_olmoe_s42 in 985 s
+[07:57:34] start o_fp32_olmoe_s43 (fp32, olmoe seed=43)
+[08:14:00] done o_fp32_olmoe_s43 in 986 s
+[08:14:00] start o_ctl_olmoe_s42 (control, olmoe seed=42)
+[08:28:10] done o_ctl_olmoe_s42 in 850 s
+[08:28:10] PASS cuda_olmoe
+[08:28:10] rtx4090 stages done: olmoe

@@ -1,0 +1,1 @@
+{"schema":"poros.error.v1","error":{"code":"E_USAGE","exit_code":2,"message":"run 1118-2018-d413 held no rows out: under 40 rows, or eval_split=0; --data <file> scores a file of rows","hint":"poros eval 1118-2018-d413 --data <file>","docs":"poros docs cli names and flags"}}

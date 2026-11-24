@@ -1,0 +1,52 @@
+{
+  "arch": "MoE \u00b7 48 layers \u00b7 128 experts",
+  "block_inputs": {
+    "bytes_down": 394264576,
+    "host_full": false,
+    "kept_on_device": 0,
+    "offloaded": 376,
+    "pageable_slabs": 0,
+    "slab_bytes": 536870912,
+    "slabs": 2
+  },
+  "config": {
+    "block_size": null,
+    "dataset": "~/poros-run/run/data/oasst_full128.jsonl",
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 2e-05,
+    "lora_alpha": 16,
+    "lora_rank": 8,
+    "max_seq_length": 256,
+    "max_steps": 16,
+    "per_device_batch_size": 1,
+    "quantization": "nf4"
+  },
+  "final_loss": 1.2894834280014038,
+  "finished_at": "2026-11-18T06:20:20+00:00",
+  "gpu": {
+    "name": "RTX 4060 Laptop GPU",
+    "total_gb": 8.25
+  },
+  "host_staging": {
+    "budget_basis": "no ceiling found",
+    "granted_bytes": 3327754240,
+    "mode": "pinned",
+    "pinned_budget_bytes": null,
+    "refusals": 0
+  },
+  "kind": "poros.train.receipt",
+  "model": "Qwen/Qwen3-30B-A3B",
+  "output_dir": "~/poros-run/run/runs/l30_poros_eff_r1",
+  "peak_host_ram_gb": 8.535,
+  "peak_vram_allocated_gb": 4.819,
+  "peak_vram_reserved_gb": 5.677,
+  "poros": "0.3.0",
+  "recipe": "classic",
+  "run": "25c695c4",
+  "s_per_step": 12.6399,
+  "simulated": false,
+  "steps": 16,
+  "tokens_per_sec": 162.03,
+  "version": 1,
+  "wall_s": 206.82
+}

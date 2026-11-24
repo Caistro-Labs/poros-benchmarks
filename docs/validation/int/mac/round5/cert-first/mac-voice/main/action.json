@@ -1,0 +1,57 @@
+{
+  "allow_unvalidated": false,
+  "block_size": null,
+  "command": "poros train Qwen/Qwen2.5-7B-Instruct --data <work>/sample-chats.jsonl --steps 16 --seq-len 512 --rank 16 --name cert-mac-voice --recipe sft learning_rate=2e-5 lora_dropout=0 --download",
+  "config": {
+    "learning_rate": "2e-5",
+    "lora_dropout": "0",
+    "recipe": "sft"
+  },
+  "data": "<work>/sample-chats.jsonl",
+  "detach": false,
+  "download": true,
+  "epochs": null,
+  "force": false,
+  "from_run": null,
+  "from_step": null,
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "name": "cert-mac-voice",
+  "output": null,
+  "overwrite": false,
+  "provenance": {
+    "data": {
+      "detail": "--data <work>/sample-chats.jsonl",
+      "kind": "given"
+    },
+    "model": {
+      "detail": "Qwen/Qwen2.5-7B-Instruct",
+      "kind": "given"
+    },
+    "name": {
+      "detail": "as cert-mac-voice",
+      "kind": "given"
+    },
+    "rank": {
+      "detail": "--rank 16",
+      "kind": "given"
+    },
+    "recipe": {
+      "detail": "--recipe",
+      "kind": "given"
+    },
+    "seq_len": {
+      "detail": "--seq-len 512",
+      "kind": "given"
+    },
+    "steps": {
+      "detail": "--steps 16",
+      "kind": "given"
+    }
+  },
+  "rank": 16,
+  "schema": "poros.action.train.v1",
+  "seq_len": 512,
+  "steps": 16,
+  "unvalidated": null,
+  "yes": true
+}

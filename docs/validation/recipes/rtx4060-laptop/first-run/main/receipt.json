@@ -1,0 +1,52 @@
+{
+  "arch": "dense \u00b7 24 layers \u00b7 6 blocks",
+  "block_inputs": {
+    "bytes_down": 36700160,
+    "host_full": false,
+    "kept_on_device": 0,
+    "offloaded": 40,
+    "pageable_slabs": 0,
+    "slab_bytes": 268435456,
+    "slabs": 1
+  },
+  "config": {
+    "block_size": 4,
+    "dataset": "<work>/sample-chats.jsonl",
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 0.0002,
+    "lora_alpha": 32,
+    "lora_rank": 16,
+    "max_seq_length": 256,
+    "max_steps": 16,
+    "per_device_batch_size": 1,
+    "quantization": "nf4"
+  },
+  "final_loss": 5.946438133716583,
+  "finished_at": "2026-11-24T06:34:32+00:00",
+  "gpu": {
+    "name": "RTX 4060 Laptop GPU",
+    "total_gb": 8.25
+  },
+  "host_staging": {
+    "budget_basis": "no ceiling found",
+    "granted_bytes": 536870912,
+    "mode": "pinned",
+    "pinned_budget_bytes": null,
+    "refusals": 0
+  },
+  "kind": "poros.train.receipt",
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "output_dir": "<home>/runs/1124-0033-dc59",
+  "peak_host_ram_gb": 3.361,
+  "peak_vram_allocated_gb": 1.392,
+  "peak_vram_reserved_gb": 1.552,
+  "poros": "1.0.0",
+  "recipe": "SFT",
+  "run": "1cf3fb0a",
+  "s_per_step": 1.4899,
+  "simulated": false,
+  "steps": 16,
+  "tokens_per_sec": 1374.56,
+  "version": 1,
+  "wall_s": 26.98
+}

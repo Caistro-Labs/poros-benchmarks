@@ -1,0 +1,6 @@
+2026-11-24T09:27:37Z certify moe-30b-ssd on RTX 4090: 16 updates, 143 chats rows
+2026-11-24T09:27:37Z prepare: one update, not measured
+2026-11-24T09:31:31Z main run
+2026-11-24T09:34:30Z resume run: stopped halfway, then continued
+2026-11-24T09:38:44Z eval
+2026-11-24T09:40:19Z ok: <home>/poros_rel/cert/out/step4/moe-30b-ssd/certification.json

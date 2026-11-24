@@ -1,0 +1,5 @@
+<path> FutureWarning: torch.cuda._set_allocator_settings is deprecated. Use torch._C._accelerator_setAllocatorSettings instead.
+  torch.cuda.memory._set_allocator_settings("expandable_segments:True")
+[transformers] Model config: eos_token_id must be `None` or an integer within the vocabulary (between 0 and 95), got 50279. This may result in unexpected behavior.
+poros.moe is tested on transformers>=5.13,<5.21, found 5.22.2. The streamed loader still refuses an expert conversion it does not know; to stay on the tested range, run: pip install 'transformers>=5.13,<5.21'
+ARM {"out": "runs/moe_olmoe_base_def", "resolved": {"block_major_accumulation": false, "lora_dropout": 0.05, "moe_expert_grouping": null, "offload_boundaries": false, "grouping_ran": "pow2"}, "losses": [4.5655293464660645, 4.561155319213867]}

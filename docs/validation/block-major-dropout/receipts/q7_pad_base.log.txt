@@ -1,0 +1,41 @@
+▛▜ poros v0.3.0 · Qwen/Qwen2.5-7B · RTX 4090 23.5 GiB
+
+● Checked q7_pad.yaml  config
+  │ nf4 · block 4 · rank 16 · seq 512
+  │ classic · every token · lr 2e-5
+  │ output    runs/q7_pad_base
+
+<path> FutureWarning: torch.cuda._set_allocator_settings is deprecated. Use torch._C._accelerator_setAllocatorSettings instead.
+  torch.cuda.memory._set_allocator_settings("expandable_segments:True")
+Block-streamed NF4 load unavailable for this model/environment (The cached snapshot for 'Qwen/Qwen2.5-7B' (revision 'main', commit d149729398750b98c0af14eb82c78cfe92750796) is incomplete: 1 file(s) are missing (LICENSE). The Hub could not be reached (OfflineModeIsEnabled: Cannot reach https://huggingface.co/api/models/Qwen/Qwen2.5-7B/revision/main: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.). Re-run the download with network access to complete the snapshot.); using the standard loader.
+● Loaded Qwen2.5-7B  28s
+  │ dense · 28 layers · 7 blocks
+Map:   0%|          | 0/40 [00:00<?, ? examples/s]Map: 100%|██████████| 40/40 [00:00<00:00, 3113.00 examples/s]
+Filter:   0%|          | 0/40 [00:00<?, ? examples/s]Filter: 100%|██████████| 40/40 [00:00<00:00, 17098.67 examples/s]
+step 1/4  loss 2.3375  3.10 s/step  vram 4.7 GiB (peak 6.2)  eta 9.3s
+<path> UserWarning: Could not find a config file in Qwen/Qwen2.5-7B - will assume that the vocabulary was not modified.
+  warnings.warn(
+
+  ╭─ Trained ────────────────────────────────────────────────────────── 4 steps · classic · 15s ─╮
+  │      ▄▄▄▄▄▄▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▄▄▄▄▄▄▃▁                     final loss              │
+  │      ███████████████████████████████████████████▆▄▂                  1.3156  ↓ 44%           │
+  │  2.0 ██████████████████████████████████████████████▇▅▂               from 2.3375             │
+  │      ██████████████████████████████████████████████████▆▃▁                                   │
+  │      █████████████████████████████████████████████████████▆▄▂        vram 7.0 GiB peak       │
+  │  1.5 ████████████████████████████████████████████████████████▇▅▂     ram  15.1 GiB peak      │
+  │      ████████████████████████████████████████████████████████████▆▃                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │  1.0 ██████████████████████████████████████████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                                        2                   4                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      386 tok/s
+  │
+  │ adapter    runs/q7_pad_base
+  │ receipt    runs/q7_pad_base/receipt.json
+
+Continue with:
+  poros eval \
+    <path>
+{"schema":"poros.train.v1","learned":null,"output_dir":"runs/q7_pad_base","events":"runs/q7_pad_base/events.jsonl","metrics":{"device":"cuda:0","total_steps":4,"final_loss":1.315640926361084,"loss_history":[2.3375229835510254,2.361232042312622,2.3353307247161865,1.315640926361084],"grad_norm_history":[0.7635295391082764,0.8440679907798767,0.6531034708023071,0.30595073103904724],"eval_history":[],"total_time_s":10.817870317026973,"step_time_history":[3.0983131574466825,2.7654475839808583,2.3451395900920033,2.6089699855074286],"vram_alloc_history_mb":[5091.49952,5030.929408,5022.209536,5100.676096],"avg_vram_allocated_mb":5061.32864,"avg_step_time_ms":2704.467579256743,"steps_per_sec":0.3697585460702123,"tokens_processed":4180,"tokens_per_sec":386.39768064337187,"peak_vram_allocated_gb":7.541375488,"peak_vram_reserved_gb":8.894021632,"torch_num_threads":16,"quantization":"nf4","block_size":4,"adapter_backend":"peft","adapter_summary":{"backend":"peft","target_module_names":"all-linear","trainable_param_count":40370176,"total_param_count":4393342464}},"run":null,"command":null,"next":[],"plan":null,"from":null,"support":null,"model_type":null}

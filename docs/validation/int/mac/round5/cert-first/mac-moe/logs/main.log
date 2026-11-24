@@ -1,0 +1,32 @@
+▛▜ poros v0.3.0 · Qwen/Qwen3-30B-A3B-Instruct-2507 · Apple M4 10-core GPU 16GB
+
+● Checked cert-mac-moe  run 1118-2005-a4b2
+  │ rank 16 · 128 tokens
+  │ SFT · answers only · lr 2e-5
+  │ output    cert/m4-16gb/.mac-moe-work/home/runs/1118-2005-a4b2
+  │ weights   <disk>/poros-metal/hf
+
+● Loaded Qwen3-30B-A3B-Instruct-2507  6.4s
+  │ MoE · 48 layers · 128 experts
+step 1/16  loss 7.1640  32.48 s/step  memory 5.7 GiB (peak 5.5)  eta 8m 07s
+step 3/16  loss 7.0359  19.75 s/step  memory 5.7 GiB (peak 8.0)  eta 5m 12s
+step 5/16  loss 7.0957  20.08 s/step  memory 5.7 GiB (peak 8.0)  eta 4m 06s
+step 7/16  loss 7.1167  20.01 s/step  memory 5.8 GiB (peak 8.0)  eta 3m 16s
+step 9/16  loss 7.0726  20.02 s/step  memory 5.8 GiB (peak 8.0)  eta 2m 29s
+step 11/16  loss 6.9967  19.97 s/step  memory 5.8 GiB (peak 8.0)  eta 1m 46s
+step 13/16  loss 6.9037  20.00 s/step  memory 5.8 GiB (peak 8.0)  eta 1m 03s
+step 15/16  loss 6.9431  19.95 s/step  memory 5.8 GiB (peak 8.0)  eta 21s
+
+● Trained 16 steps · SFT  5m 36s
+  │ final loss 7.0107
+  │
+  │ peak       ━━━━━━━━────────  8.0 GiB of 16.0 GiB
+  │ speed      6 tok/s
+  │
+  │ adapter    cert/m4-16gb/.mac-moe-work/home/runs/1118-2005-a4b2
+  │ receipt    cert/m4-16gb/.mac-moe-work/home/runs/1118-2005-a4b2/receipt.json
+
+Continue with: poros export 1118-2005-a4b2
+No rows were held out: `poros eval 1118-2005-a4b2 --data FILE` scores a file of yours.
+Keep it as a recipe: poros recipes save last
+{"schema":"poros.train.v1","learned":null,"output_dir":"<home>/runs/1118-2005-a4b2","events":"<home>/runs/1118-2005-a4b2/events.jsonl","metrics":{"device":"mps","total_steps":16,"final_loss":6.975471019744873,"loss_history":[7.163994312286377,7.007890701293945,6.935945987701416,7.108902454376221,7.261682510375977,7.058435916900635,7.218439102172852,6.925685405731201,6.898742198944092,6.899601459503174,7.041166305541992,6.786728858947754,6.892074108123779,6.986149311065674,7.009580135345459,6.975471019744873],"grad_norm_history":[2.171875,2.171875,2.171875,2.015625,3.71875,2.1875,4.125,2.640625,3.15625,1.875,2.3125,1.984375,2.15625,1.953125,1.9453125,2.3125],"eval_history":[],"total_time_s":332.0386294190175,"step_time_history":[32.4763532500001,19.80907154200395,19.75242050000088,19.923371333999967,20.077993500002776,20.04064237500279,20.00919241700467,20.068468124998617,20.016592084000877,20.084644458002003,19.969557291995443,19.89886962500168,20.004707458007033,19.977573042000586,19.952401791997545,19.976770624998608],"vram_alloc_history_mb":[],"avg_vram_allocated_mb":0.0,"avg_step_time_ms":20752.414338688595,"steps_per_sec":0.04818716433083674,"tokens_processed":2048,"tokens_per_sec":6.167957034347102,"peak_vram_allocated_gb":8.589118776,"peak_vram_reserved_gb":0.0,"torch_num_threads":4,"quantization":"nf4","block_size":1,"adapter_backend":"experts","adapter_summary":null},"run":"1118-2005-a4b2","command":"poros train Qwen/Qwen3-30B-A3B-Instruct-2507 --data <work>/sample-chats.jsonl --steps 16 --seq-len 128 --rank 16 --block-size 1 --name cert-mac-moe --recipe sft gradient_accumulation_steps=1 learning_rate=2e-5 lora_alpha=32 lora_dropout=0 per_device_batch_size=1 --download","next":[],"plan":null,"from":null,"support":null,"model_type":null}

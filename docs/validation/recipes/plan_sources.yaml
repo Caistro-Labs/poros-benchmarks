@@ -1,0 +1,637 @@
+# The planner's cells from the certified recipe runs: written by
+# scripts/certify/generate.py, read by the planner's cell builder. Do not edit.
+- id: recipe-first-run-rtx4090
+  only_its_machine: true
+  receipt: docs/validation/recipes/rtx4090/first-run/main/receipt.json
+  key:
+    model:
+      ptr: /model_name_or_path
+      receipt: docs/validation/recipes/rtx4090/first-run/main/config.resolved.json
+    quantization:
+      ptr: /quantization
+      receipt: docs/validation/recipes/rtx4090/first-run/main/config.resolved.json
+    seq_len:
+      ptr: /max_seq_length
+      receipt: docs/validation/recipes/rtx4090/first-run/main/config.resolved.json
+    block_size:
+      ptr: /block_size
+      receipt: docs/validation/recipes/rtx4090/first-run/main/config.resolved.json
+    batch:
+      ptr: /per_device_batch_size
+      receipt: docs/validation/recipes/rtx4090/first-run/main/config.resolved.json
+    grad_accum:
+      ptr: /gradient_accumulation_steps
+      receipt: docs/validation/recipes/rtx4090/first-run/main/config.resolved.json
+    lora_rank:
+      ptr: /lora_rank
+      receipt: docs/validation/recipes/rtx4090/first-run/main/config.resolved.json
+    lora_dropout:
+      ptr: /lora_dropout
+      receipt: docs/validation/recipes/rtx4090/first-run/main/config.resolved.json
+    load_strategy: block_streamed
+    selfcheck: false
+    entry: dense
+    gpu:
+      ptr: /gpu/name
+      receipt: docs/validation/recipes/rtx4090/first-run/main/receipt.json
+    path:
+      ptr: /path
+      receipt: docs/validation/recipes/rtx4090/first-run/main/config.resolved.json
+    offload:
+      ptr: /offload_embeddings_and_head
+      receipt: docs/validation/recipes/rtx4090/first-run/main/config.resolved.json
+    fused_compute:
+      ptr: /ran_compute/fused_compute
+      receipt: docs/validation/recipes/rtx4090/first-run/main/config.resolved.json
+    dequant_cache:
+      ptr: /nf4_dequant_cache_mb
+      receipt: docs/validation/recipes/rtx4090/first-run/main/config.resolved.json
+  host:
+    harness: scripts/certify/run_recipe.py (poros train, the recipe as shipped)
+    dataset: sample chats rows longer than the row length
+  fields:
+    peak_vram_allocated:
+      ptr: /peak_vram_allocated_gb
+      unit: GB
+      receipt: docs/validation/recipes/rtx4090/first-run/main/receipt.json
+    peak_vram_reserved:
+      ptr: /peak_vram_reserved_gb
+      unit: GB
+      receipt: docs/validation/recipes/rtx4090/first-run/main/receipt.json
+    peak_host_ram:
+      ptr: /peak_host_ram_gb
+      unit: GB
+      receipt: docs/validation/recipes/rtx4090/first-run/main/receipt.json
+    s_per_step:
+      ptr: /main/s_per_step
+      unit: s
+      receipt: docs/validation/recipes/rtx4090/first-run/certification.json
+      method: the median of updates 2..N (the run's events.jsonl)
+- id: recipe-first-run-rtx4060-laptop
+  only_its_machine: true
+  receipt: docs/validation/recipes/rtx4060-laptop/first-run/main/receipt.json
+  key:
+    model:
+      ptr: /model_name_or_path
+      receipt: docs/validation/recipes/rtx4060-laptop/first-run/main/config.resolved.json
+    quantization:
+      ptr: /quantization
+      receipt: docs/validation/recipes/rtx4060-laptop/first-run/main/config.resolved.json
+    seq_len:
+      ptr: /max_seq_length
+      receipt: docs/validation/recipes/rtx4060-laptop/first-run/main/config.resolved.json
+    block_size:
+      ptr: /block_size
+      receipt: docs/validation/recipes/rtx4060-laptop/first-run/main/config.resolved.json
+    batch:
+      ptr: /per_device_batch_size
+      receipt: docs/validation/recipes/rtx4060-laptop/first-run/main/config.resolved.json
+    grad_accum:
+      ptr: /gradient_accumulation_steps
+      receipt: docs/validation/recipes/rtx4060-laptop/first-run/main/config.resolved.json
+    lora_rank:
+      ptr: /lora_rank
+      receipt: docs/validation/recipes/rtx4060-laptop/first-run/main/config.resolved.json
+    lora_dropout:
+      ptr: /lora_dropout
+      receipt: docs/validation/recipes/rtx4060-laptop/first-run/main/config.resolved.json
+    load_strategy: block_streamed
+    selfcheck: false
+    entry: dense
+    gpu:
+      ptr: /gpu/name
+      receipt: docs/validation/recipes/rtx4060-laptop/first-run/main/receipt.json
+    path:
+      ptr: /path
+      receipt: docs/validation/recipes/rtx4060-laptop/first-run/main/config.resolved.json
+    offload:
+      ptr: /offload_embeddings_and_head
+      receipt: docs/validation/recipes/rtx4060-laptop/first-run/main/config.resolved.json
+    fused_compute:
+      ptr: /ran_compute/fused_compute
+      receipt: docs/validation/recipes/rtx4060-laptop/first-run/main/config.resolved.json
+    dequant_cache:
+      ptr: /nf4_dequant_cache_mb
+      receipt: docs/validation/recipes/rtx4060-laptop/first-run/main/config.resolved.json
+  host:
+    harness: scripts/certify/run_recipe.py (poros train, the recipe as shipped)
+    dataset: sample chats rows longer than the row length
+  fields:
+    peak_vram_allocated:
+      ptr: /peak_vram_allocated_gb
+      unit: GB
+      receipt: docs/validation/recipes/rtx4060-laptop/first-run/main/receipt.json
+    peak_vram_reserved:
+      ptr: /peak_vram_reserved_gb
+      unit: GB
+      receipt: docs/validation/recipes/rtx4060-laptop/first-run/main/receipt.json
+    peak_host_ram:
+      ptr: /peak_host_ram_gb
+      unit: GB
+      receipt: docs/validation/recipes/rtx4060-laptop/first-run/main/receipt.json
+    s_per_step:
+      ptr: /main/s_per_step
+      unit: s
+      receipt: docs/validation/recipes/rtx4060-laptop/first-run/certification.json
+      method: the median of updates 2..N (the run's events.jsonl)
+- id: recipe-prefer-rtx4090
+  only_its_machine: true
+  receipt: docs/validation/recipes/rtx4090/prefer/main/receipt.json
+  key:
+    model:
+      ptr: /model_name_or_path
+      receipt: docs/validation/recipes/rtx4090/prefer/main/config.resolved.json
+    quantization:
+      ptr: /quantization
+      receipt: docs/validation/recipes/rtx4090/prefer/main/config.resolved.json
+    seq_len:
+      ptr: /max_seq_length
+      receipt: docs/validation/recipes/rtx4090/prefer/main/config.resolved.json
+    block_size:
+      ptr: /block_size
+      receipt: docs/validation/recipes/rtx4090/prefer/main/config.resolved.json
+    batch:
+      ptr: /per_device_batch_size
+      receipt: docs/validation/recipes/rtx4090/prefer/main/config.resolved.json
+    grad_accum:
+      ptr: /gradient_accumulation_steps
+      receipt: docs/validation/recipes/rtx4090/prefer/main/config.resolved.json
+    lora_rank:
+      ptr: /lora_rank
+      receipt: docs/validation/recipes/rtx4090/prefer/main/config.resolved.json
+    lora_dropout:
+      ptr: /lora_dropout
+      receipt: docs/validation/recipes/rtx4090/prefer/main/config.resolved.json
+    load_strategy: block_streamed
+    selfcheck: false
+    entry: dense
+    gpu:
+      ptr: /gpu/name
+      receipt: docs/validation/recipes/rtx4090/prefer/main/receipt.json
+    path:
+      ptr: /path
+      receipt: docs/validation/recipes/rtx4090/prefer/main/config.resolved.json
+    offload:
+      ptr: /offload_embeddings_and_head
+      receipt: docs/validation/recipes/rtx4090/prefer/main/config.resolved.json
+    fused_compute:
+      ptr: /ran_compute/fused_compute
+      receipt: docs/validation/recipes/rtx4090/prefer/main/config.resolved.json
+    dequant_cache:
+      ptr: /nf4_dequant_cache_mb
+      receipt: docs/validation/recipes/rtx4090/prefer/main/config.resolved.json
+  host:
+    harness: scripts/certify/run_recipe.py (poros train, the recipe as shipped)
+    dataset: sample pairs rows longer than the row length
+    recipes: prefer, support, voice
+  fields:
+    peak_vram_allocated:
+      ptr: /peak_vram_allocated_gb
+      unit: GB
+      receipt: docs/validation/recipes/rtx4090/prefer/main/receipt.json
+    peak_vram_reserved:
+      ptr: /peak_vram_reserved_gb
+      unit: GB
+      receipt: docs/validation/recipes/rtx4090/prefer/main/receipt.json
+    peak_host_ram:
+      ptr: /peak_host_ram_gb
+      unit: GB
+      receipt: docs/validation/recipes/rtx4090/prefer/main/receipt.json
+- id: recipe-big-32b-rtx4090
+  only_its_machine: true
+  receipt: docs/validation/recipes/rtx4090/big-32b/main/receipt.json
+  key:
+    model:
+      ptr: /model_name_or_path
+      receipt: docs/validation/recipes/rtx4090/big-32b/main/config.resolved.json
+    quantization:
+      ptr: /quantization
+      receipt: docs/validation/recipes/rtx4090/big-32b/main/config.resolved.json
+    seq_len:
+      ptr: /max_seq_length
+      receipt: docs/validation/recipes/rtx4090/big-32b/main/config.resolved.json
+    block_size:
+      ptr: /block_size
+      receipt: docs/validation/recipes/rtx4090/big-32b/main/config.resolved.json
+    batch:
+      ptr: /per_device_batch_size
+      receipt: docs/validation/recipes/rtx4090/big-32b/main/config.resolved.json
+    grad_accum:
+      ptr: /gradient_accumulation_steps
+      receipt: docs/validation/recipes/rtx4090/big-32b/main/config.resolved.json
+    lora_rank:
+      ptr: /lora_rank
+      receipt: docs/validation/recipes/rtx4090/big-32b/main/config.resolved.json
+    lora_dropout:
+      ptr: /lora_dropout
+      receipt: docs/validation/recipes/rtx4090/big-32b/main/config.resolved.json
+    load_strategy: block_streamed
+    selfcheck: false
+    entry: dense
+    gpu:
+      ptr: /gpu/name
+      receipt: docs/validation/recipes/rtx4090/big-32b/main/receipt.json
+    path:
+      ptr: /path
+      receipt: docs/validation/recipes/rtx4090/big-32b/main/config.resolved.json
+    offload:
+      ptr: /offload_embeddings_and_head
+      receipt: docs/validation/recipes/rtx4090/big-32b/main/config.resolved.json
+    fused_compute:
+      ptr: /ran_compute/fused_compute
+      receipt: docs/validation/recipes/rtx4090/big-32b/main/config.resolved.json
+    dequant_cache:
+      ptr: /nf4_dequant_cache_mb
+      receipt: docs/validation/recipes/rtx4090/big-32b/main/config.resolved.json
+  host:
+    harness: scripts/certify/run_recipe.py (poros train, the recipe as shipped)
+    dataset: sample chats rows longer than the row length
+  fields:
+    peak_vram_allocated:
+      ptr: /peak_vram_allocated_gb
+      unit: GB
+      receipt: docs/validation/recipes/rtx4090/big-32b/main/receipt.json
+    peak_vram_reserved:
+      ptr: /peak_vram_reserved_gb
+      unit: GB
+      receipt: docs/validation/recipes/rtx4090/big-32b/main/receipt.json
+    peak_host_ram:
+      ptr: /peak_host_ram_gb
+      unit: GB
+      receipt: docs/validation/recipes/rtx4090/big-32b/main/receipt.json
+    s_per_step:
+      ptr: /main/s_per_step
+      unit: s
+      receipt: docs/validation/recipes/rtx4090/big-32b/certification.json
+      method: the median of updates 2..N (the run's events.jsonl)
+- id: recipe-big-72b-rtx4090
+  only_its_machine: true
+  receipt: docs/validation/recipes/rtx4090/big-72b/main/receipt.json
+  key:
+    model:
+      ptr: /model_name_or_path
+      receipt: docs/validation/recipes/rtx4090/big-72b/main/config.resolved.json
+    quantization:
+      ptr: /quantization
+      receipt: docs/validation/recipes/rtx4090/big-72b/main/config.resolved.json
+    seq_len:
+      ptr: /max_seq_length
+      receipt: docs/validation/recipes/rtx4090/big-72b/main/config.resolved.json
+    block_size:
+      ptr: /block_size
+      receipt: docs/validation/recipes/rtx4090/big-72b/main/config.resolved.json
+    batch:
+      ptr: /per_device_batch_size
+      receipt: docs/validation/recipes/rtx4090/big-72b/main/config.resolved.json
+    grad_accum:
+      ptr: /gradient_accumulation_steps
+      receipt: docs/validation/recipes/rtx4090/big-72b/main/config.resolved.json
+    lora_rank:
+      ptr: /lora_rank
+      receipt: docs/validation/recipes/rtx4090/big-72b/main/config.resolved.json
+    lora_dropout:
+      ptr: /lora_dropout
+      receipt: docs/validation/recipes/rtx4090/big-72b/main/config.resolved.json
+    load_strategy: block_streamed
+    selfcheck: false
+    entry: dense
+    gpu:
+      ptr: /gpu/name
+      receipt: docs/validation/recipes/rtx4090/big-72b/main/receipt.json
+    path:
+      ptr: /path
+      receipt: docs/validation/recipes/rtx4090/big-72b/main/config.resolved.json
+    offload:
+      ptr: /offload_embeddings_and_head
+      receipt: docs/validation/recipes/rtx4090/big-72b/main/config.resolved.json
+    fused_compute:
+      ptr: /ran_compute/fused_compute
+      receipt: docs/validation/recipes/rtx4090/big-72b/main/config.resolved.json
+    dequant_cache:
+      ptr: /nf4_dequant_cache_mb
+      receipt: docs/validation/recipes/rtx4090/big-72b/main/config.resolved.json
+  host:
+    harness: scripts/certify/run_recipe.py (poros train, the recipe as shipped)
+    dataset: sample chats rows longer than the row length
+  fields:
+    peak_vram_allocated:
+      ptr: /peak_vram_allocated_gb
+      unit: GB
+      receipt: docs/validation/recipes/rtx4090/big-72b/main/receipt.json
+    peak_vram_reserved:
+      ptr: /peak_vram_reserved_gb
+      unit: GB
+      receipt: docs/validation/recipes/rtx4090/big-72b/main/receipt.json
+    peak_host_ram:
+      ptr: /peak_host_ram_gb
+      unit: GB
+      receipt: docs/validation/recipes/rtx4090/big-72b/main/receipt.json
+    s_per_step:
+      ptr: /main/s_per_step
+      unit: s
+      receipt: docs/validation/recipes/rtx4090/big-72b/certification.json
+      method: the median of updates 2..N (the run's events.jsonl)
+- id: recipe-big-72b-fast-rtx4090
+  only_its_machine: true
+  receipt: docs/validation/recipes/rtx4090/big-72b-fast/main/receipt.json
+  key:
+    model:
+      ptr: /model_name_or_path
+      receipt: docs/validation/recipes/rtx4090/big-72b-fast/main/config.resolved.json
+    quantization:
+      ptr: /quantization
+      receipt: docs/validation/recipes/rtx4090/big-72b-fast/main/config.resolved.json
+    seq_len:
+      ptr: /max_seq_length
+      receipt: docs/validation/recipes/rtx4090/big-72b-fast/main/config.resolved.json
+    block_size:
+      ptr: /block_size
+      receipt: docs/validation/recipes/rtx4090/big-72b-fast/main/config.resolved.json
+    batch:
+      ptr: /per_device_batch_size
+      receipt: docs/validation/recipes/rtx4090/big-72b-fast/main/config.resolved.json
+    grad_accum:
+      ptr: /gradient_accumulation_steps
+      receipt: docs/validation/recipes/rtx4090/big-72b-fast/main/config.resolved.json
+    lora_rank:
+      ptr: /lora_rank
+      receipt: docs/validation/recipes/rtx4090/big-72b-fast/main/config.resolved.json
+    lora_dropout:
+      ptr: /lora_dropout
+      receipt: docs/validation/recipes/rtx4090/big-72b-fast/main/config.resolved.json
+    load_strategy: block_streamed
+    selfcheck: false
+    entry: dense
+    gpu:
+      ptr: /gpu/name
+      receipt: docs/validation/recipes/rtx4090/big-72b-fast/main/receipt.json
+    path:
+      ptr: /path
+      receipt: docs/validation/recipes/rtx4090/big-72b-fast/main/config.resolved.json
+    offload:
+      ptr: /offload_embeddings_and_head
+      receipt: docs/validation/recipes/rtx4090/big-72b-fast/main/config.resolved.json
+    fused_compute:
+      ptr: /ran_compute/fused_compute
+      receipt: docs/validation/recipes/rtx4090/big-72b-fast/main/config.resolved.json
+    dequant_cache:
+      ptr: /nf4_dequant_cache_mb
+      receipt: docs/validation/recipes/rtx4090/big-72b-fast/main/config.resolved.json
+  host:
+    harness: scripts/certify/run_recipe.py (poros train, the recipe as shipped)
+    dataset: sample chats rows longer than the row length
+  fields:
+    peak_vram_allocated:
+      ptr: /peak_vram_allocated_gb
+      unit: GB
+      receipt: docs/validation/recipes/rtx4090/big-72b-fast/main/receipt.json
+    peak_vram_reserved:
+      ptr: /peak_vram_reserved_gb
+      unit: GB
+      receipt: docs/validation/recipes/rtx4090/big-72b-fast/main/receipt.json
+    peak_host_ram:
+      ptr: /peak_host_ram_gb
+      unit: GB
+      receipt: docs/validation/recipes/rtx4090/big-72b-fast/main/receipt.json
+    s_per_step:
+      ptr: /main/s_per_step
+      unit: s
+      receipt: docs/validation/recipes/rtx4090/big-72b-fast/certification.json
+      method: the median of updates 2..N (the run's events.jsonl)
+- id: recipe-moe-30b-rtx4090
+  only_its_machine: true
+  receipt: docs/validation/recipes/rtx4090/moe-30b/main/receipt.json
+  key:
+    model:
+      ptr: /model_name_or_path
+      receipt: docs/validation/recipes/rtx4090/moe-30b/main/config.resolved.json
+    quantization:
+      ptr: /quantization
+      receipt: docs/validation/recipes/rtx4090/moe-30b/main/config.resolved.json
+    seq_len:
+      ptr: /max_seq_length
+      receipt: docs/validation/recipes/rtx4090/moe-30b/main/config.resolved.json
+    block_size: null
+    batch:
+      ptr: /per_device_batch_size
+      receipt: docs/validation/recipes/rtx4090/moe-30b/main/config.resolved.json
+    grad_accum:
+      ptr: /gradient_accumulation_steps
+      receipt: docs/validation/recipes/rtx4090/moe-30b/main/config.resolved.json
+    lora_rank:
+      ptr: /lora_rank
+      receipt: docs/validation/recipes/rtx4090/moe-30b/main/config.resolved.json
+    lora_dropout:
+      ptr: /lora_dropout
+      receipt: docs/validation/recipes/rtx4090/moe-30b/main/config.resolved.json
+    load_strategy: null
+    selfcheck: false
+    entry: moe
+    gpu:
+      ptr: /gpu/name
+      receipt: docs/validation/recipes/rtx4090/moe-30b/main/receipt.json
+    path:
+      ptr: /path
+      receipt: docs/validation/recipes/rtx4090/moe-30b/main/config.resolved.json
+    offload:
+      ptr: /offload_embeddings_and_head
+      receipt: docs/validation/recipes/rtx4090/moe-30b/main/config.resolved.json
+    moe_compute:
+      ptr: /ran_compute/moe_expert_compute
+      receipt: docs/validation/recipes/rtx4090/moe-30b/main/config.resolved.json
+    expert_cache:
+      ptr: /moe_expert_cache_gib
+      receipt: docs/validation/recipes/rtx4090/moe-30b/main/config.resolved.json
+  host:
+    harness: scripts/certify/run_recipe.py (poros train, the recipe as shipped)
+    dataset: sample chats rows longer than the row length
+  fields:
+    peak_vram_allocated:
+      ptr: /peak_vram_allocated_gb
+      unit: GB
+      receipt: docs/validation/recipes/rtx4090/moe-30b/main/receipt.json
+    peak_vram_reserved:
+      ptr: /peak_vram_reserved_gb
+      unit: GB
+      receipt: docs/validation/recipes/rtx4090/moe-30b/main/receipt.json
+    peak_host_ram:
+      ptr: /peak_host_ram_gb
+      unit: GB
+      receipt: docs/validation/recipes/rtx4090/moe-30b/main/receipt.json
+    s_per_step:
+      ptr: /main/s_per_step
+      unit: s
+      receipt: docs/validation/recipes/rtx4090/moe-30b/certification.json
+      method: the median of updates 2..N (the run's events.jsonl)
+- id: recipe-moe-30b-ssd-rtx4090
+  only_its_machine: true
+  receipt: docs/validation/recipes/rtx4090/moe-30b-ssd/main/receipt.json
+  key:
+    model:
+      ptr: /model_name_or_path
+      receipt: docs/validation/recipes/rtx4090/moe-30b-ssd/main/config.resolved.json
+    quantization:
+      ptr: /quantization
+      receipt: docs/validation/recipes/rtx4090/moe-30b-ssd/main/config.resolved.json
+    seq_len:
+      ptr: /max_seq_length
+      receipt: docs/validation/recipes/rtx4090/moe-30b-ssd/main/config.resolved.json
+    block_size: null
+    batch:
+      ptr: /per_device_batch_size
+      receipt: docs/validation/recipes/rtx4090/moe-30b-ssd/main/config.resolved.json
+    grad_accum:
+      ptr: /gradient_accumulation_steps
+      receipt: docs/validation/recipes/rtx4090/moe-30b-ssd/main/config.resolved.json
+    lora_rank:
+      ptr: /lora_rank
+      receipt: docs/validation/recipes/rtx4090/moe-30b-ssd/main/config.resolved.json
+    lora_dropout:
+      ptr: /lora_dropout
+      receipt: docs/validation/recipes/rtx4090/moe-30b-ssd/main/config.resolved.json
+    load_strategy: null
+    selfcheck: false
+    entry: moe
+    gpu:
+      ptr: /gpu/name
+      receipt: docs/validation/recipes/rtx4090/moe-30b-ssd/main/receipt.json
+    path:
+      ptr: /path
+      receipt: docs/validation/recipes/rtx4090/moe-30b-ssd/main/config.resolved.json
+    offload:
+      ptr: /offload_embeddings_and_head
+      receipt: docs/validation/recipes/rtx4090/moe-30b-ssd/main/config.resolved.json
+    moe_compute:
+      ptr: /ran_compute/moe_expert_compute
+      receipt: docs/validation/recipes/rtx4090/moe-30b-ssd/main/config.resolved.json
+    expert_cache:
+      ptr: /moe_expert_cache_gib
+      receipt: docs/validation/recipes/rtx4090/moe-30b-ssd/main/config.resolved.json
+  host:
+    harness: scripts/certify/run_recipe.py (poros train, the recipe as shipped)
+    dataset: sample chats rows longer than the row length
+  fields:
+    peak_vram_allocated:
+      ptr: /peak_vram_allocated_gb
+      unit: GB
+      receipt: docs/validation/recipes/rtx4090/moe-30b-ssd/main/receipt.json
+    peak_vram_reserved:
+      ptr: /peak_vram_reserved_gb
+      unit: GB
+      receipt: docs/validation/recipes/rtx4090/moe-30b-ssd/main/receipt.json
+    peak_host_ram:
+      ptr: /peak_host_ram_gb
+      unit: GB
+      receipt: docs/validation/recipes/rtx4090/moe-30b-ssd/main/receipt.json
+    s_per_step:
+      ptr: /main/s_per_step
+      unit: s
+      receipt: docs/validation/recipes/rtx4090/moe-30b-ssd/certification.json
+      method: the median of updates 2..N (the run's events.jsonl)
+- id: recipe-moe-30b-8gb-rtx4090
+  only_its_machine: true
+  receipt: docs/validation/recipes/rtx4090/moe-30b-8gb/main/receipt.json
+  key:
+    model:
+      ptr: /model_name_or_path
+      receipt: docs/validation/recipes/rtx4090/moe-30b-8gb/main/config.resolved.json
+    quantization:
+      ptr: /quantization
+      receipt: docs/validation/recipes/rtx4090/moe-30b-8gb/main/config.resolved.json
+    seq_len:
+      ptr: /max_seq_length
+      receipt: docs/validation/recipes/rtx4090/moe-30b-8gb/main/config.resolved.json
+    block_size: null
+    batch:
+      ptr: /per_device_batch_size
+      receipt: docs/validation/recipes/rtx4090/moe-30b-8gb/main/config.resolved.json
+    grad_accum:
+      ptr: /gradient_accumulation_steps
+      receipt: docs/validation/recipes/rtx4090/moe-30b-8gb/main/config.resolved.json
+    lora_rank:
+      ptr: /lora_rank
+      receipt: docs/validation/recipes/rtx4090/moe-30b-8gb/main/config.resolved.json
+    lora_dropout:
+      ptr: /lora_dropout
+      receipt: docs/validation/recipes/rtx4090/moe-30b-8gb/main/config.resolved.json
+    load_strategy: null
+    selfcheck: false
+    entry: moe
+    gpu:
+      ptr: /gpu/name
+      receipt: docs/validation/recipes/rtx4090/moe-30b-8gb/main/receipt.json
+    path:
+      ptr: /path
+      receipt: docs/validation/recipes/rtx4090/moe-30b-8gb/main/config.resolved.json
+    offload:
+      ptr: /offload_embeddings_and_head
+      receipt: docs/validation/recipes/rtx4090/moe-30b-8gb/main/config.resolved.json
+    moe_compute:
+      ptr: /ran_compute/moe_expert_compute
+      receipt: docs/validation/recipes/rtx4090/moe-30b-8gb/main/config.resolved.json
+    expert_cache:
+      ptr: /moe_expert_cache_gib
+      receipt: docs/validation/recipes/rtx4090/moe-30b-8gb/main/config.resolved.json
+  host:
+    harness: scripts/certify/run_recipe.py (poros train, the recipe as shipped)
+    dataset: sample chats rows longer than the row length
+  fields:
+    peak_vram_allocated:
+      ptr: /peak_vram_allocated_gb
+      unit: GB
+      receipt: docs/validation/recipes/rtx4090/moe-30b-8gb/main/receipt.json
+    peak_vram_reserved:
+      ptr: /peak_vram_reserved_gb
+      unit: GB
+      receipt: docs/validation/recipes/rtx4090/moe-30b-8gb/main/receipt.json
+    peak_host_ram:
+      ptr: /peak_host_ram_gb
+      unit: GB
+      receipt: docs/validation/recipes/rtx4090/moe-30b-8gb/main/receipt.json
+    s_per_step:
+      ptr: /main/s_per_step
+      unit: s
+      receipt: docs/validation/recipes/rtx4090/moe-30b-8gb/certification.json
+      method: the median of updates 2..N (the run's events.jsonl)
+- id: recipe-mac-prefer-m4-16gb
+  receipt: docs/validation/recipes/m4-16gb/mac-prefer/main/receipt.json
+  only_its_machine: true
+  key:
+    model:
+      ptr: /model
+    quantization:
+      ptr: /config/quantization
+    seq_len:
+      ptr: /config/max_seq_length
+    block_size:
+      ptr: /config/block_size
+    batch:
+      ptr: /config/per_device_batch_size
+    grad_accum:
+      ptr: /config/gradient_accumulation_steps
+    lora_rank:
+      ptr: /config/lora_rank
+    lora_dropout:
+      ptr: /lora_dropout
+    load_strategy: metal_ssd
+    selfcheck: false
+    entry: dense
+    gpu:
+      ptr: /gpu/name
+  host:
+    harness: scripts/certify/run_recipe.py (poros train, the recipe as shipped)
+    dataset: sample rows longer than the row length
+    recipes: mac-prefer, mac-support, mac-voice
+  fields:
+    peak_vram_allocated:
+      ptr: /peak_vram_allocated_gb
+      unit: GB
+      method: 16 steps
+    gpu_visible:
+      ptr: /data/vram_reserved_mb
+      unit: MB
+      receipt: docs/validation/recipes/m4-16gb/mac-prefer/main/events.jsonl
+      select:
+        event_type: step
+        step: 15
+      method: 16 steps

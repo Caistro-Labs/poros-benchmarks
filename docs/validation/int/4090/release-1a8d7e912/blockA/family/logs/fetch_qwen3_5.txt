@@ -1,0 +1,6 @@
+
+Fetching 10 files:   0%|          | 0/10 [00:00<?, ?it/s]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+Fetching 10 files:  60%|██████    | 6/10 [00:00<00:00, 46.50it/s]
+Fetching 10 files: 100%|██████████| 10/10 [00:05<00:00,  1.74it/s]
+FETCH snapshot <home>/poros_rel/hf_cert/fg_models/Qwen_Qwen3.5-0.8B__snapshot0 -> <home>/poros_rel/hf_cert/hub/models--Qwen--Qwen3.5-0.8B/snapshots/2fc06364715b967f1860aea9cf38778875588b17

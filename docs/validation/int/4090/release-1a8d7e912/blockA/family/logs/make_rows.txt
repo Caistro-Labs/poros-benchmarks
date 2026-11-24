@@ -1,0 +1,11 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+Generating train split:   0%|          | 0/84437 [00:00<?, ? examples/s]
+Generating train split:  15%|█▌        | 13000/84437 [00:00<00:00, 107245.88 examples/s]
+Generating train split:  45%|████▌     | 38000/84437 [00:00<00:00, 182006.22 examples/s]
+Generating train split:  76%|███████▌  | 64000/84437 [00:00<00:00, 209609.22 examples/s]
+Generating train split: 100%|██████████| 84437/84437 [00:00<00:00, 207058.94 examples/s]
+
+Generating validation split:   0%|          | 0/4401 [00:00<?, ? examples/s]
+Generating validation split: 100%|██████████| 4401/4401 [00:00<00:00, 172113.12 examples/s]
+<home>/poros_rel/hf_cert/fg_models/oasst_long2400.jsonl 6c8609d5be3172802c5ebb0c8499e8e794ad1a448648e7110e45138a68539fb5

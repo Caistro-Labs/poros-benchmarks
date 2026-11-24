@@ -1,0 +1,1 @@
+train Qwen/Qwen3-30B-A3B-Instruct-2507 --data <path> --recipe sft --seq-len 128 --rank 16 --block-size 1 lora_alpha=32 lora_dropout=0 per_device_batch_size=1 gradient_accumulation_steps=1 learning_rate=2e-5 --steps 16 --name cert-mac-moe

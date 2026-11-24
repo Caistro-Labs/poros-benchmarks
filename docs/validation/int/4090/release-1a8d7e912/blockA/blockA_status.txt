@@ -1,0 +1,10 @@
+2026-11-24T05:46:20Z BLOCK A start: 1a8d7e912b166c373fcfec862ad7297221d33a71 porcelain=0 free=88G
+2026-11-24T05:46:38Z a1 selftest rc=0 non-ok=0 time: one step over 128M bf16 elements: ExpertAdamW 0.0072 s, torch AdamW (bf16) 0.0060 s free=88G
+2026-11-24T05:47:16Z a2 gpu tests rc=0 11 passed in 35.19s free=88G
+2026-11-24T06:20:18Z BLOCK A2: waiting for the family gate to end free=62G
+2026-11-24T07:03:50Z a3 family gate ended:  PASS  FAIL  SKIP;  free=145G
+2026-11-24T07:25:58Z a4 dropout checks rc=0 2026-11-24T07:25:45Z PASS dropout compare rel_m32_sequential vs rel_m32_efficient (block-major): "pass": true COMPARE {"pass": true, "losses_equal": true, "grad_norms_equal": true, "adapter_tensors": 896, "ref_digest": "74d206571db24eb1775fdc8e821b5c372e2f12cc114d476b00fdabcc63ec8395", "cand_digest": "74d2065 free=75G 2026-11-24T07:25:48Z PASS dropout compare rel_m32_sequential vs rel_m32_fast (bl free=145G
+2026-11-24T07:26:24Z a5 OLMoE main -> 6d84c48581ece794365f2b8e9cfb043c68ade9c5 free=132G
+2026-11-24T07:26:26Z a5 kit de51224b6e163ab41e9f23d0ed03d4ccbfcc7de0 torch 2.14.1+cu130 free=132G
+2026-11-24T08:28:10Z a5 OLMoE study (control kit) rc=0 [08:28:10] PASS cuda_olmoe free=125G
+2026-11-24T08:28:14Z BLOCK A DONE free=138G

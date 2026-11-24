@@ -1,0 +1,39 @@
+▛▜ poros v0.3.0 · Qwen/Qwen2.5-0.5B · RTX 5090 31.8 GiB
+
+● Checked pin_off.yaml  config
+  │ nf4 · block 4 · rank 16 · seq 512 · efficient path
+  │ classic · every token · lr 2e-5
+  │ output    ~/x5/r128/runs/pin_off
+
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+● Loaded Qwen2.5-0.5B  3.7s
+  │ dense · 24 layers · 6 blocks
+Map:   0%|          | 0/64 [00:00<?, ? examples/s]Map: 100%|██████████| 64/64 [00:00<00:00, 3635.61 examples/s]
+Filter:   0%|          | 0/64 [00:00<?, ? examples/s]Filter: 100%|██████████| 64/64 [00:00<00:00, 35474.49 examples/s]
+path efficient: page-locked memory refused (pin budget); block inputs go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 14.48 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+path efficient after update 1: block inputs {'offloaded': 40, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 73400320, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'unpinned', 'pinned_budget_bytes': 0, 'budget_basis': 'WSL2 (child probe failed or skipped)', 'granted_bytes': 0, 'refusals': 334}
+step 1/4  loss 1.9394  3.48 s/step  vram 0.7 GiB (peak 2.0)  eta 10s
+<path> UserWarning: Could not find a config file in Qwen/Qwen2.5-0.5B - will assume that the vocabulary was not modified.
+  warnings.warn(
+
+  ╭─ Trained ───────────────────────────────────────────────────────── 4 steps · classic · 8.8s ─╮
+  │                                                                      final loss              │
+  │                  ▁▂▂▃▃▄▅▅▆▅▄▃▁                                       1.7052  ↓ 12%           │
+  │  2.0 ▁▂▂▃▄▄▅▆▆▇████████████████▆▅▄▂▁                                 from 1.9394             │
+  │      ███████████████████████████████▇▆▅▃▂▁                                                   │
+  │      █████████████████████████████████████▇▆▄▃▂▂▂▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆  vram 2.1 GiB peak       │
+  │  1.5 ██████████████████████████████████████████████████████████████  ram  2.8 GiB peak       │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │  1.0 ██████████████████████████████████████████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                                        2                   4                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      2,289 tok/s
+  │
+  │ adapter    ~/x5/r128/runs/pin_off
+  │ receipt    ~/x5/r128/runs/pin_off/receipt.json
+
+Continue with: poros eval <path>
+{"schema":"poros.train.v1","learned":null,"output_dir":"<path>","events":"<path>","metrics":{"device":"cuda:0","total_steps":4,"final_loss":1.7052345275878906,"loss_history":[1.9394298791885376,2.2139151096343994,1.6262856721878052,1.7052345275878906],"grad_norm_history":[0.8002792000770569,0.8304675221443176,0.7352073788642883,0.8216336965560913],"eval_history":[],"total_time_s":7.156512289009697,"step_time_history":[3.4765155030036112,1.2520571569984895,1.217806525004562,1.2101331040030345],"vram_alloc_history_mb":[723.453952,723.453952,723.453952,723.453952],"avg_vram_allocated_mb":723.453952,"avg_step_time_ms":1789.1280722524243,"steps_per_sec":0.5589314792546121,"tokens_processed":16384,"tokens_per_sec":2289.383339026891,"peak_vram_allocated_gb":2.15353856,"peak_vram_reserved_gb":2.459959296,"torch_num_threads":24,"quantization":"nf4","block_size":4,"adapter_backend":"peft","adapter_summary":{"backend":"peft","target_module_names":["q_proj","k_proj","v_proj","o_proj","gate_proj","up_proj","down_proj"],"trainable_param_count":8798208,"total_param_count":323917696}},"run":null,"command":null,"next":[],"plan":null,"from":null,"support":null,"model_type":null}

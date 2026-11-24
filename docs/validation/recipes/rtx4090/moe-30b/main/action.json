@@ -1,0 +1,61 @@
+{
+  "allow_unvalidated": false,
+  "block_size": null,
+  "command": "poros train Qwen/Qwen3-30B-A3B-Instruct-2507 --data <work>/sample-chats.jsonl --steps 16 --seq-len 512 --rank 16 --name cert-moe-30b --recipe sft gradient_accumulation_steps=8 learning_rate=2e-4 lora_alpha=32 lora_dropout=0 per_device_batch_size=1 store=ram --download",
+  "config": {
+    "gradient_accumulation_steps": "8",
+    "learning_rate": "2e-4",
+    "lora_alpha": "32",
+    "lora_dropout": "0",
+    "per_device_batch_size": "1",
+    "recipe": "sft",
+    "store": "ram"
+  },
+  "data": "<work>/sample-chats.jsonl",
+  "detach": false,
+  "download": true,
+  "epochs": null,
+  "force": false,
+  "from_run": null,
+  "from_step": null,
+  "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+  "name": "cert-moe-30b",
+  "output": null,
+  "overwrite": false,
+  "provenance": {
+    "data": {
+      "detail": "--data <work>/sample-chats.jsonl",
+      "kind": "given"
+    },
+    "model": {
+      "detail": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+      "kind": "given"
+    },
+    "name": {
+      "detail": "as cert-moe-30b",
+      "kind": "given"
+    },
+    "rank": {
+      "detail": "--rank 16",
+      "kind": "given"
+    },
+    "recipe": {
+      "detail": "--recipe",
+      "kind": "given"
+    },
+    "seq_len": {
+      "detail": "--seq-len 512",
+      "kind": "given"
+    },
+    "steps": {
+      "detail": "--steps 16",
+      "kind": "given"
+    }
+  },
+  "rank": 16,
+  "schema": "poros.action.train.v1",
+  "seq_len": 512,
+  "steps": 16,
+  "unvalidated": null,
+  "yes": true
+}

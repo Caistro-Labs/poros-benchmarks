@@ -1,0 +1,59 @@
+▛▜ poros v0.3.0
+
+● Checked a.yaml  config
+  │ nf4 · block 4 · rank 16 · seq 256 · efficient path
+  │ classic · every token · lr 2e-5
+  │ output    run_a
+
+● Loaded d149729398750b98c0af14eb82c78cfe92750796  30s
+  │ dense · 28 layers · 7 blocks
+step 1/4  loss 12.5300  2.88 s/step  vram 4.7 GiB (peak 7.9)  eta 8.7s
+● Saved checkpoint-2 (3 steps)  run_a/checkpoint-2
+
+  ╭─ Trained ───────────────────────────────────────────────────────── 4 steps · classic · 9.3s ─╮
+  │                        ▁▃▄▅▅▅▄▄▄▄▄▄▃▃▃▃▃▃▃▂▂▂▂▁                      final loss              │
+  │                   ▁▂▄▆▇████████████████████████▇▄▂                   12.4561  ↓ 1%           │
+  │ 12.6          ▂▄▅▇█████████████████████████████████▅▃                from 12.5300            │
+  │          ▂▄▅▇█████████████████████████████████████████▆▄▁                                    │
+  │      ▃▅▇█████████████████████████████████████████████████▇▄▂         vram 7.9 GiB peak       │
+  │ 12.5 ████████████████████████████████████████████████████████▅▃▁     ram  10.8 GiB peak      │
+  │      ███████████████████████████████████████████████████████████▆▄▁                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │ 12.4 ██████████████████████████████████████████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                                        2                   4                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      381 tok/s
+  │
+  │ adapter    run_a
+  │ receipt    run_a/receipt.json
+
+Continue with: poros eval ~/rf/h2hf_5d75e31a/gates/resume_repo/a.yaml
+ 
+▛▜ poros v0.3.0
+
+● Checked b.yaml  config
+  │ nf4 · block 4 · rank 16 · seq 256 · efficient path
+  │ classic · every token · lr 2e-5
+  │ output    run_b
+  │ resume    run_a/checkpoint-2
+
+● Loaded d149729398750b98c0af14eb82c78cfe92750796  18s
+  │ dense · 28 layers · 7 blocks
+● Resumed after step 3/4
+step 4/4  loss 12.4561  1.85 s/step  vram 4.7 GiB (peak 8.2)
+
+● Trained 1 steps · classic  4.2s
+  │ final loss 12.4561  from 12.4561  ·  ↓ 0%
+  │
+  │ peak vram  ━━━━━━──────────  8.2 GiB of 23.5 GiB
+  │ peak ram   ━━━─────────────  10.8 GiB of 60 GiB
+  │ speed      277 tok/s
+  │
+  │ adapter    run_b
+  │ receipt    run_b/receipt.json
+
+Continue with: poros eval ~/rf/h2hf_5d75e31a/gates/resume_repo/b.yaml
+ 
+DENSE_RESUME_RESULT {"model": "~/hf/hub/models--Qwen--Qwen2.5-7B/snapshots/d149729398750b98c0af14eb82c78cfe92750796", "adapter_tensors": 392, "adapters_bitwise_equal": true, "optimizer_state_bitwise_equal": true, "passed": true}

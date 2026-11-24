@@ -1,0 +1,11 @@
+model read from the Mac's internal SSD: ~/<store>
+store path as the job passed it: ~/<store>
+resolves to: device /dev/disk3s5, mounted at <path>
+diskutil: Device Location: Internal; Protocol: Apple Fabric
+at: 2026-11-24 00:55:59 CST (written by the job at run time, before training; store_path=~/<store>, pack ~/<store>/Qwen--Qwen2.5-72B-Instruct-495f3936)
+internal pack unchanged (size and mtime)
+pack files (read with ls -l after the run, 2026-11-24 02:40:34 CST, in ~/<store>/Qwen--Qwen2.5-72B-Instruct-495f3936):
+  model.sss 41203601408 bytes
+  model.sss.idx 50201 bytes
+  small.safetensors 4318944 bytes
+  total 41207970553 bytes = 38.378 GiB (41.21 GB)

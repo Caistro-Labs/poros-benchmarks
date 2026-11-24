@@ -1,0 +1,1 @@
+{"schema":"poros.error.v1","error":{"code":"E_USAGE","exit_code":2,"message":"prove runs a model a parity receipt covers; ~/hf/hub/models--Qwen--Qwen2.5-7B/snapshots/d149729398750b98c0af14eb82c78cfe92750796 is not one","hint":"poros models","docs":"poros docs cli names and flags"}}

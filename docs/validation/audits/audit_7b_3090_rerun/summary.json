@@ -1,0 +1,55 @@
+{
+  "model": "Qwen/Qwen2.5-7B",
+  "quantization": "nf4",
+  "steps": 1000,
+  "seq_len": 512,
+  "batch_size": 1,
+  "gradient_accumulation_steps": 1,
+  "block_size": 4,
+  "dataset": "tatsu-lab/alpaca",
+  "eval_every": 200,
+  "eval_examples": 200,
+  "setup_seconds": 14.22,
+  "wall_seconds": 1555.71,
+  "wall_s_per_step": 1.556,
+  "train_only_s_per_step_median": 1.129,
+  "train_only_s_per_step_mean": 1.132,
+  "train_seconds_total": 1132.26,
+  "eval_seconds_total": 422.98,
+  "eval_history": [
+    {
+      "step": 200,
+      "eval_loss": 1.4799082335829734,
+      "eval_perplexity": 4.392542574529524,
+      "eval_seconds": 105.7034750028979
+    },
+    {
+      "step": 400,
+      "eval_loss": 1.445688009262085,
+      "eval_perplexity": 4.244771580568035,
+      "eval_seconds": 105.72748550307006
+    },
+    {
+      "step": 600,
+      "eval_loss": 1.4342312785983085,
+      "eval_perplexity": 4.196417892325824,
+      "eval_seconds": 105.76925665512681
+    },
+    {
+      "step": 800,
+      "eval_loss": 1.4296904008090496,
+      "eval_perplexity": 4.177405670281161,
+      "eval_seconds": 105.77787908096798
+    }
+  ],
+  "final_eval": {
+    "eval_loss": 1.4293540020287037,
+    "eval_perplexity": 4.1760006324484245,
+    "eval_seconds": 105.76
+  },
+  "final_train_loss": 1.0267739295959473,
+  "peak_vram_gb": 6.14,
+  "peak_host_rss_gb": 15.34,
+  "gpu": "NVIDIA GeForce RTX 3090",
+  "torch": "2.11.0+cu128"
+}

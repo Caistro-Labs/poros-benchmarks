@@ -1,0 +1,104 @@
+family_gate: tree <path> -> <path>
+start 2026-11-18T02:22:43Z
+PASS  env                                sha 5b7521d9fff6 dirty=0 {"gpu": "NVIDIA GeForce RTX 4090", "capability": [8, 9], "vram_gib": 23.52, "driver": "580.173.02", "torch": "2.14.1+cu130", "cuda": "13.0", "transformers": "5.22.2", "peft": "0.20.0", "bitsandbytes": "0.50.2", "triton": "3.8.0", "python": "3.12.3", "poros": "
+PASS  data                               6c8609d5be317280 <path>
+--- qwen2 (Qwen/Qwen2.5-0.5B @ 060db649 snapshot 0) 2026-11-18T02:22:50Z
+PASS  qwen2:fetch                        FETCH cached <path>
+PASS  qwen2:check                        model_type=qwen2 status=validated
+PASS  qwen2:paths                        seq==eff==fast==resident digest 827d930457002514 | ran_path=fast fused_compute=True moe_expert_compute=None moe_expert_cache_gib=None compute_reason=None
+PASS  qwen2:repeat                       fast twice bitwise, digest 827d930457002514
+PASS  qwen2:ran                          every run: the path asked ran, no offload_reason, fused=True reason=none
+PASS  qwen2:resume                       {"pass": true, "resumed_steps": [5, 6, 7], "steps_equal": true, "adapter_tensors": 336, "adapter_unequal_n": 0, "full_digest": "827d930457002514cb8338286c24a5f88a117ff61be096f4180943eeb838acf4", "resumed_digest": 
+--- qwen3 (Qwen/Qwen3-0.6B @ c1899de2 snapshot 0) 2026-11-18T02:41:53Z
+PASS  qwen3:fetch                        FETCH cached <path>
+PASS  qwen3:check                        model_type=qwen3 status=validated
+PASS  qwen3:paths                        seq==eff==fast==resident digest 546830171eaa9d3b | ran_path=fast fused_compute=True moe_expert_compute=None moe_expert_cache_gib=None compute_reason=None
+PASS  qwen3:repeat                       fast twice bitwise, digest 546830171eaa9d3b
+PASS  qwen3:ran                          every run: the path asked ran, no offload_reason, fused=True reason=none
+--- qwen3_5 (Qwen/Qwen3.5-0.8B @ 2fc06364 snapshot 0) 2026-11-18T02:44:42Z
+PASS  qwen3_5:fetch                      FETCH cached <path>
+PASS  qwen3_5:check                      model_type=qwen3_5 status=validated
+PASS  qwen3_5:paths                      seq==eff==fast==resident digest 0ca8d93ea060894b | ran_path=fast fused_compute=True moe_expert_compute=None moe_expert_cache_gib=None compute_reason=None
+PASS  qwen3_5:repeat                     fast twice bitwise, digest 0ca8d93ea060894b
+PASS  qwen3_5:ran                        every run: the path asked ran, no offload_reason, fused=True reason=none
+--- qwen3_8 (Qwen/Qwen3.8-27B @ 37561816 trunc 8) 2026-11-18T02:48:16Z
+PASS  qwen3_8:fetch                      FETCH wrote <path> qwen3_5 6047681584 params sha256 4e08e40396cb7a1e
+PASS  qwen3_8:check                      model_type=qwen3_5 status=validated
+PASS  qwen3_8:paths                      seq==eff==fast==resident digest 54686633bd7ce49c | ran_path=fast fused_compute=True moe_expert_compute=None moe_expert_cache_gib=None compute_reason=None
+PASS  qwen3_8:repeat                     fast twice bitwise, digest 54686633bd7ce49c
+PASS  qwen3_8:ran                        every run: the path asked ran, no offload_reason, fused=True reason=none
+--- gemma3_text (unsloth/gemma-3-270m @ edcf1fe3 snapshot 0) 2026-11-18T02:54:44Z
+PASS  gemma3_text:fetch                  FETCH cached <path>
+PASS  gemma3_text:check                  model_type=gemma3_text status=validated
+PASS  gemma3_text:paths                  seq==eff==fast==resident digest ffc37dbf44ecb17d | ran_path=fast fused_compute=True moe_expert_compute=None moe_expert_cache_gib=None compute_reason=None
+PASS  gemma3_text:repeat                 fast twice bitwise, digest ffc37dbf44ecb17d
+PASS  gemma3_text:ran                    every run: the path asked ran, no offload_reason, fused=True reason=none
+--- gemma3 (unsloth/gemma-3-4b-it @ bf46152c trunc 6) 2026-11-18T02:58:04Z
+PASS  gemma3:fetch                       FETCH wrote <path> gemma3 1657366896 params sha256 0f9a522192582845
+PASS  gemma3:check                       model_type=gemma3 status=validated
+PASS  gemma3:paths                       seq==eff==fast==resident digest 982926c61db2aa82 | ran_path=fast fused_compute=True moe_expert_compute=None moe_expert_cache_gib=None compute_reason=None
+PASS  gemma3:repeat                      fast twice bitwise, digest 982926c61db2aa82
+PASS  gemma3:ran                         every run: the path asked ran, no offload_reason, fused=True reason=none
+--- gemma4 (google/gemma-4-31B @ 5bbc2fb1 trunc 6) 2026-11-18T03:01:58Z
+PASS  gemma4:fetch                       FETCH wrote <path> gemma4 4913840438 params sha256 53f53742bec6d579
+PASS  gemma4:check                       model_type=gemma4 status=validated
+PASS  gemma4:paths                       seq==eff==fast==resident digest c17be93107c5243b | ran_path=fast fused_compute=True moe_expert_compute=None moe_expert_cache_gib=None compute_reason=None
+PASS  gemma4:repeat                      fast twice bitwise, digest c17be93107c5243b
+PASS  gemma4:ran                         every run: the path asked ran, no offload_reason, fused=True reason=none
+--- gemma4_text (google/gemma-4-31B @ 5bbc2fb1 text 6) 2026-11-18T03:08:55Z
+PASS  gemma4_text:fetch                  FETCH wrote <path> gemma4_text 4338096902 params sha256 c7823b0f4e2dcd0a
+PASS  gemma4_text:check                  model_type=gemma4_text status=validated
+PASS  gemma4_text:paths                  seq==eff==fast==resident digest 46d68730a837403c | ran_path=fast fused_compute=True moe_expert_compute=None moe_expert_cache_gib=None compute_reason=None
+PASS  gemma4_text:repeat                 fast twice bitwise, digest 46d68730a837403c
+PASS  gemma4_text:ran                    every run: the path asked ran, no offload_reason, fused=True reason=none
+--- qwen3_moe (Qwen/Qwen3-30B-A3B @ ad44e777 trunc 4) 2026-11-18T03:13:05Z
+PASS  qwen3_moe:fetch                    FETCH wrote <path> qwen3_moe 3114814464 params sha256 194b46afa881670d
+PASS  qwen3_moe:check                    model_type=qwen3_moe status=validated
+PASS  qwen3_moe:paths                    seq==eff==fast==resident digest dd694a6f7f6150ef | ran_path=fast fused_compute=True moe_expert_compute=fused moe_expert_cache_gib=1.161 compute_reason=None
+PASS  qwen3_moe:repeat                   fast twice bitwise, digest dd694a6f7f6150ef
+PASS  qwen3_moe:ran                      every run: the path asked ran, no offload_reason, moe=fused reason=none, expert cache one layer on seq+eff, sized on fast
+PASS  qwen3_moe:moe-ref                  reference experts seq==fast digest ae9754c8ddbdce97
+--- olmoe (allenai/OLMoE-1B-7B-0924 @ 6d84c485 trunc 4) 2026-11-18T03:18:06Z
+PASS  olmoe:fetch                        FETCH wrote <path> olmoe 1884325888 params sha256 4a6e5b5e6e29ba0e
+PASS  olmoe:check                        model_type=olmoe status=validated
+PASS  olmoe:paths                        seq==eff==fast==resident digest d396c71fd5422bbc | ran_path=fast fused_compute=True moe_expert_compute=fused moe_expert_cache_gib=0.774 compute_reason=None
+PASS  olmoe:repeat                       fast twice bitwise, digest d396c71fd5422bbc
+PASS  olmoe:ran                          every run: the path asked ran, no offload_reason, moe=fused reason=none, expert cache one layer on seq+eff, sized on fast
+PASS  olmoe:moe-ref                      reference experts seq==fast digest 18c896571965d1e6
+PASS  olmoe:resume                       {"pass": true, "resumed_steps": [5, 6, 7], "steps_equal": true, "adapter_tensors": 16, "adapter_unequal_n": 0, "full_digest": "d396c71fd5422bbc30d7b775b448bbcc69f5c0e8f374d735eb605f9c58fd0ad0", "resumed_digest": "
+--- qwen2_moe (Qwen/Qwen1.5-MoE-A2.7B @ 1a758c50 trunc 4) 2026-11-18T03:56:59Z
+PASS  qwen2_moe:fetch                    FETCH wrote <path> qwen2_moe 2904573952 params sha256 625ac1525ce5e412
+PASS  qwen2_moe:check                    model_type=qwen2_moe status=validated
+PASS  qwen2_moe:paths                    seq==eff==fast==resident digest e16cfdfa3dc51fcf | ran_path=fast fused_compute=True moe_expert_compute=fused moe_expert_cache_gib=0.997 compute_reason=None
+PASS  qwen2_moe:repeat                   fast twice bitwise, digest e16cfdfa3dc51fcf
+PASS  qwen2_moe:ran                      every run: the path asked ran, no offload_reason, moe=fused reason=none, expert cache one layer on seq+eff, sized on fast
+PASS  qwen2_moe:moe-ref                  reference experts seq==fast digest 9144fb36ccdf0a03
+--- deepseek_v2 (deepseek-ai/DeepSeek-V2-Lite @ 604d5664 trunc 4) 2026-11-18T04:03:26Z
+PASS  deepseek_v2:fetch                  FETCH wrote <path> deepseek_v2 2254983168 params sha256 f51befd25a7e6106
+PASS  deepseek_v2:check                  model_type=deepseek_v2 status=validated
+PASS  deepseek_v2:paths                  seq==eff==fast==resident digest c0f23524a1c843da | ran_path=fast fused_compute=True moe_expert_compute=fused moe_expert_cache_gib=0.798 compute_reason=None
+PASS  deepseek_v2:repeat                 fast twice bitwise, digest c0f23524a1c843da
+PASS  deepseek_v2:ran                    every run: the path asked ran, no offload_reason, moe=fused reason=none, expert cache one layer on seq+eff, sized on fast
+PASS  deepseek_v2:moe-ref                reference experts seq==fast digest 6fa83ddbbca88423
+--- qwen3_5_moe (Qwen/Qwen3.6-35B-A3B @ 345d467b trunc 4) 2026-11-18T04:11:03Z
+PASS  qwen3_5_moe:fetch                  FETCH wrote <path> qwen3_5_moe 4828041008 params sha256 c407f1dfb3d605e5
+PASS  qwen3_5_moe:check                  model_type=qwen3_5_moe status=validated
+PASS  qwen3_5_moe:paths                  seq==eff==fast==resident digest 4c9f5c4f940bf98c | ran_path=fast fused_compute=True moe_expert_compute=fused moe_expert_cache_gib=1.548 compute_reason=None
+PASS  qwen3_5_moe:repeat                 fast twice bitwise, digest 4c9f5c4f940bf98c
+PASS  qwen3_5_moe:ran                    every run: the path asked ran, no offload_reason, moe=fused reason=none, expert cache one layer on seq+eff, sized on fast
+PASS  qwen3_5_moe:moe-ref                reference experts seq==fast digest bd2c4c633073c982
+--- qwen3_5_moe_text (Qwen/Qwen3.6-35B-A3B @ 345d467b text 4) 2026-11-18T04:27:57Z
+PASS  qwen3_5_moe_text:fetch             FETCH wrote <path> qwen3_5_moe_text 4381469760 params sha256 4af8da19f10358eb
+PASS  qwen3_5_moe_text:check             model_type=qwen3_5_moe_text status=validated
+PASS  qwen3_5_moe_text:paths             seq==eff==fast==resident digest 4c9f5c4f940bf98c | ran_path=fast fused_compute=True moe_expert_compute=fused moe_expert_cache_gib=1.548 compute_reason=None
+PASS  qwen3_5_moe_text:repeat            fast twice bitwise, digest 4c9f5c4f940bf98c
+PASS  qwen3_5_moe_text:ran               every run: the path asked ran, no offload_reason, moe=fused reason=none, expert cache one layer on seq+eff, sized on fast
+PASS  qwen3_5_moe_text:moe-ref           reference experts seq==fast digest bd2c4c633073c982
+--- gemma4_moe (google/gemma-4-26B-A4B-it @ 4d7ae498 trunc 6) 2026-11-18T04:32:47Z
+PASS  gemma4_moe:fetch                   FETCH wrote <path> gemma4 6209983030 params sha256 44eb54d5fa568d47
+PASS  gemma4_moe:check                   model_type=gemma4_moe status=validated
+PASS  gemma4_moe:paths                   seq==eff==fast==resident digest 9cb0d6fcbc9bca7a | ran_path=fast fused_compute=False moe_expert_compute=reference moe_expert_cache_gib=2.194 compute_reason=the fused expert compute cannot run layer 0: its experts' activation is GELUTanh; the fused kernels compute SiLU
+PASS  gemma4_moe:repeat                  fast twice bitwise, digest 9cb0d6fcbc9bca7a
+PASS  gemma4_moe:ran                     every run: the path asked ran, no offload_reason, moe=reference reason~SiLU, expert cache one layer on seq+eff, sized on fast
+end 2026-11-18T04:40:41Z
+FAILS=0

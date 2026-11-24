@@ -1,0 +1,30 @@
+▛▜ poros v0.3.0 · Qwen/Qwen3-30B-A3B-Instruct-2507 · Apple M4 10-core GPU 16GB
+
+● Checked cert-mac-moe-resume  run 1118-2011-9e7c
+  │ rank 16 · 128 tokens
+  │ SFT · answers only · lr 2e-5
+  │ output    cert/m4-16gb/.mac-moe-work/home/runs/1118-2011-9e7c
+  │ weights   <disk>/poros-metal/hf
+  │ resume    cert/m4-16gb/.mac-moe-work/home/runs/1118-2011-9e7c/checkpoint-8
+
+● Loaded Qwen3-30B-A3B-Instruct-2507  6.1s
+  │ MoE · 48 layers · 128 experts
+● Resumed after step 9/16
+step 10/16  loss 6.8996  32.67 s/step  memory 5.7 GiB (peak 7.9)  eta 3m 16s
+step 12/16  loss 6.9092  19.93 s/step  memory 5.7 GiB (peak 8.0)  eta 1m 37s
+step 14/16  loss 6.9211  19.87 s/step  memory 5.7 GiB (peak 8.0)  eta 45s
+step 16/16  loss 6.9300  19.97 s/step  memory 5.8 GiB (peak 8.0)
+
+● Trained 7 steps · SFT  2m 38s
+  │ final loss 6.9415
+  │
+  │ peak       ━━━━━━━━────────  8.0 GiB of 16.0 GiB
+  │ speed      6 tok/s
+  │
+  │ adapter    cert/m4-16gb/.mac-moe-work/home/runs/1118-2011-9e7c
+  │ receipt    cert/m4-16gb/.mac-moe-work/home/runs/1118-2011-9e7c/receipt.json
+
+Continue with: poros export 1118-2011-9e7c
+No rows were held out: `poros eval 1118-2011-9e7c --data FILE` scores a file of yours.
+Keep it as a recipe: poros recipes save last
+{"schema":"poros.runs.v1","learned":null,"do":"continue","runs":[{"id":"1118-2011-9e7c","kind":"run","state":"succeeded","model":"Qwen/Qwen3-30B-A3B-Instruct-2507","name":"cert-mac-moe-resume","output_dir":"<home>/runs/1118-2011-9e7c","created_at":"2026-11-19T02:11:31+00:00","started_at":"2026-11-19T02:14:54+00:00","finished_at":"2026-11-19T02:17:50+00:00","step":16,"total":16,"loss":6.975471019744873,"error":null,"folder":"<home>/runs/1118-2011-9e7c","from":null,"eval_loss_start":null,"eval_loss":null,"eval_rows":null,"eval_ends":null,"eval_answer_rows":null,"eval_prefers_start":null,"eval_prefers":null,"best":null}],"report":null,"next":["poros runs 1118-2011-9e7c --live --wait 30"],"more":0,"starts_next":null}

@@ -1,0 +1,18 @@
+▛▜ poros v1.0.0 · Qwen/Qwen2.5-7B-Instruct · RTX 4090 23.5 GiB
+
+● Checked cert-support-resume  run 1124-0837-311c
+  │ nf4 · block 4 · rank 16 · seq 512 · efficient path
+  │ SFT · answers only · lr 2e-4
+  │ output    homes/support/runs/1124-0837-311c
+  │ eval      7 rows held out  scored at the start, each checkpoint and the end
+
+● Loaded Qwen2.5-7B-Instruct  16s
+  │ dense · 28 layers · 7 blocks
+● Scored the base  held out 6.6115 · ends its answers 0 of 0
+step 1/16  loss 6.6165  3.59 s/step  vram 4.7 GiB (peak 6.1)  eta 54s
+○ Stopped after 9 steps
+  │ saved     homes/support/runs/1124-0837-311c/checkpoint-8
+  │           it holds all 9 steps
+
+Continue with: poros runs continue 1124-0837-311c
+{"schema":"poros.error.v1","error":{"code":"E_JOB_CANCELLED","exit_code":7,"message":"stopped after step 9; <home>/runs/1124-0837-311c/checkpoint-8 holds the run so far","hint":"poros runs continue 1124-0837-311c","docs":"poros docs training checkpoints and resume"}}

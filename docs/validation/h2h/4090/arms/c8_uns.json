@@ -1,0 +1,90 @@
+{
+ "arm": "c8_uns",
+ "claims_keys": [
+  "h2h.cap8.30b_a3b.unsloth",
+  "h2h.4060l.30b_a3b.unsloth.status"
+ ],
+ "outcome": "OutOfMemoryError: CUDA out of memory. Tried to allocate 768.00 MiB.",
+ "limits": {
+  "vram": "free 6246 MiB: kit/vram_ballast.py holds the rest of the card",
+  "host": "<host>",
+  "ballast": {
+   "target_free_mib": 6246,
+   "card_total_mib": 24564,
+   "used_mib": 18318,
+   "free_mib": 6246,
+   "ballast_tensors_mib": 17858,
+   "mem_get_info_free_mib": 5763,
+   "how": "another process holds the rest of the card's memory (kit/vram_ballast.py)"
+  }
+ },
+ "attempts": [
+  {
+   "run": "c8_uns_r1",
+   "rc": 1,
+   "stage": "train",
+   "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 768.00 MiB. GPU 0 has a total capacity of 23.52 GiB of which 758.38 MiB is free. Process 3457488 has 0 bytes memory in use. Including non-PyTorch memory, this process has 0 bytes memory in use. Of the allocated memory 4.18 GiB is allocated by PyTorch, and 143.27 MiB is reserved by PyTorch but unallocated.",
+   "log_tail": "smi_mib\": 22077, \"model_source\": \"~/hf/hub/models--Qwen--Qwen3-30B-A3B/snapshots/ad44e777bcd18fa416d9da3bd8f70d33ebb85d39\", \"rows_sha256\": \"f2627e3f182313debf060549bfd9a1623badbc44e8e800156c2431f36fc370b2\", \"trainable_params\": 314572800, \"trainable_dtypes\": [\"torch.float32\"], \"trainable_groups\": {\"base_model.model.model.layers.N.mlp.experts.base_layer.lora_A.default.weight\": 100663296, \"base_model.model.model.layers.N.mlp.experts.base_layer.lora_B.default.weight\": 75497472, \"base_model.model.model.layers.N.mlp.experts.lora_A.default.weight\": 37748736, \"base_model.model.model.layers.N.mlp.experts.lora_B.default.weight\": 100663296}, \"trainable_group_count\": 4, \"epoch_train_start\": 1794987260.2341442, \"error\": \"OutOfMemoryError: CUDA out of memory. Tried to allocate 768.00 MiB. GPU 0 has a total capacity of 23.52 GiB of which 758.38 MiB is free. Process 3457488 has 0 bytes memory in use. Including non-PyTorch memory, this process has 0 bytes memory in use. Of the allocated memory 4.18 GiB is allocated by PyTorch, and 143.27 MiB is reserved by PyTorch but unallocated.\", \"host_vmhwm_gib\": 58.154, \"host_status_end\": {\"VmLck_kb\": 0, \"VmPin_kb\": 0, \"VmHWM_kb\": 60978608, \"VmRSS_kb\": 17327300, \"RssAnon_kb\": 17054972, \"RssFile_kb\": 253888, \"RssShmem_kb\": 18440}, \"host_peak_anon_shmem_kb\": 30843640, \"wall_s\": 143.87, \"host_maxrss_gib\": 58.154, \"peak_allocated_gib_last_window\": 4.917, \"peak_reserved_gib_last_window\": 5.059, \"card_gib\": 23.516, \"nvidia_smi_used_mib_end\": 23323}\n",
+   "how_far": {
+    "load_s": 126.78,
+    "updates": 0,
+    "load_peak_vram_reserved_gib": 3.988
+   },
+   "host_ram_gib": 29.715,
+   "host_vmhwm_gib": 58.154,
+   "smi": {
+    "samples": 142,
+    "baseline_mib": 18318,
+    "load_peak_gib": 4.476,
+    "run_peak_gib": 4.888,
+    "note": "nvidia-smi memory.used minus the pre-launch reading; includes the CUDA context (~0.3-0.5 GiB) torch's counters leave out"
+   },
+   "host_sampler": {
+    "source": "kit/hostsamp.py: RssAnon + RssShmem summed over the process tree",
+    "interval_s": 0.25,
+    "samples": 605,
+    "longest_gap_s": 0.301,
+    "processes_max": 3,
+    "anon_gib_at_peak": 29.697,
+    "shmem_gib_at_peak": 0.018,
+    "file_backed_gib_max": 44.222,
+    "vmhwm_gib_seen": 58.154,
+    "inprocess_1hz_peak_anon_shmem_gib": 29.415,
+    "inprocess_1hz_load_peak_anon_shmem_gib": 29.415
+   },
+   "unsloth": {
+    "offload_layers": "48",
+    "offload_embedding": "true",
+    "prefetch_depth": "unset",
+    "decoder_layers": 48,
+    "swapped_layers": 48,
+    "pinned_bytes": 14974107648,
+    "host_bytes": 14974107648,
+    "input_embedding_device": "cpu",
+    "gc": "unsloth",
+    "targets": "o_proj,gate_proj,up_proj,down_proj"
+   },
+   "unsloth_lines": [],
+   "cmd": "~/venv_unsloth/bin/python ~/rf/h2hf_5d75e31a/kit/h2h_u7.py --model Qwen/Qwen3-30B-A3B --rows ~/rf/h2hf_5d75e31a/data/rows_cap_s256.pt --deterministic --out ~/rf/h2hf_5d75e31a/rec/c8_uns_r1_raw.json --local-snapshot --offload-layers 48 --mb 1 --ga 8 --updates 16 --time-limit-s 2400 --targets o_proj,gate_proj,up_proj,down_proj --freeze-targets o_proj --offload-embedding true --seq-len 256 --rank 8",
+   "launch_utc": "2026-11-18T07:32:13Z",
+   "record": "docs/validation/h2h/4090/runs/c8_uns_r1.json"
+  }
+ ],
+ "not_claimed": {
+  "keys": [
+   "h2h.cap8.30b_a3b.unsloth.s_per_step_s",
+   "h2h.cap8.30b_a3b.unsloth.t1_s",
+   "h2h.cap8.30b_a3b.unsloth.vram_alloc_gb",
+   "h2h.cap8.30b_a3b.unsloth.vram_reserved_gb",
+   "h2h.cap8.30b_a3b.unsloth.host_ram_gb",
+   "h2h.cap8.30b_a3b.unsloth.host_vmhwm_gb",
+   "h2h.cap8.30b_a3b.unsloth.host_ram_load_gb",
+   "h2h.cap8.30b_a3b.unsloth.host_ram_train_gb",
+   "h2h.cap8.30b_a3b.unsloth.load_s",
+   "h2h.cap8.30b_a3b.unsloth.load_vram_reserved_gb",
+   "h2h.cap8.30b_a3b.unsloth.load_host_ram_gb",
+   "h2h.cap8.30b_a3b.unsloth.load_host_vmhwm_gb"
+  ],
+  "why": "it did not train under this VRAM: see .status; with the whole card see unsloth_nocap"
+ }
+}

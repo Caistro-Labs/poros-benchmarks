@@ -1,0 +1,5 @@
+2026-11-18T03:23:01Z the harness (box/, laptop/, the 128-row workload) 0.00 GB -> ~/poros-run/.
+2026-11-18T03:23:02Z the Poros tree at 5d75e31a 0.19 GB -> ~/poros-run/env
+2026-11-18T03:23:06Z the Poros Python stack 6.15 GB -> ~/poros-run/env
+2026-11-18T03:25:23Z the expert store built on the RTX 4090 by 5d75e31a (b30_build) 14.97 GB -> ~/poros-run/store
+2026-11-18T03:30:16Z slim checkpoint of Qwen/Qwen3-30B-A3B@ad44e777bcd18fa416d9da3bd8f70d33ebb85d39 by range requests: 3.1 GB on disk -> ~/poros-run/hf

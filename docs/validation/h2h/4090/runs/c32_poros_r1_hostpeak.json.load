@@ -1,0 +1,1 @@
+{"epoch": 1795003305.1416585, "VmLck_kb": 0, "VmPin_kb": 0, "VmHWM_kb": 22481060, "VmRSS_kb": 17014924, "RssAnon_kb": 1165976, "RssFile_kb": 103920, "RssShmem_kb": 15745028, "peak_allocated_bytes": 7262054400, "peak_reserved_bytes": 7275020288, "allocated_bytes": 7261673472, "reserved_bytes": 7275020288, "peak_anon_shmem_kb": 19624368}

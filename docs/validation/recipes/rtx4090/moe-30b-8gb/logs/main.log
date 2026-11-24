@@ -1,0 +1,44 @@
+▛▜ poros v1.0.0 · Qwen/Qwen3-30B-A3B-Instruct-2507 · RTX 4090 23.5 GiB
+
+● Checked cert-moe-30b-8gb  run 1124-0942-1153
+  │ nf4 · rank 8 · seq 256 · efficient path
+  │ SFT · answers only · lr 2e-4
+  │ output    homes/moe-30b-ssd/runs/1124-0942-1153
+  │ store     ssd <home>/sss
+  │ eval      7 rows held out  scored at the start, each checkpoint and the end
+
+● Loaded Qwen3-30B-A3B-Instruct-2507  9.9s
+  │ MoE · 48 layers · 128 experts
+● Scored the base  held out 6.7392 · ends its answers 0 of 0
+step 1/16  loss 6.7555  18.62 s/step  vram 3.9 GiB (peak 4.5)  eta 4m 39s
+step 3/16  loss 6.6965  15.80 s/step  vram 3.9 GiB (peak 5.1)  eta 3m 47s
+step 5/16  loss 6.6034  16.23 s/step  vram 3.9 GiB (peak 5.1)  eta 3m 06s
+step 7/16  loss 6.4278  15.44 s/step  vram 3.9 GiB (peak 5.1)  eta 2m 29s
+step 9/16  loss 6.2676  15.70 s/step  vram 3.9 GiB (peak 5.1)  eta 1m 55s
+step 11/16  loss 6.1591  16.60 s/step  vram 3.9 GiB (peak 5.1)  eta 1m 22s
+step 13/16  loss 6.0816  15.62 s/step  vram 3.9 GiB (peak 5.1)  eta 49s
+step 15/16  loss 6.0421  16.41 s/step  vram 3.9 GiB (peak 5.1)  eta 16s
+● Scored step 16  held out 5.9930 ↓ 11% · ends its answers 0 of 0
+
+  ╭─ Trained  Learned well ──────────────────────────────────────────── 16 steps · SFT · 5m 41s ─╮
+  │                                                                      final loss              │
+  │      ○█▇▇▇▅▄▃▂                                                       6.0271  ↓ 11%           │
+  │  6.5 ██████████▇▆▅▄▃▁                                                                        │
+  │      █████████████████▇▆▅▄▃▃▂▁▁                                        step  held out  ends  │
+  │      ███████████████████████████▇▆▅▄▃▃▂▂▁▁▁▁▁▁                       ○ base    6.7392   0/0  │
+  │  6.0 █████████████████████████████████████████████▇▇▆▅▄▅▅▅▅▅▅▅▅▅▅▅○  ●   16    5.9930   0/0  │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████  vram 5.1 GiB peak       │
+  │  5.5 ██████████████████████████████████████████████████████████████  ram  7.8 GiB peak       │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                                8                          16                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      126 tok/s
+  │
+  │ adapter    homes/moe-30b-ssd/runs/1124-0942-1153
+  │ receipt    homes/moe-30b-ssd/runs/1124-0942-1153/receipt.json
+
+Continue with: poros eval 1124-0942-1153
+Keep it as a recipe: poros recipes save last
+{"schema":"poros.train.v1","learned":null,"output_dir":"<home>/runs/1124-0942-1153","events":"<home>/runs/1124-0942-1153/events.jsonl","metrics":{"device":"cuda:0","total_steps":16,"final_loss":6.0271037220954895,"loss_history":[6.7555437088012695,6.721238911151886,6.612750351428986,6.5139458775520325,6.413462936878204,6.327277719974518,6.271531283855438,6.198173105716705,6.12767219543457,6.105257272720337,6.092904686927795,6.075434863567352,6.006717026233673,6.022206366062164,6.013132154941559,6.0271037220954895],"grad_norm_history":[0.640625,0.640625,0.57421875,0.54296875,0.56640625,0.51953125,0.50390625,0.52734375,0.55078125,0.62890625,0.59375,0.6015625,0.61328125,0.5859375,0.59765625,0.60546875],"eval_history":[{"step":0,"eval_loss":6.739199706486293,"eval_perplexity":844.8843097844888,"ends":0,"answer_rows":0},{"step":15,"eval_loss":5.992953096117292,"eval_perplexity":400.5958629793227,"ends":0,"answer_rows":0}],"total_time_s":259.12031148187816,"step_time_history":[18.618665834888816,17.919507451355457,15.795362619683146,16.075649186968803,16.227273302152753,15.694599872455,15.436875253915787,16.445433910936117,15.697749627754092,15.51531800813973,16.603918800130486,15.761427348479629,15.624202167615294,15.97940869629383,16.4057976603508,15.319121740758419],"vram_alloc_history_mb":[4165.722624,4165.722624,4165.722624,4165.722624,4165.722624,4165.722624,4165.722624,4165.722624,4165.722624,4165.722624,4165.722624,4165.722624,4165.722624,4165.722624,4165.722624,4165.722624],"avg_vram_allocated_mb":4165.722624,"avg_step_time_ms":16195.019467617385,"steps_per_sec":0.061747378692538255,"tokens_processed":32768,"tokens_per_sec":126.45863156231835,"peak_vram_allocated_gb":5.448466944,"peak_vram_reserved_gb":6.067060736,"torch_num_threads":16,"quantization":"nf4","block_size":null,"adapter_backend":"native","adapter_summary":null,"eval_loss_start":6.739199706486293,"eval_loss":5.992953096117292,"eval_ends":0,"eval_answer_rows":0},"run":"1124-0942-1153","command":"poros train Qwen/Qwen3-30B-A3B-Instruct-2507 --data <work>/sample-chats.jsonl --steps 16 --seq-len 256 --rank 8 --name cert-moe-30b-8gb --recipe sft gradient_accumulation_steps=8 learning_rate=2e-4 lora_alpha=16 lora_dropout=0 per_device_batch_size=1 store=ssd store_path=<home>/sss --download","next":[],"plan":null,"from":null,"support":null,"model_type":null}

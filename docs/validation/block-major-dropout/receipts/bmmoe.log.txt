@@ -1,0 +1,17 @@
+..                                                                       [100%]
+==================================== PASSES ====================================
+_________________ test_block_major_moe_equals_sequential[ram] __________________
+---------------------------- Captured stderr setup -----------------------------
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 172.70it/s]
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:2152 offload_boundaries after update 1: {'offloaded': 12, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 19200, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 268959744, 'refusals': 0}
+WARNING  poros.train.trainer:trainer.py:2365 block-major MoE expert dequant cache after update 1: hits 368 misses 112
+WARNING  poros.train.trainer:trainer.py:2383 block-major MoE: expert residency grown to 0 MiB after update 1
+_________________ test_block_major_moe_equals_sequential[ssd] __________________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:2152 offload_boundaries after update 1: {'offloaded': 12, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 19200, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 539820032, 'refusals': 0}
+WARNING  poros.train.trainer:trainer.py:2365 block-major MoE expert dequant cache after update 1: hits 1116 misses 336
+=========================== short test summary info ============================
+PASSED tests/moe/test_block_major_moe.py::test_block_major_moe_equals_sequential[ram]
+PASSED tests/moe/test_block_major_moe.py::test_block_major_moe_equals_sequential[ssd]
+2 passed in 18.03s

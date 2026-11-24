@@ -1,0 +1,18 @@
+09:09:17 preflight: HEAD 1a8d7e912b166c373fcfec862ad7297221d33a71 clean; git <home>/poros_rel/tools/git/usr/bin/git (git version 2.43.0); poros from <home>/poros_rel/cert/src/poros/__init__.py
+09:09:17 === cert.sh step4 (inline=1)
+09:09:17 step4 start: Qwen/Qwen3-30B-A3B-Instruct-2507 for moe-30b moe-30b-ssd moe-30b-8gb (check-fit: moe-30b moe-30b-ssd moe-30b-8gb)
+09:09:18 fetching Qwen/Qwen3-30B-A3B-Instruct-2507 (62G, hub@0d7cf239) for step4 moe-30b moe-30b-ssd moe-30b-8gb
+09:10:47 fetched Qwen/Qwen3-30B-A3B-Instruct-2507 -> 0d7cf23991f47feeb3a57ecb4c9cee8ea4a17bfe main (exit 0)
+09:10:47 moe-30b start (Qwen/Qwen3-30B-A3B-Instruct-2507, disk_gb 36, at most 90 min, home homes/moe-30b)
+09:27:34 PASS moe-30b: status=ok commit=1a8d7e912b16 tree_clean=True updates=16 s_per_step=4.6069 gpu_mem_gib=None reserved_gib=None resume=True eval=ok preflight_said=0 lines
+09:27:36 moe-30b-ssd start (Qwen/Qwen3-30B-A3B-Instruct-2507, disk_gb 56, at most 120 min, home homes/moe-30b-ssd)
+09:40:20 PASS moe-30b-ssd: status=ok commit=1a8d7e912b16 tree_clean=True updates=16 s_per_step=4.2782 gpu_mem_gib=None reserved_gib=None resume=True eval=ok preflight_said=0 lines
+09:40:27 moe-30b-8gb start (Qwen/Qwen3-30B-A3B-Instruct-2507, disk_gb 40, at most 120 min, home homes/moe-30b-ssd)
+09:56:28 PASS moe-30b-8gb: status=ok commit=1a8d7e912b16 tree_clean=True updates=16 s_per_step=15.7954 gpu_mem_gib=None reserved_gib=None resume=True eval=ok preflight_said=0 lines
+09:56:30 CHECK-FIT FITS moe-30b: verdict='fits' peak_gib=8.034 source=measured basis='reserved peak 8.034 GiB <= 23.51 GiB free' asks=[] doubts=[] refused=False start_refused=[] gate_path=None ran_path=efficient warning=None vram_refusal=None host_refusal=None
+09:56:32 CHECK-FIT FITS moe-30b-ssd: verdict='fits' peak_gib=20.65 source=measured basis='reserved peak 20.65 GiB <= 23.51 GiB free' asks=[] doubts=[] refused=False start_refused=[] gate_path=None ran_path=fast warning=None vram_refusal=None host_refusal=None
+09:56:34 CHECK-FIT FITS moe-30b-8gb: verdict='fits' peak_gib=5.377 source=measured basis='reserved peak 5.377 GiB <= 23.51 GiB free' asks=[] doubts=[] refused=False start_refused=[] gate_path=None ran_path=efficient warning=None vram_refusal=None host_refusal=None
+09:56:34 no-recipe moe start: poros train Qwen/Qwen3-30B-A3B-Instruct-2507 --data <400 chats rows> --steps 16 --seq-len 512 --yes
+10:01:04 PASS no-recipe moe: updates=16 of 16 resolved={'path': 'efficient', 'ran_path': 'efficient', 'path_reason': None, 'store': 'ram', 'block_size': None, 'moe_expert_compute': None, 'moe_expert_cache_gib': None, 'offload_embeddings_and_head': None}
+10:01:12 deleted the model cache (Qwen/Qwen3-30B-A3B-Instruct-2507 ): <home>/poros_rel/hf_cert/hub removed
+10:01:12 step4 done

@@ -1,0 +1,19 @@
+▛▜ poros v0.3.0 · Qwen/Qwen2.5-0.5B-Instruct · Apple M4 10-core GPU 16GB
+
+● Checked cert-mac-first-run-resume  run 1118-1908-ffbc
+  │ rank 16 · 256 tokens
+  │ SFT · answers only · lr 2e-5
+  │ output    cert/m4-16gb/.mac-first-run-work/home/runs/1118-1908-ffbc
+  │ weights   <disk>/poros-metal/hf
+  │ eval      2 rows held out  scored at the start, each checkpoint and the end
+
+● Loaded Qwen2.5-0.5B-Instruct  1.9s
+  │ dense · 24 layers
+● Scored the base  held out 7.3098 · ends its answers 0 of 0
+step 1/16  loss 7.2859  0.76 s/step  memory 1.4 GiB (peak 2.3)  eta 11s
+○ Stopped after 9 steps
+  │ saved     cert/m4-16gb/.mac-first-run-work/home/runs/1118-1908-ffbc/checkpoint-8
+  │           it holds all 9 steps
+
+Continue with: poros runs continue 1118-1908-ffbc
+{"schema":"poros.error.v1","error":{"code":"E_JOB_CANCELLED","exit_code":7,"message":"stopped after step 9; <home>/runs/1118-1908-ffbc/checkpoint-8 holds the run so far","hint":"poros runs continue 1118-1908-ffbc","docs":"poros docs training checkpoints and resume"}}

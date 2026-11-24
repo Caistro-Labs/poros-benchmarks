@@ -1,0 +1,1 @@
+{"pid": 3439469, "VmLck_kb": 0, "VmPin_kb": 0, "VmHWM_kb": 12233944, "VmRSS_kb": 11212076, "RssAnon_kb": 8564124, "RssFile_kb": 532360, "RssShmem_kb": 2115592, "peak_anon_shmem_kb": 10710780, "alloc_env_at_exit": {"PYTORCH_ALLOC_CONF": "unset", "PYTORCH_CUDA_ALLOC_CONF": "unset"}}

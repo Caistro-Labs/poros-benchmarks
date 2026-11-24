@@ -1,0 +1,69 @@
+○ may not fit
+  │ Qwen/Qwen3-30B-A3B: allocated peak, at most 19.347 GiB, may not fit 5.25 GiB free (estimated: an upper bound from receipts at other settings); the run may run out of GPU memory at its first step
+▛▜ poros v0.3.0 · Qwen/Qwen3-30B-A3B · RTX 4090 23.5 GiB
+
+● Checked c8_poros_r3.yaml  config
+  │ nf4 · block 4 · rank 8 · seq 256 · fast path
+  │ classic · every token · lr 2e-5
+  │ output    runs/c8_poros_r3
+  │ store     ssd ~/rf/h2hf_5d75e31a/store
+
+● Loaded Qwen3-30B-A3B  11s
+  │ MoE · 48 layers · 128 experts
+[W1118 07:36:07.351218547 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 6684672, total: 25250627584).
+step 1/16  loss 1.2790  16.18 s/step  vram 3.3 GiB (peak 4.5)  eta 4m 03s
+MoE expert cache 0.29 GiB, sized on an update at the full shape (fits this GPU: 5.09 GiB this process may hold - 5.08 GiB reserved peak - 3.00 GiB margin)
+[W1118 07:36:11.654980119 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 2097152 bytes (free: 393216, total: 25250627584).
+[W1118 07:36:13.177170680 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 2097152 bytes (free: 393216, total: 25250627584).
+[W1118 07:36:13.400242363 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 8781824, total: 25250627584).
+[W1118 07:36:14.517513138 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 6684672, total: 25250627584).
+[W1118 07:36:14.522196125 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 6684672, total: 25250627584).
+Traceback (most recent call last):
+  File "~/rf/h2hf_5d75e31a/src/poros/train/loop.py", line 150, in _train_blockwise_adapters
+    losses = block_major.update(self, batches, rng)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/rf/h2hf_5d75e31a/src/poros/train/block_major.py", line 134, in update
+    losses = _drive(trainer, batches, rng, head_fns, is_moe)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/rf/h2hf_5d75e31a/src/poros/train/block_major.py", line 355, in _drive
+    visit.finish()
+  File "~/rf/h2hf_5d75e31a/src/poros/moe/batching.py", line 282, in finish
+    ys = _experts(self.block, self.entries, keep=True)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/rf/h2hf_5d75e31a/src/poros/moe/batching.py", line 209, in _experts
+    out, masks = _forward(hidden, weights, plan, block, _states(block, entries))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/rf/h2hf_5d75e31a/src/poros/moe/fused.py", line 463, in _forward
+    wgu = gate_up()
+          ^^^^^^^^^
+  File "~/rf/h2hf_5d75e31a/src/poros/moe/fused.py", line 339, in <lambda>
+    yield (tiles, lambda chunk=chunk: decode_experts(block, chunk, "gate_up_proj"),
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/rf/h2hf_5d75e31a/src/poros/moe/store.py", line 382, in decode_experts
+    out = resident(keys, tensor_name, slabs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/rf/h2hf_5d75e31a/src/poros/moe/store.py", line 357, in dequantize_resident
+    out = torch.empty(
+          ^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 192.00 MiB. GPU 0 has a total capacity of 23.52 GiB of which 166.38 MiB is free. Process 3457488 has 0 bytes memory in use. Including non-PyTorch memory, this process has 0 bytes memory in use. Of the allocated memory 4.24 GiB is allocated by PyTorch, and 702.48 MiB is reserved by PyTorch but unallocated.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "~/rf/h2hf_5d75e31a/src/poros/cli/train_cmd.py", line 620, in _train_and_save
+    metrics = trainer.train(
+              ^^^^^^^^^^^^^^
+  File "~/rf/h2hf_5d75e31a/kit/hostpeak.py", line 85, in _train
+    return _orig_train(self, *a, **k)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/rf/h2hf_5d75e31a/src/poros/train/trainer.py", line 970, in train
+    return self._train_blockwise_adapters(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/rf/h2hf_5d75e31a/src/poros/train/loop.py", line 181, in _train_blockwise_adapters
+    raise PorosOOMError(
+poros.core.errors.PorosOOMError: GPU out of memory during blockwise training.
+
+Remediation: Try reducing block_size or seq_len. Current seq_len=256; try seq_len=128.
+
+Docs: poros docs limitations
+{"schema":"poros.error.v1","error":{"code":"E_OOM","exit_code":3,"message":"GPU out of memory during blockwise training.","hint":"Try reducing block_size or seq_len. Current seq_len=256; try seq_len=128.","remediation":{"max_seq_length":128},"docs":"poros docs limitations"}}

@@ -1,0 +1,21 @@
+2026-11-17T04:31:04Z
+NVIDIA GeForce RTX 4090, 580.173.02, 24564 MiB, 3120 MHz
+poros venv: torch 2.14.1+cu130 cuda 13.0 transformers 5.22.2 peft 0.20.0 bnb 0.50.2 triton 3.8.0
+unsloth venv: {'unsloth': '2026.11.4', 'unsloth_zoo': '2026.11.4', 'torch': '2.14.1', 'transformers': '5.17.0', 'peft': '0.21.2', 'bitsandbytes': '0.50.2', 'accelerate': '1.15.0'}
+               total        used        free      shared  buff/cache   available
+Mem:              59           0          38           0          21          59
+overlay         223G  125G   99G  56% /
+<path>
+total 1680
+drwxrwxr-x 4 ubuntu ubuntu    4096 2026-11-17 04:07:37.049928540 +0000 .
+drwx------ 6 ubuntu ubuntu    4096 2026-11-12 22:03:05.963260270 +0000 ..
+drwxrwxr-x 2 ubuntu ubuntu    4096 2026-11-13 14:58:59.936133815 +0000 gpu
+drwxrwxr-x 2 ubuntu ubuntu    4096 2026-11-13 05:10:21.114357451 +0000 sss
+-rw-rw-r-- 1 ubuntu ubuntu 1701717 2026-11-17 04:07:37.047928472 +0000 sss_probe.json
+
+<path>
+total 14623480
+drwxrwxr-x  2 ubuntu ubuntu        4096 2026-11-16 12:35:29.601696998 +0000 .
+drwxrwxr-x 12 ubuntu ubuntu        4096 2026-11-17 02:41:35.138656687 +0000 ..
+-rw-r--r--  1 ubuntu ubuntu 14973669376 2026-11-16 12:35:19.912375626 +0000 Qwen--Qwen3-30B-A3B.moe.sss
+-rw-r--r--  1 ubuntu ubuntu      758554 2026-11-16 12:35:29.599696931 +0000 Qwen--Qwen3-30B-A3B.moe.sss.idx

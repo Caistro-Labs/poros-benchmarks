@@ -1,0 +1,31 @@
+{
+ "ref": "rel_q7_pad_seq",
+ "cand": "rel_q7_pad_efficient_b2",
+ "steps_compared": [
+  0,
+  1,
+  2,
+  3
+ ],
+ "steps_in_ref": true,
+ "losses_equal": true,
+ "grad_norms_equal": true,
+ "adapter_tensors": 392,
+ "adapter_keys_equal": true,
+ "adapter_unequal": [],
+ "ref_digest": "889b457f9c5e231cb9b8d91d91bc109daf63727337b39cda5246bac5b5a69961",
+ "cand_digest": "889b457f9c5e231cb9b8d91d91bc109daf63727337b39cda5246bac5b5a69961",
+ "ref_losses": [
+  2.3375229835510254,
+  2.361232042312622,
+  2.3353307247161865,
+  1.315640926361084
+ ],
+ "cand_losses": [
+  2.3375229835510254,
+  2.361232042312622,
+  2.3353307247161865,
+  1.315640926361084
+ ],
+ "pass": true
+}

@@ -1,0 +1,60 @@
+{
+ "full": "<home>/poros_rel/cert/out/family/fg/runs/olmoe_resA",
+ "resumed": "<home>/poros_rel/cert/out/family/fg/runs/olmoe_resB",
+ "from_step": 4,
+ "resumed_steps": [
+  5,
+  6,
+  7
+ ],
+ "full_steps": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7
+ ],
+ "steps_equal": true,
+ "last_step_equal": true,
+ "adapter_tensors": 16,
+ "adapter_keys_equal": true,
+ "adapter_unequal_n": 0,
+ "full_digest": "84136fdf085300e84c782b7018f5e0ef93d9a963223941046a17f70c2f92f578",
+ "resumed_digest": "84136fdf085300e84c782b7018f5e0ef93d9a963223941046a17f70c2f92f578",
+ "losses": {
+  "5": [
+   [
+    10.374065399169922,
+    1.6015625
+   ],
+   [
+    10.374065399169922,
+    1.6015625
+   ]
+  ],
+  "6": [
+   [
+    10.580659866333008,
+    1.375
+   ],
+   [
+    10.580659866333008,
+    1.375
+   ]
+  ],
+  "7": [
+   [
+    11.113211631774902,
+    1.0546875
+   ],
+   [
+    11.113211631774902,
+    1.0546875
+   ]
+  ]
+ },
+ "pass": true
+}

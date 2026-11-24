@@ -1,0 +1,57 @@
+{
+ "ref": "<home>/poros_rel/cert/out/family/fg/runs/olmoe_mref_seq",
+ "cand": "<home>/poros_rel/cert/out/family/fg/runs/olmoe_mref_fast",
+ "ref_file": "<home>/poros_rel/cert/out/family/fg/runs/olmoe_mref_seq/adapter_weights.pt",
+ "cand_file": "<home>/poros_rel/cert/out/family/fg/runs/olmoe_mref_fast/adapter_weights.pt",
+ "steps_ref": 8,
+ "steps_cand": 8,
+ "losses_equal": true,
+ "grad_norms_equal": true,
+ "adapter_tensors": 16,
+ "adapter_keys_equal": true,
+ "adapter_unequal_n": 0,
+ "adapter_unequal": [],
+ "ref_digest": "ffa41ef91537649057dddb4ea2abad961e17da1bdc22c69cb16267d61831349b",
+ "cand_digest": "ffa41ef91537649057dddb4ea2abad961e17da1bdc22c69cb16267d61831349b",
+ "ref_losses": [
+  11.025012969970703,
+  10.695427894592285,
+  10.964319229125977,
+  11.021818161010742,
+  10.72945785522461,
+  10.397147178649902,
+  10.61080265045166,
+  11.144319534301758
+ ],
+ "cand_losses": [
+  11.025012969970703,
+  10.695427894592285,
+  10.964319229125977,
+  11.021818161010742,
+  10.72945785522461,
+  10.397147178649902,
+  10.61080265045166,
+  11.144319534301758
+ ],
+ "ref_grad_norms": [
+  1.1875,
+  1.4453125,
+  1.2734375,
+  1.2265625,
+  1.3984375,
+  1.6171875,
+  1.421875,
+  1.1171875
+ ],
+ "cand_grad_norms": [
+  1.1875,
+  1.4453125,
+  1.2734375,
+  1.2265625,
+  1.3984375,
+  1.6171875,
+  1.421875,
+  1.1171875
+ ],
+ "pass": true
+}

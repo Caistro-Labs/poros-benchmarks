@@ -1,0 +1,10 @@
+[07:26:52] start o_new_olmoe_s42 (new, olmoe seed=42)
+[07:41:09] done o_new_olmoe_s42 in 857 s
+[07:41:09] start o_fp32_olmoe_s42 (fp32, olmoe seed=42)
+[07:57:34] done o_fp32_olmoe_s42 in 985 s
+[07:57:34] start o_fp32_olmoe_s43 (fp32, olmoe seed=43)
+[08:14:00] done o_fp32_olmoe_s43 in 986 s
+[08:14:00] start o_ctl_olmoe_s42 (control, olmoe seed=42)
+[08:28:10] done o_ctl_olmoe_s42 in 850 s
+[08:28:10] PASS cuda_olmoe
+[08:28:10] rtx4090 stages done: olmoe

@@ -1,0 +1,8 @@
+sha256 of each run's adapter file
+first-run (adapter_model.safetensors)
+806f96dfdf54dd19ef3d883ff36545cb04a28f269c17775c558037f73f216ee5  certified laptop run at 1a8d7e912
+806f96dfdf54dd19ef3d883ff36545cb04a28f269c17775c558037f73f216ee5  step 1 driver at 40c2e9e34
+806f96dfdf54dd19ef3d883ff36545cb04a28f269c17775c558037f73f216ee5  step 2 session at 40c2e9e34
+moe-30b-8gb (adapter_weights.pt)
+d6980be1c955436c6c9c37e6e85fc4e363c466439085eef12060a6ff06121b56  measured laptop run at 1a8d7e912 (recipes/rtx4060-laptop/moe-30b-8gb)
+d6980be1c955436c6c9c37e6e85fc4e363c466439085eef12060a6ff06121b56  step 3 session at 40c2e9e34

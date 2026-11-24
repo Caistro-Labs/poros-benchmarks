@@ -1,0 +1,14 @@
+date: extra operand ‘got’
+Try 'date --help' for more information.
+RUN q30rk_c9 rc=0 rows_sha=d124049063f1b5a1 steps=8 s_med_2_8=1.466 s=[33.906, 1.828, 1.478, 1.485, 1.466, 1.438, 1.419, 1.466] loss=[1.3175381422042847, 1.596143126487732, 1.195872187614441, 1.1005715131759644, 0.9257932305335999, 1.3483525514602661, 1.7532509565353394, 1.2848973274230957] vram_pea
+date: extra operand ‘got’
+Try 'date --help' for more information.
+RUN q30rk_def_fast rc=0 rows_sha=d124049063f1b5a1 steps=8 s_med_2_8=1.437 s=[4.621, 1.908, 1.438, 1.435, 1.429, 1.44, 1.431, 1.437] loss=[1.3175381422042847, 1.596143126487732, 1.195872187614441, 1.1005715131759644, 0.9257932305335999, 1.3483525514602661, 1.7532509565353394, 1.2848973274230957] vram
+ROWS q30rk_c9 pass
+q30rk_c9 {"moe_expert_compute": "fused", "fused_compute": true, "moe_expert_cache_gib": 9.0, "moe_expert_cache_reason": "moe_expert_cache_gib caps it (22.95 GiB this process may hold - 8.22 GiB reserved peak - 4.59 GiB margin leaves more)", "nf4_dequant_cache_mb": 0} None
+ROWS q30rk_def_fast pass
+q30rk_def_fast {"moe_expert_compute": "fused", "fused_compute": true, "moe_expert_cache_gib": 10.427, "moe_expert_cache_reason": "fits this GPU: 22.95 GiB this process may hold - 8.22 GiB reserved peak - 4.59 GiB margin", "nf4_dequant_cache_mb": 0} None
+CMP q30rk_c9 q30rk_def_fast pass True fb1fb8fff0254c1d fb1fb8fff0254c1d (before: fb1fb8fff0254c1d)
+q30rk_c9               load  140.3 s  update1  33.91 s  median2-8  1.466 s  T(1)  174.2 s  T(8)  184.8 s  T(100)*   319.4 s  alloc 16.33 GiB  reserved 17.55 GiB
+q30rk_def_fast         load  132.2 s  update1   4.62 s  median2-8  1.437 s  T(1)  136.8 s  T(8)  147.4 s  T(100)*   279.1 s  alloc 17.57 GiB  reserved 19.27 GiB
+2026-11-14T02:24:22Z

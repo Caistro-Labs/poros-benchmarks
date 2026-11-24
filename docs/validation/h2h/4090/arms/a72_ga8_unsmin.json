@@ -1,0 +1,76 @@
+{
+ "arm": "a72_ga8_unsmin",
+ "claims_keys": [
+  "h2h.4090.72b.unsloth_minvram"
+ ],
+ "outcome": "killed by the kernel while loading at 58.1 GiB of host RAM on a 59.6 GiB machine",
+ "setting": "80 of 80 requested: from_pretrained(offload_layers = 80, offload_embedding = True) on the 80-layer model (the run's command line); Unsloth's loader caps a layer count at layers - 1 by its source; the run was killed while loading, so no offloaded count was recorded",
+ "attempts": [
+  {
+   "run": "a72_ga8_unsmin_r1",
+   "rc": 137,
+   "stage": null,
+   "error": null,
+   "log_tail": "\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 15/15 [00:07<00:00,  2.02it/s]\n\u001b[1mQwen2ForCausalLM LOAD REPORT\u001b[0m from: ~/hf/hub/models--Qwen--Qwen2.5-72B/snapshots/efba10c8e54e91e0d9570ab5f7b51a958474d4cb\nKey                                                   | Status     |  | \n------------------------------------------------------+------------+--+-\nmodel.layers.{1...79}.post_attention_layernorm.weight | UNEXPECTED |  | \nmodel.layers.{1...79}.self_attn.q_proj.bias           | UNEXPECTED |  | \nmodel.layers.{1...79}.self_attn.o_proj.weight         | UNEXPECTED |  | \nmodel.layers.{1...79}.self_attn.v_proj.bias           | UNEXPECTED |  | \nmodel.layers.{1...79}.self_attn.k_proj.bias           | UNEXPECTED |  | \nmodel.layers.{1...79}.mlp.gate_proj.weight            | UNEXPECTED |  | \nmodel.layers.{1...79}.mlp.up_proj.weight              | UNEXPECTED |  | \nmodel.layers.{1...79}.input_layernorm.weight          | UNEXPECTED |  | \nmodel.layers.{1...79}.self_attn.k_proj.weight         | UNEXPECTED |  | \nmodel.layers.{1...79}.self_attn.q_proj.weight         | UNEXPECTED |  | \nmodel.layers.{1...79}.self_attn.v_proj.weight         | UNEXPECTED |  | \nmodel.layers.{1...79}.mlp.down_proj.weight            | UNEXPECTED |  | \n\nNotes:\n- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\nUnsloth: ~/hf/hub/models--Qwen--Qwen2.5-72B/snapshots/efba10c8e54e91e0d9570ab5f7b51a958474d4cb had a bad pad_token (<|endoftext|>). Using pad_token = <|vision_pad|>.\n",
+   "host_ram_gib": 58.14,
+   "host_vmhwm_gib": 58.765,
+   "host_sampler": {
+    "source": "kit/hostsamp.py: RssAnon + RssShmem summed over the process tree",
+    "interval_s": 0.25,
+    "samples": 1117,
+    "longest_gap_s": 0.298,
+    "processes_max": 2,
+    "anon_gib_at_peak": 58.074,
+    "shmem_gib_at_peak": 0.066,
+    "file_backed_gib_max": 46.159,
+    "vmhwm_gib_seen": 58.765,
+    "inprocess_1hz_peak_anon_shmem_gib": null,
+    "inprocess_1hz_load_peak_anon_shmem_gib": null
+   },
+   "machine": {
+    "site": "4090",
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "gpu_mib": "24564",
+    "driver": "580.173.02",
+    "cpu": "AMD EPYC 7502 32-Core Processor",
+    "threads": "64",
+    "ram_gib": 59.6,
+    "os": "Ubuntu 24.04.1 LTS",
+    "kernel": "6.8.0-124-generic",
+    "etc_environment_alloc": "PYTORCH_ALLOC_CONF=expandable_segments:False"
+   },
+   "unsloth": {
+    "offload_layers": null,
+    "offload_embedding": null,
+    "prefetch_depth": null,
+    "decoder_layers": null,
+    "swapped_layers": null,
+    "pinned_bytes": null,
+    "host_bytes": null,
+    "input_embedding_device": null,
+    "gc": null,
+    "targets": null
+   },
+   "cmd": "~/venv_unsloth/bin/python ~/rf/h2hf_5d75e31a/kit/h2h_u7.py --model Qwen/Qwen2.5-72B --rows ~/rf/h2hf_5d75e31a/data/rows_real128.pt --deterministic --out ~/rf/h2hf_5d75e31a/rec/a72_ga8_unsmin_r1_raw.json --local-snapshot --offload-layers 80 --mb 1 --ga 8 --updates 16 --time-limit-s 7200  --offload-embedding true",
+   "launch_utc": "2026-11-18T10:10:35Z",
+   "record": "docs/validation/h2h/4090/runs/a72_ga8_unsmin_r1.json"
+  }
+ ],
+ "not_claimed": {
+  "keys": [
+   "h2h.4090.72b.unsloth_minvram.s_per_step_s",
+   "h2h.4090.72b.unsloth_minvram.t1_s",
+   "h2h.4090.72b.unsloth_minvram.vram_alloc_gb",
+   "h2h.4090.72b.unsloth_minvram.vram_reserved_gb",
+   "h2h.4090.72b.unsloth_minvram.host_ram_gb",
+   "h2h.4090.72b.unsloth_minvram.host_vmhwm_gb",
+   "h2h.4090.72b.unsloth_minvram.host_ram_load_gb",
+   "h2h.4090.72b.unsloth_minvram.host_ram_train_gb",
+   "h2h.4090.72b.unsloth_minvram.load_s",
+   "h2h.4090.72b.unsloth_minvram.load_vram_reserved_gb",
+   "h2h.4090.72b.unsloth_minvram.load_host_ram_gb",
+   "h2h.4090.72b.unsloth_minvram.load_host_vmhwm_gb"
+  ],
+  "why": "it did not train on this machine: see .status"
+ }
+}

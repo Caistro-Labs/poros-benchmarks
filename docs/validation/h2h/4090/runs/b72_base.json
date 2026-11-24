@@ -1,0 +1,120 @@
+{
+ "schema": "h2hf.baseline.v1",
+ "name": "b72_base",
+ "site": "4090",
+ "commit": "5d75e31a486cdf19e397e2d0f748def98083ecc8",
+ "tree": "0973100366871afc06c796987f5caedf38741b1a",
+ "model": "Qwen/Qwen2.5-72B",
+ "model_revision": "efba10c8e54e91e0d9570ab5f7b51a958474d4cb",
+ "model_key": "72b",
+ "rc": 1,
+ "outcome": "failed",
+ "complete": true,
+ "launch_epoch": 1795001163.7039597,
+ "launch_utc": "2026-11-18T11:26:03Z",
+ "wall_s": 102.32,
+ "cmd": "env -u PYTHONPATH -u POROS_HOME -u POROS_SSS_NATIVE_DIR -u POROS_PROGRESS -u H2HF_HWM_OUT ~/venv_poros/bin/python ~/rf/h2hf_5d75e31a/kit/base72.py --model Qwen/Qwen2.5-72B --revision efba10c8e54e91e0d9570ab5f7b51a958474d4cb --rows ~/rf/h2hf_5d75e31a/data/rows_real128.pt --rank 16 --seq-len 512 --mb 1 --ga 8 --out ~/rf/h2hf_5d75e31a/rec/b72_base_raw.json",
+ "what": "transformers + bitsandbytes + PEFT, 4-bit NF4, device_map={'': 0}",
+ "code": {
+  "quantization_config": "BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type='nf4', bnb_4bit_compute_dtype=torch.bfloat16)",
+  "from_pretrained": "AutoModelForCausalLM.from_pretrained(model, revision=rev, quantization_config=bnb, device_map={'': 0}, dtype=torch.bfloat16)",
+  "then": "prepare_model_for_kbit_training(model); get_peft_model(model, LoraConfig(r=16, lora_alpha=32, lora_dropout=0.0, bias='none', task_type='CAUSAL_LM', target_modules=[q,k,v,o,gate,up,down]_proj)); one AdamW update"
+ },
+ "args": {
+  "model": "Qwen/Qwen2.5-72B",
+  "revision": "efba10c8e54e91e0d9570ab5f7b51a958474d4cb",
+  "rows": "~/rf/h2hf_5d75e31a/data/rows_real128.pt",
+  "out": "~/rf/h2hf_5d75e31a/rec/b72_base_raw.json",
+  "rank": 16,
+  "seq_len": 512,
+  "mb": 1,
+  "ga": 8,
+  "targets": "q_proj,k_proj,v_proj,o_proj,gate_proj,up_proj,down_proj",
+  "dry_args": false
+ },
+ "versions": {
+  "torch": "2.14.1",
+  "transformers": "5.22.2",
+  "peft": "0.20.0",
+  "bitsandbytes": "0.50.2",
+  "accelerate": "1.15.0",
+  "safetensors": "0.8.0",
+  "torch_cuda": "13.0"
+ },
+ "gpu": "NVIDIA GeForce RTX 4090",
+ "alloc_env": {
+  "PYTORCH_ALLOC_CONF": "unset",
+  "PYTORCH_CUDA_ALLOC_CONF": "unset"
+ },
+ "alloc_env_seen": {
+  "PYTORCH_ALLOC_CONF": "unset",
+  "PYTORCH_CUDA_ALLOC_CONF": "unset"
+ },
+ "pythonpath_env": "unset",
+ "poros_import_attempts": [],
+ "poros_in_sys_modules": false,
+ "pre": {
+  "gpu_used_mib": 1,
+  "mem_available_gib": 59,
+  "waited_s": 0,
+  "settled": true
+ },
+ "machine": {
+  "site": "4090",
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "gpu_mib": "24564",
+  "driver": "580.173.02",
+  "cpu": "AMD EPYC 7502 32-Core Processor",
+  "threads": "64",
+  "ram_gib": 59.6,
+  "os": "Ubuntu 24.04.1 LTS",
+  "kernel": "6.8.0-124-generic",
+  "etc_environment_alloc": "PYTORCH_ALLOC_CONF=expandable_segments:False"
+ },
+ "stage": "load",
+ "error_line": "torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 462.00 MiB. GPU 0 has a total capacity of 23.52 GiB of which 33.69 MiB is free. Including non-PyTorch memory, this process has 0 bytes memory in use. Of the allocated memory 22.59 GiB is allocated by PyTorch, and 454.50 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
+ "error_type": "torch.OutOfMemoryError",
+ "error_line_in_log": true,
+ "error_line_raw": "torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 462.00 MiB. GPU 0 has a total capacity of 23.52 GiB of which 33.69 MiB is free. Including non-PyTorch memory, this process has 0 bytes memory in use. Of the allocated memory 22.59 GiB is allocated by PyTorch, and 454.50 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
+ "how_far": {
+  "found_model": true,
+  "decoder_layers": 80,
+  "decoder_layers_on_gpu": 39,
+  "decoder_layers_partly_on_gpu": [
+   39
+  ],
+  "highest_full_layer": 38,
+  "tensors_on_gpu": 471,
+  "tensors_total": 965,
+  "bytes_of_tensors_on_gpu_gib": 20.582,
+  "how": "parameters and buffers of the model object held by the loader's frames at the exception, by device"
+ },
+ "fail_after_s": 97.94,
+ "load_s": null,
+ "update_s": null,
+ "losses": null,
+ "trainable_params": null,
+ "rank": 16,
+ "seq_len": 512,
+ "shape": {
+  "mb": 1,
+  "ga": 8
+ },
+ "peak_allocated_gib": 22.965,
+ "peak_reserved_gib": 23.037,
+ "free_gib_at_failure": 0.033,
+ "card_gib": 23.516,
+ "transformers_expected_gib": {
+  "cuda:0": 37.34
+ },
+ "smi_peak_gib": 23.483,
+ "smi_samples": 97,
+ "host_ram_gib": 0.523,
+ "host_vmhwm_gib": 58.622,
+ "host_sampler": {
+  "samples": 409,
+  "longest_gap_s": 0.313
+ },
+ "memory_unit": "GiB",
+ "log_tail": "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"~/venv_poros/lib/python3.12/site-packages/transformers/models/auto/auto_factory.py\", line 406, in from_pretrained\n    return model_class.from_pretrained(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"~/venv_poros/lib/python3.12/site-packages/transformers/modeling_utils.py\", line 4353, in from_pretrained\n    loading_info, disk_offload_index = cls._load_pretrained_model(\n                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"~/venv_poros/lib/python3.12/site-packages/transformers/modeling_utils.py\", line 4498, in _load_pretrained_model\n    loading_info, disk_offload_index = convert_and_load_state_dict_in_model(\n                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"~/venv_poros/lib/python3.12/site-packages/transformers/core_model_loading.py\", line 1791, in convert_and_load_state_dict_in_model\n    realized_value = mapping.convert(\n                     ^^^^^^^^^^^^^^^^\n  File \"~/venv_poros/lib/python3.12/site-packages/transformers/core_model_loading.py\", line 1055, in convert\n    collected_tensors = self.materialize_tensors()\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"~/venv_poros/lib/python3.12/site-packages/transformers/core_model_loading.py\", line 1020, in materialize_tensors\n    tensors = [func() for func in tensors]\n               ^^^^^^\n  File \"~/venv_poros/lib/python3.12/site-packages/transformers/core_model_loading.py\", line 1309, in _job\n    return _materialize_copy(tensor, device, dtype)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"~/venv_poros/lib/python3.12/site-packages/transformers/core_model_loading.py\", line 1287, in _materialize_copy\n    tensor = tensor.to(device=device, dtype=dtype)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntorch.OutOfMemoryError: CUDA out of memory. Tried to allocate 462.00 MiB. GPU 0 has a total capacity of 23.52 GiB of which 33.69 MiB is free. Including non-PyTorch memory, this process has 0 bytes memory in use. Of the allocated memory 22.59 GiB is allocated by PyTorch, and 454.50 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)\n"
+}

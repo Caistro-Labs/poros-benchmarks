@@ -1,0 +1,1 @@
+{"schema":"poros.check.v1","model":"<home>/poros_rel/hf_cert/fg_models/Qwen_Qwen3.8-27B__trunc8","model_type":"qwen3_5","status":"validated","entry":"dense","reason":"","next":[]}

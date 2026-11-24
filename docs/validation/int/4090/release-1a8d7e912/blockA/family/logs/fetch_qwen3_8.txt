@@ -1,0 +1,12 @@
+model-00001-of-00018.safetensors: 24 tensors, 952.1 MiB
+model-00001-of-00018.safetensors: 15 tensors, 901.0 MiB
+model-00001-of-00018.safetensors: 12 tensors, 920.0 MiB
+model-00001-of-00018.safetensors: 341 tensors, 1009.8 MiB
+model-00002-of-00018.safetensors: 18 tensors, 951.0 MiB
+model-00002-of-00018.safetensors: 15 tensors, 901.0 MiB
+model-00002-of-00018.safetensors: 12 tensors, 920.0 MiB
+model-00002-of-00018.safetensors: 2 tensors, 130.0 MiB
+model-00003-of-00018.safetensors: 1 tensors, 2425.0 MiB
+model-00016-of-00018.safetensors: 1 tensors, 0.0 MiB
+model-00018-of-00018.safetensors: 1 tensors, 2425.0 MiB
+FETCH wrote <home>/poros_rel/hf_cert/fg_models/Qwen_Qwen3.8-27B__trunc8 qwen3_5 6047681584 params sha256 4e08e40396cb7a1e

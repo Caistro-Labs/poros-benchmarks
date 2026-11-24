@@ -1,0 +1,5 @@
+model read from an external drive: <path>
+store path as the job passed it: <path>
+resolves to: device /dev/disk7s1, mounted at <path>
+diskutil: Device Location: External; Protocol: PCI-Express
+at: 2026-11-24 05:41:35 CST (written by the job at run time)

@@ -1,0 +1,22 @@
+Laptop recipe certification at the certification commit M2 = 03843905262d38729986baea0391c83c9b3e804c, RTX 4060 Laptop GPU
+(7.68 GiB), 14.9 GiB host RAM. The tree copied with git archive, its manifest written by run_recipe.py --manifest-of and
+checked with sha256sum -c on <host> and on the laptop; the M2 wheel installed (no dependencies) into the run folder's Python.
+Each recipe: python3.12 tree2/poros/scripts/certify/run_recipe.py RECIPE --machine rtx4060-laptop
+  --out cert/rtx4060-laptop/RECIPE --download --commit <M2> --manifest tree2/poros-<M2>.sha256   (lap2.sh cert)
+--home: the driver's default inside --work, in ~/poros-run on the internal drive. The run guide puts the laptop's --home
+on the external drive; that drive was not used for these runs.
+recipes/<recipe>/ is each receipt folder as written; recipes/.<recipe>-work/logs/ are the driver's logs.
+  first-run  status ok (16 updates, resume adapter equal, eval ok)
+  support, voice, prefer  status failed: "train did not start: Predicted not to fit: ..." (train's wont_fit question in
+             prepare.log and main.log; the driver does not pass --force). No model was downloaded for them.
+moe-30b-8gb: not run at M2 (its free-space requirement was not yet set).
+
+poros prove at M2 (laptop/rec/prove_*; each _cmd.txt ends with the commit), 100 steps, --seq-len 512, through prove_wrap.py,
+each model downloaded, run once, then removed from the run folder with the Hub cache's shared blob store:
+  Qwen/Qwen3.5-4B @ 851bf6e8   refused: E_OOM "the resident reference ran out of GPU memory on Qwen/Qwen3.5-4B at 512 tokens"
+                               (the resident arm, the first to run; no comparison made)
+  google/gemma-3-1b-pt         refused: E_HUB_AUTH "the model is gated on the Hugging Face Hub ..." (no token is used)
+  Qwen/Qwen3-0.6B @ c1899de2   identical: losses at 100 steps, 392 adapter gradients, 392 adapter tensors, 1176 optimizer
+                               tensors; digest 40f5bd4288b51b1e1a3e35c6e58337b60ab0a020d3fa368e0de516d3b3a9bad8
+  deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B @ ad9f0ae0   identical, the same surfaces; digest
+                               ac6e8846f78a47ed9ccf574fa9d11c6d4dd5e5a2995676b35513af59d35d4deb

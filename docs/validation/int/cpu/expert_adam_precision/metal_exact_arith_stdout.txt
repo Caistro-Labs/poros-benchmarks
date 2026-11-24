@@ -1,0 +1,7 @@
+fma32 against exact rationals: 0 differences
+sqrt_rn against the correctly rounded result through F: 50,331,600 values, 0 differences
+div_rn against the correctly rounded result through F: 50,333,544 values, 0 differences
+the shader's own sqrt_rn, div_rn and rtne_bf16, compiled as C++: {'values': 20000000, 'sqrt_differences': 0, 'div_differences': 0, 'rtne_differences': 0}
+rtne_bf16 against torch's cast over all 2**32 patterns: 0 differences
+{"fma_differences": 0, "sqrt": {"values": 50331600, "differences": 0, "first": null}, "div": {"values": 50333544, "differences": 0, "first": null}, "compiled_source": {"values": 20000000, "sqrt_differences": 0, "div_differences": 0, "rtne_differences": 0}, "rtne_differences": 0, "guess_units": 4, "seconds": 546.3}
+exit 0

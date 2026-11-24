@@ -1,0 +1,8 @@
+r0 = commit 383d1294c576c171276be08a403dc089e42a1150 (<branch>)
+SPEED sB_72_r128_fused_1 med 2.659 s [3.92, 2.648, 2.659, 2.659] ran {"fused_compute": true, "nf4_dequant_cache_mb": 0} None peak GB 19.24 23.893 staging null
+SPEED sB_05_r128_fused_1 med 2.07 s [2.897, 2.05, 2.07, 2.532, 2.092, 2.06, 2.011, 2.142] ran {"fused_compute": true, "nf4_dequant_cache_mb": 114} None peak GB 2.978 4.071 staging null
+SPEED sB_72_r128_fused_2 med 2.656 s [4.308, 2.645, 2.656, 2.659] ran {"fused_compute": true, "nf4_dequant_cache_mb": 0} None peak GB 19.24 23.893 staging null
+SPEED sB_05_r128_fused_2 med 2.126 s [3.46, 2.595, 2.633, 2.126, 2.624, 2.07, 2.082, 2.09] ran {"fused_compute": true, "nf4_dequant_cache_mb": 114} None peak GB 2.978 4.071 staging null
+# the third repeat, rerun detached (chain3.sh) after the first job's session dropped:
+SPEED sB_72_r128_fused_3 med 2.66 s [4.264, 2.651, 2.663, 2.66] peak GB 19.24 23.893
+SPEED sB_05_r128_fused_3 med 2.069 s [2.991, 2.069, 2.079, 2.051, 2.052, 2.101, 2.069, 2.073] peak GB 2.978 4.071

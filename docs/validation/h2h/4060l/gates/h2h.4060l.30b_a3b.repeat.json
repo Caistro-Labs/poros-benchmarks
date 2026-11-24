@@ -1,0 +1,22 @@
+{
+ "gate": "run-to-run repeat",
+ "pass": true,
+ "runs": [
+  "l30_poros_eff_r1",
+  "l30_poros_eff_r2",
+  "l30_poros_eff_r3"
+ ],
+ "what": "the same command run again gives the same adapter, bit for bit: one sha256 over every adapter tensor, and every update's loss and grad norm equal",
+ "adapter_digest": [
+  "aa7bea5fd0827cff0b959b89cf5300ca22fc65287a31620378015d64cc7d5410",
+  "aa7bea5fd0827cff0b959b89cf5300ca22fc65287a31620378015d64cc7d5410",
+  "aa7bea5fd0827cff0b959b89cf5300ca22fc65287a31620378015d64cc7d5410"
+ ],
+ "updates": [
+  16,
+  16,
+  16
+ ],
+ "losses_equal": true,
+ "grad_norms_equal": true
+}

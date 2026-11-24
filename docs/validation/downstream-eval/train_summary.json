@@ -1,0 +1,21 @@
+{
+  "model": "Qwen/Qwen2.5-32B",
+  "quantization": "nf4",
+  "dataset": "OpenAssistant/oasst1",
+  "steps": 100,
+  "seq_len": 512,
+  "block_size": 4,
+  "learning_rate": 0.0002,
+  "warmup_steps": 10,
+  "lr_scheduler": "cosine",
+  "setup_seconds": 16.51,
+  "train_seconds": 1030.11,
+  "s_per_step": 10.301,
+  "loss_first": 2.220052719116211,
+  "loss_last": 3.1354644298553467,
+  "peak_vram_gb": 11.02,
+  "steady_state_vram_gb": 8.59,
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition",
+  "torch": "2.11.0+cu128",
+  "peak_host_rss_gb": 61.97
+}

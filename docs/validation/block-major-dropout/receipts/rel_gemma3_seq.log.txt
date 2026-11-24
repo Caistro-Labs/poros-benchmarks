@@ -1,0 +1,38 @@
+▛▜ poros v0.3.0 · unsloth/gemma-3-4b-it · RTX 4090 23.5 GiB
+
+● Checked rel_gemma3_seq.yaml  config
+  │ nf4 · block 4 · rank 16 · seq 256
+  │ classic · every token · lr 2e-5
+  │ output    runs/rel_gemma3_seq
+
+Block-streamed NF4 load unavailable for this model/environment (The cached snapshot for 'unsloth/gemma-3-4b-it' (revision 'main', commit bf46152c47f5dd20b896357cb51abc4c03b8ee8c) is incomplete: 1 file(s) are missing (chat_template.jinja). The Hub could not be reached (OfflineModeIsEnabled: Cannot reach https://huggingface.co/api/models/unsloth/gemma-3-4b-it/revision/main: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.). Re-run the download with network access to complete the snapshot.); using the standard loader.
+● Loaded gemma-3-4b-it  15s
+  │ dense · 34 layers · 9 blocks
+Map:   0%|          | 0/320 [00:00<?, ? examples/s]Map: 100%|██████████| 320/320 [00:00<00:00, 7953.22 examples/s]
+Filter:   0%|          | 0/320 [00:00<?, ? examples/s]Filter: 100%|██████████| 320/320 [00:00<00:00, 75390.51 examples/s]
+step 1/10  loss 3.0199  7.24 s/step  vram 3.2 GiB (peak 4.0)  eta 1m 05s
+step 6/10  loss 3.2434  5.93 s/step  vram 3.2 GiB (peak 4.2)  eta 25s
+<path> UserWarning: Could not find a config file in unsloth/gemma-3-4b-it - will assume that the vocabulary was not modified.
+  warnings.warn(
+
+  ╭─ Trained ────────────────────────────────────────────────────── 10 steps · classic · 1m 14s ─╮
+  │                                                            ▄▂        final loss              │
+  │                                                           ▆██▆▁      3.4602  ↑ 15%           │
+  │    4                                                    ▂██████▅     from 3.0199             │
+  │           ▃▆█▆▄▂                                       ▄█████████▄                           │
+  │        ▂▅████████▆▄▂                ▁▂▄▆▂             ▆███████████▇  vram 4.2 GiB peak       │
+  │    3 ▄▇██████████████▇▅▃▁      ▁▁▃▅▇█████▇▄▁       ▂▄██████████████  ram  8.9 GiB peak       │
+  │      ████████████████████▇▇▇████████████████▆▃▁▃▅▆█████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │    2 ██████████████████████████████████████████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                                 5                         10                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      152 tok/s
+  │
+  │ adapter    runs/rel_gemma3_seq
+  │ receipt    runs/rel_gemma3_seq/receipt.json
+
+Continue with: poros eval <path>
+{"schema":"poros.train.v1","learned":null,"output_dir":"runs/rel_gemma3_seq","events":"runs/rel_gemma3_seq/events.jsonl","metrics":{"device":"cuda:0","total_steps":10,"final_loss":3.4601540565490723,"loss_history":[3.0198910236358643,3.851477861404419,3.288928985595703,2.7781355381011963,2.886936902999878,3.411492347717285,2.516777992248535,3.013686418533325,4.735543727874756,3.4601540565490723],"grad_norm_history":[4.533507347106934,4.565099716186523,4.8082427978515625,2.610475540161133,3.3632359504699707,5.6280083656311035,4.885387897491455,3.175352096557617,13.365447044372559,3.2543129920959473],"eval_history":[],"total_time_s":61.2255889698863,"step_time_history":[7.237835626117885,6.0396450366824865,5.976185725070536,6.128429722972214,6.0717564998194575,5.933791416697204,5.959267250262201,5.97455864213407,5.910344895906746,5.993774154223502],"vram_alloc_history_mb":[3443.51744,3443.518976,3443.522048,3443.522048,3443.522048,3443.51744,3443.522048,3443.51744,3443.522048,3443.51744],"avg_vram_allocated_mb":3443.5198976,"avg_step_time_ms":6122.55889698863,"steps_per_sec":0.16333040103409185,"tokens_processed":9282,"tokens_per_sec":151.60327823984406,"peak_vram_allocated_gb":4.48734976,"peak_vram_reserved_gb":7.069499392,"torch_num_threads":16,"quantization":"nf4","block_size":4,"adapter_backend":"peft","adapter_summary":{"backend":"peft","target_module_names":"all-linear","trainable_param_count":38497792,"total_param_count":2528720752}},"run":null,"command":null,"next":[],"plan":null,"from":null,"support":null,"model_type":null}

@@ -1,0 +1,36 @@
+{
+  "arch": "dense \u00b7 64 layers \u00b7 64 blocks",
+  "config": {
+    "block_size": 1,
+    "dataset": "<path>",
+    "gradient_accumulation_steps": 2,
+    "learning_rate": 2e-05,
+    "lora_alpha": 32,
+    "lora_rank": 16,
+    "max_seq_length": 512,
+    "max_steps": 8,
+    "per_device_train_batch_size": null,
+    "quantization": "nf4"
+  },
+  "final_loss": 1.1633065938949585,
+  "finished_at": "2026-11-12T22:59:32+00:00",
+  "gpu": {
+    "name": "RTX 4090",
+    "total_gb": 25.25
+  },
+  "kind": "poros.train.receipt",
+  "model": "<path>",
+  "output_dir": "<path>",
+  "peak_host_ram_gb": 27.714,
+  "peak_vram_allocated_gb": 7.053,
+  "peak_vram_reserved_gb": 12.776,
+  "poros": "0.3.0",
+  "recipe": "classic",
+  "run": "7ba9024b",
+  "s_per_step": 8.3113,
+  "simulated": false,
+  "steps": 8,
+  "tokens_per_sec": 492.82,
+  "version": 1,
+  "wall_s": 73.33
+}

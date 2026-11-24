@@ -1,0 +1,38 @@
+▛▜ poros v1.0.0 · Qwen/Qwen2.5-32B-Instruct · RTX 4090 23.5 GiB
+
+● Checked cert-big-32b-resume  run 1124-0900-35f8
+  │ nf4 · block 4 · rank 16 · seq 512 · efficient path
+  │ SFT · answers only · lr 2e-4
+  │ output    homes/big-32b/runs/1124-0900-35f8
+  │ resume    homes/big-32b/runs/1124-0900-35f8/checkpoint-8
+  │ eval      7 rows held out  scored at the start, each checkpoint and the end
+
+● Loaded Qwen2.5-32B-Instruct  1m 28s
+  │ dense · 64 layers · 16 blocks
+● Resumed after step 9/16
+step 10/16  loss 5.6074  11.71 s/step  vram 7.8 GiB (peak 11.2)  eta 1m 10s
+step 14/16  loss 5.5407  8.28 s/step  vram 7.8 GiB (peak 11.2)  eta 18s
+● Scored step 16  held out 5.4848 · ends its answers 0 of 0
+
+  ╭─ Trained  Learned well ───────────────────────────────────────────── 7 steps · SFT · 1m 19s ─╮
+  │                                                                      final loss              │
+  │                                                                      5.4932  ↓ 2%            │
+  │ 5.60 ██████████████████████████████████████████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████    step  held out  ends  │
+  │      ██████████████████████████████████████████████████████████████  ●   16    5.4848   0/0  │
+  │ 5.55 ██████████████████████████████████████████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████  vram 11.2 GiB peak      │
+  │      ██████████████████████████████████████████████████████████████  ram  21.8 GiB peak      │
+  │ 5.50 ██████████████████████████████████████████████████████████████                          │
+  │      █████████████████████████████████████████████████████████████○                          │
+  │      1                             3                              7                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      467 tok/s
+  │
+  │ adapter    homes/big-32b/runs/1124-0900-35f8
+  │ receipt    homes/big-32b/runs/1124-0900-35f8/receipt.json
+
+Continue with: poros eval 1124-0900-35f8
+Keep it as a recipe: poros recipes save last
+{"schema":"poros.runs.v1","learned":null,"do":"continue","runs":[{"id":"1124-0900-35f8","kind":"run","state":"succeeded","model":"Qwen/Qwen2.5-32B-Instruct","name":"cert-big-32b-resume","output_dir":"<home>/runs/1124-0900-35f8","created_at":"2026-11-24T09:00:29+00:00","started_at":"2026-11-24T09:03:52+00:00","finished_at":"2026-11-24T09:06:50+00:00","step":16,"total":16,"loss":5.493173837661743,"error":null,"folder":"<home>/runs/1124-0900-35f8","from":null,"eval_loss_start":6.54971170425415,"eval_loss":5.484839030674525,"eval_rows":7,"eval_ends":0,"eval_answer_rows":0,"eval_prefers_start":null,"eval_prefers":null,"best":"poros://1124-0900-35f8/weights/16"}],"report":null,"next":["poros runs 1124-0900-35f8 --live --wait 30"],"more":0,"starts_next":null}

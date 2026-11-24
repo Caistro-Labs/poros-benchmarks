@@ -1,0 +1,57 @@
+{
+ "ref": "<home>/poros_rel/cert/out/family/fg/runs/gemma4_moe_fast",
+ "cand": "<home>/poros_rel/cert/out/family/fg/runs/gemma4_moe_rep",
+ "ref_file": "<home>/poros_rel/cert/out/family/fg/runs/gemma4_moe_fast/adapter_weights.pt",
+ "cand_file": "<home>/poros_rel/cert/out/family/fg/runs/gemma4_moe_rep/adapter_weights.pt",
+ "steps_ref": 8,
+ "steps_cand": 8,
+ "losses_equal": true,
+ "grad_norms_equal": true,
+ "adapter_tensors": 24,
+ "adapter_keys_equal": true,
+ "adapter_unequal_n": 0,
+ "adapter_unequal": [],
+ "ref_digest": "9f192ea4095985a2f584cf995d68be64a705a8a593a305fe3910a9e737e6df6a",
+ "cand_digest": "9f192ea4095985a2f584cf995d68be64a705a8a593a305fe3910a9e737e6df6a",
+ "ref_losses": [
+  37.33735656738281,
+  39.666587829589844,
+  39.636409759521484,
+  38.57021713256836,
+  38.22963333129883,
+  39.088584899902344,
+  39.3614616394043,
+  37.9312744140625
+ ],
+ "cand_losses": [
+  37.33735656738281,
+  39.666587829589844,
+  39.636409759521484,
+  38.57021713256836,
+  38.22963333129883,
+  39.088584899902344,
+  39.3614616394043,
+  37.9312744140625
+ ],
+ "ref_grad_norms": [
+  1.4453125,
+  1.5078125,
+  1.4453125,
+  1.5234375,
+  1.7109375,
+  1.4296875,
+  1.5390625,
+  1.390625
+ ],
+ "cand_grad_norms": [
+  1.4453125,
+  1.5078125,
+  1.4453125,
+  1.5234375,
+  1.7109375,
+  1.4296875,
+  1.5390625,
+  1.390625
+ ],
+ "pass": true
+}

@@ -1,0 +1,18 @@
+{
+  "model": "Qwen/Qwen2.5-7B",
+  "quantization": "nf4",
+  "dataset": "synthetic",
+  "steps": 20,
+  "seq_len": 512,
+  "block_size": 4,
+  "setup_seconds": 12.83,
+  "train_seconds": 67.43,
+  "s_per_step": 3.372,
+  "loss_first": 12.453899383544922,
+  "loss_last": 12.347260475158691,
+  "peak_vram_gb": 6.21,
+  "steady_state_vram_gb": 5.1,
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "torch": "2.11.0+cu128",
+  "peak_host_rss_gb": 15.13
+}

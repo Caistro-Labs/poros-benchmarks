@@ -1,0 +1,43 @@
+▛▜ poros v1.0.0 · Qwen/Qwen2.5-72B-Instruct · RTX 4090 23.5 GiB
+
+● Checked cert-big-72b  run 1124-1408-4894
+  │ nf4 · block 4 · rank 16 · seq 512 · efficient path
+  │ SFT · answers only · lr 2e-4
+  │ output    homes/big-72b/runs/1124-1408-4894
+  │ eval      7 rows held out  scored at the start, each checkpoint and the end
+
+● Loaded Qwen2.5-72B-Instruct  4m 40s
+  │ dense · 80 layers · 20 blocks
+● Scored the base  held out 6.4862 · ends its answers 0 of 0
+step 1/16  loss 6.4990  23.55 s/step  vram 3.5 GiB (peak 10.3)  eta 5m 53s
+step 3/16  loss 6.4211  19.47 s/step  vram 3.5 GiB (peak 11.9)  eta 4m 49s
+step 5/16  loss 6.2598  19.51 s/step  vram 3.5 GiB (peak 11.9)  eta 3m 53s
+step 7/16  loss 5.9474  19.50 s/step  vram 3.5 GiB (peak 11.9)  eta 3m 06s
+step 9/16  loss 5.6750  19.49 s/step  vram 3.5 GiB (peak 11.9)  eta 2m 23s
+step 11/16  loss 5.5322  19.49 s/step  vram 3.5 GiB (peak 11.9)  eta 1m 41s
+step 13/16  loss 5.4777  19.50 s/step  vram 3.5 GiB (peak 11.9)  eta 1m 00s
+step 15/16  loss 5.4623  19.52 s/step  vram 3.5 GiB (peak 11.9)  eta 20s
+● Scored step 16  held out 5.4462 ↓ 16% · ends its answers 0 of 0
+
+  ╭─ Trained  Learned well ──────────────────────────────────────────── 16 steps · SFT · 6m 05s ─╮
+  │                                                                      final loss              │
+  │                                                                      5.4421  ↓ 16%           │
+  │  6.5 ○▄▃▃▂▁                                                                                  │
+  │      ██████▇▅▂                                                         step  held out  ends  │
+  │      ██████████▆▄▂                                                   ○ base    6.4862   0/0  │
+  │  6.0 ██████████████▅▃▁                                               ●   16    5.4462   0/0  │
+  │      █████████████████▇▅▃▁                                                                   │
+  │      █████████████████████▇▆▅▄▃▁                                     vram 11.9 GiB peak      │
+  │  5.5 ████████████████████████████▇▆▆▅▄▄▄▃▃▃▃▃▃▃▃▃▃▂▂▂▂▂▂▂▂▂▂▂▁▁▁▁▁○  ram  45.3 GiB peak      │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                                8                          16                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      205 tok/s
+  │
+  │ adapter    homes/big-72b/runs/1124-1408-4894
+  │ receipt    homes/big-72b/runs/1124-1408-4894/receipt.json
+
+Continue with: poros eval 1124-1408-4894
+Keep it as a recipe: poros recipes save last
+{"schema":"poros.train.v1","learned":null,"output_dir":"<home>/runs/1124-1408-4894","events":"<home>/runs/1124-1408-4894/events.jsonl","metrics":{"device":"cuda:0","total_steps":16,"final_loss":5.442071735858917,"loss_history":[6.49901407957077,6.467815637588501,6.296323180198669,6.119156241416931,5.916676640510559,5.754871428012848,5.650061666965485,5.552059173583984,5.50119423866272,5.474212110042572,5.483446717262268,5.46706348657608,5.462767601013184,5.451806306838989,5.446598172187805,5.442071735858917],"grad_norm_history":[0.5992310643196106,0.6133072972297668,0.49973011016845703,0.6601688265800476,0.8653303384780884,0.7863035202026367,1.0831875801086426,0.9850484132766724,0.8229996562004089,0.9264608025550842,1.0906250476837158,0.9866536259651184,0.9202170968055725,0.8765410780906677,0.8409705758094788,0.7371752262115479],"eval_history":[{"step":0,"eval_loss":6.486171381814139,"eval_perplexity":656.0069489595575,"ends":0,"answer_rows":0},{"step":15,"eval_loss":5.4462353842599045,"eval_perplexity":231.88356814782068,"ends":0,"answer_rows":0}],"total_time_s":320.3195219319314,"step_time_history":[23.551245568320155,23.734743371605873,19.467089546844363,19.480520512908697,19.510455332696438,19.489538840949535,19.49707167595625,19.525085186585784,19.491809586063027,19.50418220832944,19.491597928106785,19.530729418620467,19.50390799716115,19.496487012133002,19.515641067177057,19.529416678473353],"vram_alloc_history_mb":[3708.9792,3708.9792,3708.9792,3708.9792,3708.9792,3708.9792,3708.9792,3708.9792,3708.9792,3708.9792,3708.9792,3708.9792,3708.9792,3708.9792,3708.9792,3708.9792],"avg_vram_allocated_mb":3708.9792,"avg_step_time_ms":20019.97012074571,"steps_per_sec":0.04995012449912446,"tokens_processed":65536,"tokens_per_sec":204.5957099484138,"peak_vram_allocated_gb":12.718567936,"peak_vram_reserved_gb":19.495124992,"torch_num_threads":16,"quantization":"nf4","block_size":4,"adapter_backend":"peft","adapter_summary":{"backend":"peft","target_module_names":"all-linear","trainable_param_count":210534400,"total_param_count":37810413568},"eval_loss_start":6.486171381814139,"eval_loss":5.4462353842599045,"eval_ends":0,"eval_answer_rows":0},"run":"1124-1408-4894","command":"poros train Qwen/Qwen2.5-72B-Instruct --data <work>/sample-chats.jsonl --steps 16 --seq-len 512 --rank 16 --block-size 4 --name cert-big-72b --recipe sft gradient_accumulation_steps=8 learning_rate=2e-4 lora_alpha=32 lora_dropout=0 offload_embeddings_and_head=true per_device_batch_size=1 store=ram --download","next":[],"plan":null,"from":null,"support":null,"model_type":null}

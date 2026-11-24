@@ -1,0 +1,49 @@
+{
+ "arm": "baseline72",
+ "claims_keys": [
+  "baseline.4090.72b"
+ ],
+ "what": "the standard 4-bit QLoRA load with transformers + bitsandbytes + PEFT, everything on the GPU; one update if it loads",
+ "code": {
+  "quantization_config": "BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type='nf4', bnb_4bit_compute_dtype=torch.bfloat16)",
+  "from_pretrained": "AutoModelForCausalLM.from_pretrained(model, revision=rev, quantization_config=bnb, device_map={'': 0}, dtype=torch.bfloat16)",
+  "then": "prepare_model_for_kbit_training(model); get_peft_model(model, LoraConfig(r=16, lora_alpha=32, lora_dropout=0.0, bias='none', task_type='CAUSAL_LM', target_modules=[q,k,v,o,gate,up,down]_proj)); one AdamW update"
+ },
+ "versions": {
+  "torch": "2.14.1",
+  "transformers": "5.22.2",
+  "peft": "0.20.0",
+  "bitsandbytes": "0.50.2",
+  "accelerate": "1.15.0",
+  "safetensors": "0.8.0",
+  "torch_cuda": "13.0"
+ },
+ "outcome": "failed",
+ "error_line": "torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 462.00 MiB. GPU 0 has a total capacity of 23.52 GiB of which 33.69 MiB is free. Including non-PyTorch memory, this process has 0 bytes memory in use. Of the allocated memory 22.59 GiB is allocated by PyTorch, and 454.50 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
+ "stage": "load",
+ "how_far": {
+  "found_model": true,
+  "decoder_layers": 80,
+  "decoder_layers_on_gpu": 39,
+  "decoder_layers_partly_on_gpu": [
+   39
+  ],
+  "highest_full_layer": 38,
+  "tensors_on_gpu": 471,
+  "tensors_total": 965,
+  "bytes_of_tensors_on_gpu_gib": 20.582,
+  "how": "parameters and buffers of the model object held by the loader's frames at the exception, by device"
+ },
+ "peak_reserved_gib": 23.037,
+ "peak_allocated_gib": 22.965,
+ "smi_peak_gib": 23.483,
+ "free_gib_at_failure": 0.033,
+ "card_gib": 23.516,
+ "fail_after_s": 97.94,
+ "transformers_expected_gib": {
+  "cuda:0": 37.34
+ },
+ "host_ram_gib": 0.523,
+ "launch_utc": "2026-11-18T11:26:03Z",
+ "record": "docs/validation/h2h/4090/runs/b72_base.json"
+}

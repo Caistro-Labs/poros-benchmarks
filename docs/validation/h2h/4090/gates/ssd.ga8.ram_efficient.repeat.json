@@ -1,0 +1,22 @@
+{
+ "gate": "run-to-run repeat",
+ "pass": true,
+ "runs": [
+  "a30_ga8_ram_r1",
+  "a30_ga8_ram_r2",
+  "a30_ga8_ram_r3"
+ ],
+ "what": "the same command run again gives the same adapter, bit for bit: one sha256 over every adapter tensor, and every update's loss and grad norm equal",
+ "adapter_digest": [
+  "7ce59384dbd970ff1fadf82be492d671875d04ba4ff9af780e30789491cb77b7",
+  "7ce59384dbd970ff1fadf82be492d671875d04ba4ff9af780e30789491cb77b7",
+  "7ce59384dbd970ff1fadf82be492d671875d04ba4ff9af780e30789491cb77b7"
+ ],
+ "updates": [
+  16,
+  16,
+  16
+ ],
+ "losses_equal": true,
+ "grad_norms_equal": true
+}

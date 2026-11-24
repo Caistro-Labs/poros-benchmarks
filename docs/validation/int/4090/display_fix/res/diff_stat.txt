@@ -1,0 +1,7 @@
+ poros/cli/train_cmd.py     | 157 ++++++++++++++++++++++++++++++++++-----------
+ poros/cli/ui/components.py |  14 ++--
+ poros/cli/ui/curve.py      |  10 +++
+ poros/cli/ui/run_card.py   |  83 ++++++++++++++++++------
+ poros/cli/ui/screens.py    |  98 +++++++++++++++++++---------
+ poros/cli/ui/train_view.py |  21 ++++++
+ 6 files changed, 284 insertions(+), 99 deletions(-)

@@ -1,0 +1,36 @@
+▛▜ poros v1.0.0 · Qwen/Qwen2.5-7B-Instruct · Apple M4 10-core GPU 16GB
+
+● Checked cert-mac-7b-resume  run 1124-0017-70e1
+  │ rank 16 · 256 tokens
+  │ SFT · answers only · lr 2e-5
+  │ output
+  │ <home>/runs/1124-0017-70e1
+  │ weights   <disk>/poros-metal/hf
+  │ resume
+  │ <home>/runs/1124-0017-70e1/checkpoint-8
+  │ eval      2 rows held out  scored at the start, each checkpoint and the end
+
+● Loaded Qwen2.5-7B-Instruct  1.8s
+  │ dense · 28 layers
+● Resumed after step 9/16
+step 10/16  loss 6.7248  8.29 s/step  memory 2.3 GiB (peak 4.4)  eta 50s
+step 16/16  loss 6.7196  5.63 s/step  memory 2.3 GiB (peak 4.4)
+● Scored step 16  held out 6.7198 · ends its answers 0 of 0
+<disk>/poros-metal/venv/lib/python3.12/site-packages/peft/utils/save_and_load.py:438: UserWarning: Could not find a config file in Qwen/Qwen2.5-7B-Instruct - will assume that the vocabulary was not modified.
+  warnings.warn(
+
+● Trained 7 steps · SFT  47s
+  │ final loss 6.7250
+  │ eval loss  6.7198  from 6.9573 on held-out rows  ·  ↓ 3%
+  │
+  │ peak       ━━━━────────────  4.4 GiB of 16.0 GiB
+  │ speed      43 tok/s
+  │
+  │ adapter
+  │ <home>/runs/1124-0017-70e1
+  │ receipt
+  │ <home>/runs/1124-0017-70e1/receipt.json
+
+Continue with: poros eval 1124-0017-70e1
+Keep it as a recipe: poros recipes save last
+{"schema":"poros.runs.v1","learned":null,"do":"continue","runs":[{"id":"1124-0017-70e1","kind":"run","state":"succeeded","model":"Qwen/Qwen2.5-7B-Instruct","name":"cert-mac-7b-resume","output_dir":"<home>/runs/1124-0017-70e1","created_at":"2026-11-24T06:17:30+00:00","started_at":"2026-11-24T06:18:31+00:00","finished_at":"2026-11-24T06:19:21+00:00","step":16,"total":16,"loss":6.752349853515625,"error":null,"folder":"<home>/runs/1124-0017-70e1","from":null,"eval_loss_start":6.957266330718994,"eval_loss":6.7197606563568115,"eval_rows":2,"eval_ends":0,"eval_answer_rows":0,"eval_prefers_start":null,"eval_prefers":null,"best":"poros://1124-0017-70e1/weights/16"}],"report":null,"next":["poros runs 1124-0017-70e1 --live --wait 30"],"more":0,"starts_next":null}

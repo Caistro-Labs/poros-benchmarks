@@ -1,0 +1,1 @@
+~/venv_poros/bin/python -c "import sys; sys.path[:0] = ['~/rf/h2hf_5d75e31a/kit']; import fed_rows, hostpeak; from poros.cli.main import cli; cli()" train ~/rf/h2hf_5d75e31a/rec/a72_ga8_porosfast_r3.yaml --output-dir ~/rf/h2hf_5d75e31a/runs/a72_ga8_porosfast_r3 --yes --json

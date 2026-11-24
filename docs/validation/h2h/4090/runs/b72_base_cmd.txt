@@ -1,0 +1,1 @@
+env -u PYTHONPATH -u POROS_HOME -u POROS_SSS_NATIVE_DIR -u POROS_PROGRESS -u H2HF_HWM_OUT ~/venv_poros/bin/python ~/rf/h2hf_5d75e31a/kit/base72.py --model Qwen/Qwen2.5-72B --revision efba10c8e54e91e0d9570ab5f7b51a958474d4cb --rows ~/rf/h2hf_5d75e31a/data/rows_real128.pt --rank 16 --seq-len 512 --mb 1 --ga 8 --out ~/rf/h2hf_5d75e31a/rec/b72_base_raw.json

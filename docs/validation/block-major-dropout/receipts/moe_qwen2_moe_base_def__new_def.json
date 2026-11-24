@@ -1,0 +1,32 @@
+{
+ "a": "runs/moe_qwen2_moe_base_def/dump.pt",
+ "b": "runs/moe_qwen2_moe_new_def/dump.pt",
+ "a_resolved": {
+  "block_major_accumulation": false,
+  "lora_dropout": 0.05,
+  "moe_expert_grouping": null,
+  "offload_boundaries": false,
+  "grouping_ran": "pow2"
+ },
+ "b_resolved": {
+  "block_major_accumulation": false,
+  "lora_dropout": 0.05,
+  "moe_expert_grouping": null,
+  "offload_boundaries": false,
+  "grouping_ran": "pow2"
+ },
+ "losses_equal": true,
+ "grad_norms_equal": true,
+ "adapter_tensors": 8,
+ "adapter_keys_equal": true,
+ "adapter_unequal": 0,
+ "a_losses": [
+  4.568391799926758,
+  4.560667514801025
+ ],
+ "b_losses": [
+  4.568391799926758,
+  4.560667514801025
+ ],
+ "equal": true
+}

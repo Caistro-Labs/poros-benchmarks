@@ -1,0 +1,23 @@
+{
+  "model": "Qwen/Qwen2.5-0.5B",
+  "quantization": "nf4",
+  "dataset": "synthetic",
+  "steps": 5,
+  "seq_len": 128,
+  "block_size": 4,
+  "learning_rate": 2e-05,
+  "warmup_steps": 100,
+  "lr_scheduler": "cosine",
+  "nf4_load_strategy": "block_streamed",
+  "setup_seconds": 7.13,
+  "train_seconds": 30.83,
+  "s_per_step": 6.167,
+  "loss_first": 13.15220832824707,
+  "loss_last": 13.057304382324219,
+  "peak_vram_gb": 0.96,
+  "load_peak_vram_gb": 0.75,
+  "steady_state_vram_gb": 0.73,
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "torch": "2.11.0+cu128",
+  "peak_host_rss_gb": 2.39
+}

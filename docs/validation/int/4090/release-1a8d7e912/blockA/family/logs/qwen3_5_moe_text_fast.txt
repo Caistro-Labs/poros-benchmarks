@@ -1,0 +1,37 @@
+▛▜ poros v1.0.0 · <home>/poros_rel/hf_cert/fg_models/Qwen_Qwen3.6-35B-A3B__text4
+
+● Checked qwen3_5_moe_text_fast.yaml  config
+  │ nf4 · rank 16 · seq 512 · fast path
+  │ classic · every token · lr 2e-5
+  │ output    ~/poros_rel/cert/out/family/fg/runs/qwen3_5_moe_text_fast
+  │ eval      none held out  this loop trains every row
+  │           to score held-out rows, give a file of them: eval_dataset, or --eval FILE; or recipe sft (--recipe sft), which holds 5% of 40 rows or more out
+
+● Loaded Qwen_Qwen3.6-35B-A3B__text4  14s
+  │ MoE · 4 layers · 256 experts
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+step 1/8  loss 11.3212  2.78 s/step  vram 3.0 GiB (peak 3.6)  eta 19s
+MoE expert cache 1.55 GiB, sized on update 1 (every expert (1.55 GiB) is cached: 22.97 GiB this process may hold - 3.91 GiB reserved peak - 0.01 GiB for longer updates - 4.59 GiB margin)
+
+  ╭─ Trained ────────────────────────────────────────────────────────── 8 steps · classic · 15s ─╮
+  │                                                                      final loss              │
+  │                                                                      11.4342  ↑ 1%           │
+  │ 11.5                                                              ▁  from 11.3212            │
+  │      ▃▁                ▁▁▂▂▂▃▃▃▄▂                             ▁▃▅▇█                          │
+  │      ██▇▅▃▁        ▂▄▆████████████▆▅▃▁                    ▁▃▅▇█████  vram 5.3 GiB peak       │
+  │ 11.0 ██████▆▄▂▁▃▅▇████████████████████▇▅▃▁             ▂▄▇█████████  ram  13.3 GiB peak      │
+  │      █████████████████████████████████████▇▅▃▁      ▂▅▇████████████                          │
+  │      █████████████████████████████████████████▇▅▃▃▆████████████████                          │
+  │ 10.5 ██████████████████████████████████████████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                                  4                         8                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      3,207 tok/s
+  │
+  │ adapter    ~/poros_rel/cert/out/family/fg/runs/qwen3_5_moe_text_fast
+  │ receipt    ~/poros_rel/cert/out/family/fg/runs/qwen3_5_moe_text_fast/receipt.json
+
+Continue with: poros eval <home>/poros_rel/cert/out/family/fg/cfg/qwen3_5_moe_text_fast.yaml
+{"schema":"poros.train.v1","learned":null,"output_dir":"<home>/poros_rel/cert/out/family/fg/runs/qwen3_5_moe_text_fast","events":"<home>/poros_rel/cert/out/family/fg/runs/qwen3_5_moe_text_fast/events.jsonl","metrics":{"device":"cuda:0","total_steps":8,"final_loss":11.434225082397461,"loss_history":[11.321189880371094,10.925054550170898,11.26659107208252,11.32668399810791,10.99303150177002,10.626691818237305,11.068221092224121,11.434225082397461],"grad_norm_history":[0.5625,0.59765625,0.5546875,0.59375,0.609375,0.53125,0.59375,0.578125],"eval_history":[],"total_time_s":7.479196364060044,"step_time_history":[2.7757048327475786,0.7255113441497087,0.6769239157438278,0.6683937460184097,0.6720982436090708,0.7251527961343527,0.6101846192032099,0.625226866453886],"vram_alloc_history_mb":[3259.316224,4505.596416,4505.614848,4505.604096,4505.60256,4505.608704,4505.599488,4505.61024],"avg_vram_allocated_mb":4349.819072,"avg_step_time_ms":934.8995455075055,"steps_per_sec":1.0696336358332006,"tokens_processed":23986,"tokens_per_sec":3207.029048636894,"peak_vram_allocated_gb":5.58903552,"peak_vram_reserved_gb":5.80911104,"torch_num_threads":16,"quantization":"nf4","block_size":null,"adapter_backend":"native","adapter_summary":null},"run":null,"command":null,"next":[],"plan":null,"from":null,"support":null,"model_type":null}

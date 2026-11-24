@@ -1,0 +1,17 @@
+{
+  "model": "Qwen/Qwen2.5-32B",
+  "quantization": "nf4",
+  "dataset": "synthetic",
+  "steps": 50,
+  "seq_len": 512,
+  "block_size": 4,
+  "setup_seconds": 345.47,
+  "train_seconds": 857.67,
+  "s_per_step": 17.153,
+  "loss_first": 12.610068321228027,
+  "loss_last": 12.025638580322266,
+  "peak_vram_gb": 11.02,
+  "steady_state_vram_gb": 8.58,
+  "gpu": "NVIDIA A100 80GB PCIe",
+  "torch": "2.7.1+cu126"
+}

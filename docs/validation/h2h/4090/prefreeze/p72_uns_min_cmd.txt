@@ -1,0 +1,1 @@
+~/venv_unsloth/bin/python ~/rf/h2hf_0398b814/kit/h2h_u7.py --model Qwen/Qwen2.5-72B --rows ~/h2h/data30/rows_real64.pt --deterministic --out ~/rf/h2hf_0398b814/rec/p72_uns_min_raw.json  --offload-layers 80 --mb 1 --ga 8 --updates 8 --time-limit-s 5400  --offload-embedding true --load-id ~/rf/h2hf_0398b814/mirror72

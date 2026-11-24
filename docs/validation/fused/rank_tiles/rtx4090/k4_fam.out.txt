@@ -1,0 +1,31 @@
+RUN fk_qwen2_fused_mb1 rc=0 steps=100 s_med_2_8=2.471 s=[9.743, 2.02, 2.534, 2.531, 2.032, 2.01, 2.581, 2.538, 2.058, 2.
+RUN fk_qwen2_seq rc=0 steps=8 s_med_2_8=1.526 s=[3.376, 1.539, 1.533, 1.523, 1.525, 1.529, 1.526, 1.492] loss=[1.9401605
+RUN fk_qwen2_eff rc=0 steps=8 s_med_2_8=1.292 s=[2.338, 1.29, 1.296, 1.298, 1.299, 1.284, 1.285, 1.292] loss=[1.94016051
+RUN fk_qwen2_fast rc=0 steps=8 s_med_2_8=1.065 s=[1.911, 1.069, 1.043, 1.065, 1.088, 1.073, 1.061, 1.061] loss=[1.940160
+RUN fk_qwen2_fast_res rc=0 steps=8 s_med_2_8=1.015 s=[1.848, 1.027, 1.04, 0.928, 1.011, 1.028, 1.015, 1.012] loss=[1.940
+FAMILY qwen2 refcheck_fused_equal True paths_equal True [True, True, True, True, True, True, True] PASS c4b0d416d7a56844
+RUN fk_qwen3_fused_mb1 rc=0 steps=100 s_med_2_8=3.023 s=[3.808, 2.974, 3.062, 2.988, 2.97, 2.99, 2.954, 2.952, 2.958, 2.
+RUN fk_qwen3_seq rc=0 steps=8 s_med_2_8=2.107 s=[2.928, 2.142, 2.116, 2.107, 2.11, 2.1, 2.105, 2.101] loss=[2.0712859630
+RUN fk_qwen3_eff rc=0 steps=8 s_med_2_8=1.828 s=[2.855, 1.818, 1.828, 1.824, 1.839, 1.838, 1.821, 1.838] loss=[2.0712859
+RUN fk_qwen3_fast rc=0 steps=8 s_med_2_8=1.589 s=[2.404, 1.574, 1.589, 1.587, 1.589, 1.598, 1.589, 1.584] loss=[2.071285
+RUN fk_qwen3_fast_res rc=0 steps=8 s_med_2_8=1.554 s=[2.354, 1.545, 1.558, 1.554, 1.548, 1.542, 1.567, 1.56] loss=[2.071
+FAMILY qwen3 refcheck_fused_equal True paths_equal True [True, True, True, True, True, True, True] PASS f1d61b84f76a6b73
+RUN fk_qwen3_5_fused_mb1 rc=0 steps=100 s_med_2_8=4.293 s=[5.23, 4.277, 4.403, 4.331, 4.293, 4.28, 4.299, 4.324, 4.289, 
+RUN fk_qwen3_5_seq rc=0 steps=8 s_med_2_8=3.15 s=[4.025, 3.144, 3.377, 3.122, 3.118, 3.158, 3.15, 3.171] loss=[1.9784204
+RUN fk_qwen3_5_eff rc=0 steps=8 s_med_2_8=2.463 s=[3.588, 2.462, 2.463, 2.456, 2.448, 2.469, 2.529, 2.509] loss=[1.97842
+RUN fk_qwen3_5_fast rc=0 steps=8 s_med_2_8=2.319 s=[3.219, 2.31, 2.305, 2.319, 2.317, 2.326, 2.451, 2.33] loss=[1.978420
+RUN fk_qwen3_5_fast_res rc=0 steps=8 s_med_2_8=2.292 s=[3.166, 2.246, 2.266, 2.281, 2.315, 2.292, 2.362, 2.34] loss=[1.9
+FAMILY qwen3_5 refcheck_fused_equal True paths_equal True [True, True, True, True, True, True, True] PASS 6e851ffcd4988747
+RUN fk_gemma3_fused_mb1 rc=0 steps=100 s_med_2_8=2.487 s=[3.311, 2.451, 2.509, 2.479, 2.528, 2.527, 2.523, 2.504, 2.509,
+RUN fk_gemma3_seq rc=0 steps=8 s_med_2_8=1.715 s=[2.534, 1.706, 1.715, 1.73, 1.696, 1.734, 1.695, 1.718] loss=[2.4221668
+RUN fk_gemma3_eff rc=0 steps=8 s_med_2_8=1.476 s=[2.486, 1.469, 1.458, 1.476, 1.472, 1.476, 1.476, 1.495] loss=[2.422166
+RUN fk_gemma3_fast rc=0 steps=8 s_med_2_8=1.329 s=[2.14, 1.31, 1.332, 1.326, 1.342, 1.339, 1.329, 1.299] loss=[2.4221668
+RUN fk_gemma3_fast_res rc=0 steps=8 s_med_2_8=1.298 s=[2.112, 1.282, 1.303, 1.29, 1.29, 1.298, 1.305, 1.303] loss=[2.422
+FAMILY gemma3 refcheck_fused_equal True paths_equal True [True, True, True, True, True, True, True] PASS fd8286ffa4b80bd1
+RUN fk_gemma4_fused_mb1 rc=0 steps=100 s_med_2_8=1.314 s=[2.073, 1.251, 1.353, 1.323, 1.29, 1.282, 1.263, 1.354, 1.314, 
+RUN fk_gemma4_seq rc=0 steps=8 s_med_2_8=2.011 s=[2.664, 2.01, 2.01, 2.011, 2.016, 2.019, 1.972, 2.015] loss=[40.7632751
+RUN fk_gemma4_eff rc=0 steps=8 s_med_2_8=1.59 s=[2.413, 1.59, 1.578, 1.591, 1.595, 1.585, 1.548, 1.605] loss=[40.7632751
+RUN fk_gemma4_fast rc=0 steps=8 s_med_2_8=1.506 s=[2.154, 1.507, 1.513, 1.505, 1.506, 1.508, 1.462, 1.502] loss=[40.7632
+RUN fk_gemma4_fast_res rc=0 steps=8 s_med_2_8=1.465 s=[2.084, 1.465, 1.48, 1.456, 1.48, 1.453, 1.421, 1.477] loss=[40.76
+FAMILY gemma4 refcheck_fused_equal True paths_equal True [True, True, True, True, True, True, True] PASS 569e76e5b6f6d501
+2026-11-14T03:01:12Z

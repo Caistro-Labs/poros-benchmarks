@@ -1,0 +1,39 @@
+▛▜ poros v0.3.0 · Qwen/Qwen3-30B-A3B · RTX 4060 Laptop GPU 7.7 GiB
+
+● Checked l30_poros_r2.yaml  config
+  │ nf4 · block 4 · rank 8 · seq 256 · fast path
+  │ classic · every token · lr 2e-5
+  │ output    run/runs/l30_poros_r2
+  │ store     ssd ~/poros-run/store
+
+● Loaded Qwen3-30B-A3B  7.9s
+  │ MoE · 48 layers · 128 experts
+step 1/16  loss 1.2755  18.54 s/step  vram 3.3 GiB (peak 4.5)  eta 4m 38s
+MoE expert cache 0.29 GiB, sized on an update at the full shape (fits this GPU: 6.63 GiB this process may hold - 5.49 GiB reserved peak - 3.00 GiB margin)
+step 4/16  loss 1.3529  13.10 s/step  vram 3.3 GiB (peak 4.7)  eta 2m 55s
+step 7/16  loss 1.4120  12.46 s/step  vram 3.3 GiB (peak 4.7)  eta 2m 03s
+step 10/16  loss 1.4544  13.09 s/step  vram 3.3 GiB (peak 4.7)  eta 1m 21s
+step 13/16  loss 1.2464  12.60 s/step  vram 3.3 GiB (peak 4.7)  eta 40s
+step 16/16  loss 1.3809  11.45 s/step  vram 3.3 GiB (peak 4.7)
+
+  ╭─ Trained ────────────────────────────────────────────────────── 16 steps · classic · 3m 34s ─╮
+  │                                                                      final loss              │
+  │          ▁                    ▂▃▅▆▄                           ▁      1.2895  ↑ 1%            │
+  │  1.5   ▁▅█▇▅▃▁        ▁▂▃▄▅▆▇███████▄                     ▁▃▅▇█▅▁    from 1.2755             │
+  │      ▁▅███████▅▁    ▃▇███████████████▇▄             ▂▅▆▇█████████▆▂                          │
+  │      ███████████▅▁▃▇████████████████████▅▂ ▂▄▅▆▆▆▆▆████████████████  vram 4.7 GiB peak       │
+  │  1.0 ██████████████████████████████████████████████████████████████  ram  6.8 GiB peak       │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │  0.5 ██████████████████████████████████████████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                                8                          16                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      157 tok/s
+  │
+  │ adapter    run/runs/l30_poros_r2
+  │ receipt    run/runs/l30_poros_r2/receipt.json
+
+Continue with: poros eval ~/poros-run/run/rec/l30_poros_r2.yaml
+{"schema":"poros.train.v1","learned":null,"output_dir":"~/poros-run/run/runs/l30_poros_r2","events":"~/poros-run/run/runs/l30_poros_r2/events.jsonl","metrics":{"device":"cuda:0","total_steps":16,"final_loss":1.2894834280014038,"loss_history":[1.2755134105682373,1.6098294258117676,1.4398216009140015,1.0863724946975708,1.4221731424331665,1.5133014917373657,1.5985201597213745,1.7219806909561157,1.3574285507202148,1.0807119607925415,1.212437629699707,1.2026643753051758,1.3786373138427734,1.4336113929748535,1.60016930103302,1.2894834280014038],"grad_norm_history":[0.423828125,0.421875,0.380859375,0.33984375,0.43359375,0.416015625,0.515625,0.43359375,0.482421875,0.50390625,0.421875,0.466796875,0.51953125,0.404296875,0.765625,0.375],"eval_history":[],"total_time_s":209.06732020699928,"step_time_history":[18.54230627600191,13.030537007998646,13.766546562001167,13.100482156998623,11.972927433998848,12.540884669997467,12.46392996099894,13.096024204001878,13.010460738001711,13.090445939000347,14.759431383998162,12.329681254999741,12.603516939998372,11.98817166200024,11.321438733000832,11.450535284002399],"vram_alloc_history_mb":[3536.497664,3536.497664,3536.497664,3536.497664,3536.497664,3536.497664,3536.497664,3536.497664,3536.497664,3536.497664,3536.497664,3536.497664,3536.497664,3536.497664,3536.497664,3536.497664],"avg_vram_allocated_mb":3536.497664,"avg_step_time_ms":13066.707512937455,"steps_per_sec":0.0765303730117087,"tokens_processed":32768,"tokens_per_sec":156.73420392797942,"peak_vram_allocated_gb":4.990454272,"peak_vram_reserved_gb":6.046089216,"torch_num_threads":8,"quantization":"nf4","block_size":null,"adapter_backend":"native","adapter_summary":null},"run":null,"command":null,"next":[],"plan":null,"from":null,"support":null,"model_type":null}

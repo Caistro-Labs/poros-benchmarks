@@ -1,0 +1,55 @@
+....s..s.s.s                                                             [100%]
+==================================== PASSES ====================================
+___________ test_run_block_major_equals_sequential[qwen2-False-0.0] ____________
+---------------------------- Captured stderr setup -----------------------------
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 214.02it/s]
+----------------------------- Captured stderr call -----------------------------
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+------------------------------ Captured log call -------------------------------
+WARNING  transformers.modeling_utils:logging.py:340 `torch_dtype` is deprecated! Use `dtype` instead!
+WARNING  poros.core.boundary_offload:boundary_offload.py:158 offload_boundaries: page-locked memory refused (pin budget); boundaries go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 28.75 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+WARNING  poros.train.trainer:trainer.py:2152 offload_boundaries after update 1: {'offloaded': 8, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 270336, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'unpinned', 'pinned_budget_bytes': 0, 'budget_basis': 'POROS_PIN_BUDGET', 'granted_bytes': 0, 'refusals': 84}
+___________ test_run_block_major_equals_sequential[qwen2-False-0.1] ____________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.boundary_offload:boundary_offload.py:158 offload_boundaries: page-locked memory refused (pin budget); boundaries go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 28.74 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+WARNING  poros.train.trainer:trainer.py:2152 offload_boundaries after update 1: {'offloaded': 8, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 270336, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'unpinned', 'pinned_budget_bytes': 0, 'budget_basis': 'POROS_PIN_BUDGET', 'granted_bytes': 0, 'refusals': 168}
+____________ test_run_block_major_equals_sequential[qwen2-True-0.0] ____________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.boundary_offload:boundary_offload.py:158 offload_boundaries: page-locked memory refused (pin budget); boundaries go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 28.74 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+WARNING  poros.train.trainer:trainer.py:2152 offload_boundaries after update 1: {'offloaded': 8, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 270336, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'unpinned', 'pinned_budget_bytes': 0, 'budget_basis': 'POROS_PIN_BUDGET', 'granted_bytes': 0, 'refusals': 252}
+____________ test_run_block_major_equals_sequential[qwen2-True-0.1] ____________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.boundary_offload:boundary_offload.py:158 offload_boundaries: page-locked memory refused (pin budget); boundaries go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 28.74 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+WARNING  poros.train.trainer:trainer.py:2152 offload_boundaries after update 1: {'offloaded': 8, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 270336, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'unpinned', 'pinned_budget_bytes': 0, 'budget_basis': 'POROS_PIN_BUDGET', 'granted_bytes': 0, 'refusals': 336}
+____ test_preference_pairs_block_major_equal_sequential_with_dropout[qwen2] ____
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.boundary_offload:boundary_offload.py:158 offload_boundaries: page-locked memory refused (pin budget); boundaries go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 28.72 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+WARNING  poros.train.trainer:trainer.py:2152 offload_boundaries after update 1: {'offloaded': 8, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 401408, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'unpinned', 'pinned_budget_bytes': 0, 'budget_basis': 'POROS_PIN_BUDGET', 'granted_bytes': 0, 'refusals': 420}
+_________ test_run_block_major_equals_sequential[qwen3_moe-False-0.0] __________
+---------------------------- Captured stderr setup -----------------------------
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 281.36it/s]
+------------------------------ Captured log call -------------------------------
+WARNING  poros.moe.arch:arch.py:113 poros.moe is tested on transformers>=5.13,<5.21, found 5.22.2. The streamed loader still refuses an expert conversion it does not know; to stay on the tested range, run: pip install 'transformers>=5.13,<5.21'
+WARNING  poros.core.boundary_offload:boundary_offload.py:158 offload_boundaries: page-locked memory refused (pin budget); boundaries go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 28.68 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+WARNING  poros.train.trainer:trainer.py:2152 offload_boundaries after update 1: {'offloaded': 8, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 67584, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'unpinned', 'pinned_budget_bytes': 0, 'budget_basis': 'POROS_PIN_BUDGET', 'granted_bytes': 0, 'refusals': 470}
+WARNING  poros.train.trainer:trainer.py:2365 block-major MoE expert dequant cache after update 1: hits 296 misses 80
+WARNING  poros.train.trainer:trainer.py:2383 block-major MoE: expert residency grown to 0 MiB after update 1
+__________ test_run_block_major_equals_sequential[qwen3_moe-True-0.0] __________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.boundary_offload:boundary_offload.py:158 offload_boundaries: page-locked memory refused (pin budget); boundaries go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 28.68 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+WARNING  poros.train.trainer:trainer.py:2152 offload_boundaries after update 1: {'offloaded': 8, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 67584, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'unpinned', 'pinned_budget_bytes': 0, 'budget_basis': 'POROS_PIN_BUDGET', 'granted_bytes': 0, 'refusals': 520}
+WARNING  poros.train.trainer:trainer.py:2365 block-major MoE expert dequant cache after update 1: hits 888 misses 240
+WARNING  poros.train.trainer:trainer.py:2383 block-major MoE: expert residency grown to 0 MiB after update 1
+=========================== short test summary info ============================
+PASSED tests/test_run_block_major_cuda.py::test_run_block_major_equals_sequential[qwen2-False-0.0]
+PASSED tests/test_run_block_major_cuda.py::test_run_block_major_equals_sequential[qwen2-False-0.1]
+PASSED tests/test_run_block_major_cuda.py::test_run_block_major_equals_sequential[qwen2-True-0.0]
+PASSED tests/test_run_block_major_cuda.py::test_run_block_major_equals_sequential[qwen2-True-0.1]
+PASSED tests/test_run_block_major_cuda.py::test_preference_pairs_block_major_equal_sequential_with_dropout[qwen2]
+PASSED tests/test_run_block_major_cuda.py::test_run_block_major_equals_sequential[qwen3_moe-False-0.0]
+PASSED tests/test_run_block_major_cuda.py::test_run_block_major_equals_sequential[qwen3_moe-True-0.0]
+PASSED tests/test_run_block_major_cuda.py::test_block_major_on_a_moe_model_at_a_dropout_is_refused_before_it_loads[qwen3_moe]
+SKIPPED [1] tests/test_run_block_major_cuda.py:101: dense: any dropout trains block-major
+SKIPPED [2] tests/test_run_block_major_cuda.py:92: a MoE model trains sequentially at a dropout above 0 (see below)
+SKIPPED [1] tests/test_run_block_major_cuda.py:110: dense
+8 passed, 4 skipped in 23.82s

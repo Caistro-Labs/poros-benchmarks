@@ -1,0 +1,237 @@
+{
+ "schema": "h2hf.run.v1",
+ "name": "c8_poros_r1",
+ "tool": "poros",
+ "arm": "c8_poros",
+ "round": 1,
+ "site": "4090",
+ "commit": "5d75e31a486cdf19e397e2d0f748def98083ecc8",
+ "tree": "0973100366871afc06c796987f5caedf38741b1a",
+ "model": "Qwen/Qwen3-30B-A3B",
+ "model_revision": "ad44e777bcd18fa416d9da3bd8f70d33ebb85d39",
+ "model_key": "30b_a3b",
+ "rc": 3,
+ "launch_epoch": 1794987067.4535248,
+ "launch_utc": "2026-11-18T07:31:07Z",
+ "queued_utc": "2026-11-18T07:31:07Z",
+ "cmd": "~/venv_poros/bin/python -c \"import sys; sys.path[:0] = ['~/rf/h2hf_5d75e31a/kit']; import fed_rows, hostpeak; from poros.cli.main import cli; cli()\" train ~/rf/h2hf_5d75e31a/rec/c8_poros_r1.yaml --output-dir ~/rf/h2hf_5d75e31a/runs/c8_poros_r1 --yes --json",
+ "env": {
+  "H2HF_ALLOW_DROP_30B": "1",
+  "H2HF_DATA_ROWS": "~/rf/h2hf_5d75e31a/data/rows_cap_s256.pt",
+  "H2HF_GPU_IDLE_MIB": "18618",
+  "H2HF_HELD": "1",
+  "H2HF_HOST_CAP": "none (no cgroup manager for this user on the box); the laptop has 14.9 GiB",
+  "H2HF_HWM_OUT": "~/rf/h2hf_5d75e31a/rec/c8_poros_r1_hostpeak.json",
+  "H2HF_SHA": "5d75e31a486cdf19e397e2d0f748def98083ecc8",
+  "H2HF_VRAM_CAP": "free 6246 MiB: kit/vram_ballast.py holds the rest of the card",
+  "HF_HOME": "~/hf",
+  "HF_HUB_DISABLE_TELEMETRY": "1",
+  "HF_HUB_OFFLINE": "1",
+  "POROS_HOME": "~/rf/h2hf_5d75e31a/home",
+  "POROS_PROGRESS": "0",
+  "POROS_SSS_NATIVE_DIR": "~/rf/h2hf_5d75e31a/sssnative",
+  "PYTHONPATH": "~/rf/h2hf_5d75e31a/src",
+  "TMPDIR": "~/rf/h2hf_5d75e31a/tmp",
+  "TRITON_CACHE_DIR": "~/rf/h2hf_5d75e31a/triton/cache",
+  "PYTORCH_ALLOC_CONF": "unset",
+  "PYTORCH_CUDA_ALLOC_CONF": "unset"
+ },
+ "seq_len": 256,
+ "alloc_env": {
+  "PYTORCH_ALLOC_CONF": "unset",
+  "PYTORCH_CUDA_ALLOC_CONF": "unset"
+ },
+ "caps": {
+  "vram": "free 6246 MiB: kit/vram_ballast.py holds the rest of the card",
+  "host": "<host>",
+  "ballast": {
+   "target_free_mib": 6246,
+   "card_total_mib": 24564,
+   "used_mib": 18318,
+   "free_mib": 6246,
+   "ballast_tensors_mib": 17858,
+   "mem_get_info_free_mib": 5763,
+   "how": "another process holds the rest of the card's memory (kit/vram_ballast.py)"
+  }
+ },
+ "pre": {
+  "gpu_used_mib": 18318,
+  "mem_available_gib": 59,
+  "waited_s": 0,
+  "settled": true
+ },
+ "machine": {
+  "site": "4090",
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "gpu_mib": "24564",
+  "driver": "580.173.02",
+  "cpu": "AMD EPYC 7502 32-Core Processor",
+  "threads": "64",
+  "ram_gib": 59.6,
+  "os": "Ubuntu 24.04.1 LTS",
+  "kernel": "6.8.0-124-generic",
+  "etc_environment_alloc": "PYTORCH_ALLOC_CONF=expandable_segments:False"
+ },
+ "status": "failed",
+ "error": " allocate 192.00 MiB. GPU 0 has a total capacity of 23.52 GiB of which 150.38 MiB is free. Process 3457488 has 0 bytes memory in use. Including non-PyTorch memory, this process has 0 bytes memory in use. Of the allocated memory 4.26 GiB is allocated by PyTorch, and 702.32 MiB is reserved by PyTorch but unallocated.\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"~/rf/h2hf_5d75e31a/src/poros/cli/train_cmd.py\", line 620, in _train_and_save\n    metrics = trainer.train(\n              ^^^^^^^^^^^^^^\n  File \"~/rf/h2hf_5d75e31a/kit/hostpeak.py\", line 85, in _train\n    return _orig_train(self, *a, **k)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"~/rf/h2hf_5d75e31a/src/poros/train/trainer.py\", line 970, in train\n    return self._train_blockwise_adapters(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"~/rf/h2hf_5d75e31a/src/poros/train/loop.py\", line 181, in _train_blockwise_adapters\n    raise PorosOOMError(\nporos.core.errors.PorosOOMError: GPU out of memory during blockwise training.\n\nRemediation: Try reducing block_size or seq_len. Current seq_len=256; try seq_len=128.\n\nDocs: poros docs limitations\n{\"schema\":\"poros.error.v1\",\"error\":{\"code\":\"E_OOM\",\"exit_code\":3,\"message\":\"GPU out of memory during blockwise training.\",\"hint\":\"Try reducing block_size or seq_len. Current seq_len=256; try seq_len=128.\",\"remediation\":{\"max_seq_length\":128},\"docs\":\"poros docs limitations\"}}\n",
+ "shape": {
+  "mb": 1,
+  "ga": 8
+ },
+ "updates": 1,
+ "s_per_update": [
+  37.652
+ ],
+ "s_med_2_N": null,
+ "s_med_3_N": null,
+ "n_measured": 0,
+ "load_s": 13.74,
+ "setup_event_s": 16.89,
+ "load_peak_vram_alloc_gib": 3.456,
+ "load_peak_vram_reserved_gib": 3.463,
+ "load_peak_host_gib": 6.248,
+ "load_host": {
+  "at": "entry of PorosTrainer.train",
+  "status_kb": {
+   "VmLck_kb": 0,
+   "VmPin_kb": 0,
+   "VmHWM_kb": 6925396,
+   "VmRSS_kb": 6003056,
+   "RssAnon_kb": 3501948,
+   "RssFile_kb": 393716,
+   "RssShmem_kb": 2107392
+  },
+  "peak_anon_shmem_gib": 6.248,
+  "after_load_allocated_gib": 1.769,
+  "after_load_reserved_gib": 2.682
+ },
+ "host_peak_anon_shmem_gib": 6.248,
+ "load_end_epoch": 1794987081.1907802,
+ "t1_s": 54.55,
+ "vram_alloc_gib": 3.456,
+ "vram_reserved_gib": 3.463,
+ "train_peak_vram_alloc_gib": null,
+ "train_peak_vram_reserved_gib": null,
+ "host_ram_gib": 6.248,
+ "memory_unit": "GiB",
+ "memory_source": "max(receipt.json training-phase peak, decimal GB x 1e9 / 2^30; load-phase peak from torch, bytes / 2^30); host = VmHWM / 2^20 (kit/hostpeak)",
+ "raw": {
+  "unit": "GB (1e9 bytes)",
+  "peak_vram_allocated_gb": null,
+  "peak_vram_reserved_gb": null,
+  "peak_host_ram_gb": null,
+  "VmHWM_kb": 6925396,
+  "receipt_s_per_step": null,
+  "receipt_wall_s": null,
+  "poros_version": null,
+  "gpu": null
+ },
+ "adapter_digest": null,
+ "adapter_tensors": null,
+ "rows_sha256": "e6fdf8a12f76fe0a478f39f8c938cb86b19c0a4f9eff476dd2432241c5a22e71",
+ "trainable": {
+  "params": null,
+  "dtypes": null,
+  "asked_targets": null,
+  "groups": null,
+  "rank": 8
+ },
+ "rows_fed": 16,
+ "rows_full_length": true,
+ "losses": [
+  1.2789831161499023
+ ],
+ "grad_norms": [
+  0.427734375
+ ],
+ "poros": {
+  "asked_path": "fast",
+  "asked_store": "ssd",
+  "asked_store_options": null,
+  "asked_keys": [
+   "dataset",
+   "deterministic",
+   "eval_split",
+   "gradient_accumulation_steps",
+   "learning_rate",
+   "logging_steps",
+   "lora_alpha",
+   "lora_dropout",
+   "lora_rank",
+   "lr_scheduler",
+   "max_grad_norm",
+   "max_seq_length",
+   "max_steps",
+   "model_name_or_path",
+   "model_revision",
+   "path",
+   "per_device_batch_size",
+   "progress",
+   "quantization",
+   "save_steps",
+   "seed",
+   "store",
+   "store_path",
+   "warmup_steps",
+   "weight_decay"
+  ],
+  "ran_path": null,
+  "path": "fast",
+  "store": "ssd",
+  "store_options": {},
+  "block_size": null,
+  "resident_blocks": 0,
+  "fused_compute": null,
+  "moe_expert_compute": null,
+  "moe_expert_cache_gib": null,
+  "nf4_dequant_cache_mb": null,
+  "offload_embeddings_and_head": null,
+  "cuda_expandable_segments": true,
+  "deterministic": true,
+  "lora": [
+   8,
+   16,
+   0.0
+  ],
+  "arch": null,
+  "host_staging": null
+ },
+ "alloc_env_seen": {
+  "PYTORCH_ALLOC_CONF": "unset",
+  "PYTORCH_CUDA_ALLOC_CONF": "unset"
+ },
+ "alloc_env_set_by_tool": {
+  "PYTORCH_ALLOC_CONF": "unset",
+  "PYTORCH_CUDA_ALLOC_CONF": "unset"
+ },
+ "host_vmhwm_gib": 6.605,
+ "load_peak_host_vmhwm_gib": 6.605,
+ "host_sampler": {
+  "source": "kit/hostsamp.py: RssAnon + RssShmem summed over the process tree",
+  "interval_s": 0.25,
+  "samples": 255,
+  "longest_gap_s": 0.264,
+  "processes_max": 3,
+  "anon_gib_at_peak": 5.241,
+  "shmem_gib_at_peak": 1.008,
+  "file_backed_gib_max": 0.878,
+  "vmhwm_gib_seen": 6.622,
+  "inprocess_1hz_peak_anon_shmem_gib": 6.248,
+  "inprocess_1hz_load_peak_anon_shmem_gib": 6.248
+ },
+ "smi": {
+  "samples": 61,
+  "baseline_mib": 18318,
+  "load_peak_gib": 3.864,
+  "run_peak_gib": 5.604,
+  "note": "nvidia-smi memory.used minus the pre-launch reading; includes the CUDA context (~0.3-0.5 GiB) torch's counters leave out"
+ },
+ "disk_gb_per_update": [
+  29.18
+ ],
+ "disk_gb_med_2_N": null,
+ "host_cache_gb_served_total": 0.0,
+ "io_read_gb_per_update_2_N": [],
+ "io_read_gb_med_2_N": null,
+ "rows_file": "rows_cap_s256.pt"
+}

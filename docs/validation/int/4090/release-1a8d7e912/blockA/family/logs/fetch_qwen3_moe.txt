@@ -1,0 +1,9 @@
+model-00001-of-00016.safetensors: 145 tensors, 1022.5 MiB
+model-00001-of-00016.safetensors: 338 tensors, 1023.5 MiB
+model-00001-of-00016.safetensors: 337 tensors, 1023.5 MiB
+model-00001-of-00016.safetensors: 243 tensors, 744.5 MiB
+model-00002-of-00016.safetensors: 344 tensors, 1023.0 MiB
+model-00002-of-00016.safetensors: 166 tensors, 510.5 MiB
+model-00016-of-00016.safetensors: 1 tensors, 593.5 MiB
+model-00016-of-00016.safetensors: 1 tensors, 0.0 MiB
+FETCH wrote <home>/poros_rel/hf_cert/fg_models/Qwen_Qwen3-30B-A3B__trunc4 qwen3_moe 3114814464 params sha256 194b46afa881670d

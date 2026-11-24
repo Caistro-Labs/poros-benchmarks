@@ -1,0 +1,21 @@
+family_gate: tree <path> -> <path>
+start 2026-11-18T03:31:45Z
+PASS  env                                sha 5d75e31a486c dirty=0 {"gpu": "NVIDIA GeForce RTX 4090", "capability": [8, 9], "vram_gib": 23.52, "driver": "580.173.02", "torch": "2.14.1+cu130", "cuda": "13.0", "transformers": "5.22.2", "peft": "0.20.0", "bitsandbytes": "0.50.2", "triton": "3.8.0", "python": "3.12.3", "poros": "
+PASS  data                               6c8609d5be317280 <path>
+--- qwen2 (Qwen/Qwen2.5-0.5B @ 060db649 snapshot 0) 2026-11-18T03:32:04Z
+PASS  qwen2:fetch                        FETCH snapshot <path> -> <path>
+PASS  qwen2:check                        model_type=qwen2 status=validated
+PASS  qwen2:paths                        seq==eff==fast==resident digest 827d930457002514 | ran_path=fast fused_compute=True moe_expert_compute=None moe_expert_cache_gib=None compute_reason=None
+PASS  qwen2:repeat                       fast twice bitwise, digest 827d930457002514
+PASS  qwen2:ran                          every run: the path asked ran, no offload_reason, fused=True reason=none
+PASS  qwen2:resume                       {"pass": true, "resumed_steps": [5, 6, 7], "steps_equal": true, "adapter_tensors": 336, "adapter_unequal_n": 0, "full_digest": "827d930457002514cb8338286c24a5f88a117ff61be096f4180943eeb838acf4", "resumed_digest": 
+--- olmoe (allenai/OLMoE-1B-7B-0924 @ 6d84c485 trunc 4) 2026-11-18T03:57:47Z
+PASS  olmoe:fetch                        FETCH wrote <path> olmoe 1884325888 params sha256 4a6e5b5e6e29ba0e
+PASS  olmoe:check                        model_type=olmoe status=validated
+PASS  olmoe:paths                        seq==eff==fast==resident digest d396c71fd5422bbc | ran_path=fast fused_compute=True moe_expert_compute=fused moe_expert_cache_gib=0.774 compute_reason=None
+PASS  olmoe:repeat                       fast twice bitwise, digest d396c71fd5422bbc
+PASS  olmoe:ran                          every run: the path asked ran, no offload_reason, moe=fused reason=none, expert cache one layer on seq+eff, sized on fast
+PASS  olmoe:moe-ref                      reference experts seq==fast digest 18c896571965d1e6
+PASS  olmoe:resume                       {"pass": true, "resumed_steps": [5, 6, 7], "steps_equal": true, "adapter_tensors": 16, "adapter_unequal_n": 0, "full_digest": "d396c71fd5422bbc30d7b775b448bbcc69f5c0e8f374d735eb605f9c58fd0ad0", "resumed_digest": "
+end 2026-11-18T04:04:30Z
+FAILS=0

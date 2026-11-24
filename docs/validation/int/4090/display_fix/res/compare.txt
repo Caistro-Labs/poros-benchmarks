@@ -1,0 +1,6 @@
+certified adapter ccdcb923ed250836c1916091b55b5be4167774ba1e27a27938b026ad8e41e525
+driver adapter    ccdcb923ed250836c1916091b55b5be4167774ba1e27a27938b026ad8e41e525 equal: True
+driver losses equal: True eval: {'eval_loss': 5.952553476606096, 'base_loss': 7.3463921546936035} vs {'eval_loss': 5.952553476606096, 'base_loss': 7.3463921546936035} equal: True
+session adapter   ccdcb923ed250836c1916091b55b5be4167774ba1e27a27938b026ad8e41e525 equal: True
+session losses equal: True (16 steps)
+session held-out: {0: 7.3463921546936035, 15: 5.952553476606096}

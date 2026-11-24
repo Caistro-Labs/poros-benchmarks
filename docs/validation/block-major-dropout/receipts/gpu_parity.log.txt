@@ -1,0 +1,9 @@
+..                                                                       [100%]
+==================================== PASSES ====================================
+_______________ test_resident_vs_blockwise_is_bitwise_identical ________________
+----------------------------- Captured stderr call -----------------------------
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+=========================== short test summary info ============================
+PASSED tests/test_gpu_parity.py::test_resident_vs_blockwise_is_bitwise_identical
+PASSED tests/test_gpu_parity.py::test_two_step_training_loss_is_finite
+2 passed in 13.59s

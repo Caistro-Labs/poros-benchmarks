@@ -1,0 +1,39 @@
+▛▜ poros v1.0.0 · Qwen/Qwen2.5-0.5B-Instruct · RTX 4060 Laptop GPU 7.7 GiB
+
+● Checked cert-first-run-resume  run 1124-0034-2c0f
+  │ nf4 · block 4 · rank 16 · seq 256 · efficient path
+  │ SFT · answers only · lr 2e-4
+  │ output    work-1a8d7e912/cert/rtx4060-laptop/.first-run-work/home/runs/1124-0034-2c0f
+  │ resume
+  │ work-1a8d7e912/cert/rtx4060-laptop/.first-run-work/home/runs/1124-0034-2c0f/checkpoint-8
+  │ eval      7 rows held out  scored at the start, each checkpoint and the end
+
+● Loaded Qwen2.5-0.5B-Instruct  3.4s
+  │ dense · 24 layers · 6 blocks
+● Resumed after step 9/16
+step 10/16  loss 6.1111  1.93 s/step  vram 0.7 GiB (peak 1.3)  eta 12s
+● Scored step 16  held out 5.9528 · ends its answers 0 of 0
+
+  ╭─ Trained  Learned well ──────────────────────────────────────────────── 7 steps · SFT · 11s ─╮
+  │                                                                      final loss              │
+  │                                                                      5.9464  ↓ 3%            │
+  │  6.1 ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇                          │
+  │      ██████████████████████████████████████████████████████████████    step  held out  ends  │
+  │      ██████████████████████████████████████████████████████████████  ●   16    5.9528   0/0  │
+  │  6.0 ██████████████████████████████████████████████████████████████                          │
+  │      █████████████████████████████████████████████████████████████○  vram 1.3 GiB peak       │
+  │      ██████████████████████████████████████████████████████████████  ram  3.2 GiB peak       │
+  │  5.9 ██████████████████████████████████████████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                             3                              7                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      1,446 tok/s
+  │
+  │ adapter    work-1a8d7e912/cert/rtx4060-laptop/.first-run-work/home/runs/1124-0034-2c0f
+  │ receipt
+  │ work-1a8d7e912/cert/rtx4060-laptop/.first-run-work/home/runs/1124-0034-2c0f/receipt.json
+
+Continue with: poros eval 1124-0034-2c0f
+Keep it as a recipe: poros recipes save last
+{"schema":"poros.runs.v1","learned":null,"do":"continue","runs":[{"id":"1124-0034-2c0f","kind":"run","state":"succeeded","model":"Qwen/Qwen2.5-0.5B-Instruct","name":"cert-first-run-resume","output_dir":"<home>/runs/1124-0034-2c0f","created_at":"2026-11-24T06:34:33+00:00","started_at":"2026-11-24T06:34:57+00:00","finished_at":"2026-11-24T06:35:15+00:00","step":16,"total":16,"loss":5.946438133716583,"error":null,"folder":"<home>/runs/1124-0034-2c0f","from":null,"eval_loss_start":7.346699510301862,"eval_loss":5.9527981621878485,"eval_rows":7,"eval_ends":0,"eval_answer_rows":0,"eval_prefers_start":null,"eval_prefers":null,"best":"poros://1124-0034-2c0f/weights/16"}],"report":null,"next":["poros runs 1124-0034-2c0f --live --wait 30"],"more":0,"starts_next":null}

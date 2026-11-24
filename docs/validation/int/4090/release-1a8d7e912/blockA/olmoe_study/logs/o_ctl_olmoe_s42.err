@@ -1,0 +1,57 @@
+▛▜ poros v1.0.0 · allenai/OLMoE-1B-7B-0924 · RTX 4090 23.5 GiB
+
+● Checked o_ctl_olmoe_s42.yaml  config
+  │ nf4 · rank 16 · seq 128 · efficient path
+  │ classic · every token · lr 2e-5
+  │ output    work_ctl_olmoe/runs/o_ctl_olmoe_s42
+  │ eval      work_ctl_olmoe/data/text_eval.jsonl
+
+moeprec control: torch.optim.AdamW, substituted for the engine's optimizer by scripts/moe_precision/moeprec_hook.py, steps the bfloat16 trainable tensors in their own dtype
+● Loaded OLMoE-1B-7B-0924  20s
+  │ MoE · 16 layers · 64 experts
+● Scored the base  held out 1.9413
+step 1/300  loss 2.5822  0.91 s/step  vram 1.3 GiB (peak 1.8)  eta 4m 32s
+● Scored step 26  held out 1.8208 ↓ 6%
+step 27/300  loss 2.0037  0.47 s/step  vram 1.3 GiB (peak 2.0)  eta 2m 16s
+● Scored step 51  held out 1.7865 ↓ 8% · best
+step 52/300  loss 1.8765  0.48 s/step  vram 1.3 GiB (peak 2.0)  eta 2m 00s
+● Scored step 76  held out 1.7589 ↓ 9% · best
+step 77/300  loss 1.8959  0.51 s/step  vram 1.3 GiB (peak 2.0)  eta 1m 50s
+● Scored step 101  held out 1.7324 ↓ 11% · best
+step 102/300  loss 2.1724  0.53 s/step  vram 1.3 GiB (peak 2.0)  eta 1m 35s
+● Scored step 126  held out 1.7062 ↓ 12% · best
+step 127/300  loss 1.6100  0.51 s/step  vram 1.3 GiB (peak 2.0)  eta 1m 24s
+● Scored step 151  held out 1.6838 ↓ 13% · best
+step 152/300  loss 1.6799  0.48 s/step  vram 1.3 GiB (peak 2.0)  eta 1m 15s
+● Scored step 176  held out 1.6744 ↓ 14% · best
+step 177/300  loss 1.2803  0.48 s/step  vram 1.3 GiB (peak 2.0)  eta 1m 00s
+● Scored step 201  held out 1.6633 ↓ 14% · best
+step 202/300  loss 1.8409  0.47 s/step  vram 1.3 GiB (peak 2.0)  eta 46s
+● Scored step 226  held out 1.6531 ↓ 15% · best
+step 227/300  loss 1.7342  0.53 s/step  vram 1.3 GiB (peak 2.0)  eta 37s
+● Scored step 251  held out 1.6486 ↓ 15% · best
+step 252/300  loss 1.4723  0.54 s/step  vram 1.3 GiB (peak 2.0)  eta 24s
+● Scored step 276  held out 1.6467 ↓ 15% · best
+step 277/300  loss 1.4127  0.52 s/step  vram 1.3 GiB (peak 2.0)  eta 11s
+● Scored step 300  held out 1.6463 ↓ 15% · best
+
+  ╭─ Trained  Learned well ────────────────────────────────────── 300 steps · classic · 13m 42s ─╮
+  │                                                                      final loss              │
+  │           ▄                                                          1.8014  ↑ 1%            │
+  │  2.0 ○    █▂         ▄█▆▂   ▅                      ▃▂                                        │
+  │      ▂▆▆ ▇○█▂  ▅▁○   ○███▆▃▅█▇                ▆▄  ▂██▇▁           ▂    step  held out        │
+  │      ████████▂▆██▇▇▆████████○█▆  ○▁▂ ▂▆▆○  ▅▃▆○██▇█○███▅▂▄○▆▄▁ ○ ▄○  ○ base    1.9413        │
+  │  1.5 ██████████████████████████  ▅███████▄▇███████████████████▃▁▇██  ○  251    1.6486        │
+  │      ██████████████████████████▆▅██████████████████████████████████  ○  276    1.6467        │
+  │      ██████████████████████████████████████████████████████████████  ●  300    1.6463        │
+  │  1.0 ██████████████████████████████████████████████████████████████  vram 2.0 GiB peak       │
+  │      ██████████████████████████████████████████████████████████████  ram  9.8 GiB peak       │
+  │      1                             19                            38                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      227 tok/s
+  │
+  │ adapter    work_ctl_olmoe/runs/o_ctl_olmoe_s42
+  │ receipt    work_ctl_olmoe/runs/o_ctl_olmoe_s42/receipt.json
+
+Continue with: poros eval <home>/poros_rel/moeprec/work_ctl_olmoe/jobs/o_ctl_olmoe_s42.yaml

@@ -1,0 +1,2 @@
+HOLES {"kept_sparse": true, "free_drop_bytes": 28516352, "blocks_bytes": 0, "probe_bytes": 268435456}
+SLIM {"files": 26, "tensors_kept": 435, "expert_tensors_left_out": 18432, "kept_gb": 3.08, "left_out_gb": 57.98, "apparent_gb": 61.08, "on_disk_gb": 3.1}

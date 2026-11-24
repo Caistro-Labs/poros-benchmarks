@@ -1,0 +1,13 @@
+model_name_or_path: Qwen/Qwen2.5-0.5B
+dataset: data/chats48.jsonl
+lora_dropout: 0.05
+group_by_length: true
+gradient_accumulation_steps: 4
+per_device_batch_size: 2
+max_steps: 4
+max_seq_length: 512
+save_steps: 0
+logging_steps: 1
+eval_split: 0
+progress: false
+path: sequential

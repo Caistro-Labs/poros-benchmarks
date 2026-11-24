@@ -1,0 +1,25 @@
+{
+ "ref": "runs/rel_m7_sequential",
+ "cand": "runs/rel_m7_efficient",
+ "steps": 10,
+ "losses_equal": true,
+ "grad_norms_equal": true,
+ "adapter_tensors": 392,
+ "adapter_keys_equal": true,
+ "adapter_unequal": [],
+ "ref_digest": "c96a11b650788e91843e7b29368d9cee7e8a2a649f6208c5a02ab92c118ec53c",
+ "cand_digest": "c96a11b650788e91843e7b29368d9cee7e8a2a649f6208c5a02ab92c118ec53c",
+ "ref_losses": [
+  12.453727722167969,
+  12.416727066040039,
+  12.39822769165039,
+  12.351123809814453,
+  12.262222290039062,
+  12.255167007446289,
+  12.24487018585205,
+  12.257591247558594,
+  12.236351013183594,
+  12.21971321105957
+ ],
+ "pass": true
+}

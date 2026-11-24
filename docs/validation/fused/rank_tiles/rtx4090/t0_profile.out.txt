@@ -1,0 +1,118 @@
+r0 = commit 383d1294c576c171276be08a403dc089e42a1150 (<branch>)
+PROF <path> wall [2.657, 2.67] device_ms 3051.0 peak GiB 17.919
+      424.6 ms     48  ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_f2f_tn
+      352.2 ms    112  Memcpy HtoD (Pinned -> Device)
+      322.2 ms     40  _lora_out_fwd
+      281.4 ms    128  _swiglu_fwd
+      200.6 ms     64  _swiglu_bwd
+      185.4 ms     16  ampere_bf16_s1688gemm_bf16_128x64_sliced1x2_ldg8_f2f_nn
+      162.1 ms     32  _lora_rope_fwd
+      147.5 ms     24  ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_f2f_nn
+      137.8 ms      8  void cutlass::Kernel2<cutlass_80_tensorop_s16816gemm_bf16_64x64_32x6_nn_align8>(cutlass_80_tensorop_s16816gemm_bf16_64x6
+      126.6 ms      8  ampere_s1688gemm_bf16_64x128_sliced1x2_ldg8_tn
+      109.9 ms     24  _lora_out_bwd
+       93.7 ms      8  ampere_bf16_s1688gemm_bf16_128x64_sliced1x2_ldg8_f2f_tn
+       85.4 ms    528  void at::native::reduce_kernel<128, 4, at::native::ReduceOp<float, at::native::func_wrapper_t<float, at::native::sum_fun
+       67.5 ms     11  Memcpy DtoH (Device -> Pinned)
+       65.6 ms     48  ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_relu_f2f_tn
+       51.3 ms    160  void kDequantizeBlockwise<__nv_bfloat16, 512, 64, 8, 2>(float*, unsigned char*, float*, __nv_bfloat16*, int, int)
+       33.3 ms    169  void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambd
+       31.5 ms    213  void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctor_add<float>, std::array<char*, 3ul>, false>(int
+       22.6 ms     48  ampere_sgemm_128x64_tn
+       12.6 ms     16  _lora_rope_bwd
+       11.2 ms    168  void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::CUDAFunctor_add<float> >(at::
+       10.8 ms      8  void at::native::vectorized_elementwise_kernel<4, at::native::exp_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::op
+        9.8 ms     24  _add_f32
+        9.4 ms      8  void pytorch_flash::flash_bwd_dq_dk_dv_loop_seqk_parallel_kernel<Flash_bwd_kernel_traits<128, 64, 64, 8, 4, 2, 2, true, 
+        9.3 ms     53  void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}:
+        9.1 ms     32  _rmsnorm_fwd
+        7.0 ms     16  ampere_bf16_s16816gemm_bf16_128x64_ldg8_f2f_nn
+        6.8 ms     10  void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<float, float, f
+PROF <path> wall [2.588, 2.488] device_ms 2876.1 peak GiB 19.074
+      426.8 ms     48  ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_f2f_tn
+      354.7 ms    112  Memcpy HtoD (Pinned -> Device)
+      299.1 ms    121  ampere_sgemm_128x128_tn
+      188.9 ms     16  ampere_bf16_s1688gemm_bf16_128x64_sliced1x2_ldg8_f2f_nn
+      187.9 ms      1  void cutlass::Kernel2<cutlass_80_simt_sgemm_256x128_8x4_nn_align1>(cutlass_80_simt_sgemm_256x128_8x4_nn_align1::Params)
+      187.0 ms     16  ampere_bf16_s1688gemm_bf16_128x64_sliced1x2_ldg8_f2f_tn
+      150.5 ms    289  void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctor_add<float>, std::array<char*, 3ul>, false>(int
+      146.3 ms     24  ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_f2f_nn
+       89.7 ms    253  void at::native::vectorized_elementwise_kernel<4, at::native::AUnaryFunctor<float, float, float, at::native::binary_inte
+       79.0 ms     91  void at::native::vectorized_elementwise_kernel<4, at::native::BinaryFunctor<float, float, float, at::native::binary_inte
+       68.5 ms     11  Memcpy DtoH (Device -> Pinned)
+       66.0 ms     48  ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_relu_f2f_tn
+       59.3 ms    168  void kDequantizeBlockwise<__nv_bfloat16, 512, 64, 8, 2>(float*, unsigned char*, float*, __nv_bfloat16*, int, int)
+       53.1 ms    129  Memcpy DtoD (Device -> Device)
+       52.0 ms    213  void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambd
+       48.8 ms    168  void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}:
+       42.5 ms    197  void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<float, float, f
+       38.7 ms     80  ampere_sgemm_128x128_nn
+       33.3 ms    132  void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::T
+       27.5 ms    216  void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::CUDAFunctor_add<float> >(at::
+       26.8 ms    128  ampere_sgemm_128x64_tn
+       19.2 ms     16  void (anonymous namespace)::softmax_warp_forward<float, float, float, 9, false, false, 32>(float*, float const*, int, in
+       18.1 ms     32  void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::(anonymous namespace)::where_
+       16.8 ms     16  void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::silu_kernel(at::TensorIteratorBase&
+       15.9 ms     40  void cutlass::Kernel2<cutlass_80_simt_sgemm_128x256_8x4_nt_align1>(cutlass_80_simt_sgemm_128x256_8x4_nt_align1::Params)
+       14.4 ms     16  ampere_sgemm_128x128_nt
+       14.0 ms      8  void (anonymous namespace)::softmax_warp_backward<float, float, float, 9, false, false, 32>(float*, float const*, float 
+       12.6 ms      8  void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::silu_backward_kernel(at::TensorIter
+PROF <path> wall [1.816, 1.823] device_ms 2205.2 peak GiB 17.611
+      428.5 ms     48  ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_f2f_tn
+      350.6 ms    112  Memcpy HtoD (Pinned -> Device)
+      186.2 ms     16  ampere_bf16_s1688gemm_bf16_128x64_sliced1x2_ldg8_f2f_nn
+      149.6 ms     24  ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_f2f_nn
+      138.6 ms      8  void cutlass::Kernel2<cutlass_80_tensorop_s16816gemm_bf16_64x64_32x6_nn_align8>(cutlass_80_tensorop_s16816gemm_bf16_64x6
+      127.4 ms      8  ampere_s1688gemm_bf16_64x128_sliced1x2_ldg8_tn
+       99.0 ms     32  _lora_rope_fwd
+       95.8 ms    128  _swiglu_fwd
+       95.2 ms      8  ampere_bf16_s1688gemm_bf16_128x64_sliced1x2_ldg8_f2f_tn
+       82.8 ms    128  _swiglu_bwd
+       67.0 ms     48  ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_relu_f2f_tn
+       65.6 ms     11  Memcpy DtoH (Device -> Pinned)
+       51.6 ms    160  void kDequantizeBlockwise<__nv_bfloat16, 512, 64, 8, 2>(float*, unsigned char*, float*, __nv_bfloat16*, int, int)
+       37.6 ms    848  void at::native::reduce_kernel<128, 4, at::native::ReduceOp<float, at::native::func_wrapper_t<float, at::native::sum_fun
+       33.4 ms    169  void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambd
+       28.2 ms    405  void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctor_add<float>, std::array<char*, 3ul>, false>(int
+       17.5 ms     40  _lora_out_fwd
+       11.2 ms    168  void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::CUDAFunctor_add<float> >(at::
+       10.8 ms      8  void at::native::vectorized_elementwise_kernel<4, at::native::exp_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::op
+        9.9 ms     24  _add_f32
+        9.8 ms     24  _lora_out_bwd
+        9.3 ms      8  void pytorch_flash::flash_bwd_dq_dk_dv_loop_seqk_parallel_kernel<Flash_bwd_kernel_traits<128, 64, 64, 8, 4, 2, 2, true, 
+        9.3 ms     53  void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}:
+        9.1 ms     32  _rmsnorm_fwd
+        7.3 ms     16  ampere_sgemm_64x64_tn
+        6.9 ms     16  ampere_bf16_s16816gemm_bf16_128x64_ldg8_f2f_nn
+        6.8 ms     10  void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<float, float, f
+        6.2 ms     16  _rmsnorm_bwd
+PROF <path> wall [2.557, 2.456] device_ms 2838.3 peak GiB 18.139
+      426.8 ms     48  ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_f2f_tn
+      350.8 ms    112  Memcpy HtoD (Pinned -> Device)
+      279.2 ms    105  ampere_sgemm_128x128_tn
+      188.4 ms      1  void cutlass::Kernel2<cutlass_80_simt_sgemm_256x128_8x4_nn_align1>(cutlass_80_simt_sgemm_256x128_8x4_nn_align1::Params)
+      187.4 ms     16  ampere_bf16_s1688gemm_bf16_128x64_sliced1x2_ldg8_f2f_tn
+      187.3 ms     16  ampere_bf16_s1688gemm_bf16_128x64_sliced1x2_ldg8_f2f_nn
+      150.7 ms    289  void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctor_add<float>, std::array<char*, 3ul>, false>(int
+      146.1 ms     24  ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_f2f_nn
+       90.1 ms    253  void at::native::vectorized_elementwise_kernel<4, at::native::AUnaryFunctor<float, float, float, at::native::binary_inte
+       79.0 ms     91  void at::native::vectorized_elementwise_kernel<4, at::native::BinaryFunctor<float, float, float, at::native::binary_inte
+       65.9 ms     48  ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_relu_f2f_tn
+       65.1 ms     11  Memcpy DtoH (Device -> Pinned)
+       59.4 ms    168  void kDequantizeBlockwise<__nv_bfloat16, 512, 64, 8, 2>(float*, unsigned char*, float*, __nv_bfloat16*, int, int)
+       53.1 ms    129  Memcpy DtoD (Device -> Device)
+       51.9 ms    213  void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambd
+       48.8 ms    168  void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}:
+       42.4 ms    197  void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<float, float, f
+       33.3 ms    132  void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::T
+       28.6 ms     72  ampere_sgemm_128x128_nn
+       27.5 ms    216  void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::CUDAFunctor_add<float> >(at::
+       25.9 ms     96  ampere_sgemm_32x32_sliced1x4_tn
+       19.2 ms     16  void (anonymous namespace)::softmax_warp_forward<float, float, float, 9, false, false, 32>(float*, float const*, int, in
+       18.1 ms     32  void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::(anonymous namespace)::where_
+       16.8 ms     16  void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::silu_kernel(at::TensorIteratorBase&
+       15.5 ms     40  ampere_sgemm_64x64_nn
+       14.4 ms     16  ampere_sgemm_128x128_nt
+       14.0 ms      8  void (anonymous namespace)::softmax_warp_backward<float, float, float, 9, false, false, 32>(float*, float const*, float 
+       12.9 ms     56  void cutlass::Kernel2<cutlass_80_simt_sgemm_128x64_8x5_nt_align1>(cutlass_80_simt_sgemm_128x64_8x5_nt_align1::Params)
+2026-11-14T06:55:47Z

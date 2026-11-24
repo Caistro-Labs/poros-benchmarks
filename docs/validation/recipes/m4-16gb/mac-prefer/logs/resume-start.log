@@ -1,0 +1,25 @@
+▛▜ poros v1.0.0 · Qwen/Qwen2.5-7B-Instruct · Apple M4 10-core GPU 16GB
+
+● Checked cert-mac-prefer-resume  run 1124-0046-c4fa
+  │ rank 16 · 512 tokens
+  │ DPO · beta 0.1 · lr 5e-6
+  │ output
+  │ <home>/runs/1124-0046-c4fa
+  │ weights   <disk>/poros-metal/hf
+
+● Loaded Qwen2.5-7B-Instruct  2.2s
+  │ dense · 28 layers
+step 1/16  loss 0.6931  18.51 s/step  memory 4.1 GiB (peak 4.9)  eta 4m 38s
+step 3/16  loss 0.6966  18.79 s/step  memory 5.3 GiB (peak 6.2)  eta 4m 02s
+step 5/16  loss 0.6984  18.69 s/step  memory 5.3 GiB (peak 6.2)  eta 3m 25s
+step 7/16  loss 0.7057  18.75 s/step  memory 5.3 GiB (peak 6.2)  eta 2m 48s
+step 9/16  loss 0.6982  18.74 s/step  memory 5.3 GiB (peak 6.2)  eta 2m 11s
+<disk>/poros-metal/venv/lib/python3.12/site-packages/peft/utils/save_and_load.py:438: UserWarning: Could not find a config file in Qwen/Qwen2.5-7B-Instruct - will assume that the vocabulary was not modified.
+  warnings.warn(
+○ Stopped after 9 steps
+  │ saved
+  │ <home>/runs/1124-0046-c4fa/checkpoint-8
+  │           it holds all 9 steps
+
+Continue with: poros runs continue 1124-0046-c4fa
+{"schema":"poros.error.v1","error":{"code":"E_JOB_CANCELLED","exit_code":7,"message":"stopped after step 9; <home>/runs/1124-0046-c4fa/checkpoint-8 holds the run so far","hint":"poros runs continue 1124-0046-c4fa","docs":"poros docs training checkpoints and resume"}}

@@ -1,0 +1,77 @@
+............                                                             [100%]
+==================================== PASSES ====================================
+____________ test_block_major_equals_sequential[olmoe-ram-pow2-on] _____________
+---------------------------- Captured stderr setup -----------------------------
+[transformers] Model config: eos_token_id must be `None` or an integer within the vocabulary (between 0 and 95), got 50279. This may result in unexpected behavior.
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 180.31it/s]
+------------------------------ Captured log setup ------------------------------
+WARNING  transformers.configuration_utils:logging.py:340 Model config: eos_token_id must be `None` or an integer within the vocabulary (between 0 and 95), got 50279. This may result in unexpected behavior.
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:2152 offload_boundaries after update 1: {'offloaded': 4, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 6400, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 393216, 'refusals': 0}
+WARNING  poros.train.trainer:trainer.py:2365 block-major MoE expert dequant cache after update 1: hits 288 misses 72
+WARNING  poros.train.trainer:trainer.py:2383 block-major MoE: expert residency grown to 0 MiB after update 1
+____________ test_block_major_equals_sequential[olmoe-ram-pow2-off] ____________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:2365 block-major MoE expert dequant cache after update 1: hits 884 misses 216
+WARNING  poros.train.trainer:trainer.py:2383 block-major MoE: expert residency grown to 0 MiB after update 1
+____________ test_block_major_equals_sequential[olmoe-ram-pow2-ram] ____________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.boundary_offload:boundary_offload.py:158 offload_boundaries: page-locked memory refused (pin budget); boundaries go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 28.53 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+WARNING  poros.train.trainer:trainer.py:2152 offload_boundaries after update 1: {'offloaded': 4, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 6400, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 983040, 'refusals': 0}
+WARNING  poros.train.trainer:trainer.py:2365 block-major MoE expert dequant cache after update 1: hits 1480 misses 360
+WARNING  poros.train.trainer:trainer.py:2383 block-major MoE: expert residency grown to 0 MiB after update 1
+___________ test_block_major_equals_sequential[olmoe-ram-single-on] ____________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:2152 offload_boundaries after update 1: {'offloaded': 4, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 6400, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 1376256, 'refusals': 0}
+WARNING  poros.train.trainer:trainer.py:2365 block-major MoE expert dequant cache after update 1: hits 2076 misses 504
+WARNING  poros.train.trainer:trainer.py:2383 block-major MoE: expert residency grown to 0 MiB after update 1
+___________ test_block_major_equals_sequential[olmoe-ram-single-off] ___________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:2365 block-major MoE expert dequant cache after update 1: hits 2672 misses 648
+WARNING  poros.train.trainer:trainer.py:2383 block-major MoE: expert residency grown to 0 MiB after update 1
+___________ test_block_major_equals_sequential[olmoe-ram-single-ram] ___________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.core.boundary_offload:boundary_offload.py:158 offload_boundaries: page-locked memory refused (pin budget); boundaries go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 28.53 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+WARNING  poros.train.trainer:trainer.py:2152 offload_boundaries after update 1: {'offloaded': 4, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 6400, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 1966080, 'refusals': 0}
+WARNING  poros.train.trainer:trainer.py:2365 block-major MoE expert dequant cache after update 1: hits 3268 misses 792
+WARNING  poros.train.trainer:trainer.py:2383 block-major MoE: expert residency grown to 0 MiB after update 1
+____________ test_block_major_equals_sequential[olmoe-ssd-pow2-on] _____________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:2152 offload_boundaries after update 1: {'offloaded': 4, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 6400, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 4259840, 'refusals': 0}
+WARNING  poros.train.trainer:trainer.py:2365 block-major MoE expert dequant cache after update 1: hits 3864 misses 936
+____________ test_block_major_equals_sequential[olmoe-ssd-pow2-off] ____________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:2365 block-major MoE expert dequant cache after update 1: hits 4460 misses 1080
+____________ test_block_major_equals_sequential[olmoe-ssd-pow2-ram] ____________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.sss.ssd:ssd.py:207 SSS ring left unpinned: this host's page-locked memory budget is exhausted; copies will be synchronous
+WARNING  poros.core.boundary_offload:boundary_offload.py:158 offload_boundaries: page-locked memory refused (pin budget); boundaries go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 28.53 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+WARNING  poros.train.trainer:trainer.py:2152 offload_boundaries after update 1: {'offloaded': 4, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 6400, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 5537792, 'refusals': 0}
+WARNING  poros.train.trainer:trainer.py:2365 block-major MoE expert dequant cache after update 1: hits 5056 misses 1224
+___________ test_block_major_equals_sequential[olmoe-ssd-single-on] ____________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:2152 offload_boundaries after update 1: {'offloaded': 4, 'kept_on_device': 0, 'slabs': 1, 'slab_bytes': 268435456, 'bytes_down': 6400, 'host_full': False, 'pageable_slabs': 0}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 6750208, 'refusals': 0}
+WARNING  poros.train.trainer:trainer.py:2365 block-major MoE expert dequant cache after update 1: hits 5652 misses 1368
+___________ test_block_major_equals_sequential[olmoe-ssd-single-off] ___________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.train.trainer:trainer.py:2365 block-major MoE expert dequant cache after update 1: hits 6248 misses 1512
+___________ test_block_major_equals_sequential[olmoe-ssd-single-ram] ___________
+------------------------------ Captured log call -------------------------------
+WARNING  poros.sss.ssd:ssd.py:207 SSS ring left unpinned: this host's page-locked memory budget is exhausted; copies will be synchronous
+WARNING  poros.core.boundary_offload:boundary_offload.py:158 offload_boundaries: page-locked memory refused (pin budget); boundaries go to ordinary RAM slabs instead (same bytes, copies that block the host), up to 28.53 GiB (POROS_BOUNDARY_HOST_MAX, default half the free RAM); past that they stay on the GPU
+WARNING  poros.train.trainer:trainer.py:2152 offload_boundaries after update 1: {'offloaded': 4, 'kept_on_device': 0, 'slabs': 0, 'slab_bytes': 0, 'bytes_down': 6400, 'host_full': False, 'pageable_slabs': 1}; pin budget {'mode': 'pinned', 'pinned_budget_bytes': None, 'budget_basis': 'no ceiling found', 'granted_bytes': 6946816, 'refusals': 0}
+WARNING  poros.train.trainer:trainer.py:2365 block-major MoE expert dequant cache after update 1: hits 6844 misses 1656
+=========================== short test summary info ============================
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[olmoe-ram-pow2-on]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[olmoe-ram-pow2-off]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[olmoe-ram-pow2-ram]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[olmoe-ram-single-on]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[olmoe-ram-single-off]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[olmoe-ram-single-ram]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[olmoe-ssd-pow2-on]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[olmoe-ssd-pow2-off]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[olmoe-ssd-pow2-ram]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[olmoe-ssd-single-on]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[olmoe-ssd-single-off]
+PASSED tests/moe/test_block_major_families.py::test_block_major_equals_sequential[olmoe-ssd-single-ram]
+12 passed, 60 deselected in 26.45s

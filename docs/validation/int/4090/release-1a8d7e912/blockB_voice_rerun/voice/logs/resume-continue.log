@@ -1,0 +1,37 @@
+▛▜ poros v1.0.0 · Qwen/Qwen2.5-7B-Instruct · RTX 4090 23.5 GiB
+
+● Checked cert-voice-resume  run 1124-1009-8374
+  │ nf4 · block 4 · rank 16 · seq 512 · efficient path
+  │ SFT · answers only · lr 2e-4
+  │ output    homes/voice/runs/1124-1009-8374
+  │ resume    homes/voice/runs/1124-1009-8374/checkpoint-8
+  │ eval      7 rows held out  scored at the start, each checkpoint and the end
+
+● Loaded Qwen2.5-7B-Instruct  16s
+  │ dense · 28 layers · 7 blocks
+● Resumed after step 9/16
+step 10/16  loss 5.6598  4.09 s/step  vram 4.7 GiB (peak 6.4)  eta 25s
+● Scored step 16  held out 5.5257 · ends its answers 0 of 0
+
+  ╭─ Trained  Learned well ──────────────────────────────────────────────── 7 steps · SFT · 26s ─╮
+  │      ▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂  final loss              │
+  │      ██████████████████████████████████████████████████████████████  5.5135  ↓ 3%            │
+  │  5.6 ██████████████████████████████████████████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████    step  held out  ends  │
+  │      █████████████████████████████████████████████████████████████○  ●   16    5.5257   0/0  │
+  │  5.5 ██████████████████████████████████████████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████  vram 6.4 GiB peak       │
+  │      ██████████████████████████████████████████████████████████████  ram  10.9 GiB peak      │
+  │  5.4 ██████████████████████████████████████████████████████████████                          │
+  │      ██████████████████████████████████████████████████████████████                          │
+  │      1                             3                              7                          │
+  ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+  │ speed      1,328 tok/s
+  │
+  │ adapter    homes/voice/runs/1124-1009-8374
+  │ receipt    homes/voice/runs/1124-1009-8374/receipt.json
+
+Continue with: poros eval 1124-1009-8374
+Keep it as a recipe: poros recipes save last
+{"schema":"poros.runs.v1","learned":null,"do":"continue","runs":[{"id":"1124-1009-8374","kind":"run","state":"succeeded","model":"Qwen/Qwen2.5-7B-Instruct","name":"cert-voice-resume","output_dir":"<home>/runs/1124-1009-8374","created_at":"2026-11-24T10:09:54+00:00","started_at":"2026-11-24T10:10:50+00:00","finished_at":"2026-11-24T10:11:38+00:00","step":16,"total":16,"loss":5.513530731201172,"error":null,"folder":"<home>/runs/1124-1009-8374","from":null,"eval_loss_start":6.615596021924699,"eval_loss":5.525723184858049,"eval_rows":7,"eval_ends":0,"eval_answer_rows":0,"eval_prefers_start":null,"eval_prefers":null,"best":"poros://1124-1009-8374/weights/16"}],"report":null,"next":["poros runs 1124-1009-8374 --live --wait 30"],"more":0,"starts_next":null}

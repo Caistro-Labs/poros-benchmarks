@@ -1,0 +1,18 @@
+rk2 test_every_rank_trains_on_this_card[8]:                 f"Number of tensors saved during forward: {len(self.weak_holders)}\n"
+rk2 test_every_rank_trains_on_this_card[8]:                 f"Number of tensors saved during recomputation: {self.recomp_counter[gid]}.\n"
+rk2 test_every_rank_trains_on_this_card[8]: E           torch.utils.checkpoint.CheckpointError: torch.utils.checkpoint: A different number of tensors was saved during the original forward and recomputation.
+rk2 test_every_rank_trains_on_this_card[8]: E           Number of tensors saved during forward: 42
+rk2 test_every_rank_trains_on_this_card:                 f"Number of tensors saved during forward: {len(self.weak_holders)}\n"
+rk2 test_every_rank_trains_on_this_card:                 f"Number of tensors saved during recomputation: {self.recomp_counter[gid]}.\n"
+rk2 test_every_rank_trains_on_this_card: E           torch.utils.checkpoint.CheckpointError: torch.utils.checkpoint: A different number of tensors was saved during the original forward and recomputation.
+rk2 test_every_rank_trains_on_this_card: E           Number of tensors saved during forward: 42
+poros-xcard test_every_rank_trains_on_this_card[8]:                 f"Number of tensors saved during forward: {len(self.weak_holders)}\n"
+poros-xcard test_every_rank_trains_on_this_card[8]:                 f"Number of tensors saved during recomputation: {self.recomp_counter[gid]}.\n"
+poros-xcard test_every_rank_trains_on_this_card[8]: E           torch.utils.checkpoint.CheckpointError: torch.utils.checkpoint: A different number of tensors was saved during the original forward and recomputation.
+poros-xcard test_every_rank_trains_on_this_card[8]: E           Number of tensors saved during forward: 42
+poros-xcard test_every_rank_trains_on_this_card:                 f"Number of tensors saved during forward: {len(self.weak_holders)}\n"
+poros-xcard test_every_rank_trains_on_this_card:                 f"Number of tensors saved during recomputation: {self.recomp_counter[gid]}.\n"
+poros-xcard test_every_rank_trains_on_this_card: E           torch.utils.checkpoint.CheckpointError: torch.utils.checkpoint: A different number of tensors was saved during the original forward and recomputation.
+poros-xcard test_every_rank_trains_on_this_card: E           Number of tensors saved during forward: 42
+2026-11-14T03:41:08Z
+rc=0
